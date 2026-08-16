@@ -1,3 +1,5 @@
+import { pushVocabularyWord, deleteVocabularyWord } from "./sync";
+
 export interface VocabularyWord {
   id: string;
   word: string;
@@ -46,6 +48,7 @@ export function addVocabularyWord(word: string, translation: string, sourceText?
     reviewCount: 0,
   };
   writeAll([entry, ...words]);
+  pushVocabularyWord(entry);
   return entry;
 }
 
@@ -73,8 +76,25 @@ export function reviewWord(id: string, quality: 0 | 1 | 2 | 3) {
   const dueAt = Date.now() + interval * 24 * 60 * 60 * 1000;
   words[idx] = { ...current, interval, easeFactor, dueAt, reviewCount: current.reviewCount + 1 };
   writeAll(words);
+  pushVocabularyWord(words[idx]);
 }
 
 export function removeVocabularyWord(id: string) {
   writeAll(readAll().filter((w) => w.id !== id));
+  deleteVocabularyWord(id);
+}
+
+/**
+ * Folds rows pulled from the account into the local cache. A word can exist on
+ * both sides after offline study, so the copy with more reviews wins — that's
+ * the one carrying the newer scheduling state.
+ */
+export function mergeRemoteVocabulary(remote: VocabularyWord[]) {
+  const byWord = new Map<string, VocabularyWord>();
+  for (const w of [...readAll(), ...remote]) {
+    const key = w.word.toLowerCase();
+    const seen = byWord.get(key);
+    if (!seen || w.reviewCount > seen.reviewCount) byWord.set(key, w);
+  }
+  writeAll([...byWord.values()]);
 }

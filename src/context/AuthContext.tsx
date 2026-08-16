@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { setSyncUser } from "@/lib/sync";
 
 interface AuthContextValue {
   user: User | null;
@@ -26,10 +27,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);
       setLoading(false);
+      // Pull the account's progress and push anything done while signed out.
+      void setSyncUser(data.session?.user.id ?? null);
     });
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);
+      void setSyncUser(newSession?.user.id ?? null);
     });
 
     return () => listener.subscription.unsubscribe();
