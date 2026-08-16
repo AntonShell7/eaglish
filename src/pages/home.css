@@ -1,0 +1,150 @@
+/* ── Hero: dark field, emblem first ──────────────────────────────────── */
+.hero-crest {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  /* The brand field itself: white mark on deep violet, straight from the
+     logo — not a generic near-black. */
+  background:
+    radial-gradient(ellipse 68% 58% at 50% 28%, #52259f 0%, transparent 64%),
+    linear-gradient(180deg, #3b168f 0%, #240c5e 100%);
+  border: 1px solid rgba(196, 181, 253, 0.22);
+  padding: 68px 32px 76px;
+  text-align: center;
+  /* Become the blending root so the logo's screen blend sees this
+     background rather than punching through to the page. */
+  isolation: isolate;
+}
+
+.hero-crest__grain {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* No z-index here: it would create a stacking context and trap the logo's
+   blend mode inside it. */
+.hero-crest__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-crest .crest-stage {
+  width: min(340px, 62vw);
+}
+
+.hero-crest__name {
+  margin: 26px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 6vw, 4.1rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #f7f4ff;
+}
+
+/* Gold hairline rules flanking the eyebrow, echoing the laurel */
+.hero-crest__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #c4b5fd;
+}
+
+.hero-crest__eyebrow::before,
+.hero-crest__eyebrow::after {
+  content: "";
+  width: clamp(24px, 8vw, 64px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196, 181, 253, 0.7), transparent);
+}
+
+.hero-crest__tagline {
+  margin: 22px auto 0;
+  max-width: 46ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #b5abd0;
+}
+
+.hero-crest__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-crest__cta {
+  border-radius: 999px;
+  padding: 0.9rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ffffff;
+  color: #3b168f;
+  transition: transform 0.2s ease;
+}
+
+.hero-crest__cta:hover {
+  transform: translateY(-2px);
+}
+
+.hero-crest__ghost {
+  border-radius: 999px;
+  padding: 0.9rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e7e1f7;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: border-color 0.2s ease;
+}
+
+.hero-crest__ghost:hover {
+  border-color: rgba(196, 181, 253, 0.65);
+}
+
+/* ── Section heading with laurel-style rule ──────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: 0.005em;
+}
+
+.section-rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.section-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  opacity: 0.5;
+}
+
+.section-rule__dot {
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .hero-crest {
+    padding: 44px 20px 52px;
+  }
+}

@@ -1,0 +1,90 @@
+/* Two sources feed these classes:
+   - .brand-art  — the real artwork (<img> from /logo-mark.png). A flat
+                   silhouette, so a filter repaints it per placement.
+   - EagleMark   — the drawn stand-in (<svg>), which takes `color` instead.
+   Both share the sizing/animation below. */
+
+.crest-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+/* Soft halo so the mark doesn't sit flat on the brand field */
+.crest-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118%;
+  height: 118%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(196, 181, 253, 0.09) 44%,
+    transparent 68%
+  );
+  animation: crest-halo 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.brand-logo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  color: #ffffff;
+  animation: crest-float 9s ease-in-out infinite;
+}
+
+/* Header mark: brand violet on light surfaces. */
+.brand-chip {
+  display: block;
+  flex: none;
+  object-fit: contain;
+  color: var(--color-primary);
+}
+
+/* The artwork is already the brand violet, so only the placements that need
+   white ask for one — no filter on the light-theme header. */
+.brand-art.brand-logo {
+  filter: brightness(0) invert(1);
+}
+
+:root[data-theme="dark"] .brand-art.brand-chip {
+  filter: brightness(0) invert(1);
+}
+
+@keyframes crest-halo {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes crest-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crest-stage::before,
+  .brand-logo {
+    animation: none;
+  }
+}
