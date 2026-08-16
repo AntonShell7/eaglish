@@ -1,3 +1,4 @@
+import { pushReadingOpen, pushQuizResult } from "./sync";
 export interface ReadingSessionEntry {
   textId: string;
   openedAt: number;
@@ -29,7 +30,16 @@ function writeAll(entries: ReadingSessionEntry[]) {
 export function logReadingOpen(textId: string) {
   const all = readAll();
   if (all[0]?.textId === textId) return;
-  writeAll([{ textId, openedAt: Date.now() }, ...all]);
+  const entry = { textId, openedAt: Date.now() };
+  writeAll([entry, ...all]);
+  pushReadingOpen(entry);
+}
+
+/** Append-only log; dedupe on text + timestamp so a re-pull can't double it. */
+export function mergeRemoteReading(remote: ReadingSessionEntry[]) {
+  const seen = new Map<string, ReadingSessionEntry>();
+  for (const e of [...readAll(), ...remote]) seen.set(`${e.textId}@${e.openedAt}`, e);
+  writeAll([...seen.values()].sort((a, b) => b.openedAt - a.openedAt));
 }
 
 export function getReadingHistory(): ReadingSessionEntry[] {
@@ -50,8 +60,15 @@ function readQuiz(): QuizResult[] {
 }
 
 export function recordQuizResult(textId: string, correct: number, total: number) {
-  const all = readQuiz();
-  localStorage.setItem(QUIZ_KEY, JSON.stringify([{ textId, correct, total, at: Date.now() }, ...all]));
+  const entry: QuizResult = { textId, correct, total, at: Date.now() };
+  localStorage.setItem(QUIZ_KEY, JSON.stringify([entry, ...readQuiz()]));
+  pushQuizResult(entry);
+}
+
+export function mergeRemoteQuiz(remote: QuizResult[]) {
+  const seen = new Map<string, QuizResult>();
+  for (const r of [...readQuiz(), ...remote]) seen.set(`${r.textId}@${r.at}`, r);
+  localStorage.setItem(QUIZ_KEY, JSON.stringify([...seen.values()].sort((a, b) => b.at - a.at)));
 }
 
 export function getQuizResults(): QuizResult[] {

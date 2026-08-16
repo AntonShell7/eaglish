@@ -1,3 +1,4 @@
+import { pushActivityDay } from "./sync";
 export type ActivityKind = "reading" | "writing" | "vocabulary" | "quiz";
 
 export interface DayActivity {
@@ -41,6 +42,27 @@ export function logActivity(kind: ActivityKind, amount = 1) {
   }
 
   writeAll(days);
+  pushActivityDay(days.find((d) => d.date === key)!);
+}
+
+/**
+ * Days can accumulate on two devices, so counts are merged by taking the
+ * larger of each kind rather than summing — summing would double-count the
+ * work that was already pushed from this device.
+ */
+export function mergeRemoteActivity(remote: DayActivity[]) {
+  const byDay = new Map<string, DayActivity>();
+  for (const d of [...readAll(), ...remote]) {
+    const seen = byDay.get(d.date);
+    if (!seen) {
+      byDay.set(d.date, { date: d.date, counts: { ...d.counts } });
+      continue;
+    }
+    for (const [kind, n] of Object.entries(d.counts) as [ActivityKind, number][]) {
+      seen.counts[kind] = Math.max(seen.counts[kind] ?? 0, n ?? 0);
+    }
+  }
+  writeAll([...byDay.values()]);
 }
 
 export function getActivity(): DayActivity[] {

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { lookupWord, translateSentence, type WordLookupResult } from "@/lib/translate";
 import { addVocabularyWord } from "@/lib/vocabularyStore";
+import { logActivity } from "@/lib/activityStore";
 
 interface WordPopupProps {
   word: string;
@@ -59,6 +60,7 @@ export function WordPopup({ word, sentence, text, anchor, onClose }: WordPopupPr
   const handleAdd = () => {
     if (!result) return;
     addVocabularyWord(word, result.translation, text.title);
+    logActivity("vocabulary");
     setAdded(true);
     setTimeout(onClose, 500);
   };

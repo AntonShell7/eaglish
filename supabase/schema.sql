@@ -43,11 +43,35 @@ create table if not exists reading_sessions (
   opened_at timestamptz default now()
 );
 
+create table if not exists quiz_results (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  text_id text not null,
+  correct integer not null,
+  total integer not null,
+  answered_at timestamptz default now()
+);
+
+-- One row per user per calendar day, feeding the streak and activity strip.
+-- The day is stored as a plain date in the user's own timezone, so a streak
+-- follows their midnight rather than UTC's.
+create table if not exists daily_activity (
+  user_id uuid not null references auth.users(id) on delete cascade,
+  day date not null,
+  reading integer not null default 0,
+  writing integer not null default 0,
+  vocabulary integer not null default 0,
+  quiz integer not null default 0,
+  primary key (user_id, day)
+);
+
 -- Row Level Security: every user can only ever see and modify their own rows.
 alter table profiles enable row level security;
 alter table vocabulary_words enable row level security;
 alter table writing_submissions enable row level security;
 alter table reading_sessions enable row level security;
+alter table quiz_results enable row level security;
+alter table daily_activity enable row level security;
 
 create policy "Users manage their own profile" on profiles
   for all using (auth.uid() = id) with check (auth.uid() = id);
@@ -59,6 +83,12 @@ create policy "Users manage their own writing submissions" on writing_submission
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 create policy "Users manage their own reading sessions" on reading_sessions
+  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+create policy "Users manage their own quiz results" on quiz_results
+  for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+create policy "Users manage their own activity" on daily_activity
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 -- Auto-create a profile row whenever a new user signs up.

@@ -1,3 +1,4 @@
+import { pushWritingSubmission } from "./sync";
 import type { WritingScores } from "./writingFeedback";
 
 export interface WritingSubmission {
@@ -38,5 +39,13 @@ export function addWritingSubmission(entry: {
     ...entry,
   };
   writeAll([submission, ...readAll()]);
+  pushWritingSubmission(submission);
   return submission;
+}
+
+/** Union by id — submissions are immutable once scored. */
+export function mergeRemoteWriting(remote: WritingSubmission[]) {
+  const byId = new Map(readAll().map((e) => [e.id, e]));
+  for (const e of remote) byId.set(e.id, e);
+  writeAll([...byId.values()]);
 }
