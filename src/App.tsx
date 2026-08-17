@@ -7,6 +7,7 @@ import Listening from "@/pages/Listening";
 import Vocabulary from "@/pages/Vocabulary";
 import EverydayEnglish from "@/pages/EverydayEnglish";
 import ProgressPage from "@/pages/Progress";
+import Profile from "@/pages/Profile";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import ForgotPassword from "@/pages/ForgotPassword";
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="vocabulary" element={<Vocabulary />} />
         <Route path="everyday-english" element={<EverydayEnglish />} />
         <Route path="progress" element={<ProgressPage />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="forgot-password" element={<ForgotPassword />} />

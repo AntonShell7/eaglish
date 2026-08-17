@@ -176,7 +176,29 @@
     "latestScore": "Последняя оценка",
     "averageScore": "Средняя оценка",
     "recentScores": "Последние оценки",
-    "noSubmissions": "Работ по письму пока нет."
+    "noSubmissions": "Работ по письму пока нет.",
+    "dashboardLead": "Всего заработано XP",
+    "dashboardCaption": "За чтение, письмо и словарь.",
+    "weeklyTitle": "Занятий по дням",
+    "weeklySub": "Последние 7 дней.",
+    "heatmapTitle": "Календарь занятий",
+    "heatmapSub": "Темнее — насыщеннее день.",
+    "scoresTitle": "Оценка за письмо",
+    "scoresSub": "Общий балл из 10, от старых к новым.",
+    "mixTitle": "На что уходит время",
+    "mixSub": "Доля от всех занятий.",
+    "activityType": "Занятие",
+    "count": "Количество",
+    "share": "Доля",
+    "showTable": "Показать таблицей",
+    "hideTable": "Скрыть таблицу",
+    "less": "Меньше",
+    "more": "Больше",
+    "activitiesCount_one": "{{count}} занятие",
+    "activitiesCount_few": "{{count}} занятия",
+    "activitiesCount_many": "{{count}} занятий",
+    "levelMeter": "Уровень {{level}}",
+    "noActivityYet": "Пока ничего нет — начни с текста для чтения."
   },
   "footer": {
     "privacy": "Политика конфиденциальности",
@@ -187,5 +209,81 @@
     "message": "Мы используем cookie, чтобы сохранять вход и понимать, как используется Eaglish.",
     "accept": "Принять",
     "decline": "Отклонить"
+  },
+  "shell": {
+    "practice": "Практика",
+    "you": "Ты",
+    "dayStreakShort": "дн.",
+    "xpTitle": "Уровень {{level}}"
+  },
+  "profile": {
+    "title": "Твой профиль",
+    "level": "Уровень {{level}}",
+    "xpToNext": "{{current}} / {{target}} XP до уровня {{next}}",
+    "totalXp": "Всего XP",
+    "achievements": "Достижения",
+    "unlockedCount": "Открыто {{unlocked}} из {{total}}",
+    "locked": "Закрыто",
+    "settings": "Настройки",
+    "signedInAs": "Вход выполнен как",
+    "notSignedIn": "Ты не вошёл — прогресс хранится только на этом устройстве.",
+    "signIn": "Войти для синхронизации",
+    "dailyGoalLabel": "Цель на день",
+    "dailyGoalHint": "Сколько занятий считается выполненным днём.",
+    "memberSince": "С нами с"
+  },
+  "achievements": {
+    "firstSteps": {
+      "name": "Первые шаги",
+      "desc": "Открой первый текст"
+    },
+    "reader": {
+      "name": "Читатель",
+      "desc": "Прочитай 5 разных текстов"
+    },
+    "bookworm": {
+      "name": "Книжный червь",
+      "desc": "Прочитай 15 разных текстов"
+    },
+    "collector": {
+      "name": "Коллекционер",
+      "desc": "Сохрани 10 слов"
+    },
+    "hoarder": {
+      "name": "Собиратель слов",
+      "desc": "Сохрани 50 слов"
+    },
+    "reviewer": {
+      "name": "Повторяющий",
+      "desc": "Повтори 20 слов"
+    },
+    "writer": {
+      "name": "Автор",
+      "desc": "Отправь первую работу"
+    },
+    "essayist": {
+      "name": "Эссеист",
+      "desc": "Отправь 10 работ"
+    },
+    "sharp": {
+      "name": "Внимательный",
+      "desc": "Пройди 3 теста без ошибок"
+    },
+    "consistent": {
+      "name": "Стабильный",
+      "desc": "Серия 3 дня"
+    },
+    "committed": {
+      "name": "Упорный",
+      "desc": "Серия 7 дней"
+    },
+    "relentless": {
+      "name": "Неудержимый",
+      "desc": "Серия 30 дней"
+    },
+    "levelFive": {
+      "name": "На подъёме",
+      "desc": "Достигни 5-го уровня"
+    }
   }
 }
