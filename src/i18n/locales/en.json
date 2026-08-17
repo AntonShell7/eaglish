@@ -95,9 +95,7 @@
     "keepGoing": "Good start. Review the ones you missed and try again.",
     "markComplete": "Mark as read",
     "completed": "Read",
-    "hint": "Tap any word for a translation.",
-    "markPrompt": "Read it through? Mark it — finishing is what counts as a task.",
-    "markedNote": "Counted for today. The comprehension questions are below."
+    "hint": "Tap any word for a translation."
   },
   "writing": {
     "grammar": "Grammar",
