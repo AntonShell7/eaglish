@@ -170,7 +170,28 @@
     "latestScore": "Latest overall score",
     "averageScore": "Average score",
     "recentScores": "Recent scores",
-    "noSubmissions": "No writing submissions yet."
+    "noSubmissions": "No writing submissions yet.",
+    "dashboardLead": "Total XP earned",
+    "dashboardCaption": "Across reading, writing and vocabulary.",
+    "weeklyTitle": "Activities per day",
+    "weeklySub": "The last 7 days.",
+    "heatmapTitle": "Study calendar",
+    "heatmapSub": "Darker means a busier day.",
+    "scoresTitle": "Writing score",
+    "scoresSub": "Overall mark out of 10, oldest to newest.",
+    "mixTitle": "Where your time goes",
+    "mixSub": "Share of all logged activities.",
+    "activityType": "Activity",
+    "count": "Count",
+    "share": "Share",
+    "showTable": "Show as table",
+    "hideTable": "Hide table",
+    "less": "Less",
+    "more": "More",
+    "activitiesCount_one": "{{count}} activity",
+    "activitiesCount_other": "{{count}} activities",
+    "levelMeter": "Level {{level}}",
+    "noActivityYet": "Nothing logged yet — start with a reading text."
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -181,5 +202,81 @@
     "message": "We use cookies to keep you signed in and understand how Eaglish is used.",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "shell": {
+    "practice": "Practice",
+    "you": "You",
+    "dayStreakShort": "days",
+    "xpTitle": "Level {{level}}"
+  },
+  "profile": {
+    "title": "Your profile",
+    "level": "Level {{level}}",
+    "xpToNext": "{{current}} / {{target}} XP to level {{next}}",
+    "totalXp": "Total XP",
+    "achievements": "Achievements",
+    "unlockedCount": "{{unlocked}} of {{total}} unlocked",
+    "locked": "Locked",
+    "settings": "Settings",
+    "signedInAs": "Signed in as",
+    "notSignedIn": "You're not signed in — progress stays on this device only.",
+    "signIn": "Sign in to sync",
+    "dailyGoalLabel": "Daily goal",
+    "dailyGoalHint": "How many activities count as a finished day.",
+    "memberSince": "Member since"
+  },
+  "achievements": {
+    "firstSteps": {
+      "name": "First steps",
+      "desc": "Open your first reading text"
+    },
+    "reader": {
+      "name": "Reader",
+      "desc": "Read 5 different texts"
+    },
+    "bookworm": {
+      "name": "Bookworm",
+      "desc": "Read 15 different texts"
+    },
+    "collector": {
+      "name": "Collector",
+      "desc": "Save 10 words"
+    },
+    "hoarder": {
+      "name": "Word hoarder",
+      "desc": "Save 50 words"
+    },
+    "reviewer": {
+      "name": "Reviewer",
+      "desc": "Review 20 words"
+    },
+    "writer": {
+      "name": "Writer",
+      "desc": "Submit your first text"
+    },
+    "essayist": {
+      "name": "Essayist",
+      "desc": "Submit 10 texts"
+    },
+    "sharp": {
+      "name": "Sharp",
+      "desc": "Score full marks on 3 quizzes"
+    },
+    "consistent": {
+      "name": "Consistent",
+      "desc": "Keep a 3-day streak"
+    },
+    "committed": {
+      "name": "Committed",
+      "desc": "Keep a 7-day streak"
+    },
+    "relentless": {
+      "name": "Relentless",
+      "desc": "Keep a 30-day streak"
+    },
+    "levelFive": {
+      "name": "Climbing",
+      "desc": "Reach level 5"
+    }
   }
 }

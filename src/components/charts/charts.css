@@ -1,0 +1,153 @@
+/* Chart tokens.
+   Magnitude and trend use one hue — the brand violet — because sequential is
+   the safe default. The four-slot categorical ramp is only for the activity
+   *mix*, where the categories themselves are the subject. Those four hues are
+   the validated reference set (adjacent CVD ΔE 9.1 light / 8.4 dark), not
+   picked by eye. Two light-mode slots sit under 3:1 on white, so the mix chart
+   always ships direct labels — that's the relief rule, not decoration. */
+
+.viz {
+  --viz-surface: var(--color-surface);
+  --viz-grid: var(--color-border);
+  --viz-ink: var(--color-text);
+  --viz-ink-2: var(--color-text-muted);
+
+  /* sequential: one hue, more-is-darker */
+  --viz-seq-1: #ede8fa;
+  --viz-seq-2: #cbbcf2;
+  --viz-seq-3: #a288e4;
+  --viz-seq-4: #6d4bc9;
+  --viz-seq-5: #3b168f;
+
+  /* categorical, light steps */
+  --viz-cat-1: #2a78d6;
+  --viz-cat-2: #eb6834;
+  --viz-cat-3: #1baf7a;
+  --viz-cat-4: #eda100;
+}
+
+:root[data-theme="dark"] .viz {
+  --viz-seq-1: #241a3d;
+  --viz-seq-2: #3a2a63;
+  --viz-seq-3: #5b41a3;
+  --viz-seq-4: #8b6fe8;
+  --viz-seq-5: #c4b5fd;
+
+  /* categorical, dark steps — the same hues re-stepped for the dark surface */
+  --viz-cat-1: #3987e5;
+  --viz-cat-2: #d95926;
+  --viz-cat-3: #199e70;
+  --viz-cat-4: #c98500;
+}
+
+.viz-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+}
+
+.viz-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.viz-sub {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Hairline, solid, recessive — never dashed. */
+.viz-grid-line {
+  stroke: var(--viz-grid);
+  stroke-width: 1;
+}
+
+.viz-axis-label {
+  font-size: 10px;
+  fill: var(--viz-ink-2);
+}
+
+.viz-value-label {
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--viz-ink);
+}
+
+.viz-mark {
+  transition: opacity 0.15s ease;
+}
+
+.viz-interactive:hover .viz-mark {
+  opacity: 0.45;
+}
+
+.viz-interactive .viz-mark:hover {
+  opacity: 1;
+}
+
+/* Legend: always present for two or more series. Identity comes from the
+   swatch beside the text, never from colouring the text. */
+.viz-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 14px;
+}
+
+.viz-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.viz-legend__swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+
+.viz-empty {
+  padding: 34px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Table fallback — the relief for the low-contrast slots, and the
+   colour-independent path to every value. */
+.viz-table {
+  margin-top: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.viz-table th,
+.viz-table td {
+  padding: 5px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.viz-table th {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.viz-toggle {
+  margin-top: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

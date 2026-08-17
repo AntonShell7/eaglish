@@ -49,3 +49,54 @@ export function IconBookmark() {
     </svg>
   );
 }
+
+export function IconHome() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <path d="M4 10.5L12 4l8 6.5V19a1 1 0 01-1 1h-4.5v-5.5h-5V20H5a1 1 0 01-1-1v-8.5z" />
+    </svg>
+  );
+}
+
+export function IconChart() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <path d="M4 20h16" />
+      <path d="M7 20v-6M12 20V6M17 20v-9" />
+    </svg>
+  );
+}
+
+export function IconUser() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <circle cx="12" cy="8.5" r="3.8" />
+      <path d="M4.8 20c.7-3.6 3.7-5.6 7.2-5.6s6.5 2 7.2 5.6" />
+    </svg>
+  );
+}
+
+export function IconFlame() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none">
+      <path d="M12.8 2.2c.5 2.6-.6 4-1.9 5.3-1.4 1.4-3.1 2.8-3.1 5.6a5.2 5.2 0 0010.4.3c0-2.2-1-3.6-2-4.7.2 1-.2 1.9-.9 2.3.3-2.6-.7-5.9-2.5-8.8z" />
+    </svg>
+  );
+}
+
+export function IconBolt() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none">
+      <path d="M13.5 2L5 13.2h5L9.4 22 19 10.4h-5.3L13.5 2z" />
+    </svg>
+  );
+}
+
+export function IconTarget() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="3.4" />
+    </svg>
+  );
+}
