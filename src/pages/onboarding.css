@@ -1,0 +1,349 @@
+/* Onboarding: one question per screen, nothing else on it.
+   Deliberately outside the app shell — a sidebar full of sections you haven't
+   unlocked yet is exactly the distraction this flow is trying to avoid. */
+
+.ob {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.ob-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.ob-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 800;
+}
+
+.ob-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 20px 56px;
+}
+
+/* Step pips */
+.ob-steps {
+  display: flex;
+  gap: 6px;
+}
+
+.ob-steps li {
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-border);
+  transition: background 0.25s ease;
+}
+
+.ob-steps li.is-done {
+  background: var(--color-primary);
+}
+
+.ob-card {
+  width: 100%;
+  max-width: 620px;
+  padding: 30px 26px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft-lg);
+}
+
+@media (min-width: 640px) {
+  .ob-card {
+    padding: 38px 36px;
+  }
+}
+
+.ob-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.ob-title {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.ob-lede {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Choice cards */
+.ob-grid {
+  margin-top: 22px;
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .ob-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ob-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ob-choice:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.ob-choice.is-picked {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.ob-choice__h {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ob-choice__p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.ob-choice.is-picked .ob-choice__h,
+.ob-choice.is-picked .ob-choice__p {
+  color: var(--color-primary);
+}
+
+/* Interest chips */
+.ob-chips {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ob-chip {
+  padding: 9px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.ob-chip.is-picked {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* "Don't know your level?" — the escape hatch, given real weight */
+.ob-test {
+  margin-top: 14px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 3px;
+  padding: 16px;
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  text-align: left;
+}
+
+.ob-test__h {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ob-test__p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Test question */
+.ob-bar {
+  margin-top: 12px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.ob-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.ob-question {
+  margin-top: 22px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.ob-options {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.ob-option {
+  padding: 13px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    transform 0.12s ease;
+}
+
+.ob-option:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+/* Wrong answers, explained */
+.ob-review {
+  margin-top: 22px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.ob-review__h {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.ob-review__item {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 12px;
+}
+
+.ob-review__q {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.ob-review__n {
+  margin-top: 3px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Plan summary */
+.ob-plan {
+  margin-top: 22px;
+  display: grid;
+  gap: 12px;
+}
+
+.ob-plan dt {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ob-plan dd {
+  margin-top: 2px;
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.ob-plan__tag {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.ob-note {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Actions */
+.ob-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ob-primary {
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ob-ghost {
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.ob-ghost--quiet {
+  margin-top: 16px;
+  padding-left: 0;
+  font-size: 0.8rem;
+}
+
+.ob-skip {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}

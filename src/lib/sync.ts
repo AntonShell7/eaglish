@@ -8,6 +8,7 @@ import {
   type QuizResult,
 } from "./readingHistory";
 import { getActivity, mergeRemoteActivity, type ActivityKind, type DayActivity } from "./activityStore";
+import { getLearnerProfile, mergeRemoteProfile, type LearnerProfile } from "./learnerProfile";
 
 /**
  * Local-first sync.
@@ -52,6 +53,25 @@ function client() {
 
 function warn(label: string, error: unknown) {
   console.warn(`[sync] ${label} failed`, error);
+}
+
+/**
+ * The learner profile needs a column that older projects don't have yet (see
+ * supabase/migrations). One failure is enough to know it's missing — after that
+ * we stay local instead of warning on every save.
+ */
+let profileColumnMissing = false;
+
+export function pushLearnerProfile(profile: LearnerProfile) {
+  const db = client();
+  if (!db || profileColumnMissing) return;
+  db.from("profiles")
+    .upsert({ id: currentUserId, english_level: profile.level, learner_profile: profile })
+    .then(({ error }) => {
+      if (!error) return;
+      profileColumnMissing = true;
+      warn("push learner profile (staying local)", error);
+    });
 }
 
 /* ── Writes (fire-and-forget) ─────────────────────────────────────────── */
@@ -154,13 +174,17 @@ async function pullAll() {
   const db = client();
   if (!db) return;
 
-  const [vocab, writing, reading, quiz, activity] = await Promise.all([
+  const [vocab, writing, reading, quiz, activity, profile] = await Promise.all([
     db.from("vocabulary_words").select("*"),
     db.from("writing_submissions").select("*"),
     db.from("reading_sessions").select("*"),
     db.from("quiz_results").select("*"),
     db.from("daily_activity").select("*"),
+    db.from("profiles").select("learner_profile").eq("id", currentUserId).maybeSingle(),
   ]);
+
+  if (profile.error) profileColumnMissing = true;
+  else mergeRemoteProfile((profile.data?.learner_profile as LearnerProfile | null) ?? null);
 
   if (vocab.data) {
     mergeRemoteVocabulary(
@@ -230,6 +254,8 @@ function pushLocalState() {
   getVocabulary().forEach(pushVocabularyWord);
   getWritingHistory().forEach(pushWritingSubmission);
   getActivity().forEach(pushActivityDay);
+  const profile = getLearnerProfile();
+  if (profile) pushLearnerProfile(profile);
   // Sessions and quiz rows are append-only logs; re-pushing them would
   // duplicate history, so only the merged snapshot above is synced.
 }

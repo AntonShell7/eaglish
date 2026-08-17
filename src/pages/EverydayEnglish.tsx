@@ -6,6 +6,7 @@ import { everydayEnglish, type SlangEntry } from "@/data/everydayEnglish";
 import { LessonRunner } from "@/components/everyday/LessonRunner";
 import { getLessonResults, type LessonResult } from "@/lib/lessonProgress";
 import { addVocabularyWord } from "@/lib/vocabularyStore";
+import { rankLessons } from "@/lib/learnerProfile";
 
 type Tab = "lessons" | "phrases";
 type Filter = "all" | SlangEntry["category"];
@@ -143,9 +144,12 @@ export default function EverydayEnglish() {
 
   useEffect(() => setResults(getLessonResults()), [openId]);
 
-  const lesson = openId ? everydayLessons.find((l) => l.id === openId) : undefined;
+  const lessons = useMemo(() => rankLessons(everydayLessons), []);
+
+  const lesson = openId ? lessons.find((l) => l.id === openId) : undefined;
+  // "Next" follows the order on screen, which is the level-aware one.
   const nextLesson = lesson
-    ? everydayLessons[(everydayLessons.findIndex((l) => l.id === lesson.id) + 1) % everydayLessons.length]
+    ? lessons[(lessons.findIndex((l) => l.id === lesson.id) + 1) % lessons.length]
     : undefined;
 
   const visiblePhrases = useMemo(
@@ -193,7 +197,7 @@ export default function EverydayEnglish() {
 
       {tab === "lessons" ? (
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {everydayLessons.map((l) => (
+          {lessons.map((l) => (
             <LessonCard key={l.id} lesson={l} result={results[l.id]} onOpen={() => setOpenId(l.id)} />
           ))}
         </div>

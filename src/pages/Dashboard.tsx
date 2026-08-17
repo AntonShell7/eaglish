@@ -7,6 +7,7 @@ import { IconBook, IconPen, IconHeadphones, IconChat, IconBookmark } from "@/com
 import { getDueWords } from "@/lib/vocabularyStore";
 import { getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getLevelState, getTotalXp } from "@/lib/gamification";
+import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import "@/components/charts/charts.css";
 
 const FEATURES = [
@@ -31,6 +32,7 @@ export default function Dashboard() {
   const [today, setToday] = useState(0);
   const [goal, setGoal] = useState(3);
   const [level, setLevel] = useState(getLevelState(0));
+  const [profile, setProfile] = useState<LearnerProfile | null>(null);
 
   useEffect(() => {
     setDue(getDueWords().length);
@@ -38,6 +40,7 @@ export default function Dashboard() {
     setToday(getTodayCount());
     setGoal(getDailyGoal());
     setLevel(getLevelState(getTotalXp()));
+    setProfile(getLearnerProfile());
   }, []);
 
   const goalDone = today >= goal;
@@ -47,7 +50,30 @@ export default function Dashboard() {
       <h1 className="page-title text-3xl">{t("dashboard.greeting")}</h1>
       <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
         {streak > 0 ? t("dashboard.streakLine", { count: streak }) : t("dashboard.noStreakLine")}
+        {profile && ` · ${profile.level}`}
       </p>
+
+      {/* Anyone who skipped onboarding, or signed in on a fresh device, still
+          needs a level — without one the app guesses, and guesses badly. */}
+      {!profile && (
+        <Link
+          to="/onboarding"
+          className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-lg)] border p-5"
+          style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
+        >
+          <span>
+            <span className="block text-sm font-bold" style={{ color: "var(--color-primary)" }}>
+              {t("onboarding.promptTitle")}
+            </span>
+            <span className="mt-0.5 block text-xs" style={{ color: "var(--color-primary)" }}>
+              {t("onboarding.promptBody")}
+            </span>
+          </span>
+          <span className="rounded-full px-4 py-2 text-xs font-bold on-primary" style={{ background: "var(--color-primary)" }}>
+            {t("onboarding.promptCta")}
+          </span>
+        </Link>
+      )}
 
       {/* Today: the goal, and whatever is waiting */}
       <section
