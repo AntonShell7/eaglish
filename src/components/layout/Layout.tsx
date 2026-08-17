@@ -17,6 +17,7 @@ import { Footer } from "./Footer";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { CookieBanner } from "@/components/CookieBanner";
+import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import "./shell.css";
 
 const PRACTICE = [
@@ -119,6 +120,7 @@ export function Layout() {
         ))}
       </nav>
 
+      <SelectionLookup />
       <CookieBanner />
     </div>
   );

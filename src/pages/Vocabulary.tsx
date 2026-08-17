@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import {
@@ -6,6 +6,8 @@ import {
   getDueWords,
   reviewWord,
   removeVocabularyWord,
+  addVocabularyWord,
+  isWordSaved,
   type VocabularyWord,
 } from "@/lib/vocabularyStore";
 import { logActivity } from "@/lib/activityStore";
@@ -70,6 +72,71 @@ function Flashcard({ word, onReview }: { word: VocabularyWord; onReview: (qualit
         </p>
       )}
     </div>
+  );
+}
+
+function ManualAdd({ onAdded }: { onAdded: () => void }) {
+  const { t } = useTranslation();
+  const [word, setWord] = useState("");
+  const [translation, setTranslation] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+  const submit = (e: FormEvent) => {
+    e.preventDefault();
+    const w = word.trim();
+    const tr = translation.trim();
+    if (!w || !tr) return;
+
+    if (isWordSaved(w)) {
+      setError(t("vocabulary.alreadySaved"));
+      return;
+    }
+
+    addVocabularyWord(w, tr, t("vocabulary.addedManually"));
+    logActivity("vocabulary");
+    setWord("");
+    setTranslation("");
+    setError(null);
+    onAdded();
+  };
+
+  return (
+    <form
+      onSubmit={submit}
+      className="mb-5 rounded-[var(--radius-lg)] border p-5"
+      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
+    >
+      <p className="text-sm font-semibold">{t("vocabulary.addTitle")}</p>
+      <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+        <input
+          value={word}
+          onChange={(e) => { setWord(e.target.value); setError(null); }}
+          placeholder={t("vocabulary.addWordPlaceholder")}
+          className="min-w-0 flex-1 rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+        />
+        <input
+          value={translation}
+          onChange={(e) => setTranslation(e.target.value)}
+          placeholder={t("vocabulary.addTranslationPlaceholder")}
+          className="min-w-0 flex-1 rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+        />
+        <button
+          type="submit"
+          disabled={!word.trim() || !translation.trim()}
+          className="rounded-full px-4 py-2 text-sm font-semibold on-primary disabled:opacity-40"
+          style={{ background: "var(--color-primary)" }}
+        >
+          {t("vocabulary.addButton")}
+        </button>
+      </div>
+      {error && (
+        <p className="mt-2 text-xs font-medium" style={{ color: "var(--color-danger)" }}>
+          {error}
+        </p>
+      )}
+    </form>
   );
 }
 
@@ -147,6 +214,8 @@ export default function Vocabulary() {
 
       {mode === "list" ? (
         <div className="mt-6">
+          <ManualAdd onAdded={refresh} />
+
           {words.length > 0 && (
             <input
               type="search"

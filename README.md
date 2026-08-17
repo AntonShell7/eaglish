@@ -1,7 +1,14 @@
 # Eaglish
 
-A web app for learning English through **reading, writing and vocabulary**, with a
-built-in AI tutor. Built with React, TypeScript and Supabase.
+A web app built on one idea: **you learn a word by meeting it again and again in
+real context, and spaced repetition makes those meetings land.**
+
+Every English word anywhere in the app can be looked up and saved in two taps —
+in a reading text, in the writing editor, on a slang card, or in any text you
+select. Saved words then come back on a spaced-repetition schedule, and they're
+underlined wherever they turn up again, so you can see the repetition working.
+
+Built with React, TypeScript and Supabase.
 
 > The interface can be switched between English and Russian, so a complete beginner
 > can navigate the app in their own language. Switching the interface never
@@ -11,24 +18,32 @@ built-in AI tutor. Built with React, TypeScript and Supabase.
 
 ## What it does
 
-**Reading** — short texts graded across three CEFR bands (A1–A2, B1–B2, C1–C2).
-Tap any word to get a contextual translation without leaving the page, save it to
-your vocabulary, or translate the whole sentence. Each text ends with comprehension
-questions that explain *why* an answer was right or wrong.
+**Word capture, everywhere** — the core mechanic. Tap a word in a reading text, or
+select any English text on any page, and a popup gives you a contextual
+translation and a one-tap save. Words already in your queue are underlined in
+reading texts, so a repeat encounter is visible rather than invisible.
 
-**Writing** — guided tasks (an informal email, an essay, a complaint, a review).
-Each one comes with a structure guide, useful phrases and a full sample answer you
-can reveal. Submissions are scored by AI on grammar, vocabulary and coherence, with
-specific suggestions rather than a bare number.
+**Reading** — short texts graded across three CEFR bands (A1–A2, B1–B2, C1–C2),
+with sentence translation on demand. Each text ends with comprehension questions
+that explain *why* an answer was right or wrong.
 
-**Vocabulary** — words saved while reading come back for review on a spaced-repetition
-schedule (an SM-2 style algorithm), so you revise a word right before you'd forget it.
+**Writing** — guided tasks (an informal email, an essay, a complaint, a review),
+each with a structure guide, useful phrases and a sample answer you can reveal.
+A Russian → English lookup sits beside the editor for the moment you know the
+idea but not the word; it answers with usage notes and an example, and the word
+goes straight into your review queue. Submissions are scored by AI on grammar,
+vocabulary and coherence, with specific suggestions rather than a bare number.
+
+**Vocabulary** — every saved word comes back for review on a spaced-repetition
+schedule (an SM-2 style algorithm), so you revise it right before you'd forget it.
+Words met outside the app can be added by hand.
 
 **Everyday English & Slang** — idioms, slang and abbreviations people actually use,
 filterable by category and saveable to your vocabulary.
 
-**Progress** — a daily streak, a daily goal, a 14-day activity strip, and per-skill
-statistics.
+**Progress & profile** — XP and levels derived from real activity, 13 achievements,
+a daily streak and goal, and a dashboard with a study calendar, weekly activity,
+a writing-score trend and an activity-mix breakdown.
 
 **Listening** — not built yet; the section is a placeholder.
 
@@ -43,7 +58,7 @@ statistics.
 | Routing | React Router |
 | i18n | i18next (EN / RU, with correct Russian plural forms) |
 | Auth & DB | Supabase |
-| AI | Groq (Llama 3.3 70B) for translation and writing feedback |
+| AI | Groq (`openai/gpt-oss-120b`) for translation and writing feedback |
 
 Theming is driven entirely by CSS custom properties defined once in
 [`src/index.css`](src/index.css), so light, dark and system themes stay consistent
@@ -64,6 +79,7 @@ npm run dev
 | Variable | Where to get it |
 | --- | --- |
 | `VITE_GROQ_API_KEY` | [console.groq.com](https://console.groq.com) → API Keys (free) |
+| `VITE_GROQ_MODEL` | Optional. Overrides the default model — handy when a provider retires one. |
 | `VITE_SUPABASE_URL` | Supabase dashboard → your project → API |
 | `VITE_SUPABASE_ANON_KEY` | Same page — the **publishable/anon** key, never the secret one |
 
