@@ -1,0 +1,1944 @@
+[
+  {
+    "id": "feeds-decide-what-we-watch",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Feeds decide what we watch",
+    "sentences": [
+      {
+        "text": "A person opens a video app.",
+        "translationRu": "Человек открывает приложение для видео."
+      },
+      {
+        "text": "The app shows a list of suggestions.",
+        "translationRu": "Приложение показывает список рекомендаций."
+      },
+      {
+        "text": "The suggestions are based on past clicks.",
+        "translationRu": "Рекомендации основаны на прошлых кликах."
+      },
+      {
+        "text": "The person clicks on a popular clip.",
+        "translationRu": "Человек нажимает на популярный ролик."
+      },
+      {
+        "text": "Later the app shows similar videos.",
+        "translationRu": "Позже приложение показывает похожие видео."
+      },
+      {
+        "text": "The person watches many of them.",
+        "translationRu": "Человек смотрит многие из них."
+      },
+      {
+        "text": "The feed shapes the whole viewing habit.",
+        "translationRu": "Лента формирует всю привычку просмотра."
+      }
+    ],
+    "glossary": {
+      "suggestion": {
+        "translation": "рекомендация",
+        "partOfSpeech": "noun"
+      },
+      "click": {
+        "translation": "клик",
+        "partOfSpeech": "noun"
+      },
+      "popular": {
+        "translation": "популярный",
+        "partOfSpeech": "adjective"
+      },
+      "similar": {
+        "translation": "похожий",
+        "partOfSpeech": "adjective"
+      },
+      "habit": {
+        "translation": "привычка",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the app show after a click?",
+        "options": [
+          "A list of songs",
+          "A list of suggestions",
+          "A map of places",
+          "A news article"
+        ],
+        "answer": 1,
+        "explanation": "The text says the app shows similar videos, which are suggestions."
+      },
+      {
+        "id": "q2",
+        "question": "How many videos does the person watch?",
+        "options": [
+          "Few",
+          "Many",
+          "None",
+          "One"
+        ],
+        "answer": 1,
+        "explanation": "The text states the person watches many of them."
+      },
+      {
+        "id": "q3",
+        "question": "What shapes the viewing habit?",
+        "options": [
+          "Friends",
+          "The feed",
+          "Ads",
+          "Weather"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence says the feed shapes the whole viewing habit."
+      }
+    ]
+  },
+  {
+    "id": "cost-of-old-gadgets",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Cost of old gadgets",
+    "sentences": [
+      {
+        "text": "A person keeps an old phone.",
+        "translationRu": "Человек хранит старый телефон."
+      },
+      {
+        "text": "The phone needs new batteries.",
+        "translationRu": "Телефону нужны новые батареи."
+      },
+      {
+        "text": "The batteries cost more than a new phone.",
+        "translationRu": "Батареи стоят дороже, чем новый телефон."
+      },
+      {
+        "text": "The person also buys a repair kit.",
+        "translationRu": "Человек также покупает набор для ремонта."
+      },
+      {
+        "text": "The kit is expensive and hard to use.",
+        "translationRu": "Набор дорогой и трудный в использовании."
+      },
+      {
+        "text": "Soon the phone stops working fully.",
+        "translationRu": "Скоро телефон перестаёт работать полностью."
+      },
+      {
+        "text": "The person finally buys a new device.",
+        "translationRu": "Человек наконец покупает новое устройство."
+      }
+    ],
+    "glossary": {
+      "repair": {
+        "translation": "ремонт",
+        "partOfSpeech": "noun"
+      },
+      "expensive": {
+        "translation": "дорогой",
+        "partOfSpeech": "adjective"
+      },
+      "device": {
+        "translation": "устройство",
+        "partOfSpeech": "noun"
+      },
+      "finally": {
+        "translation": "наконец",
+        "partOfSpeech": "adverb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the old phone need?",
+        "options": [
+          "New screen",
+          "New batteries",
+          "New case",
+          "New software"
+        ],
+        "answer": 1,
+        "explanation": "The second sentence says the phone needs new batteries."
+      },
+      {
+        "id": "q2",
+        "question": "Why does the person buy a new device?",
+        "options": [
+          "Because the kit is cheap",
+          "Because the phone works well",
+          "Because the phone stops working fully",
+          "Because the phone is new"
+        ],
+        "answer": 2,
+        "explanation": "The sixth sentence says the phone stops working fully, leading to a new purchase."
+      },
+      {
+        "id": "q3",
+        "question": "How is the repair kit described?",
+        "options": [
+          "Cheap and easy",
+          "Expensive and hard",
+          "Small and light",
+          "Fast and simple"
+        ],
+        "answer": 1,
+        "explanation": "The fifth sentence calls the kit expensive and hard to use."
+      }
+    ]
+  },
+  {
+    "id": "software-gets-slower",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Software gets slower",
+    "sentences": [
+      {
+        "text": "A person installs a game on a computer.",
+        "translationRu": "Человек устанавливает игру на компьютер."
+      },
+      {
+        "text": "The game runs fast at first.",
+        "translationRu": "Игра работает быстро сначала."
+      },
+      {
+        "text": "Later the computer receives many updates.",
+        "translationRu": "Позже компьютер получает много обновлений."
+      },
+      {
+        "text": "Each update adds new features.",
+        "translationRu": "Каждое обновление добавляет новые функции."
+      },
+      {
+        "text": "The new features need more memory.",
+        "translationRu": "Новые функции требуют больше памяти."
+      },
+      {
+        "text": "The computer becomes slower each month.",
+        "translationRu": "Компьютер становится медленнее каждый месяц."
+      },
+      {
+        "text": "The person notices long loading times.",
+        "translationRu": "Человек замечает долгие времена загрузки."
+      }
+    ],
+    "glossary": {
+      "install": {
+        "translation": "устанавливать",
+        "partOfSpeech": "verb"
+      },
+      "update": {
+        "translation": "обновление",
+        "partOfSpeech": "noun"
+      },
+      "feature": {
+        "translation": "функция",
+        "partOfSpeech": "noun"
+      },
+      "memory": {
+        "translation": "память",
+        "partOfSpeech": "noun"
+      },
+      "loading": {
+        "translation": "загрузка",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens after many updates?",
+        "options": [
+          "The game crashes",
+          "The computer gets faster",
+          "The computer becomes slower",
+          "The screen turns off"
+        ],
+        "answer": 2,
+        "explanation": "The sixth sentence says the computer becomes slower each month."
+      },
+      {
+        "id": "q2",
+        "question": "What does the person notice?",
+        "options": [
+          "Short loading times",
+          "Long loading times",
+          "No sound",
+          "Bright colors"
+        ],
+        "answer": 1,
+        "explanation": "The seventh sentence mentions long loading times."
+      },
+      {
+        "id": "q3",
+        "question": "What do new features require?",
+        "options": [
+          "More memory",
+          "Less power",
+          "Less storage",
+          "More fans"
+        ],
+        "answer": 0,
+        "explanation": "The fifth sentence says new features need more memory."
+      }
+    ]
+  },
+  {
+    "id": "smart-homes-outlive-apps",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Smart homes outlive apps",
+    "sentences": [
+      {
+        "text": "A family buys a smart speaker.",
+        "translationRu": "Семья покупает умный динамик."
+      },
+      {
+        "text": "The speaker controls lights and locks.",
+        "translationRu": "Динамик управляет светом и замками."
+      },
+      {
+        "text": "An app on the phone sends the commands.",
+        "translationRu": "Приложение на телефоне отправляет команды."
+      },
+      {
+        "text": "After a year the app stops working.",
+        "translationRu": "Через год приложение перестаёт работать."
+      },
+      {
+        "text": "The speaker still turns on the lights.",
+        "translationRu": "Динамик всё ещё включает свет."
+      },
+      {
+        "text": "The family uses a new app to control it.",
+        "translationRu": "Семья использует новое приложение для управления им."
+      },
+      {
+        "text": "The hardware works long after the old app dies.",
+        "translationRu": "Аппаратное обеспечение работает долго после смерти старого приложения."
+      }
+    ],
+    "glossary": {
+      "speaker": {
+        "translation": "динамик",
+        "partOfSpeech": "noun"
+      },
+      "control": {
+        "translation": "управлять",
+        "partOfSpeech": "verb"
+      },
+      "command": {
+        "translation": "команда",
+        "partOfSpeech": "noun"
+      },
+      "hardware": {
+        "translation": "аппаратное обеспечение",
+        "partOfSpeech": "noun"
+      },
+      "app": {
+        "translation": "приложение",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the speaker control?",
+        "options": [
+          "Music only",
+          "Lights and locks",
+          "Heating only",
+          "Security cameras"
+        ],
+        "answer": 1,
+        "explanation": "The second sentence says the speaker controls lights and locks."
+      },
+      {
+        "id": "q2",
+        "question": "What happens to the first app?",
+        "options": [
+          "It updates",
+          "It stops working",
+          "It becomes faster",
+          "It changes color"
+        ],
+        "answer": 1,
+        "explanation": "The fourth sentence says the app stops working after a year."
+      },
+      {
+        "id": "q3",
+        "question": "How does the hardware behave?",
+        "options": [
+          "It fails quickly",
+          "It works long after the old app dies",
+          "It never works",
+          "It explodes"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence states the hardware works long after the old app dies."
+      }
+    ]
+  },
+  {
+    "id": "everyday-use-of-machine-translation",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Everyday use of machine translation",
+    "sentences": [
+      {
+        "text": "Many people write short messages on their phones.",
+        "translationRu": "Многие люди пишут короткие сообщения на своих телефонах."
+      },
+      {
+        "text": "They often need words from another language.",
+        "translationRu": "Им часто нужны слова из другого языка."
+      },
+      {
+        "text": "A translation app can change the words instantly.",
+        "translationRu": "Приложение для перевода может менять слова мгновенно."
+      },
+      {
+        "text": "The app uses a large computer model.",
+        "translationRu": "Приложение использует большую компьютерную модель."
+      },
+      {
+        "text": "The model learned many examples from the internet.",
+        "translationRu": "Модель выучила много примеров из интернета."
+      },
+      {
+        "text": "It suggests a sentence that fits the meaning.",
+        "translationRu": "Она предлагает предложение, которое соответствует смыслу."
+      },
+      {
+        "text": "People check the result and send the message.",
+        "translationRu": "Люди проверяют результат и отправляют сообщение."
+      },
+      {
+        "text": "The translation is not perfect, but it helps.",
+        "translationRu": "Перевод не идеален, но помогает."
+      }
+    ],
+    "glossary": {
+      "message": {
+        "translation": "сообщение",
+        "partOfSpeech": "noun"
+      },
+      "instant": {
+        "translation": "мгновенно",
+        "partOfSpeech": "adverb"
+      },
+      "model": {
+        "translation": "модель",
+        "partOfSpeech": "noun"
+      },
+      "suggest": {
+        "translation": "предлагать",
+        "partOfSpeech": "verb"
+      },
+      "perfect": {
+        "translation": "идеальный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the app do with the words?",
+        "options": [
+          "Deletes them",
+          "Changes them instantly",
+          "Sends them to a friend",
+          "Shows them in a picture"
+        ],
+        "answer": 1,
+        "explanation": "The text says the app can change the words instantly."
+      },
+      {
+        "id": "q2",
+        "question": "How did the model learn?",
+        "options": [
+          "From a teacher",
+          "From many examples on the internet",
+          "From a book",
+          "From a game"
+        ],
+        "answer": 0,
+        "explanation": "The text states the model learned many examples from the internet."
+      },
+      {
+        "id": "q3",
+        "question": "Why do people still check the result?",
+        "options": [
+          "Because the translation is perfect",
+          "Because the app is slow",
+          "Because the translation is not perfect",
+          "Because they like reading"
+        ],
+        "answer": 2,
+        "explanation": "The text says the translation is not perfect, so people check it."
+      }
+    ]
+  },
+  {
+    "id": "limits-of-battery-physics",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Limits of battery physics",
+    "sentences": [
+      {
+        "text": "A small battery stores energy for phones.",
+        "translationRu": "Небольшая батарея хранит энергию для телефонов."
+      },
+      {
+        "text": "It uses chemicals that react inside.",
+        "translationRu": "Она использует химические вещества, которые реагируют внутри."
+      },
+      {
+        "text": "When the reaction stops, the battery is empty.",
+        "translationRu": "Когда реакция останавливается, батарея пустая."
+      },
+      {
+        "text": "Scientists try to make the reaction last longer.",
+        "translationRu": "Учёные пытаются заставить реакцию длиться дольше."
+      },
+      {
+        "text": "Physics says the reaction can only release a set amount of energy.",
+        "translationRu": "Физика говорит, что реакция может высвободить только определённое количество энергии."
+      },
+      {
+        "text": "They also need the battery to stay safe and light.",
+        "translationRu": "Им также нужно, чтобы батарея была безопасной и лёгкой."
+      },
+      {
+        "text": "New materials can improve the limit a little.",
+        "translationRu": "Новые материалы могут немного улучшить предел."
+      },
+      {
+        "text": "But the basic limit stays because of the laws of physics.",
+        "translationRu": "Но основной предел остаётся из‑за законов физики."
+      }
+    ],
+    "glossary": {
+      "battery": {
+        "translation": "батарея",
+        "partOfSpeech": "noun"
+      },
+      "chemical": {
+        "translation": "химический",
+        "partOfSpeech": "adjective"
+      },
+      "reaction": {
+        "translation": "реакция",
+        "partOfSpeech": "noun"
+      },
+      "limit": {
+        "translation": "предел",
+        "partOfSpeech": "noun"
+      },
+      "material": {
+        "translation": "материал",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens when the reaction inside the battery stops?",
+        "options": [
+          "It becomes heavier",
+          "It heats up",
+          "It becomes empty",
+          "It glows"
+        ],
+        "answer": 2,
+        "explanation": "The text says the battery is empty when the reaction stops."
+      },
+      {
+        "id": "q2",
+        "question": "Why can new materials only improve the limit a little?",
+        "options": [
+          "Because they are expensive",
+          "Because the laws of physics stay the same",
+          "Because they are hard to find",
+          "Because they are heavy"
+        ],
+        "answer": 1,
+        "explanation": "The text states the basic limit stays because of the laws of physics."
+      },
+      {
+        "id": "q3",
+        "question": "What do scientists want the battery reaction to do?",
+        "options": [
+          "Stop quickly",
+          "Last longer",
+          "Make noise",
+          "Change color"
+        ],
+        "answer": 0,
+        "explanation": "The text says scientists try to make the reaction last longer."
+      }
+    ]
+  },
+  {
+    "id": "volunteer-open-source-projects",
+    "level": "A1-A2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Volunteer open source projects",
+    "sentences": [
+      {
+        "text": "Many programmers share their code for free.",
+        "translationRu": "Многие программисты делятся своим кодом бесплатно."
+      },
+      {
+        "text": "They call this open source software.",
+        "translationRu": "Они называют это открытым программным обеспечением."
+      },
+      {
+        "text": "Anyone can look at the code and suggest changes.",
+        "translationRu": "Любой может посмотреть код и предложить изменения."
+      },
+      {
+        "text": "Volunteers test the program on their computers.",
+        "translationRu": "Добровольцы тестируют программу на своих компьютерах."
+      },
+      {
+        "text": "They report bugs and write new features.",
+        "translationRu": "Они сообщают об ошибках и пишут новые функции."
+      },
+      {
+        "text": "The project grows because many people help.",
+        "translationRu": "Проект растёт, потому что ему помогает много людей."
+      },
+      {
+        "text": "No one gets paid for the main work.",
+        "translationRu": "За основную работу никто не получает оплаты."
+      },
+      {
+        "text": "The software stays free for all users.",
+        "translationRu": "Программное обеспечение остаётся бесплатным для всех пользователей."
+      }
+    ],
+    "glossary": {
+      "programmer": {
+        "translation": "программист",
+        "partOfSpeech": "noun"
+      },
+      "volunteer": {
+        "translation": "доброволец",
+        "partOfSpeech": "noun"
+      },
+      "bug": {
+        "translation": "ошибка",
+        "partOfSpeech": "noun"
+      },
+      "feature": {
+        "translation": "функция",
+        "partOfSpeech": "noun"
+      },
+      "user": {
+        "translation": "пользователь",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Who can suggest changes to the code?",
+        "options": [
+          "Only the original author",
+          "Only paid staff",
+          "Anyone",
+          "Only teachers"
+        ],
+        "answer": 2,
+        "explanation": "The text says anyone can look at the code and suggest changes."
+      },
+      {
+        "id": "q2",
+        "question": "What do volunteers do with the program?",
+        "options": [
+          "Sell it",
+          "Test it on their computers",
+          "Ignore it",
+          "Translate it"
+        ],
+        "answer": 1,
+        "explanation": "The text states volunteers test the program on their computers."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the project grow?",
+        "options": [
+          "Because it costs a lot",
+          "Because many people help",
+          "Because it is secret",
+          "Because it is closed"
+        ],
+        "answer": 0,
+        "explanation": "The text says the project grows because many people help."
+      }
+    ]
+  },
+  {
+    "id": "invisible-guides-of-our-screens",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Invisible Guides of Our Screens",
+    "sentences": [
+      {
+        "text": "When you open a video platform, the first thing you see is a list of recommendations.",
+        "translationRu": "Когда вы открываете видеоплатформу, первым, что вы видите, — список рекомендаций."
+      },
+      {
+        "text": "These suggestions are not random; an algorithm looks at what you have watched before.",
+        "translationRu": "Эти предложения не случайны; алгоритм анализирует, что вы смотрели раньше."
+      },
+      {
+        "text": "It then matches similar genres, creators, and even the length of the videos.",
+        "translationRu": "Затем он подбирает похожие жанры, авторов и даже продолжительность видео."
+      },
+      {
+        "text": "Because of this, you often end up clicking on something you never thought to search for.",
+        "translationRu": "Из‑за этого вы часто нажимаете на что‑то, о чём никогда бы не подумали искать."
+      },
+      {
+        "text": "The feed keeps updating as you watch more, creating a feedback loop that feels personal.",
+        "translationRu": "Лента продолжает обновляться по мере вашего просмотра, создавая обратный цикл, который кажется личным."
+      },
+      {
+        "text": "If you watch a documentary one night, the next day the platform may push more documentaries.",
+        "translationRu": "Если вы посмотрите документальный фильм вечером, то на следующий день платформа может предложить вам ещё больше документалок."
+      },
+      {
+        "text": "Sometimes this narrows your horizon, as the system thinks you only like one style.",
+        "translationRu": "Иногда это сужает ваш кругозор, потому что система считает, что вам нравится только один стиль."
+      },
+      {
+        "text": "A simple way to break the pattern is to search manually for new topics.",
+        "translationRu": "Простой способ выйти из этой схемы — вручную искать новые темы."
+      },
+      {
+        "text": "In the end, the recommendation feed shapes what we watch, but we still control the final click.",
+        "translationRu": "В конечном счёте, лента рекомендаций формирует то, что мы смотрим, но окончательный клик всё ещё в наших руках."
+      }
+    ],
+    "glossary": {
+      "algorithm": {
+        "translation": "алгоритм",
+        "partOfSpeech": "noun"
+      },
+      "feedback": {
+        "translation": "обратная связь",
+        "partOfSpeech": "noun"
+      },
+      "horizon": {
+        "translation": "горизонт",
+        "partOfSpeech": "noun"
+      },
+      "narrow": {
+        "translation": "сужать",
+        "partOfSpeech": "verb"
+      },
+      "personal": {
+        "translation": "личный",
+        "partOfSpeech": "adjective"
+      },
+      "match": {
+        "translation": "соответствовать",
+        "partOfSpeech": "verb"
+      },
+      "loop": {
+        "translation": "цикл",
+        "partOfSpeech": "noun"
+      },
+      "suggestion": {
+        "translation": "предложение",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the algorithm use to suggest new videos?",
+        "options": [
+          "Your age",
+          "Your watch history",
+          "Random selection",
+          "The time of day"
+        ],
+        "answer": 1,
+        "explanation": "The text says the algorithm looks at what you have watched before."
+      },
+      {
+        "id": "q2",
+        "question": "How can a user avoid being trapped in a narrow feed?",
+        "options": [
+          "Turn off the internet",
+          "Search manually for new topics",
+          "Watch only one genre",
+          "Delete the app"
+        ],
+        "answer": 1,
+        "explanation": "The text suggests searching manually for new topics to break the pattern."
+      },
+      {
+        "id": "q3",
+        "question": "According to the passage, who makes the final decision to watch a video?",
+        "options": [
+          "The algorithm",
+          "The platform’s designers",
+          "The user",
+          "The video creator"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence states that the user controls the final click."
+      }
+    ]
+  },
+  {
+    "id": "the-hidden-cost-of-old-gadgets",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "The Hidden Cost of Old Gadgets",
+    "sentences": [
+      {
+        "text": "Many people keep their old smartphones even after buying a new one.",
+        "translationRu": "Многие люди сохраняют свои старые смартфоны даже после покупки нового."
+      },
+      {
+        "text": "They do this because the device still works for calls and messages.",
+        "translationRu": "Они делают это, потому что устройство всё ещё работает для звонков и сообщений."
+      },
+      {
+        "text": "However, the battery slowly loses capacity, which means it needs charging more often.",
+        "translationRu": "Тем не менее батарея постепенно теряет ёмкость, из‑за чего её нужно заряжать чаще."
+      },
+      {
+        "text": "Replacing the battery can be cheap, but finding a genuine part is sometimes difficult.",
+        "translationRu": "Замена батареи может быть дешёвой, но найти оригинальную деталь иногда трудно."
+      },
+      {
+        "text": "If the battery is left to die completely, the whole board may become unstable.",
+        "translationRu": "Если батарея полностью разряжается, вся плата может стать нестабильной."
+      },
+      {
+        "text": "In addition, old software no longer receives security updates, opening a door for hackers.",
+        "translationRu": "Кроме того, старое программное обеспечение больше не получает обновления безопасности, открывая дверь для хакеров."
+      },
+      {
+        "text": "People often overlook these risks because the device looks fine on the outside.",
+        "translationRu": "Люди часто игнорируют эти риски, потому что устройство выглядит нормально внешне."
+      },
+      {
+        "text": "A simple check of the battery health can reveal whether the phone is still reliable.",
+        "translationRu": "Простая проверка состояния батареи может показать, надёжно ли ещё устройство."
+      },
+      {
+        "text": "When the costs of repairs start adding up, it may be smarter to recycle the old gadget.",
+        "translationRu": "Когда расходы на ремонт начинают расти, разумнее утилизировать старое устройство."
+      },
+      {
+        "text": "Thus, keeping old devices alive can cost more than buying a fresh one in the long run.",
+        "translationRu": "Таким образом, поддержание старых устройств в рабочем состоянии может стоить дороже, чем покупка нового в долгосрочной перспективе."
+      }
+    ],
+    "glossary": {
+      "capacity": {
+        "translation": "ёмкость",
+        "partOfSpeech": "noun"
+      },
+      "stable": {
+        "translation": "стабильный",
+        "partOfSpeech": "adjective"
+      },
+      "reliable": {
+        "translation": "надёжный",
+        "partOfSpeech": "adjective"
+      },
+      "recycle": {
+        "translation": "перерабатывать",
+        "partOfSpeech": "verb"
+      },
+      "gadget": {
+        "translation": "прибор",
+        "partOfSpeech": "noun"
+      },
+      "security": {
+        "translation": "безопасность",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens when an old phone’s battery is allowed to die completely?",
+        "options": [
+          "The screen cracks",
+          "The board may become unstable",
+          "The phone gains new features",
+          "The charger stops working"
+        ],
+        "answer": 1,
+        "explanation": "The text states that a completely dead battery can make the whole board unstable."
+      },
+      {
+        "id": "q2",
+        "question": "Why might people ignore the risks of using old devices?",
+        "options": [
+          "Because they are expensive",
+          "Because they look fine externally",
+          "Because they receive updates",
+          "Because they are waterproof"
+        ],
+        "answer": 1,
+        "explanation": "The passage says people overlook risks because the device looks fine on the outside."
+      },
+      {
+        "id": "q3",
+        "question": "What does the author suggest as a smarter option when repair costs rise?",
+        "options": [
+          "Buy a new charger",
+          "Recycle the old gadget",
+          "Upgrade the operating system",
+          "Switch to a different carrier"
+        ],
+        "answer": 1,
+        "explanation": "The text advises recycling the old gadget when repair costs add up."
+      }
+    ]
+  },
+  {
+    "id": "why-apps-feel-slower-over-time",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Why Apps Feel Slower Over Time",
+    "sentences": [
+      {
+        "text": "When a program is first released, it runs quickly on a fresh system.",
+        "translationRu": "Когда программа только выходит, она быстро работает на чистой системе."
+      },
+      {
+        "text": "Over the months, developers add new features and fix bugs.",
+        "translationRu": "Со временем разработчики добавляют новые функции и исправляют ошибки."
+      },
+      {
+        "text": "Each addition brings extra code, which the computer has to load each time.",
+        "translationRu": "Каждое нововведение добавляет дополнительный код, который компьютер должен загружать каждый раз."
+      },
+      {
+        "text": "At the same time, users install plug‑ins, extensions, and custom themes.",
+        "translationRu": "В то же время пользователи устанавливают плагины, расширения и кастомные темы."
+      },
+      {
+        "text": "All these pieces compete for memory and processing power.",
+        "translationRu": "Все эти элементы конкурируют за память и процессорные ресурсы."
+      },
+      {
+        "text": "When memory gets tight, the system starts swapping data to the disk, which is much slower.",
+        "translationRu": "Когда памяти не хватает, система начинает выгружать данные на диск, что гораздо медленнее."
+      },
+      {
+        "text": "Old versions of libraries may also become incompatible with new updates.",
+        "translationRu": "Старые версии библиотек могут стать несовместимыми с новыми обновлениями."
+      },
+      {
+        "text": "The result is a noticeable lag, even though the core functionality has not changed.",
+        "translationRu": "В результате появляется заметная задержка, хотя базовый функционал не изменился."
+      },
+      {
+        "text": "A regular clean‑up, removing unused add‑ons, often restores speed.",
+        "translationRu": "Регулярная очистка, удаление ненужных дополнений, часто восстанавливает скорость."
+      },
+      {
+        "text": "So the slowdown is usually a build‑up of extra layers rather than a flaw in the original code.",
+        "translationRu": "Таким образом, замедление обычно вызвано накоплением дополнительных слоёв, а не ошибкой в оригинальном коде."
+      }
+    ],
+    "glossary": {
+      "feature": {
+        "translation": "функция",
+        "partOfSpeech": "noun"
+      },
+      "memory": {
+        "translation": "память",
+        "partOfSpeech": "noun"
+      },
+      "swap": {
+        "translation": "выгружать",
+        "partOfSpeech": "verb"
+      },
+      "compatible": {
+        "translation": "совместимый",
+        "partOfSpeech": "adjective"
+      },
+      "lag": {
+        "translation": "задержка",
+        "partOfSpeech": "noun"
+      },
+      "layer": {
+        "translation": "слой",
+        "partOfSpeech": "noun"
+      },
+      "restore": {
+        "translation": "восстанавливать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What causes the system to become slower according to the text?",
+        "options": [
+          "Faster processors",
+          "Extra code and add‑ons using memory",
+          "Better graphics",
+          "Higher screen resolution"
+        ],
+        "answer": 1,
+        "explanation": "The passage explains that added code and add‑ons compete for memory, slowing the system."
+      },
+      {
+        "id": "q2",
+        "question": "What is suggested as a way to improve performance?",
+        "options": [
+          "Install more themes",
+          "Upgrade the operating system",
+          "Remove unused add‑ons",
+          "Increase the screen brightness"
+        ],
+        "answer": 2,
+        "explanation": "The text recommends a regular clean‑up, removing unused add‑ons."
+      },
+      {
+        "id": "q3",
+        "question": "Why might old libraries cause problems?",
+        "options": [
+          "They are too fast",
+          "They become incompatible with new updates",
+          "They use too much battery",
+          "They change the UI colors"
+        ],
+        "answer": 1,
+        "explanation": "The passage states old versions of libraries may become incompatible with new updates."
+      }
+    ]
+  },
+  {
+    "id": "smart-homes-outliving-their-apps",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Smart Homes Outliving Their Apps",
+    "sentences": [
+      {
+        "text": "A family bought a set of smart lights and a thermostat a few years ago.",
+        "translationRu": "Семья несколько лет назад купила набор умных ламп и термостат."
+      },
+      {
+        "text": "At first, the devices were controlled through a single mobile app.",
+        "translationRu": "Сначала устройства управлялись через одно мобильное приложение."
+      },
+      {
+        "text": "The app received updates, but the manufacturer later stopped supporting it.",
+        "translationRu": "Приложение получало обновления, но потом производитель прекратил его поддержку."
+      },
+      {
+        "text": "When the update stopped, the app could no longer communicate with the newest phone OS.",
+        "translationRu": "Когда обновления прекратились, приложение больше не могло взаимодействовать с новой ОС телефона."
+      },
+      {
+        "text": "The lights still work, but they can only be turned on or off manually now.",
+        "translationRu": "Лампы всё ещё работают, но их теперь можно только включать и выключать вручную."
+      },
+      {
+        "text": "The thermostat, however, has a built‑in schedule that runs without the app.",
+        "translationRu": "Термостат, однако, имеет встроенный график, который работает без приложения."
+      },
+      {
+        "text": "Some owners install third‑party bridges that translate old protocols into new ones.",
+        "translationRu": "Некоторые владельцы устанавливают сторонние мосты, переводящие старые протоколы в новые."
+      },
+      {
+        "text": "These bridges extend the life of the devices, but they require extra setup.",
+        "translationRu": "Эти мосты продлевают срок службы устройств, но требуют дополнительной настройки."
+      },
+      {
+        "text": "Eventually, the hardware may outlive any software, becoming a simple stand‑alone gadget.",
+        "translationRu": "В конечном итоге оборудование может пережить любое программное обеспечение, превратившись в простое автономное устройство."
+      },
+      {
+        "text": "Thus, a smart home can keep functioning even after the original app disappears.",
+        "translationRu": "Таким образом, умный дом может продолжать работать даже после исчезновения оригинального приложения."
+      }
+    ],
+    "glossary": {
+      "thermostat": {
+        "translation": "термостат",
+        "partOfSpeech": "noun"
+      },
+      "bridge": {
+        "translation": "мост",
+        "partOfSpeech": "noun"
+      },
+      "protocol": {
+        "translation": "протокол",
+        "partOfSpeech": "noun"
+      },
+      "stand‑alone": {
+        "translation": "автономный",
+        "partOfSpeech": "adjective"
+      },
+      "schedule": {
+        "translation": "расписание",
+        "partOfSpeech": "noun"
+      },
+      "support": {
+        "translation": "поддержка",
+        "partOfSpeech": "noun"
+      },
+      "update": {
+        "translation": "обновление",
+        "partOfSpeech": "noun"
+      },
+      "manual": {
+        "translation": "ручной",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why did the original app stop working with the new phone OS?",
+        "options": [
+          "Because the phone battery died",
+          "Because the manufacturer stopped supporting the app",
+          "Because the Wi‑Fi changed",
+          "Because the lights were removed"
+        ],
+        "answer": 1,
+        "explanation": "The text says the manufacturer later stopped supporting the app, so it could not communicate with the new OS."
+      },
+      {
+        "id": "q2",
+        "question": "What advantage does the thermostat have over the lights after the app stopped working?",
+        "options": [
+          "It can still be controlled by voice",
+          "It runs a built‑in schedule without the app",
+          "It changes colors automatically",
+          "It connects to satellite internet"
+        ],
+        "answer": 1,
+        "explanation": "The passage states the thermostat has a built‑in schedule that runs without the app."
+      },
+      {
+        "id": "q3",
+        "question": "What is a possible solution for keeping old devices functional?",
+        "options": [
+          "Throw them away",
+          "Install third‑party bridges",
+          "Upgrade the hardware immediately",
+          "Switch to analog switches"
+        ],
+        "answer": 1,
+        "explanation": "The text mentions some owners install third‑party bridges to translate old protocols."
+      }
+    ]
+  },
+  {
+    "id": "everyday-machine-translation",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Everyday Machine Translation",
+    "sentences": [
+      {
+        "text": "When she writes a quick email to a friend abroad, she often relies on the built‑in translator on her phone.",
+        "translationRu": "Когда она пишет короткое письмо другу за границей, она часто полагается на встроенный переводчик в своем телефоне."
+      },
+      {
+        "text": "The tool instantly converts her sentences, so she can understand the reply without waiting for a human.",
+        "translationRu": "Инструмент мгновенно преобразует её предложения, поэтому она может понять ответ, не дожидаясь человека."
+      },
+      {
+        "text": "Most of the time the meaning is clear, but idioms sometimes slip through the cracks.",
+        "translationRu": "Большую часть времени смысл ясен, но идиомы иногда ускользают сквозь пробелы."
+      },
+      {
+        "text": "She learned to rephrase tricky phrases, because the system struggles with slang.",
+        "translationRu": "Она научилась перефразировать сложные выражения, потому что система с трудом справляется со сленгом."
+      },
+      {
+        "text": "During a video call, the live caption feature catches spoken words and shows a rough translation underneath.",
+        "translationRu": "Во время видеозвонка функция живых субтитров улавливает произнесённые слова и показывает под ними примерный перевод."
+      },
+      {
+        "text": "Although it is not perfect, it helps her follow the conversation without missing key points.",
+        "translationRu": "Хотя это не идеально, это помогает ей следить за разговором, не упуская ключевые моменты."
+      },
+      {
+        "text": "She also uses the same service to translate menus when traveling, which saves time and avoids awkward gestures.",
+        "translationRu": "Она также использует тот же сервис для перевода меню в поездках, что экономит время и избавляет от неловких жестов."
+      },
+      {
+        "text": "If the translation sounds odd, she quickly checks a dictionary to confirm the nuance.",
+        "translationRu": "Если перевод кажется странным, она быстро проверяет словарь, чтобы подтвердить нюанс."
+      },
+      {
+        "text": "In the end, the technology acts like a helpful bridge, not a replacement for learning the language.",
+        "translationRu": "В конце концов, технология служит как полезный мост, а не замену изучению языка."
+      },
+      {
+        "text": "She feels more confident that she can stay in touch, thanks to these everyday tools.",
+        "translationRu": "Она чувствует себя более уверенно, потому что может поддерживать связь, благодаря этим повседневным инструментам."
+      }
+    ],
+    "glossary": {
+      "rephrase": {
+        "translation": "перефразировать",
+        "partOfSpeech": "verb"
+      },
+      "idiom": {
+        "translation": "идиома",
+        "partOfSpeech": "noun"
+      },
+      "slang": {
+        "translation": "сленг",
+        "partOfSpeech": "noun"
+      },
+      "nuance": {
+        "translation": "нюанс",
+        "partOfSpeech": "noun"
+      },
+      "bridge": {
+        "translation": "мост",
+        "partOfSpeech": "noun"
+      },
+      "awkward": {
+        "translation": "неловкий",
+        "partOfSpeech": "adjective"
+      },
+      "instant": {
+        "translation": "мгновенный",
+        "partOfSpeech": "adjective"
+      },
+      "confident": {
+        "translation": "уверенный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why does she sometimes change her wording before using the translator?",
+        "options": [
+          "Because the translator is too slow",
+          "Because idioms are difficult for it",
+          "Because she prefers dictionaries",
+          "Because the phone battery is low"
+        ],
+        "answer": 1,
+        "explanation": "The text says idioms sometimes slip through the cracks, so she rephrases tricky phrases."
+      },
+      {
+        "id": "q2",
+        "question": "What does the live caption feature do during a video call?",
+        "options": [
+          "It records the call",
+          "It shows a rough translation of spoken words",
+          "It blocks background noise",
+          "It translates text messages"
+        ],
+        "answer": 1,
+        "explanation": "The text explains the live caption feature catches spoken words and shows a rough translation underneath."
+      },
+      {
+        "id": "q3",
+        "question": "How does she feel about the technology at the end of the text?",
+        "options": [
+          "Unsure and hesitant",
+          "Confident and grateful",
+          "Frustrated and annoyed",
+          "Indifferent and bored"
+        ],
+        "answer": 1,
+        "explanation": "The final sentence states she feels more confident thanks to these everyday tools."
+      }
+    ]
+  },
+  {
+    "id": "battery-limits-and-physics",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Battery Limits and Physics",
+    "sentences": [
+      {
+        "text": "A young engineer often wonders why her phone stops lasting longer, even though she charges it every night.",
+        "translationRu": "Молодой инженер часто задается вопросом, почему её телефон перестаёт работать дольше, хотя она заряжает его каждую ночь."
+      },
+      {
+        "text": "The answer lies in the chemistry of the cells, which can only store a certain amount of energy.",
+        "translationRu": "Ответ кроется в химии элементов, которые могут хранить только определённое количество энергии."
+      },
+      {
+        "text": "When a battery is repeatedly charged and drained, its internal structure slowly degrades.",
+        "translationRu": "При многократной зарядке и разрядке внутренняя структура аккумулятора постепенно деградирует."
+      },
+      {
+        "text": "This process reduces the voltage that each cell can deliver, making the whole pack weaker.",
+        "translationRu": "Этот процесс снижает напряжение, которое может выдавать каждый элемент, делая весь блок слабее."
+      },
+      {
+        "text": "Even the best materials hit a physical ceiling, because electrons can only move so fast inside the electrolyte.",
+        "translationRu": "Даже лучшие материалы достигают физического предела, потому что электроны могут двигаться только так быстро внутри электролита."
+      },
+      {
+        "text": "Manufacturers try to push the limit by adding cooling systems, but heat still speeds up the wear.",
+        "translationRu": "Производители пытаются превзойти предел, добавляя системы охлаждения, но тепло всё равно ускоряет износ."
+      },
+      {
+        "text": "As a result, many users replace their devices after a few years, not because they want a new model, but because the battery no longer holds enough charge.",
+        "translationRu": "В результате многие пользователи меняют свои устройства спустя несколько лет, не потому что хотят новую модель, а потому что батарея больше не удерживает достаточный заряд."
+      },
+      {
+        "text": "Some innovators are experimenting with solid‑state cells, hoping they will keep more energy without the same degradation.",
+        "translationRu": "Некоторые новаторы экспериментируют с твёрдо́тельными элементами, надеясь, что они будут сохранять больше энергии без такого же износа."
+      },
+      {
+        "text": "If those succeed, everyday gadgets could run much longer between charges, but the physics still sets a hard boundary.",
+        "translationRu": "Если им удастся, повседневные гаджеты смогут работать гораздо дольше между зарядками, но физика всё равно ставит твёрдый предел."
+      },
+      {
+        "text": "For now, the smartest approach is to avoid deep discharges and keep the device in a moderate temperature.",
+        "translationRu": "Пока что самый разумный подход — избегать глубоких разрядов и держать устройство при умеренной температуре."
+      }
+    ],
+    "glossary": {
+      "degrade": {
+        "translation": "деградировать",
+        "partOfSpeech": "verb"
+      },
+      "electrolyte": {
+        "translation": "электролит",
+        "partOfSpeech": "noun"
+      },
+      "solid‑state": {
+        "translation": "твердотельный",
+        "partOfSpeech": "adjective"
+      },
+      "boundary": {
+        "translation": "граница",
+        "partOfSpeech": "noun"
+      },
+      "cooling": {
+        "translation": "охлаждение",
+        "partOfSpeech": "noun"
+      },
+      "voltage": {
+        "translation": "напряжение",
+        "partOfSpeech": "noun"
+      },
+      "replace": {
+        "translation": "заменять",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens to a battery after many charge cycles?",
+        "options": [
+          "It becomes lighter",
+          "Its internal structure degrades",
+          "It gains more voltage",
+          "It stops heating up"
+        ],
+        "answer": 1,
+        "explanation": "The text states that repeated charging and draining slowly degrades the internal structure."
+      },
+      {
+        "id": "q2",
+        "question": "Why do manufacturers add cooling systems to batteries?",
+        "options": [
+          "To make the device look cooler",
+          "Because heat speeds up wear",
+          "To increase the screen size",
+          "To improve Wi‑Fi range"
+        ],
+        "answer": 1,
+        "explanation": "The text explains that heat still speeds up wear, so cooling systems are added to mitigate this."
+      },
+      {
+        "id": "q3",
+        "question": "What is the suggested user habit to prolong battery life?",
+        "options": [
+          "Charge only at night",
+          "Avoid deep discharges and keep moderate temperature",
+          "Use the fastest charger available",
+          "Keep the device in a freezer"
+        ],
+        "answer": 1,
+        "explanation": "The final sentence advises to avoid deep discharges and keep the device at a moderate temperature."
+      }
+    ]
+  },
+  {
+    "id": "volunteer-driven-open-source",
+    "level": "B1-B2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Volunteer‑Driven Open Source",
+    "sentences": [
+      {
+        "text": "A small community of volunteers gathers online to improve a free photo‑editing program.",
+        "translationRu": "Небольшое сообщество добровольцев собирается онлайн, чтобы улучшить бесплатную программу для редактирования фотографий."
+      },
+      {
+        "text": "They write code, fix bugs, and add new filters that anyone can use without paying.",
+        "translationRu": "Они пишут код, исправляют ошибки и добавляют новые фильтры, которые каждый может использовать бесплатно."
+      },
+      {
+        "text": "Because there is no single boss, decisions are made through open discussions on a public forum.",
+        "translationRu": "Поскольку нет единого начальника, решения принимаются через открытые обсуждения на публичном форуме."
+      },
+      {
+        "text": "When a contributor suggests a feature, the group votes on whether it fits the project’s goals.",
+        "translationRu": "Когда участник предлагает функцию, группа голосует, подходит ли она целям проекта."
+      },
+      {
+        "text": "If the idea wins, a few volunteers pick it up and start coding together.",
+        "translationRu": "Если идея выигрывает, несколько добровольцев берут её и начинают совместно писать код."
+      },
+      {
+        "text": "They often use version‑control tools to track changes, so anyone can see who added what.",
+        "translationRu": "Они часто используют системы контроля версий, чтобы отслеживать изменения, поэтому каждый может видеть, кто что добавил."
+      },
+      {
+        "text": "The software is then packaged and released, and users worldwide give feedback that fuels the next round.",
+        "translationRu": "Программа затем упаковывается и выпускается, а пользователи по всему миру дают обратную связь, которая питает следующий цикл."
+      },
+      {
+        "text": "Even though the work is unpaid, many volunteers feel proud because their code helps millions.",
+        "translationRu": "Несмотря на то, что работа неоплачиваемая, многие добровольцы гордятся тем, что их код помогает миллионам."
+      },
+      {
+        "text": "The model shows that a shared purpose can bring together people from different backgrounds without a big budget.",
+        "translationRu": "Эта модель показывает, что общая цель может объединить людей из разных слоёв без большого бюджета."
+      },
+      {
+        "text": "As new contributors join, the project keeps growing, proving that collaboration can outshine commercial pressure.",
+        "translationRu": "По мере присоединения новых участников проект продолжает расти, доказывая, что сотрудничество может превзойти коммерческое давление."
+      }
+    ],
+    "glossary": {
+      "contributor": {
+        "translation": "участник",
+        "partOfSpeech": "noun"
+      },
+      "filter": {
+        "translation": "фильтр",
+        "partOfSpeech": "noun"
+      },
+      "version‑control": {
+        "translation": "система контроля версий",
+        "partOfSpeech": "noun"
+      },
+      "unpaid": {
+        "translation": "неоплачиваемый",
+        "partOfSpeech": "adjective"
+      },
+      "feedback": {
+        "translation": "обратная связь",
+        "partOfSpeech": "noun"
+      },
+      "collaboration": {
+        "translation": "сотрудничество",
+        "partOfSpeech": "noun"
+      },
+      "budget": {
+        "translation": "бюджет",
+        "partOfSpeech": "noun"
+      },
+      "proud": {
+        "translation": "гордый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "How are decisions about new features made in the project?",
+        "options": [
+          "A single leader decides",
+          "Through secret meetings",
+          "Via open discussions and voting",
+          "By random selection"
+        ],
+        "answer": 2,
+        "explanation": "The text says decisions are made through open discussions on a public forum and voting."
+      },
+      {
+        "id": "q2",
+        "question": "What tool helps volunteers see who added which changes?",
+        "options": [
+          "A spreadsheet",
+          "Version‑control tools",
+          "A photo editor",
+          "A messaging app"
+        ],
+        "answer": 1,
+        "explanation": "The text mentions they use version‑control tools to track changes."
+      },
+      {
+        "id": "q3",
+        "question": "Why do many volunteers continue to work on the software?",
+        "options": [
+          "Because they receive high salaries",
+          "Because they enjoy the challenge of coding",
+          "Because they feel proud that their code helps millions",
+          "Because they want to travel the world"
+        ],
+        "answer": 2,
+        "explanation": "The text states volunteers feel proud because their code helps millions."
+      }
+    ]
+  },
+  {
+    "id": "the-pull-of-recommendation-feeds",
+    "level": "C1-C2",
+    "topic": "technology",
+    "generated": true,
+    "title": "The Pull of Recommendation Feeds",
+    "sentences": [
+      {
+        "text": "When a user opens a streaming platform, the first thing that greets them is a curated feed of suggestions.",
+        "translationRu": "Когда пользователь открывает стриминговую платформу, первое, что его встречает, – это отобранная лента рекомендаций."
+      },
+      {
+        "text": "These feeds are generated by algorithms that analyse past viewing habits, search queries and even the duration of pauses.",
+        "translationRu": "Эти ленты генерируются алгоритмами, которые анализируют прошлые просмотры, поисковые запросы и даже продолжительность пауз."
+      },
+      {
+        "text": "Because the system constantly reinforces patterns, users are nudged toward content that mirrors their established preferences.",
+        "translationRu": "Поскольку система постоянно усиливает паттерны, пользователи подталкиваются к контенту, отражающему их уже сформированные предпочтения."
+      },
+      {
+        "text": "Consequently, the diversity of exposure narrows, creating an echo chamber of familiar genres and narratives.",
+        "translationRu": "В результате разнообразие восприятия сужается, образуя эхо‑камеру знакомых жанров и сюжетов."
+      },
+      {
+        "text": "The platform benefits from increased watch time, yet the cultural landscape may suffer from homogenisation.",
+        "translationRu": "Платформа выигрывает за счёт увеличения времени просмотра, однако культурный ландшафт может пострадать от гомогенизации."
+      },
+      {
+        "text": "Some users attempt to break the cycle by deliberately seeking out obscure titles, but the algorithm quickly readjusts to the new behaviour.",
+        "translationRu": "Некоторые пользователи пытаются разорвать цикл, сознательно ищя малоизвестные названия, но алгоритм быстро адаптируется к новому поведению."
+      },
+      {
+        "text": "A subtle feedback loop thus emerges, where the feed shapes taste and taste reshapes the feed.",
+        "translationRu": "Тонкая петля обратной связи, в которой лента формирует вкус, а вкус переоформляет ленту."
+      },
+      {
+        "text": "Critics argue that this dynamic erodes serendipity, the pleasant surprise of stumbling upon an unexpected masterpiece.",
+        "translationRu": "Критики утверждают, что эта динамика разрушает случайность – приятный сюрприз от неожиданного открытия шедевра."
+      },
+      {
+        "text": "Nevertheless, the economic incentive to retain attention remains a powerful driver of design choices.",
+        "translationRu": "Тем не менее, экономический стимул удерживать внимание остаётся мощным драйвером дизайнерских решений."
+      },
+      {
+        "text": "In the end, the recommendation feed is both a mirror and a mold, reflecting current inclinations while subtly shaping future ones.",
+        "translationRu": "В конце концов, лента рекомендаций одновременно зеркало и форма, отражающая текущие склонности и тонко формирующая будущие."
+      }
+    ],
+    "glossary": {
+      "curate": {
+        "translation": "отбирать",
+        "partOfSpeech": "verb"
+      },
+      "algorithm": {
+        "translation": "алгоритм",
+        "partOfSpeech": "noun"
+      },
+      "homogenisation": {
+        "translation": "гомогенизация",
+        "partOfSpeech": "noun"
+      },
+      "feedback loop": {
+        "translation": "петля обратной связи",
+        "partOfSpeech": "phrase"
+      },
+      "serendipity": {
+        "translation": "случайность, удачное стечение обстоятельств",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What primarily determines the content of the recommendation feed?",
+        "options": [
+          "User's age",
+          "Random selection",
+          "Algorithmic analysis of past behaviour",
+          "Time of day"
+        ],
+        "answer": 2,
+        "explanation": "The text states the feed is generated by algorithms analysing past viewing habits and related data."
+      },
+      {
+        "id": "q2",
+        "question": "According to the passage, what cultural effect may result from narrow feeds?",
+        "options": [
+          "Increased diversity",
+          "Homogenisation of the cultural landscape",
+          "Revival of classic genres",
+          "Greater international collaboration"
+        ],
+        "answer": 1,
+        "explanation": "The text mentions that cultural landscape may suffer from homogenisation due to narrowed exposure."
+      },
+      {
+        "id": "q3",
+        "question": "How do users who seek obscure titles affect the algorithm?",
+        "options": [
+          "It ignores them completely",
+          "It quickly readjusts to the new behaviour",
+          "It deletes their history",
+          "It blocks further recommendations"
+        ],
+        "answer": 1,
+        "explanation": "The passage says the algorithm quickly readjusts to the new behaviour of users seeking obscure titles."
+      }
+    ]
+  },
+  {
+    "id": "the-burden-of-legacy-devices",
+    "level": "C1-C2",
+    "topic": "technology",
+    "generated": true,
+    "title": "The Burden of Legacy Devices",
+    "sentences": [
+      {
+        "text": "Every year, countless gadgets reach the end of their commercial lifespan yet remain in households.",
+        "translationRu": "Каждый год бесчисленное количество гаджетов достигает конца своего коммерческого срока, но остаётся в домах."
+      },
+      {
+        "text": "Owners often face the dilemma of discarding functional hardware versus investing in costly repairs.",
+        "translationRu": "Владельцы часто сталкиваются с дилеммой: избавиться от рабочей техники или вложить дорогостоящий ремонт."
+      },
+      {
+        "text": "Spare parts become scarce as manufacturers cease production, driving prices upward for the few remaining suppliers.",
+        "translationRu": "Запасные части становятся редкостью, поскольку производители прекращают их выпуск, что повышает цены у оставшихся поставщиков."
+      },
+      {
+        "text": "Moreover, the software that powers these devices is rarely updated, exposing them to security vulnerabilities.",
+        "translationRu": "Более того, программное обеспечение, поддерживающее эти устройства, редко обновляется, делая их уязвимыми для угроз безопасности."
+      },
+      {
+        "text": "Consumers therefore weigh the intangible cost of potential data breaches against the tangible expense of a new device.",
+        "translationRu": "Потребители, следовательно, взвешивают нематериальные издержки потенциальных утечек данных против ощутимых расходов на новое устройство."
+      },
+      {
+        "text": "In many cases, the decision leans toward replacement because the cumulative cost of parts, labour and energy consumption surpasses the price of a modern alternative.",
+        "translationRu": "Во многих случаях решение склоняется к замене, поскольку совокупные расходы на детали, работу и энергопотребление превышают стоимость современного аналога."
+      },
+      {
+        "text": "Environmental arguments for repair are compelling, yet they often clash with the pragmatic calculus of personal budgets.",
+        "translationRu": "Экологические аргументы в пользу ремонта убедительны, однако они часто конфликтуют с практическим расчётом личного бюджета."
+      },
+      {
+        "text": "Some tech enthusiasts mitigate the issue by refurbishing devices themselves, thereby extending the functional lifespan without external expenditure.",
+        "translationRu": "Некоторые технологические энтузиасты смягчают проблему, самостоятельно ремонтируя устройства, тем самым продлевая их срок службы без внешних затрат."
+      },
+      {
+        "text": "Nonetheless, the systemic trend toward planned obsolescence ensures a steady flow of obsolete hardware into the waste stream.",
+        "translationRu": "Тем не менее, системная тенденция к запланированному устареванию гарантирует постоянный приток устаревшего оборудования в потоки отходов."
+      },
+      {
+        "text": "Ultimately, the cost of keeping old devices alive is a complex interplay of financial, security and ecological considerations.",
+        "translationRu": "В конечном итоге, стоимость поддержания старых устройств в рабочем состоянии – это сложное взаимодействие финансовых, безопасностных и экологических факторов."
+      }
+    ],
+    "glossary": {
+      "obsolescence": {
+        "translation": "устаревание",
+        "partOfSpeech": "noun"
+      },
+      "refurbish": {
+        "translation": "восстанавливать",
+        "partOfSpeech": "verb"
+      },
+      "pragmatic": {
+        "translation": "прагматичный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why do spare parts become more expensive over time?",
+        "options": [
+          "Because demand increases",
+          "Because manufacturers stop producing them",
+          "Because they become heavier",
+          "Because they are recycled"
+        ],
+        "answer": 1,
+        "explanation": "The text says manufacturers cease production, making parts scarce and driving prices up."
+      },
+      {
+        "id": "q2",
+        "question": "What is one ecological argument mentioned in the passage?",
+        "options": [
+          "Repair reduces waste",
+          "Repair increases energy use",
+          "Repair is always cheaper",
+          "Repair eliminates security risks"
+        ],
+        "answer": 0,
+        "explanation": "The passage notes that repairing devices extends lifespan and reduces waste."
+      },
+      {
+        "id": "q3",
+        "question": "According to the text, what often decides between repair and replacement?",
+        "options": [
+          "Brand loyalty",
+          "Aesthetic preferences",
+          "Cumulative cost of parts, labour and energy",
+          "Availability of tutorials"
+        ],
+        "answer": 2,
+        "explanation": "The text states the cumulative cost of parts, labour and energy consumption often leads to replacement."
+      }
+    ]
+  },
+  {
+    "id": "smart-homes-beyond-their-apps",
+    "level": "C1-C2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Smart Homes Beyond Their Apps",
+    "sentences": [
+      {
+        "text": "A connected household integrates lighting, climate control and security through a central hub that communicates via proprietary protocols.",
+        "translationRu": "Связанное домашнее хозяйство интегрирует освещение, климат-контроль и безопасность через центральный хаб, общающийся через собственные протоколы."
+      },
+      {
+        "text": "Initially, the convenience of a single smartphone interface attracts users, but the longevity of that experience hinges on software support.",
+        "translationRu": "Изначально удобство единого интерфейса на смартфоне привлекает пользователей, однако продолжительность этого опыта зависит от поддержки программного обеспечения."
+      },
+      {
+        "text": "When the manufacturer discontinues updates, the hub’s firmware becomes vulnerable and its companion apps may cease to function on newer operating systems.",
+        "translationRu": "Когда производитель прекращает выпуск обновлений, прошивка хаба становится уязвимой, а сопутствующие приложения могут перестать работать на новых операционных системах."
+      },
+      {
+        "text": "Consequently, homeowners are forced to either lock themselves out of automation or resort to third‑party bridges that translate old protocols into current standards.",
+        "translationRu": "В результате домовладельцы вынуждены либо лишиться доступа к автоматизации, либо прибегать к сторонним мостам, переводящим старые протоколы в современные стандарты."
+      },
+      {
+        "text": "These bridges, while extending usability, introduce additional points of failure and often lack the seamless integration of the original ecosystem.",
+        "translationRu": "Эти мосты, хотя и продлевают возможность использования, вводят дополнительные точки отказа и часто не обладают плавной интеграцией оригинальной экосистемы."
+      },
+      {
+        "text": "Moreover, the physical devices themselves—sensors, actuators and displays—remain operational, highlighting a disparity between hardware durability and software ephemerality.",
+        "translationRu": "Более того, сами физические устройства — датчики, приводы и дисплеи — остаются рабочими, подчёркивая разрыв между долговечностью аппаратного обеспечения и мимолетностью программного."
+      },
+      {
+        "text": "Some residents mitigate the risk by open‑sourcing the hub’s firmware, thereby gaining control over updates and security patches.",
+        "translationRu": "Некоторые жители снижают риск, открывая исходный код прошивки хаба, получая тем самым контроль над обновлениями и патчами безопасности."
+      },
+      {
+        "text": "Nevertheless, this approach demands technical expertise and may void warranties, making it unsuitable for the average consumer.",
+        "translationRu": "Тем не менее, такой подход требует технической экспертизы и может аннулировать гарантию, что делает его неприемлемым для среднего потребителя."
+      },
+      {
+        "text": "In the long run, the sustainability of a smart home depends more on the modularity of its components than on the longevity of any single app.",
+        "translationRu": "В долгосрочной перспективе устойчивость умного дома зависит больше от модульности его компонентов, чем от долговечности какого‑то одного приложения."
+      },
+      {
+        "text": "Thus, designing for future‑proof interoperability becomes as crucial as the initial convenience promised by the system.",
+        "translationRu": "Таким образом, проектирование с учётом будущей совместимости становится столь же важным, как и обещанное изначально удобство системы."
+      }
+    ],
+    "glossary": {
+      "proprietary": {
+        "translation": "собственный, закрытый",
+        "partOfSpeech": "adjective"
+      },
+      "ephemerality": {
+        "translation": "мимолетность",
+        "partOfSpeech": "noun"
+      },
+      "bridge": {
+        "translation": "мост (программный)",
+        "partOfSpeech": "noun"
+      },
+      "modularity": {
+        "translation": "модульность",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens when the manufacturer stops providing updates?",
+        "options": [
+          "The hardware stops working",
+          "The hub’s firmware becomes vulnerable and apps may stop working",
+          "The home loses electricity",
+          "The warranty is automatically extended"
+        ],
+        "answer": 1,
+        "explanation": "The text states that discontinued updates make firmware vulnerable and apps may cease to function."
+      },
+      {
+        "id": "q2",
+        "question": "Why might third‑party bridges be considered a compromise?",
+        "options": [
+          "They are cheaper than original devices",
+          "They add extra points of failure and lack seamless integration",
+          "They are illegal in most countries",
+          "They improve battery life"
+        ],
+        "answer": 1,
+        "explanation": "The passage explains bridges introduce additional failure points and often lack seamless integration."
+      },
+      {
+        "id": "q3",
+        "question": "According to the article, what factor is most important for the long‑term sustainability of a smart home?",
+        "options": [
+          "The brand name of the hub",
+          "The modularity of components",
+          "The number of apps available",
+          "The color of the devices"
+        ],
+        "answer": 1,
+        "explanation": "The text concludes that modularity of components is more crucial than any single app’s longevity."
+      }
+    ]
+  },
+  {
+    "id": "physics-at-the-battery-edge",
+    "level": "C1-C2",
+    "topic": "technology",
+    "generated": true,
+    "title": "Physics at the Battery Edge",
+    "sentences": [
+      {
+        "text": "Modern portable devices depend on energy storage that pushes the theoretical limits of electrochemical physics.",
+        "translationRu": "Современные портативные устройства зависят от систем энергосбережения, приближающих теоретические пределы электрохимической физики."
+      },
+      {
+        "text": "Lithium‑based cells dominate the market, yet their specific energy approaches a ceiling dictated by ion mobility.",
+        "translationRu": "Литиевые элементы доминируют на рынке, однако их удельная энергия приближается к потолку, определяемому подвижностью ионов."
+      },
+      {
+        "text": "Engineers respond by layering cathode materials, hoping to extract marginal gains without compromising safety.",
+        "translationRu": "Инженеры отвечают, наслаивая материалы катода, надеясь извлечь небольшие приросты без ущерба для безопасности."
+      },
+      {
+        "text": "Such incremental tweaks often yield diminishing returns, as the thermodynamic efficiency curve flattens near its apex.",
+        "translationRu": "Такие постепенные корректировки часто приводят к убывающей отдаче, поскольку кривая термодинамической эффективности выравнивается у вершины."
+      },
+      {
+        "text": "Consequently, research pivots toward alternative chemistries that circumvent the lithium bottleneck entirely.",
+        "translationRu": "Следовательно, исследования переключаются на альтернативные химические системы, полностью обходящие узкое место лития."
+      },
+      {
+        "text": "Solid‑state electrolytes, for instance, promise higher voltage thresholds while reducing dendrite formation.",
+        "translationRu": "Твердотельные электролиты, например, обещают более высокие пороги напряжения и снижают образование дендритов."
+      },
+      {
+        "text": "However, their manufacturing processes demand crystalline precision that current factories struggle to achieve at scale.",
+        "translationRu": "Тем не менее, их производственные процессы требуют кристаллической точности, которой современные заводы с трудом достигают в больших масштабах."
+      },
+      {
+        "text": "Thus, the industry confronts a paradox: advancing performance without proportionally increasing complexity.",
+        "translationRu": "Таким образом, отрасль сталкивается с парадоксом: повышение производительности без пропорционального увеличения сложности."
+      },
+      {
+        "text": "A pragmatic outlook suggests a hybrid approach, combining incremental lithium improvements with selective adoption of novel systems.",
+        "translationRu": "Практический взгляд предполагает гибридный подход, сочетающий постепенные улучшения лития с избирательным внедрением новых систем."
+      },
+      {
+        "text": "In the long run, the sustainability of portable power will hinge on how swiftly such hybrid solutions become economically viable.",
+        "translationRu": "В долгосрочной перспективе устойчивость портативного питания будет зависеть от того, насколько быстро такие гибридные решения станут экономически жизнеспособными."
+      },
+      {
+        "text": "Until then, everyday users will continue to replace devices at a rate dictated more by marketing cycles than by genuine energy deficits.",
+        "translationRu": "До тех пор обычные пользователи будут продолжать менять устройства по темпам, определяемым скорее маркетинговыми циклами, чем реальными энергетическими дефицитами."
+      }
+    ],
+    "glossary": {
+      "thermodynamic": {
+        "translation": "термодинамический",
+        "partOfSpeech": "adjective"
+      },
+      "dendrite": {
+        "translation": "дендрит",
+        "partOfSpeech": "noun"
+      },
+      "paradox": {
+        "translation": "парадокс",
+        "partOfSpeech": "noun"
+      },
+      "hybrid": {
+        "translation": "гибридный",
+        "partOfSpeech": "adjective"
+      },
+      "viable": {
+        "translation": "жизнеспособный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is identified as a major obstacle for solid‑state electrolytes?",
+        "options": [
+          "Low voltage capability",
+          "Excessive weight",
+          "Crystalline precision in manufacturing",
+          "High toxicity"
+        ],
+        "answer": 2,
+        "explanation": "The text says their manufacturing processes demand crystalline precision that factories struggle to achieve."
+      },
+      {
+        "id": "q2",
+        "question": "Why does the text say performance gains become harder near the apex of the efficiency curve?",
+        "options": [
+          "Because safety standards increase",
+          "Because ion mobility improves",
+          "Because thermodynamic efficiency flattens",
+          "Because consumer demand drops"
+        ],
+        "answer": 2,
+        "explanation": "It mentions the thermodynamic efficiency curve flattens near its apex, leading to diminishing returns."
+      },
+      {
+        "id": "q3",
+        "question": "According to the passage, what primarily drives frequent device replacement today?",
+        "options": [
+          "Battery depletion",
+          "Marketing cycles",
+          "Regulatory mandates",
+          "Software obsolescence"
+        ],
+        "answer": 1,
+        "explanation": "The final sentence states replacements are dictated more by marketing cycles than genuine energy deficits."
+      }
+    ]
+  }
+]

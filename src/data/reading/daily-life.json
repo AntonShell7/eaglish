@@ -1,0 +1,2234 @@
+[
+  {
+    "id": "city-commute-morning",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "City Commute Morning",
+    "sentences": [
+      {
+        "text": "Every morning a person leaves home at seven.",
+        "translationRu": "Каждое утро человек выходит из дома в семь."
+      },
+      {
+        "text": "He walks to the bus stop near the park.",
+        "translationRu": "Он идёт к автобусной остановке у парка."
+      },
+      {
+        "text": "The bus arrives at eight and it is often full.",
+        "translationRu": "Автобус приезжает в восемь, и он часто переполнен."
+      },
+      {
+        "text": "He stands and holds the handrail.",
+        "translationRu": "Он стоит и держит поручень."
+      },
+      {
+        "text": "The bus goes through many streets and past tall buildings.",
+        "translationRu": "Автобус проезжает множество улиц и мимо высоких зданий."
+      },
+      {
+        "text": "He gets off at the office station at nine.",
+        "translationRu": "Он выходит на станции у офиса в девять."
+      },
+      {
+        "text": "He walks into the building and says hello to a colleague.",
+        "translationRu": "Он заходит в здание и приветствует коллегу."
+      },
+      {
+        "text": "At lunch he rides the subway back home and feels tired but happy.",
+        "translationRu": "Во время обеда он едет на метро домой и чувствует себя усталым, но счастливым."
+      }
+    ],
+    "glossary": {
+      "bus": {
+        "translation": "автобус",
+        "partOfSpeech": "noun"
+      },
+      "handrail": {
+        "translation": "поручень",
+        "partOfSpeech": "noun"
+      },
+      "subway": {
+        "translation": "метро",
+        "partOfSpeech": "noun"
+      },
+      "colleague": {
+        "translation": "коллега",
+        "partOfSpeech": "noun"
+      },
+      "office": {
+        "translation": "офис",
+        "partOfSpeech": "noun"
+      },
+      "station": {
+        "translation": "станция",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "At what time does the person leave home?",
+        "options": [
+          "seven",
+          "eight",
+          "nine",
+          "ten"
+        ],
+        "answer": 0,
+        "explanation": "The first sentence says he leaves home at seven."
+      },
+      {
+        "id": "q2",
+        "question": "Which transport does he use after lunch?",
+        "options": [
+          "bus",
+          "car",
+          "subway",
+          "bicycle"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence states he rides the subway after lunch."
+      },
+      {
+        "id": "q3",
+        "question": "Where does he get off the bus?",
+        "options": [
+          "home",
+          "office station",
+          "park",
+          "school"
+        ],
+        "answer": 1,
+        "explanation": "The sixth sentence says he gets off at the office station."
+      }
+    ]
+  },
+  {
+    "id": "cooking-cheap-meals",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Cooking Cheap Meals",
+    "sentences": [
+      {
+        "text": "Anna learns to cook cheap meals.",
+        "translationRu": "Анна учится готовить дешёвые блюда."
+      },
+      {
+        "text": "She buys rice, beans, and vegetables.",
+        "translationRu": "Она покупает рис, бобы и овощи."
+      },
+      {
+        "text": "She washes the vegetables and cuts them.",
+        "translationRu": "Она моет овощи и резает их."
+      },
+      {
+        "text": "She boils rice and cooks beans.",
+        "translationRu": "Она варит рис и готовит бобы."
+      },
+      {
+        "text": "She mixes the rice, beans, and vegetables.",
+        "translationRu": "Она смешивает рис, бобы и овощи."
+      },
+      {
+        "text": "She adds salt and a little oil.",
+        "translationRu": "Она добавляет соль и немного масла."
+      },
+      {
+        "text": "The meal is ready and she eats it.",
+        "translationRu": "Блюдо готово, и она ест его."
+      },
+      {
+        "text": "She feels proud because she saves money.",
+        "translationRu": "Она гордится, потому что экономит деньги."
+      }
+    ],
+    "glossary": {
+      "cheap": {
+        "translation": "дешёвый",
+        "partOfSpeech": "adjective"
+      },
+      "vegetable": {
+        "translation": "овощ",
+        "partOfSpeech": "noun"
+      },
+      "boil": {
+        "translation": "варить",
+        "partOfSpeech": "verb"
+      },
+      "mix": {
+        "translation": "смешивать",
+        "partOfSpeech": "verb"
+      },
+      "proud": {
+        "translation": "гордый",
+        "partOfSpeech": "adjective"
+      },
+      "save": {
+        "translation": "экономить",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does Anna buy?",
+        "options": [
+          "rice, beans, and vegetables",
+          "meat and cheese",
+          "bread and butter",
+          "fish and fruit"
+        ],
+        "answer": 0,
+        "explanation": "The text says she buys rice, beans, and vegetables."
+      },
+      {
+        "id": "q2",
+        "question": "Which ingredients does she add at the end?",
+        "options": [
+          "sugar and milk",
+          "pepper and garlic",
+          "salt and a little oil",
+          "tomato sauce"
+        ],
+        "answer": 2,
+        "explanation": "The last cooking step mentioned is that she adds salt and a little oil."
+      },
+      {
+        "id": "q3",
+        "question": "How does she feel after cooking?",
+        "options": [
+          "hungry",
+          "proud",
+          "sad",
+          "tired"
+        ],
+        "answer": 1,
+        "explanation": "The text states she feels proud because she saves money."
+      }
+    ]
+  },
+  {
+    "id": "small-change-in-morning",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Small Change in Morning",
+    "sentences": [
+      {
+        "text": "Every day I wake up at six o'clock.",
+        "translationRu": "Каждый день я просыпаюсь в шесть часов."
+      },
+      {
+        "text": "I drink coffee and read the news.",
+        "translationRu": "Я пью кофе и читаю новости."
+      },
+      {
+        "text": "I walk to the bus stop and wait.",
+        "translationRu": "Я иду к автобусной остановке и жду."
+      },
+      {
+        "text": "One day I decide to set my alarm five minutes earlier.",
+        "translationRu": "Однажды я решил поставить будильник на пять минут раньше."
+      },
+      {
+        "text": "I get up early and stretch.",
+        "translationRu": "Я встаю рано и делаю растяжку."
+      },
+      {
+        "text": "I have more time to eat a fruit.",
+        "translationRu": "У меня больше времени, чтобы съесть фрукт."
+      },
+      {
+        "text": "I feel calm and ready for the day.",
+        "translationRu": "Я чувствую себя спокойно и готов к дню."
+      },
+      {
+        "text": "My morning is now nicer and I smile more.",
+        "translationRu": "Моё утро теперь приятнее, и я улыбаюсь больше."
+      }
+    ],
+    "glossary": {
+      "alarm": {
+        "translation": "будильник",
+        "partOfSpeech": "noun"
+      },
+      "stretch": {
+        "translation": "растягиваться",
+        "partOfSpeech": "verb"
+      },
+      "calm": {
+        "translation": "спокойный",
+        "partOfSpeech": "adjective"
+      },
+      "nicer": {
+        "translation": "приятнее",
+        "partOfSpeech": "adjective"
+      },
+      "fruit": {
+        "translation": "фрукт",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What time does the person usually wake up?",
+        "options": [
+          "six o'clock",
+          "five o'clock",
+          "seven o'clock",
+          "eight o'clock"
+        ],
+        "answer": 0,
+        "explanation": "The first sentence says the person wakes up at six o'clock."
+      },
+      {
+        "id": "q2",
+        "question": "What new habit did the person add after the decision?",
+        "options": [
+          "reading a book",
+          "taking a bus",
+          "eating a fruit",
+          "watching TV"
+        ],
+        "answer": 2,
+        "explanation": "Sentence six says the person has more time to eat a fruit."
+      },
+      {
+        "id": "q3",
+        "question": "How does the person feel after the change?",
+        "options": [
+          "tired",
+          "sad",
+          "angry",
+          "calm"
+        ],
+        "answer": 3,
+        "explanation": "Sentence seven states the person feels calm."
+      }
+    ]
+  },
+  {
+    "id": "living-with-roommates",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Living with roommates",
+    "sentences": [
+      {
+        "text": "I live with two roommates in a small flat.",
+        "translationRu": "Я живу с двумя соседями по комнате в небольшой квартире."
+      },
+      {
+        "text": "We share the kitchen and the living room.",
+        "translationRu": "Мы делим кухню и гостиную."
+      },
+      {
+        "text": "Each morning we clean the dishes together.",
+        "translationRu": "Каждое утро мы вместе моем посуду."
+      },
+      {
+        "text": "My roommate likes to cook rice and beans.",
+        "translationRu": "Мой сосед по комнате любит готовить рис и бобы."
+      },
+      {
+        "text": "He often plays music.",
+        "translationRu": "Он часто играет музыку."
+      },
+      {
+        "text": "He also cooks.",
+        "translationRu": "Он тоже готовит."
+      },
+      {
+        "text": "The other roommate works from home and reads books.",
+        "translationRu": "Другой сосед работает из дома и читает книги."
+      },
+      {
+        "text": "We take turns to take out the trash.",
+        "translationRu": "Мы по очереди выносим мусор."
+      },
+      {
+        "text": "Living together makes the rent cheaper and the days brighter.",
+        "translationRu": "Совместное проживание делает аренду дешевле и дни ярче."
+      }
+    ],
+    "glossary": {
+      "roommate": {
+        "translation": "сосед по комнате",
+        "partOfSpeech": "noun"
+      },
+      "flat": {
+        "translation": "квартира",
+        "partOfSpeech": "noun"
+      },
+      "kitchen": {
+        "translation": "кухня",
+        "partOfSpeech": "noun"
+      },
+      "trash": {
+        "translation": "мусор",
+        "partOfSpeech": "noun"
+      },
+      "cheap": {
+        "translation": "дешёвый",
+        "partOfSpeech": "adjective"
+      },
+      "bright": {
+        "translation": "яркий",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "How many roommates does the narrator have?",
+        "options": [
+          "One",
+          "Two",
+          "Three",
+          "Four"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says the narrator lives with two roommates."
+      },
+      {
+        "id": "q2",
+        "question": "What does the other roommate do at home?",
+        "options": [
+          "Plays music",
+          "Cooks rice",
+          "Works from home and reads books",
+          "Cleans dishes"
+        ],
+        "answer": 2,
+        "explanation": "Sentence seven states that the other roommate works from home and reads books."
+      },
+      {
+        "id": "q3",
+        "question": "What is one benefit of living together mentioned in the text?",
+        "options": [
+          "The rent is cheaper",
+          "The flat is bigger",
+          "There is more music",
+          "They have a garden"
+        ],
+        "answer": 0,
+        "explanation": "The last sentence says living together makes the rent cheaper."
+      }
+    ]
+  },
+  {
+    "id": "planning-a-simple-week",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Planning a Simple Week",
+    "sentences": [
+      {
+        "text": "She writes a plan on a paper.",
+        "translationRu": "Она пишет план на листе бумаги."
+      },
+      {
+        "text": "She puts the plan on the fridge.",
+        "translationRu": "Она кладёт план на холодильник."
+      },
+      {
+        "text": "On Monday she goes to work at eight.",
+        "translationRu": "В понедельник она идёт на работу в восемь."
+      },
+      {
+        "text": "She cooks dinner at six.",
+        "translationRu": "Она готовит ужин в шесть."
+      },
+      {
+        "text": "On Tuesday she meets a friend for coffee.",
+        "translationRu": "Во вторник она встречается с другом за кофе."
+      },
+      {
+        "text": "She reads a book in the evening.",
+        "translationRu": "Она читает книгу вечером."
+      },
+      {
+        "text": "On Friday she cleans the house.",
+        "translationRu": "В пятницу она убирает дом."
+      },
+      {
+        "text": "She feels calm at the end of the week.",
+        "translationRu": "Она чувствует спокойствие в конце недели."
+      }
+    ],
+    "glossary": {
+      "plan": {
+        "translation": "план",
+        "partOfSpeech": "noun"
+      },
+      "fridge": {
+        "translation": "холодильник",
+        "partOfSpeech": "noun"
+      },
+      "monday": {
+        "translation": "понедельник",
+        "partOfSpeech": "noun"
+      },
+      "coffee": {
+        "translation": "кофе",
+        "partOfSpeech": "noun"
+      },
+      "clean": {
+        "translation": "убирать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does she put on the fridge?",
+        "options": [
+          "The plan",
+          "A picture",
+          "A note",
+          "A book"
+        ],
+        "answer": 0,
+        "explanation": "The text says she puts the plan on the fridge."
+      },
+      {
+        "id": "q2",
+        "question": "On which day does she meet a friend for coffee?",
+        "options": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "answer": 1,
+        "explanation": "The sentence states she meets a friend for coffee on Tuesday."
+      },
+      {
+        "id": "q3",
+        "question": "What does she feel at the end of the week?",
+        "options": [
+          "Tired",
+          "Happy",
+          "Calm",
+          "Hungry"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says she feels calm at the end of the week."
+      }
+    ]
+  },
+  {
+    "id": "new-flat-move",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "New Flat Move",
+    "sentences": [
+      {
+        "text": "I moved to a new flat last month.",
+        "translationRu": "Я переехал в новую квартиру в прошлом месяце."
+      },
+      {
+        "text": "The flat is on the third floor.",
+        "translationRu": "Квартира находится на третьем этаже."
+      },
+      {
+        "text": "I have a small kitchen and one bedroom.",
+        "translationRu": "У меня небольшая кухня и одна спальня."
+      },
+      {
+        "text": "I put the boxes in the living room.",
+        "translationRu": "Я поставил коробки в гостиной."
+      },
+      {
+        "text": "I unpacked the dishes and the books.",
+        "translationRu": "Я распаковал посуду и книги."
+      },
+      {
+        "text": "My neighbor helped me carry the heavy bag.",
+        "translationRu": "Мой сосед помог мне нести тяжёлый пакет."
+      },
+      {
+        "text": "We clean the hallway every week.",
+        "translationRu": "Мы убираем коридор каждую неделю."
+      },
+      {
+        "text": "I feel happy to live here now.",
+        "translationRu": "Я рад жить здесь сейчас."
+      }
+    ],
+    "glossary": {
+      "flat": {
+        "translation": "квартира",
+        "partOfSpeech": "noun"
+      },
+      "floor": {
+        "translation": "этаж",
+        "partOfSpeech": "noun"
+      },
+      "neighbor": {
+        "translation": "сосед",
+        "partOfSpeech": "noun"
+      },
+      "heavy": {
+        "translation": "тяжёлый",
+        "partOfSpeech": "adjective"
+      },
+      "hallway": {
+        "translation": "коридор",
+        "partOfSpeech": "noun"
+      },
+      "unpacked": {
+        "translation": "распаковал",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "On which floor is the flat?",
+        "options": [
+          "First floor",
+          "Second floor",
+          "Third floor",
+          "Fourth floor"
+        ],
+        "answer": 2,
+        "explanation": "The text says 'The flat is on the third floor.'"
+      },
+      {
+        "id": "q2",
+        "question": "Who helped the speaker carry the heavy bag?",
+        "options": [
+          "A friend",
+          "A neighbor",
+          "A family member",
+          "A stranger"
+        ],
+        "answer": 1,
+        "explanation": "The sentence states 'My neighbor helped me carry the heavy bag.'"
+      },
+      {
+        "id": "q3",
+        "question": "How often do they clean the hallway?",
+        "options": [
+          "Every week",
+          "Every day",
+          "Every month",
+          "Never"
+        ],
+        "answer": 0,
+        "explanation": "The text mentions 'We clean the hallway every week.'"
+      }
+    ]
+  },
+  {
+    "id": "saturday-market-visit",
+    "level": "A1-A2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Saturday Market Visit",
+    "sentences": [
+      {
+        "text": "Every Saturday I go to the neighbourhood market.",
+        "translationRu": "Каждую субботу я хожу на районный рынок."
+      },
+      {
+        "text": "The stalls are small and bright.",
+        "translationRu": "Лавки небольшие и яркие."
+      },
+      {
+        "text": "Vendors sell fresh fruit, bread and flowers.",
+        "translationRu": "Продавцы продают свежие фрукты, хлеб и цветы."
+      },
+      {
+        "text": "I buy apples and a loaf of bread.",
+        "translationRu": "Я покупаю яблоки и буханку хлеба."
+      },
+      {
+        "text": "The baker greets me with a smile.",
+        "translationRu": "Пекарь приветствует меня улыбкой."
+      },
+      {
+        "text": "I pay cash and thank him.",
+        "translationRu": "Я плачу наличными и благодарю его."
+      },
+      {
+        "text": "Later I sit on a bench and eat.",
+        "translationRu": "Позже я сижу на скамейке и ем."
+      },
+      {
+        "text": "The market closes at five and the street becomes quiet.",
+        "translationRu": "Рынок закрывается в пять, и улица становится тихой."
+      }
+    ],
+    "glossary": {
+      "neighbourhood": {
+        "translation": "окрестность",
+        "partOfSpeech": "noun"
+      },
+      "stall": {
+        "translation": "лавка",
+        "partOfSpeech": "noun"
+      },
+      "vendor": {
+        "translation": "продавец",
+        "partOfSpeech": "noun"
+      },
+      "baker": {
+        "translation": "пекарь",
+        "partOfSpeech": "noun"
+      },
+      "bench": {
+        "translation": "скамейка",
+        "partOfSpeech": "noun"
+      },
+      "quiet": {
+        "translation": "тихо",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What day does the narrator visit the market?",
+        "options": [
+          "Monday",
+          "Saturday",
+          "Wednesday",
+          "Friday"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says the narrator goes to the market every Saturday."
+      },
+      {
+        "id": "q2",
+        "question": "What does the baker give the narrator?",
+        "options": [
+          "a smile",
+          "a cup of tea",
+          "a bag of rice",
+          "a newspaper"
+        ],
+        "answer": 0,
+        "explanation": "The fifth sentence states the baker greets the narrator with a smile."
+      },
+      {
+        "id": "q3",
+        "question": "How does the market end the day?",
+        "options": [
+          "It stays open all night",
+          "It closes at nine",
+          "It closes at five",
+          "It never closes"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says the market closes at five."
+      }
+    ]
+  },
+  {
+    "id": "morning-shift-that-matters",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Morning Shift That Matters",
+    "sentences": [
+      {
+        "text": "Every morning he used to grab a coffee and rush out the door at six o’clock.",
+        "translationRu": "Каждое утро он обычно брал кофе и спешил выйти из дома в шесть часов."
+      },
+      {
+        "text": "One rainy Tuesday, he decided to set his alarm fifteen minutes earlier instead of hitting snooze.",
+        "translationRu": "В один дождливый вторник он решил установить будильник на пятнадцать минут раньше, а не нажимать кнопку «отложить»."
+      },
+      {
+        "text": "The extra minutes gave him time to stretch, read a short article, and pack his bag calmly.",
+        "translationRu": "Эти дополнительные минуты позволили ему потянуться, прочитать короткую статью и спокойно собрать сумку."
+      },
+      {
+        "text": "Because of this small change, he no longer felt the panic of a hurried start.",
+        "translationRu": "Из‑за этой небольшой перемены он больше не чувствовал паники от спешного начала."
+      },
+      {
+        "text": "He also discovered that walking slower to the bus stop let him notice the neighbourhood’s quiet charm.",
+        "translationRu": "Он также обнаружил, что медленная прогулка до автобусной остановки позволила ему увидеть тихое очарование района."
+      },
+      {
+        "text": "Later, he began to enjoy the fresh air, which made his commute feel less like a chore.",
+        "translationRu": "Позже он стал наслаждаться свежим воздухом, и поездка на работу перестала казаться рутиной."
+      },
+      {
+        "text": "At work, his colleagues noticed he was more focused and less likely to skip lunch.",
+        "translationRu": "На работе коллеги заметили, что он стал более сосредоточенным и реже пропускал обед."
+      },
+      {
+        "text": "He realized that the simple decision to wake up earlier had ripple effects on his whole day.",
+        "translationRu": "Он понял, что простое решение просыпаться раньше оказало волнообразное влияние на весь день."
+      },
+      {
+        "text": "Now, he recommends anyone who feels rushed to try adjusting their alarm by a few minutes.",
+        "translationRu": "Сейчас он советует каждому, кто чувствует спешку, попробовать настроить будильник на несколько минут раньше."
+      },
+      {
+        "text": "A tiny shift in routine can turn a chaotic morning into a smoother, more pleasant start.",
+        "translationRu": "Небольшой сдвиг в распорядке может превратить хаотичное утро в более спокойное и приятное начало."
+      }
+    ],
+    "glossary": {
+      "rushed": {
+        "translation": "спешил",
+        "partOfSpeech": "verb"
+      },
+      "snooze": {
+        "translation": "отложить (будильник)",
+        "partOfSpeech": "verb"
+      },
+      "stretch": {
+        "translation": "потянуться",
+        "partOfSpeech": "verb"
+      },
+      "charm": {
+        "translation": "очарование",
+        "partOfSpeech": "noun"
+      },
+      "commute": {
+        "translation": "поездка на работу",
+        "partOfSpeech": "noun"
+      },
+      "ripple": {
+        "translation": "волнообразный эффект",
+        "partOfSpeech": "noun"
+      },
+      "adjusting": {
+        "translation": "настройка",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What did he decide to do on the rainy Tuesday?",
+        "options": [
+          "Set his alarm fifteen minutes earlier",
+          "Buy a new coffee mug",
+          "Take the bus instead of train",
+          "Skip breakfast"
+        ],
+        "answer": 0,
+        "explanation": "The text says he set his alarm fifteen minutes earlier instead of hitting snooze."
+      },
+      {
+        "id": "q2",
+        "question": "Which benefit did he notice after the change?",
+        "options": [
+          "Higher salary",
+          "More meetings",
+          "More focused at work",
+          "Longer lunch breaks"
+        ],
+        "answer": 2,
+        "explanation": "The text mentions his colleagues noticed he was more focused at work."
+      },
+      {
+        "id": "q3",
+        "question": "What does the author recommend to people who feel rushed?",
+        "options": [
+          "Take a nap during the day",
+          "Adjust their alarm by a few minutes",
+          "Drink extra coffee",
+          "Leave work early"
+        ],
+        "answer": 1,
+        "explanation": "He recommends adjusting the alarm by a few minutes."
+      }
+    ]
+  },
+  {
+    "id": "budget-cooking-basics",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Budget Cooking Basics",
+    "sentences": [
+      {
+        "text": "When she moved into her first flat, she realized that eating out was draining her savings.",
+        "translationRu": "Когда она переехала в свою первую квартиру, она поняла, что питание вне дома высасывало её сбережения."
+      },
+      {
+        "text": "Determined to change the habit, she started looking for cheap recipes that still tasted good.",
+        "translationRu": "Полная решимости изменить привычку, она начала искать дешёвые рецепты, которые всё равно были вкусными."
+      },
+      {
+        "text": "She discovered that a simple vegetable stir‑fry, made with a few basic ingredients, can turn out surprisingly tasty.",
+        "translationRu": "Она обнаружила, что простое овощное жаркое, приготовленное из нескольких базовых ингредиентов, может получиться неожиданно вкусным."
+      },
+      {
+        "text": "To keep costs low, she bought bulk rice and frozen peas, which last for weeks after opening.",
+        "translationRu": "Чтобы расходы оставались низкими, она купила рис оптом и замороженный горох, которые сохраняются неделями после открытия."
+      },
+      {
+        "text": "If a recipe calls for fresh herbs, she substitutes dried ones, which are cheaper and keep longer.",
+        "translationRu": "Если рецепт требует свежих трав, она заменяет их сушёными, которые дешевле и дольше хранятся."
+      },
+      {
+        "text": "When a leftover piece of chicken is waiting in the fridge, she quickly tosses it into a soup, avoiding waste.",
+        "translationRu": "Когда в холодильнике лежит оставшийся кусок курицы, она быстро бросает его в суп, избегая отходов."
+      },
+      {
+        "text": "She also learns to make her own dressing, because buying pre‑made bottles often adds unnecessary expense.",
+        "translationRu": "Она также учится готовить собственную заправку, потому что покупка готовых бутылок часто приводит к ненужным тратам."
+      },
+      {
+        "text": "Over time her confidence grew, and she found that cooking at home can be both fun and affordable.",
+        "translationRu": "Со временем её уверенность выросла, и она обнаружила, что готовить дома может быть одновременно весело и доступно."
+      },
+      {
+        "text": "Now she enjoys experimenting with new flavors, knowing that a tasty meal doesn’t have to cost a fortune.",
+        "translationRu": "Теперь ей нравится экспериментировать с новыми вкусами, понимая, что вкусный обед не обязан стоить целое состояние."
+      }
+    ],
+    "glossary": {
+      "draining": {
+        "translation": "высасывающий",
+        "partOfSpeech": "adjective"
+      },
+      "substitutes": {
+        "translation": "заменять",
+        "partOfSpeech": "verb"
+      },
+      "bulk": {
+        "translation": "оптом",
+        "partOfSpeech": "adverb"
+      },
+      "leftover": {
+        "translation": "оставшийся",
+        "partOfSpeech": "adjective"
+      },
+      "affordable": {
+        "translation": "доступный",
+        "partOfSpeech": "adjective"
+      },
+      "experimenting": {
+        "translation": "экспериментировать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why did she start looking for cheap recipes?",
+        "options": [
+          "Because she wanted to eat healthier",
+          "Because she wanted to save money",
+          "Because she liked cooking",
+          "Because she was bored"
+        ],
+        "answer": 1,
+        "explanation": "The text says she was determined to change the habit of eating out because it was draining her savings, so she looked for cheap recipes to save money."
+      },
+      {
+        "id": "q2",
+        "question": "What does she do with leftover chicken?",
+        "options": [
+          "Freeze it for later",
+          "Throw it away",
+          "Add it to a soup",
+          "Eat it cold"
+        ],
+        "answer": 2,
+        "explanation": "The passage states that when a leftover piece of chicken is in the fridge, she quickly tosses it into a soup."
+      },
+      {
+        "id": "q3",
+        "question": "Which method does she use to save money on dressings?",
+        "options": [
+          "She makes her own dressing",
+          "She buys premium brands",
+          "She uses ketchup instead",
+          "She skips dressing"
+        ],
+        "answer": 0,
+        "explanation": "The text explains that she learns to make her own dressing because buying pre‑made bottles often adds unnecessary expense."
+      }
+    ]
+  },
+  {
+    "id": "roommates-in-daily-life",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Roommates in Daily Life",
+    "sentences": [
+      {
+        "text": "Living with roommates can feel like a small community inside a single apartment.",
+        "translationRu": "Жить с соседями по комнате может ощущаться как небольшое сообщество внутри одной квартиры."
+      },
+      {
+        "text": "At first, we set up a cleaning schedule so that chores are shared fairly.",
+        "translationRu": "Сначала мы составили график уборки, чтобы обязанности распределялись честно."
+      },
+      {
+        "text": "Sometimes we clash over the temperature, but we quickly learn to adjust the thermostat together.",
+        "translationRu": "Иногда мы спорим о температуре, но быстро учимся совместно регулировать термостат."
+      },
+      {
+        "text": "When one of us is busy, the others often step in to pick up groceries.",
+        "translationRu": "Когда кто‑то из нас занят, остальные часто подстраиваются и покупают продукты."
+      },
+      {
+        "text": "We also enjoy cooking dinner together, which gives us a chance to try new recipes.",
+        "translationRu": "Мы также любим готовить ужин вместе, что дает возможность пробовать новые рецепты."
+      },
+      {
+        "text": "Last month we organized a movie night, and everyone brought their favorite snack.",
+        "translationRu": "В прошлом месяце мы устроили киновечер, и каждый принёс свой любимый перекус."
+      },
+      {
+        "text": "If someone forgets to take out the trash, a gentle reminder usually solves the problem.",
+        "translationRu": "Если кто‑то забывает вынести мусор, мягкое напоминание обычно решает проблему."
+      },
+      {
+        "text": "Overall, sharing a living space teaches responsibility and improves communication skills.",
+        "translationRu": "В целом совместное проживание учит ответственности и улучшает навыки общения."
+      },
+      {
+        "text": "Even though privacy is limited, we each have our own corner to relax after a long day.",
+        "translationRu": "Хотя личного пространства мало, у каждого из нас есть свой уголок для отдыха после долгого дня."
+      },
+      {
+        "text": "In the end, the experience of living with roommates often becomes a memorable part of adult life.",
+        "translationRu": "В итоге опыт совместного проживания часто становится запоминающейся частью взрослой жизни."
+      }
+    ],
+    "glossary": {
+      "schedule": {
+        "translation": "расписание",
+        "partOfSpeech": "noun"
+      },
+      "thermostat": {
+        "translation": "термостат",
+        "partOfSpeech": "noun"
+      },
+      "reminder": {
+        "translation": "напоминание",
+        "partOfSpeech": "noun"
+      },
+      "responsibility": {
+        "translation": "ответственность",
+        "partOfSpeech": "noun"
+      },
+      "communication": {
+        "translation": "общение",
+        "partOfSpeech": "noun"
+      },
+      "memorable": {
+        "translation": "запоминающийся",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What do the roommates do when someone forgets to take out the trash?",
+        "options": [
+          "They ignore it",
+          "They call the landlord",
+          "They give a gentle reminder",
+          "They move to another apartment"
+        ],
+        "answer": 2,
+        "explanation": "The text says a gentle reminder usually solves the problem, so option 2 is correct."
+      },
+      {
+        "id": "q2",
+        "question": "Which activity helped the roommates try new recipes?",
+        "options": [
+          "Cooking dinner together",
+          "Cleaning schedule",
+          "Movie night",
+          "Adjusting thermostat"
+        ],
+        "answer": 0,
+        "explanation": "The sentence about cooking dinner together mentions trying new recipes, making option 0 correct."
+      },
+      {
+        "id": "q3",
+        "question": "According to the text, what is a benefit of sharing a living space?",
+        "options": [
+          "Less rent",
+          "More privacy",
+          "Fewer chores",
+          "Improved communication skills"
+        ],
+        "answer": 3,
+        "explanation": "The text states that sharing a living space improves communication skills, so option 3 is the right answer."
+      }
+    ]
+  },
+  {
+    "id": "city-commute-snapshot",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "City Commute Snapshot",
+    "sentences": [
+      {
+        "text": "Every morning, commuters rush from their apartments to the subway.",
+        "translationRu": "Каждое утро пассажиры спешат из своих квартир к метро."
+      },
+      {
+        "text": "Trains arrive every few minutes, yet they are often packed.",
+        "translationRu": "Поезда приходят каждые несколько минут, но они часто переполнены."
+      },
+      {
+        "text": "Some passengers stand shoulder‑to‑shoulder, while a few manage to find a seat.",
+        "translationRu": "Некоторые пассажиры стоят плечом к плечу, а несколько удаётся найти место."
+      },
+      {
+        "text": "When the doors close, the train jerks forward and city lights flicker past.",
+        "translationRu": "Когда двери закрываются, поезд резко трясётся вперёд, а огни города мелькают мимо."
+      },
+      {
+        "text": "Many riders use the time to read news, check emails, or stare out the window.",
+        "translationRu": "Многие пассажиры используют время, чтобы читать новости, проверять электронную почту или смотреть в окно."
+      },
+      {
+        "text": "If a delay happens, the loudspeaker announcement tells everyone to stay calm.",
+        "translationRu": "Если происходит задержка, объявление через громкоговоритель просит всех сохранять спокойствие."
+      },
+      {
+        "text": "Occasionally, a street performer appears on the platform, playing a short tune that lifts the mood.",
+        "translationRu": "Иногда на платформе появляется уличный музыкант, играющий короткую мелодию, поднимающую настроение."
+      },
+      {
+        "text": "After leaving the station, people merge into traffic—some walking, some cycling, others hailing a taxi.",
+        "translationRu": "После выхода из станции люди вливаются в поток транспорта — кто идёт пешком, кто едет на велосипеде, а кто вызывает такси."
+      },
+      {
+        "text": "The daily commute can feel tiring, but it also offers a brief glimpse of the city's rhythm.",
+        "translationRu": "Ежедневная поездка может быть утомительной, но она также даёт краткий взгляд на ритм города."
+      }
+    ],
+    "glossary": {
+      "commuter": {
+        "translation": "пассажир",
+        "partOfSpeech": "noun"
+      },
+      "packed": {
+        "translation": "переполненный",
+        "partOfSpeech": "adjective"
+      },
+      "shoulder‑to‑shoulder": {
+        "translation": "плечом к плечу",
+        "partOfSpeech": "phrase"
+      },
+      "jerk": {
+        "translation": "резко трясти",
+        "partOfSpeech": "verb"
+      },
+      "loudspeaker": {
+        "translation": "громкоговоритель",
+        "partOfSpeech": "noun"
+      },
+      "announcement": {
+        "translation": "объявление",
+        "partOfSpeech": "noun"
+      },
+      "hail": {
+        "translation": "вызывать (такси)",
+        "partOfSpeech": "verb"
+      },
+      "rhythm": {
+        "translation": "ритм",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What do some passengers do while waiting for a seat?",
+        "options": [
+          "stand shoulder‑to‑shoulder",
+          "read news",
+          "check emails",
+          "hail a taxi"
+        ],
+        "answer": 0,
+        "explanation": "The text says some passengers stand shoulder‑to‑shoulder, while a few manage to find a seat."
+      },
+      {
+        "id": "q2",
+        "question": "What happens when the doors close?",
+        "options": [
+          "The train stops",
+          "The train jerks forward",
+          "The lights turn off",
+          "An announcement is made"
+        ],
+        "answer": 1,
+        "explanation": "The text states that when the doors close, the train jerks forward."
+      },
+      {
+        "id": "q3",
+        "question": "How does the text describe the overall feeling of the daily commute?",
+        "options": [
+          "It is boring",
+          "It is always relaxing",
+          "It can feel tiring but also offers a glimpse of the city's rhythm",
+          "It never changes"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says the daily commute can feel tiring, but it also offers a brief glimpse of the city's rhythm."
+      }
+    ]
+  },
+  {
+    "id": "planning-a-balanced-week",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Planning a Balanced Week",
+    "sentences": [
+      {
+        "text": "Every Sunday evening, Alex sits down with a notebook and plans the coming week.",
+        "translationRu": "Каждое воскресенье вечером Алекс открывает блокнот и планирует предстоящую неделю."
+      },
+      {
+        "text": "He blocks out time for work, gym, and a short walk after dinner.",
+        "translationRu": "Он выделяет время для работы, спортзала и короткой прогулки после ужина."
+      },
+      {
+        "text": "On Monday and Wednesday he tackles the most demanding tasks first, because his energy peaks early.",
+        "translationRu": "В понедельник и среду он берётся за самые сложные задачи вначале, потому что его энергия повышается рано."
+      },
+      {
+        "text": "Tuesday is reserved for meetings, so he prepares notes the night before to stay focused.",
+        "translationRu": "Во вторник отведён для встреч, поэтому он готовит заметки накануне, чтобы оставаться сосредоточенным."
+      },
+      {
+        "text": "Mid‑week, he checks his list and moves any unfinished items to Thursday.",
+        "translationRu": "Середине недели он проверяет список и переносит незавершённые пункты на четверг."
+      },
+      {
+        "text": "Thursday evenings are for cooking a simple meal and catching up on a favorite podcast.",
+        "translationRu": "Вечерами в четверг он готовит простую еду и слушает любимый подкаст."
+      },
+      {
+        "text": "On Friday he leaves the office by five, then meets friends for a quick coffee.",
+        "translationRu": "В пятницу он уходит из офиса к пяти, а затем встречается с друзьями за быстрой чашкой кофе."
+      },
+      {
+        "text": "Saturday mornings are free; he often goes for a run in the park and reads.",
+        "translationRu": "Утром в субботу он свободен; часто бегает в парке и читает."
+      },
+      {
+        "text": "In the evening he reviews the week, notes what worked, and adjusts the plan for next week.",
+        "translationRu": "Вечером он подводит итоги недели, отмечает, что сработало, и корректирует план на следующую неделю."
+      },
+      {
+        "text": "By keeping a clear schedule, Alex feels less stressed and more motivated for the days ahead.",
+        "translationRu": "Соблюдая чёткое расписание, Алекс чувствует себя менее напряжённым и более мотивированным в предстоящие дни."
+      }
+    ],
+    "glossary": {
+      "block out": {
+        "translation": "выделять время",
+        "partOfSpeech": "phrasal verb"
+      },
+      "tackle": {
+        "translation": "берёмся за",
+        "partOfSpeech": "verb"
+      },
+      "peak": {
+        "translation": "достигать пика",
+        "partOfSpeech": "verb"
+      },
+      "reserve": {
+        "translation": "отводить (время)",
+        "partOfSpeech": "verb"
+      },
+      "adjust": {
+        "translation": "корректировать",
+        "partOfSpeech": "verb"
+      },
+      "motivated": {
+        "translation": "мотивированный",
+        "partOfSpeech": "adjective"
+      },
+      "schedule": {
+        "translation": "расписание",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which day does Alex prepare notes for meetings?",
+        "options": [
+          "Monday",
+          "Tuesday",
+          "Thursday",
+          "Friday"
+        ],
+        "answer": 1,
+        "explanation": "The text states that Tuesday is reserved for meetings and he prepares notes the night before."
+      },
+      {
+        "id": "q2",
+        "question": "What does Alex usually do on Saturday mornings?",
+        "options": [
+          "go to the gym",
+          "meet friends for coffee",
+          "run in the park",
+          "review the week"
+        ],
+        "answer": 2,
+        "explanation": "The ninth sentence says Saturday mornings are free; he often goes for a run in the park."
+      },
+      {
+        "id": "q3",
+        "question": "How does Alex feel when he keeps a clear schedule?",
+        "options": [
+          "less stressed",
+          "more motivated",
+          "more confused",
+          "tired"
+        ],
+        "answer": 0,
+        "explanation": "The last sentence notes that with a clear schedule Alex feels less stressed."
+      }
+    ]
+  },
+  {
+    "id": "moving-into-a-new-flat",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Moving Into a New Flat",
+    "sentences": [
+      {
+        "text": "Moving into a new flat can feel both exciting and stressful.",
+        "translationRu": "Переезд в новую квартиру может быть одновременно захватывающим и стрессовым."
+      },
+      {
+        "text": "The first thing I did was unpack the boxes in the living room, because I wanted a clear space to sit.",
+        "translationRu": "Первое, что я сделал, — распаковал коробки в гостиной, потому что хотел иметь свободное место, где можно посидеть."
+      },
+      {
+        "text": "While sorting the kitchenware, I realized I had forgotten to check the water pressure in the bathroom.",
+        "translationRu": "Разбирая кухонную посуду, я понял, что забыл проверить давление воды в ванной."
+      },
+      {
+        "text": "I called the landlord, and he promised to send a plumber the next morning.",
+        "translationRu": "Я позвонил арендодателю, и он пообещал отправить сантехника на следующее утро."
+      },
+      {
+        "text": "In the meantime, I set up the internet router and tested the Wi‑Fi signal, which turned out to be surprisingly strong.",
+        "translationRu": "Тем временем я установил роутер и проверил сигнал Wi‑Fi, который оказался неожиданно сильным."
+      },
+      {
+        "text": "After a short break, I started arranging the furniture, moving the sofa against the wall to create a cosy reading nook.",
+        "translationRu": "После короткого перерыва я начал расставлять мебель, поставив диван к стене, чтобы создать уютный уголок для чтения."
+      },
+      {
+        "text": "The neighbours introduced themselves over a quick coffee, and we exchanged a few tips about the best grocery stores nearby.",
+        "translationRu": "Соседи представились за чашкой быстрого кофе, и мы обменялись несколькими советами о лучших магазинах рядом."
+      },
+      {
+        "text": "By evening, I had finally hung the curtains, which made the room feel much brighter.",
+        "translationRu": "К вечеру я наконец повесил шторы, и комната стала гораздо светлее."
+      },
+      {
+        "text": "Although the move was tiring, I felt a sense of accomplishment as I looked around my new home.",
+        "translationRu": "Хотя переезд был утомительным, я почувствовал чувство удовлетворения, глядя вокруг своего нового дома."
+      },
+      {
+        "text": "Now I can settle into a routine and enjoy the fresh start.",
+        "translationRu": "Теперь я могу обосноваться в рутине и наслаждаться новым началом."
+      }
+    ],
+    "glossary": {
+      "unpack": {
+        "translation": "разбирать, распаковывать",
+        "partOfSpeech": "verb"
+      },
+      "kitchenware": {
+        "translation": "кухонная посуда",
+        "partOfSpeech": "noun"
+      },
+      "plumber": {
+        "translation": "сантехник",
+        "partOfSpeech": "noun"
+      },
+      "router": {
+        "translation": "маршрутизатор",
+        "partOfSpeech": "noun"
+      },
+      "cosy": {
+        "translation": "уютный",
+        "partOfSpeech": "adjective"
+      },
+      "neighbours": {
+        "translation": "соседи",
+        "partOfSpeech": "noun"
+      },
+      "accomplishment": {
+        "translation": "достижение, чувство выполненного дела",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What did the narrator do first after moving in?",
+        "options": [
+          "Set up the internet router",
+          "Unpack the boxes in the living room",
+          "Call the landlord",
+          "Hang the curtains"
+        ],
+        "answer": 1,
+        "explanation": "The text states that the first thing done was unpacking the boxes in the living room."
+      },
+      {
+        "id": "q2",
+        "question": "Why did the narrator need a plumber?",
+        "options": [
+          "Because the water pressure was low",
+          "Because the Wi‑Fi was down",
+          "Because the sofa was damaged",
+          "Because the curtains were torn"
+        ],
+        "answer": 0,
+        "explanation": "The narrator realized they had forgotten to check the water pressure, so a plumber was needed."
+      },
+      {
+        "id": "q3",
+        "question": "How did the neighbours greet the narrator?",
+        "options": [
+          "They waved from the hallway",
+          "They left a welcome note",
+          "They introduced themselves over a quick coffee",
+          "They called to check the Wi‑Fi"
+        ],
+        "answer": 2,
+        "explanation": "The neighbours introduced themselves over a quick coffee, as described in the passage."
+      }
+    ]
+  },
+  {
+    "id": "neighbourhood-market-morning",
+    "level": "B1-B2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Neighbourhood Market Morning",
+    "sentences": [
+      {
+        "text": "Every Saturday morning the neighbourhood market comes alive with colourful stalls.",
+        "translationRu": "Каждое субботнее утро районный рынок оживает яркими прилавками."
+      },
+      {
+        "text": "Fresh fruit, vegetables and homemade bread line the narrow aisles, inviting passersby.",
+        "translationRu": "Свежие фрукты, овощи и домашний хлеб заполняют узкие проходы, привлекая прохожих."
+      },
+      {
+        "text": "Local vendors greet customers with a smile and often offer a quick sample.",
+        "translationRu": "Местные продавцы встречают покупателей с улыбкой и часто предлагают быструю дегустацию."
+      },
+      {
+        "text": "While some shoppers browse slowly, others rush in to grab the best deals before the crowd thickens.",
+        "translationRu": "Пока одни покупатели медленно осматриваются, другие спешат ухватить лучшие предложения, пока толпа не разрастётся."
+      },
+      {
+        "text": "A young mother haggles over tomatoes, then laughs when the seller adds a few extra cherries.",
+        "translationRu": "Молодая мать торгуется за помидоры, а затем смеётся, когда продавец добавляет несколько дополнительных вишен."
+      },
+      {
+        "text": "Children dart between the tables, chasing after a stray kite that has slipped from a nearby park.",
+        "translationRu": "Дети стремительно пробегают между столами, погоняясь за сорванной воздушной змей, упавшей из соседнего парка."
+      },
+      {
+        "text": "As the sun climbs higher, the air fills with the scent of coffee and sizzling street‑food, making it hard to leave.",
+        "translationRu": "Когда солнце поднимается выше, воздух наполняется ароматом кофе и шипящей уличной еды, из‑за чего трудно уйти."
+      },
+      {
+        "text": "Many regulars stop by the old bakery to pick up a croissant, because it reminds them of childhood mornings.",
+        "translationRu": "Многие постоянные покупатели зашли в старую пекарню за круассаном, потому что он напоминает им утренние часы детства."
+      },
+      {
+        "text": "When the market closes, the stalls are packed away, but the community spirit lingers until next week.",
+        "translationRu": "Когда рынок закрывается, прилавки убирают, но дух сообщества остаётся до следующей недели."
+      }
+    ],
+    "glossary": {
+      "haggles": {
+        "translation": "торговаться",
+        "partOfSpeech": "verb"
+      },
+      "scent": {
+        "translation": "аромат",
+        "partOfSpeech": "noun"
+      },
+      "vendor": {
+        "translation": "продавец",
+        "partOfSpeech": "noun"
+      },
+      "regulars": {
+        "translation": "постоянные покупатели",
+        "partOfSpeech": "noun"
+      },
+      "linger": {
+        "translation": "оставаться",
+        "partOfSpeech": "verb"
+      },
+      "aisle": {
+        "translation": "проход",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the seller do when the mother haggles?",
+        "options": [
+          "Raises the price",
+          "Adds extra cherries",
+          "Refuses to sell",
+          "Closes the stall"
+        ],
+        "answer": 1,
+        "explanation": "The text says the seller adds a few extra cherries, which is the second option."
+      },
+      {
+        "id": "q2",
+        "question": "Why do many regulars visit the old bakery?",
+        "options": [
+          "Because it reminds them of childhood mornings",
+          "Because it’s cheap",
+          "Because it’s open late",
+          "Because it sells coffee"
+        ],
+        "answer": 0,
+        "explanation": "The passage explains they go there because the croissant reminds them of childhood mornings."
+      },
+      {
+        "id": "q3",
+        "question": "What fills the air as the sun climbs higher?",
+        "options": [
+          "Rain",
+          "Music",
+          "The scent of coffee and sizzling street‑food",
+          "Silence"
+        ],
+        "answer": 2,
+        "explanation": "The sentence states the air fills with the scent of coffee and sizzling street‑food, which is the third option."
+      }
+    ]
+  },
+  {
+    "id": "morning-shift-after-a-choice",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Morning Shift After a Choice",
+    "sentences": [
+      {
+        "text": "At sunrise I used to scrape coffee from a cheap instant powder, barely tasting it before sprinting to the office.",
+        "translationRu": "На рассвете я обычно быстро делал кофе из дешевого растворимого порошка, едва успев его попробовать, и бросался на работу."
+      },
+      {
+        "text": "One rainy Tuesday, I decided to replace that ritual with a brief meditation, convinced that a few minutes of silence could recalibrate my focus.",
+        "translationRu": "В один дождливый вторник я решил заменить этот ритуал короткой медитацией, будучи уверенным, что несколько минут тишины могут перенастроить мою концентрацию."
+      },
+      {
+        "text": "The habit required me to set my alarm five minutes earlier, an adjustment that felt negligible at first.",
+        "translationRu": "Эта привычка заставила меня ставить будильник на пять минут раньше, что сначала казалось незначительным изменением."
+      },
+      {
+        "text": "Soon the stillness seeped into my thoughts, and the frantic rush that usually accompanied my commute softened.",
+        "translationRu": "Вскоре тишина проникла в мои мысли, и обычно бурный спешка во время поездки смягчилась."
+      },
+      {
+        "text": "Colleagues noticed my calmer demeanor, commenting that I seemed less prone to the usual morning irritability.",
+        "translationRu": "Коллеги заметили мое более спокойное поведение, отметив, что я стал менее склонен к обычной утренней раздражительности."
+      },
+      {
+        "text": "I attributed this change to the mental buffer the meditation provided, which buffered stress before it could cascade.",
+        "translationRu": "Я объяснил эту перемену ментальным буфером, который создаёт медитация, смягчая стресс, пока он не успел разгореться."
+      },
+      {
+        "text": "Interestingly, the extra five minutes also allowed me to review my schedule, preventing overlapping meetings that had previously plagued me.",
+        "translationRu": "Интересно, что дополнительные пять минут также позволили мне просмотреть расписание, предотвращая наложение встреч, которое раньше меня мучило."
+      },
+      {
+        "text": "In contrast, the instant coffee habit had fostered a jittery alertness that faded quickly, leaving me vulnerable to mid‑morning crashes.",
+        "translationRu": "В отличие от этого, привычка к растворимому кофе порождала дрожащую бодрость, быстро исчезающую и делавшую меня уязвимым к падениям энергии в середине утра."
+      },
+      {
+        "text": "By swapping caffeine for contemplation, I discovered a more sustainable energy curve, one that aligned with my long‑term productivity goals.",
+        "translationRu": "Меняя кофеин на созерцание, я обнаружил более устойчивый энергетический график, соответствующий моим долгосрочным целям продуктивности."
+      },
+      {
+        "text": "The decision, though seemingly trivial, illustrated how a minor tweak can ripple through an entire daily architecture.",
+        "translationRu": "Это решение, казалось бы незначительное, показало, как небольшая поправка может отразиться на всей структуре дня."
+      },
+      {
+        "text": "Now my mornings begin with a quiet breath, a brief journal entry, and only then a modest cup of brewed coffee.",
+        "translationRu": "Теперь мои утра начинаются с тихого вдоха, короткой записи в журнале, и лишь потом – скромной чашки заварного кофе."
+      },
+      {
+        "text": "The routine has endured, confirming that conscious micro‑adjustments often outweigh grand gestures in shaping wellbeing.",
+        "translationRu": "Рутина выдержала испытание, подтверждая, что осознанные мелкие корректировки часто перевешивают грандиозные поступки в формировании благополучия."
+      }
+    ],
+    "glossary": {
+      "recalibrate": {
+        "translation": "перенастроить",
+        "partOfSpeech": "verb"
+      },
+      "buffer": {
+        "translation": "буфер, промежуток",
+        "partOfSpeech": "noun"
+      },
+      "micro‑adjustments": {
+        "translation": "мелкие корректировки",
+        "partOfSpeech": "noun"
+      },
+      "architecture": {
+        "translation": "структура, архитектура",
+        "partOfSpeech": "noun"
+      },
+      "jittery": {
+        "translation": "дрожащий, нервный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What small change did the narrator make to their morning routine?",
+        "options": [
+          "Added a brief meditation",
+          "Started jogging",
+          "Switched to espresso",
+          "Read the news"
+        ],
+        "answer": 0,
+        "explanation": "The text states the narrator replaced coffee with a brief meditation."
+      },
+      {
+        "id": "q2",
+        "question": "Which of the following was an unexpected outcome of the five‑minute earlier alarm?",
+        "options": [
+          "More time to scroll social media",
+          "Extra minutes for a longer commute",
+          "Ability to review the day's schedule",
+          "Earlier arrival at work"
+        ],
+        "answer": 2,
+        "explanation": "The narrator mentions the extra five minutes allowed reviewing the schedule."
+      },
+      {
+        "id": "q3",
+        "question": "What term does the narrator use to describe the small changes that influence daily wellbeing?",
+        "options": [
+          "grand gestures",
+          "micro‑adjustments",
+          "major overhauls",
+          "habitual rituals"
+        ],
+        "answer": 1,
+        "explanation": "The phrase 'micro‑adjustments' appears in the final sentence."
+      }
+    ]
+  },
+  {
+    "id": "navigating-the-urban-commute",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Navigating the Urban Commute",
+    "sentences": [
+      {
+        "text": "The morning surge transforms the subway into a moving tapestry of muted conversations and hurried footsteps.",
+        "translationRu": "Утренний наплыв превращает метро в движущуюся мозаику приглушённых разговоров и торопливых шагов."
+      },
+      {
+        "text": "Most commuters accept the inevitable delay as a test of patience rather than a flaw in infrastructure.",
+        "translationRu": "Большинство пассажиров воспринимают неизбежную задержку как проверку терпения, а не как изъян в инфраструктуре."
+      },
+      {
+        "text": "To mitigate stress, many opt for an intermodal route, combining cycling with a brief tram segment.",
+        "translationRu": "Чтобы уменьшить стресс, многие выбирают межвидовой маршрут, сочетая велопоездку с коротким отрезком на трамвае."
+      },
+      {
+        "text": "Such flexibility not only reduces exposure to congestion but also introduces a modicum of serendipity into an otherwise regimented journey.",
+        "translationRu": "Такая гибкость не только снижает воздействие пробок, но и вносит небольшую долю счастливой случайности в иначе строгий путь."
+      },
+      {
+        "text": "The cognitive load of navigating multiple timetables, however, can outweigh the temporal savings for less experienced riders.",
+        "translationRu": "Однако когнитивная нагрузка от ориентирования в нескольких расписаниях может превзойти экономию времени у менее опытных пассажиров."
+      },
+      {
+        "text": "Consequently, some professionals schedule their departure during off‑peak hours, sacrificing convenience for a measurable increase in efficiency.",
+        "translationRu": "В результате некоторые специалисты планируют выезд в непиковое время, жертвуя удобством ради ощутимого повышения эффективности."
+      },
+      {
+        "text": "This deliberate timing also creates space for brief reflection, which many claim improves subsequent workplace performance.",
+        "translationRu": "Такое целенаправленное время также создаёт пространство для короткой рефлексии, которую многие считают улучшающей последующую работу."
+      },
+      {
+        "text": "Nevertheless, unpredictable incidents—such as sudden line closures—remind commuters that absolute control remains elusive.",
+        "translationRu": "Тем не менее непредсказуемые события, такие как внезапные закрытия линий, напоминают пассажирам, что абсолютный контроль остаётся недостижимым."
+      },
+      {
+        "text": "Urban planners therefore advocate real‑time information systems that empower riders to adjust routes on the fly.",
+        "translationRu": "Городские планировщики поэтому выступают за системы информации в реальном времени, позволяющие пассажирам корректировать маршруты на ходу."
+      },
+      {
+        "text": "When such technology is integrated seamlessly, the perceived inconvenience diminishes, fostering a more resilient commuting culture.",
+        "translationRu": "Когда такие технологии бесшовно интегрируются, ощущаемое неудобство уменьшается, способствуя более устойчивой культуре поездок."
+      },
+      {
+        "text": "In the long run, the collective adaptation to these tools may redefine the very notion of punctuality.",
+        "translationRu": "В долгосрочной перспективе коллективная адаптация к этим средствам может переопределить само понятие пунктуальности."
+      },
+      {
+        "text": "Thus, the daily odyssey through the metropolis becomes less a battle against time and more a negotiated partnership with the city's rhythm.",
+        "translationRu": "Таким образом, ежедневная одиссея по мегаполису превращается из борьбы со временем в согласованное партнёрство с ритмом города."
+      }
+    ],
+    "glossary": {
+      "intermodal": {
+        "translation": "межвидовой",
+        "partOfSpeech": "adjective"
+      },
+      "serendipity": {
+        "translation": "счастливая случайность",
+        "partOfSpeech": "noun"
+      },
+      "cognitive": {
+        "translation": "когнитивный",
+        "partOfSpeech": "adjective"
+      },
+      "efficiency": {
+        "translation": "эффективность",
+        "partOfSpeech": "noun"
+      },
+      "resilient": {
+        "translation": "устойчивый",
+        "partOfSpeech": "adjective"
+      },
+      "odyssey": {
+        "translation": "одиссея",
+        "partOfSpeech": "noun"
+      },
+      "mitigate": {
+        "translation": "смягчать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What strategy do many commuters adopt to reduce stress?",
+        "options": [
+          "Combining cycling with a tram segment",
+          "Driving a private car",
+          "Walking the entire route",
+          "Listening to podcasts"
+        ],
+        "answer": 0,
+        "explanation": "The text says many opt for an intermodal route combining cycling with a brief tram segment."
+      },
+      {
+        "id": "q2",
+        "question": "Why might some professionals leave during off‑peak hours?",
+        "options": [
+          "To avoid crowds",
+          "To increase efficiency",
+          "Because tickets are cheaper",
+          "Because the trains run faster"
+        ],
+        "answer": 2,
+        "explanation": "The passage states they sacrifice convenience for a measurable increase in efficiency."
+      },
+      {
+        "id": "q3",
+        "question": "What do urban planners advocate according to the passage?",
+        "options": [
+          "More parking spaces",
+          "Real‑time information systems",
+          "Longer train intervals",
+          "Higher fares"
+        ],
+        "answer": 1,
+        "explanation": "The text explicitly mentions planners advocate real‑time information systems."
+      }
+    ]
+  },
+  {
+    "id": "structuring-a-productive-week",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Structuring a Productive Week",
+    "sentences": [
+      {
+        "text": "When the calendar unfolds, a diligent individual often sketches a macro‑outline before allocating granular tasks.",
+        "translationRu": "Когда календарь разворачивается, усердный человек часто набрасывает макро‑контур, прежде чем распределять детальные задачи."
+      },
+      {
+        "text": "This top‑down approach safeguards against the cognitive trap of reacting to emergent demands at the expense of long‑term goals.",
+        "translationRu": "Этот сверху‑вниз подход защищает от когнитивной ловушки реагирования на внезапные требования в ущерб долгосрочным целям."
+      },
+      {
+        "text": "Morning hours are reserved for high‑impact projects, capitalising on the brain's peak attentional bandwidth.",
+        "translationRu": "Утренние часы отведены под проекты с высоким влиянием, используя пиковую пропускную способность внимания мозга."
+      },
+      {
+        "text": "Midday slots, by contrast, accommodate collaborative meetings, which the author argues function as social lubricants rather than pure work units.",
+        "translationRu": "Полуденные промежутки, напротив, включают совместные встречи, которые автор считает социальными смазками, а не чистыми рабочими блоками."
+      },
+      {
+        "text": "By clustering interactions, one reduces the fragmentation that typically erodes momentum.",
+        "translationRu": "Сгруппировав взаимодействия, человек уменьшает фрагментацию, которая обычно подрывает импульс."
+      },
+      {
+        "text": "Afternoon periods are earmarked for administrative duties, a deliberate relegation that prevents bureaucratic chores from contaminating creative flow.",
+        "translationRu": "Послеобеденные периоды отведены административным задачам, целенаправленное отведение которых не позволяет бюрократическим делам загрязнять творческий поток."
+      },
+      {
+        "text": "Evenings, however, are deliberately left open, allowing for reflective journaling or spontaneous skill‑building activities.",
+        "translationRu": "Вечера, однако, намеренно оставляются свободными, позволяя вести рефлексивный дневник или заниматься спонтанным развитием навыков."
+      },
+      {
+        "text": "Such intentional downtime is not idle; research on recovery suggests it consolidates memory and primes future problem‑solving.",
+        "translationRu": "Такой преднамеренный простой не бездействует; исследования восстановления показывают, что он консолидирует память и готовит к будущему решению проблем."
+      },
+      {
+        "text": "On weekends, the individual revisits the macro‑outline, adjusting milestones to reflect unforeseen obstacles.",
+        "translationRu": "По выходным человек пересматривает макро‑контур, корректируя контрольные точки в соответствии с неожиданными препятствиями."
+      },
+      {
+        "text": "This iterative review cultivates a sense of agency, counterbalancing the deterministic narrative that a week could otherwise impose.",
+        "translationRu": "Этот итеративный обзор воспитывает ощущение свободы действий, уравновешивая детерминистическое повествование, которое неделя могла бы навязать."
+      },
+      {
+        "text": "Moreover, by anchoring personal values to scheduled activities, the routine transcends mere productivity and becomes an expression of identity.",
+        "translationRu": "Более того, привязывая личные ценности к запланированным действиям, рутина выходит за рамки простой продуктивности и становится выражением идентичности."
+      },
+      {
+        "text": "Consequently, the week evolves from a series of isolated tasks into a coherent narrative of purposeful progression.",
+        "translationRu": "Следовательно, неделя превращается из серии разрозненных задач в согласованное повествование целенаправленного прогресса."
+      }
+    ],
+    "glossary": {
+      "cognitive": {
+        "translation": "когнитивный",
+        "partOfSpeech": "adjective"
+      },
+      "fragmentation": {
+        "translation": "фрагментация",
+        "partOfSpeech": "noun"
+      },
+      "deliberate": {
+        "translation": "целенаправленный",
+        "partOfSpeech": "adjective"
+      },
+      "iterative": {
+        "translation": "итеративный",
+        "partOfSpeech": "adjective"
+      },
+      "agency": {
+        "translation": "самостоятельность",
+        "partOfSpeech": "noun"
+      },
+      "anchor": {
+        "translation": "закреплять",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which part of the day is dedicated to high‑impact projects?",
+        "options": [
+          "Afternoon",
+          "Evening",
+          "Morning",
+          "Midday"
+        ],
+        "answer": 2,
+        "explanation": "The text states that morning hours are reserved for high‑impact projects."
+      },
+      {
+        "id": "q2",
+        "question": "What purpose do collaborative meetings serve according to the author?",
+        "options": [
+          "They act as social lubricants",
+          "They are essential for decision making",
+          "They replace administrative duties",
+          "They are scheduled for creative work"
+        ],
+        "answer": 0,
+        "explanation": "The passage says meetings function as social lubricants rather than pure work units."
+      },
+      {
+        "id": "q3",
+        "question": "Why are evenings left open in the schedule?",
+        "options": [
+          "To increase workload",
+          "To schedule more meetings",
+          "To catch up on emails",
+          "To allow reflective journaling"
+        ],
+        "answer": 3,
+        "explanation": "The text explains evenings are left open to allow for reflective journaling or spontaneous activities."
+      }
+    ]
+  },
+  {
+    "id": "city-commute-realities",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "City Commute Realities",
+    "sentences": [
+      {
+        "text": "The morning rush in a metropolis begins long before the first train departs.",
+        "translationRu": "Утренний пик в мегаполисе начинается задолго до отправления первого поезда."
+      },
+      {
+        "text": "Most commuters rely on a layered network of subways, buses, and bike‑share schemes.",
+        "translationRu": "Большинство пассажиров полагаются на многоуровневую сеть метро, автобусов и систем проката велосипедов."
+      },
+      {
+        "text": "A typical journey involves a fifteen‑minute walk to the nearest station, a ten‑minute ride, and a brief scramble for a seat.",
+        "translationRu": "Обычное путешествие включает пятнадцатиминутную прогулку до ближайшей станции, десятиминутную поездку и короткую борьбу за место."
+      },
+      {
+        "text": "During peak hours, platforms become micro‑ecosystems where personal space is negotiable.",
+        "translationRu": "В часы пик платформы превращаются в микросистемы, где личное пространство подлежит переговорам."
+      },
+      {
+        "text": "The ambient noise of announcements and conversations creates a background hum that many find oddly soothing.",
+        "translationRu": "Фоновый шум объявлений и разговоров создает гул, который многие находят странно успокаивающим."
+      },
+      {
+        "text": "Occasionally, delays force passengers to improvise, turning a routine commute into a test of patience.",
+        "translationRu": "Иногда задержки заставляют пассажиров импровизировать, превращая обычную поездку в проверку терпения."
+      },
+      {
+        "text": "Some opt for flexible hours, reducing exposure to the most congested intervals.",
+        "translationRu": "Некоторые выбирают гибкий график, уменьшая контакт с самыми загруженными интервалами."
+      },
+      {
+        "text": "Others invest in noise‑cancelling headphones, treating the transit experience as a mobile office.",
+        "translationRu": "Другие покупают шумоподавляющие наушники, рассматривая поездку как мобильный офис."
+      },
+      {
+        "text": "Regardless of strategy, the commute inevitably shapes one’s perception of urban life.",
+        "translationRu": "Независимо от стратегии, поездка неизбежно формирует восприятие городской жизни."
+      },
+      {
+        "text": "By the time the office door opens, commuters often carry a subtle mix of fatigue and quiet anticipation for the evening.",
+        "translationRu": "К моменту открытия офисной двери пассажиры часто несут в себе тонкое сочетание усталости и тихого ожидания вечера."
+      }
+    ],
+    "glossary": {
+      "metropolis": {
+        "translation": "мегаполис",
+        "partOfSpeech": "noun"
+      },
+      "layered": {
+        "translation": "многоуровневый",
+        "partOfSpeech": "adjective"
+      },
+      "micro‑ecosystem": {
+        "translation": "микросистема",
+        "partOfSpeech": "noun"
+      },
+      "negotiable": {
+        "translation": "подлежащий переговорам",
+        "partOfSpeech": "adjective"
+      },
+      "improvise": {
+        "translation": "импровизировать",
+        "partOfSpeech": "verb"
+      },
+      "anticipation": {
+        "translation": "ожидание",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the text suggest many commuters do to cope with noise?",
+        "options": [
+          "Wear earplugs",
+          "Listen to podcasts",
+          "Use noise‑cancelling headphones",
+          "Close their eyes"
+        ],
+        "answer": 2,
+        "explanation": "The text states that some invest in noise‑cancelling headphones."
+      },
+      {
+        "id": "q2",
+        "question": "According to the passage, what becomes a ‘test of patience’?",
+        "options": [
+          "Buying a ticket",
+          "Finding a seat",
+          "Delays",
+          "Walking to the station"
+        ],
+        "answer": 2,
+        "explanation": "Delays force passengers to improvise, turning the commute into a test of patience."
+      },
+      {
+        "id": "q3",
+        "question": "Which phrase describes the atmosphere on crowded platforms?",
+        "options": [
+          "Quiet sanctuary",
+          "Micro‑ecosystem where personal space is negotiable",
+          "Open arena",
+          "Silent corridor"
+        ],
+        "answer": 1,
+        "explanation": "The text calls platforms ‘micro‑ecosystems where personal space is negotiable’."
+      }
+    ]
+  },
+  {
+    "id": "weekly-planning-blueprint",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Weekly Planning Blueprint",
+    "sentences": [
+      {
+        "text": "A disciplined individual often begins the week by mapping out tasks on a digital calendar.",
+        "translationRu": "Дисциплинированный человек часто начинает неделю, составляя план задач в цифровом календаре."
+      },
+      {
+        "text": "Priority is given to projects that demand sustained focus, which are slotted into the morning when cognitive energy peaks.",
+        "translationRu": "Приоритет отдается проектам, требующим постоянного внимания, которые планируются на утро, когда когнитивная энергия на пике."
+      },
+      {
+        "text": "Routine errands such as grocery shopping or banking are deliberately placed in the late afternoon to avoid interrupting deep work.",
+        "translationRu": "Рутинные задачи, такие как покупки или банковские операции, намеренно размещаются в поздний вечер, чтобы не прерывать глубокую работу."
+      },
+      {
+        "text": "Mid‑week, a brief review assesses progress and allows for reallocation of resources.",
+        "translationRu": "Середина недели — краткий обзор, оценивающий прогресс и позволяющий перераспределить ресурсы."
+      },
+      {
+        "text": "If deadlines loom, the schedule flexes, compressing less critical activities into shorter intervals.",
+        "translationRu": "Если приближаются сроки, расписание гибко, сжимая менее важные занятия в более короткие промежутки."
+      },
+      {
+        "text": "Conversely, when the workload eases, the planner inserts buffer blocks for creative experimentation.",
+        "translationRu": "И наоборот, когда нагрузка снижается, планировщик вставляет буферные блоки для творческих экспериментов."
+      },
+      {
+        "text": "Evenings are reserved for personal development, whether it be reading, language practice, or meditation.",
+        "translationRu": "Вечера отведены для личностного развития: чтения, практики языка или медитации."
+      },
+      {
+        "text": "A Sunday evening audit ensures that lingering tasks are migrated to the upcoming week, preventing accumulation.",
+        "translationRu": "Воскресный вечерний аудит гарантирует, что незавершённые задачи переносятся на следующую неделю, избегая накопления."
+      },
+      {
+        "text": "Such a cyclical routine cultivates a sense of control while accommodating inevitable fluctuations.",
+        "translationRu": "Такой циклический распорядок укрепляет ощущение контроля, одновременно учитывая неизбежные колебания."
+      },
+      {
+        "text": "Ultimately, the structure serves as a scaffold, supporting both productivity and wellbeing.",
+        "translationRu": "В конечном счёте, структура служит каркасом, поддерживая как продуктивность, так и благополучие."
+      }
+    ],
+    "glossary": {
+      "discipline": {
+        "translation": "дисциплина",
+        "partOfSpeech": "noun"
+      },
+      "cognitive": {
+        "translation": "когнитивный",
+        "partOfSpeech": "adjective"
+      },
+      "reallocation": {
+        "translation": "перераспределение",
+        "partOfSpeech": "noun"
+      },
+      "buffer": {
+        "translation": "буфер",
+        "partOfSpeech": "noun"
+      },
+      "scaffold": {
+        "translation": "каркас",
+        "partOfSpeech": "noun"
+      },
+      "fluctuation": {
+        "translation": "колебание",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "When are high‑focus projects scheduled according to the text?",
+        "options": [
+          "Late evening",
+          "Midday",
+          "Morning",
+          "Weekend"
+        ],
+        "answer": 2,
+        "explanation": "The passage says high‑focus projects are slotted into the morning."
+      },
+      {
+        "id": "q2",
+        "question": "What purpose does the Sunday evening audit serve?",
+        "options": [
+          "To plan vacations",
+          "To migrate lingering tasks",
+          "To schedule meetings",
+          "To review finances"
+        ],
+        "answer": 1,
+        "explanation": "The text states the audit ensures lingering tasks are moved to the upcoming week."
+      },
+      {
+        "id": "q3",
+        "question": "Which activity is explicitly mentioned as an evening pursuit?",
+        "options": [
+          "Cooking",
+          "Language practice",
+          "Gym workout",
+          "Shopping"
+        ],
+        "answer": 1,
+        "explanation": "Evenings are reserved for personal development such as language practice."
+      }
+    ]
+  },
+  {
+    "id": "settling-into-a-new-flat",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "Settling Into a New Flat",
+    "sentences": [
+      {
+        "text": "When the lease is signed, the first priority becomes unpacking essentials to create a functional living space.",
+        "translationRu": "После подписания договора аренды первой задачей становится распаковка необходимых вещей для создания функционального жилого пространства."
+      },
+      {
+        "text": "A pragmatic approach dictates that kitchenware, bedding, and basic cleaning supplies occupy the most accessible shelves.",
+        "translationRu": "Практический подход подразумевает размещение кухонной посуды, постельных принадлежностей и базовых средств уборки на самых доступных полках."
+      },
+      {
+        "text": "Simultaneously, the occupant evaluates natural lighting and rearranges furniture to maximize ergonomic comfort.",
+        "translationRu": "Одновременно жилец оценивает естественное освещение и переставляет мебель, чтобы максимизировать эргономический комфорт."
+      },
+      {
+        "text": "If the walls are stark, temporary art—such as framed prints or tapestries—softens the ambience without permanent alteration.",
+        "translationRu": "Если стены пусты, временное искусство — например, рамы с печатными изображениями или гобелены — смягчает атмосферу без постоянных изменений."
+      },
+      {
+        "text": "Neighbourhood integration often begins with a brief walk to locate the nearest grocery, pharmacy, and public transport stop.",
+        "translationRu": "Включение в соседство часто начинается с короткой прогулки, чтобы найти ближайший магазин, аптеку и остановку общественного транспорта."
+      },
+      {
+        "text": "Establishing a reliable internet connection is treated as a utility, because digital access underpins both work and leisure.",
+        "translationRu": "Налаживание надёжного интернет‑соединения считается необходимостью, поскольку цифровой доступ поддерживает и работу, и отдых."
+      },
+      {
+        "text": "Over the first weeks, minor adjustments—like adding a rug for acoustics or a plant for air quality—gradually personalize the flat.",
+        "translationRu": "В течение первых недель небольшие изменения — добавление ковра для акустики или растения для качества воздуха — постепенно персонализируют квартиру."
+      },
+      {
+        "text": "Community boards or online forums become valuable sources for recommendations on local services.",
+        "translationRu": "Доски объявлений и онлайн‑форумы становятся ценными источниками рекомендаций по местным сервисам."
+      },
+      {
+        "text": "By the end of the month, the once‑anonymous space often feels like a modest sanctuary, reflecting the occupant’s habits and aesthetic choices.",
+        "translationRu": "К концу месяца когда‑то безликое пространство часто ощущается как скромное убежище, отражающее привычки и эстетические предпочтения жильца."
+      },
+      {
+        "text": "Such a transition underscores how environment and routine co‑construct a sense of belonging.",
+        "translationRu": "Этот переход подчёркивает, как окружение и распорядок совместно формируют чувство принадлежности."
+      }
+    ],
+    "glossary": {
+      "pragmatic": {
+        "translation": "практический",
+        "partOfSpeech": "adjective"
+      },
+      "ergonomic": {
+        "translation": "эргономичный",
+        "partOfSpeech": "adjective"
+      },
+      "temporary": {
+        "translation": "временный",
+        "partOfSpeech": "adjective"
+      },
+      "sanctuary": {
+        "translation": "убежище",
+        "partOfSpeech": "noun"
+      },
+      "co‑construct": {
+        "translation": "совместно конструировать",
+        "partOfSpeech": "verb"
+      },
+      "ambience": {
+        "translation": "атмосфера",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is identified as a 'utility' essential for both work and leisure?",
+        "options": [
+          "Electricity",
+          "Internet connection",
+          "Heating",
+          "Water supply"
+        ],
+        "answer": 1,
+        "explanation": "The text says establishing a reliable internet connection is treated as a utility."
+      },
+      {
+        "id": "q2",
+        "question": "Which of the following is mentioned as a way to personalize the flat?",
+        "options": [
+          "Installing new windows",
+          "Adding a rug for acoustics",
+          "Painting the ceiling",
+          "Replacing flooring"
+        ],
+        "answer": 1,
+        "explanation": "The passage notes adding a rug for acoustics as a minor adjustment."
+      },
+      {
+        "id": "q3",
+        "question": "How does the text describe the feeling of the flat after a month?",
+        "options": [
+          "A bustling hub",
+          "An anonymous room",
+          "A modest sanctuary",
+          "A crowded space"
+        ],
+        "answer": 2,
+        "explanation": "It states the space feels like a modest sanctuary."
+      }
+    ]
+  }
+]

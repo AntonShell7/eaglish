@@ -1,0 +1,107 @@
+[
+  {
+    "id": "weekly-swim-training",
+    "level": "A1-A2",
+    "topic": "sport",
+    "generated": true,
+    "title": "Weekly Swim Training",
+    "sentences": [
+      {
+        "text": "A swimmer goes to the pool every morning.",
+        "translationRu": "Пловец каждый утро ходит в бассейн."
+      },
+      {
+        "text": "He swims for thirty minutes and then rests.",
+        "translationRu": "Он плавает тридцать минут, а затем отдыхает."
+      },
+      {
+        "text": "On Tuesday he practices his breathing technique.",
+        "translationRu": "Во вторник он отрабатывает технику дыхания."
+      },
+      {
+        "text": "He does ten laps of freestyle.",
+        "translationRu": "Он делает десять кругов вольным стилем."
+      },
+      {
+        "text": "After the session he showers and eats a snack.",
+        "translationRu": "После тренировки он принимает душ и съедает перекус."
+      },
+      {
+        "text": "Wednesday is a rest day and he walks in the park.",
+        "translationRu": "Среда — день отдыха, и он гуляет в парке."
+      },
+      {
+        "text": "He watches videos about swimming and copies the tips.",
+        "translationRu": "Он смотрит видео о плавании и копирует советы."
+      },
+      {
+        "text": "At the end of the week he feels stronger and ready for the next race.",
+        "translationRu": "В конце недели он чувствует себя сильнее и готов к следующему соревнованию."
+      }
+    ],
+    "glossary": {
+      "swimmer": {
+        "translation": "пловец",
+        "partOfSpeech": "noun"
+      },
+      "breathing": {
+        "translation": "дыхание",
+        "partOfSpeech": "noun"
+      },
+      "freestyle": {
+        "translation": "вольный стиль",
+        "partOfSpeech": "noun"
+      },
+      "session": {
+        "translation": "тренировка",
+        "partOfSpeech": "noun"
+      },
+      "practice": {
+        "translation": "отработка",
+        "partOfSpeech": "noun"
+      },
+      "race": {
+        "translation": "соревнование",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which day does the swimmer rest?",
+        "options": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "answer": 2,
+        "explanation": "The text says Wednesday is a rest day."
+      },
+      {
+        "id": "q2",
+        "question": "How many laps does he do in a session?",
+        "options": [
+          "five",
+          "ten",
+          "fifteen",
+          "twenty"
+        ],
+        "answer": 1,
+        "explanation": "The sentence states he does ten laps of freestyle."
+      },
+      {
+        "id": "q3",
+        "question": "What does he feel at the end of the week?",
+        "options": [
+          "stronger",
+          "tired",
+          "hungry",
+          "sad"
+        ],
+        "answer": 0,
+        "explanation": "The last sentence says he feels stronger."
+      }
+    ]
+  }
+]

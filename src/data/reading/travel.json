@@ -1,0 +1,2105 @@
+[
+  {
+    "id": "lost-in-a-new-city",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Lost in a New City",
+    "sentences": [
+      {
+        "text": "I arrive in a new city.",
+        "translationRu": "Я приезжаю в новый город."
+      },
+      {
+        "text": "The streets are quiet.",
+        "translationRu": "Улицы тихие."
+      },
+      {
+        "text": "I look at the map.",
+        "translationRu": "Я смотрю на карту."
+      },
+      {
+        "text": "I walk to a big square.",
+        "translationRu": "Я иду к большой площади."
+      },
+      {
+        "text": "I ask a local for directions.",
+        "translationRu": "Я прошу местного жителя о направлении."
+      },
+      {
+        "text": "The local points to a street.",
+        "translationRu": "Житель указывает на улицу."
+      },
+      {
+        "text": "I follow the road but I turn the wrong way.",
+        "translationRu": "Я следую по дороге, но поворачиваю не туда."
+      },
+      {
+        "text": "I find a café and ask again.",
+        "translationRu": "Я нахожу кафе и снова прошу помощи."
+      },
+      {
+        "text": "I finally reach my hotel and feel safe.",
+        "translationRu": "Я наконец добираюсь до отеля и чувствую себя в безопасности."
+      }
+    ],
+    "glossary": {
+      "arrive": {
+        "translation": "прибывать",
+        "partOfSpeech": "verb"
+      },
+      "quiet": {
+        "translation": "тихий",
+        "partOfSpeech": "adjective"
+      },
+      "directions": {
+        "translation": "направления",
+        "partOfSpeech": "noun"
+      },
+      "street": {
+        "translation": "улица",
+        "partOfSpeech": "noun"
+      },
+      "finally": {
+        "translation": "наконец",
+        "partOfSpeech": "adverb"
+      },
+      "café": {
+        "translation": "кафе",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the person look at first for help?",
+        "options": [
+          "at a café",
+          "at a map",
+          "at a hotel",
+          "at a bus stop"
+        ],
+        "answer": 1,
+        "explanation": "The text says 'I look at the map.'"
+      },
+      {
+        "id": "q2",
+        "question": "What does the local do to help?",
+        "options": [
+          "points to a street",
+          "gives a phone number",
+          "writes a letter",
+          "sings a song"
+        ],
+        "answer": 0,
+        "explanation": "The text states 'The local points to a street.'"
+      },
+      {
+        "id": "q3",
+        "question": "How does the person feel at the end of the story?",
+        "options": [
+          "confused",
+          "scared",
+          "safe",
+          "hungry"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says 'I finally reach my hotel and feel safe.'"
+      }
+    ]
+  },
+  {
+    "id": "travel-light",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Travel Light",
+    "sentences": [
+      {
+        "text": "A student flies to a far city with one small bag.",
+        "translationRu": "Студент летит в далёкий город с одной маленькой сумкой."
+      },
+      {
+        "text": "He does not take many clothes.",
+        "translationRu": "Он не берёт много одежды."
+      },
+      {
+        "text": "He packs only a shirt, shorts and shoes.",
+        "translationRu": "Он упаковал только рубашку, шорты и обувь."
+      },
+      {
+        "text": "He also brings a notebook and a pen.",
+        "translationRu": "Он также берёт блокнот и ручку."
+      },
+      {
+        "text": "At the airport he moves quickly.",
+        "translationRu": "В аэропорту он двигается быстро."
+      },
+      {
+        "text": "He does not wait in long lines.",
+        "translationRu": "Он не стоит в длинных очередях."
+      },
+      {
+        "text": "He enjoys the city without heavy luggage.",
+        "translationRu": "Он наслаждается городом без тяжёлого багажа."
+      }
+    ],
+    "glossary": {
+      "student": {
+        "translation": "студент",
+        "partOfSpeech": "noun"
+      },
+      "bag": {
+        "translation": "сумка",
+        "partOfSpeech": "noun"
+      },
+      "clothes": {
+        "translation": "одежда",
+        "partOfSpeech": "noun"
+      },
+      "notebook": {
+        "translation": "блокнот",
+        "partOfSpeech": "noun"
+      },
+      "airport": {
+        "translation": "аэропорт",
+        "partOfSpeech": "noun"
+      },
+      "luggage": {
+        "translation": "багаж",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the student NOT bring?",
+        "options": [
+          "Shoes",
+          "A notebook",
+          "A pen",
+          "A heavy coat"
+        ],
+        "answer": 3,
+        "explanation": "The text lists shirt, shorts, shoes, notebook and pen, but not a heavy coat."
+      },
+      {
+        "id": "q2",
+        "question": "Why can the student move quickly at the airport?",
+        "options": [
+          "He has a fast passport",
+          "He has no heavy luggage",
+          "He flies in a private plane",
+          "He knows the staff"
+        ],
+        "answer": 1,
+        "explanation": "The text says he does not wait in long lines because he has almost no luggage."
+      },
+      {
+        "id": "q3",
+        "question": "How many bags does the student take?",
+        "options": [
+          "Two",
+          "One",
+          "Three",
+          "None"
+        ],
+        "answer": 0,
+        "explanation": "The first sentence says he travels with one small bag."
+      }
+    ]
+  },
+  {
+    "id": "village-festival-surprise",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Village Festival Surprise",
+    "sentences": [
+      {
+        "text": "A traveler walks into a small village at noon.",
+        "translationRu": "Путешественник заходит в маленькую деревню в полдень."
+      },
+      {
+        "text": "He hears music and bright colors.",
+        "translationRu": "Он слышит музыку и видит яркие цвета."
+      },
+      {
+        "text": "People dance in the square.",
+        "translationRu": "Люди танцуют на площади."
+      },
+      {
+        "text": "The traveler sees a banner that says \"Festival\".",
+        "translationRu": "Путешественник видит баннер с надписью «Фестиваль»."
+      },
+      {
+        "text": "He joins the dance and smiles.",
+        "translationRu": "Он присоединяется к танцу и улыбается."
+      },
+      {
+        "text": "Later he eats local food from a stall.",
+        "translationRu": "Позже он ест местную еду с лотка."
+      },
+      {
+        "text": "When the sun sets he thanks the villagers and leaves.",
+        "translationRu": "Когда солнце садится, он благодарит жителей и уходит."
+      }
+    ],
+    "glossary": {
+      "village": {
+        "translation": "деревня",
+        "partOfSpeech": "noun"
+      },
+      "festival": {
+        "translation": "фестиваль",
+        "partOfSpeech": "noun"
+      },
+      "square": {
+        "translation": "площадь",
+        "partOfSpeech": "noun"
+      },
+      "banner": {
+        "translation": "баннер",
+        "partOfSpeech": "noun"
+      },
+      "stall": {
+        "translation": "лоток",
+        "partOfSpeech": "noun"
+      },
+      "thanks": {
+        "translation": "благодарить",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the traveler see first in the village?",
+        "options": [
+          "A church",
+          "Music and bright colors",
+          "A market",
+          "A museum"
+        ],
+        "answer": 1,
+        "explanation": "The second sentence mentions music and bright colors."
+      },
+      {
+        "id": "q2",
+        "question": "What does the traveler eat?",
+        "options": [
+          "Pizza",
+          "Local food from a stall",
+          "Sandwiches",
+          "Fruit"
+        ],
+        "answer": 1,
+        "explanation": "The text says he eats local food from a stall."
+      },
+      {
+        "id": "q3",
+        "question": "When does the traveler leave the village?",
+        "options": [
+          "At sunrise",
+          "At noon",
+          "When the sun sets",
+          "After midnight"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says he leaves when the sun sets."
+      }
+    ]
+  },
+  {
+    "id": "returning-to-a-favorite-place",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Returning to a Favorite Place",
+    "sentences": [
+      {
+        "text": "A traveler visits a seaside town for the first time.",
+        "translationRu": "Путешественник впервые посещает прибрежный городок."
+      },
+      {
+        "text": "He walks on the beach and feels the wind.",
+        "translationRu": "Он гуляет по пляжу и чувствует ветер."
+      },
+      {
+        "text": "He likes the calm sea and the small cafés.",
+        "translationRu": "Ему нравятся спокойное море и маленькие кафе."
+      },
+      {
+        "text": "He stays in a simple guest house.",
+        "translationRu": "Он живёт в простом гостевом доме."
+      },
+      {
+        "text": "When he leaves, he thinks about the sound of waves.",
+        "translationRu": "Когда он уезжает, он думает о звуке волн."
+      },
+      {
+        "text": "A year later he buys a ticket to the same town.",
+        "translationRu": "Через год он покупает билет в тот же городок."
+      },
+      {
+        "text": "He returns because the place feels like home.",
+        "translationRu": "Он возвращается, потому что это место кажется ему домом."
+      }
+    ],
+    "glossary": {
+      "seaside": {
+        "translation": "прибрежный",
+        "partOfSpeech": "adjective"
+      },
+      "beach": {
+        "translation": "пляж",
+        "partOfSpeech": "noun"
+      },
+      "café": {
+        "translation": "кафе",
+        "partOfSpeech": "noun"
+      },
+      "guest house": {
+        "translation": "гостевой дом",
+        "partOfSpeech": "noun"
+      },
+      "waves": {
+        "translation": "волны",
+        "partOfSpeech": "noun"
+      },
+      "ticket": {
+        "translation": "билет",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the traveler like about the town?",
+        "options": [
+          "The mountains",
+          "The calm sea and small cafés",
+          "The nightlife",
+          "The big hotels"
+        ],
+        "answer": 1,
+        "explanation": "The third sentence says he likes the calm sea and the small cafés."
+      },
+      {
+        "id": "q2",
+        "question": "How long after the first visit does he travel again?",
+        "options": [
+          "Six months",
+          "One year",
+          "Two weeks",
+          "Three days"
+        ],
+        "answer": 1,
+        "explanation": "The sixth sentence states a year later he buys a ticket."
+      },
+      {
+        "id": "q3",
+        "question": "Why does he return to the same place?",
+        "options": [
+          "Because it is cheap",
+          "Because it feels like home",
+          "Because of a job",
+          "Because of friends"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence says he returns because the place feels like home."
+      }
+    ]
+  },
+  {
+    "id": "simple-travel-phrases",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Simple Travel Phrases",
+    "sentences": [
+      {
+        "text": "You plan a short trip to a new city.",
+        "translationRu": "Вы планируете короткую поездку в новый город."
+      },
+      {
+        "text": "Before you go you learn a few words.",
+        "translationRu": "Перед поездкой вы выучите несколько слов."
+      },
+      {
+        "text": "You say hello and thank you.",
+        "translationRu": "Вы говорите \"привет\" и \"спасибо\"."
+      },
+      {
+        "text": "You ask where the bus stop is.",
+        "translationRu": "Вы спрашиваете, где находится автобусная остановка."
+      },
+      {
+        "text": "You learn how to buy a ticket.",
+        "translationRu": "Вы учитесь покупать билет."
+      },
+      {
+        "text": "You practice saying I need help.",
+        "translationRu": "Вы практикуете фразу \"Мне нужна помощь\"."
+      },
+      {
+        "text": "You feel more calm when you speak.",
+        "translationRu": "Вы чувствуете себя спокойнее, когда говорите."
+      },
+      {
+        "text": "You enjoy the trip because you understand basic talk.",
+        "translationRu": "Вы наслаждаетесь поездкой, потому что понимаете базовый разговор."
+      }
+    ],
+    "glossary": {
+      "plan": {
+        "translation": "планировать",
+        "partOfSpeech": "verb"
+      },
+      "trip": {
+        "translation": "поездка",
+        "partOfSpeech": "noun"
+      },
+      "ticket": {
+        "translation": "билет",
+        "partOfSpeech": "noun"
+      },
+      "help": {
+        "translation": "помощь",
+        "partOfSpeech": "noun"
+      },
+      "calm": {
+        "translation": "спокойный",
+        "partOfSpeech": "adjective"
+      },
+      "enjoy": {
+        "translation": "наслаждаться",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the traveler learn before the trip?",
+        "options": [
+          "How to drive a car",
+          "How to ask for directions",
+          "How to cook meals",
+          "How to write letters"
+        ],
+        "answer": 1,
+        "explanation": "The text says the traveler learns to ask where the bus stop is, which is asking for directions."
+      },
+      {
+        "id": "q2",
+        "question": "Which feeling is mentioned after speaking?",
+        "options": [
+          "Fear",
+          "Excitement",
+          "Calm",
+          "Anger"
+        ],
+        "answer": 2,
+        "explanation": "The text states \"You feel more calm when you speak.\""
+      },
+      {
+        "id": "q3",
+        "question": "How many sentences are in the text?",
+        "options": [
+          "5",
+          "6",
+          "8",
+          "10"
+        ],
+        "answer": 2,
+        "explanation": "The text contains eight sentences as listed."
+      }
+    ]
+  },
+  {
+    "id": "early-morning-airport",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Early Morning Airport",
+    "sentences": [
+      {
+        "text": "The alarm rings at four a.m.",
+        "translationRu": "Будильник звонит в четыре утра."
+      },
+      {
+        "text": "You get dressed and leave the house.",
+        "translationRu": "Вы одеваетесь и выходите из дома."
+      },
+      {
+        "text": "The street is quiet and dark.",
+        "translationRu": "Улица тихая и темная."
+      },
+      {
+        "text": "You walk to the airport bus stop.",
+        "translationRu": "Вы идете к автобусной остановке аэропорта."
+      },
+      {
+        "text": "The bus arrives and you sit inside.",
+        "translationRu": "Автобус приезжает и вы садитесь внутри."
+      },
+      {
+        "text": "The airport looks big and empty.",
+        "translationRu": "Аэропорт выглядит большим и пустым."
+      },
+      {
+        "text": "You check the board for your flight.",
+        "translationRu": "Вы проверяете табло для своего рейса."
+      },
+      {
+        "text": "You wait, sip coffee, and feel ready.",
+        "translationRu": "Вы ждете, потягивая кофе, и чувствуете себя готовым."
+      }
+    ],
+    "glossary": {
+      "alarm": {
+        "translation": "будильник",
+        "partOfSpeech": "noun"
+      },
+      "quiet": {
+        "translation": "тихий",
+        "partOfSpeech": "adjective"
+      },
+      "airport": {
+        "translation": "аэропорт",
+        "partOfSpeech": "noun"
+      },
+      "board": {
+        "translation": "табло",
+        "partOfSpeech": "noun"
+      },
+      "coffee": {
+        "translation": "кофе",
+        "partOfSpeech": "noun"
+      },
+      "ready": {
+        "translation": "готовый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What time does the alarm ring?",
+        "options": [
+          "Six a.m.",
+          "Four a.m.",
+          "Eight a.m.",
+          "Midnight"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says the alarm rings at four a.m."
+      },
+      {
+        "id": "q2",
+        "question": "What does the traveler do while waiting?",
+        "options": [
+          "Read a book",
+          "Sip coffee",
+          "Watch TV",
+          "Sleep"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence mentions sipping coffee while waiting."
+      },
+      {
+        "id": "q3",
+        "question": "How is the street described?",
+        "options": [
+          "Crowded and noisy",
+          "Bright and busy",
+          "Quiet and dark",
+          "Wet and slippery"
+        ],
+        "answer": 2,
+        "explanation": "The third sentence says the street is quiet and dark."
+      }
+    ]
+  },
+  {
+    "id": "midnight-train-across-the-countryside",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Midnight Train Across the Countryside",
+    "sentences": [
+      {
+        "text": "The night train left the station just after midnight, its lights flickering like fireflies.",
+        "translationRu": "Ночной поезд отправился со станции сразу после полуночи, его огни мерцали, как светлячки."
+      },
+      {
+        "text": "Passengers settled into their seats, some reading, others dozing, while the landscape slipped into darkness.",
+        "translationRu": "Пассажиры устроились на своих местах, кто‑то читал, кто‑то дремал, пока пейзаж исчезал в темноте."
+      },
+      {
+        "text": "A gentle rocking motion made the carriage sway, which helped many people fall asleep.",
+        "translationRu": "Лёгкое покачивание вагона заставляло его слегка раскачиваться, что помогало многим заснуть."
+      },
+      {
+        "text": "When the train passed through a small village, a faint hymn could be heard from a nearby church.",
+        "translationRu": "Когда поезд проезжал через небольшую деревню, из соседней церкви доносилось слабое гимнопение."
+      },
+      {
+        "text": "The conductor announced a short stop, reminding everyone to keep their luggage close.",
+        "translationRu": "Кондуктор объявил о короткой остановке, напомнив всем держать багаж рядом."
+      },
+      {
+        "text": "A few travelers got off to stretch their legs, then hurried back on as the doors shut.",
+        "translationRu": "Некоторые путешественники вышли, чтобы размять ноги, а потом поспешили вернуться, когда двери закрылись."
+      },
+      {
+        "text": "Outside, the moon rose higher, casting a silver glow over the fields.",
+        "translationRu": "Снаружи луна поднималась всё выше, бросая серебристый свет на поля."
+      },
+      {
+        "text": "Inside, the soft hum of the engine mixed with occasional whispers about the next destination.",
+        "translationRu": "Внутри мягкое гудение двигателя смешивалось с редкими шепотами о следующем пункте назначения."
+      },
+      {
+        "text": "By dawn, the train entered a bustling city, and the passengers prepared for the final leg of their journey.",
+        "translationRu": "К рассвету поезд въехал в шумный город, и пассажиры приготовились к последнему отрезку своего путешествия."
+      },
+      {
+        "text": "They stepped onto the platform feeling refreshed, as if the night had carried away their worries.",
+        "translationRu": "Они вышли на платформу, чувствуя себя отдохнувшими, словно ночь унесла их тревоги."
+      }
+    ],
+    "glossary": {
+      "conductor": {
+        "translation": "кондуктор",
+        "partOfSpeech": "noun"
+      },
+      "sway": {
+        "translation": "качаться",
+        "partOfSpeech": "verb"
+      },
+      "hymn": {
+        "translation": "гимн",
+        "partOfSpeech": "noun"
+      },
+      "bustling": {
+        "translation": "оживлённый",
+        "partOfSpeech": "adjective"
+      },
+      "leg": {
+        "translation": "этап",
+        "partOfSpeech": "noun"
+      },
+      "flickering": {
+        "translation": "мерцание",
+        "partOfSpeech": "verb"
+      },
+      "hum": {
+        "translation": "гудение",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What time did the train leave the station?",
+        "options": [
+          "At noon",
+          "Just after midnight",
+          "In the evening",
+          "At sunrise"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence states the train left just after midnight."
+      },
+      {
+        "id": "q2",
+        "question": "Why did many passengers fall asleep?",
+        "options": [
+          "Because the train was very noisy",
+          "Because of the gentle rocking motion",
+          "Because they were bored",
+          "Because they were reading"
+        ],
+        "answer": 1,
+        "explanation": "The third sentence explains that the gentle rocking motion helped many people fall asleep."
+      },
+      {
+        "id": "q3",
+        "question": "What did the passengers feel when they stepped onto the platform?",
+        "options": [
+          "Tired and restless",
+          "Confused and lost",
+          "Refreshed and light",
+          "Angry about the delay"
+        ],
+        "answer": 2,
+        "explanation": "The last sentence says they felt refreshed, as if the night had carried away their worries."
+      }
+    ]
+  },
+  {
+    "id": "lost-in-an-unfamiliar-city",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Lost in an Unfamiliar City",
+    "sentences": [
+      {
+        "text": "She arrived in the city just after lunch, carrying a map that was more decorative than useful.",
+        "translationRu": "Она прибыла в город сразу после обеда, держа карту, которая была больше декоративной, чем полезной."
+      },
+      {
+        "text": "After a quick coffee, she set out to find the museum, following the narrow streets she had only seen on the map.",
+        "translationRu": "После быстрой чашки кофе она отправилась искать музей, следуя по узким улицам, которые видела лишь на карте."
+      },
+      {
+        "text": "Soon the alleys twisted, and the signs became unreadable, making her feel a little uneasy.",
+        "translationRu": "Скоро переулки заплелись, а вывески стали нечитаемыми, заставив её немного волноваться."
+      },
+      {
+        "text": "She asked a street vendor for directions, but his English was limited, so they used gestures and pointing.",
+        "translationRu": "Она попросила у уличного торговца дорогу, но его английский был ограниченным, поэтому они использовали жесты и указания пальцем."
+      },
+      {
+        "text": "The vendor smiled, waved her toward a nearby tram stop, and shouted something about a shortcut.",
+        "translationRu": "Торговец улыбнулся, помахал в сторону ближайшей трамвайной остановки и крикнул что‑то о коротком пути."
+      },
+      {
+        "text": "She hopped on the tram, hoping it would bring her closer to the museum, but the line turned out to head the opposite direction.",
+        "translationRu": "Она села в трамвай, надеясь, что он довезёт её ближе к музею, но маршрут оказался движущимся в противоположном направлении."
+      },
+      {
+        "text": "Realising the mistake, she got off at the next stop and started walking, this time paying more attention to the street names.",
+        "translationRu": "Поняв ошибку, она вышла на следующей остановке и пошла пешком, теперь более внимательно следя за названиями улиц."
+      },
+      {
+        "text": "After a few minutes, a historic building with a large clock tower caught her eye, and she recognized it from the guidebook.",
+        "translationRu": "Через несколько минут её взгляд привлек исторический корпус с большой часовой башней, и она узнала его из путеводителя."
+      },
+      {
+        "text": "She finally arrived at the museum, feeling relieved and a bit proud of solving the little adventure on her own.",
+        "translationRu": "Она наконец добралась до музея, чувствуя облегчение и небольшую гордость за то, что самостоятельно справилась с маленьким приключением."
+      }
+    ],
+    "glossary": {
+      "gesture": {
+        "translation": "жест",
+        "partOfSpeech": "noun"
+      },
+      "opposite": {
+        "translation": "противоположный",
+        "partOfSpeech": "adjective"
+      },
+      "guidebook": {
+        "translation": "путеводитель",
+        "partOfSpeech": "noun"
+      },
+      "relieved": {
+        "translation": "облегчённый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What did the map look like?",
+        "options": [
+          "Very detailed and accurate",
+          "Decorative and not very useful",
+          "Old and torn",
+          "Digital on a phone"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says the map was more decorative than useful."
+      },
+      {
+        "id": "q2",
+        "question": "Why did she get off the tram at the next stop?",
+        "options": [
+          "Because it was her destination",
+          "Because the tram was full",
+          "Because the tram was going the opposite way",
+          "Because she missed her stop"
+        ],
+        "answer": 2,
+        "explanation": "The sixth sentence explains the line turned out to head the opposite direction."
+      },
+      {
+        "id": "q3",
+        "question": "How did she finally recognize the museum area?",
+        "options": [
+          "By a street sign",
+          "By a historic building with a clock tower",
+          "By a souvenir shop",
+          "By a billboard"
+        ],
+        "answer": 1,
+        "explanation": "The eighth sentence mentions a historic building with a large clock tower that she recognized."
+      }
+    ]
+  },
+  {
+    "id": "traveling-light-with-almost-nothing",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Traveling Light with Almost Nothing",
+    "sentences": [
+      {
+        "text": "He decided to travel across Europe with only a small backpack, leaving most of his belongings at home.",
+        "translationRu": "Он решил путешествовать по Европе только с небольшим рюкзаком, оставив большую часть вещей дома."
+      },
+      {
+        "text": "The backpack contained a change of clothes, a toothbrush, a notebook, and a compact rain jacket.",
+        "translationRu": "В рюкзаке были сменная одежда, зубная щётка, блокнот и компактная дождевка."
+      },
+      {
+        "text": "At the first hostel, the staff were surprised that he had no extra shoes, but he explained he would buy them later.",
+        "translationRu": "В первом хостеле персонал удивился, что у него нет лишних обуви, но он объяснил, что купит их позже."
+      },
+      {
+        "text": "He spent a day walking around the city, using laundry services to wash the same shirt twice.",
+        "translationRu": "Он провёл день, гуляя по городу, используя прачечную, чтобы постирать одну и ту же рубашку дважды."
+      },
+      {
+        "text": "When a sudden rainstorm hit, his tiny jacket proved enough to keep him dry, though he got a bit chilly.",
+        "translationRu": "Когда внезапно начался дождь, его крошечная куртка оказалась достаточной, чтобы не промокнуть, хотя он немного простудился."
+      },
+      {
+        "text": "He discovered that traveling light forced him to interact more with locals, asking for recommendations and even borrowing a spare pair of socks.",
+        "translationRu": "Он обнаружил, что путешествие с малым багажом заставило его чаще общаться с местными, спрашивая рекомендации и даже одалживая запасные носки."
+      },
+      {
+        "text": "Each night he stored his backpack in the locker, feeling lighter not only physically but also mentally.",
+        "translationRu": "Каждую ночь он ставил рюкзак в шкафчик, чувствуя себя легче не только физически, но и психологически."
+      },
+      {
+        "text": "By the end of the trip, he had collected several stories about kindness, which he wrote down in his notebook.",
+        "translationRu": "К концу путешествия у него собралось несколько историй о доброте, которые он записал в блокнот."
+      },
+      {
+        "text": "He returned home convinced that a minimalist approach made his adventure more vivid and less stressful.",
+        "translationRu": "Он вернулся домой убеждённым, что минималистичный подход сделал его приключение ярче и менее стрессовым."
+      }
+    ],
+    "glossary": {
+      "backpack": {
+        "translation": "рюкзак",
+        "partOfSpeech": "noun"
+      },
+      "compact": {
+        "translation": "компактный",
+        "partOfSpeech": "adjective"
+      },
+      "hostel": {
+        "translation": "хостел",
+        "partOfSpeech": "noun"
+      },
+      "minimalist": {
+        "translation": "минималистичный",
+        "partOfSpeech": "adjective"
+      },
+      "vivid": {
+        "translation": "яркий",
+        "partOfSpeech": "adjective"
+      },
+      "locker": {
+        "translation": "шкафчик",
+        "partOfSpeech": "noun"
+      },
+      "borrow": {
+        "translation": "одалживать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What was the purpose of the rain jacket?",
+        "options": [
+          "To keep him warm in the snow",
+          "To protect him from rain",
+          "To use as a pillow",
+          "To give to a friend"
+        ],
+        "answer": 1,
+        "explanation": "The fifth sentence says the jacket kept him dry during a rainstorm."
+      },
+      {
+        "id": "q2",
+        "question": "How did he manage with only one shirt?",
+        "options": [
+          "He bought a new one each day",
+          "He wore it without washing",
+          "He used laundry services to wash it twice",
+          "He never wore a shirt"
+        ],
+        "answer": 2,
+        "explanation": "The fourth sentence mentions using laundry services to wash the same shirt twice."
+      },
+      {
+        "id": "q3",
+        "question": "What feeling did he have after storing his backpack each night?",
+        "options": [
+          "He felt heavier",
+          "He felt lighter mentally",
+          "He felt angry",
+          "He felt confused"
+        ],
+        "answer": 1,
+        "explanation": "The seventh sentence says he felt lighter not only physically but also mentally."
+      }
+    ]
+  },
+  {
+    "id": "unexpected-village-festival",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Unexpected Village Festival",
+    "sentences": [
+      {
+        "text": "While cycling through a remote valley, she heard distant drums and laughter drifting on the wind.",
+        "translationRu": "Проезжая на велосипеде через отдалённую долину, она услышала вдалеке барабаны и смех, несущийся по ветру."
+      },
+      {
+        "text": "Curious, she followed the sound until she reached a small square surrounded by brightly painted houses.",
+        "translationRu": "Любопытная, она последовала за звуком, пока не дошла до небольшой площади, окружённой ярко раскрашенными домами."
+      },
+      {
+        "text": "A local festival was in full swing, with people dancing around a wooden bonfire.",
+        "translationRu": "Идёт местный праздник, где люди танцуют вокруг деревянного костра."
+      },
+      {
+        "text": "She was invited to join the circle, and after a quick lesson she managed to keep the rhythm with the drums.",
+        "translationRu": "Её пригласили присоединиться к кругу, и после короткого урока ей удалось держать ритм с барабанами."
+      },
+      {
+        "text": "The scent of grilled meat and fresh bread filled the air, making her stomach rumble.",
+        "translationRu": "Запах жареного мяса и свежего хлеба наполнил воздух, и у неё заурчал желудок."
+      },
+      {
+        "text": "An elderly woman handed her a handmade necklace, explaining it was a token of welcome.",
+        "translationRu": "Пожилой женщине дала ей самодельное ожерелье, объяснив, что это знак приветствия."
+      },
+      {
+        "text": "Later, the villagers gathered around a storyteller who narrated a legend about the valley's founding.",
+        "translationRu": "Позже жители собрались вокруг рассказчика, который поведал легенду об основании долины."
+      },
+      {
+        "text": "She listened attentively, realizing how such simple celebrations could bring strangers together.",
+        "translationRu": "Она слушала внимательно, понимая, как такие простые праздники могут объединять незнакомцев."
+      },
+      {
+        "text": "When the night ended, she thanked everyone and rode away, carrying the necklace as a reminder of the warm hospitality.",
+        "translationRu": "Когда ночь закончилась, она поблагодарила всех и уехала, унося ожерелье как напоминание о тёплом гостеприимстве."
+      }
+    ],
+    "glossary": {
+      "drum": {
+        "translation": "барабан",
+        "partOfSpeech": "noun"
+      },
+      "bonfire": {
+        "translation": "костёр",
+        "partOfSpeech": "noun"
+      },
+      "handmade": {
+        "translation": "самодельный",
+        "partOfSpeech": "adjective"
+      },
+      "legend": {
+        "translation": "легенда",
+        "partOfSpeech": "noun"
+      },
+      "hospitality": {
+        "translation": "гостеприимство",
+        "partOfSpeech": "noun"
+      },
+      "rumble": {
+        "translation": "урчать",
+        "partOfSpeech": "verb"
+      },
+      "invited": {
+        "translation": "приглашённый",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What did the scent in the air make her feel?",
+        "options": [
+          "Sleepy",
+          "Hungry",
+          "Cold",
+          "Confused"
+        ],
+        "answer": 1,
+        "explanation": "The fifth sentence says the scent made her stomach rumble, indicating hunger."
+      },
+      {
+        "id": "q2",
+        "question": "How did she learn to keep the rhythm with the drums?",
+        "options": [
+          "She watched a video",
+          "She took a quick lesson",
+          "She guessed",
+          "She never learned"
+        ],
+        "answer": 1,
+        "explanation": "The fourth sentence mentions she received a quick lesson and managed to keep the rhythm."
+      },
+      {
+        "id": "q3",
+        "question": "What did the elderly woman give her?",
+        "options": [
+          "A map",
+          "A handmade necklace",
+          "Food",
+          "A book"
+        ],
+        "answer": 1,
+        "explanation": "The sixth sentence states the elderly woman handed her a handmade necklace."
+      }
+    ]
+  },
+  {
+    "id": "returning-to-a-favorite-spot",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Returning to a Favorite Spot",
+    "sentences": [
+      {
+        "text": "Many travelers find themselves booking the same destination year after year.",
+        "translationRu": "Многие путешественники обнаруживают, что каждый год бронируют один и тот же пункт назначения."
+      },
+      {
+        "text": "They often speak of a special connection that developed during their first visit.",
+        "translationRu": "Они часто говорят о особой связи, которая возникла во время их первого визита."
+      },
+      {
+        "text": "For some, the local food becomes a comforting reminder of home.",
+        "translationRu": "Для некоторых местная еда становится уютным напоминанием о доме."
+      },
+      {
+        "text": "Others enjoy the relaxed rhythm of the town, which lets them unwind after a hectic job.",
+        "translationRu": "Другие наслаждаются спокойным ритмом города, который позволяет им расслабиться после напряжённой работы."
+      },
+      {
+        "text": "Because they already know the streets, they can explore hidden cafés without getting lost.",
+        "translationRu": "Поскольку они уже знают улицы, могут исследовать скрытые кафе, не заблудившись."
+      },
+      {
+        "text": "This familiarity also means they can skip the tourist traps and head straight to the authentic spots.",
+        "translationRu": "Эта знакомость также позволяет им обходить туристические ловушки и сразу идти к аутентичным местам."
+      },
+      {
+        "text": "When they return, they often bring new friends along, sharing the experience they cherish.",
+        "translationRu": "Когда они возвращаются, они часто берут с собой новых друзей, делясь любимым опытом."
+      },
+      {
+        "text": "The cycle of returning creates a small community of repeat visitors who look out for each other.",
+        "translationRu": "Цикл возвращения создает небольшое сообщество постоянных посетителей, которые заботятся друг о друге."
+      },
+      {
+        "text": "In the end, the place feels less like a destination and more like a second home.",
+        "translationRu": "В конечном итоге место кажется менее пунктом назначения и более вторым домом."
+      }
+    ],
+    "glossary": {
+      "destination": {
+        "translation": "пункт назначения",
+        "partOfSpeech": "noun"
+      },
+      "connection": {
+        "translation": "связь",
+        "partOfSpeech": "noun"
+      },
+      "unwind": {
+        "translation": "расслабиться",
+        "partOfSpeech": "verb"
+      },
+      "authentic": {
+        "translation": "аутентичный",
+        "partOfSpeech": "adjective"
+      },
+      "cherish": {
+        "translation": "ценить",
+        "partOfSpeech": "verb"
+      },
+      "community": {
+        "translation": "сообщество",
+        "partOfSpeech": "noun"
+      },
+      "skip": {
+        "translation": "пропустить",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why do many travelers book the same place repeatedly?",
+        "options": [
+          "Because it is the cheapest option",
+          "Because they feel a special connection there",
+          "Because they cannot afford new destinations",
+          "Because travel agencies force them"
+        ],
+        "answer": 1,
+        "explanation": "The text says travelers speak of a special connection that developed during their first visit."
+      },
+      {
+        "id": "q2",
+        "question": "What advantage does familiarity give to repeat visitors?",
+        "options": [
+          "It allows them to avoid tourist traps",
+          "It guarantees lower prices",
+          "It makes the weather better",
+          "It forces them to stay in the same hotel"
+        ],
+        "answer": 0,
+        "explanation": "The text mentions that familiarity means they can skip tourist traps and go straight to authentic spots."
+      },
+      {
+        "id": "q3",
+        "question": "How does the text describe the feeling toward the place after many visits?",
+        "options": [
+          "A temporary stopover",
+          "A second home",
+          "A risky investment",
+          "A mandatory duty"
+        ],
+        "answer": 1,
+        "explanation": "The final sentence says the place feels more like a second home."
+      }
+    ]
+  },
+  {
+    "id": "learning-phrases-before-a-trip",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Learning Phrases Before a Trip",
+    "sentences": [
+      {
+        "text": "Before setting off, most travelers learn a handful of useful phrases.",
+        "translationRu": "Перед отъездом большинство путешественников учат несколько полезных фраз."
+      },
+      {
+        "text": "Even a simple \"thank you\" or \"where is the bathroom?\" can break the ice with locals.",
+        "translationRu": "Даже простое \"спасибо\" или \"где находится туалет?\" могут разрядить обстановку с местными."
+      },
+      {
+        "text": "A quick search online often yields pronunciation guides that are easy to follow.",
+        "translationRu": "Быстрый поиск в интернете часто дает руководства по произношению, которые легко понять."
+      },
+      {
+        "text": "Many people write the phrases on a small card and keep it in their pocket.",
+        "translationRu": "Многие записывают фразы на маленькую карточку и держат её в кармане."
+      },
+      {
+        "text": "When they need to ask for directions, they can point to the card and say the words confidently.",
+        "translationRu": "Когда им нужно спросить дорогу, они могут указать на карточку и уверенно произнести слова."
+      },
+      {
+        "text": "If the local language uses a different alphabet, they often practice the sounds rather than the letters.",
+        "translationRu": "Если местный язык использует другую азбуку, они часто практикуют звуки, а не буквы."
+      },
+      {
+        "text": "Travel blogs suggest learning greetings first, because they open most conversations.",
+        "translationRu": "Туристические блоги советуют сначала выучить приветствия, потому что они открывают большинство разговоров."
+      },
+      {
+        "text": "A friendly smile combined with a few words usually leads to helpful responses.",
+        "translationRu": "Дружелюбная улыбка в сочетании с несколькими словами обычно приводит к полезным ответам."
+      },
+      {
+        "text": "In the end, a modest effort to speak the language often makes the whole trip smoother.",
+        "translationRu": "В конце концов, небольшие усилия говорить на языке часто делают путешествие более гладким."
+      }
+    ],
+    "glossary": {
+      "handful": {
+        "translation": "немного",
+        "partOfSpeech": "noun"
+      },
+      "break the ice": {
+        "translation": "разрядить обстановку",
+        "partOfSpeech": "phrase"
+      },
+      "pronunciation": {
+        "translation": "произношение",
+        "partOfSpeech": "noun"
+      },
+      "confidently": {
+        "translation": "уверенно",
+        "partOfSpeech": "adverb"
+      },
+      "alphabet": {
+        "translation": "азбука",
+        "partOfSpeech": "noun"
+      },
+      "blog": {
+        "translation": "блог",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is a common tool travelers use to remember phrases?",
+        "options": [
+          "A smartphone app",
+          "A small card in their pocket",
+          "A voice recorder",
+          "A travel guidebook"
+        ],
+        "answer": 1,
+        "explanation": "The text says many people write the phrases on a small card and keep it in their pocket."
+      },
+      {
+        "id": "q2",
+        "question": "Why do travel blogs suggest learning greetings first?",
+        "options": [
+          "Because they are the longest words",
+          "Because they open most conversations",
+          "Because they are easy to translate",
+          "Because they reduce travel costs"
+        ],
+        "answer": 1,
+        "explanation": "The text explicitly states greetings open most conversations."
+      },
+      {
+        "id": "q3",
+        "question": "What does the text say about languages with a different alphabet?",
+        "options": [
+          "Travelers should avoid them",
+          "They should focus on learning the letters",
+          "They often practice the sounds instead of the letters",
+          "They must hire a translator"
+        ],
+        "answer": 2,
+        "explanation": "The text mentions that if the language uses a different alphabet, travelers practice the sounds rather than the letters."
+      }
+    ]
+  },
+  {
+    "id": "early-morning-airport-rush",
+    "level": "B1-B2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Early Morning Airport Rush",
+    "sentences": [
+      {
+        "text": "Catching a flight at four in the morning feels like entering a secret world.",
+        "translationRu": "Сесть на рейс в четыре утра — как попасть в тайный мир."
+      },
+      {
+        "text": "The terminal is almost empty, and the usual hustle has not yet started.",
+        "translationRu": "Терминал почти пуст, и обычная суета ещё не началась."
+      },
+      {
+        "text": "Security lines move quickly because the staff are fresh and the passengers are sleepy.",
+        "translationRu": "Очереди в безопасности проходят быстро, потому что персонал бодр, а пассажиры сонные."
+      },
+      {
+        "text": "Most shops are closed, so you end up buying a coffee from a vending machine.",
+        "translationRu": "Большинство магазинов закрыты, поэтому кофе покупаешь из торгового автомата."
+      },
+      {
+        "text": "The low lighting gives the place a calm, almost cinematic atmosphere.",
+        "translationRu": "Тусклое освещение придаёт месту спокойную, почти кинематографическую атмосферу."
+      },
+      {
+        "text": "You can hear the distant roar of planes taking off, a sound that feels both exciting and soothing.",
+        "translationRu": "Слышен далёкий рёв взлетающих самолётов, звук, который одновременно волнует и успокаивает."
+      },
+      {
+        "text": "Because you arrive early, you have plenty of time to double‑check your documents.",
+        "translationRu": "Поскольку ты приезжаешь рано, у тебя достаточно времени перепроверить документы."
+      },
+      {
+        "text": "Some travelers use this quiet period to find a comfortable seat and stretch before the journey.",
+        "translationRu": "Некоторые путешественники используют эту тишину, чтобы найти удобное место и потянуться перед поездкой."
+      },
+      {
+        "text": "By the time the sun rises, the airport buzzes with activity, and you feel ready for the adventure ahead.",
+        "translationRu": "К моменту восхода солнца аэропорт гудит, и ты чувствуешь готовность к предстоящему приключению."
+      }
+    ],
+    "glossary": {
+      "hustle": {
+        "translation": "спешка, суета",
+        "partOfSpeech": "noun"
+      },
+      "vending": {
+        "translation": "торговый автомат",
+        "partOfSpeech": "adjective"
+      },
+      "cinematic": {
+        "translation": "кинематографический",
+        "partOfSpeech": "adjective"
+      },
+      "roar": {
+        "translation": "рёв",
+        "partOfSpeech": "noun"
+      },
+      "double‑check": {
+        "translation": "перепроверить",
+        "partOfSpeech": "verb"
+      },
+      "buzz": {
+        "translation": "гудеть",
+        "partOfSpeech": "verb"
+      },
+      "stretch": {
+        "translation": "потянуться",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What advantage does arriving at the airport early give travelers?",
+        "options": [
+          "Access to more shopping options",
+          "More time to double‑check documents",
+          "Cheaper ticket prices",
+          "Free lounge access"
+        ],
+        "answer": 1,
+        "explanation": "The text states that arriving early provides plenty of time to double‑check your documents."
+      },
+      {
+        "id": "q2",
+        "question": "How does the text describe the atmosphere of the terminal at four a.m.?",
+        "options": [
+          "Chaotic and noisy",
+          "Bright and bustling",
+          "Calm and almost cinematic",
+          "Cold and deserted"
+        ],
+        "answer": 2,
+        "explanation": "The text mentions low lighting gives the place a calm, almost cinematic atmosphere."
+      },
+      {
+        "id": "q3",
+        "question": "What do most travelers do with the vending machine coffee?",
+        "options": [
+          "Sell it to other passengers",
+          "Drink it while waiting",
+          "Return it for a refund",
+          "Ignore it completely"
+        ],
+        "answer": 1,
+        "explanation": "The text says you end up buying a coffee from a vending machine, implying you drink it while waiting."
+      }
+    ]
+  },
+  {
+    "id": "midnight-train-reflections",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Midnight Train Reflections",
+    "sentences": [
+      {
+        "text": "The night train glided through the countryside, its rhythmic clatter a lullaby for the weary traveler.",
+        "translationRu": "Ночной поезд скользил сквозь сельскую местность, его ритмичное стучание было колыбельной для уставшего путника."
+      },
+      {
+        "text": "Inside, dim amber lights flickered, casting elongated shadows that danced across the polished carriage walls.",
+        "translationRu": "Внутри мерцающие янтарные огни бросали длинные тени, которые танцевали по полированным стенам купе."
+      },
+      {
+        "text": "Passengers, a mosaic of languages, whispered stories that hovered like mist between the compartments.",
+        "translationRu": "Пассажиры, мозаика языков, шептали истории, которые висели, как туман, между купе."
+      },
+      {
+        "text": "The conductor’s occasional announcements were delivered in a measured tone, suggesting patience over urgency.",
+        "translationRu": "Редкие объявления проводника звучали уравновешенно, подразумевая терпение, а не спешку."
+      },
+      {
+        "text": "As the train crossed a river on a steel bridge, the moon reflected off the water, creating a fleeting tableau.",
+        "translationRu": "Когда поезд пересекал реку по стальному мосту, луна отражалась в воде, создавая мимолетную картину."
+      },
+      {
+        "text": "A sudden shudder announced a minor derailment, prompting a collective intake of breath and a brief surge of adrenaline.",
+        "translationRu": "Внезапный толчок объявил о небольшом сходе с рельсов, вызвав совместный вдох и короткую вспышку адреналина."
+      },
+      {
+        "text": "Yet the crew’s calm response, adjusting brakes with practiced ease, restored a sense of order without fanfare.",
+        "translationRu": "Тем не менее спокойная реакция экипажа, плавно регулирующего тормоза, восстановила чувство порядка без лишних хлопот."
+      },
+      {
+        "text": "Outside, the landscape shifted from rolling hills to stark plains, mirroring the traveler’s internal transition from contemplation to anticipation.",
+        "translationRu": "Снаружи ландшафт сменился с волнистых холмов на безмятежные равнины, отражая внутренний переход путника от созерцания к предвкушению."
+      },
+      {
+        "text": "By dawn, the train eased into the station, its doors sighing open to a city bathed in early light.",
+        "translationRu": "К рассвету поезд мягко вошел в станцию, его двери вздохнули, открывая город, залитый первым светом."
+      },
+      {
+        "text": "Stepping onto the platform, the traveler felt the night’s silence dissolve into the hum of a waking metropolis.",
+        "translationRu": "Выходя на платформу, путник ощутил, как ночное молчание растворилось в гуле просыпающегося мегаполиса."
+      },
+      {
+        "text": "The journey, though fleeting, left an imprint of introspection that would accompany him long after the rails receded.",
+        "translationRu": "Путешествие, хотя и мимолетное, оставило отпечаток размышлений, который будет сопровождать его и после того, как рельсы исчезнут."
+      },
+      {
+        "text": "He boarded another train later, carrying with him the quiet confidence that night travel can nurture.",
+        "translationRu": "Позже он сел в другой поезд, неся с собой тихую уверенность, которую может развить ночное путешествие."
+      }
+    ],
+    "glossary": {
+      "glide": {
+        "translation": "скользить",
+        "partOfSpeech": "verb"
+      },
+      "mosaic": {
+        "translation": "мозаика",
+        "partOfSpeech": "noun"
+      },
+      "tableau": {
+        "translation": "картина",
+        "partOfSpeech": "noun"
+      },
+      "derailment": {
+        "translation": "схождение с рельсов",
+        "partOfSpeech": "noun"
+      },
+      "introspection": {
+        "translation": "саморазмышление",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the conductor’s tone suggest about the train’s schedule?",
+        "options": [
+          "Impatience",
+          "Urgency",
+          "Patience",
+          "Indifference"
+        ],
+        "answer": 2,
+        "explanation": "The text says the announcements were delivered in a measured tone, suggesting patience over urgency."
+      },
+      {
+        "id": "q2",
+        "question": "How does the landscape change as the train moves?",
+        "options": [
+          "From desert to forest",
+          "From hills to plains",
+          "From city to coast",
+          "From mountains to valleys"
+        ],
+        "answer": 1,
+        "explanation": "The passage notes the landscape shifts from rolling hills to stark plains."
+      },
+      {
+        "id": "q3",
+        "question": "What feeling does the traveler carry into the next journey?",
+        "options": [
+          "Anxiety",
+          "Quiet confidence",
+          "Regret",
+          "Excitement"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence states he carries the quiet confidence that night travel can nurture."
+      }
+    ]
+  },
+  {
+    "id": "wandering-the-unknown-city",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Wandering the Unknown City",
+    "sentences": [
+      {
+        "text": "When the map proved indecipherable, the traveler surrendered to the labyrinthine streets with a cautious optimism.",
+        "translationRu": "Когда карта оказалась непонятной, путник с осторожным оптимизмом сдался лабиринтным улицам."
+      },
+      {
+        "text": "Each alley offered a different scent: fresh bakery dough, distant diesel, and the faint perfume of night blossoms.",
+        "translationRu": "Каждый переулок предлагал разный запах: свежее тесто из пекарни, дальний запах дизеля и лёгкий аромат ночных цветов."
+      },
+      {
+        "text": "He noted that the city’s architecture oscillated between austere modernism and ornate baroque, reflecting a conflicted identity.",
+        "translationRu": "Он заметил, что архитектура города колеблется между строгим модернизмом и богато украшенным бароком, отражая противоречивую идентичность."
+      },
+      {
+        "text": "A street musician’s melancholic violin echoed off stone facades, prompting passersby to pause and listen.",
+        "translationRu": "Грустная скрипка уличного музыканта отразилась от каменных фасадов, заставив прохожих остановиться и послушать."
+      },
+      {
+        "text": "Turning a corner, he encountered a bustling market where vendors shouted in dialects he could not decipher.",
+        "translationRu": "Повернув за угол, он наткнулся на шумный рынок, где продавцы кричали на диалектах, которые он не мог понять."
+      },
+      {
+        "text": "Despite the confusion, the traveler felt an unexpected sense of belonging, as if the city’s pulse matched his own heartbeat.",
+        "translationRu": "Несмотря на путаницу, путник ощутил неожиданное чувство принадлежности, будто пульс города совпадал с его собственным."
+      },
+      {
+        "text": "He consulted a local café owner, whose patient gestures guided him toward a well‑known landmark without uttering a word.",
+        "translationRu": "Он обратился к владельцу местного кафе, чьи терпеливые жесты направили его к известному ориентиру без единого слова."
+      },
+      {
+        "text": "The landmark, a centuries‑old clock tower, loomed above the square, its hands frozen at an hour that seemed symbolic.",
+        "translationRu": "Ориентир, многовековая часовая башня, возвышалась над площадью, её стрелки были застывшими на часе, который казался символическим."
+      },
+      {
+        "text": "Standing beneath it, he reflected on how disorientation can catalyse a deeper engagement with surroundings.",
+        "translationRu": "Стоя под ней, он размышлял о том, как дезориентация может стать катализатором более глубокого взаимодействия с окружением."
+      },
+      {
+        "text": "The experience taught him that navigation is as much an internal compass as it is a physical map.",
+        "translationRu": "Этот опыт научил его, что навигация — это так же внутренний компас, как и физическая карта."
+      },
+      {
+        "text": "He eventually found his hotel, its modest façade offering a quiet respite after the urban odyssey.",
+        "translationRu": "В конце концов он нашёл отель, его скромный фасад предлагал тихий отдых после городской одиссеи."
+      },
+      {
+        "text": "The night concluded with a lingering gratitude for the city’s enigmatic charm, which refused to be fully charted.",
+        "translationRu": "Ночь завершилась оставшейся благодарностью за загадочный шарм города, который отказывался полностью картировать."
+      }
+    ],
+    "glossary": {
+      "labyrinthine": {
+        "translation": "лабиринтный",
+        "partOfSpeech": "adjective"
+      },
+      "austere": {
+        "translation": "строгий",
+        "partOfSpeech": "adjective"
+      },
+      "melancholic": {
+        "translation": "меланхоличный",
+        "partOfSpeech": "adjective"
+      },
+      "odyssey": {
+        "translation": "одиссея",
+        "partOfSpeech": "noun"
+      },
+      "enigmatic": {
+        "translation": "загадочный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What role does the café owner play in the narrative?",
+        "options": [
+          "He provides directions",
+          "He sells souvenirs",
+          "He sings",
+          "He offers lodging"
+        ],
+        "answer": 0,
+        "explanation": "The text says the café owner’s gestures guided him toward a landmark."
+      },
+      {
+        "id": "q2",
+        "question": "How does the traveler describe the city’s architecture?",
+        "options": [
+          "Uniformly modern",
+          "Conflicting between modernism and baroque",
+          "Predominantly gothic",
+          "Minimalist"
+        ],
+        "answer": 1,
+        "explanation": "The passage states the architecture oscillated between austere modernism and ornate baroque."
+      },
+      {
+        "id": "q3",
+        "question": "What symbolic element does the clock tower present?",
+        "options": [
+          "Its chimes",
+          "Its frozen hands",
+          "Its height",
+          "Its golden dome"
+        ],
+        "answer": 1,
+        "explanation": "The text notes the clock tower’s hands were frozen at an hour that seemed symbolic."
+      }
+    ]
+  },
+  {
+    "id": "the-art-of-traveling-light",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "The Art of Traveling Light",
+    "sentences": [
+      {
+        "text": "She embarked on the cross‑country trek with nothing more than a compact backpack and a resolve to forgo excess.",
+        "translationRu": "Она отправилась в путешествие через страну, имея лишь компактный рюкзак и решимость отказаться от лишнего."
+      },
+      {
+        "text": "Every item she packed served a dual purpose, blurring the line between utility and personal comfort.",
+        "translationRu": "Каждый предмет в её рюкзаке выполнял двойную функцию, стирая грань между полезностью и личным комфортом."
+      },
+      {
+        "text": "A lightweight down jacket replaced a heavy coat, while a collapsible kettle substituted a full kitchen set.",
+        "translationRu": "Лёгкая пуховая куртка заменила тяжёлое пальто, а складной чайник заменил полноценный набор посуды."
+      },
+      {
+        "text": "She relied on laundromats en route, turning the act of washing into a ritual that punctuated each day’s itinerary.",
+        "translationRu": "Она пользовалась прачечными по пути, превращая стирку в ритуал, который разбавлял расписание каждого дня."
+      },
+      {
+        "text": "The absence of baggage forced her to engage more directly with locals, who often offered spare garments or tips on weather‑appropriate attire.",
+        "translationRu": "Отсутствие багажа заставило её более тесно взаимодействовать с местными, которые часто предлагали лишнюю одежду или советы по подходящей одежде."
+      },
+      {
+        "text": "She discovered that the mental load lightened considerably when possessions were stripped to essentials, enhancing her sense of spontaneity.",
+        "translationRu": "Она обнаружила, что умственное бремя заметно облегчалось, когда вещи сокращались до самого необходимого, усиливая чувство спонтанности."
+      },
+      {
+        "text": "Unexpected rain prompted a creative improvisation: she fashioned a makeshift shelter from a tarp and a few cords, demonstrating adaptability.",
+        "translationRu": "Неожиданный дождь вызвал креативную импровизацию: она построила временный укрытие из тент‑а и нескольких шнурков, демонстрируя адаптивность."
+      },
+      {
+        "text": "At night, the minimalist setup allowed her to sleep in varied environments, from hostel dorms to open fields under a canopy of stars.",
+        "translationRu": "Ночью минималистичная обстановка позволяла ей спать в разных местах, от общежитий до открытых полей под звёздным небом."
+      },
+      {
+        "text": "She noted that the constant movement of a light load reduced fatigue, making long walks feel less burdensome.",
+        "translationRu": "Она заметила, что постоянное перемещение лёгкого багажа уменьшало усталость, делая долгие прогулки менее обременительными."
+      },
+      {
+        "text": "By the journey’s end, she possessed fewer souvenirs but a richer collection of stories, each unencumbered by material weight.",
+        "translationRu": "К концу путешествия у неё было меньше сувениров, но более богатый набор историй, не отягощённых материальным весом."
+      },
+      {
+        "text": "The experience affirmed her belief that travel’s true wealth lies in flexibility, not in the quantity of possessions carried.",
+        "translationRu": "Опыт подтвердил её убеждение, что истинное богатство путешествий заключается в гибкости, а не в количестве переносимых вещей."
+      },
+      {
+        "text": "She returned home with a renewed appreciation for the elegance of restraint, planning her next expedition with the same philosophy.",
+        "translationRu": "Она вернулась домой с новым уважением к элегантности сдержанности, планируя следующую экспедицию по той же философии."
+      }
+    ],
+    "glossary": {
+      "compact": {
+        "translation": "компактный",
+        "partOfSpeech": "adjective"
+      },
+      "dual": {
+        "translation": "двойной",
+        "partOfSpeech": "adjective"
+      },
+      "ritual": {
+        "translation": "ритуал",
+        "partOfSpeech": "noun"
+      },
+      "improvisation": {
+        "translation": "импровизация",
+        "partOfSpeech": "noun"
+      },
+      "unencumbered": {
+        "translation": "не обременённый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What replaced a full kitchen set in her packing?",
+        "options": [
+          "A portable stove",
+          "A collapsible kettle",
+          "A set of utensils",
+          "A microwave"
+        ],
+        "answer": 1,
+        "explanation": "The text states a collapsible kettle substituted a full kitchen set."
+      },
+      {
+        "id": "q2",
+        "question": "How did locals assist her during the trip?",
+        "options": [
+          "By giving money",
+          "By offering spare garments and clothing tips",
+          "By providing transportation",
+          "By translating signs"
+        ],
+        "answer": 1,
+        "explanation": "The passage notes locals offered spare garments or tips on weather‑appropriate attire."
+      },
+      {
+        "id": "q3",
+        "question": "What does she consider the true wealth of travel to be?",
+        "options": [
+          "Souvenirs",
+          "Quantity of possessions",
+          "Flexibility",
+          "Length of journeys"
+        ],
+        "answer": 1,
+        "explanation": "She believes travel’s true wealth lies in flexibility, not in the quantity of possessions."
+      }
+    ]
+  },
+  {
+    "id": "stumbling-into-a-village-festival",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Stumbling into a Village Festival",
+    "sentences": [
+      {
+        "text": "The traveler arrived at the hamlet just as twilight painted the rooftops amber, unaware that a celebration was about to unfold.",
+        "translationRu": "Путник прибыл в деревню как раз в тот момент, когда сумерки окрасили крыши в янтарный цвет, не зная, что скоро начнётся праздник."
+      },
+      {
+        "text": "Villagers gathered around a central square, their faces illuminated by torches that crackled like distant fireworks.",
+        "translationRu": "Жители собирались на центральной площади, их лица освещали факелы, потрескивающие, как далекие фейерверки."
+      },
+      {
+        "text": "An elderly drummer set a steady beat, prompting spontaneous dances that blended traditional steps with improvised flair.",
+        "translationRu": "Пожилой барабанщик задавал устойчивый ритм, вызывая спонтанные танцы, сочетающие традиционные шаги с импровизированным изяществом."
+      },
+      {
+        "text": "Children chased lanterns, their laughter weaving through the air like a melodic thread.",
+        "translationRu": "Дети гонялись за фонариками, их смех переплетался в воздухе, как мелодичная нить."
+      },
+      {
+        "text": "The scent of smoked sausage and fresh herbs wafted from makeshift stalls, inviting curious palates to sample communal fare.",
+        "translationRu": "Запах копчёной колбасы и свежих трав доносился от импровизированных киосков, приглашая любопытные вкусы попробовать общую еду."
+      },
+      {
+        "text": "A storyteller, perched on a low bench, recounted legends that mirrored the traveler’s own yearning for discovery.",
+        "translationRu": "Сказочник, сидящий на низкой скамье, рассказывал легенды, отражающие стремление самого путника к открытию."
+      },
+      {
+        "text": "The traveler, initially an outsider, found himself drawn into the circle, his steps matching the rhythm of the drum.",
+        "translationRu": "Путник, изначально чужак, оказался втянутым в круг, его шаги совпали с ритмом барабана."
+      },
+      {
+        "text": "He shared a modest toast with locals, the clink of glasses resonating as a subtle affirmation of shared humanity.",
+        "translationRu": "Он поднял скромный тост вместе с местными, звон бокалов отозвался как тонкое подтверждение общей человечности."
+      },
+      {
+        "text": "When the night deepened, a chorus of folk songs rose, each verse a testament to the village’s collective memory.",
+        "translationRu": "Когда ночь углубилась, поднялась хорова песня, каждый куплет был свидетельством коллективной памяти деревни."
+      },
+      {
+        "text": "The traveler left at sunrise, his heart lightened by the fleeting yet profound communion he had experienced.",
+        "translationRu": "Путник ушёл на рассвете, его сердце облегчённо от мимолетного, но глубокого общения, которое он пережил."
+      },
+      {
+        "text": "He reflected that such spontaneous encounters often reveal more about a culture than any guidebook could convey.",
+        "translationRu": "Он задумался, что такие спонтанные встречи часто показывают больше о культуре, чем любой путеводитель."
+      },
+      {
+        "text": "Returning home, he carried the echo of drums and laughter, a reminder that serendipity can transform ordinary travel into unforgettable narrative.",
+        "translationRu": "Вернувшись домой, он нес в себе эхо барабанов и смеха, напоминание о том, что случайность может превратить обычное путешествие в незабываемый сюжет."
+      }
+    ],
+    "glossary": {
+      "hamlet": {
+        "translation": "деревушка",
+        "partOfSpeech": "noun"
+      },
+      "crackle": {
+        "translation": "потрескивание",
+        "partOfSpeech": "verb"
+      },
+      "communal": {
+        "translation": "общий",
+        "partOfSpeech": "adjective"
+      },
+      "serendipity": {
+        "translation": "случайность",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What role does the elderly drummer play?",
+        "options": [
+          "He tells stories",
+          "He sets a beat for dances",
+          "He cooks food",
+          "He lights torches"
+        ],
+        "answer": 1,
+        "explanation": "The text says the elderly drummer set a steady beat, prompting dances."
+      },
+      {
+        "id": "q2",
+        "question": "Which sense is most stimulated by the makeshift stalls?",
+        "options": [
+          "Sight",
+          "Touch",
+          "Smell",
+          "Hearing"
+        ],
+        "answer": 2,
+        "explanation": "The passage mentions the scent of smoked sausage and herbs wafted from stalls."
+      },
+      {
+        "id": "q3",
+        "question": "How does the traveler feel at the end of the festival?",
+        "options": [
+          "Disoriented",
+          "Enlightened",
+          "Bored",
+          "Angry"
+        ],
+        "answer": 1,
+        "explanation": "He reflects that his heart is lightened and he carries the echo of drums, indicating enlightenment."
+      }
+    ]
+  },
+  {
+    "id": "the-pull-of-familiar-shores",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "The Pull of Familiar Shores",
+    "sentences": [
+      {
+        "text": "Many seasoned travelers find themselves repeatedly drawn back to a single destination.",
+        "translationRu": "Многие опытные путешественники обнаруживают, что их вновь и вновь тянет к одной и той же точке."
+      },
+      {
+        "text": "The allure is rarely superficial; it often stems from a deep sense of belonging that transcends mere sightseeing.",
+        "translationRu": "Очарование редко поверхностно; оно часто проистекает из глубокого ощущения принадлежности, превышающего простое осмотрение достопримечательностей."
+      },
+      {
+        "text": "When a locale resonates with one's personal narrative, each return acts as a subtle reinforcement of identity.",
+        "translationRu": "Когда место откликается на личную историю, каждое возвращение служит мягким укреплением идентичности."
+      },
+      {
+        "text": "Familiar streets become a canvas on which memories are continuously re‑inscribed.",
+        "translationRu": "Знакомые улицы становятся холстом, на который постоянно заново наносятся воспоминания."
+      },
+      {
+        "text": "This process reduces the cognitive load of navigating unknown terrains, allowing mental resources to focus on deeper reflection.",
+        "translationRu": "Этот процесс уменьшает когнитивную нагрузку от навигации в незнакомой местности, позволяя ментальным ресурсам сосредоточиться на более глубокой рефлексии."
+      },
+      {
+        "text": "Moreover, the predictable rhythm of a known environment can soothe the anxiety that often accompanies long‑term travel.",
+        "translationRu": "Более того, предсказуемый ритм знакомой среды может успокаивать тревогу, часто сопровождающую длительные путешествия."
+      },
+      {
+        "text": "Local residents, too, play a role; their gradual familiarity transforms strangers into quasi‑neighbors.",
+        "translationRu": "Местные жители также играют роль; их постепенное знакомство превращает незнакомцев в почти соседей."
+      },
+      {
+        "text": "Such relationships grant access to informal knowledge that official guides overlook.",
+        "translationRu": "Эти отношения открывают доступ к неформальным знаниям, которые официальные путеводители упускают."
+      },
+      {
+        "text": "Consequently, the traveler can engage with cultural subtleties that remain invisible to first‑time visitors.",
+        "translationRu": "Следовательно, путешественник может погрузиться в культурные нюансы, остающиеся невидимыми для впервые прибывающих."
+      },
+      {
+        "text": "The cycle of return thus becomes less about nostalgia and more about an evolving dialogue with place.",
+        "translationRu": "Цикл возвращений становится менее о ностальгии и больше о развивающемся диалоге с местом."
+      },
+      {
+        "text": "In the end, the familiar destination serves as a mirror, reflecting both personal growth and the mutable character of the locale itself.",
+        "translationRu": "В конце концов, знакомое место служит зеркалом, отражающим как личностный рост, так и изменчивый характер самого места."
+      }
+    ],
+    "glossary": {
+      "allure": {
+        "translation": "очарование",
+        "partOfSpeech": "noun"
+      },
+      "resonate": {
+        "translation": "откликаться",
+        "partOfSpeech": "verb"
+      },
+      "reinforcement": {
+        "translation": "укрепление",
+        "partOfSpeech": "noun"
+      },
+      "cognitive": {
+        "translation": "когнитивный",
+        "partOfSpeech": "adjective"
+      },
+      "quasi‑neighbors": {
+        "translation": "практически соседи",
+        "partOfSpeech": "phrase"
+      },
+      "subtleties": {
+        "translation": "нюансы",
+        "partOfSpeech": "noun"
+      },
+      "mutable": {
+        "translation": "изменчивый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why does the text say returning travelers feel less anxiety?",
+        "options": [
+          "Because they know the local language perfectly",
+          "Because the predictable rhythm of a known environment soothes them",
+          "Because they travel with familiar companions",
+          "Because they avoid airports altogether"
+        ],
+        "answer": 1,
+        "explanation": "The text states that the predictable rhythm of a known environment can soothe the anxiety that often accompanies long‑term travel."
+      },
+      {
+        "id": "q2",
+        "question": "What role do local residents play according to the passage?",
+        "options": [
+          "They provide official guidebooks",
+          "They turn strangers into quasi‑neighbors",
+          "They discourage repeated visits",
+          "They charge high fees for information"
+        ],
+        "answer": 0,
+        "explanation": "The passage says local residents’ gradual familiarity transforms strangers into quasi‑neighbors."
+      },
+      {
+        "id": "q3",
+        "question": "What does the author mean by saying the destination serves as a mirror?",
+        "options": [
+          "It reflects the traveler’s personal growth and the place’s changing nature",
+          "It shows the exact physical layout of the city",
+          "It reveals hidden treasure maps",
+          "It displays weather patterns"
+        ],
+        "answer": 2,
+        "explanation": "The final sentence explains that the familiar destination reflects both personal growth and the mutable character of the locale."
+      }
+    ]
+  },
+  {
+    "id": "words-that-bridge-borders",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Words That Bridge Borders",
+    "sentences": [
+      {
+        "text": "A prudent traveller often invests a modest amount of time in acquiring a handful of key phrases before departure.",
+        "translationRu": "Благоразумный путешественник часто вкладывает небольшое количество времени в освоение нескольких ключевых фраз перед отъездом."
+      },
+      {
+        "text": "Even a rudimentary greeting can dismantle the invisible barrier that language creates.",
+        "translationRu": "Даже элементарное приветствие может разрушить невидимый барьер, который создает язык."
+      },
+      {
+        "text": "Pronouncing ‘thank you’ correctly conveys respect, which in turn invites reciprocal kindness.",
+        "translationRu": "Правильное произношение «спасибо» передает уважение, что в свою очередь вызывает взаимную доброжелательность."
+      },
+      {
+        "text": "Conversely, misusing a phrase may unintentionally signal arrogance, prompting a subtle withdrawal of local assistance.",
+        "translationRu": "Напротив, неправильное использование фразы может непреднамеренно сигнализировать о надменности, вызывая тонкое отстранение местной помощи."
+      },
+      {
+        "text": "Therefore, learners prioritize expressions that facilitate basic transactions, such as ordering food or asking for directions.",
+        "translationRu": "Поэтому изучающие язык ставят в приоритет выражения, упрощающие базовые взаимодействия, такие как заказ еды или запрос направления."
+      },
+      {
+        "text": "Memorising the polite form of ‘excuse me’ also proves valuable when navigating crowded transport hubs.",
+        "translationRu": "Запоминание вежливой формы «извините» также оказывается полезным при перемещении по переполненным транспортным узлам."
+      },
+      {
+        "text": "Beyond functional utility, these phrases act as cultural signposts, hinting at the values embedded in everyday speech.",
+        "translationRu": "Помимо функциональной полезности, эти фразы выступают в роли культурных ориентиров, намекая на ценности, заложенные в повседневной речи."
+      },
+      {
+        "text": "A traveler who can say ‘I’m sorry’ when appropriate demonstrates empathy, often smoothing over inadvertent faux pas.",
+        "translationRu": "Путешественник, способный сказать «извините», когда это уместно, демонстрирует эмпатию, часто сглаживая случайные промахи."
+      },
+      {
+        "text": "Moreover, the act of attempting the local tongue signals a willingness to engage, which locals frequently reward with insider tips.",
+        "translationRu": "Более того, попытка говорить на местном языке сигнализирует о готовности к взаимодействию, за что местные жители часто вознаграждают советами изнутри."
+      },
+      {
+        "text": "In sum, a concise linguistic toolkit transforms the journey from a series of obstacles into a series of opportunities.",
+        "translationRu": "В итоге, компактный лингвистический набор превращает путешествие из серии препятствий в серию возможностей."
+      }
+    ],
+    "glossary": {
+      "prudent": {
+        "translation": "благоразумный",
+        "partOfSpeech": "adjective"
+      },
+      "dismantle": {
+        "translation": "разрушать",
+        "partOfSpeech": "verb"
+      },
+      "reciprocal": {
+        "translation": "взаимный",
+        "partOfSpeech": "adjective"
+      },
+      "arrogance": {
+        "translation": "надменность",
+        "partOfSpeech": "noun"
+      },
+      "signpost": {
+        "translation": "ориентир",
+        "partOfSpeech": "noun"
+      },
+      "faux pas": {
+        "translation": "социальная оплошность",
+        "partOfSpeech": "noun"
+      },
+      "toolkit": {
+        "translation": "набор инструментов",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is the main benefit of saying ‘thank you’ correctly, according to the text?",
+        "options": [
+          "It guarantees a discount",
+          "It conveys respect and invites kindness",
+          "It shortens the conversation",
+          "It fulfills a legal requirement"
+        ],
+        "answer": 1,
+        "explanation": "The passage states that correctly pronouncing ‘thank you’ conveys respect, which in turn invites reciprocal kindness."
+      },
+      {
+        "id": "q2",
+        "question": "Why does the author recommend memorising ‘excuse me’?",
+        "options": [
+          "Because it helps in crowded transport hubs",
+          "Because it is required for visa applications",
+          "Because it replaces all other phrases",
+          "Because it is the only polite word"
+        ],
+        "answer": 0,
+        "explanation": "The text says memorising ‘excuse me’ proves valuable when navigating crowded transport hubs."
+      },
+      {
+        "id": "q3",
+        "question": "What does the passage suggest happens when locals receive an attempt at their language?",
+        "options": [
+          "They become indifferent",
+          "They often reward the traveler with insider tips",
+          "They charge higher prices",
+          "They ignore the traveler completely"
+        ],
+        "answer": 1,
+        "explanation": "The passage notes that locals frequently reward attempts at the local tongue with insider tips."
+      }
+    ]
+  }
+]
