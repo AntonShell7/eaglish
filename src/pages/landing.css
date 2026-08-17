@@ -1,0 +1,281 @@
+/* Landing page — what a visitor sees before signing in.
+   Restrained on purpose: a lot of air, few words, one accent. The brand field
+   carries the weight so the copy doesn't have to. */
+
+.lp {
+  --lp-gutter: clamp(20px, 5vw, 56px);
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────── */
+.lp-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 62% 54% at 50% 22%, #52259f 0%, transparent 64%),
+    linear-gradient(180deg, #3b168f 0%, #220b57 100%);
+  border: 1px solid rgba(196, 181, 253, 0.22);
+  padding: clamp(48px, 8vw, 92px) var(--lp-gutter) clamp(52px, 8vw, 96px);
+  text-align: center;
+  isolation: isolate;
+}
+
+.lp-hero__grain {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.lp-hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-hero__mark {
+  width: clamp(96px, 16vw, 148px);
+}
+
+.lp-hero__name {
+  margin: 20px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.9rem);
+  line-height: 1;
+  color: #f8f6ff;
+}
+
+.lp-hero__promise {
+  margin: 20px auto 0;
+  max-width: 30ch;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  color: #cfc4f0;
+}
+
+.lp-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.lp-cta {
+  border-radius: 999px;
+  padding: 0.95rem 2.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ffffff;
+  color: #3b168f;
+  transition: transform 0.2s ease;
+}
+
+.lp-cta:hover {
+  transform: translateY(-2px);
+}
+
+.lp-ghost {
+  border-radius: 999px;
+  padding: 0.95rem 1.7rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #efeafd;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  transition: border-color 0.2s ease;
+}
+
+.lp-ghost:hover {
+  border-color: rgba(196, 181, 253, 0.7);
+}
+
+/* ── Section scaffolding ─────────────────────────────────────────────── */
+.lp-section {
+  margin-top: clamp(64px, 10vw, 116px);
+}
+
+.lp-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent-ink);
+}
+
+.lp-eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  opacity: 0.4;
+}
+
+.lp-title {
+  margin: 14px 0 0;
+  max-width: 26ch;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.lp-lede {
+  margin: 14px 0 0;
+  max-width: 52ch;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ── The method: three steps that close a loop ───────────────────────── */
+.lp-steps {
+  display: grid;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+@media (min-width: 860px) {
+  .lp-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+.lp-step {
+  position: relative;
+  padding: 26px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.lp-step__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.lp-step__h {
+  margin: 16px 0 0;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.lp-step__p {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* The loop closing back on itself, drawn only where there's room for it. */
+.lp-steps__loop {
+  display: none;
+  margin-top: 18px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 860px) {
+  .lp-steps__loop {
+    display: flex;
+  }
+}
+
+.lp-steps__loop::before,
+.lp-steps__loop::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ── Principles ──────────────────────────────────────────────────────── */
+.lp-principles {
+  display: grid;
+  gap: 1px;
+  margin-top: 36px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+@media (min-width: 720px) {
+  .lp-principles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lp-principle {
+  padding: 26px 24px;
+  background: var(--color-surface);
+}
+
+.lp-principle__h {
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.lp-principle__p {
+  margin: 7px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ── Closing band ────────────────────────────────────────────────────── */
+.lp-close {
+  margin-top: clamp(64px, 10vw, 116px);
+  padding: clamp(40px, 6vw, 64px) var(--lp-gutter);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.lp-close__h {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+}
+
+.lp-close__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.lp-close .lp-cta {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.lp-close .lp-ghost {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.lp-close .lp-ghost:hover {
+  border-color: var(--color-primary);
+}
