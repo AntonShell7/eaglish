@@ -294,5 +294,59 @@
     "savedHint": "Words you've saved are underlined — meeting them again is how they stick.",
     "noKey": "No translation — a Groq API key hasn't been set up yet.",
     "failed": "Translation failed. Check your connection and try again."
+  },
+  "landing": {
+    "promise": "Learn English from the words you actually meet.",
+    "start": "Get started",
+    "methodEyebrow": "The method",
+    "methodTitle": "You don't memorise a word. You keep running into it.",
+    "methodLede": "Word lists fade because nothing brings them back. Eaglish turns every text you read into a source of words, then decides when each one should reappear.",
+    "steps": {
+      "meet": {
+        "h": "Meet it in context",
+        "p": "Read something real. Tap any word — anywhere in the app — for a translation that fits the sentence it came from."
+      },
+      "save": {
+        "h": "Keep it in one tap",
+        "p": "The word joins your collection with the text it came from, so you remember where you met it."
+      },
+      "returns": {
+        "h": "It comes back on time",
+        "p": "Spaced repetition brings it up just before you'd forget — and marks it in future texts, so you notice the repeat."
+      }
+    },
+    "loop": "and the loop starts again",
+    "principlesEyebrow": "What we believe",
+    "principlesTitle": "Four decisions that shape everything here.",
+    "principles": {
+      "context": {
+        "h": "Context over lists",
+        "p": "A word arrives inside a sentence you wanted to understand. That's what makes it stick."
+      },
+      "honest": {
+        "h": "Honest feedback",
+        "p": "Your writing gets a real assessment and specific fixes — not a score inflated to keep you comfortable."
+      },
+      "short": {
+        "h": "Short and daily",
+        "p": "Five focused minutes beat an hour once a week. The streak exists to protect the habit, not to nag."
+      },
+      "ownLanguage": {
+        "h": "Your language for the interface",
+        "p": "Navigate in Russian if that helps. The English you're learning always stays English."
+      }
+    },
+    "closeTitle": "Start with one text today."
+  },
+  "dashboard": {
+    "greeting": "Welcome back",
+    "streakLine_one": "{{count}} day in a row. Keep it alive.",
+    "streakLine_other": "{{count}} days in a row. Keep it alive.",
+    "noStreakLine": "One activity today starts a streak.",
+    "dueLine_one": "{{count}} word is ready for review.",
+    "dueLine_other": "{{count}} words are ready for review.",
+    "reviewNow": "Review now",
+    "nothingDue": "Nothing due for review — the queue is clear.",
+    "readSomething": "Read something"
   }
 }

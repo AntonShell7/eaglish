@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "@/context/AuthContext";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import {
   IconHome,
@@ -45,6 +46,7 @@ const TABS = [
 export function Layout() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const { user } = useAuth();
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {
@@ -52,37 +54,60 @@ export function Layout() {
   }, [pathname]);
 
   return (
-    <div className="shell">
+    <div className={user ? "shell" : "shell shell--guest"}>
       <aside className="rail">
         <NavLink to="/" className="rail__brand">
           <BrandLogo variant="chip" className="h-7 w-7" />
           {t("brand")}
         </NavLink>
 
-        <NavLink to="/" end className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}>
-          <IconHome />
-          {t("nav.home")}
-        </NavLink>
-
-        <p className="rail__label">{t("shell.practice")}</p>
-        <nav className="rail__group">
-          {PRACTICE.map(({ to, key, Icon }) => (
-            <NavLink key={to} to={to} className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}>
-              <Icon />
-              {t(`nav.${key}`)}
+        {user ? (
+          <>
+            <NavLink to="/" end className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}>
+              <IconHome />
+              {t("nav.home")}
             </NavLink>
-          ))}
-        </nav>
 
-        <p className="rail__label">{t("shell.you")}</p>
-        <nav className="rail__group">
-          {YOU.map(({ to, key, Icon }) => (
-            <NavLink key={to} to={to} className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}>
-              <Icon />
-              {t(`nav.${key}`)}
+            <p className="rail__label">{t("shell.practice")}</p>
+            <nav className="rail__group">
+              {PRACTICE.map(({ to, key, Icon }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}
+                >
+                  <Icon />
+                  {t(`nav.${key}`)}
+                </NavLink>
+              ))}
+            </nav>
+
+            <p className="rail__label">{t("shell.you")}</p>
+            <nav className="rail__group">
+              {YOU.map(({ to, key, Icon }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}
+                >
+                  <Icon />
+                  {t(`nav.${key}`)}
+                </NavLink>
+              ))}
+            </nav>
+          </>
+        ) : (
+          // A visitor gets the pitch and a way in — the section list would only
+          // advertise doors that lead nowhere useful without an account.
+          <nav className="rail__group mt-2">
+            <NavLink to="/register" className="rail__link">
+              {t("auth.createAccount")}
             </NavLink>
-          ))}
-        </nav>
+            <NavLink to="/login" className="rail__link">
+              {t("auth.logIn")}
+            </NavLink>
+          </nav>
+        )}
 
         <div className="rail__foot flex items-center gap-2">
           <LanguageToggle />
@@ -96,7 +121,27 @@ export function Layout() {
             <BrandLogo variant="chip" className="h-7 w-7" />
             {t("brand")}
           </NavLink>
-          <StatsStrip routeKey={pathname} />
+
+          {user ? (
+            <StatsStrip routeKey={pathname} />
+          ) : (
+            <div className="flex items-center gap-2">
+              <NavLink
+                to="/login"
+                className="rounded-full px-3 py-1.5 text-sm font-semibold"
+                style={{ color: "var(--color-text-muted)" }}
+              >
+                {t("auth.logIn")}
+              </NavLink>
+              <NavLink
+                to="/register"
+                className="rounded-full px-4 py-1.5 text-sm font-semibold on-primary"
+                style={{ background: "var(--color-primary)" }}
+              >
+                {t("landing.start")}
+              </NavLink>
+            </div>
+          )}
         </header>
 
         <main className="shell__main min-w-0 flex-1">
@@ -106,19 +151,21 @@ export function Layout() {
         <Footer />
       </div>
 
-      <nav className="tabbar" aria-label={t("shell.practice")}>
-        {TABS.map(({ to, key, Icon }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === "/"}
-            className={({ isActive }) => `tabbar__link ${isActive ? "tabbar__link--active" : ""}`}
-          >
-            <Icon />
-            {t(`nav.${key}`)}
-          </NavLink>
-        ))}
-      </nav>
+      {user && (
+        <nav className="tabbar" aria-label={t("shell.practice")}>
+          {TABS.map(({ to, key, Icon }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === "/"}
+              className={({ isActive }) => `tabbar__link ${isActive ? "tabbar__link--active" : ""}`}
+            >
+              <Icon />
+              {t(`nav.${key}`)}
+            </NavLink>
+          ))}
+        </nav>
+      )}
 
       <SelectionLookup />
       <CookieBanner />

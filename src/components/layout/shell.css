@@ -201,6 +201,11 @@
   padding-bottom: 78px; /* clear the tab bar */
 }
 
+/* Guests have no tab bar, so the reserved strip would just be dead space. */
+.shell--guest .shell__main {
+  padding-bottom: 0;
+}
+
 @media (min-width: 1024px) {
   .shell__main {
     padding-bottom: 0;
