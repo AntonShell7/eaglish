@@ -28,7 +28,8 @@
     "translateSentence": "Перевести предложение",
     "saved": "Сохранено",
     "all": "Все",
-    "search": "Поиск"
+    "search": "Поиск",
+    "close": "Закрыть"
   },
   "theme": {
     "label": "Тема",
@@ -97,7 +98,9 @@
     "keepGoing": "Хорошее начало. Посмотри, где ошибся, и попробуй снова.",
     "markComplete": "Отметить прочитанным",
     "completed": "Прочитано",
-    "hint": "Нажми на любое слово, чтобы увидеть перевод."
+    "hint": "Нажми на любое слово, чтобы увидеть перевод.",
+    "markPrompt": "Дочитал до конца? Отметь текст — заданием считается именно завершение.",
+    "markedNote": "Засчитано на сегодня. Ниже — вопросы на понимание."
   },
   "writing": {
     "grammar": "Грамматика",
@@ -148,7 +151,13 @@
     "addTranslationPlaceholder": "Перевод",
     "addButton": "Добавить",
     "addedManually": "Добавлено вручную",
-    "alreadySaved": "Это слово уже есть в словаре."
+    "alreadySaved": "Это слово уже есть в словаре.",
+    "cardOf": "Карточка {{done}} из {{total}}",
+    "sessionDone": "Повторение завершено",
+    "sessionSummary_one": "Повторена {{count}} карточка.",
+    "sessionSummary_few": "Повторено {{count}} карточки.",
+    "sessionSummary_many": "Повторено {{count}} карточек.",
+    "backToList": "К словарю"
   },
   "slang": {
     "categoryAll": "Все",
@@ -206,7 +215,8 @@
     "activitiesCount_few": "{{count}} занятия",
     "activitiesCount_many": "{{count}} занятий",
     "levelMeter": "Уровень {{level}}",
-    "noActivityYet": "Пока ничего нет — начни с текста для чтения."
+    "noActivityYet": "Пока ничего нет — начни с текста для чтения.",
+    "mixVocabulary": "Слова и уроки"
   },
   "footer": {
     "privacy": "Политика конфиденциальности",
@@ -357,5 +367,66 @@
     "reviewNow": "Повторить сейчас",
     "nothingDue": "К повторению ничего нет — очередь пуста.",
     "readSomething": "Почитать текст"
+  },
+  "tasks": {
+    "readingDone": "Текст прочитан",
+    "quizDone": "Вопросы пройдены",
+    "writingDone": "Письмо проверено",
+    "reviewDone": "Повторение выполнено",
+    "lessonDone": "Урок пройден",
+    "progress": "{{done}} из {{target}} заданий за сегодня",
+    "goalReachedTitle": "Цель дня выполнена",
+    "goalReachedBody_one": "{{count}} задание за сегодня — серия продолжается.",
+    "goalReachedBody_few": "{{count}} задания за сегодня — серия продолжается.",
+    "goalReachedBody_many": "{{count}} заданий за сегодня — серия продолжается."
+  },
+  "everyday": {
+    "intro": "Фразы, которые действительно говорят, — через ситуации, а не списки. Каждый урок заканчивается выбором нужной фразы в моменте.",
+    "lessonsTab": "Уроки",
+    "phrasesTab": "Справочник",
+    "phrasesIntro": "Полка со справочником: идиомы, сленг и сокращения. Переворачивай карточку и сохраняй нужное.",
+    "phraseCount_one": "{{count}} фраза",
+    "phraseCount_few": "{{count}} фразы",
+    "phraseCount_many": "{{count}} фраз",
+    "minutes": "~{{count}} мин",
+    "passed": "Пройден",
+    "best": "лучший {{correct}}/{{total}}",
+    "cardOf": "Фраза {{done}} из {{total}}",
+    "taskOf": "Задание {{done}} из {{total}}",
+    "saveToVocab": "В словарь",
+    "prev": "Назад",
+    "next": "Дальше",
+    "continue": "Продолжить",
+    "toPractice": "К практике",
+    "finishLesson": "Завершить урок",
+    "stage": {
+      "study": "Знакомство",
+      "match": "Сопоставление",
+      "drill": "Практика"
+    },
+    "matchTitle": "Соедини фразу с её значением",
+    "matchHint": "Сначала нажми фразу, потом — подходящее значение.",
+    "replyPrompt": "Что ты ответишь на самом деле?",
+    "registerPrompt": "Где такая фраза уместна?",
+    "register": {
+      "neutral": "Нейтрально — подходит почти везде",
+      "casual": "Неформально — друзья, одногруппники, коллеги",
+      "veryCasual": "Очень неформально — только близкие и чаты"
+    },
+    "registerShort": {
+      "neutral": "нейтрально",
+      "casual": "неформально",
+      "veryCasual": "очень неформально"
+    },
+    "correct": "Верно",
+    "notQuite": "Не совсем",
+    "doneTitle": "Урок пройден",
+    "doneScore": "{{correct}} из {{total}} верно",
+    "saveAll": "Сохранить все фразы",
+    "savedAll": "Всё сохранено",
+    "again": "Пройти заново",
+    "nextLesson": "Следующий урок",
+    "backToLessons": "Все уроки",
+    "matching": "Подбираешь: {{phrase}}"
   }
 }

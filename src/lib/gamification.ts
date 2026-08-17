@@ -11,11 +11,15 @@ import { getUniqueTextsRead, getQuizResults } from "./readingHistory";
  * XP arrives automatically once progress syncs down from another device.
  */
 
-/** XP is weighted by effort: writing a text is worth more than saving a word. */
+/**
+ * XP is weighted by effort. Every entry now stands for a *finished* task — a
+ * text read through, a quiz checked, five cards reviewed or a lesson passed —
+ * so the numbers are larger than when a saved word alone could earn XP.
+ */
 export const XP_PER_ACTIVITY: Record<ActivityKind, number> = {
-  reading: 8,
+  reading: 10,
   quiz: 12,
-  vocabulary: 4,
+  vocabulary: 10,
   writing: 25,
 };
 

@@ -28,7 +28,8 @@
     "translateSentence": "Translate sentence",
     "saved": "Saved",
     "all": "All",
-    "search": "Search"
+    "search": "Search",
+    "close": "Close"
   },
   "theme": {
     "label": "Theme",
@@ -94,7 +95,9 @@
     "keepGoing": "Good start. Review the ones you missed and try again.",
     "markComplete": "Mark as read",
     "completed": "Read",
-    "hint": "Tap any word for a translation."
+    "hint": "Tap any word for a translation.",
+    "markPrompt": "Read it through? Mark it — finishing is what counts as a task.",
+    "markedNote": "Counted for today. The comprehension questions are below."
   },
   "writing": {
     "grammar": "Grammar",
@@ -143,7 +146,12 @@
     "addTranslationPlaceholder": "Translation",
     "addButton": "Add",
     "addedManually": "Added by hand",
-    "alreadySaved": "That word is already in your vocabulary."
+    "alreadySaved": "That word is already in your vocabulary.",
+    "cardOf": "Card {{done}} of {{total}}",
+    "sessionDone": "Review done",
+    "sessionSummary_one": "{{count}} card reviewed.",
+    "sessionSummary_other": "{{count}} cards reviewed.",
+    "backToList": "Back to the list"
   },
   "slang": {
     "categoryAll": "All",
@@ -199,7 +207,8 @@
     "activitiesCount_one": "{{count}} activity",
     "activitiesCount_other": "{{count}} activities",
     "levelMeter": "Level {{level}}",
-    "noActivityYet": "Nothing logged yet — start with a reading text."
+    "noActivityYet": "Nothing logged yet — start with a reading text.",
+    "mixVocabulary": "Words & lessons"
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -348,5 +357,64 @@
     "reviewNow": "Review now",
     "nothingDue": "Nothing due for review — the queue is clear.",
     "readSomething": "Read something"
+  },
+  "tasks": {
+    "readingDone": "Text finished",
+    "quizDone": "Comprehension checked",
+    "writingDone": "Writing assessed",
+    "reviewDone": "Review batch done",
+    "lessonDone": "Lesson complete",
+    "progress": "{{done}} of {{target}} tasks today",
+    "goalReachedTitle": "Daily goal reached",
+    "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
+    "goalReachedBody_other": "{{count}} tasks done today — the streak lives on."
+  },
+  "everyday": {
+    "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
+    "lessonsTab": "Lessons",
+    "phrasesTab": "Phrasebook",
+    "phrasesIntro": "Reference shelf: idioms, slang and abbreviations. Flip a card, save what you need.",
+    "phraseCount_one": "{{count}} phrase",
+    "phraseCount_other": "{{count}} phrases",
+    "minutes": "~{{count}} min",
+    "passed": "Passed",
+    "best": "best {{correct}}/{{total}}",
+    "cardOf": "Phrase {{done}} of {{total}}",
+    "taskOf": "Task {{done}} of {{total}}",
+    "saveToVocab": "Save to vocabulary",
+    "prev": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "toPractice": "Start practising",
+    "finishLesson": "Finish lesson",
+    "stage": {
+      "study": "Meet",
+      "match": "Match",
+      "drill": "Practise"
+    },
+    "matchTitle": "Match each phrase to its meaning",
+    "matchHint": "Tap a phrase, then tap the meaning that belongs to it.",
+    "replyPrompt": "What would you actually say?",
+    "registerPrompt": "Where does this phrase belong?",
+    "register": {
+      "neutral": "Neutral — fine almost anywhere",
+      "casual": "Casual — friends, classmates, colleagues",
+      "veryCasual": "Very casual — close friends and chats only"
+    },
+    "registerShort": {
+      "neutral": "neutral",
+      "casual": "casual",
+      "veryCasual": "very casual"
+    },
+    "correct": "Correct",
+    "notQuite": "Not quite",
+    "doneTitle": "Lesson complete",
+    "doneScore": "{{correct}} of {{total}} correct",
+    "saveAll": "Save every phrase",
+    "savedAll": "All saved",
+    "again": "Do it again",
+    "nextLesson": "Next lesson",
+    "backToLessons": "All lessons",
+    "matching": "Matching: {{phrase}}"
   }
 }

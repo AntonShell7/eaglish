@@ -8,6 +8,7 @@ export interface DayActivity {
 }
 
 const STORAGE_KEY = "activityLog";
+const DONE_KEY = "completedTasks";
 const GOAL_KEY = "dailyGoal";
 const DEFAULT_GOAL = 3;
 
@@ -30,6 +31,43 @@ function writeAll(days: DayActivity[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(days));
 }
 
+function readDone(): string[] {
+  try {
+    const raw = localStorage.getItem(DONE_KEY);
+    const all = raw ? (JSON.parse(raw) as string[]) : [];
+    // Yesterday's list is dead weight: a task finished today counts again today.
+    return all.filter((id) => id.startsWith(todayKey()));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Records a piece of work that was actually *finished*.
+ *
+ * The daily goal counts tasks, not moves. Opening a text, switching tabs or
+ * saving a word are not achievements — so only things with an end get here: a
+ * text read through, a quiz checked, a lesson passed, a review queue cleared, a
+ * piece of writing submitted.
+ *
+ * `taskId` makes it idempotent for the day, so re-opening the same text or
+ * retaking the same lesson can never inflate the count. Returns true only the
+ * first time — which is also the signal to congratulate the user.
+ *
+ * The done-list is deliberately local: it exists to stop double-counting on
+ * this device, and losing it on another one costs at most one extra count.
+ */
+export function completeTask(kind: ActivityKind, taskId: string): boolean {
+  const id = `${todayKey()}|${kind}|${taskId}`;
+  const done = readDone();
+  if (done.includes(id)) return false;
+
+  localStorage.setItem(DONE_KEY, JSON.stringify([...done, id]));
+  logActivity(kind);
+  return true;
+}
+
+/** Raw counter. Prefer `completeTask` — it is the one that guards the goal. */
 export function logActivity(kind: ActivityKind, amount = 1) {
   const days = readAll();
   const key = todayKey();
@@ -43,7 +81,11 @@ export function logActivity(kind: ActivityKind, amount = 1) {
 
   writeAll(days);
   pushActivityDay(days.find((d) => d.date === key)!);
+  window.dispatchEvent(new Event(ACTIVITY_EVENT));
 }
+
+/** Fired whenever the log changes, so the shell's stat strip can catch up. */
+export const ACTIVITY_EVENT = "eaglish:activity";
 
 /**
  * Days can accumulate on two devices, so counts are merged by taking the

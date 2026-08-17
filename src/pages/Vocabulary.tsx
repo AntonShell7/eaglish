@@ -8,11 +8,14 @@ import {
   removeVocabularyWord,
   addVocabularyWord,
   isWordSaved,
+  getReviewedTodayCount,
   type VocabularyWord,
 } from "@/lib/vocabularyStore";
-import { logActivity } from "@/lib/activityStore";
+import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 
 const DAY = 24 * 60 * 60 * 1000;
+/** Cards per completed task. Small enough to reach, big enough to mean something. */
+const REVIEWS_PER_TASK = 5;
 
 function Flashcard({ word, onReview }: { word: VocabularyWord; onReview: (quality: 0 | 1 | 2 | 3) => void }) {
   const { t } = useTranslation();
@@ -93,7 +96,6 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
     }
 
     addVocabularyWord(w, tr, t("vocabulary.addedManually"));
-    logActivity("vocabulary");
     setWord("");
     setTranslation("");
     setError(null);
@@ -142,10 +144,12 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
 
 export default function Vocabulary() {
   const { t } = useTranslation();
+  const { finish } = useTaskDone();
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [due, setDue] = useState<VocabularyWord[]>([]);
   const [mode, setMode] = useState<"list" | "practice">("list");
   const [practiceIndex, setPracticeIndex] = useState(0);
+  const [reviewedInSession, setReviewedInSession] = useState(0);
   const [query, setQuery] = useState("");
 
   const refresh = () => {
@@ -155,11 +159,28 @@ export default function Vocabulary() {
 
   useEffect(refresh, []);
 
+  /** Snapshots the queue: a card answered mid-session must not reshuffle the rest. */
+  const startPractice = () => {
+    setDue(getDueWords());
+    setPracticeIndex(0);
+    setReviewedInSession(0);
+    setMode("practice");
+  };
+
   const handleReview = (id: string, quality: 0 | 1 | 2 | 3) => {
     reviewWord(id, quality);
-    logActivity("vocabulary");
+    setWords(getVocabulary());
     setPracticeIndex((i) => i + 1);
-    refresh();
+    setReviewedInSession((n) => n + 1);
+
+    // A goal unit is five cards, or clearing whatever was left in the queue —
+    // whichever comes first. The bucket id is derived from the day's own review
+    // count, so leaving and coming back cannot award the same batch twice.
+    const reviewedToday = getReviewedTodayCount();
+    const lastInQueue = practiceIndex >= due.length - 1;
+    if (reviewedToday % REVIEWS_PER_TASK === 0 || lastInQueue) {
+      finish("vocabulary", `review:${Math.floor((reviewedToday - 1) / REVIEWS_PER_TASK)}`, t("tasks.reviewDone"));
+    }
   };
 
   const filtered = useMemo(() => {
@@ -196,11 +217,7 @@ export default function Vocabulary() {
         </button>
         <button
           type="button"
-          onClick={() => {
-            setMode("practice");
-            setPracticeIndex(0);
-            refresh();
-          }}
+          onClick={startPractice}
           disabled={due.length === 0}
           className="rounded-full px-4 py-2 text-sm font-semibold disabled:opacity-40"
           style={{
@@ -280,11 +297,34 @@ export default function Vocabulary() {
       ) : (
         <div className="mt-8">
           {currentCard ? (
-            <Flashcard word={currentCard} onReview={(q) => handleReview(currentCard.id, q)} />
+            <>
+              <p className="mb-3 text-center text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
+                {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
+              </p>
+              <Flashcard word={currentCard} onReview={(q) => handleReview(currentCard.id, q)} />
+            </>
           ) : (
-            <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {t("vocabulary.allCaughtUp")}
-            </p>
+            <div className="py-12 text-center">
+              <p className="page-title text-2xl">
+                {reviewedInSession > 0 ? t("vocabulary.sessionDone") : t("vocabulary.allCaughtUp")}
+              </p>
+              {reviewedInSession > 0 && (
+                <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                  {t("vocabulary.sessionSummary", { count: reviewedInSession })}
+                </p>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  refresh();
+                  setMode("list");
+                }}
+                className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold on-primary"
+                style={{ background: "var(--color-primary)" }}
+              >
+                {t("vocabulary.backToList")}
+              </button>
+            </div>
           )}
         </div>
       )}

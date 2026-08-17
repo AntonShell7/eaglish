@@ -4,7 +4,7 @@ import { SectionHero } from "@/components/SectionHero";
 import { writingTopics } from "@/data/writingTopics";
 import { getWritingFeedback, type WritingFeedbackResult } from "@/lib/writingFeedback";
 import { addWritingSubmission } from "@/lib/writingHistory";
-import { logActivity } from "@/lib/activityStore";
+import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { WriterTranslator } from "@/components/writing/WriterTranslator";
 
 const SCORE_KEYS = ["grammar", "vocabulary", "coherence", "overall"] as const;
@@ -12,6 +12,7 @@ const MIN_SUBMIT_WORDS = 30;
 
 export default function Writing() {
   const { t } = useTranslation();
+  const { finish } = useTaskDone();
   const [topicId, setTopicId] = useState(writingTopics[0].id);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,9 @@ export default function Writing() {
     const feedback = await getWritingFeedback(text);
     setResult(feedback);
     addWritingSubmission({ topicId, wordCount: words, scores: feedback.scores });
-    logActivity("writing");
+    // One per topic per day — a second topic is new work, a resubmission of the
+    // same one is a revision.
+    finish("writing", `writing:${topicId}`, t("tasks.writingDone"));
     setLoading(false);
   };
 

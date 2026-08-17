@@ -77,7 +77,7 @@ export default function Progress() {
     const mixLabel: Record<ActivityKind, string> = {
       reading: t("nav.reading"),
       writing: t("nav.writing"),
-      vocabulary: t("nav.vocabulary"),
+      vocabulary: t("progress.mixVocabulary"),
       quiz: t("reading.comprehension"),
     };
     setMix(

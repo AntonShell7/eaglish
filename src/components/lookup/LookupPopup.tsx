@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { lookupWord, translateToRussian, type GlossaryLike, type WordLookupResult } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
-import { logActivity } from "@/lib/activityStore";
 
 export interface LookupRequest {
   word: string;
@@ -83,7 +82,6 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
   const handleSave = () => {
     if (!result || result.unavailable) return;
     addVocabularyWord(result.word, result.translation, request.source);
-    logActivity("vocabulary");
     setSaved(true);
     setTimeout(onClose, 450);
   };

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IconFlame, IconBolt, IconTarget } from "@/components/brand/icons";
-import { getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
+import { ACTIVITY_EVENT, getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getTotalXp, getLevelState } from "@/lib/gamification";
 
 /**
@@ -16,13 +16,20 @@ export function StatsStrip({ routeKey }: { routeKey: string }) {
   const [state, setState] = useState({ streak: 0, xp: 0, level: 1, today: 0, goal: 3 });
 
   useEffect(() => {
-    setState({
-      streak: getStreak(),
-      xp: getTotalXp(),
-      level: getLevelState().level,
-      today: getTodayCount(),
-      goal: getDailyGoal(),
-    });
+    const read = () =>
+      setState({
+        streak: getStreak(),
+        xp: getTotalXp(),
+        level: getLevelState().level,
+        today: getTodayCount(),
+        goal: getDailyGoal(),
+      });
+
+    read();
+    // Finishing a task has to move these numbers immediately — waiting for the
+    // next navigation would make the reward feel unrelated to the work.
+    window.addEventListener(ACTIVITY_EVENT, read);
+    return () => window.removeEventListener(ACTIVITY_EVENT, read);
   }, [routeKey]);
 
   const goalDone = state.today >= state.goal;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { ComprehensionQuestion } from "@/data/readingTexts";
-import { logActivity } from "@/lib/activityStore";
+import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { recordQuizResult } from "@/lib/readingHistory";
 
 interface ComprehensionQuizProps {
@@ -11,6 +11,7 @@ interface ComprehensionQuizProps {
 
 export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps) {
   const { t } = useTranslation();
+  const { finish } = useTaskDone();
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [checked, setChecked] = useState(false);
 
@@ -25,8 +26,10 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
 
   const handleCheck = () => {
     setChecked(true);
-    logActivity("quiz");
     recordQuizResult(textId, correctCount, questions.length);
+    // Once per text per day: retaking it to raise a score is welcome, farming
+    // the daily goal with the same five questions is not.
+    finish("quiz", `quiz:${textId}`, t("tasks.quizDone"));
   };
 
   const handleRetry = () => {

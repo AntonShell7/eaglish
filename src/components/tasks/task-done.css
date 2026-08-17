@@ -1,0 +1,89 @@
+/* The "task finished" toast. Sits above the mobile tab bar so it never covers
+   the navigation it is congratulating you for using. */
+
+.taskdone {
+  position: fixed;
+  left: 50%;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: calc(100% - 32px);
+  max-width: 400px;
+  padding: 13px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft-lg);
+  transform: translateX(-50%);
+  animation: taskdone-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 1024px) {
+  .taskdone {
+    bottom: 24px;
+  }
+}
+
+@keyframes taskdone-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taskdone {
+    animation: none;
+  }
+}
+
+.taskdone__tick {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--color-success);
+  /* Dark ink, not white: --color-success is light enough in the dark theme that
+     white on it lands at 1.7:1. This reads 4.8:1 light, 9:1 dark. */
+  color: #0b2818;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.taskdone--goal .taskdone__tick {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.taskdone__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.taskdone__h {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.taskdone__p {
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.taskdone__close {
+  flex: none;
+  padding: 0 4px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-muted);
+}
