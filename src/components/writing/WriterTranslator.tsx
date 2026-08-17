@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { translateToEnglish, type Unavailable } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
-import { logActivity } from "@/lib/activityStore";
 
 interface Result {
   english: string;
@@ -59,7 +58,6 @@ export function WriterTranslator({ source }: { source: string }) {
     // Stored English-first with the learner's own phrase as the meaning, so the
     // flashcard tests the direction they were weak in.
     addVocabularyWord(result.english, query.trim(), source);
-    logActivity("vocabulary");
     setSaved(true);
   };
 

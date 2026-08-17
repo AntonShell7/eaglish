@@ -4,7 +4,7 @@ import { readingTexts, type ReadingText } from "@/data/readingTexts";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { logReadingOpen } from "@/lib/readingHistory";
-import { logActivity } from "@/lib/activityStore";
+import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 
 const LEVELS: ReadingText["level"][] = ["A1-A2", "B1-B2", "C1-C2"];
 const WORDS_PER_MINUTE = 130;
@@ -15,7 +15,9 @@ function wordCount(text: ReadingText) {
 
 export default function Reading() {
   const { t } = useTranslation();
+  const { finish } = useTaskDone();
   const [level, setLevel] = useState<ReadingText["level"]>("A1-A2");
+  const [marked, setMarked] = useState(false);
   const textsAtLevel = useMemo(() => readingTexts.filter((tx) => tx.level === level), [level]);
   const [selectedId, setSelectedId] = useState(textsAtLevel[0]?.id);
 
@@ -23,8 +25,10 @@ export default function Reading() {
 
   useEffect(() => {
     if (!selected) return;
+    // History only. Opening a text is not an achievement — finishing it is, and
+    // that is the button under the article.
     logReadingOpen(selected.id);
-    logActivity("reading");
+    setMarked(false);
   }, [selected]);
 
   const handleLevel = (next: ReadingText["level"]) => {
@@ -104,6 +108,27 @@ export default function Reading() {
 
             <div className="mt-6">
               <ReadingTextView text={selected} />
+            </div>
+
+            <div
+              className="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-md)] border p-4"
+              style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+            >
+              <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {marked ? t("reading.markedNote") : t("reading.markPrompt")}
+              </p>
+              <button
+                type="button"
+                disabled={marked}
+                onClick={() => {
+                  finish("reading", `text:${selected.id}`, t("tasks.readingDone"));
+                  setMarked(true);
+                }}
+                className="rounded-full px-4 py-2 text-sm font-semibold on-primary disabled:opacity-60"
+                style={{ background: marked ? "var(--color-success)" : "var(--color-primary)", color: marked ? "#0b2818" : undefined }}
+              >
+                {marked ? `\u2713 ${t("reading.completed")}` : t("reading.markComplete")}
+              </button>
             </div>
           </article>
 

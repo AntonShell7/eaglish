@@ -19,6 +19,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { CookieBanner } from "@/components/CookieBanner";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
+import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
 import "./shell.css";
 
 const PRACTICE = [
@@ -145,7 +146,9 @@ export function Layout() {
         </header>
 
         <main className="shell__main min-w-0 flex-1">
-          <Outlet />
+          <TaskDoneProvider>
+            <Outlet />
+          </TaskDoneProvider>
         </main>
 
         <Footer />

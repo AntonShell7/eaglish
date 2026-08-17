@@ -10,6 +10,8 @@ export interface VocabularyWord {
   easeFactor: number;
   dueAt: number;
   reviewCount: number;
+  /** Absent on words saved before review tracking existed. */
+  lastReviewedAt?: number;
 }
 
 const STORAGE_KEY = "vocabularyWords";
@@ -80,9 +82,26 @@ export function reviewWord(id: string, quality: 0 | 1 | 2 | 3) {
   }
 
   const dueAt = Date.now() + interval * 24 * 60 * 60 * 1000;
-  words[idx] = { ...current, interval, easeFactor, dueAt, reviewCount: current.reviewCount + 1 };
+  words[idx] = {
+    ...current,
+    interval,
+    easeFactor,
+    dueAt,
+    reviewCount: current.reviewCount + 1,
+    lastReviewedAt: Date.now(),
+  };
   writeAll(words);
   pushVocabularyWord(words[idx]);
+}
+
+/**
+ * Cards reviewed since local midnight. The daily goal is built on this rather
+ * than on a session counter, so closing the page mid-review loses nothing.
+ */
+export function getReviewedTodayCount(): number {
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  return readAll().filter((w) => (w.lastReviewedAt ?? 0) >= start.getTime()).length;
 }
 
 export function removeVocabularyWord(id: string) {
