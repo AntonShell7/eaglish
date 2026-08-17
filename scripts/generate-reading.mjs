@@ -30,7 +30,7 @@ const MODEL = process.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
 const CONCURRENCY = 1;
 /** Texts per request. Batching amortises the prompt and roughly triples throughput
  *  against a tokens-per-minute cap. */
-const BATCH = 4;
+const BATCH = 3;
 /**
  * Tokens-per-minute is the real ceiling (8k on the free tier, ~2k per text), so
  * the runner spaces requests instead of sprinting into a 429 and then waiting
@@ -258,7 +258,9 @@ async function groq(prompt) {
       // graded reading material does not need deliberation — this roughly tripled
       // the number of texts per minute.
       reasoning_effort: "low",
-      max_completion_tokens: 8000,
+      // Groq rejects a request whose prompt + max_completion_tokens exceeds the
+      // per-minute token limit outright (413), so this stays well under 8000.
+      max_completion_tokens: 5500,
       response_format: { type: "json_object" },
       messages: [
         {

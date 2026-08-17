@@ -5,19 +5,19 @@
     "counts": {
       "A1-A2": 7,
       "B1-B2": 7,
-      "C1-C2": 6
+      "C1-C2": 7
     },
-    "total": 20
+    "total": 21
   },
   {
     "id": "travel",
     "label": "Travel",
     "counts": {
-      "A1-A2": 6,
+      "A1-A2": 7,
       "B1-B2": 7,
-      "C1-C2": 6
+      "C1-C2": 7
     },
-    "total": 19
+    "total": 21
   },
   {
     "id": "technology",
@@ -33,11 +33,11 @@
     "id": "science",
     "label": "Science",
     "counts": {
-      "A1-A2": 0,
-      "B1-B2": 0,
-      "C1-C2": 1
+      "A1-A2": 7,
+      "B1-B2": 4,
+      "C1-C2": 4
     },
-    "total": 1
+    "total": 15
   },
   {
     "id": "sport",

@@ -2230,5 +2230,122 @@
         "explanation": "It states the space feels like a modest sanctuary."
       }
     ]
+  },
+  {
+    "id": "the-local-market-rhythm",
+    "level": "C1-C2",
+    "topic": "daily-life",
+    "generated": true,
+    "title": "The Local Market Rhythm",
+    "sentences": [
+      {
+        "text": "At dawn, the neighbourhood market awakens with the soft clatter of crates being unloaded.",
+        "translationRu": "На рассвете местный рынок просыпается от мягкого грохота ящиков, которые выгружаются."
+      },
+      {
+        "text": "Vendors arrange their stalls in a seemingly haphazard yet surprisingly efficient pattern, guided by years of tacit coordination.",
+        "translationRu": "Торговцы расставляют свои прилавки, казалось бы, хаотично, но удивительно эффективно, руководствуясь многолетней неявной координацией."
+      },
+      {
+        "text": "Fresh produce, still beaded with morning dew, competes for attention alongside artisanal breads whose aromas drift through the aisles.",
+        "translationRu": "Свежие продукты, ещё покрытые утренней росой, конкурируют за внимание с ремесленными хлебами, аромат которых распространяется по проходам."
+      },
+      {
+        "text": "Regulars greet the sellers with a nod, their exchanges punctuated by brief, courteous negotiations that hinge on trust rather than price tags.",
+        "translationRu": "Постоянные покупатели приветствуют продавцов кивком, их диалоги прерываются короткими вежливыми переговорами, основанными больше на доверии, чем на ценниках."
+      },
+      {
+        "text": "Occasionally, a newcomer pauses, bewildered by the unspoken rules, and receives a patient explanation about the market's rhythm.",
+        "translationRu": "Иногда новенький останавливается, озадаченный неписанными правилами, и получает терпеливое объяснение о ритме рынка."
+      },
+      {
+        "text": "The market’s layout subtly reflects the community’s social fabric, with stalls for ethnic foods positioned near cultural centres, fostering subtle intercultural dialogue.",
+        "translationRu": "Размещение прилавков незаметно отражает социальную ткань сообщества: прилавки с этнической едой находятся рядом с культурными центрами, способствуя тонкому межкультурному диалогу."
+      },
+      {
+        "text": "Midmorning sees a surge of students purchasing quick snacks, their hurried steps contrasting with the measured pace of elderly shoppers.",
+        "translationRu": "В полуденный час наблюдается наплыв студентов, покупающих быстрые перекусы; их торопливые шаги контрастируют с размеренным темпом пожилых покупателей."
+      },
+      {
+        "text": "Despite the bustling atmosphere, noise levels remain moderated by the market’s open architecture, which diffuses sound across the square.",
+        "translationRu": "Несмотря на оживлённую атмосферу, уровень шума остаётся умеренным благодаря открытой архитектуре рынка, рассеивающей звук по площади."
+      },
+      {
+        "text": "When the sun climbs higher, vendors adjust their displays, shading delicate fruits to preserve freshness and extending their sales window.",
+        "translationRu": "Когда солнце поднимается выше, торговцы меняют свои экспозиции, защищая нежные фрукты от жары, чтобы сохранить свежесть, и тем самым продлевают время продаж."
+      },
+      {
+        "text": "As afternoon wanes, the market gradually contracts, stalls being folded away while lingering patrons linger over coffee, reflecting on the day’s encounters.",
+        "translationRu": "С приближением вечера рынок постепенно сжимается: прилавки складываются, а оставшиеся посетители задерживаются за кофе, размышляя о произошедших за день встречах."
+      },
+      {
+        "text": "The closing bell, though symbolic, marks a collective acknowledgment that the market’s pulse will resume tomorrow, reaffirming its role as a communal hub.",
+        "translationRu": "Колокольчик закрытия, хотя и символический, ознаменовывает общее признание того, что пульс рынка возобновится завтра, подтверждая его роль как общественного центра."
+      },
+      {
+        "text": "Thus, the neighbourhood market functions not merely as a site of commerce, but as a living narrative of shared routines and subtle negotiations.",
+        "translationRu": "Таким образом, местный рынок служит не только местом торговли, но и живым повествованием о совместных рутинах и тонких переговорах."
+      }
+    ],
+    "glossary": {
+      "tacit": {
+        "translation": "неявный",
+        "partOfSpeech": "adjective"
+      },
+      "intercultural": {
+        "translation": "межкультурный",
+        "partOfSpeech": "adjective"
+      },
+      "diffuse": {
+        "translation": "рассеивать",
+        "partOfSpeech": "verb"
+      },
+      "acknowledgment": {
+        "translation": "признание",
+        "partOfSpeech": "noun"
+      },
+      "punctuated": {
+        "translation": "прерывающийся",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What primarily guides the arrangement of stalls according to the text?",
+        "options": [
+          "Official market regulations",
+          "Years of tacit coordination",
+          "Random chance",
+          "Customer preferences"
+        ],
+        "answer": 1,
+        "explanation": "The text states that stalls are arranged in a pattern guided by years of tacit coordination."
+      },
+      {
+        "id": "q2",
+        "question": "How does the market’s architecture affect the noise level?",
+        "options": [
+          "It amplifies sounds",
+          "It diffuses sound across the square",
+          "It blocks all noise",
+          "It has no impact"
+        ],
+        "answer": 1,
+        "explanation": "The text mentions that the open architecture diffuses sound, moderating noise levels."
+      },
+      {
+        "id": "q3",
+        "question": "What does the closing bell symbolize in the passage?",
+        "options": [
+          "The end of all activity",
+          "A collective acknowledgment of the market’s daily rhythm",
+          "A call for shoppers to leave",
+          "A signal for vendors to pack up quickly"
+        ],
+        "answer": 1,
+        "explanation": "The passage says the closing bell marks a collective acknowledgment that the market’s pulse will resume tomorrow."
+      }
+    ]
   }
 ]
