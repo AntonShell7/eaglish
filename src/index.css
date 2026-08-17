@@ -25,6 +25,10 @@
   --color-danger: #dc2626;
   --color-success: #16a34a;
 
+  /* Text selection: 1.57:1 against white — on par with the browser default. */
+  --color-selection: #66e3c4;
+  --color-selection-ink: #12122b;
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -55,6 +59,10 @@
   --color-accent-ink: #b49dfb;
   --color-danger: #f87171;
   --color-success: #4ade80;
+
+  /* Deep teal: 3.43:1 against the dark surface, 4.86:1 for the text on it. */
+  --color-selection: #0f766e;
+  --color-selection-ink: #f3f0fa;
 
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
   --shadow-soft-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -103,8 +111,20 @@ button {
   font-family: inherit;
 }
 
+/* Selection highlight.
+   It used to reuse --color-primary-soft, which is a near-white lavender on
+   light and a near-black violet on dark — measured at 1.18:1 and 1.25:1
+   against their own surfaces, so selecting text looked like nothing happened.
+   Teal is the one family that reads clearly against a violet-and-white brand
+   without competing with it. Light sits at 1.57:1, matching the browser's own
+   selection blue (1.62:1) — visible, not loud.
+
+   The text colour is forced rather than inherited: muted grey on mint measures
+   only 3.5:1, so letting each element keep its own colour would leave some
+   selected text harder to read than before it was selected. */
 ::selection {
-  background-color: var(--color-primary-soft);
+  background-color: var(--color-selection);
+  color: var(--color-selection-ink);
 }
 
 @keyframes fade-up {

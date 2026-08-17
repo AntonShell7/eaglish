@@ -32,7 +32,9 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
         {text.sentences.map((s, i) => (
           <span key={i}>
             {splitTokens(s.text).map((token, j) => {
-              if (/^\s+$/.test(token)) return <span key={j}>{token}</span>;
+              // Raw string, not a span: a wrapper here made the selection
+              // highlight stripe at every gap between words.
+              if (/^\s+$/.test(token)) return token;
 
               const known = savedWords.has(normalise(token));
               return (
@@ -58,7 +60,7 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
                       anchor: { x: e.clientX, y: e.clientY },
                     });
                   }}
-                  className="cursor-pointer rounded px-0.5 transition-colors duration-150 hover:bg-[var(--color-primary-soft)]"
+                  className="cursor-pointer rounded py-0.5 transition-colors duration-150 hover:bg-[var(--color-primary-soft)]"
                   style={
                     known
                       ? {
