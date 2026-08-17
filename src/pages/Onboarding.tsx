@@ -20,6 +20,9 @@ import "./onboarding.css";
 const LEVELS: ReadingLevel[] = ["A1-A2", "B1-B2", "C1-C2"];
 const DAILY_GOALS = [1, 3, 5];
 
+/** Five minutes per task, rounded to something a person would actually say. */
+const HOURS_PER_MONTH: Record<number, string> = { 1: "2,5", 3: "7,5", 5: "15" };
+
 type Step = "goal" | "interests" | "level" | "commitment" | "summary";
 const STEPS: Step[] = ["goal", "interests", "level", "commitment", "summary"];
 
@@ -58,6 +61,7 @@ function LevelTest({
           {t("onboarding.testScore", { correct: result.correct, total: result.total })} ·{" "}
           {t(`onboarding.levelName.${result.level}`)}
         </p>
+        <p className="ob-note">{t("onboarding.testResultNote")}</p>
 
         {missed.length > 0 && (
           <div className="ob-review">
@@ -321,8 +325,10 @@ export default function Onboarding() {
                         go("summary");
                       }}
                     >
-                      <span className="ob-choice__h">{t("onboarding.tasksPerDay", { count: n })}</span>
-                      <span className="ob-choice__p">{t(`onboarding.pace.${n}`)}</span>
+                      <span className="ob-choice__h">{t(`onboarding.paceHead.${n}`)}</span>
+                      <span className="ob-choice__p">
+                        {t("onboarding.tasksPerDay", { count: n })} · {t(`onboarding.pace.${n}`)}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -370,6 +376,9 @@ export default function Onboarding() {
                   </div>
                 </dl>
 
+                <p className="ob-note">
+                  {t("onboarding.planHorizon", { hours: HOURS_PER_MONTH[dailyGoal] ?? dailyGoal * 2.5 })}
+                </p>
                 <p className="ob-note">{t("onboarding.changeLater")}</p>
 
                 <div className="ob-actions">
