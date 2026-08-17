@@ -4,6 +4,7 @@ import { readingTexts, type ReadingText } from "@/data/readingTexts";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { logReadingOpen } from "@/lib/readingHistory";
+import { preferredLevel, rankByPreference } from "@/lib/learnerProfile";
 
 const LEVELS: ReadingText["level"][] = ["A1-A2", "B1-B2", "C1-C2"];
 const WORDS_PER_MINUTE = 130;
@@ -14,8 +15,12 @@ function wordCount(text: ReadingText) {
 
 export default function Reading() {
   const { t } = useTranslation();
-  const [level, setLevel] = useState<ReadingText["level"]>("A1-A2");
-  const textsAtLevel = useMemo(() => readingTexts.filter((tx) => tx.level === level), [level]);
+  // Opens at the level onboarding established, not at the easiest one.
+  const [level, setLevel] = useState<ReadingText["level"]>(() => preferredLevel());
+  const textsAtLevel = useMemo(
+    () => rankByPreference(readingTexts.filter((tx) => tx.level === level)),
+    [level],
+  );
   const [selectedId, setSelectedId] = useState(textsAtLevel[0]?.id);
 
   const selected = readingTexts.find((tx) => tx.id === selectedId) ?? textsAtLevel[0];
@@ -29,7 +34,7 @@ export default function Reading() {
 
   const handleLevel = (next: ReadingText["level"]) => {
     setLevel(next);
-    const first = readingTexts.find((tx) => tx.level === next);
+    const first = rankByPreference(readingTexts.filter((tx) => tx.level === next))[0];
     if (first) setSelectedId(first.id);
   };
 

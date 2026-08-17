@@ -13,10 +13,14 @@ import Register from "@/pages/Register";
 import ForgotPassword from "@/pages/ForgotPassword";
 import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/NotFound";
+import Onboarding from "@/pages/Onboarding";
 
 export default function App() {
   return (
     <Routes>
+      {/* Deliberately outside <Layout>: the flow needs the whole screen. */}
+      <Route path="onboarding" element={<Onboarding />} />
+
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="reading" element={<Reading />} />

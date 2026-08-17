@@ -414,5 +414,96 @@
     "nextLesson": "Next lesson",
     "backToLessons": "All lessons",
     "matching": "Matching: {{phrase}}"
+  },
+  "onboarding": {
+    "welcome": "Welcome to Eaglish",
+    "step": "Step {{done}} of {{total}}",
+    "next": "Continue",
+    "back": "Back",
+    "later": "Set this up later",
+    "goalTitle": "What are you learning English for?",
+    "goalLede": "This decides which writing briefs you see first — nothing else changes about the app.",
+    "goals": {
+      "exams": {
+        "h": "Exams",
+        "p": "IELTS, TOEFL, school finals"
+      },
+      "study": {
+        "h": "Study abroad",
+        "p": "Applications, essays, seminars"
+      },
+      "work": {
+        "h": "Work",
+        "p": "Emails, meetings, interviews"
+      },
+      "travel": {
+        "h": "Travel",
+        "p": "Getting around, talking to people"
+      },
+      "content": {
+        "h": "Films and content",
+        "p": "Series, YouTube, books without subtitles"
+      },
+      "general": {
+        "h": "General English",
+        "p": "Steady all-round progress"
+      }
+    },
+    "interestsTitle": "What would you rather read about?",
+    "interestsLede": "Pick any number. Your topics move to the front of the reading list — you can still open everything else.",
+    "topics": {
+      "Daily life": "Daily life",
+      "Travel": "Travel",
+      "Technology": "Technology",
+      "Communication": "Communication",
+      "Science": "Science",
+      "Society": "Society"
+    },
+    "levelTitle": "What's your English level?",
+    "levelLede": "It sets which texts open first. If you're not sure, don't guess — the check below takes five minutes.",
+    "levelName": {
+      "A1-A2": "Beginner",
+      "B1-B2": "Intermediate",
+      "C1-C2": "Advanced"
+    },
+    "levelHint": {
+      "A1-A2": "Simple sentences, familiar words, everyday topics.",
+      "B1-B2": "You follow articles and conversations, but lose the details.",
+      "C1-C2": "You read freely; nuance, register and idiom are the work now."
+    },
+    "testCta": "I'm not sure — check my level",
+    "testCtaHint": "10 adaptive questions, about five minutes. Every wrong answer is explained afterwards.",
+    "question": "Question {{done}} of {{total}}",
+    "stopTest": "Stop and choose a level myself",
+    "testResultEyebrow": "Result",
+    "testResultTitle": "Your level looks like {{band}}",
+    "testScore": "{{correct}} of {{total}} correct",
+    "reviewTitle": "What to look at again",
+    "acceptLevel": "Use this level",
+    "chooseManually": "Choose a different one",
+    "goalPerDayTitle": "How much per day?",
+    "goalPerDayLede": "One task is a text with its questions, a piece of writing, a lesson, or five review cards. Pick something you'll still do on a bad day.",
+    "tasksPerDay_one": "{{count}} task a day",
+    "tasksPerDay_other": "{{count}} tasks a day",
+    "pace": {
+      "1": "About five minutes. Enough to keep the streak honest.",
+      "3": "Fifteen minutes. The pace most people actually hold.",
+      "5": "Half an hour. Fast, if you have a deadline."
+    },
+    "planEyebrow": "Your plan",
+    "planTitle": "Your plan",
+    "planLevel": "Level",
+    "planGoal": "Goal",
+    "planTopics": "Topics",
+    "planTopicsAny": "Everything",
+    "planPace": "Daily goal",
+    "byTest": "by test, {{correct}}/{{total}}",
+    "selfReported": "chosen by you",
+    "changeLater": "All of this can be changed later in your profile.",
+    "startLearning": "Start learning",
+    "retake": "Redo setup",
+    "promptTitle": "Set up your plan — one minute",
+    "promptBody": "Four questions, or a five-minute level check. Without them the app has to guess your level.",
+    "promptCta": "Set up"
   }
 }

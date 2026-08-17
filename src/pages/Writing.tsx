@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import { writingTopics } from "@/data/writingTopics";
+import { rankByGoal } from "@/lib/learnerProfile";
 import { getWritingFeedback, type WritingFeedbackResult } from "@/lib/writingFeedback";
 import { addWritingSubmission } from "@/lib/writingHistory";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
@@ -13,13 +14,15 @@ const MIN_SUBMIT_WORDS = 30;
 export default function Writing() {
   const { t } = useTranslation();
   const { finish } = useTaskDone();
-  const [topicId, setTopicId] = useState(writingTopics[0].id);
+  // An exam candidate should meet the essay first, an office worker the email.
+  const topics = useMemo(() => rankByGoal(writingTopics), []);
+  const [topicId, setTopicId] = useState(topics[0].id);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<WritingFeedbackResult | null>(null);
   const [showSample, setShowSample] = useState(false);
 
-  const topic = writingTopics.find((tp) => tp.id === topicId)!;
+  const topic = topics.find((tp) => tp.id === topicId)!;
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   const tooShort = words < MIN_SUBMIT_WORDS;
 
@@ -49,7 +52,7 @@ export default function Writing() {
   return (
     <SectionHero kicker={t("nav.writing")} title={t("nav.writing")} description={t("home.descriptions.writing")}>
       <div className="mt-8 flex flex-wrap gap-2">
-        {writingTopics.map((tp) => (
+        {topics.map((tp) => (
           <button
             key={tp.id}
             type="button"

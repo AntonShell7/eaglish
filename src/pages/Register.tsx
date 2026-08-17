@@ -33,7 +33,9 @@ export default function Register() {
       return;
     }
     setDone(true);
-    setTimeout(() => navigate("/"), 1600);
+    // Straight into onboarding: the answers are stored locally, so the flow
+    // works while the confirmation email is still in flight.
+    setTimeout(() => navigate("/onboarding"), 1600);
   };
 
   return (

@@ -8,6 +8,7 @@ import { IconFlame, IconBolt, IconBookmark } from "@/components/brand/icons";
 import { getStreak, getBestStreak, getDailyGoal, setDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getTotalXp, getLevelState, getAchievements, isUnlocked, type Achievement } from "@/lib/gamification";
+import { getLearnerProfile, updateLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import "@/components/charts/charts.css";
 
 const GOAL_CHOICES = [1, 3, 5, 10];
@@ -66,6 +67,7 @@ export default function Profile() {
   const [goal, setGoal] = useState(3);
   const [today, setToday] = useState(0);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [learner, setLearner] = useState<LearnerProfile | null>(null);
 
   const refresh = () => {
     const total = getTotalXp();
@@ -77,6 +79,7 @@ export default function Profile() {
     setGoal(getDailyGoal());
     setToday(getTodayCount());
     setAchievements(getAchievements());
+    setLearner(getLearnerProfile());
   };
 
   useEffect(refresh, []);
@@ -85,6 +88,8 @@ export default function Profile() {
 
   const chooseGoal = (n: number) => {
     setDailyGoal(n);
+    // Keep the onboarding plan in step, or the profile would show two numbers.
+    updateLearnerProfile({ dailyGoal: n });
     refresh();
   };
 
@@ -179,6 +184,65 @@ export default function Profile() {
       </section>
 
       {/* Settings */}
+      {/* The onboarding answers, editable by retaking the flow. */}
+      <section className="mt-10">
+        <h2 className="page-title text-xl">{t("onboarding.planTitle")}</h2>
+        <div
+          className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[var(--radius-lg)] border p-5"
+          style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
+        >
+          {learner ? (
+            <dl className="grid flex-1 gap-3 sm:grid-cols-2">
+              <div>
+                <dt className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--color-text-muted)" }}>
+                  {t("onboarding.planLevel")}
+                </dt>
+                <dd className="text-sm font-semibold">
+                  {learner.level}
+                  {learner.placement && !learner.placement.selfReported
+                    ? ` · ${t("onboarding.byTest", { correct: learner.placement.correct, total: learner.placement.total })}`
+                    : ` · ${t("onboarding.selfReported")}`}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--color-text-muted)" }}>
+                  {t("onboarding.planGoal")}
+                </dt>
+                <dd className="text-sm font-semibold">{t(`onboarding.goals.${learner.goal}.h`)}</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--color-text-muted)" }}>
+                  {t("onboarding.planTopics")}
+                </dt>
+                <dd className="text-sm font-semibold">
+                  {learner.interests.length > 0
+                    ? learner.interests.map((x) => t(`onboarding.topics.${x}`)).join(", ")
+                    : t("onboarding.planTopicsAny")}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[11px] font-bold uppercase tracking-wide" style={{ color: "var(--color-text-muted)" }}>
+                  {t("onboarding.planPace")}
+                </dt>
+                <dd className="text-sm font-semibold">{t("onboarding.tasksPerDay", { count: learner.dailyGoal })}</dd>
+              </div>
+            </dl>
+          ) : (
+            <p className="flex-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
+              {t("onboarding.promptBody")}
+            </p>
+          )}
+
+          <Link
+            to="/onboarding"
+            className="rounded-full px-4 py-2 text-sm font-semibold on-primary"
+            style={{ background: "var(--color-primary)" }}
+          >
+            {learner ? t("onboarding.retake") : t("onboarding.promptCta")}
+          </Link>
+        </div>
+      </section>
+
       <section className="mt-10">
         <h2 className="page-title text-xl">{t("profile.settings")}</h2>
         <div
