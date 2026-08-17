@@ -118,12 +118,12 @@ export function rankLessons<T extends { level: string }>(items: T[]): T[] {
 
 /** Which writing format each goal actually needs first. */
 const FORMAT_PRIORITY: Record<Goal, string[]> = {
-  exams: ["Essay", "Review", "Email", "Story"],
-  study: ["Essay", "Email", "Review", "Story"],
-  work: ["Email", "Essay", "Review", "Story"],
-  travel: ["Email", "Review", "Story", "Essay"],
-  content: ["Review", "Story", "Essay", "Email"],
-  general: ["Email", "Essay", "Review", "Story"],
+  exams: ["Essay", "Letter", "Summary", "Review", "Email", "Story"],
+  study: ["Summary", "Letter", "Essay", "Email", "Review", "Story"],
+  work: ["Email", "Letter", "Summary", "Essay", "Review", "Story"],
+  travel: ["Email", "Review", "Story", "Letter", "Essay", "Summary"],
+  content: ["Review", "Story", "Essay", "Summary", "Email", "Letter"],
+  general: ["Email", "Essay", "Review", "Story", "Letter", "Summary"],
 };
 
 export function rankByGoal<T extends { format: string }>(items: T[]): T[] {

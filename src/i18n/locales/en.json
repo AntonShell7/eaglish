@@ -118,7 +118,31 @@
     "yourText": "Your text",
     "tips": "What to improve",
     "translatorTitle": "Translator",
-    "translatorPlaceholder": "Russian word or phrase"
+    "translatorPlaceholder": "Russian word or phrase",
+    "intro": "Fourteen briefs, grouped by what you actually need to write. Each comes with its structure, the phrases that carry it, a worked example — and an honest score with the fixes behind it.",
+    "categories": {
+      "all": "All",
+      "exam": "Exams",
+      "work": "Work",
+      "study": "Study",
+      "life": "Everyday"
+    },
+    "formats": {
+      "Email": "Email",
+      "Letter": "Formal letter",
+      "Essay": "Essay",
+      "Review": "Review",
+      "Story": "Story",
+      "Summary": "Summary"
+    },
+    "recommended": "Suggested",
+    "bestScore": "best {{score}}/10",
+    "draftWaiting": "Draft in progress",
+    "draftSaved": "Draft saved",
+    "allBriefs": "All briefs",
+    "submitForFeedback": "Get it assessed",
+    "assessing": "Reading your text…",
+    "pastAttempts": "Your earlier attempts"
   },
   "vocabulary": {
     "clickToReveal": "Click to reveal",
@@ -303,47 +327,47 @@
     "failed": "Translation failed. Check your connection and try again."
   },
   "landing": {
-    "promise": "Learn English from the words you actually meet.",
+    "promise": "Read what you'd read anyway. The words you meet come back — exactly when you'd have forgotten them.",
     "start": "Get started",
     "methodEyebrow": "The method",
-    "methodTitle": "You don't memorise a word. You keep running into it.",
-    "methodLede": "Word lists fade because nothing brings them back. Eaglish turns every text you read into a source of words, then decides when each one should reappear.",
+    "methodTitle": "A word isn't learned once. It's met enough times.",
+    "methodLede": "Forgetting follows a curve: what isn't revisited is gone within days. Eaglish takes the words out of your own reading and returns them at the edge of that curve, where a single repetition is worth the most.",
     "steps": {
       "meet": {
         "h": "Meet it in context",
-        "p": "Read something real. Tap any word — anywhere in the app — for a translation that fits the sentence it came from."
+        "p": "Tap any word, anywhere in the app, and the translation fits the sentence it came from — not a dictionary's first guess."
       },
       "save": {
         "h": "Keep it in one tap",
-        "p": "The word joins your collection with the text it came from, so you remember where you met it."
+        "p": "It joins your collection with the sentence attached, so you remember where you met it and what it was doing there."
       },
       "returns": {
-        "h": "It comes back on time",
-        "p": "Spaced repetition brings it up just before you'd forget — and marks it in future texts, so you notice the repeat."
+        "h": "See it again on time",
+        "p": "Spaced repetition schedules the next meeting, and saved words stay marked in later texts — so the repeat never passes unnoticed."
       }
     },
-    "loop": "and the loop starts again",
-    "principlesEyebrow": "What we believe",
-    "principlesTitle": "Four decisions that shape everything here.",
+    "loop": "then the loop begins again",
+    "principlesEyebrow": "How we work",
+    "principlesTitle": "Four decisions everything else follows from.",
     "principles": {
       "context": {
         "h": "Context over lists",
-        "p": "A word arrives inside a sentence you wanted to understand. That's what makes it stick."
+        "p": "Words arrive inside sentences you wanted to understand. That's the difference between recognising a word and having it."
       },
       "honest": {
-        "h": "Honest feedback",
-        "p": "Your writing gets a real assessment and specific fixes — not a score inflated to keep you comfortable."
+        "h": "Honest assessment",
+        "p": "Writing comes back with a real score and the specific fixes behind it. No inflated praise — you can't correct what nobody names."
       },
       "short": {
-        "h": "Short and daily",
-        "p": "Five focused minutes beat an hour once a week. The streak exists to protect the habit, not to nag."
+        "h": "Short, and daily",
+        "p": "Five focused minutes outperform an hour once a week. The streak protects the habit; it isn't there to guilt you into it."
       },
       "ownLanguage": {
         "h": "Your language for the interface",
-        "p": "Navigate in Russian if that helps. The English you're learning always stays English."
+        "p": "Navigate in Russian if it helps. The English you came for is never translated away."
       }
     },
-    "closeTitle": "Start with one text today."
+    "closeTitle": "One text. Five minutes. Start today."
   },
   "dashboard": {
     "greeting": "Welcome back",
@@ -476,19 +500,19 @@
     "question": "Question {{done}} of {{total}}",
     "stopTest": "Stop and choose a level myself",
     "testResultEyebrow": "Result",
-    "testResultTitle": "Your level looks like {{band}}",
+    "testResultTitle": "This looks like {{band}}",
     "testScore": "{{correct}} of {{total}} correct",
     "reviewTitle": "What to look at again",
     "acceptLevel": "Use this level",
     "chooseManually": "Choose a different one",
-    "goalPerDayTitle": "How much per day?",
-    "goalPerDayLede": "One task is a text with its questions, a piece of writing, a lesson, or five review cards. Pick something you'll still do on a bad day.",
+    "goalPerDayTitle": "How much time a day?",
+    "goalPerDayLede": "One task is a text with its questions, a piece of writing, a lesson, or five review cards. Pick the amount you'd still do on a bad day — that's the number the streak protects.",
     "tasksPerDay_one": "{{count}} task a day",
     "tasksPerDay_other": "{{count}} tasks a day",
     "pace": {
-      "1": "About five minutes. Enough to keep the streak honest.",
-      "3": "Fifteen minutes. The pace most people actually hold.",
-      "5": "Half an hour. Fast, if you have a deadline."
+      "1": "≈2.5 hours a month. Modest, but unbroken: the same minutes spread across days are remembered better than one long sitting.",
+      "3": "≈7.5 hours a month. The pace people keep for years — noticeably faster than five minutes, and it still fits into a day without planning.",
+      "5": "≈15 hours a month. The fastest option here: Cambridge puts a CEFR level at 180–260 hours of practice, and this is the pace that covers one inside a year."
     },
     "planEyebrow": "Your plan",
     "planTitle": "Your plan",
@@ -504,6 +528,13 @@
     "retake": "Redo setup",
     "promptTitle": "Set up your plan — one minute",
     "promptBody": "Four questions, or a five-minute level check. Without them the app has to guess your level.",
-    "promptCta": "Set up"
+    "promptCta": "Set up",
+    "paceHead": {
+      "1": "5 minutes a day",
+      "3": "15 minutes a day",
+      "5": "30 minutes a day"
+    },
+    "testResultNote": "An estimate, not a verdict: twelve questions land on the neighbouring level about a third of the time. If it feels wrong, set the level yourself — it only changes which texts open first.",
+    "planHorizon": "For scale: Cambridge English estimates 180–260 hours of practice per CEFR level. Your pace is about {{hours}} hours a month — so Eaglish counts the tasks you finish instead of promising a date."
   }
 }
