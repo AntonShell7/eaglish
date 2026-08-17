@@ -95,7 +95,25 @@
     "keepGoing": "Good start. Review the ones you missed and try again.",
     "markComplete": "Mark as read",
     "completed": "Read",
-    "hint": "Tap any word for a translation."
+    "hint": "Tap any word for a translation.",
+    "libraryIntro": "{{count}} texts across ten subjects. Pick something you'd read for its own sake — every unknown word is one tap from a translation, and one more from your vocabulary.",
+    "textCount_one": "{{count}} text",
+    "textCount_other": "{{count}} texts",
+    "yourTopic": "Your topic",
+    "allTopics": "All topics",
+    "backToList": "Back to the list",
+    "topics": {
+      "daily-life": "Daily life",
+      "travel": "Travel",
+      "technology": "Technology",
+      "science": "Science",
+      "sport": "Sport",
+      "culture": "Fame and culture",
+      "business": "Work and business",
+      "health": "Health and the body",
+      "environment": "Environment",
+      "society": "Society"
+    }
   },
   "writing": {
     "grammar": "Grammar",
