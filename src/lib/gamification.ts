@@ -17,7 +17,7 @@ import { getUniqueTextsRead, getQuizResults } from "./readingHistory";
  * so the numbers are larger than when a saved word alone could earn XP.
  */
 export const XP_PER_ACTIVITY: Record<ActivityKind, number> = {
-  reading: 10,
+  reading: 12,
   quiz: 12,
   vocabulary: 10,
   writing: 25,

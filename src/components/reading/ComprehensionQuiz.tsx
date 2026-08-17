@@ -27,9 +27,10 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
   const handleCheck = () => {
     setChecked(true);
     recordQuizResult(textId, correctCount, questions.length);
-    // Once per text per day: retaking it to raise a score is welcome, farming
-    // the daily goal with the same five questions is not.
-    finish("quiz", `quiz:${textId}`, t("tasks.quizDone"));
+    // The reading task *is* the questions: a text is only demonstrably read once
+    // it has been understood. Once per text per day — retaking it to raise a
+    // score is welcome, farming the daily goal with the same five questions is not.
+    finish("reading", `quiz:${textId}`, t("tasks.quizDone"));
   };
 
   const handleRetry = () => {
