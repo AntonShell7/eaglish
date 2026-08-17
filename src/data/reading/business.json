@@ -1,0 +1,216 @@
+[
+  {
+    "id": "first-job-small-lesson",
+    "level": "A1-A2",
+    "topic": "business",
+    "generated": true,
+    "title": "First Job Small Lesson",
+    "sentences": [
+      {
+        "text": "I got my first job at a small shop.",
+        "translationRu": "Я получил первую работу в небольшом магазине."
+      },
+      {
+        "text": "I cleaned the floor and helped customers.",
+        "translationRu": "Я подмётывал пол и помогал покупателям."
+      },
+      {
+        "text": "Every day I arrived early and left late.",
+        "translationRu": "Каждый день я приходил рано и уходил поздно."
+      },
+      {
+        "text": "One day a customer left a bag on the shelf.",
+        "translationRu": "Однажды клиент оставил сумку на полке."
+      },
+      {
+        "text": "I took the bag and gave it back.",
+        "translationRu": "Я взял сумку и отдал её обратно."
+      },
+      {
+        "text": "The customer thanked me and smiled.",
+        "translationRu": "Клиент поблагодарил меня и улыбнулся."
+      },
+      {
+        "text": "I learned small kindness can make a big change.",
+        "translationRu": "Я понял, что небольшая доброта может вызвать большую перемену."
+      },
+      {
+        "text": "Now I try to be kind at work every day.",
+        "translationRu": "Сейчас я стараюсь быть добрым на работе каждый день."
+      }
+    ],
+    "glossary": {
+      "shop": {
+        "translation": "магазин",
+        "partOfSpeech": "noun"
+      },
+      "customer": {
+        "translation": "клиент",
+        "partOfSpeech": "noun"
+      },
+      "kindness": {
+        "translation": "доброта",
+        "partOfSpeech": "noun"
+      },
+      "learn": {
+        "translation": "учить/понимать",
+        "partOfSpeech": "verb"
+      },
+      "shelf": {
+        "translation": "полка",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Where did the narrator get their first job?",
+        "options": [
+          "At a small shop",
+          "At a big office",
+          "At a restaurant",
+          "At a school"
+        ],
+        "answer": 0,
+        "explanation": "The text says the first job was at a small shop."
+      },
+      {
+        "id": "q2",
+        "question": "What did the narrator learn from the experience?",
+        "options": [
+          "That hard work is not needed",
+          "That small kindness can make a big change",
+          "That money is the most important",
+          "That customers are rude"
+        ],
+        "answer": 1,
+        "explanation": "The narrator states they learned small kindness can make a big change."
+      },
+      {
+        "id": "q3",
+        "question": "What did the customer do after receiving the bag?",
+        "options": [
+          "Ignored the narrator",
+          "Complained loudly",
+          "thanked the narrator and smiled",
+          "Left without saying anything"
+        ],
+        "answer": 2,
+        "explanation": "The text says the customer thanked the narrator and smiled."
+      }
+    ]
+  },
+  {
+    "id": "four-day-week-trial",
+    "level": "B1-B2",
+    "topic": "business",
+    "generated": true,
+    "title": "Four-Day Week Trial",
+    "sentences": [
+      {
+        "text": "Many companies have begun to test a four‑day work week to see its impact on productivity.",
+        "translationRu": "Многие компании начали пробовать четырёхдневную рабочую неделю, чтобы увидеть её влияние на производительность."
+      },
+      {
+        "text": "The idea is that employees keep the same total hours but spread them over fewer days, giving them longer weekends.",
+        "translationRu": "Идея в том, что сотрудники сохраняют тот же общий рабочий час, но распределяют его на меньшее количество дней, получая более длинные выходные."
+      },
+      {
+        "text": "In the first trial, staff finished their normal tasks by Friday afternoon instead of the usual Monday deadline.",
+        "translationRu": "В первом эксперименте персонал завершал обычные задачи к пятничному полудню, а не к привычному понедельному сроку."
+      },
+      {
+        "text": "Managers noticed that workers felt more rested and tackled complex projects faster.",
+        "translationRu": "Менеджеры заметили, что работники чувствовали себя более отдохнувшими и решали сложные проекты быстрее."
+      },
+      {
+        "text": "At the same time, some teams reshuffled meetings to fit the new rhythm.",
+        "translationRu": "В то же время некоторые команды переорганизовали встречи, чтобы вписаться в новый ритм."
+      },
+      {
+        "text": "Critics warn that a shorter week might delay responses for customers who expect quick service.",
+        "translationRu": "Критики предупреждают, что более короткая неделя может задерживать ответы клиентам, ожидающим быструю работу."
+      },
+      {
+        "text": "Nevertheless, many employees use the extra day for personal errands, which reduces overall stress.",
+        "translationRu": "Тем не менее, многие сотрудники используют дополнительный день для личных дел, что снижает общий стресс."
+      },
+      {
+        "text": "Over several months the office mood improved and staff turnover fell noticeably.",
+        "translationRu": "За несколько месяцев настроение в офисе улучшилось, а текучесть персонала заметно снизилась."
+      },
+      {
+        "text": "The experiment also proved that clear communication and proper planning are essential for success.",
+        "translationRu": "Эксперимент также доказал, что ясное общение и правильное планирование необходимы для успеха."
+      },
+      {
+        "text": "Although the four‑day week is not a one‑size‑fits‑all solution, it offers a promising way to balance work and life.",
+        "translationRu": "Хотя четырёхдневная неделя не подходит всем, она предлагает перспективный способ сбалансировать работу и жизнь."
+      }
+    ],
+    "glossary": {
+      "productivity": {
+        "translation": "производительность",
+        "partOfSpeech": "noun"
+      },
+      "reshuffle": {
+        "translation": "переставлять, переорганизовывать",
+        "partOfSpeech": "verb"
+      },
+      "turnover": {
+        "translation": "текучесть (персонала)",
+        "partOfSpeech": "noun"
+      },
+      "essential": {
+        "translation": "необходимый",
+        "partOfSpeech": "adjective"
+      },
+      "promising": {
+        "translation": "обнадеживающий, перспективный",
+        "partOfSpeech": "adjective"
+      },
+      "experiment": {
+        "translation": "эксперимент",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What is the main purpose of testing a four‑day work week according to the text?",
+        "options": [
+          "To increase profits",
+          "To see its impact on productivity",
+          "To reduce staff numbers",
+          "To comply with regulations"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says companies test the four‑day week to see its impact on productivity."
+      },
+      {
+        "id": "q2",
+        "question": "Which action did some teams take to adapt to the new schedule?",
+        "options": [
+          "Reschedule meetings",
+          "Hire more staff",
+          "Close the office on Fridays",
+          "Increase working hours"
+        ],
+        "answer": 0,
+        "explanation": "Sentence five mentions that some teams reshuffled (i.e., rescheduled) meetings to fit the new rhythm."
+      },
+      {
+        "id": "q3",
+        "question": "What happened to staff turnover during the trial?",
+        "options": [
+          "It rose sharply",
+          "It stayed the same",
+          "It fell noticeably",
+          "Data was not provided"
+        ],
+        "answer": 2,
+        "explanation": "Sentence eight states that staff turnover fell noticeably over several months."
+      }
+    ]
+  }
+]

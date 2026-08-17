@@ -1,0 +1,115 @@
+[
+  {
+    "id": "local-paper-decline",
+    "level": "B1-B2",
+    "topic": "society",
+    "generated": true,
+    "title": "Local Paper Decline",
+    "sentences": [
+      {
+        "text": "In many towns, the local newspaper that once arrived on every doorstep is now disappearing.",
+        "translationRu": "Во многих небольших городах местная газета, которая раньше приходила к каждому порогу, теперь исчезает."
+      },
+      {
+        "text": "Readers have turned to online feeds, because they are instant and often free.",
+        "translationRu": "Читатели переключились на онлайн‑ленты, потому что они мгновенные и часто бесплатные."
+      },
+      {
+        "text": "Advertisers follow the audience, so they spend less money on print ads, which hurts the paper's revenue.",
+        "translationRu": "Рекламодатели следуют за аудиторией, поэтому тратят меньше денег на печатную рекламу, что вредит доходам газеты."
+      },
+      {
+        "text": "Without enough income, editors are forced to cut staff, and the quality of reporting drops.",
+        "translationRu": "Без достаточного дохода редакторы вынуждены сокращать штат, и качество репортажей падает."
+      },
+      {
+        "text": "Some journalists start to work from home, using social media to share stories.",
+        "translationRu": "Некоторые журналисты начинают работать из дома, используя социальные сети для публикации историй."
+      },
+      {
+        "text": "Meanwhile, older residents miss the familiar voice that explained community events in plain language.",
+        "translationRu": "Тем временем пожилые жители скучают по привычному голосу, который объяснял события в сообществе простым языком."
+      },
+      {
+        "text": "The paper tries to survive by offering a digital edition, but many subscribers still prefer the tactile feel of paper.",
+        "translationRu": "Газета пытается выжить, предлагая цифровой выпуск, но многие подписчики всё ещё предпочитают ощутить бумагу в руках."
+      },
+      {
+        "text": "Local businesses also suffer, as they lose a cheap way to reach neighbours.",
+        "translationRu": "Местные предприятия тоже страдают, потому что теряют недорогой способ обращаться к соседям."
+      },
+      {
+        "text": "As a result, town meetings receive less coverage, and citizens become less informed about decisions that affect them.",
+        "translationRu": "В результате собрания города получают меньше освещения, и граждане становятся менее информированными о решениях, которые их касаются."
+      },
+      {
+        "text": "If communities want to keep a shared source of news, they may need to support their papers directly, for example by subscribing or volunteering.",
+        "translationRu": "Если сообщества хотят сохранить общий источник новостей, им придётся напрямую поддерживать свои газеты, например, подписываясь или становясь волонтёрами."
+      }
+    ],
+    "glossary": {
+      "disappear": {
+        "translation": "исчезать",
+        "partOfSpeech": "verb"
+      },
+      "advertiser": {
+        "translation": "рекламодатель",
+        "partOfSpeech": "noun"
+      },
+      "revenue": {
+        "translation": "доход",
+        "partOfSpeech": "noun"
+      },
+      "tactile": {
+        "translation": "осязаемый",
+        "partOfSpeech": "adjective"
+      },
+      "neighbour": {
+        "translation": "сосед",
+        "partOfSpeech": "noun"
+      },
+      "volunteer": {
+        "translation": "волонтёр",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why do advertisers spend less on print ads according to the text?",
+        "options": [
+          "They prefer online feeds",
+          "They follow the audience",
+          "They lack budget",
+          "They dislike newspapers"
+        ],
+        "answer": 1,
+        "explanation": "The text says advertisers follow the audience, so they spend less on print ads."
+      },
+      {
+        "id": "q2",
+        "question": "What do older residents miss about the local newspaper?",
+        "options": [
+          "Free subscriptions",
+          "Instant updates",
+          "The familiar voice",
+          "The digital edition"
+        ],
+        "answer": 2,
+        "explanation": "The text mentions older residents miss the familiar voice that explained community events."
+      },
+      {
+        "id": "q3",
+        "question": "How can communities help keep their local papers alive?",
+        "options": [
+          "By subscribing or volunteering",
+          "By increasing ad prices",
+          "By shutting down print",
+          "By ignoring local news"
+        ],
+        "answer": 0,
+        "explanation": "The text suggests communities may need to support papers directly, for example by subscribing or volunteering."
+      }
+    ]
+  }
+]

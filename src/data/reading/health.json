@@ -1,0 +1,131 @@
+[
+  {
+    "id": "the-power-of-expectation",
+    "level": "C1-C2",
+    "topic": "health",
+    "generated": true,
+    "title": "The Power of Expectation",
+    "sentences": [
+      {
+        "text": "The placebo effect illustrates how expectations can modulate physiological processes without active ingredients.",
+        "translationRu": "Эффект плацебо показывает, как ожидания могут влиять на физиологические процессы без активных веществ."
+      },
+      {
+        "text": "When a patient believes a harmless pill to be therapeutic, the brain can trigger endogenous pathways that mimic genuine treatment.",
+        "translationRu": "Когда пациент считает безвредную таблетку лечебной, мозг может активировать эндогенные пути, имитирующие настоящее лечение."
+      },
+      {
+        "text": "Neurotransmitters such as dopamine and endorphins are released, producing analgesia, mood elevation, or even immunological adjustments.",
+        "translationRu": "Вырабатываются нейромедиаторы, такие как дофамин и эндорфины, вызывающие обезболивание, улучшение настроения или даже иммуно‑регуляцию."
+      },
+      {
+        "text": "Crucially, the effect does not depend on the chemical composition of the administered substance but on the narrative surrounding it.",
+        "translationRu": "Ключевой момент: эффект не зависит от химического состава препарата, а от рассказа, который его сопровождает."
+      },
+      {
+        "text": "A double‑blind context often amplifies the phenomenon, because participants cannot disentangle suggestion from actual pharmacology.",
+        "translationRu": "Двойное слепое условие часто усиливает явление, поскольку участники не могут отделить внушение от реальной фармакологии."
+      },
+      {
+        "text": "Conversely, overt disclosure of a treatment's inert nature can diminish or nullify the response, underscoring the power of belief.",
+        "translationRu": "Напротив, открытое признание инертности лечения может ослабить или полностью убрать реакцию, подчёркивая силу убеждения."
+      },
+      {
+        "text": "Cultural symbols attached to medicine, such as white tablets or sterile packaging, act as cues that reinforce the expected healing.",
+        "translationRu": "Культурные символы, связанные с лекарствами, такие как белые таблетки или стерильная упаковка, служат сигналами, усиливающими ожидание исцеления."
+      },
+      {
+        "text": "Thus, the same inert object may elicit divergent outcomes across individuals, depending on personal histories and contextual framing.",
+        "translationRu": "Таким образом, один и тот же инертный объект может вызывать разные результаты у разных людей, в зависимости от их личного опыта и контекста."
+      },
+      {
+        "text": "Researchers caution against exploiting the placebo effect for deception, arguing that informed consent preserves ethical integrity.",
+        "translationRu": "Исследователи предостерегают от использования эффекта плацебо в целях обмана, утверждая, что информированное согласие сохраняет этическую целостность."
+      },
+      {
+        "text": "Nevertheless, clinicians can harness it ethically by emphasizing positive expectations while maintaining transparency about treatment limits.",
+        "translationRu": "Тем не менее, врачи могут этично использовать его, подчеркивая положительные ожидания и оставаясь открытыми относительно ограничений лечения."
+      },
+      {
+        "text": "Such calibrated communication may augment therapeutic efficacy without compromising the patient’s autonomy.",
+        "translationRu": "Такой точный стиль общения может повысить эффективность терапии, не нарушая автономию пациента."
+      },
+      {
+        "text": "In sum, the placebo effect reminds us that mind and body are intertwined, and that belief itself can be a modest yet measurable medicine.",
+        "translationRu": "В итоге эффект плацебо напоминает нам, что ум и тело взаимосвязаны, а сама вера может стать скромным, но измеримым лекарством."
+      }
+    ],
+    "glossary": {
+      "placebo": {
+        "translation": "плацебо",
+        "partOfSpeech": "noun"
+      },
+      "modulate": {
+        "translation": "модулировать, влиять",
+        "partOfSpeech": "verb"
+      },
+      "endogenous": {
+        "translation": "эндогенный",
+        "partOfSpeech": "adjective"
+      },
+      "analgesia": {
+        "translation": "обезболивание",
+        "partOfSpeech": "noun"
+      },
+      "pharmacology": {
+        "translation": "фармакология",
+        "partOfSpeech": "noun"
+      },
+      "inert": {
+        "translation": "инертный",
+        "partOfSpeech": "adjective"
+      },
+      "autonomy": {
+        "translation": "автономия",
+        "partOfSpeech": "noun"
+      },
+      "intertwined": {
+        "translation": "взаимосвязанные",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the text say the placebo effect depends on rather than the chemical composition of the substance?",
+        "options": [
+          "The dosage amount",
+          "The narrative surrounding it",
+          "The color of the packaging",
+          "The patient’s age"
+        ],
+        "answer": 1,
+        "explanation": "The fourth sentence states the effect depends on the narrative surrounding it, not on its chemical composition."
+      },
+      {
+        "id": "q2",
+        "question": "According to the passage, informed consent primarily protects which ethical principle?",
+        "options": [
+          "Patient autonomy",
+          "Financial profit",
+          "Research funding",
+          "Clinical speed"
+        ],
+        "answer": 0,
+        "explanation": "The ninth sentence mentions that informed consent preserves ethical integrity, specifically the patient’s autonomy."
+      },
+      {
+        "id": "q3",
+        "question": "Which element is identified as a cultural cue that can reinforce healing expectations?",
+        "options": [
+          "Doctor's salary",
+          "Hospital location",
+          "Sterile packaging",
+          "Insurance policy"
+        ],
+        "answer": 2,
+        "explanation": "The seventh sentence cites sterile packaging as a cultural symbol that acts as a cue reinforcing expected healing."
+      }
+    ]
+  }
+]

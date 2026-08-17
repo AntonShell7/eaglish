@@ -1,0 +1,115 @@
+[
+  {
+    "id": "old-songs-find-new-fans",
+    "level": "B1-B2",
+    "topic": "culture",
+    "generated": true,
+    "title": "Old Songs Find New Fans",
+    "sentences": [
+      {
+        "text": "Some old songs suddenly appear on streaming playlists again.",
+        "translationRu": "Некоторые старые песни вдруг появляются в потоковых плейлистах снова."
+      },
+      {
+        "text": "This happens because younger listeners often discover them through movies or TV shows.",
+        "translationRu": "Это происходит потому, что молодые слушатели часто находят их через фильмы или телешоу."
+      },
+      {
+        "text": "When a track is used in a popular scene, it instantly becomes a talking point.",
+        "translationRu": "Когда трек используется в популярной сцене, он сразу же становится темой обсуждения."
+      },
+      {
+        "text": "People then start sharing the clip on social media, and the algorithm picks it up.",
+        "translationRu": "Люди начинают делиться клипом в соцсетях, и алгоритм подхватывает его."
+      },
+      {
+        "text": "The repeated plays push the song higher on the charts, even if it was released decades ago.",
+        "translationRu": "Повторные прослушивания поднимают песню в чартах, даже если она вышла десятилетия назад."
+      },
+      {
+        "text": "Artists also benefit, because the renewed interest can lead to new concert tickets selling out.",
+        "translationRu": "Исполнители тоже выигрывают, потому что возросший интерес может привести к распродаже билетов на новые концерты."
+      },
+      {
+        "text": "Moreover, the nostalgic feeling makes older listeners want to reminisce, while newcomers enjoy the fresh vibe.",
+        "translationRu": "Кроме того, ностальгическое чувство заставляет старых слушателей вспоминать прошлое, а новички наслаждаются свежей атмосферой."
+      },
+      {
+        "text": "Record labels sometimes re‑release the track with a modern remix, which adds another reason to stream it.",
+        "translationRu": "Рекорд-лейблы иногда переиздают трек с современным ремиксом, что дает еще одну причину его прослушать."
+      },
+      {
+        "text": "All these factors combine to give a forgotten tune a second life.",
+        "translationRu": "Все эти факторы вместе дают забытой мелодии вторую жизнь."
+      },
+      {
+        "text": "In the end, music proves that a good melody can cross generations without losing its charm.",
+        "translationRu": "В конечном итоге музыка доказывает, что хорошая мелодия может преодолеть поколения, не теряя своего очарования."
+      }
+    ],
+    "glossary": {
+      "algorithm": {
+        "translation": "алгоритм",
+        "partOfSpeech": "noun"
+      },
+      "remix": {
+        "translation": "ремикс",
+        "partOfSpeech": "noun"
+      },
+      "nostalgic": {
+        "translation": "ностальгический",
+        "partOfSpeech": "adjective"
+      },
+      "re‑release": {
+        "translation": "переиздать",
+        "partOfSpeech": "verb"
+      },
+      "chart": {
+        "translation": "чарт",
+        "partOfSpeech": "noun"
+      },
+      "streaming": {
+        "translation": "стриминг",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Why do old songs become popular again according to the text?",
+        "options": [
+          "Because they are cheaper to license",
+          "Because they are used in popular movies or TV shows",
+          "Because older people demand them",
+          "Because streaming services remove newer songs"
+        ],
+        "answer": 1,
+        "explanation": "The text says younger listeners discover old songs through movies or TV shows, which triggers their comeback."
+      },
+      {
+        "id": "q2",
+        "question": "What do record labels sometimes do to help a song's revival?",
+        "options": [
+          "They re‑release the track with a modern remix",
+          "They ban the song from playlists",
+          "They stop promoting it on social media",
+          "They force the artist to retire"
+        ],
+        "answer": 0,
+        "explanation": "The passage states that record labels may re‑release a track with a modern remix, giving another reason to stream it."
+      },
+      {
+        "id": "q3",
+        "question": "According to the text, what does the nostalgic feeling cause?",
+        "options": [
+          "It encourages people to travel",
+          "It leads to buying concert tickets",
+          "It makes listeners want to reminisce",
+          "It causes people to forget the song"
+        ],
+        "answer": 2,
+        "explanation": "The text explains that the nostalgic feeling makes older listeners want to reminisce while newcomers enjoy the fresh vibe."
+      }
+    ]
+  }
+]

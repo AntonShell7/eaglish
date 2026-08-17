@@ -1,0 +1,131 @@
+[
+  {
+    "id": "sleep-and-memory-consolidation",
+    "level": "C1-C2",
+    "topic": "science",
+    "generated": true,
+    "title": "Sleep and Memory Consolidation",
+    "sentences": [
+      {
+        "text": "Sleep is not merely a passive state but an active neurobiological process that reshapes recent experiences.",
+        "translationRu": "Сон — это не просто пассивное состояние, а активный нейробиологический процесс, который переосмысливает недавние переживания."
+      },
+      {
+        "text": "During the early phases of nocturnal rest, hippocampal replay synchronises with cortical slow‑oscillations, allowing fragile traces to be transferred to long‑term stores.",
+        "translationRu": "В ранних фазах ночного отдыха воспроизведение в гиппокампе синхронизируется с корковыми медленными колебаниями, позволяя хрупким следам перемещаться в долговременные хранилища."
+      },
+      {
+        "text": "This transfer is facilitated by the temporary rise in acetylcholine that modulates synaptic plasticity.",
+        "translationRu": "Этому переносу способствует временный подъем уровня ацетилхолина, регулирующего синаптическую пластичность."
+      },
+      {
+        "text": "As slow‑wave sleep deepens, the brain’s metabolic demands diminish, creating a permissive environment for the consolidation of declarative memories.",
+        "translationRu": "По мере углубления медленноволнового сна метаболические потребности мозга снижаются, создавая благоприятную среду для консолидации декларативных воспоминаний."
+      },
+      {
+        "text": "Conversely, rapid eye movement sleep preferentially supports the integration of procedural and emotional content.",
+        "translationRu": "Напротив, сон с быстрым движением глаз преимущественно способствует интеграции процедурного и эмоционального материала."
+      },
+      {
+        "text": "The interplay between these stages suggests that memory consolidation is a staged rather than a unitary phenomenon.",
+        "translationRu": "Взаимодействие этих стадий указывает на то, что консолидация памяти происходит поэтапно, а не как единое явление."
+      },
+      {
+        "text": "Moreover, the coupling of spindles with ripples appears to tag salient information, shielding it from interference.",
+        "translationRu": "Кроме того, соединение веретён с всплесками, похоже, маркирует значимую информацию, защищая её от помех."
+      },
+      {
+        "text": "When this coupling is disrupted, learners often report fragmented recollection despite adequate sleep duration.",
+        "translationRu": "Когда это соединение нарушается, учащиеся часто сообщают о фрагментарных воспоминаниях, несмотря на достаточную продолжительность сна."
+      },
+      {
+        "text": "Experimental manipulations that enhance spindle density have been shown to improve performance on subsequent tests of factual knowledge.",
+        "translationRu": "Экспериментальные вмешательства, повышающие плотность веретён, показывают улучшение результатов на последующих тестах фактических знаний."
+      },
+      {
+        "text": "Nevertheless, the benefits are contingent on the prior relevance of the material, indicating that the brain selectively consolidates what it deems useful.",
+        "translationRu": "Тем не менее, выгода зависит от предварительной значимости материала, что свидетельствует о селективной консолидации полезного мозгом."
+      },
+      {
+        "text": "This selectivity underscores the adaptive function of sleep: to economise neural resources for future problem‑solving.",
+        "translationRu": "Эта селективность подчёркивает адаптивную функцию сна: экономию нейронных ресурсов для будущего решения задач."
+      },
+      {
+        "text": "Ultimately, understanding these mechanisms may inform educational strategies that align study schedules with optimal consolidation windows.",
+        "translationRu": "В конечном итоге понимание этих механизмов может помочь разработать образовательные стратегии, согласующие расписание учёбы с оптимальными окнами консолидации."
+      }
+    ],
+    "glossary": {
+      "neurobiological": {
+        "translation": "нейробиологический",
+        "partOfSpeech": "adjective"
+      },
+      "hippocampal": {
+        "translation": "гиппокампальный",
+        "partOfSpeech": "adjective"
+      },
+      "synaptic": {
+        "translation": "синаптический",
+        "partOfSpeech": "adjective"
+      },
+      "slow‑wave": {
+        "translation": "медленноволновой",
+        "partOfSpeech": "adjective"
+      },
+      "spindle": {
+        "translation": "веретено (спиндель)",
+        "partOfSpeech": "noun"
+      },
+      "consolidation": {
+        "translation": "консолидация",
+        "partOfSpeech": "noun"
+      },
+      "interference": {
+        "translation": "помеха",
+        "partOfSpeech": "noun"
+      },
+      "selectivity": {
+        "translation": "селективность",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Which sleep stage is described as preferentially supporting the integration of procedural and emotional content?",
+        "options": [
+          "slow‑wave sleep",
+          "NREM stage 2",
+          "rapid eye movement sleep",
+          "deep REM"
+        ],
+        "answer": 2,
+        "explanation": "The text states that rapid eye movement sleep preferentially supports that integration."
+      },
+      {
+        "id": "q2",
+        "question": "What physiological coupling is said to tag salient information during consolidation?",
+        "options": [
+          "hippocampal replay with slow‑oscillations",
+          "spindles with ripples",
+          "acetylcholine surge with synaptic plasticity",
+          "cortical theta with gamma"
+        ],
+        "answer": 0,
+        "explanation": "The passage mentions that the coupling of spindles with ripples appears to tag salient information."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the brain consolidate information selectively, according to the article?",
+        "options": [
+          "to preserve energy for immune function",
+          "to economise neural resources for future problem‑solving",
+          "to align with circadian rhythms",
+          "to prevent dream interference"
+        ],
+        "answer": 3,
+        "explanation": "The text explains that selectivity underscores the adaptive function of sleep: to economise neural resources for future problem‑solving."
+      }
+    ]
+  }
+]

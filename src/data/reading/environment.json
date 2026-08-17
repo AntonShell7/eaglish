@@ -1,0 +1,115 @@
+[
+  {
+    "id": "reusable-packaging-experiment",
+    "level": "B1-B2",
+    "topic": "environment",
+    "generated": true,
+    "title": "Reusable Packaging Experiment",
+    "sentences": [
+      {
+        "text": "A small café by the sea switched from plastic to reusable containers.",
+        "translationRu": "Небольшое кафе у моря заменило пластиковую упаковку на многоразовую."
+      },
+      {
+        "text": "At first the staff felt uneasy, but the new boxes proved sturdier.",
+        "translationRu": "Сначала персонал чувствовал себя неуверенно, но новые коробки оказались более прочными."
+      },
+      {
+        "text": "Customers got a small discount when they returned the containers for washing.",
+        "translationRu": "Клиентам предоставлялась небольшая скидка за возврат контейнеров на мойку."
+      },
+      {
+        "text": "The washing station runs on solar power, so extra energy costs stay low.",
+        "translationRu": "Станция мойки работает на солнечной энергии, поэтому дополнительные расходы на энергию остаются низкими."
+      },
+      {
+        "text": "During the first month the team noted how often the containers were returned.",
+        "translationRu": "В течение первого месяца команда отмечала, как часто возвращаются контейнеры."
+      },
+      {
+        "text": "Most people remembered, yet a few forgot and left theirs behind.",
+        "translationRu": "Большинство людей помнили об этом, однако некоторые забывали и оставляли свои контейнеры."
+      },
+      {
+        "text": "To avoid loss, the café added a reminder sign and sent friendly texts.",
+        "translationRu": "Чтобы избежать потерь, в кафе поставили напоминание и отправляли дружелюбные сообщения."
+      },
+      {
+        "text": "Neighbouring shops watched the trial and began planning similar schemes.",
+        "translationRu": "Соседние магазины наблюдали за экспериментом и начали планировать похожие схемы."
+      },
+      {
+        "text": "Although the start‑up cost was high, savings appeared after just a few weeks.",
+        "translationRu": "Хотя первоначальные затраты были высокими, экономия появилась уже через несколько недель."
+      },
+      {
+        "text": "The trial showed that simple changes can cut waste without hurting profit.",
+        "translationRu": "Пилотный проект показал, что простые изменения могут сократить отходы, не нанося вреда прибыли."
+      }
+    ],
+    "glossary": {
+      "solar": {
+        "translation": "солнечный",
+        "partOfSpeech": "adjective"
+      },
+      "discount": {
+        "translation": "скидка",
+        "partOfSpeech": "noun"
+      },
+      "reminder": {
+        "translation": "напоминание",
+        "partOfSpeech": "noun"
+      },
+      "profit": {
+        "translation": "прибыль",
+        "partOfSpeech": "noun"
+      },
+      "neighbour": {
+        "translation": "соседний",
+        "partOfSpeech": "adjective"
+      },
+      "trial": {
+        "translation": "испытание",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What incentive did the café offer to customers who returned containers?",
+        "options": [
+          "Free coffee",
+          "A small discount",
+          "Extra loyalty points",
+          "A free dessert"
+        ],
+        "answer": 1,
+        "explanation": "The text says customers got a small discount when they returned the containers."
+      },
+      {
+        "id": "q2",
+        "question": "How was the washing station powered?",
+        "options": [
+          "A diesel generator",
+          "A hand‑pump system",
+          "Solar power",
+          "A battery pack"
+        ],
+        "answer": 2,
+        "explanation": "Sentence four states the washing station runs on solar power."
+      },
+      {
+        "id": "q3",
+        "question": "What result did the café observe after the first few weeks?",
+        "options": [
+          "A rise in staff turnover",
+          "More plastic waste",
+          "Customers stopped visiting",
+          "Savings on packaging costs"
+        ],
+        "answer": 3,
+        "explanation": "The ninth sentence mentions that savings appeared after just a few weeks."
+      }
+    ]
+  }
+]
