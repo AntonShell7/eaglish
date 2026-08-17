@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { translateToEnglish, type Unavailable } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
@@ -20,27 +20,39 @@ interface Result {
  * and the word they needed goes straight into the review queue, which is where
  * words learned under real pressure tend to stick.
  */
+/** Wait for a pause in typing before spending a request. */
+const DEBOUNCE_MS = 600;
+
 export function WriterTranslator({ source }: { source: string }) {
   const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
   const [saved, setSaved] = useState(false);
+  /** Guards against a slow earlier request overwriting a newer answer. */
+  const latest = useRef(0);
 
-  const submit = async (e: FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
     const phrase = query.trim();
-    if (!phrase) return;
+    if (!phrase) {
+      setResult(null);
+      setLoading(false);
+      return;
+    }
 
     setLoading(true);
-    setResult(null);
-    setSaved(false);
+    const ticket = ++latest.current;
 
-    const res = await translateToEnglish(phrase);
-    setResult(res);
-    if (res.english && isWordSaved(res.english)) setSaved(true);
-    setLoading(false);
-  };
+    const timer = setTimeout(async () => {
+      const res = await translateToEnglish(phrase);
+      if (ticket !== latest.current) return; // a newer query already went out
+      setResult(res);
+      setSaved(Boolean(res.english && isWordSaved(res.english)));
+      setLoading(false);
+    }, DEBOUNCE_MS);
+
+    return () => clearTimeout(timer);
+  }, [query]);
 
   const save = () => {
     if (!result?.english) return;
@@ -56,28 +68,20 @@ export function WriterTranslator({ source }: { source: string }) {
       className="rounded-[var(--radius-lg)] border p-5"
       style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
     >
-      <p className="page-title text-base">{t("writing.translatorTitle")}</p>
-      <p className="mt-1 text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-        {t("writing.translatorHint")}
-      </p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="page-title text-base">{t("writing.translatorTitle")}</p>
+        {loading && (
+          <span className="h-2 w-2 animate-pulse rounded-full" style={{ background: "var(--color-primary)" }} />
+        )}
+      </div>
 
-      <form onSubmit={submit} className="mt-3 flex gap-2">
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t("writing.translatorPlaceholder")}
-          className="min-w-0 flex-1 rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
-        />
-        <button
-          type="submit"
-          disabled={loading || !query.trim()}
-          className="rounded-full px-4 py-2 text-sm font-semibold on-primary disabled:opacity-40"
-          style={{ background: "var(--color-primary)" }}
-        >
-          {loading ? "…" : t("writing.translatorGo")}
-        </button>
-      </form>
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={t("writing.translatorPlaceholder")}
+        className="mt-3 w-full rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+        style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+      />
 
       {result && (
         <div className="mt-4">

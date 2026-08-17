@@ -116,10 +116,8 @@
     "tooShort": "Write at least 30 words before submitting.",
     "yourText": "Your text",
     "tips": "What to improve",
-    "translatorTitle": "Need a word?",
-    "translatorHint": "Type it in Russian — you'll get the English, how it's used, and an example. It goes into your vocabulary too.",
-    "translatorPlaceholder": "например: договориться",
-    "translatorGo": "Translate"
+    "translatorTitle": "Translator",
+    "translatorPlaceholder": "Russian word or phrase"
   },
   "vocabulary": {
     "clickToReveal": "Click to reveal",

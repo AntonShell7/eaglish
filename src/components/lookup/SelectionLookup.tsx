@@ -24,6 +24,18 @@ export function SelectionLookup() {
       // A popup is open — leave its own selection alone.
       if (request) return;
 
+      // Inside a field, selecting means "delete this" or "copy this" — offering
+      // a translation there would fight the user's actual intent.
+      const focused = document.activeElement;
+      if (
+        focused instanceof HTMLInputElement ||
+        focused instanceof HTMLTextAreaElement ||
+        (focused instanceof HTMLElement && focused.isContentEditable)
+      ) {
+        setOffer(null);
+        return;
+      }
+
       const sel = window.getSelection();
       const raw = sel?.toString().trim() ?? "";
 

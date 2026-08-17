@@ -36,10 +36,19 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
 
               const known = savedWords.has(normalise(token));
               return (
-                <button
+                // A span, not a button: browsers treat buttons as controls
+                // rather than text, so drag-selecting across them produces no
+                // selection at all — you couldn't copy a sentence out of the
+                // text. Keyboard users reach the same lookup by selecting with
+                // Shift+Arrow, which raises the (focusable) lookup button.
+                <span
                   key={j}
-                  type="button"
-                  onClick={(e) =>
+                  onClick={(e) => {
+                    // A drag-select ends with mouseup on a word, which would
+                    // fire this click and hijack the copy. If text is selected,
+                    // the learner was selecting — leave it to SelectionLookup.
+                    if (window.getSelection()?.toString().trim()) return;
+
                     setRequest({
                       word: token,
                       sentence: s.text,
@@ -47,9 +56,9 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
                       glossary: text.glossary,
                       source: text.title,
                       anchor: { x: e.clientX, y: e.clientY },
-                    })
-                  }
-                  className="rounded px-0.5 transition-colors duration-150 hover:bg-[var(--color-primary-soft)]"
+                    });
+                  }}
+                  className="cursor-pointer rounded px-0.5 transition-colors duration-150 hover:bg-[var(--color-primary-soft)]"
                   style={
                     known
                       ? {
@@ -64,7 +73,7 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
                   }
                 >
                   {token}
-                </button>
+                </span>
               );
             })}{" "}
           </span>
