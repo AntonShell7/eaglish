@@ -2101,5 +2101,239 @@
         "explanation": "The passage notes that locals frequently reward attempts at the local tongue with insider tips."
       }
     ]
+  },
+  {
+    "id": "quiet-early-airport",
+    "level": "A1-A2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Quiet Early Airport",
+    "sentences": [
+      {
+        "text": "I arrive at the airport at four a.m.",
+        "translationRu": "Я прибываю в аэропорт в четыре утра."
+      },
+      {
+        "text": "The hall is empty and quiet.",
+        "translationRu": "Зал пустой и тихий."
+      },
+      {
+        "text": "Only a few staff members are working.",
+        "translationRu": "Только несколько сотрудников работают."
+      },
+      {
+        "text": "I sit on a cold chair near the gate.",
+        "translationRu": "Я сижу на холодном стуле у выхода на посадку."
+      },
+      {
+        "text": "The announcement says the flight will leave soon.",
+        "translationRu": "Объявление говорит, что рейс скоро вылетит."
+      },
+      {
+        "text": "I drink a coffee and read a magazine.",
+        "translationRu": "Я пью кофе и читаю журнал."
+      },
+      {
+        "text": "A small child sleeps on a blanket.",
+        "translationRu": "Небольшой ребёнок спит на одеяле."
+      },
+      {
+        "text": "The lights dim and the night feels calm.",
+        "translationRu": "Свет тускнеет, и ночь кажется спокойной."
+      }
+    ],
+    "glossary": {
+      "arrive": {
+        "translation": "прибывать",
+        "partOfSpeech": "verb"
+      },
+      "empty": {
+        "translation": "пустой",
+        "partOfSpeech": "adjective"
+      },
+      "staff": {
+        "translation": "персонал",
+        "partOfSpeech": "noun"
+      },
+      "announcement": {
+        "translation": "объявление",
+        "partOfSpeech": "noun"
+      },
+      "magazine": {
+        "translation": "журнал",
+        "partOfSpeech": "noun"
+      },
+      "blanket": {
+        "translation": "одеяло",
+        "partOfSpeech": "noun"
+      },
+      "calm": {
+        "translation": "спокойный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What time does the narrator arrive at the airport?",
+        "options": [
+          "four a.m.",
+          "six a.m.",
+          "eight a.m.",
+          "ten a.m."
+        ],
+        "answer": 0,
+        "explanation": "The first sentence says the narrator arrives at four a.m."
+      },
+      {
+        "id": "q2",
+        "question": "Who is sleeping on a blanket?",
+        "options": [
+          "a small child",
+          "an old man",
+          "a security guard",
+          "a pilot"
+        ],
+        "answer": 0,
+        "explanation": "The seventh sentence mentions a small child sleeping on a blanket."
+      },
+      {
+        "id": "q3",
+        "question": "What does the narrator drink?",
+        "options": [
+          "tea",
+          "coffee",
+          "water",
+          "juice"
+        ],
+        "answer": 1,
+        "explanation": "The sixth sentence says the narrator drinks a coffee."
+      }
+    ]
+  },
+  {
+    "id": "quiet-hours-at-the-terminal",
+    "level": "C1-C2",
+    "topic": "travel",
+    "generated": true,
+    "title": "Quiet Hours at the Terminal",
+    "sentences": [
+      {
+        "text": "At four in the morning the terminal exudes a hushed stillness that belies its usual bustle.",
+        "translationRu": "В четыре утра терминал излучает приглушённую тишину, скрывающую его обычную суету."
+      },
+      {
+        "text": "Few passengers linger; most are already settled in their seats, eyes half‑closed, awaiting the inevitable boarding call.",
+        "translationRu": "Мало кто задерживается; большинство уже расположилось в своих креслах, полузакрыв глаза, в ожидании неизбежного объявления посадки."
+      },
+      {
+        "text": "The ambient lighting, low and amber, casts elongated shadows that drift across polished floors.",
+        "translationRu": "Фоновое освещение, низкое и янтарное, отбрасывает удлинённые тени, скользящие по отполированным полам."
+      },
+      {
+        "text": "Announced over the PA system, the monotone voice seems almost apologetic for disturbing the calm.",
+        "translationRu": "Объявленное через громкоговоритель, монотонный голос кажется почти извиняющимся за нарушение спокойствия."
+      },
+      {
+        "text": "Security personnel move with measured steps, their presence a reminder of the invisible protocols governing travel.",
+        "translationRu": "Сотрудники безопасности двигаются измеренными шагами, их присутствие напоминает о невидимых протоколах, регулирующих путешествия."
+      },
+      {
+        "text": "A lone coffee cart rolls by, its steam mingling with the cool air, offering a fleeting comfort to the drowsy.",
+        "translationRu": "Одинокий кофе‑транспорт проходит мимо, его пар смешивается с прохладным воздухом, предлагая мимолётное утешение сонным."
+      },
+      {
+        "text": "Conversations, when they occur, are whispered, each word weighed against the surrounding silence.",
+        "translationRu": "Разговоры, когда они происходят, шепчут, каждое слово взвешивается на фоне окружающей тишины."
+      },
+      {
+        "text": "In this interlude, the architecture of the space becomes perceptible: vaulted ceilings, glass façades, and the faint hum of ventilation.",
+        "translationRu": "В этом перерыве архитектура пространства становится ощутимой: сводчатые потолки, стеклянные фасады и слабый гул вентиляции."
+      },
+      {
+        "text": "Travelers, stripped of their itineraries for a moment, confront the abstract notion of transition, suspended between departure and arrival.",
+        "translationRu": "Путешественники, на мгновение лишённые своих маршрутов, сталкиваются с абстрактным понятием перехода, застывшего между отъездом и прибытием."
+      },
+      {
+        "text": "Such moments subtly recalibrate expectations, urging a quieter readiness for the forthcoming journey.",
+        "translationRu": "Такие моменты тонко перенастраивают ожидания, побуждая к более спокойной готовности к предстоящему путешествию."
+      },
+      {
+        "text": "When the first boarding announcement finally pierces the hush, a collective sigh of anticipation ripples through the crowd.",
+        "translationRu": "Когда первое объявление о посадке наконец прорывает тишину, коллективный вздох предвкушения разносится по толпе."
+      },
+      {
+        "text": "The terminal, now reanimated, resumes its rhythm, yet the memory of those quiet hours lingers, shaping the traveler’s perception of motion.",
+        "translationRu": "Терминал, теперь оживший, возобновляет свой ритм, однако память о тех тихих часах остаётся, формируя восприятие движения путешественником."
+      }
+    ],
+    "glossary": {
+      "hushed": {
+        "translation": "приглушённый",
+        "partOfSpeech": "adjective"
+      },
+      "ambient": {
+        "translation": "фоновой",
+        "partOfSpeech": "adjective"
+      },
+      "protocol": {
+        "translation": "протокол",
+        "partOfSpeech": "noun"
+      },
+      "interlude": {
+        "translation": "перерыв",
+        "partOfSpeech": "noun"
+      },
+      "recalibrate": {
+        "translation": "перенастроить",
+        "partOfSpeech": "verb"
+      },
+      "suspended": {
+        "translation": "застывший",
+        "partOfSpeech": "adjective"
+      },
+      "perception": {
+        "translation": "восприятие",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What time of day is described in the text?",
+        "options": [
+          "Midnight",
+          "Four in the morning",
+          "Dawn",
+          "Late evening"
+        ],
+        "answer": 1,
+        "explanation": "The opening sentence states that it is four in the morning."
+      },
+      {
+        "id": "q2",
+        "question": "According to the passage, what effect does the first boarding announcement have?",
+        "options": [
+          "It silences the crowd",
+          "It causes panic",
+          "It triggers a collective sigh of anticipation",
+          "It leads to confusion"
+        ],
+        "answer": 2,
+        "explanation": "The text says a collective sigh of anticipation ripples through the crowd when the announcement sounds."
+      },
+      {
+        "id": "q3",
+        "question": "Which word best describes the lighting in the terminal during this period?",
+        "options": [
+          "Harsh",
+          "Bright",
+          "Low and amber",
+          "Flickering"
+        ],
+        "answer": 2,
+        "explanation": "The fifth sentence describes the ambient lighting as \"low and amber\"."
+      }
+    ]
   }
 ]

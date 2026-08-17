@@ -127,5 +127,1527 @@
         "explanation": "The text explains that selectivity underscores the adaptive function of sleep: to economise neural resources for future problem‑solving."
       }
     ]
+  },
+  {
+    "id": "memory-and-sleep",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "Memory and Sleep",
+    "sentences": [
+      {
+        "text": "When we sleep, the brain works quietly.",
+        "translationRu": "Когда мы спим, мозг работает тихо."
+      },
+      {
+        "text": "It takes short memories and makes them longer.",
+        "translationRu": "Он берет короткие воспоминания и делает их длиннее."
+      },
+      {
+        "text": "During deep sleep, the brain repeats the day's events.",
+        "translationRu": "Во время глубокого сна мозг повторяет события дня."
+      },
+      {
+        "text": "These repeats help to store the memories.",
+        "translationRu": "Эти повторения помогают сохранить воспоминания."
+      },
+      {
+        "text": "When we wake up, we can recall more details.",
+        "translationRu": "Когда мы просыпаемся, мы можем вспомнить больше деталей."
+      },
+      {
+        "text": "If sleep is short, the brain has less time to repeat.",
+        "translationRu": "Если сон короткий, у мозга меньше времени на повторения."
+      },
+      {
+        "text": "Then recall is weaker.",
+        "translationRu": "Тогда воспоминание слабее."
+      }
+    ],
+    "glossary": {
+      "brain": {
+        "translation": "мозг",
+        "partOfSpeech": "noun"
+      },
+      "repeat": {
+        "translation": "повторять",
+        "partOfSpeech": "verb"
+      },
+      "store": {
+        "translation": "хранить",
+        "partOfSpeech": "verb"
+      },
+      "recall": {
+        "translation": "вспоминать",
+        "partOfSpeech": "verb"
+      },
+      "weak": {
+        "translation": "слабый",
+        "partOfSpeech": "adjective"
+      },
+      "detail": {
+        "translation": "деталь",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the brain do during deep sleep?",
+        "options": [
+          "It stops working",
+          "It repeats the day's events",
+          "It forgets everything",
+          "It makes us hungry"
+        ],
+        "answer": 1,
+        "explanation": "The text says the brain repeats the day's events during deep sleep."
+      },
+      {
+        "id": "q2",
+        "question": "What happens if sleep is short?",
+        "options": [
+          "Memory becomes stronger",
+          "The brain has less time to repeat",
+          "We remember more",
+          "We feel colder"
+        ],
+        "answer": 1,
+        "explanation": "The text states short sleep gives the brain less time to repeat, weakening recall."
+      },
+      {
+        "id": "q3",
+        "question": "When we wake up, we can recall more details because:",
+        "options": [
+          "The brain works quietly",
+          "The brain repeats events",
+          "The brain stores memories",
+          "The brain is tired"
+        ],
+        "answer": 2,
+        "explanation": "The text explains that after sleep the brain has stored the memories, allowing more detail recall."
+      }
+    ]
+  },
+  {
+    "id": "why-replication-matters",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "Why Replication Matters",
+    "sentences": [
+      {
+        "text": "Scientists do experiments to find new ideas.",
+        "translationRu": "Учёные проводят эксперименты, чтобы находить новые идеи."
+      },
+      {
+        "text": "They write down how they work.",
+        "translationRu": "Они записывают, как они работают."
+      },
+      {
+        "text": "Another group can try the same steps.",
+        "translationRu": "Другая группа может попробовать те же шаги."
+      },
+      {
+        "text": "If they get the same result, the idea is strong.",
+        "translationRu": "Если они получают тот же результат, идея сильна."
+      },
+      {
+        "text": "If the result is different, they check the method.",
+        "translationRu": "Если результат отличается, они проверяют метод."
+      },
+      {
+        "text": "This checking keeps wrong ideas away.",
+        "translationRu": "Эта проверка убирает ошибочные идеи."
+      },
+      {
+        "text": "Good science needs many repeats.",
+        "translationRu": "Хорошая наука нуждается во многих повторениях."
+      }
+    ],
+    "glossary": {
+      "experiment": {
+        "translation": "эксперимент",
+        "partOfSpeech": "noun"
+      },
+      "result": {
+        "translation": "результат",
+        "partOfSpeech": "noun"
+      },
+      "method": {
+        "translation": "метод",
+        "partOfSpeech": "noun"
+      },
+      "repeat": {
+        "translation": "повторять",
+        "partOfSpeech": "verb"
+      },
+      "strong": {
+        "translation": "сильный",
+        "partOfSpeech": "adjective"
+      },
+      "check": {
+        "translation": "проверять",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What do scientists write down?",
+        "options": [
+          "Their favorite colors",
+          "How they work",
+          "The weather",
+          "Their meals"
+        ],
+        "answer": 1,
+        "explanation": "The text says scientists write down how they work."
+      },
+      {
+        "id": "q2",
+        "question": "Why is a different result important?",
+        "options": [
+          "It shows the idea is strong",
+          "It makes the experiment faster",
+          "It leads to checking the method",
+          "It means the experiment is finished"
+        ],
+        "answer": 2,
+        "explanation": "The text states a different result makes them check the method."
+      },
+      {
+        "id": "q3",
+        "question": "What keeps wrong ideas away?",
+        "options": [
+          "Many repeats",
+          "Large labs",
+          "Bright lights",
+          "Fast computers"
+        ],
+        "answer": 0,
+        "explanation": "The text says checking and many repeats keep wrong ideas away."
+      }
+    ]
+  },
+  {
+    "id": "accidental-discovery-of-penicillin",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "Accidental Discovery of Penicillin",
+    "sentences": [
+      {
+        "text": "A researcher left a dish open on a bench.",
+        "translationRu": "Исследователь оставил блюдо открытым на столе."
+      },
+      {
+        "text": "A mold grew on the dish.",
+        "translationRu": "На блюдо вырос плесень."
+      },
+      {
+        "text": "The researcher saw that bacteria near the mold died.",
+        "translationRu": "Исследователь заметил, что бактерии рядом с плесенью умерли."
+      },
+      {
+        "text": "He cleaned the dish and kept the mold.",
+        "translationRu": "Он очистил блюдо и сохранил плесень."
+      },
+      {
+        "text": "Later he used the mold to make a new medicine.",
+        "translationRu": "Позже он использовал плесень, чтобы сделать новое лекарство."
+      },
+      {
+        "text": "The medicine stopped infections in many patients.",
+        "translationRu": "Это лекарство остановило инфекции у многих пациентов."
+      },
+      {
+        "text": "Now the medicine saves lives every day.",
+        "translationRu": "Сейчас это лекарство спасает жизни каждый день."
+      }
+    ],
+    "glossary": {
+      "mold": {
+        "translation": "плесень",
+        "partOfSpeech": "noun"
+      },
+      "bacteria": {
+        "translation": "бактерии",
+        "partOfSpeech": "noun"
+      },
+      "medicine": {
+        "translation": "лекарство",
+        "partOfSpeech": "noun"
+      },
+      "infection": {
+        "translation": "инфекция",
+        "partOfSpeech": "noun"
+      },
+      "patient": {
+        "translation": "пациент",
+        "partOfSpeech": "noun"
+      },
+      "save": {
+        "translation": "спасать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What grew on the open dish?",
+        "options": [
+          "A flower",
+          "A mold",
+          "A fish",
+          "A book"
+        ],
+        "answer": 1,
+        "explanation": "The text says a mold grew on the dish."
+      },
+      {
+        "id": "q2",
+        "question": "What happened to the bacteria near the mold?",
+        "options": [
+          "They grew faster",
+          "They changed color",
+          "They died",
+          "They moved away"
+        ],
+        "answer": 2,
+        "explanation": "The text states the bacteria near the mold died."
+      },
+      {
+        "id": "q3",
+        "question": "What does the new medicine do?",
+        "options": [
+          "It makes people sleepy",
+          "It stops infections",
+          "It changes hair color",
+          "It cooks food"
+        ],
+        "answer": 1,
+        "explanation": "The text says the medicine stopped infections in many patients."
+      }
+    ]
+  },
+  {
+    "id": "how-vaccines-train-the-immune-system",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "How Vaccines Train the Immune System",
+    "sentences": [
+      {
+        "text": "A vaccine is given to a healthy person.",
+        "translationRu": "Вакцина вводится здоровому человеку."
+      },
+      {
+        "text": "It contains a small part of a germ.",
+        "translationRu": "Она содержит небольшую часть микроба."
+      },
+      {
+        "text": "The body sees the part as dangerous.",
+        "translationRu": "Тело воспринимает эту часть как опасную."
+      },
+      {
+        "text": "The immune system makes special cells.",
+        "translationRu": "Иммунная система создаёт специальные клетки."
+      },
+      {
+        "text": "These cells remember the germ shape.",
+        "translationRu": "Эти клетки запоминают форму микроба."
+      },
+      {
+        "text": "If the real germ appears later, the cells act fast.",
+        "translationRu": "Если настоящий микроб появится позже, клетки быстро действуют."
+      },
+      {
+        "text": "The person does not get sick.",
+        "translationRu": "Человек не заболевает."
+      },
+      {
+        "text": "Vaccines keep many people safe.",
+        "translationRu": "Вакцины защищают многих людей."
+      }
+    ],
+    "glossary": {
+      "vaccine": {
+        "translation": "вакцина",
+        "partOfSpeech": "noun"
+      },
+      "immune": {
+        "translation": "иммунный",
+        "partOfSpeech": "adjective"
+      },
+      "germ": {
+        "translation": "микроб",
+        "partOfSpeech": "noun"
+      },
+      "remember": {
+        "translation": "запоминать",
+        "partOfSpeech": "verb"
+      },
+      "appear": {
+        "translation": "появляться",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does a vaccine contain?",
+        "options": [
+          "A whole germ",
+          "A small part of a germ",
+          "Only water",
+          "No germs at all"
+        ],
+        "answer": 1,
+        "explanation": "The text says the vaccine contains a small part of a germ."
+      },
+      {
+        "id": "q2",
+        "question": "What happens when the real germ appears later?",
+        "options": [
+          "The body ignores it",
+          "The cells act fast",
+          "The person gets very sick",
+          "The vaccine disappears"
+        ],
+        "answer": 1,
+        "explanation": "The text states that the cells act fast if the real germ appears later."
+      },
+      {
+        "id": "q3",
+        "question": "What is the main purpose of a vaccine?",
+        "options": [
+          "To make people sick",
+          "To keep people safe",
+          "To change blood type",
+          "To grow new cells"
+        ],
+        "answer": 1,
+        "explanation": "The last sentence says vaccines keep many people safe."
+      }
+    ]
+  },
+  {
+    "id": "measuring-time-with-atomic-clocks",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "Measuring Time with Atomic Clocks",
+    "sentences": [
+      {
+        "text": "Scientists build an atomic clock in a lab.",
+        "translationRu": "Учёные собирают атомные часы в лаборатории."
+      },
+      {
+        "text": "The clock uses atoms that vibrate.",
+        "translationRu": "Часы используют атомы, которые вибрируют."
+      },
+      {
+        "text": "A specific atom vibrates at a steady rate.",
+        "translationRu": "Определённый атом вибрирует с постоянной скоростью."
+      },
+      {
+        "text": "The clock counts each vibration as a tick.",
+        "translationRu": "Часы считают каждую вибрацию как тик."
+      },
+      {
+        "text": "Many ticks make one second.",
+        "translationRu": "Много тиктов образуют одну секунду."
+      },
+      {
+        "text": "The clock keeps time better than any watch.",
+        "translationRu": "Эти часы держат время точнее любых часов."
+      },
+      {
+        "text": "People use this time for satellites.",
+        "translationRu": "Люди используют это время для спутников."
+      },
+      {
+        "text": "It helps us know the exact moment of events.",
+        "translationRu": "Это помогает точно знать момент событий."
+      }
+    ],
+    "glossary": {
+      "atomic": {
+        "translation": "атомный",
+        "partOfSpeech": "adjective"
+      },
+      "vibrate": {
+        "translation": "вибрировать",
+        "partOfSpeech": "verb"
+      },
+      "steady": {
+        "translation": "постоянный",
+        "partOfSpeech": "adjective"
+      },
+      "satellite": {
+        "translation": "спутник",
+        "partOfSpeech": "noun"
+      },
+      "exact": {
+        "translation": "точный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the clock count as a tick?",
+        "options": [
+          "Each second",
+          "Each vibration",
+          "Each hour",
+          "Each minute"
+        ],
+        "answer": 1,
+        "explanation": "The text says the clock counts each vibration as a tick."
+      },
+      {
+        "id": "q2",
+        "question": "Why are atomic clocks used for satellites?",
+        "options": [
+          "Because they are cheap",
+          "Because they are heavy",
+          "Because they keep time better",
+          "Because they glow"
+        ],
+        "answer": 2,
+        "explanation": "The text states the clock keeps time better than any watch, so it is used for satellites."
+      },
+      {
+        "id": "q3",
+        "question": "Where are atomic clocks built?",
+        "options": [
+          "In a kitchen",
+          "In a lab",
+          "In a garden",
+          "In a factory"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says scientists build an atomic clock in a lab."
+      }
+    ]
+  },
+  {
+    "id": "why-the-deep-ocean-is-harder-to-reach-than-space",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "Why the Deep Ocean Is Harder to Reach Than Space",
+    "sentences": [
+      {
+        "text": "The deep ocean lies far below the surface.",
+        "translationRu": "Глубокий океан находится далеко под поверхностью."
+      },
+      {
+        "text": "Water is very heavy.",
+        "translationRu": "Вода очень тяжёлая."
+      },
+      {
+        "text": "A ship must push through a lot of water.",
+        "translationRu": "Кораблю нужно проталкиваться сквозь много воды."
+      },
+      {
+        "text": "Pressure grows deeper down.",
+        "translationRu": "Давление растёт с глубиной."
+      },
+      {
+        "text": "At great depth the pressure can crush metal.",
+        "translationRu": "На большой глубине давление может раздавить металл."
+      },
+      {
+        "text": "Space has no air, so a rocket does not push against anything.",
+        "translationRu": "В космосе нет воздуха, поэтому ракета не толкает ничего."
+      },
+      {
+        "text": "A rocket only needs to fight gravity.",
+        "translationRu": "Ракете нужно лишь бороться с гравитацией."
+      },
+      {
+        "text": "Both places need strong machines, but water makes the ocean harder.",
+        "translationRu": "Оба места требуют сильных машин, но вода делает океан сложнее."
+      }
+    ],
+    "glossary": {
+      "pressure": {
+        "translation": "давление",
+        "partOfSpeech": "noun"
+      },
+      "crush": {
+        "translation": "раздавить",
+        "partOfSpeech": "verb"
+      },
+      "gravity": {
+        "translation": "гравитация",
+        "partOfSpeech": "noun"
+      },
+      "machine": {
+        "translation": "машина",
+        "partOfSpeech": "noun"
+      },
+      "heavy": {
+        "translation": "тяжёлый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What increases as you go deeper in the ocean?",
+        "options": [
+          "Light",
+          "Pressure",
+          "Temperature",
+          "Speed"
+        ],
+        "answer": 1,
+        "explanation": "The text says pressure grows deeper down."
+      },
+      {
+        "id": "q2",
+        "question": "What does a rocket mainly fight in space?",
+        "options": [
+          "Water",
+          "Air",
+          "Gravity",
+          "Wind"
+        ],
+        "answer": 2,
+        "explanation": "The text states a rocket only needs to fight gravity."
+      },
+      {
+        "id": "q3",
+        "question": "Why is the ocean harder to reach than space?",
+        "options": [
+          "Because water is heavy",
+          "Because there is no water",
+          "Because space is far",
+          "Because rockets are slow"
+        ],
+        "answer": 0,
+        "explanation": "The last sentence says water makes the ocean harder."
+      }
+    ]
+  },
+  {
+    "id": "how-bees-find-their-way",
+    "level": "A1-A2",
+    "topic": "science",
+    "generated": true,
+    "title": "How Bees Find Their Way",
+    "sentences": [
+      {
+        "text": "Bees fly from flower to flower.",
+        "translationRu": "Пчёлы летают от цветка к цветку."
+      },
+      {
+        "text": "They remember the sun position.",
+        "translationRu": "Они запоминают положение солнца."
+      },
+      {
+        "text": "The sun moves slowly in the sky.",
+        "translationRu": "Солнце медленно движется по небу."
+      },
+      {
+        "text": "A bee uses this change to know direction.",
+        "translationRu": "Пчела использует это изменение, чтобы знать направление."
+      },
+      {
+        "text": "It also feels wind with its antennae.",
+        "translationRu": "Она также ощущает ветер своими усиками."
+      },
+      {
+        "text": "The wind tells the bee which way is home.",
+        "translationRu": "Ветер подсказывает пчеле, где находится дом."
+      },
+      {
+        "text": "When the bee returns, it dances to show the path.",
+        "translationRu": "Когда пчела возвращается, она танцует, показывая путь."
+      },
+      {
+        "text": "Other bees watch and learn the route.",
+        "translationRu": "Другие пчёлы наблюдают и запоминают маршрут."
+      },
+      {
+        "text": "Thus the hive stays full of pollen.",
+        "translationRu": "Таким образом улей остаётся полным пыльцы."
+      }
+    ],
+    "glossary": {
+      "remember": {
+        "translation": "запоминать",
+        "partOfSpeech": "verb"
+      },
+      "direction": {
+        "translation": "направление",
+        "partOfSpeech": "noun"
+      },
+      "antenna": {
+        "translation": "усик",
+        "partOfSpeech": "noun"
+      },
+      "dance": {
+        "translation": "танцевать",
+        "partOfSpeech": "verb"
+      },
+      "route": {
+        "translation": "маршрут",
+        "partOfSpeech": "noun"
+      },
+      "pollen": {
+        "translation": "пыльца",
+        "partOfSpeech": "noun"
+      },
+      "wind": {
+        "translation": "ветер",
+        "partOfSpeech": "noun"
+      },
+      "sky": {
+        "translation": "небо",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What helps a bee know which way to go?",
+        "options": [
+          "the color of flowers",
+          "the sun position",
+          "the sound of other bees",
+          "the temperature"
+        ],
+        "answer": 1,
+        "explanation": "The text says the bee remembers the sun position to know direction."
+      },
+      {
+        "id": "q2",
+        "question": "How do other bees learn the way to a flower?",
+        "options": [
+          "by smelling the air",
+          "by watching the dance",
+          "by listening to buzzes",
+          "by feeling the wind"
+        ],
+        "answer": 0,
+        "explanation": "The text states that other bees watch the dance to learn the route."
+      },
+      {
+        "id": "q3",
+        "question": "What part of the bee senses the wind?",
+        "options": [
+          "wings",
+          "eyes",
+          "antennae",
+          "legs"
+        ],
+        "answer": 2,
+        "explanation": "The text mentions the bee feels wind with its antennae."
+      }
+    ]
+  },
+  {
+    "id": "how-sleep-shapes-memory",
+    "level": "B1-B2",
+    "topic": "science",
+    "generated": true,
+    "title": "How Sleep Shapes Memory",
+    "sentences": [
+      {
+        "text": "When we fall asleep, the brain starts to reorganise the information gathered during the day.",
+        "translationRu": "Когда мы засыпаем, мозг начинает реорганизовывать информацию, полученную за день."
+      },
+      {
+        "text": "During the first hours, short‑term memories are transferred to long‑term storage.",
+        "translationRu": "В первые часы краткосрочная память переносится в долговременное хранилище."
+      },
+      {
+        "text": "This transfer mainly happens in deep sleep, when slow brain waves dominate.",
+        "translationRu": "Этот перенос происходит в основном во время глубокого сна, когда преобладают медленные мозговые волны."
+      },
+      {
+        "text": "Scientists believe that the hippocampus acts like a temporary notebook, handing over notes to the cortex.",
+        "translationRu": "Учёные полагают, что гиппокамп работает как временный блокнот, передавая записи коре головного мозга."
+      },
+      {
+        "text": "While we dream, the brain also links new facts with older knowledge, creating associations.",
+        "translationRu": "Во время сна наш мозг также связывает новые факты со старой информацией, создавая ассоциации."
+      },
+      {
+        "text": "If the night is disturbed, the consolidation process can be interrupted, leading to weaker recall.",
+        "translationRu": "Если ночной сон прерывается, процесс консолидации может быть нарушен, и воспоминания становятся слабее."
+      },
+      {
+        "text": "That is why a good night's rest often improves performance on exams or sports.",
+        "translationRu": "Поэтому хороший ночной сон часто повышает результаты на экзаменах или в спорте."
+      },
+      {
+        "text": "People who regularly get enough REM sleep also show better creativity, because this stage mixes ideas together.",
+        "translationRu": "Люди, которые регулярно получают достаточное количество REM‑сна, также проявляют большую креативность, потому что эта стадия смешивает идеи вместе."
+      },
+      {
+        "text": "In practice, taking short naps after learning can boost the same consolidation mechanisms.",
+        "translationRu": "На практике короткие дневные сна после обучения могут ускорить те же механизмы консолидации."
+      },
+      {
+        "text": "So, sleeping well is not a luxury; it is a vital part of how we keep and use knowledge.",
+        "translationRu": "Итак, хороший сон — это не роскошь, а важная часть того, как мы сохраняем и используем знания."
+      }
+    ],
+    "glossary": {
+      "hippocampus": {
+        "translation": "гиппокамп",
+        "partOfSpeech": "noun"
+      },
+      "cortex": {
+        "translation": "кора головного мозга",
+        "partOfSpeech": "noun"
+      },
+      "disturb": {
+        "translation": "прерывать, нарушать",
+        "partOfSpeech": "verb"
+      },
+      "nap": {
+        "translation": "дневной сон, короткий сон",
+        "partOfSpeech": "noun"
+      },
+      "creativity": {
+        "translation": "креативность, творческий потенциал",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "According to the text, what role does deep sleep play in memory?",
+        "options": [
+          "It erases short‑term memories",
+          "It transfers short‑term memories to long‑term storage",
+          "It creates new memories from dreams",
+          "It blocks the hippocampus activity"
+        ],
+        "answer": 1,
+        "explanation": "The text states that during deep sleep, short‑term memories are transferred to long‑term storage."
+      },
+      {
+        "id": "q2",
+        "question": "Why might a short nap be useful after learning?",
+        "options": [
+          "It replaces the need for nighttime sleep",
+          "It triggers the same consolidation mechanisms",
+          "It prevents any dreaming",
+          "It weakens old memories"
+        ],
+        "answer": 1,
+        "explanation": "The text says that taking short naps after learning can boost the same consolidation mechanisms."
+      },
+      {
+        "id": "q3",
+        "question": "What does the hippocampus do during sleep, as described?",
+        "options": [
+          "It stores all long‑term memories permanently",
+          "It acts like a temporary notebook handing over notes to the cortex",
+          "It stops all brain activity",
+          "It produces REM waves"
+        ],
+        "answer": 1,
+        "explanation": "The text describes the hippocampus as a temporary notebook that hands over notes to the cortex."
+      }
+    ]
+  },
+  {
+    "id": "why-replication-is-essential",
+    "level": "B1-B2",
+    "topic": "science",
+    "generated": true,
+    "title": "Why Replication Is Essential",
+    "sentences": [
+      {
+        "text": "In scientific research, a single experiment rarely convinces the whole community.",
+        "translationRu": "В научных исследованиях один эксперимент редко убеждает всю научную общину."
+      },
+      {
+        "text": "To be sure that a finding is reliable, other teams must repeat the procedure and obtain similar results.",
+        "translationRu": "Чтобы убедиться в надёжности результата, другие группы должны повторить процедуру и получить похожие результаты."
+      },
+      {
+        "text": "If the replication succeeds, confidence in the original claim grows.",
+        "translationRu": "Если репликация проходит успешно, уверенность в исходном утверждении возрастает."
+      },
+      {
+        "text": "When results cannot be reproduced, scientists start to look for hidden variables or errors.",
+        "translationRu": "Когда результаты невозможно воспроизвести, учёные начинают искать скрытые переменные или ошибки."
+      },
+      {
+        "text": "This process helps to weed out false positives that might have slipped through the first test.",
+        "translationRu": "Этот процесс помогает отсеять ложноположительные результаты, которые могли пройти первый тест."
+      },
+      {
+        "text": "Journals now often ask authors to share raw data, making it easier for others to check the work.",
+        "translationRu": "Журналы теперь часто просят авторов делиться исходными данными, что облегчает проверку работы другими."
+      },
+      {
+        "text": "Some fields even run large‑scale replication projects, where many laboratories work on the same question.",
+        "translationRu": "В некоторых областях даже проводят крупномасштабные проекты репликации, где многие лаборатории работают над одним и тем же вопросом."
+      },
+      {
+        "text": "These collaborations highlight which methods are robust and which need refinement.",
+        "translationRu": "Эти сотрудничества показывают, какие методы надёжны, а какие требуют доработки."
+      },
+      {
+        "text": "Overall, replication builds a solid foundation that future discoveries can stand on.",
+        "translationRu": "В целом репликация создаёт прочный фундамент, на котором могут опираться будущие открытия."
+      },
+      {
+        "text": "Without it, science would risk turning into a collection of unverified anecdotes.",
+        "translationRu": "Без неё наука рисковала бы превратиться в набор непроверенных анекдотов."
+      }
+    ],
+    "glossary": {
+      "replication": {
+        "translation": "репликация, воспроизведение",
+        "partOfSpeech": "noun"
+      },
+      "reliable": {
+        "translation": "надёжный",
+        "partOfSpeech": "adjective"
+      },
+      "confidence": {
+        "translation": "уверенность",
+        "partOfSpeech": "noun"
+      },
+      "variable": {
+        "translation": "переменная",
+        "partOfSpeech": "noun"
+      },
+      "anecdote": {
+        "translation": "анекдот, рассказ",
+        "partOfSpeech": "noun"
+      },
+      "robust": {
+        "translation": "устойчивый, надёжный",
+        "partOfSpeech": "adjective"
+      },
+      "refine": {
+        "translation": "усовершенствовать, дорабатывать",
+        "partOfSpeech": "verb"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What happens when other teams fail to reproduce the original results?",
+        "options": [
+          "The original study is immediately retracted",
+          "Scientists look for hidden variables or errors",
+          "The finding is considered proven",
+          "Journals ignore the discrepancy"
+        ],
+        "answer": 1,
+        "explanation": "The text says that when results cannot be reproduced, scientists start to look for hidden variables or errors."
+      },
+      {
+        "id": "q2",
+        "question": "Why do journals ask authors to share raw data?",
+        "options": [
+          "To increase the length of the article",
+          "To make it easier for others to check the work",
+          "To sell the data to companies",
+          "Because raw data are always interesting"
+        ],
+        "answer": 1,
+        "explanation": "The text states that sharing raw data makes it easier for others to check the work."
+      },
+      {
+        "id": "q3",
+        "question": "What is the main purpose of large‑scale replication projects?",
+        "options": [
+          "To compete for funding",
+          "To highlight robust methods and needed refinements",
+          "To publish more papers",
+          "To replace original researchers"
+        ],
+        "answer": 1,
+        "explanation": "The text explains that these projects highlight which methods are robust and which need refinement."
+      }
+    ]
+  },
+  {
+    "id": "the-accidental-birth-of-penicillin",
+    "level": "B1-B2",
+    "topic": "science",
+    "generated": true,
+    "title": "The Accidental Birth of Penicillin",
+    "sentences": [
+      {
+        "text": "A scientist was cleaning his lab bench when he noticed a strange mould spreading across a petri dish.",
+        "translationRu": "Учёный убирал свой лабораторный стол, когда заметил странный плесневый рост по чашке Петри."
+      },
+      {
+        "text": "The dish had been left uncovered after an experiment with bacteria.",
+        "translationRu": "Чашка была оставлена без крышки после эксперимента с бактериями."
+      },
+      {
+        "text": "Surprisingly, the bacteria around the mould stopped growing.",
+        "translationRu": "К удивлению, бактерии вокруг плесени перестали расти."
+      },
+      {
+        "text": "Curious, the researcher isolated the mould and tested its effect on a fresh bacterial culture.",
+        "translationRu": "Заинтересованный, исследователь выделил плесень и проверил её влияние на новую бактериальную культуру."
+      },
+      {
+        "text": "The test showed a clear zone where bacteria could not survive, indicating a powerful antibacterial substance.",
+        "translationRu": "Тест показал чистую зону, где бактерии не выживали, указывая на мощное антибактериальное вещество."
+      },
+      {
+        "text": "Further work revealed that the mould produced a compound that killed many harmful microbes.",
+        "translationRu": "Дальнейшие исследования показали, что плесень выделяет соединение, убивающее многие вредные микробы."
+      },
+      {
+        "text": "The scientist realized the potential for treating infections, especially those that did not respond to existing medicines.",
+        "translationRu": "Учёный понял потенциал применения этого вещества для лечения инфекций, особенно тех, которые не реагировали на существующие препараты."
+      },
+      {
+        "text": "He began to grow the mould in larger batches, though the process was tricky and required careful temperature control.",
+        "translationRu": "Он начал выращивать плесень в больших количествах, хотя процесс был сложным и требовал тщательного контроля температуры."
+      },
+      {
+        "text": "When the purified compound was finally administered to patients, many recovered faster than before.",
+        "translationRu": "Когда очищенное соединение наконец было введено пациентам, многие выздоравливали быстрее, чем раньше."
+      },
+      {
+        "text": "Thus, an ordinary cleaning mistake turned into one of the most important medical breakthroughs of the century.",
+        "translationRu": "Таким образом, обычная ошибка при уборке превратилась в один из важнейших медицинских прорывов века."
+      }
+    ],
+    "glossary": {
+      "mould": {
+        "translation": "плесень",
+        "partOfSpeech": "noun"
+      },
+      "bacterial": {
+        "translation": "бактериальный",
+        "partOfSpeech": "adjective"
+      },
+      "compound": {
+        "translation": "соединение",
+        "partOfSpeech": "noun"
+      },
+      "breakthrough": {
+        "translation": "прорыв",
+        "partOfSpeech": "noun"
+      },
+      "tricky": {
+        "translation": "сложный, хитрый",
+        "partOfSpeech": "adjective"
+      },
+      "recover": {
+        "translation": "выздоравливать",
+        "partOfSpeech": "verb"
+      },
+      "batch": {
+        "translation": "партия, партия продукции",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What first indicated that the mould might be useful against bacteria?",
+        "options": [
+          "It smelled pleasant",
+          "It stopped the bacteria around it from growing",
+          "It changed colour",
+          "It grew faster than the bacteria"
+        ],
+        "answer": 1,
+        "explanation": "The text says the bacteria around the mould stopped growing, suggesting an antibacterial effect."
+      },
+      {
+        "id": "q2",
+        "question": "Why was growing the mould in larger batches described as tricky?",
+        "options": [
+          "Because the lab was too small",
+          "Because it required careful temperature control",
+          "Because the mould kept disappearing",
+          "Because it needed a special light"
+        ],
+        "answer": 1,
+        "explanation": "The text mentions that larger batches required careful temperature control, making the process tricky."
+      },
+      {
+        "id": "q3",
+        "question": "What was the outcome when the purified compound was given to patients?",
+        "options": [
+          "Patients showed no change",
+          "Many recovered faster than before",
+          "The compound caused side effects",
+          "Patients needed higher doses of existing medicines"
+        ],
+        "answer": 1,
+        "explanation": "The text states that many patients recovered faster after receiving the purified compound."
+      }
+    ]
+  },
+  {
+    "id": "how-vaccines-train-immunity",
+    "level": "B1-B2",
+    "topic": "science",
+    "generated": true,
+    "title": "How Vaccines Train Immunity",
+    "sentences": [
+      {
+        "text": "A vaccine contains a harmless piece of a germ, usually a protein.",
+        "translationRu": "Вакцина содержит безвредный кусочек микроба, обычно белок."
+      },
+      {
+        "text": "When it is injected, the immune system spots this foreign piece.",
+        "translationRu": "Когда её вводят, иммунная система замечает эту чужеродную часть."
+      },
+      {
+        "text": "Special cells called antigen‑presenting cells break it down and show bits to other cells.",
+        "translationRu": "Особые клетки, называемые антиген‑представляющими, разбивают её и показывают фрагменты другим клеткам."
+      },
+      {
+        "text": "This activates T‑cells, which coordinate the attack.",
+        "translationRu": "Это активирует Т‑клетки, которые координируют атаку."
+      },
+      {
+        "text": "B‑cells also start making antibodies that match the germ piece.",
+        "translationRu": "В‑клетки также начинают создавать антитела, соответствующие части микроба."
+      },
+      {
+        "text": "If the real germ ever shows up later, the body already knows how to fight it.",
+        "translationRu": "Если настоящий микроб появится позже, тело уже знает, как с ним бороться."
+      },
+      {
+        "text": "The response is faster and often stops the infection before symptoms appear.",
+        "translationRu": "Ответ быстрее и часто останавливает инфекцию до появления симптомов."
+      },
+      {
+        "text": "Because the training is safe, we can keep boosting immunity without getting sick.",
+        "translationRu": "Поскольку обучение безопасно, мы можем усиливать иммунитет, не болея."
+      },
+      {
+        "text": "This is why vaccines have become a cornerstone of modern public health.",
+        "translationRu": "Поэтому вакцины стали краеугольным камнем современной общественной медицины."
+      }
+    ],
+    "glossary": {
+      "antigen‑presenting": {
+        "translation": "антиген‑представляющий",
+        "partOfSpeech": "adjective"
+      },
+      "activate": {
+        "translation": "активировать",
+        "partOfSpeech": "verb"
+      },
+      "coordinate": {
+        "translation": "координировать",
+        "partOfSpeech": "verb"
+      },
+      "boost": {
+        "translation": "усиливать",
+        "partOfSpeech": "verb"
+      },
+      "cornerstone": {
+        "translation": "краеугольный камень",
+        "partOfSpeech": "noun"
+      },
+      "harmless": {
+        "translation": "безвредный",
+        "partOfSpeech": "adjective"
+      },
+      "infection": {
+        "translation": "инфекция",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does a vaccine contain?",
+        "options": [
+          "A live germ",
+          "A harmless piece of a germ",
+          "Only water",
+          "Antibiotics"
+        ],
+        "answer": 1,
+        "explanation": "The first sentence says the vaccine contains a harmless piece of a germ."
+      },
+      {
+        "id": "q2",
+        "question": "Why can the body stop the infection quickly the second time?",
+        "options": [
+          "It produces more germs",
+          "It already has matching antibodies",
+          "It forgets the germ",
+          "It needs more time"
+        ],
+        "answer": 0,
+        "explanation": "The seventh sentence explains the response is faster because antibodies already match the germ."
+      },
+      {
+        "id": "q3",
+        "question": "Which cells start making antibodies?",
+        "options": [
+          "T‑cells",
+          "Red blood cells",
+          "B‑cells",
+          "Skin cells"
+        ],
+        "answer": 2,
+        "explanation": "The fifth sentence states B‑cells start making antibodies."
+      }
+    ]
+  },
+  {
+    "id": "the-role-of-replication",
+    "level": "C1-C2",
+    "topic": "science",
+    "generated": true,
+    "title": "The Role of Replication",
+    "sentences": [
+      {
+        "text": "In scientific inquiry, replication serves as the cornerstone of credibility.",
+        "translationRu": "В научном исследовании репликация является краеугольным камнем достоверности."
+      },
+      {
+        "text": "When an experiment is reproduced under comparable conditions, its outcomes either converge or diverge, revealing hidden variables.",
+        "translationRu": "Когда эксперимент воспроизводится при сопоставимых условиях, его результаты либо сходятся, либо расходятся, выявляя скрытые переменные."
+      },
+      {
+        "text": "Convergent findings bolster confidence, suggesting that the observed effect is not a mere artifact of a specific setup.",
+        "translationRu": "Сходящиеся результаты укрепляют уверенность, подразумевая, что наблюдаемый эффект не является лишь артефактом конкретной установки."
+      },
+      {
+        "text": "Conversely, divergent results prompt researchers to scrutinise methodology, reagents, or even theoretical assumptions.",
+        "translationRu": "Наоборот, расходящиеся результаты заставляют исследователей тщательно проверять методологию, реактивы или даже теоретические предположения."
+      },
+      {
+        "text": "Such scrutiny often uncovers systematic biases that would otherwise remain concealed.",
+        "translationRu": "Эта проверка часто обнаруживает систематические предвзятости, которые иначе остались бы скрытыми."
+      },
+      {
+        "text": "Moreover, replication cultivates a culture of transparency, because detailed protocols must be shared to enable others to repeat the work.",
+        "translationRu": "Кроме того, репликация способствует культуре прозрачности, поскольку подробные протоколы необходимо делиться, чтобы другие могли повторить работу."
+      },
+      {
+        "text": "This openness discourages selective reporting and fosters cumulative knowledge.",
+        "translationRu": "Такая открытость препятствует выборочному представлению данных и способствует накоплению знаний."
+      },
+      {
+        "text": "In fields where experimental costs are high, replication can act as a safeguard against wasteful pursuits.",
+        "translationRu": "В областях, где экспериментальные затраты велики, репликация может выступать в роли защиты от пустой траты ресурсов."
+      },
+      {
+        "text": "Funding agencies increasingly mandate replication plans, reflecting an institutional shift toward reliability.",
+        "translationRu": "Финансовые организации всё чаще требуют планы по репликации, отражая институциональный сдвиг в сторону надёжности."
+      },
+      {
+        "text": "Ultimately, without systematic replication, scientific claims would rest on shaky foundations, vulnerable to revision.",
+        "translationRu": "В конечном итоге, без систематической репликации научные утверждения стояли бы на шатком основании, подверженном пересмотру."
+      }
+    ],
+    "glossary": {
+      "replication": {
+        "translation": "репликация",
+        "partOfSpeech": "noun"
+      },
+      "converge": {
+        "translation": "сходиться",
+        "partOfSpeech": "verb"
+      },
+      "artifact": {
+        "translation": "артефакт",
+        "partOfSpeech": "noun"
+      },
+      "scrutinise": {
+        "translation": "тщательно проверять",
+        "partOfSpeech": "verb"
+      },
+      "bias": {
+        "translation": "предвзятость",
+        "partOfSpeech": "noun"
+      },
+      "transparency": {
+        "translation": "прозрачность",
+        "partOfSpeech": "noun"
+      },
+      "cumulative": {
+        "translation": "накопительный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What does the text suggest is a direct benefit of sharing detailed protocols?",
+        "options": [
+          "It reduces the cost of experiments",
+          "It enables others to repeat the work",
+          "It guarantees positive results",
+          "It eliminates the need for peer review"
+        ],
+        "answer": 1,
+        "explanation": "The text states that detailed protocols must be shared to enable others to repeat the work."
+      },
+      {
+        "id": "q2",
+        "question": "According to the passage, divergent results usually lead researchers to:",
+        "options": [
+          "Publish the findings immediately",
+          "Scrutinise methodology and assumptions",
+          "Increase the sample size",
+          "Ignore the inconsistencies"
+        ],
+        "answer": 1,
+        "explanation": "The text says divergent results prompt researchers to scrutinise methodology, reagents, or theoretical assumptions."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the author claim that replication acts as a safeguard in high‑cost fields?",
+        "options": [
+          "It ensures faster publication",
+          "It prevents wasteful pursuits",
+          "It attracts more funding",
+          "It simplifies experimental design"
+        ],
+        "answer": 1,
+        "explanation": "The text notes that replication can act as a safeguard against wasteful pursuits when costs are high."
+      }
+    ]
+  },
+  {
+    "id": "serendipity-in-antibiotic-discovery",
+    "level": "C1-C2",
+    "topic": "science",
+    "generated": true,
+    "title": "Serendipity in Antibiotic Discovery",
+    "sentences": [
+      {
+        "text": "The advent of modern antimicrobials can be traced to a series of fortuitous observations rather than a single deliberate breakthrough.",
+        "translationRu": "Появление современных антимикробных средств можно проследить до серии счастливых наблюдений, а не одного преднамеренного прорыва."
+      },
+      {
+        "text": "In a modest laboratory, a researcher noticed that a mould contaminant inhibited the growth of surrounding bacteria.",
+        "translationRu": "В скромной лаборатории исследователь заметил, что плесневой контаминант подавлял рост окружающих бактерий."
+      },
+      {
+        "text": "Rather than discarding the sample, the scientist isolated the active compound, hypothesising that it might possess therapeutic potential.",
+        "translationRu": "Вместо того чтобы выбросить образец, учёный изолировал активное соединение, предположив, что оно может иметь терапевтический потенциал."
+      },
+      {
+        "text": "Subsequent testing revealed a pronounced ability to eradicate pathogenic strains without harming mammalian cells.",
+        "translationRu": "Последующие испытания показали выраженную способность уничтожать патогенные штаммы, не повреждая клетки млекопитающих."
+      },
+      {
+        "text": "The finding was unexpected, yet the researcher pursued it with rigorous controls, confirming reproducibility across multiple bacterial species.",
+        "translationRu": "Это открытие было неожиданным, но исследователь продолжил работу с строгим контролем, подтвердив воспроизводимость на разных бактериальных видах."
+      },
+      {
+        "text": "The compound’s structure turned out to be a β‑lactam ring, a motif later recognised as a hallmark of a broad class of antibiotics.",
+        "translationRu": "Структура соединения оказалась β‑лактамным кольцом, позже признанным отличительной чертой широкого класса антибиотиков."
+      },
+      {
+        "text": "Its accidental emergence underscored the importance of curiosity-driven inquiry over strictly goal‑oriented projects.",
+        "translationRu": "Случайное появление подчёркнуло важность исследования, движимого любопытством, а не исключительно целенаправленных проектов."
+      },
+      {
+        "text": "Over time, the principle that unexpected results can spark revolutionary therapies became embedded in scientific culture.",
+        "translationRu": "Со временем принцип, согласно которому неожиданные результаты могут стать источником революционных терапий, укоренился в научной культуре."
+      },
+      {
+        "text": "Today, researchers are encouraged to document anomalies, because such notes may later evolve into breakthroughs.",
+        "translationRu": "Сегодня исследователей поощряют фиксировать аномалии, поскольку такие заметки позже могут превратиться в прорывы."
+      },
+      {
+        "text": "Thus, the accidental discovery of a mould’s antibacterial property illustrates how serendipity, coupled with methodical validation, reshapes medical practice.",
+        "translationRu": "Таким образом, случайное открытие антибактериального свойства плесени демонстрирует, как совпадения, в сочетании с методичной проверкой, трансформируют медицинскую практику."
+      }
+    ],
+    "glossary": {
+      "fortuitous": {
+        "translation": "счастливый",
+        "partOfSpeech": "adjective"
+      },
+      "contaminant": {
+        "translation": "загрязнитель",
+        "partOfSpeech": "noun"
+      },
+      "hypothesising": {
+        "translation": "выдвигать гипотезу",
+        "partOfSpeech": "verb"
+      },
+      "pathogenic": {
+        "translation": "патогенный",
+        "partOfSpeech": "adjective"
+      },
+      "β‑lactam": {
+        "translation": "β‑лактам",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What motivated the researcher to isolate the mould’s compound?",
+        "options": [
+          "A request from a pharmaceutical company",
+          "The observation that it inhibited bacterial growth",
+          "A need to clean the lab bench",
+          "A scheduled grant deadline"
+        ],
+        "answer": 1,
+        "explanation": "The text says the researcher noticed the mould inhibited bacterial growth and therefore isolated the compound."
+      },
+      {
+        "id": "q2",
+        "question": "How does the passage describe the later significance of the β‑lactam ring?",
+        "options": [
+          "As a rare chemical curiosity",
+          "As a hallmark of many antibiotics",
+          "As an ineffective structure",
+          "As a toxic by‑product"
+        ],
+        "answer": 1,
+        "explanation": "The text states that the β‑lactam ring was later recognised as a hallmark of a broad class of antibiotics."
+      },
+      {
+        "id": "q3",
+        "question": "According to the text, what cultural shift occurred in scientific practice?",
+        "options": [
+          "Greater emphasis on profit",
+          "Increased documentation of anomalies",
+          "Reduction of peer review",
+          "Elimination of hypothesis testing"
+        ],
+        "answer": 1,
+        "explanation": "The passage notes that researchers are encouraged to document anomalies, reflecting a cultural shift."
+      }
+    ]
+  },
+  {
+    "id": "vaccines-as-immune-trainers",
+    "level": "C1-C2",
+    "topic": "science",
+    "generated": true,
+    "title": "Vaccines as Immune Trainers",
+    "sentences": [
+      {
+        "text": "Vaccination exploits the adaptive arm of the immune system, teaching it to recognise and neutralise specific pathogens.",
+        "translationRu": "Вакцинация использует адаптивную часть иммунной системы, обучая её распознавать и нейтрализовать конкретные патогены."
+      },
+      {
+        "text": "A vaccine typically contains an antigenic fragment that mimics the target microbe without causing disease.",
+        "translationRu": "Вакцина обычно содержит антигенный фрагмент, имитирующий целевой микроб, но не вызывающий заболевание."
+      },
+      {
+        "text": "Upon injection, antigen‑presenting cells capture the fragment and display it on major histocompatibility complexes.",
+        "translationRu": "После инъекции клетки, представляющие антигены, захватывают фрагмент и демонстрируют его на комплексах главного комплекса совместимости."
+      },
+      {
+        "text": "This presentation activates naïve T‑cells, which differentiate into helper and cytotoxic subsets.",
+        "translationRu": "Это представление активирует наивные Т‑клетки, которые дифференцируются в вспомогательные и цитотоксические подтипы."
+      },
+      {
+        "text": "Helper T‑cells, in turn, stimulate B‑cells to proliferate and undergo somatic hypermutation, refining antibody affinity.",
+        "translationRu": "В свою очередь, вспомогательные Т‑клетки стимулируют В‑клетки к пролиферации и соматической гипермутации, повышая аффинность антител."
+      },
+      {
+        "text": "The resulting high‑affinity antibodies are secreted into the bloodstream, where they can bind and neutralise the real pathogen upon exposure.",
+        "translationRu": "Полученные высокоаффинные антитела выделяются в кровоток, где могут связываться и нейтрализовать настоящий патоген при контакте."
+      },
+      {
+        "text": "Simultaneously, a subset of T‑cells becomes memory cells, persisting for years and enabling a rapid secondary response.",
+        "translationRu": "Одновременно часть Т‑клеток превращается в клетки памяти, сохраняющиеся годами и обеспечивающие быстрый вторичный ответ."
+      },
+      {
+        "text": "This immunological memory underlies the long‑term protection that vaccines aim to provide.",
+        "translationRu": "Эта иммунологическая память лежит в основе долгосрочной защиты, к которой стремятся вакцины."
+      },
+      {
+        "text": "Booster doses re‑expose the immune system to the antigen, reinforcing the memory pool and compensating for waning immunity.",
+        "translationRu": "Ревакцинация повторно вводит антиген, укрепляя популяцию клеток памяти и компенсируя снижение иммунитета."
+      },
+      {
+        "text": "Consequently, vaccines function as rehearsals, ensuring that the body’s defensive orchestra performs flawlessly when the real threat appears.",
+        "translationRu": "Следовательно, вакцины действуют как репетиции, гарантируя, что оборонительный оркестр тела сыграет безупречно, когда появится реальная угроза."
+      }
+    ],
+    "glossary": {
+      "adaptive": {
+        "translation": "адаптивный",
+        "partOfSpeech": "adjective"
+      },
+      "antigenic": {
+        "translation": "антигенный",
+        "partOfSpeech": "adjective"
+      },
+      "somatic": {
+        "translation": "соматический",
+        "partOfSpeech": "adjective"
+      },
+      "hypermutation": {
+        "translation": "гипермутация",
+        "partOfSpeech": "noun"
+      },
+      "memory": {
+        "translation": "память",
+        "partOfSpeech": "noun"
+      },
+      "booster": {
+        "translation": "ревакцинация",
+        "partOfSpeech": "noun"
+      },
+      "rehearsal": {
+        "translation": "репетиция",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "What role do antigen‑presenting cells play after vaccination?",
+        "options": [
+          "They produce antibodies directly",
+          "They capture and display antigen fragments",
+          "They become memory cells instantly",
+          "They destroy the antigen"
+        ],
+        "answer": 1,
+        "explanation": "The text says antigen‑presenting cells capture the fragment and display it on MHC complexes."
+      },
+      {
+        "id": "q2",
+        "question": "Why are booster doses administered according to the passage?",
+        "options": [
+          "To introduce a new antigen",
+          "To reinforce the memory pool and offset waning immunity",
+          "To replace faulty antibodies",
+          "To stimulate innate immunity only"
+        ],
+        "answer": 1,
+        "explanation": "The text explains boosters re‑expose the immune system, reinforcing memory and compensating for waning immunity."
+      },
+      {
+        "id": "q3",
+        "question": "Which process refines antibody affinity during the immune response?",
+        "options": [
+          "Somatic hypermutation",
+          "Antigen presentation",
+          "Memory cell formation",
+          "Cytokine release"
+        ],
+        "answer": 0,
+        "explanation": "The passage states that B‑cells undergo somatic hypermutation, refining antibody affinity."
+      }
+    ]
   }
 ]
