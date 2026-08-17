@@ -115,7 +115,11 @@
     "sampleNote": "Read it, then close it and write your own — copying it teaches you nothing.",
     "tooShort": "Write at least 30 words before submitting.",
     "yourText": "Your text",
-    "tips": "What to improve"
+    "tips": "What to improve",
+    "translatorTitle": "Need a word?",
+    "translatorHint": "Type it in Russian — you'll get the English, how it's used, and an example. It goes into your vocabulary too.",
+    "translatorPlaceholder": "например: договориться",
+    "translatorGo": "Translate"
   },
   "vocabulary": {
     "clickToReveal": "Click to reveal",
@@ -135,7 +139,13 @@
     "dueIn_one": "Due in {{count}} day",
     "dueIn_other": "Due in {{count}} days",
     "remove": "Remove word",
-    "from": "from"
+    "from": "from",
+    "addTitle": "Add a word yourself",
+    "addWordPlaceholder": "English word",
+    "addTranslationPlaceholder": "Translation",
+    "addButton": "Add",
+    "addedManually": "Added by hand",
+    "alreadySaved": "That word is already in your vocabulary."
   },
   "slang": {
     "categoryAll": "All",
@@ -278,5 +288,13 @@
       "name": "Climbing",
       "desc": "Reach level 5"
     }
+  },
+  "lookup": {
+    "lookUp": "Look up",
+    "inVocabulary": "In vocabulary",
+    "fromSelection": "Selected text",
+    "savedHint": "Words you've saved are underlined — meeting them again is how they stick.",
+    "noKey": "No translation — a Groq API key hasn't been set up yet.",
+    "failed": "Translation failed. Check your connection and try again."
   }
 }

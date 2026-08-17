@@ -52,6 +52,12 @@ export function addVocabularyWord(word: string, translation: string, sourceText?
   return entry;
 }
 
+/** Case-insensitive: "Podcast" and "podcast" are the same entry. */
+export function isWordSaved(word: string): boolean {
+  const key = word.trim().toLowerCase();
+  return readAll().some((w) => w.word.toLowerCase() === key);
+}
+
 export function getDueWords(now = Date.now()): VocabularyWord[] {
   return readAll().filter((w) => w.dueAt <= now);
 }

@@ -5,6 +5,7 @@ import { writingTopics } from "@/data/writingTopics";
 import { getWritingFeedback, type WritingFeedbackResult } from "@/lib/writingFeedback";
 import { addWritingSubmission } from "@/lib/writingHistory";
 import { logActivity } from "@/lib/activityStore";
+import { WriterTranslator } from "@/components/writing/WriterTranslator";
 
 const SCORE_KEYS = ["grammar", "vocabulary", "coherence", "overall"] as const;
 const MIN_SUBMIT_WORDS = 30;
@@ -178,7 +179,10 @@ export default function Writing() {
           )}
         </div>
 
-        {/* ── Guide: structure, phrases, sample ───────────────────────── */}
+        {/* ── Translator + guide ──────────────────────────────────────── */}
+        <div className="space-y-6">
+        <WriterTranslator source={topic.title} />
+
         <aside
           className="rounded-[var(--radius-lg)] border p-6"
           style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
@@ -243,6 +247,7 @@ export default function Writing() {
             </div>
           )}
         </aside>
+        </div>
       </div>
     </SectionHero>
   );
