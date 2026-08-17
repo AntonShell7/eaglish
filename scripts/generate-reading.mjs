@@ -27,7 +27,16 @@ import { dirname, join } from "node:path";
 const ROOT = join(import.meta.dirname, "..");
 const OUT_DIR = join(ROOT, "src/data/reading");
 const MODEL = process.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
-const CONCURRENCY = 2;
+const CONCURRENCY = 1;
+/** Texts per request. Batching amortises the prompt and roughly triples throughput
+ *  against a tokens-per-minute cap. */
+const BATCH = 4;
+/**
+ * Tokens-per-minute is the real ceiling (8k on the free tier, ~2k per text), so
+ * the runner spaces requests instead of sprinting into a 429 and then waiting
+ * out a full minute. Steady beats bursty: this is about four texts a minute.
+ */
+const MIN_GAP_MS = 15000;
 const TARGET_PER_LEVEL = 7;
 
 const LEVELS = ["A1-A2", "B1-B2", "C1-C2"];
@@ -217,7 +226,13 @@ function parseDuration(value) {
   return (Number(m[1] ?? 0) * 60 + Number(m[2] ?? 0)) * 1000;
 }
 
+let lastCallAt = 0;
+
 async function respectBudget() {
+  const since = Date.now() - lastCallAt;
+  if (since < MIN_GAP_MS) await sleep(MIN_GAP_MS - since);
+  lastCallAt = Date.now();
+
   if (tokensLeft < 2600 && resetInMs > 0) {
     const wait = Math.min(resetInMs + 750, 70000);
     console.log(`  … token budget low (${tokensLeft}), waiting ${Math.round(wait / 1000)}s`);
@@ -239,6 +254,11 @@ async function groq(prompt) {
     body: JSON.stringify({
       model: MODEL,
       temperature: 0.9,
+      // gpt-oss spends reasoning tokens against the same per-minute budget, and
+      // graded reading material does not need deliberation — this roughly tripled
+      // the number of texts per minute.
+      reasoning_effort: "low",
+      max_completion_tokens: 8000,
       response_format: { type: "json_object" },
       messages: [
         {
@@ -269,45 +289,52 @@ async function groq(prompt) {
   return JSON.parse(data.choices[0].message.content);
 }
 
-function buildPrompt({ topic, label, level, angle, avoidTitles }) {
+function buildPrompt({ label, level, angles, avoidTitles }) {
   const spec = LEVEL_SPEC[level];
-  return `Write one short reading text for English learners at CEFR ${level}.
+  return `Write ${angles.length} separate short reading texts for English learners at CEFR ${level}.
 
 TOPIC: ${label}
-ANGLE (write about this specific idea): ${angle}
-LENGTH: ${spec.sentences} sentences, ${spec.words} words in total.
+Write one text per angle, in this order:
+${angles.map((a, i) => `${i + 1}. ${a}`).join("\n")}
+
+EACH TEXT: ${spec.sentences} sentences, ${spec.words} words in total.
 STYLE: ${spec.guidance}
 
 HARD RULES
 - Never state facts about a named real person, company product or event. Write about unnamed people ("a Norwegian runner", "one musician") and general patterns. Invented biography is not acceptable.
 - No statistics, dates or study citations unless they are so widely known they cannot be wrong. Prefer describing mechanisms over quoting numbers.
-- The text must be self-contained and end on a real closing thought, not a cliffhanger.
-- Do not reuse any of these titles: ${avoidTitles.slice(0, 20).join("; ") || "(none yet)"}.
+- Each text is self-contained and ends on a real closing thought, not a cliffhanger.
+- Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
 
-Return JSON with exactly this shape:
+Return JSON exactly like this, with ${angles.length} items in "texts":
 {
-  "title": "3-6 words, specific, no colon",
-  "sentences": [
-    { "text": "One English sentence.", "translationRu": "Естественный перевод на русский." }
-  ],
-  "glossary": {
-    "word": { "translation": "русский перевод", "partOfSpeech": "noun|verb|adjective|adverb|phrase" }
-  },
-  "questions": [
+  "texts": [
     {
-      "question": "A question about the text in English",
-      "options": ["four options", "as plain strings", "one of them correct", "no letters or numbering"],
-      "answer": 0,
-      "explanation": "One sentence saying why that option is right, referring to the text."
+      "title": "3-6 words, specific, no colon",
+      "sentences": [
+        { "text": "One English sentence.", "translationRu": "Естественный перевод на русский." }
+      ],
+      "glossary": {
+        "word": { "translation": "русский перевод", "partOfSpeech": "noun|verb|adjective|adverb|phrase" }
+      },
+      "questions": [
+        {
+          "question": "A question about the text in English",
+          "options": ["four options", "as plain strings", "one of them correct", "no letters or numbering"],
+          "answer": 0,
+          "explanation": "One sentence saying why that option is right, referring to the text."
+        }
+      ]
     }
   ]
 }
 
-REQUIREMENTS FOR THE JSON
+REQUIREMENTS
 - Every sentence needs a natural Russian translation — meaning-for-meaning, not word-for-word.
-- glossary: 5 to 8 of the hardest words that actually appear in the text, lowercase keys, base form.
-- questions: exactly 3. Each has 4 options, exactly one correct, "answer" is its index. Questions must be answerable from the text and must not be answerable by guessing from general knowledge.
-- Vary which index is correct across the three questions.`;
+- glossary: 5 to 8 of the hardest words that actually appear in that text, lowercase keys, base form.
+- questions: exactly 3 per text. Each has 4 options, exactly one correct, "answer" is its index. They must be answerable from the text and not from general knowledge.
+- Vary which index is correct.
+- Output nothing but the JSON.`;
 }
 
 /* ── Validation — the part that makes generated content shippable ─────────── */
@@ -416,7 +443,7 @@ function writeIndex() {
 
 /* ── Runner ───────────────────────────────────────────────────────────────── */
 
-async function generateOne(job, existing) {
+async function generateBatch(job, existing) {
   const prompt = buildPrompt({
     ...job,
     avoidTitles: existing.filter((t) => t.level === job.level).map((t) => t.title),
@@ -424,12 +451,17 @@ async function generateOne(job, existing) {
 
   // Retries are generous because the usual failure is a rate limit, not a bad
   // model response — giving up there would leave holes in the library.
-  for (let attempt = 1; attempt <= 5; attempt++) {
+  for (let attempt = 1; attempt <= 4; attempt++) {
     try {
       const raw = await groq(prompt);
-      const { text, problems } = validate(raw, job);
-      if (text) return text;
-      console.warn(`  ✗ ${job.topic}/${job.level} rejected: ${problems.join(", ")}`);
+      const list = Array.isArray(raw?.texts) ? raw.texts : [raw];
+      const kept = [];
+      for (const candidate of list) {
+        const { text, problems } = validate(candidate, job);
+        if (text) kept.push(text);
+        else console.warn(`  ✗ ${job.topic}/${job.level} rejected: ${problems.join(", ")}`);
+      }
+      if (kept.length) return kept;
     } catch (error) {
       if (!error.retryable) {
         console.warn(`  ✗ ${job.topic}/${job.level} ${String(error.message).slice(0, 120)}`);
@@ -437,7 +469,7 @@ async function generateOne(job, existing) {
       }
     }
   }
-  return null;
+  return [];
 }
 
 async function main() {
@@ -457,24 +489,24 @@ async function main() {
     for (const level of LEVELS) {
       const have = existing.filter((t) => t.level === level).length;
       const want = count ?? Math.max(0, TARGET_PER_LEVEL - have);
-      for (let i = 0; i < want; i++) {
-        jobs.push({
-          topic,
-          label: meta.label,
-          level,
-          angle: meta.angles[(have + i) % meta.angles.length],
-        });
+      for (let i = 0; i < want; i += BATCH) {
+        const angles = [];
+        for (let k = i; k < Math.min(i + BATCH, want); k++) {
+          angles.push(meta.angles[(have + k) % meta.angles.length]);
+        }
+        jobs.push({ topic, label: meta.label, level, angles });
       }
     }
   }
 
   if (dry) {
-    const text = await generateOne(jobs[0], []);
-    console.log(JSON.stringify(text, null, 2));
+    const texts = await generateBatch(jobs[0], []);
+    console.log(JSON.stringify(texts, null, 2));
     return;
   }
 
-  console.log(`${jobs.length} texts to generate, model ${MODEL}, concurrency ${CONCURRENCY}`);
+  const wanted = jobs.reduce((sum, job) => sum + job.angles.length, 0);
+  console.log(`${wanted} texts in ${jobs.length} requests, model ${MODEL}`);
   let done = 0;
   let kept = 0;
 
@@ -492,19 +524,20 @@ async function main() {
     const workers = Array.from({ length: CONCURRENCY }, async () => {
       while (queue.length) {
         const job = queue.shift();
-        const text = await generateOne(job, texts);
+        const batch = await generateBatch(job, texts);
         done++;
-        if (!text) continue;
-        const base = slug(text.title) || `${topic}-${texts.length + 1}`;
-        if (texts.some((t) => t.id === base || t.title.toLowerCase() === text.title.toLowerCase())) {
-          console.warn(`  ✗ duplicate title "${text.title}"`);
-          continue;
+        for (const text of batch) {
+          const base = slug(text.title) || `${topic}-${texts.length + 1}`;
+          if (texts.some((t) => t.id === base || t.title.toLowerCase() === text.title.toLowerCase())) {
+            console.warn(`  ✗ duplicate title "${text.title}"`);
+            continue;
+          }
+          text.id = base;
+          texts.push(text);
+          kept++;
+          writeTopic(topic, texts);
+          console.log(`  ✓ [${kept}] ${topic} ${job.level} — ${text.title}`);
         }
-        text.id = base;
-        texts.push(text);
-        kept++;
-        writeTopic(topic, texts);
-        console.log(`  ✓ [${done}/${jobs.length}] ${topic} ${job.level} — ${text.title}`);
       }
     });
 
@@ -513,7 +546,7 @@ async function main() {
   }
 
   const index = writeIndex();
-  console.log(`\nkept ${kept}/${jobs.length}`);
+  console.log(`\nkept ${kept} texts from ${done} requests`);
   console.log(index.map((t) => `${t.id}: ${t.total}`).join("  "));
 }
 
