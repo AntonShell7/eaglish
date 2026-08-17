@@ -20,7 +20,10 @@ export interface ComprehensionQuestion {
 export interface ReadingText {
   id: string;
   level: "A1-A2" | "B1-B2" | "C1-C2";
+  /** Topic id in the library taxonomy; the six curated texts still use labels. */
   topic: string;
+  /** True for machine-generated texts, so they can be audited or replaced. */
+  generated?: boolean;
   title: string;
   sentences: ReadingSentence[];
   glossary: Record<string, GlossaryEntry>;
