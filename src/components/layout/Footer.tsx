@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { openConsentSettings } from "@/lib/consent";
 
 const SECTIONS = ["reading", "writing", "listening", "everydayEnglish", "vocabulary"] as const;
 
@@ -57,6 +58,26 @@ export function Footer() {
               >
                 {t("footer.privacy")}
               </Link>
+            </li>
+            <li>
+              <Link
+                to="/terms"
+                className="text-sm transition-colors duration-150 hover:text-[var(--color-primary)]"
+                style={{ color: "var(--color-text-muted)" }}
+              >
+                {t("footer.terms")}
+              </Link>
+            </li>
+            <li>
+              {/* Consent has to be as easy to revisit as it was to give. */}
+              <button
+                type="button"
+                onClick={openConsentSettings}
+                className="text-sm transition-colors duration-150 hover:text-[var(--color-primary)]"
+                style={{ color: "var(--color-text-muted)" }}
+              >
+                {t("footer.cookieSettings")}
+              </button>
             </li>
           </ul>
         </nav>

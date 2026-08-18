@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { AuthCard, EmailField, FormError, SubmitButton } from "@/components/auth/AuthCard";
 import { PasswordField } from "@/components/auth/PasswordField";
+import { Trans } from "react-i18next";
+import { recordLegalAcceptance } from "@/lib/consent";
 
 export default function Register() {
   const { t } = useTranslation();
@@ -12,6 +14,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
@@ -20,6 +23,10 @@ export default function Register() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!accepted) {
+      setError(t("auth.mustAccept"));
+      return;
+    }
     if (password !== confirm) {
       setError(t("auth.passwordsDontMatch"));
       return;
@@ -32,6 +39,8 @@ export default function Register() {
       setError(signUpError);
       return;
     }
+    // Keep the moment of acceptance: consent you cannot evidence is not consent.
+    recordLegalAcceptance();
     setDone(true);
     // Straight into onboarding: the answers are stored locally, so the flow
     // works while the confirmation email is still in flight.
@@ -76,6 +85,33 @@ export default function Register() {
             autoComplete="new-password"
             error={mismatch ? t("auth.passwordsDontMatch") : null}
           />
+
+          {/* Consent lives next to the button that acts on it, not in a
+              sentence under it that nobody reads. */}
+          <label className="mt-5 flex cursor-pointer items-start gap-3">
+            <input
+              type="checkbox"
+              checked={accepted}
+              onChange={(e) => {
+                setAccepted(e.target.checked);
+                setError(null);
+              }}
+              className="mt-0.5 h-4 w-4 flex-none accent-[var(--color-primary)]"
+            />
+            <span className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              <Trans
+                i18nKey="auth.acceptLegal"
+                components={{
+                  terms: <Link to="/terms" className="font-semibold underline" style={{ color: "var(--color-primary)" }} />,
+                  privacy: <Link to="/privacy" className="font-semibold underline" style={{ color: "var(--color-primary)" }} />,
+                }}
+              />
+            </span>
+          </label>
+
+          <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+            {t("auth.dataNote")}
+          </p>
 
           <FormError message={error} />
 
