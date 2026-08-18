@@ -8,8 +8,13 @@
  * because a policy that describes a different product is worse than none.
  */
 
-/** Change this before launch: it appears in both documents as the contact. */
-export const CONTACT_EMAIL = "hello@eaglish.app";
+/**
+ * The address a reader can actually write to: it appears in both documents as
+ * the contact for questions and for account deletion, so it has to be a mailbox
+ * someone reads. When the domain is live this becomes hello@<domain> and the
+ * Gmail one keeps working as a forward.
+ */
+export const CONTACT_EMAIL = "eaglish.hello@gmail.com";
 
 export const LAST_UPDATED = "2026-08-18";
 
