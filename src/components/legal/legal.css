@@ -1,0 +1,184 @@
+/* Legal pages, set for reading rather than for scrolling past. */
+
+.legal {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+.legal__head {
+  max-width: 680px;
+}
+
+.legal__title {
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.legal__updated {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* The three lines someone can stop after. */
+.legal__summary {
+  margin-top: 28px;
+  max-width: 680px;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+}
+
+.legal__summary-h {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.legal__summary ul {
+  margin-top: 12px;
+  display: grid;
+  gap: 9px;
+}
+
+.legal__summary li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+.legal__summary li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.legal__body {
+  margin-top: 44px;
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .legal__body {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 56px;
+  }
+}
+
+/* ── Contents ─────────────────────────────────────────────────────────── */
+
+.legal__toc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .legal__toc {
+    display: block;
+    position: sticky;
+    top: 88px;
+    align-self: start;
+  }
+}
+
+.legal__toc-h {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.legal__toc ol {
+  margin-top: 14px;
+  display: grid;
+  gap: 9px;
+}
+
+.legal__toc a {
+  display: flex;
+  gap: 10px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.legal__toc a:hover {
+  color: var(--color-primary);
+}
+
+.legal__toc span {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+/* ── Body ─────────────────────────────────────────────────────────────── */
+
+.legal__text {
+  max-width: 680px;
+}
+
+.legal__text section + section {
+  margin-top: 40px;
+}
+
+.legal__text h2 {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  /* Anchored headings should land below the sticky top bar. */
+  scroll-margin-top: 90px;
+}
+
+.legal__text h2 span {
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-primary);
+  padding-top: 0.35em;
+}
+
+.legal__text p {
+  margin-top: 14px;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.legal__text section {
+  scroll-margin-top: 90px;
+}
+
+.legal__foot {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.legal__link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -17,7 +17,7 @@ import { StatsStrip } from "./StatsStrip";
 import { Footer } from "./Footer";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
-import { CookieBanner } from "@/components/CookieBanner";
+import { ConsentSheet } from "@/components/consent/ConsentSheet";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
 import "./shell.css";
@@ -171,7 +171,7 @@ export function Layout() {
       )}
 
       <SelectionLookup />
-      <CookieBanner />
+      <ConsentSheet />
     </div>
   );
 }

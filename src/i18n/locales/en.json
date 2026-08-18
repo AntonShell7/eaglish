@@ -67,7 +67,10 @@
     "resetSent": "If that email is registered, a reset link is on its way.",
     "backToLogin": "Back to log in",
     "checkEmail": "Check your email to confirm your account, then log in.",
-    "notConfigured": "Supabase is not connected yet — this won't work until it is."
+    "notConfigured": "Supabase is not connected yet — this won't work until it is.",
+    "acceptLegal": "I accept the <terms>terms of use</terms> and the <privacy>privacy policy</privacy>.",
+    "mustAccept": "Please accept the terms and the privacy policy to create an account.",
+    "dataNote": "What that means in practice: we store your email and your learning progress, and the texts you send for assessment are processed by an AI provider. Nothing is sold or advertised against."
   },
   "home": {
     "kicker": "AI English Learning Platform",
@@ -253,12 +256,9 @@
   "footer": {
     "privacy": "Privacy Policy",
     "support": "Support",
-    "tagline": "Learn English through reading, writing and listening."
-  },
-  "cookies": {
-    "message": "We use cookies to keep you signed in and understand how Eaglish is used.",
-    "accept": "Accept",
-    "decline": "Decline"
+    "tagline": "Learn English through reading, writing and listening.",
+    "terms": "Terms",
+    "cookieSettings": "Cookie settings"
   },
   "shell": {
     "practice": "Practice",
@@ -554,5 +554,36 @@
     },
     "testResultNote": "An estimate, not a verdict: twelve questions land on the neighbouring level about a third of the time. If it feels wrong, set the level yourself — it only changes which texts open first.",
     "planHorizon": "For scale: Cambridge English estimates 180–260 hours of practice per CEFR level. Your pace is about {{hours}} hours a month — so Eaglish counts the tasks you finish instead of promising a date."
+  },
+  "consent": {
+    "title": "What Eaglish keeps",
+    "lede": "Your theme, your language, your sign-in and your progress — stored so the app can work at all. No trackers, no advertising, nothing sold.",
+    "gotIt": "Got it",
+    "customise": "See the details",
+    "save": "Save choices",
+    "back": "Back",
+    "always": "Always on",
+    "necessary": {
+      "h": "Necessary",
+      "p": "Sign-in session, theme, interface language and your learning progress. Switch these off and there is no app left to use."
+    },
+    "analytics": {
+      "h": "Analytics",
+      "p": "Not connected today. If it ever is, it stays off until you turn it on here — and it will never be tied to your name or email."
+    },
+    "inventoryTitle": "Exactly what is stored",
+    "purposes": {
+      "theme": "light or dark",
+      "language": "interface language",
+      "session": "keeps you signed in",
+      "progress": "words, activity, results",
+      "consent": "this decision"
+    },
+    "noThirdParty": "All of it lives in your browser. Nothing on this list is shared with anyone, and none of it is a third-party cookie."
+  },
+  "legal": {
+    "updated": "Last updated {{date}}",
+    "summary": "In short",
+    "contents": "Contents"
   }
 }
