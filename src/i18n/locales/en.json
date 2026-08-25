@@ -125,7 +125,18 @@
       "hard": "too hard for now"
     },
     "recycled_one": "{{count}} word to review",
-    "recycled_other": "{{count}} words to review"
+    "recycled_other": "{{count}} words to review",
+    "personalTitle": "A text built from your words",
+    "personalTeaser": "Written around the words you are learning right now — each of them used more than once.",
+    "personalLede": "Cards bring a word back; only a text brings it back in use. This one is written at your level, on a topic you chose, with your current words running through it.",
+    "personalWillUse": "Words that will appear in it",
+    "personalNoWords": "Save a few words first — tap any word while reading, and this page will build a text around them.",
+    "personalCta": "Write it",
+    "personalWriting": "Writing your text…",
+    "personalFailed": "Couldn't write the text this time. Try again in a minute.",
+    "workoutTitle": "Work with the words",
+    "workoutLede": "{{count}} of your words appeared in this text. Produce them now, while the context is still fresh.",
+    "workoutDone": "Done — {{count}} words practised in context."
   },
   "writing": {
     "grammar": "Grammar",
@@ -367,7 +378,11 @@
     "alreadyKnow": "I know this",
     "bandTop": "top {{count}}",
     "bandRare": "rare",
-    "bandHint": "How common this word is in English. The first few thousand words carry most of any text — those are the ones worth saving."
+    "bandHint": "How common this word is in English. The first few thousand words carry most of any text — those are the ones worth saving.",
+    "mode": {
+      "ru": "Russian",
+      "en": "In English"
+    }
   },
   "landing": {
     "promise": "Read what you'd read anyway. The words you meet come back — exactly when you'd have forgotten them.",
@@ -432,7 +447,8 @@
     "progress": "{{done}} of {{target}} tasks today",
     "goalReachedTitle": "Daily goal reached",
     "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
-    "goalReachedBody_other": "{{count}} tasks done today — the streak lives on."
+    "goalReachedBody_other": "{{count}} tasks done today — the streak lives on.",
+    "workoutDone": "Words practised in context"
   },
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
