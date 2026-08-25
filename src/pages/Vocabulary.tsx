@@ -12,71 +12,11 @@ import {
   type VocabularyWord,
 } from "@/lib/vocabularyStore";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
+import { ReviewCard } from "@/components/vocabulary/ReviewCard";
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Cards per completed task. Small enough to reach, big enough to mean something. */
 const REVIEWS_PER_TASK = 5;
-
-function Flashcard({ word, onReview }: { word: VocabularyWord; onReview: (quality: 0 | 1 | 2 | 3) => void }) {
-  const { t } = useTranslation();
-  const [flipped, setFlipped] = useState(false);
-
-  // A new card must start face-down, or the answer leaks.
-  useEffect(() => setFlipped(false), [word.id]);
-
-  const grades: { q: 0 | 1 | 2 | 3; key: string; bg?: string; border?: boolean }[] = [
-    { q: 0, key: "again", bg: "var(--color-danger)" },
-    { q: 1, key: "hard", border: true },
-    { q: 2, key: "good", border: true },
-    { q: 3, key: "easy", bg: "var(--color-success)" },
-  ];
-
-  return (
-    <div
-      className="mx-auto flex max-w-md flex-col items-center gap-5 rounded-[var(--radius-lg)] border p-8 text-center"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-    >
-      <button
-        type="button"
-        onClick={() => setFlipped((v) => !v)}
-        className="w-full rounded-[var(--radius-md)] px-4 py-12 text-2xl font-bold"
-        style={{ background: "var(--color-surface-2)" }}
-      >
-        {flipped ? word.translation : word.word}
-      </button>
-
-      {!flipped ? (
-        <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
-          {t("vocabulary.clickToReveal")}
-        </p>
-      ) : (
-        <div className="grid w-full grid-cols-4 gap-2">
-          {grades.map((g) => (
-            <button
-              key={g.key}
-              type="button"
-              onClick={() => onReview(g.q)}
-              className={
-                g.border
-                  ? "rounded-full border px-2 py-2 text-xs font-semibold"
-                  : "rounded-full px-2 py-2 text-xs font-semibold on-primary"
-              }
-              style={g.border ? { borderColor: "var(--color-border)" } : { background: g.bg }}
-            >
-              {t(`vocabulary.${g.key}`)}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {word.sourceText && (
-        <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
-          {t("vocabulary.from")} “{word.sourceText}”
-        </p>
-      )}
-    </div>
-  );
-}
 
 function ManualAdd({ onAdded }: { onAdded: () => void }) {
   const { t } = useTranslation();
@@ -301,7 +241,11 @@ export default function Vocabulary() {
               <p className="mb-3 text-center text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
                 {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
               </p>
-              <Flashcard word={currentCard} onReview={(q) => handleReview(currentCard.id, q)} />
+              <ReviewCard
+                key={currentCard.id}
+                word={currentCard}
+                onGraded={(q) => handleReview(currentCard.id, q)}
+              />
             </>
           ) : (
             <div className="py-12 text-center">

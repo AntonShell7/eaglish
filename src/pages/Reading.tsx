@@ -6,6 +6,10 @@ import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { logReadingOpen, getQuizResults, type QuizResult } from "@/lib/readingHistory";
 import { getLearnerProfile } from "@/lib/learnerProfile";
+import { buildKnownModel, coverageOf, fitOf } from "@/lib/knownWords";
+import { ensureLexicon } from "@/lib/lexicon";
+import { getDueWords } from "@/lib/vocabularyStore";
+import { normalise, tokenise } from "@/lib/lexicon";
 
 const LEVELS: ReadingText["level"][] = ["A1-A2", "B1-B2", "C1-C2"];
 const WORDS_PER_MINUTE = 130;
@@ -84,6 +88,9 @@ function TopicGrid({ onPick }: { onPick: (id: string) => void }) {
 
 /* ── Stage 2: pick a text ───────────────────────────────────────────────── */
 
+/** Coverage the reading research points at: understood, but still teaching. */
+const IDEAL_COVERAGE = 0.97;
+
 function TextList({
   topicId,
   texts,
@@ -99,13 +106,47 @@ function TextList({
 }) {
   const { t } = useTranslation();
   const profileLevel = getLearnerProfile()?.level;
+  const [lexicon, setLexicon] = useState(false);
+
+  useEffect(() => {
+    ensureLexicon().then(() => setLexicon(true));
+  }, []);
 
   const available = LEVELS.filter((level) => texts.some((text) => text.level === level));
   const [level, setLevel] = useState<ReadingText["level"]>(
     () => (profileLevel && available.includes(profileLevel) ? profileLevel : available[0]) ?? "A1-A2",
   );
 
-  const visible = texts.filter((text) => text.level === level);
+  /**
+   * Scores every text against what the reader already knows, then orders by how
+   * close it sits to the comprehensible band — and marks texts that happen to
+   * contain words due for review, since meeting a word again in reading is
+   * worth more than meeting it on a card.
+   */
+  const scored = useMemo(() => {
+    const model = buildKnownModel();
+    const due = new Set(getDueWords().map((w) => normalise(w.word)));
+
+    return texts
+      .filter((text) => text.level === level)
+      .map((text) => {
+        const sentences = text.sentences.map((s) => s.text);
+        const coverage = lexicon ? coverageOf(sentences, model) : null;
+        const recycled = due.size
+          ? new Set(sentences.flatMap(tokenise).filter((token) => due.has(token))).size
+          : 0;
+        return { text, coverage, recycled };
+      })
+      .sort((a, b) => {
+        if (b.recycled !== a.recycled) return b.recycled - a.recycled;
+        if (!a.coverage || !b.coverage) return 0;
+        return (
+          Math.abs(a.coverage.known - IDEAL_COVERAGE) - Math.abs(b.coverage.known - IDEAL_COVERAGE)
+        );
+      });
+  }, [texts, level, lexicon]);
+
+  const visible = scored;
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10">
@@ -139,8 +180,9 @@ function TextList({
       </div>
 
       <div className="mt-6 space-y-2">
-        {visible.map((text) => {
+        {visible.map(({ text, coverage, recycled }) => {
           const best = quiz.filter((r) => r.textId === text.id).reduce((max, r) => Math.max(max, r.correct), -1);
+          const fit = coverage ? fitOf(coverage.known) : null;
           return (
             <button
               key={text.id}
@@ -157,6 +199,29 @@ function TextList({
                 <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
                   {t("reading.minRead", { count: minutesFor(text) })} ·{" "}
                   {t("reading.words", { count: wordCount(text) })}
+                  {coverage && ` · ${t("reading.knownShare", { percent: Math.round(coverage.known * 100) })}`}
+                </span>
+
+                <span className="mt-1.5 flex flex-wrap gap-1.5">
+                  {fit && (
+                    <span
+                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
+                      style={{
+                        background: fit === "ideal" ? "var(--color-primary-soft)" : "var(--color-surface-2)",
+                        color: fit === "ideal" ? "var(--color-primary)" : "var(--color-text-muted)",
+                      }}
+                    >
+                      {t(`reading.fit.${fit}`)}
+                    </span>
+                  )}
+                  {recycled > 0 && (
+                    <span
+                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
+                      style={{ background: "var(--color-primary-soft)", color: "var(--color-primary)" }}
+                    >
+                      {t("reading.recycled", { count: recycled })}
+                    </span>
+                  )}
                 </span>
               </span>
 
