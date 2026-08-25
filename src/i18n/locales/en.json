@@ -284,7 +284,8 @@
     "practice": "Practice",
     "you": "You",
     "dayStreakShort": "days",
-    "xpTitle": "Level {{level}}"
+    "xpTitle": "Level {{level}}",
+    "demoMode": "Demo mode: signed in without an account. Progress stays in this browser and is not synced."
   },
   "profile": {
     "title": "Your profile",

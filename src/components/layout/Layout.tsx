@@ -47,7 +47,7 @@ const TABS = [
 export function Layout() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const { user } = useAuth();
+  const { user, demo } = useAuth();
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {
@@ -144,6 +144,17 @@ export function Layout() {
             </div>
           )}
         </header>
+
+        {/* Impossible to mistake a stand-in session for a real one, and
+            impossible to ship by accident without noticing. */}
+        {demo && (
+          <p
+            className="px-5 py-2 text-center text-xs font-bold"
+            style={{ background: "#f59e0b", color: "#2a1a00" }}
+          >
+            {t("shell.demoMode")}
+          </p>
+        )}
 
         <main className="shell__main min-w-0 flex-1">
           <TaskDoneProvider>
