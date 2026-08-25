@@ -116,7 +116,16 @@
       "health": "Health and the body",
       "environment": "Environment",
       "society": "Society"
-    }
+    },
+    "knownShare": "{{percent}}% known",
+    "fit": {
+      "easy": "easy for you",
+      "ideal": "right level",
+      "stretch": "a stretch",
+      "hard": "too hard for now"
+    },
+    "recycled_one": "{{count}} word to review",
+    "recycled_other": "{{count}} words to review"
   },
   "writing": {
     "grammar": "Grammar",
@@ -194,7 +203,18 @@
     "sessionDone": "Review done",
     "sessionSummary_one": "{{count}} card reviewed.",
     "sessionSummary_other": "{{count}} cards reviewed.",
-    "backToList": "Back to the list"
+    "backToList": "Back to the list",
+    "fillTheGap": "Fill the gap",
+    "recallWord": "Write the English word",
+    "typeInEnglish": "Type it in English…",
+    "check": "Check",
+    "dontRemember": "I don't remember",
+    "correct": "Correct",
+    "almost": "Almost — one letter off",
+    "notThisTime": "Not this time",
+    "youWrote": "you wrote “{{answer}}”",
+    "next": "Next",
+    "wasEasy": "That was easy"
   },
   "slang": {
     "categoryAll": "All",
@@ -342,7 +362,11 @@
     "fromSelection": "Selected text",
     "savedHint": "Words you've saved are underlined — meeting them again is how they stick.",
     "noKey": "No translation — a Groq API key hasn't been set up yet.",
-    "failed": "Translation failed. Check your connection and try again."
+    "failed": "Translation failed. Check your connection and try again.",
+    "alreadyKnow": "I know this",
+    "bandTop": "top {{count}}",
+    "bandRare": "rare",
+    "bandHint": "How common this word is in English. The first few thousand words carry most of any text — those are the ones worth saving."
   },
   "landing": {
     "promise": "Read what you'd read anyway. The words you meet come back — exactly when you'd have forgotten them.",

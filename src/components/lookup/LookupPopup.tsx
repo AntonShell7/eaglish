@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { lookupWord, translateToRussian, type GlossaryLike, type WordLookupResult } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
+import { markKnown } from "@/lib/knownWords";
+import { bandOf, ensureLexicon } from "@/lib/lexicon";
 
 export interface LookupRequest {
   word: string;
@@ -29,6 +31,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
   const { t } = useTranslation();
   const [result, setResult] = useState<WordLookupResult | null>(null);
   const [sentence, setSentence] = useState<string | null>(null);
+  const [band, setBand] = useState<number | null>(null);
   const [sentenceLoading, setSentenceLoading] = useState(false);
   const [saved, setSaved] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -39,6 +42,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
     setSentence(null);
     setSaved(false);
 
+    ensureLexicon().then(() => setBand(bandOf(request.word)));
     lookupWord(request.word, { sentence: request.sentence, glossary: request.glossary }).then((r) => {
       if (cancelled) return;
       setResult(r);
@@ -81,9 +85,22 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
 
   const handleSave = () => {
     if (!result || result.unavailable) return;
-    addVocabularyWord(result.word, result.translation, request.source);
+    // The sentence travels with the word: it is what makes a real recall test
+    // possible when this word comes back for review.
+    addVocabularyWord(result.word, result.translation, request.source, request.sentence);
     setSaved(true);
     setTimeout(onClose, 450);
+  };
+
+  /**
+   * "I already know this" is the most valuable tap in the app: one word of
+   * ground truth beats a whole level's worth of assumption, and it keeps the
+   * review queue free of words that were never a problem.
+   */
+  const handleKnown = () => {
+    if (!result) return;
+    markKnown(result.word);
+    onClose();
   };
 
   const left = Math.min(Math.max(request.anchor.x - WIDTH / 2, 12), window.innerWidth - WIDTH - 12);
@@ -112,11 +129,27 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
         <>
           <div className="flex items-baseline justify-between gap-2">
             <p className="text-sm font-semibold">{result.word}</p>
-            {result.partOfSpeech && (
-              <span className="text-[11px] italic" style={{ color: "var(--color-text-muted)" }}>
-                {result.partOfSpeech}
-              </span>
-            )}
+            <span className="flex items-center gap-2">
+              {/* How common the word is — the difference between a word worth
+                  learning and one worth ignoring. */}
+              {band !== null && (
+                <span
+                  className="rounded-full px-2 py-0.5 text-[10px] font-bold"
+                  style={{
+                    background: band === 0 ? "var(--color-surface-2)" : "var(--color-primary-soft)",
+                    color: band === 0 ? "var(--color-text-muted)" : "var(--color-primary)",
+                  }}
+                  title={t("lookup.bandHint")}
+                >
+                  {band === 0 ? t("lookup.bandRare") : t("lookup.bandTop", { count: band * 1000 })}
+                </span>
+              )}
+              {result.partOfSpeech && (
+                <span className="text-[11px] italic" style={{ color: "var(--color-text-muted)" }}>
+                  {result.partOfSpeech}
+                </span>
+              )}
+            </span>
           </div>
 
           <p className="mt-1 text-sm" style={{ color: result.unavailable ? "var(--color-text-muted)" : "var(--color-text)" }}>
@@ -156,11 +189,11 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
 
             <button
               type="button"
-              onClick={onClose}
-              className="rounded-full px-3 py-1.5 text-xs font-medium"
-              style={{ color: "var(--color-text-muted)" }}
+              onClick={handleKnown}
+              className="rounded-full border px-3 py-1.5 text-xs font-semibold"
+              style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
             >
-              {t("common.cancel")}
+              {t("lookup.alreadyKnow")}
             </button>
           </div>
         </>
