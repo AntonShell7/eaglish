@@ -15,6 +15,10 @@
  *   - the Russian is a natural translation, not a word-for-word gloss, because
  *     that is what the reader compares against while reading.
  *
+ * Texts are coursebook length — several paragraphs, not a paragraph — because a
+ * three-sentence text cannot repeat a word often enough to teach it, and
+ * repetition inside one text is the cheapest repetition there is.
+ *
  * Usage:
  *   node scripts/generate-reading.mjs                     # fill every topic to TARGET_PER_LEVEL
  *   node scripts/generate-reading.mjs --topic sport --count 2
@@ -30,7 +34,7 @@ const MODEL = process.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
 const CONCURRENCY = 1;
 /** Texts per request. Batching amortises the prompt and roughly triples throughput
  *  against a tokens-per-minute cap. */
-const BATCH = 3;
+const BATCH = 2;
 /**
  * Tokens-per-minute is the real ceiling (8k on the free tier, ~2k per text), so
  * the runner spaces requests instead of sprinting into a 429 and then waiting
@@ -177,20 +181,20 @@ const TOPICS = {
 
 const LEVEL_SPEC = {
   "A1-A2": {
-    sentences: "7 to 9",
-    words: "55 to 90",
+    sentences: "16 to 20",
+    words: "180 to 260",
     guidance:
       "Very simple English. Present simple and past simple only, short sentences, the most frequent 1000 words. No idioms, no subordinate clauses longer than one.",
   },
   "B1-B2": {
-    sentences: "9 to 12",
-    words: "110 to 170",
+    sentences: "20 to 26",
+    words: "280 to 400",
     guidance:
       "Everyday and semi-formal English. A mix of tenses, some linking words, a few phrasal verbs. Sentences of varied length, no rare vocabulary.",
   },
   "C1-C2": {
-    sentences: "10 to 14",
-    words: "170 to 240",
+    sentences: "22 to 30",
+    words: "350 to 480",
     guidance:
       "Advanced, essay-like register. Nuanced argument, precise collocation, hedging, some abstract nouns. Still readable — dense but never ornamental.",
   },
@@ -358,7 +362,7 @@ function validate(raw, { topic, level }) {
   if (/[:–—]/.test(text.title)) text.title = text.title.split(/[:–—]/)[0].trim();
 
   const sentences = Array.isArray(raw?.sentences) ? raw.sentences : [];
-  if (sentences.length < 6 || sentences.length > 16) problems.push(`sentence count ${sentences.length}`);
+  if (sentences.length < 14 || sentences.length > 34) problems.push(`sentence count ${sentences.length}`);
   for (const s of sentences) {
     const en = String(s?.text ?? "").trim();
     const ru = String(s?.translationRu ?? "").trim();

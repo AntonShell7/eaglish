@@ -15,6 +15,23 @@ export interface WordLookupResult {
   unavailable?: Unavailable;
 }
 
+/**
+ * A word explained in English rather than translated.
+ *
+ * This is the coursebook move: meeting a definition in the language you are
+ * learning keeps you inside it, and the effort of decoding the definition is
+ * itself practice. It is not better than a translation for every learner or
+ * every word — a beginner staring at an unknown word explained in more unknown
+ * words learns nothing — so the app offers both and lets the reader choose.
+ */
+export interface WordExplanationResult {
+  word: string;
+  definition: string;
+  example: string;
+  synonyms?: string[];
+  unavailable?: Unavailable;
+}
+
 export interface TextTranslationResult {
   translation: string;
   isLive: boolean;
@@ -169,4 +186,62 @@ export async function translateToEnglish(
   }
 
   return { english: "", note: "", example: "", isLive: false, unavailable: apiKey() ? "failed" : "no-key" };
+}
+
+/**
+ * Explains a word in simple English, at the level of a learner who is reading
+ * above their comfort zone: short definition, one example, a couple of near
+ * synonyms if there are any obvious ones.
+ */
+export async function explainInEnglish(
+  rawWord: string,
+  options: { sentence?: string } = {},
+): Promise<WordExplanationResult> {
+  const word = rawWord.trim();
+  if (!apiKey()) {
+    return { word, definition: "", example: "", unavailable: "no-key" };
+  }
+
+  const context = options.sentence ? `\nIt appears in: "${options.sentence}"` : "";
+
+  try {
+    const content = await groq({
+      temperature: 0.2,
+      max_completion_tokens: 400,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a learner's dictionary. You explain English words in plain English, using words simpler than the one being explained, and you answer with JSON only.",
+        },
+        {
+          role: "user",
+          content: `Explain the English word or phrase "${word}" for an intermediate learner.${context}
+
+Return JSON: {"definition": "one sentence, plain English, simpler words than the headword", "example": "one natural example sentence using the word", "synonyms": ["at most three close synonyms, or an empty array"]}
+
+Explain the meaning it carries in that sentence, not every meaning it can have. Never use Russian.`,
+        },
+      ],
+    });
+
+    const parsed = JSON.parse(content) as {
+      definition?: string;
+      example?: string;
+      synonyms?: string[];
+    };
+
+    const definition = (parsed.definition ?? "").trim();
+    if (!definition) return { word, definition: "", example: "", unavailable: "failed" };
+
+    return {
+      word,
+      definition,
+      example: (parsed.example ?? "").trim(),
+      synonyms: (parsed.synonyms ?? []).filter(Boolean).slice(0, 3),
+    };
+  } catch {
+    return { word, definition: "", example: "", unavailable: "failed" };
+  }
 }

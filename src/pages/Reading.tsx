@@ -4,6 +4,14 @@ import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
+import { WordWorkout } from "@/components/reading/WordWorkout";
+import {
+  generatePersonalText,
+  getPersonalTexts,
+  pickTargets,
+  targetsPresent,
+  type PersonalText,
+} from "@/lib/personalText";
 import { logReadingOpen, getQuizResults, type QuizResult } from "@/lib/readingHistory";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { buildKnownModel, coverageOf, fitOf } from "@/lib/knownWords";
@@ -20,7 +28,7 @@ function minutesFor(text: ReadingText) {
 
 /* ── Stage 1: pick a topic ──────────────────────────────────────────────── */
 
-function TopicGrid({ onPick }: { onPick: (id: string) => void }) {
+function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPersonal: () => void }) {
   const { t } = useTranslation();
   const interests = getLearnerProfile()?.interests ?? [];
 
@@ -38,7 +46,22 @@ function TopicGrid({ onPick }: { onPick: (id: string) => void }) {
         {t("reading.libraryIntro", { count: readingLibrarySize })}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* The loop the whole app is built on gets the first card, not a menu item. */}
+      <button
+        type="button"
+        onClick={onPersonal}
+        className="mt-8 flex w-full flex-col rounded-[var(--radius-lg)] border p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
+        style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
+      >
+        <span className="page-title text-lg" style={{ color: "var(--color-primary)" }}>
+          {t("reading.personalTitle")}
+        </span>
+        <span className="mt-1 text-sm" style={{ color: "var(--color-primary)" }}>
+          {t("reading.personalTeaser")}
+        </span>
+      </button>
+
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ordered.map((topic) => {
           const mine = interests.includes(topic.id) || interests.includes(topic.label);
           return (
@@ -282,6 +305,121 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
       </article>
 
       <ComprehensionQuiz textId={text.id} questions={text.questions} />
+
+      {/* Work with the words this text contained, while it is still fresh. */}
+      <WordWorkout text={text} />
+    </div>
+  );
+}
+
+/* ── Texts written around the learner's own words ───────────────────────── */
+
+function PersonalTexts({
+  onPick,
+  onBack,
+}: {
+  onPick: (text: PersonalText) => void;
+  onBack: () => void;
+}) {
+  const { t } = useTranslation();
+  const [texts, setTexts] = useState<PersonalText[]>(() => getPersonalTexts());
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const profile = getLearnerProfile();
+  const targets = pickTargets();
+
+  const make = async () => {
+    setBusy(true);
+    setError(null);
+    const topic = profile?.interests?.[0] ?? "everyday life";
+    const result = await generatePersonalText({
+      level: profile?.level ?? "A1-A2",
+      topic,
+      targets,
+    });
+    setBusy(false);
+
+    if ("error" in result) {
+      setError(t(result.error === "no-key" ? "lookup.noKey" : "reading.personalFailed"));
+      return;
+    }
+    setTexts(getPersonalTexts());
+    onPick(result.text);
+  };
+
+  return (
+    <div className="mx-auto max-w-5xl px-5 py-10">
+      <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
+        ← {t("reading.allTopics")}
+      </button>
+
+      <h1 className="page-title mt-4 text-3xl">{t("reading.personalTitle")}</h1>
+      <p className="mt-2 max-w-2xl text-sm" style={{ color: "var(--color-text-muted)" }}>
+        {t("reading.personalLede")}
+      </p>
+
+      <div
+        className="mt-6 rounded-[var(--radius-lg)] border p-5"
+        style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
+      >
+        {targets.length === 0 ? (
+          <p className="text-sm font-semibold" style={{ color: "var(--color-primary)" }}>
+            {t("reading.personalNoWords")}
+          </p>
+        ) : (
+          <>
+            <p className="text-sm font-semibold" style={{ color: "var(--color-primary)" }}>
+              {t("reading.personalWillUse")}
+            </p>
+            <p className="mt-2 flex flex-wrap gap-1.5">
+              {targets.map((word) => (
+                <span
+                  key={word}
+                  className="rounded-full px-2.5 py-1 text-xs font-bold"
+                  style={{ background: "var(--color-surface)", color: "var(--color-primary)" }}
+                >
+                  {word}
+                </span>
+              ))}
+            </p>
+            <button
+              type="button"
+              onClick={make}
+              disabled={busy}
+              className="mt-4 rounded-full px-5 py-2.5 text-sm font-semibold on-primary disabled:opacity-60"
+              style={{ background: "var(--color-primary)" }}
+            >
+              {busy ? t("reading.personalWriting") : t("reading.personalCta")}
+            </button>
+          </>
+        )}
+        {error && (
+          <p className="mt-3 text-xs font-semibold" style={{ color: "var(--color-danger)" }}>
+            {error}
+          </p>
+        )}
+      </div>
+
+      <div className="mt-6 space-y-2">
+        {texts.map((text) => (
+          <button
+            key={text.id}
+            type="button"
+            onClick={() => onPick(text)}
+            className="flex w-full items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3 text-left"
+            style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
+          >
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold">{text.title}</span>
+              <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
+                {t("reading.words", { count: wordCount(text) })} · {text.level} ·{" "}
+                {targetsPresent(text).join(", ")}
+              </span>
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -298,6 +436,7 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
 export default function Reading() {
   const { t } = useTranslation();
   const [topicId, setTopicId] = useState<string | null>(null);
+  const [personal, setPersonal] = useState(false);
   const [texts, setTexts] = useState<ReadingText[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<ReadingText | null>(null);
@@ -324,6 +463,8 @@ export default function Reading() {
 
   if (open) return <Reader key={open.id} text={open} onBack={() => setOpen(null)} />;
 
+  if (personal) return <PersonalTexts onPick={setOpen} onBack={() => setPersonal(false)} />;
+
   if (topicId) {
     if (loading) {
       return (
@@ -344,5 +485,5 @@ export default function Reading() {
     );
   }
 
-  return <TopicGrid onPick={setTopicId} />;
+  return <TopicGrid onPick={setTopicId} onPersonal={() => setPersonal(true)} />;
 }

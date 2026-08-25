@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { lookupWord, translateToRussian, type GlossaryLike, type WordLookupResult } from "@/lib/translate";
+import {
+  explainInEnglish,
+  lookupWord,
+  translateToRussian,
+  type GlossaryLike,
+  type WordExplanationResult,
+  type WordLookupResult,
+} from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { markKnown } from "@/lib/knownWords";
 import { bandOf, ensureLexicon } from "@/lib/lexicon";
@@ -18,6 +25,22 @@ export interface LookupRequest {
 }
 
 const WIDTH = 288;
+const MODE_KEY = "lookupMode";
+
+/**
+ * Translate, or explain in English.
+ *
+ * The coursebook this was modelled on never translates: a word is explained in
+ * simpler English, so the reader stays inside the language and the explanation
+ * is itself practice. That works beautifully at B1 and up and fails badly at
+ * A1, where the definition contains more unknown words than the headword. So
+ * the choice belongs to the reader, and it sticks between lookups.
+ */
+type Mode = "ru" | "en";
+
+function storedMode(): Mode {
+  return localStorage.getItem(MODE_KEY) === "en" ? "en" : "ru";
+}
 
 /**
  * The one word-lookup surface, used from every page: reading texts, the writing
@@ -29,7 +52,10 @@ const WIDTH = 288;
  */
 export function LookupPopup({ request, onClose }: { request: LookupRequest; onClose: () => void }) {
   const { t } = useTranslation();
+  const [mode, setMode] = useState<Mode>(storedMode);
   const [result, setResult] = useState<WordLookupResult | null>(null);
+  const [explanation, setExplanation] = useState<WordExplanationResult | null>(null);
+  const [explaining, setExplaining] = useState(false);
   const [sentence, setSentence] = useState<string | null>(null);
   const [band, setBand] = useState<number | null>(null);
   const [sentenceLoading, setSentenceLoading] = useState(false);
@@ -39,6 +65,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
   useEffect(() => {
     let cancelled = false;
     setResult(null);
+    setExplanation(null);
     setSentence(null);
     setSaved(false);
 
@@ -68,6 +95,21 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
       document.removeEventListener("keydown", onKey);
     };
   }, [onClose]);
+
+  /** English side is fetched lazily: most lookups never ask for it. */
+  useEffect(() => {
+    if (mode !== "en" || explanation || explaining) return;
+    setExplaining(true);
+    explainInEnglish(request.word, { sentence: request.sentence }).then((r) => {
+      setExplanation(r);
+      setExplaining(false);
+    });
+  }, [mode, explanation, explaining, request.word, request.sentence]);
+
+  const chooseMode = (next: Mode) => {
+    localStorage.setItem(MODE_KEY, next);
+    setMode(next);
+  };
 
   const handleSentence = async () => {
     if (!request.sentence) return;
@@ -152,9 +194,60 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
             </span>
           </div>
 
-          <p className="mt-1 text-sm" style={{ color: result.unavailable ? "var(--color-text-muted)" : "var(--color-text)" }}>
-            {result.unavailable ? t(result.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed") : result.translation}
-          </p>
+          <div
+            className="mt-2 flex rounded-full border p-0.5 text-[11px] font-bold"
+            style={{ borderColor: "var(--color-border)" }}
+          >
+            {(["ru", "en"] as Mode[]).map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => chooseMode(option)}
+                className="flex-1 rounded-full px-2 py-1"
+                style={{
+                  background: mode === option ? "var(--color-primary)" : "transparent",
+                  color: mode === option ? "var(--color-on-primary)" : "var(--color-text-muted)",
+                }}
+              >
+                {t(`lookup.mode.${option}`)}
+              </button>
+            ))}
+          </div>
+
+          {mode === "ru" ? (
+            <p
+              className="mt-2 text-sm"
+              style={{ color: result.unavailable ? "var(--color-text-muted)" : "var(--color-text)" }}
+            >
+              {result.unavailable
+                ? t(result.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed")
+                : result.translation}
+            </p>
+          ) : (
+            <div className="mt-2 text-sm">
+              {!explanation ? (
+                <p style={{ color: "var(--color-text-muted)" }}>{t("common.loading")}</p>
+              ) : explanation.unavailable ? (
+                <p style={{ color: "var(--color-text-muted)" }}>
+                  {t(explanation.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed")}
+                </p>
+              ) : (
+                <>
+                  <p className="leading-relaxed">{explanation.definition}</p>
+                  {explanation.example && (
+                    <p className="mt-2 text-xs italic" style={{ color: "var(--color-text-muted)" }}>
+                      “{explanation.example}”
+                    </p>
+                  )}
+                  {explanation.synonyms && explanation.synonyms.length > 0 && (
+                    <p className="mt-2 text-xs" style={{ color: "var(--color-text-muted)" }}>
+                      ≈ {explanation.synonyms.join(", ")}
+                    </p>
+                  )}
+                </>
+              )}
+            </div>
+          )}
 
           {sentence && (
             <p
