@@ -14,7 +14,7 @@
  * someone reads. When the domain is live this becomes hello@<domain> and the
  * Gmail one keeps working as a forward.
  */
-export const CONTACT_EMAIL = "eaglish.hello@yandex.ru";
+export const CONTACT_EMAIL = "eaglish@yandex.ru";
 
 export const LAST_UPDATED = "2026-08-18";
 
