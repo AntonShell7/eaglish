@@ -12,7 +12,8 @@
     "support": "Support",
     "logIn": "Log in",
     "logOut": "Log out",
-    "signUp": "Sign up"
+    "signUp": "Sign up",
+    "listeningSoon": "Listening · soon"
   },
   "common": {
     "continue": "Continue",
@@ -81,7 +82,7 @@
     "descriptions": {
       "reading": "Read short texts by topic and level, and look up any word instantly as you go.",
       "writing": "Get short writing prompts and structured feedback on grammar and style.",
-      "listening": "Coming soon — listening practice with real, natural English.",
+      "listening": "In development. Reading, writing, vocabulary and everyday English work today — listening is the next section to be built.",
       "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
       "vocabulary": "Every word you save comes back for review, right when you need it."
     }
@@ -626,5 +627,15 @@
     "updated": "Last updated {{date}}",
     "summary": "In short",
     "contents": "Contents"
+  },
+  "feedback": {
+    "launch": "Report a problem",
+    "title": "What went wrong?",
+    "lede": "Anything at all: a bug, a confusing screen, a word you'd have written differently. The page you're on comes with the message, so no need to describe where you are.",
+    "placeholder": "The review card wouldn't accept my answer…",
+    "send": "Send",
+    "sent": "Got it — thank you. This is exactly what makes the app better.",
+    "failed": "Couldn't send it.",
+    "byEmail": "Send by email instead"
   }
 }
