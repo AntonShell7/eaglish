@@ -89,7 +89,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
           </div>
 
           <p style={{ marginTop: 20, fontSize: 12, color: "#7e7796" }}>
-            Если повторится — напиши на eaglish.hello@yandex.ru, это правда помогает.
+            Если повторится — напиши на eaglish@yandex.ru, это правда помогает.
           </p>
 
           <pre
