@@ -1,0 +1,127 @@
+/* The report button. Present but quiet: bottom-right on desktop, tucked above
+   the tab bar on a phone so it never covers navigation. */
+
+.fb-launch {
+  position: fixed;
+  right: 16px;
+  bottom: calc(88px + env(safe-area-inset-bottom));
+  z-index: 55;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.fb-launch:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+  .fb-launch {
+    bottom: 20px;
+  }
+}
+
+.fb-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 74;
+  background: color-mix(in srgb, #05030d 55%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.fb-card {
+  position: fixed;
+  z-index: 75;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(480px, calc(100vw - 32px));
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft-lg);
+}
+
+.fb-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.fb-lede {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.fb-input {
+  margin-top: 16px;
+  width: 100%;
+  resize: none;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  outline: none;
+}
+
+.fb-input:focus {
+  border-color: var(--color-primary);
+}
+
+.fb-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-primary {
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.fb-primary:disabled {
+  opacity: 0.45;
+}
+
+.fb-ghost {
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.fb-sent {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-success);
+}
+
+.fb-failed {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--color-danger);
+}
+
+.fb-failed a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
