@@ -12,6 +12,7 @@ import {
   type VocabularyWord,
 } from "@/lib/vocabularyStore";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
+import { wordStrength } from "@/lib/vocabularyStore";
 import { ReviewCard } from "@/components/vocabulary/ReviewCard";
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -208,6 +209,33 @@ export default function Vocabulary() {
                 </div>
 
                 <div className="flex flex-none items-center gap-3">
+                  {/* How firmly the word is held. A list of words with no sense
+                      of which ones are shaky is a list you cannot act on. */}
+                  <span className="flex flex-col items-end gap-1.5">
+                    <span className="tabular text-[11px] font-bold" style={{ color: "var(--color-text-muted)" }}>
+                      {wordStrength(w)}%
+                    </span>
+                    <span
+                      className="block h-1.5 w-16 overflow-hidden rounded-full"
+                      style={{ background: "var(--color-surface-3)" }}
+                      title={t("vocabulary.strengthHint")}
+                    >
+                      <span
+                        className="block h-full rounded-full"
+                        style={{
+                          width: `${wordStrength(w)}%`,
+                          background:
+                            wordStrength(w) >= 70
+                              ? "var(--color-success)"
+                              : wordStrength(w) >= 30
+                                ? "var(--color-primary)"
+                                : "var(--color-accent)",
+                          transition: "width var(--dur-4) var(--ease)",
+                        }}
+                      />
+                    </span>
+                  </span>
+
                   <span className="text-right text-[11px]" style={{ color: "var(--color-text-muted)" }}>
                     {dueLabel(w)}
                     <br />

@@ -130,7 +130,14 @@ export function Layout() {
           </NavLink>
 
           {user ? (
-            <StatsStrip routeKey={pathname} />
+            <span className="flex items-center gap-2">
+              {demo && (
+                <span className="chip" title={t("shell.demoMode")}>
+                  demo
+                </span>
+              )}
+              <StatsStrip routeKey={pathname} />
+            </span>
           ) : (
             <div className="flex items-center gap-2">
               <NavLink
@@ -149,17 +156,6 @@ export function Layout() {
             </div>
           )}
         </header>
-
-        {/* Impossible to mistake a stand-in session for a real one, and
-            impossible to ship by accident without noticing. */}
-        {demo && (
-          <p
-            className="px-5 py-2 text-center text-xs font-bold"
-            style={{ background: "#f59e0b", color: "#2a1a00" }}
-          >
-            {t("shell.demoMode")}
-          </p>
-        )}
 
         <main className="shell__main min-w-0 flex-1">
           <TaskDoneProvider>
