@@ -437,7 +437,11 @@
     "dueLine_other": "{{count}} words are ready for review.",
     "reviewNow": "Review now",
     "nothingDue": "Nothing due for review — the queue is clear.",
-    "readSomething": "Read something"
+    "readSomething": "Read something",
+    "todayShort": "today",
+    "goalMet": "Today's goal is done",
+    "goalMetSub": "Anything past this is a bonus — the streak is safe either way.",
+    "nextStepSub": "One task is enough to keep the streak alive. Start with whatever you'd actually enjoy."
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -637,5 +641,15 @@
     "sent": "Got it — thank you. This is exactly what makes the app better.",
     "failed": "Couldn't send it.",
     "byEmail": "Send by email instead"
+  },
+  "palette": {
+    "title": "Quick navigation",
+    "placeholder": "Where to?",
+    "nothing": "Nothing matches that.",
+    "toggleTheme": "Switch theme",
+    "toggleLanguage": "Switch interface language",
+    "toMove": "to move",
+    "toOpen": "to open",
+    "toClose": "to close"
   }
 }

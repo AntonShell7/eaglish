@@ -19,6 +19,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { ConsentSheet } from "@/components/consent/ConsentSheet";
 import { FeedbackButton } from "@/components/FeedbackButton";
+import { CommandPalette } from "@/components/ui/CommandPalette";
 import { useReveal } from "@/lib/useReveal";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
@@ -192,6 +193,7 @@ export function Layout() {
       <SelectionLookup />
       <ConsentSheet />
       <FeedbackButton />
+      <CommandPalette />
     </div>
   );
 }

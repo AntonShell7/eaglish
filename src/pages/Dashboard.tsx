@@ -2,28 +2,32 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
-import { Meter } from "@/components/charts/figures";
+import { ProgressRing } from "@/components/ui/ProgressRing";
 import { IconBook, IconPen, IconHeadphones, IconChat, IconBookmark } from "@/components/brand/icons";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getLevelState, getTotalXp } from "@/lib/gamification";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
+import { useCountUp } from "@/lib/useCountUp";
 import "@/components/charts/charts.css";
 
 const FEATURES = [
   { to: "/reading", key: "reading", icon: <IconBook /> },
   { to: "/writing", key: "writing", icon: <IconPen /> },
-  { to: "/listening", key: "listening", icon: <IconHeadphones /> },
   { to: "/everyday-english", key: "everydayEnglish", icon: <IconChat /> },
   { to: "/vocabulary", key: "vocabulary", icon: <IconBookmark /> },
+  { to: "/listening", key: "listening", icon: <IconHeadphones /> },
 ] as const;
 
 /**
- * Home once there's an account behind it.
+ * Home, once there is an account behind it.
  *
- * No pitch and no sign-up button — those belong to the landing page. This
- * answers one question instead: what should I do right now? Words that are due
- * lead, because a review that's overdue is the thing most likely to be lost.
+ * It answers one question — what should I do right now — and it answers it in
+ * one glance, because that glance is the whole reason someone opens the app on
+ * a tired evening. So the screen has exactly one loud thing: a ring closing on
+ * today's goal, with the single most useful action beside it. Everything else
+ * is quiet by design; a dashboard of equally weighted tiles is a dashboard that
+ * makes you decide, and deciding is the friction that ends streaks.
  */
 export default function Dashboard() {
   const { t } = useTranslation();
@@ -43,14 +47,16 @@ export default function Dashboard() {
     setProfile(getLearnerProfile());
   }, []);
 
+  const xp = useCountUp(level.xpIntoLevel);
+  const streakShown = useCountUp(streak, 500);
   const goalDone = today >= goal;
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-8">
-      <h1 className="page-title text-3xl">{t("dashboard.greeting")}</h1>
+    <div className="mx-auto max-w-6xl px-5 py-10">
+      <p className="eyebrow">{profile ? profile.level : t("dashboard.greeting")}</p>
+      <h1 className="page-title mt-2 text-4xl">{t("dashboard.greeting")}</h1>
       <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
-        {streak > 0 ? t("dashboard.streakLine", { count: streak }) : t("dashboard.noStreakLine")}
-        {profile && ` · ${profile.level}`}
+        {streak > 0 ? t("dashboard.streakLine", { count: streakShown }) : t("dashboard.noStreakLine")}
       </p>
 
       {/* Anyone who skipped onboarding, or signed in on a fresh device, still
@@ -58,7 +64,7 @@ export default function Dashboard() {
       {!profile && (
         <Link
           to="/onboarding"
-          className="card mt-6 flex flex-wrap items-center justify-between gap-3 p-5"
+          className="card card--interactive mt-7 flex flex-wrap items-center justify-between gap-3 p-5"
           style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
         >
           <span>
@@ -69,63 +75,90 @@ export default function Dashboard() {
               {t("onboarding.promptBody")}
             </span>
           </span>
-          <span className="rounded-full px-4 py-2 text-xs font-bold on-primary" style={{ background: "var(--color-primary)" }}>
-            {t("onboarding.promptCta")}
-          </span>
+          <span className="btn btn--primary btn--sm">{t("onboarding.promptCta")}</span>
         </Link>
       )}
 
-      {/* Today: the goal, and whatever is waiting */}
-      <section className="card viz mt-6 grid gap-6 p-6 lg:grid-cols-2">
-        <div className="space-y-4">
-          <Meter
-            value={today}
-            max={goal}
-            label={t("progress.todayGoal")}
-            valueLabel={t("progress.goalProgress", { done: today, target: goal })}
-            done={goalDone}
-          />
-          <Meter
-            value={level.xpIntoLevel}
-            max={level.xpForThisLevel}
-            label={t("progress.levelMeter", { level: level.level })}
-            valueLabel={`${level.xpIntoLevel} / ${level.xpForThisLevel} XP`}
-          />
-        </div>
+      {/* The one loud thing on the page. */}
+      <section className="card mt-7 overflow-hidden p-6 sm:p-8" style={{ boxShadow: "var(--shadow-2)" }}>
+        <div className="flex flex-col items-center gap-7 sm:flex-row sm:items-center sm:gap-9">
+          <ProgressRing value={today} max={goal}>
+            <span>
+              <span className="tabular block text-3xl font-bold" style={{ color: goalDone ? "var(--color-success)" : "var(--color-text)" }}>
+                {today}
+                <span style={{ color: "var(--color-text-faint)" }}>/{goal}</span>
+              </span>
+              <span className="mt-0.5 block text-[10px] font-bold tracking-wide uppercase" style={{ color: "var(--color-text-faint)" }}>
+                {t("dashboard.todayShort")}
+              </span>
+            </span>
+          </ProgressRing>
 
-        <div className="flex flex-col justify-center gap-3">
-          {due > 0 ? (
-            <>
-              <p className="text-sm">{t("dashboard.dueLine", { count: due })}</p>
-              <Link
-                to="/vocabulary"
-                className="btn btn--primary w-fit"
-              >
-                {t("dashboard.reviewNow")}
-              </Link>
-            </>
-          ) : (
-            <>
-              <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-                {t("dashboard.nothingDue")}
-              </p>
-              <Link
-                to="/reading"
-                className="btn btn--primary w-fit"
-              >
-                {t("dashboard.readSomething")}
-              </Link>
-            </>
-          )}
+          <div className="min-w-0 flex-1 text-center sm:text-left">
+            <h2 className="page-title text-2xl">
+              {goalDone
+                ? t("dashboard.goalMet")
+                : due > 0
+                  ? t("dashboard.dueLine", { count: due })
+                  : t("dashboard.nothingDue")}
+            </h2>
+            <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
+              {goalDone ? t("dashboard.goalMetSub") : t("dashboard.nextStepSub")}
+            </p>
+
+            <div className="mt-5 flex flex-wrap justify-center gap-2 sm:justify-start">
+              {due > 0 ? (
+                <>
+                  <Link to="/vocabulary" className="btn btn--primary">
+                    {t("dashboard.reviewNow")}
+                  </Link>
+                  <Link to="/reading" className="btn btn--ghost">
+                    {t("dashboard.readSomething")}
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/reading" className="btn btn--primary">
+                    {t("dashboard.readSomething")}
+                  </Link>
+                  <Link to="/writing" className="btn btn--ghost">
+                    {t("nav.writing")}
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Level sits to the side: worth seeing, never worth deciding on. */}
+          <div
+            className="w-full shrink-0 border-t pt-5 sm:w-40 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-7"
+            style={{ borderColor: "var(--color-border)" }}
+          >
+            <p className="eyebrow">{t("progress.levelMeter", { level: level.level })}</p>
+            <p className="tabular mt-2 text-2xl font-bold">
+              {xp}
+              <span className="text-sm font-medium" style={{ color: "var(--color-text-faint)" }}>
+                {" "}
+                / {level.xpForThisLevel} XP
+              </span>
+            </p>
+            <div className="mt-3 h-1.5 overflow-hidden rounded-full" style={{ background: "var(--color-surface-3)" }}>
+              <div
+                className="h-full rounded-full"
+                style={{
+                  width: `${Math.round(level.progress * 100)}%`,
+                  background: "var(--gradient-brand)",
+                  transition: "width 900ms var(--ease)",
+                }}
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="mt-12">
-        <h2 className="section-title">{t("home.chooseMode")}</h2>
-        <div className="section-rule">
-          <span className="section-rule__dot" />
-        </div>
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <p className="eyebrow">{t("home.chooseMode")}</p>
+        <div data-stagger className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, i) => (
             <FeatureCard
               key={feature.to}
