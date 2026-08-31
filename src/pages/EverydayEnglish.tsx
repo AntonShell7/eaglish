@@ -39,7 +39,7 @@ function LessonCard({
     <button
       type="button"
       onClick={onOpen}
-      className="flex h-full flex-col rounded-[var(--radius-lg)] border p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
+      className="card flex h-full flex-col p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
       style={{
         borderColor: done ? "var(--color-success)" : "var(--color-border)",
         background: "var(--color-surface)",
@@ -80,10 +80,7 @@ function PhraseCard({ entry }: { entry: SlangEntry }) {
   const [saved, setSaved] = useState(false);
 
   return (
-    <div
-      className="flex min-h-[190px] flex-col justify-between rounded-[var(--radius-lg)] border p-5"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-    >
+    <div className="card flex min-h-[190px] flex-col justify-between p-5">
       <button type="button" onClick={() => setFlipped((v) => !v)} className="flex-1 text-left">
         <span
           className="mb-3 inline-block rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide uppercase"

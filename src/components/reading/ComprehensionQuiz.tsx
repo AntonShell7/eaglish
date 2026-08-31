@@ -39,10 +39,7 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
   };
 
   return (
-    <section
-      className="mt-6 rounded-[var(--radius-lg)] border p-6 sm:p-8"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-    >
+    <section className="card mt-6 p-6 sm:p-8">
       <h3 className="page-title text-xl">{t("reading.comprehension")}</h3>
 
       <ol className="mt-6 space-y-6">

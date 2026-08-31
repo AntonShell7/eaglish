@@ -62,10 +62,7 @@ export function WriterTranslator({ source }: { source: string }) {
   };
 
   return (
-    <div
-      className="rounded-[var(--radius-lg)] border p-5"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-    >
+    <div className="card p-5">
       <div className="flex items-center justify-between gap-2">
         <p className="page-title text-base">{t("writing.translatorTitle")}</p>
         {loading && (

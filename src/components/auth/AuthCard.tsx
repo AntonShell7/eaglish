@@ -16,8 +16,7 @@ export function AuthCard({ title, intro, onSubmit, children, footer }: AuthCardP
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-5 py-10">
       <form
-        className="w-full rounded-[var(--radius-lg)] border p-8"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
+        className="card w-full p-8"
         onSubmit={onSubmit}
       >
         <h1 className="page-title text-2xl">{title}</h1>

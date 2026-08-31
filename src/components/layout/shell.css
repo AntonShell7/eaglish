@@ -22,7 +22,10 @@
   height: 100vh;
   flex-direction: column;
   border-right: 1px solid var(--color-border);
-  background: var(--color-surface);
+  /* Translucent rather than solid: the page's glow shows through, and the rail
+     reads as part of the room instead of a grey column bolted to the side. */
+  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
   padding: 22px 14px;
 }
 
@@ -58,28 +61,45 @@
 }
 
 .rail__link {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 9px 10px;
+  gap: 11px;
+  padding: 10px 12px;
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-muted);
   transition:
-    background 0.15s ease,
-    color 0.15s ease;
+    background var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease),
+    transform var(--dur-1) var(--ease);
 }
 
 .rail__link:hover {
   background: var(--color-surface-2);
   color: var(--color-text);
+  transform: translateX(2px);
 }
 
 .rail__link--active {
   background: var(--color-primary-soft);
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: 650;
+}
+
+/* A short bar on the leading edge marks the current section — the same cue the
+   tab bar uses on a phone, so the two never look like different apps. */
+.rail__link--active::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 3px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  transform: translateY(-50%);
 }
 
 .rail__link svg {
@@ -104,9 +124,9 @@
   justify-content: space-between;
   gap: 14px;
   padding: 12px 20px;
-  border-bottom: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
-  backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
 }
 
 .topline__brand {
@@ -133,13 +153,22 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 11px;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
+  box-shadow: var(--shadow-1);
   font-size: 0.8rem;
   font-weight: 700;
   white-space: nowrap;
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.stat-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
 }
 
 .stat-chip svg {
@@ -165,9 +194,9 @@
   z-index: 40;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg) 94%, transparent);
-  backdrop-filter: blur(14px);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 86%, transparent);
+  backdrop-filter: blur(20px) saturate(150%);
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -178,14 +207,37 @@
 }
 
 .tabbar__link {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
-  padding: 9px 2px 8px;
+  padding: 10px 2px 8px;
   font-size: 0.6rem;
   font-weight: 600;
   color: var(--color-text-muted);
+  transition: color var(--dur-2) var(--ease);
+}
+
+.tabbar__link svg {
+  transition: transform var(--dur-2) var(--ease-spring);
+}
+
+.tabbar__link--active svg {
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* The same marker as the rail, moved to the top edge. */
+.tabbar__link--active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 22px;
+  height: 2.5px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  transform: translateX(-50%);
 }
 
 .tabbar__link svg {

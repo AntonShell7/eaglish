@@ -10,10 +10,7 @@ interface SectionHeroProps {
 export function SectionHero({ kicker, title, description, children }: SectionHeroProps) {
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
-      <section
-        className="rounded-[var(--radius-lg)] border p-8 sm:p-12"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <section className="card p-8 sm:p-12">
         <p
           className="mb-3 inline-block rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase"
           style={{ background: "var(--color-primary-soft)", color: "var(--color-primary)" }}

@@ -19,6 +19,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { ConsentSheet } from "@/components/consent/ConsentSheet";
 import { FeedbackButton } from "@/components/FeedbackButton";
+import { useReveal } from "@/lib/useReveal";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
 import "./shell.css";
@@ -54,6 +55,9 @@ export function Layout() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // Re-scan on every navigation: the next page's sections are new nodes.
+  useReveal([pathname]);
 
   return (
     <div className={user ? "shell" : "shell shell--guest"}>
@@ -159,7 +163,11 @@ export function Layout() {
 
         <main className="shell__main min-w-0 flex-1">
           <TaskDoneProvider>
-            <Outlet />
+            {/* Keyed by route so each page arrives with the same short rise
+                instead of snapping into place. */}
+            <div key={pathname} className="page-enter">
+              <Outlet />
+            </div>
           </TaskDoneProvider>
         </main>
 

@@ -21,6 +21,7 @@ export default function Landing() {
     <div className="lp mx-auto max-w-5xl px-5 py-8">
       <section className="lp-hero">
         <div className="lp-hero__grain" />
+        <div className="lp-hero__aurora" aria-hidden />
         <div className="lp-hero__inner">
           <div className="crest-stage lp-hero__mark fade-up">
             <BrandLogo />
@@ -46,12 +47,12 @@ export default function Landing() {
       </section>
 
       {/* The method */}
-      <section className="lp-section">
+      <section className="lp-section" data-reveal>
         <p className="lp-eyebrow">{t("landing.methodEyebrow")}</p>
         <h2 className="lp-title">{t("landing.methodTitle")}</h2>
         <p className="lp-lede">{t("landing.methodLede")}</p>
 
-        <div className="lp-steps">
+        <div className="lp-steps" data-stagger>
           {STEPS.map((key, i) => (
             <div key={key} className="lp-step">
               <span className="lp-step__n">{i + 1}</span>
@@ -65,11 +66,11 @@ export default function Landing() {
       </section>
 
       {/* Principles */}
-      <section className="lp-section">
+      <section className="lp-section" data-reveal>
         <p className="lp-eyebrow">{t("landing.principlesEyebrow")}</p>
         <h2 className="lp-title">{t("landing.principlesTitle")}</h2>
 
-        <div className="lp-principles">
+        <div className="lp-principles" data-stagger>
           {PRINCIPLES.map((key) => (
             <div key={key} className="lp-principle">
               <p className="lp-principle__h">{t(`landing.principles.${key}.h`)}</p>
@@ -79,7 +80,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="lp-close">
+      <section className="lp-close" data-reveal>
         <h2 className="lp-close__h">{t("landing.closeTitle")}</h2>
         <div className="lp-close__actions">
           <Link to="/register" className="lp-cta">

@@ -58,7 +58,7 @@ export default function Dashboard() {
       {!profile && (
         <Link
           to="/onboarding"
-          className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-lg)] border p-5"
+          className="card mt-6 flex flex-wrap items-center justify-between gap-3 p-5"
           style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
         >
           <span>
@@ -76,10 +76,7 @@ export default function Dashboard() {
       )}
 
       {/* Today: the goal, and whatever is waiting */}
-      <section
-        className="viz mt-6 grid gap-6 rounded-[var(--radius-lg)] border p-6 lg:grid-cols-2"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <section className="card viz mt-6 grid gap-6 p-6 lg:grid-cols-2">
         <div className="space-y-4">
           <Meter
             value={today}
