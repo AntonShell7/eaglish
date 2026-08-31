@@ -5,6 +5,7 @@ import { Columns, type ColumnDatum } from "@/components/charts/Columns";
 import { Heatmap, type HeatmapCell } from "@/components/charts/Heatmap";
 import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
 import { MixBar, type MixSegment } from "@/components/charts/MixBar";
+import { VocabularyReport } from "@/components/progress/VocabularyReport";
 import { IconFlame, IconTarget } from "@/components/brand/icons";
 import { getWritingHistory } from "@/lib/writingHistory";
 import { getVocabulary, getDueWords } from "@/lib/vocabularyStore";
@@ -103,6 +104,10 @@ export default function Progress() {
   return (
     <div className="mx-auto max-w-6xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
+
+      <VocabularyReport />
+
+      <p className="eyebrow mt-12">{t("progress.effortTitle")}</p>
 
       {/* Hero + level meter: exactly one hero figure on the page */}
       <section className="card viz mt-6 grid gap-6 p-6 lg:grid-cols-[auto_1fr] lg:items-center">

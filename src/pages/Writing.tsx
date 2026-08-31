@@ -8,6 +8,7 @@ import { clearDraft, getDraft, getDrafts, saveDraft } from "@/lib/writingDrafts"
 import { rankByGoal } from "@/lib/learnerProfile";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { WriterTranslator } from "@/components/writing/WriterTranslator";
+import { WordsIntoUse } from "@/components/writing/WordsIntoUse";
 
 const SCORE_KEYS = ["grammar", "vocabulary", "coherence", "overall"] as const;
 const MIN_SUBMIT_WORDS = 30;
@@ -377,8 +378,13 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
  * they're for, ordered by the learner's stated goal, and each one keeps its own
  * draft and its own score history.
  */
+type Mode = "words" | "briefs";
+
 export default function Writing() {
   const { t } = useTranslation();
+  /* Writing here exists to activate your own words, so that mode leads and the
+     briefs sit behind it — the reverse of every other writing tool. */
+  const [mode, setMode] = useState<Mode>("words");
   const [category, setCategory] = useState<WritingCategory | "all">("all");
   const [openId, setOpenId] = useState<string | null>(null);
   const [history, setHistory] = useState<WritingSubmission[]>([]);
@@ -402,6 +408,25 @@ export default function Writing() {
   return (
     <SectionHero kicker={t("nav.writing")} title={t("nav.writing")} description={t("writing.intro")}>
       <div className="mt-8 flex flex-wrap gap-2">
+        {(["words", "briefs"] as Mode[]).map((key) => (
+          <button
+            key={key}
+            type="button"
+            onClick={() => setMode(key)}
+            className="rounded-full px-4 py-2 text-sm font-semibold"
+            style={{
+              background: mode === key ? "var(--color-primary)" : "var(--color-surface-2)",
+              color: mode === key ? "var(--color-on-primary)" : "var(--color-text-muted)",
+            }}
+          >
+            {t(`writing.modes.${key}`)}
+          </button>
+        ))}
+      </div>
+
+      {mode === "words" && <WordsIntoUse />}
+
+      <div className="mt-8 flex flex-wrap gap-2" style={{ display: mode === "briefs" ? undefined : "none" }}>
         {CATEGORIES.map((key) => (
           <button
             key={key}
@@ -418,7 +443,10 @@ export default function Writing() {
         ))}
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div
+        className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        style={{ display: mode === "briefs" ? undefined : "none" }}
+      >
         {visible.map((topic, i) => (
           <TopicCard
             key={topic.id}

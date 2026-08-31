@@ -161,7 +161,7 @@
     "tips": "What to improve",
     "translatorTitle": "Translator",
     "translatorPlaceholder": "Russian word or phrase",
-    "intro": "Fourteen briefs, grouped by what you actually need to write. Each comes with its structure, the phrases that carry it, a worked example — and an honest score with the fixes behind it.",
+    "intro": "Writing here is how a word stops being recognisable and becomes usable. Take five of your own words and put them into something you'd actually write.",
     "categories": {
       "all": "All",
       "exam": "Exams",
@@ -184,7 +184,11 @@
     "allBriefs": "All briefs",
     "submitForFeedback": "Get it assessed",
     "assessing": "Reading your text…",
-    "pastAttempts": "Your earlier attempts"
+    "pastAttempts": "Your earlier attempts",
+    "modes": {
+      "words": "Your words in use",
+      "briefs": "Writing briefs"
+    }
   },
   "vocabulary": {
     "clickToReveal": "Click to reveal",
@@ -226,7 +230,8 @@
     "notThisTime": "Not this time",
     "youWrote": "you wrote “{{answer}}”",
     "next": "Next",
-    "wasEasy": "That was easy"
+    "wasEasy": "That was easy",
+    "strengthHint": "How firmly this word is held: grows with every recall over a longer gap, drops when it is forgotten."
   },
   "slang": {
     "categoryAll": "All",
@@ -283,7 +288,8 @@
     "activitiesCount_other": "{{count}} activities",
     "levelMeter": "Level {{level}}",
     "noActivityYet": "Nothing logged yet — start with a reading text.",
-    "mixVocabulary": "Words & lessons"
+    "mixVocabulary": "Words & lessons",
+    "effortTitle": "Activity"
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -453,7 +459,8 @@
     "goalReachedTitle": "Daily goal reached",
     "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
     "goalReachedBody_other": "{{count}} tasks done today — the streak lives on.",
-    "workoutDone": "Words practised in context"
+    "workoutDone": "Words practised in context",
+    "usageDone": "Words put to use"
   },
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
@@ -651,5 +658,58 @@
     "toMove": "to move",
     "toOpen": "to open",
     "toClose": "to close"
+  },
+  "insights": {
+    "vocabularyLabel": "Words you know",
+    "vocabularyExplain": "An estimate: {{evidenced}} words you have proved directly — marked as known or held for weeks — on top of the {{assumed}} the placement level assumes. It moves as you prove more.",
+    "learningNow_one": "{{count}} word in progress",
+    "learningNow_other": "{{count}} words in progress",
+    "mastered_one": "{{count}} held for weeks",
+    "mastered_other": "{{count}} held for weeks",
+    "growthTitle": "Saved words",
+    "growthSub": "Cumulative, by week",
+    "comprehensionLabel": "Text you can follow",
+    "comprehensionExplain": "Share of the running words in our library you already know. Above 95% a text reads; below 90% it turns into decoding.",
+    "retentionLabel": "Recalled first try",
+    "retentionExplain": "Across {{count}} scheduled reviews in the last month. This is the number that says whether the method works.",
+    "retentionEmpty": "No scheduled reviews yet — the first ones arrive a day after you save a word.",
+    "paceLabel": "New words",
+    "perWeek": "a week",
+    "forecast": "At this pace: {{target}} words around {{date}}",
+    "forecastUnknown": "Too few new words yet to project anything honest.",
+    "weekTitle": "This week",
+    "vsLastWeek": "vs last week",
+    "weekTasks": "tasks",
+    "weekWords": "new words",
+    "weekReviews": "reviews",
+    "weekMinutes": "minutes",
+    "weekDays": "active days",
+    "collectedLabel": "Words you collected here",
+    "collectedExplain": "Every word you met in a text and kept. This is the number that grows on the days you show up.",
+    "wholeVocabulary": "Whole vocabulary, estimated: ≈{{total}} — the level baseline plus {{evidenced}} you have proved directly."
+  },
+  "usage": {
+    "situationLabel": "Situation",
+    "situations": {
+      "message-friend": "Write to a friend who asked how your week went",
+      "explain-problem": "Explain a problem to someone who can fix it",
+      "recommend": "Recommend something you liked, and say why",
+      "disagree": "Disagree with someone, politely but clearly",
+      "describe-day": "Describe a day that didn't go to plan",
+      "ask-favour": "Ask for a favour you're slightly embarrassed to ask for"
+    },
+    "brief": "Use all {{count}} words below. At least {{min}} words, written the way you'd actually write it — this is not an essay.",
+    "placeholder": "Start writing…",
+    "minWords": "at least {{count}}",
+    "check": "Check my words",
+    "checking": "Reading what you wrote…",
+    "otherWords": "Different words",
+    "notUsed": "not used",
+    "notesTitle": "Worth fixing",
+    "improved": "See your text with the fixes applied",
+    "again": "Another set",
+    "yourWords": "The words",
+    "emptyTitle": "No words yet",
+    "emptyBody": "Save a few words while reading — tap any word in a text — and this page will build an exercise around them."
   }
 }

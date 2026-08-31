@@ -23,6 +23,34 @@ export interface VocabularyWord {
 }
 
 const STORAGE_KEY = "vocabularyWords";
+const REVIEW_LOG_KEY = "reviewLog";
+
+export interface ReviewEvent {
+  /** Word id, so a deleted word's history can be dropped with it. */
+  id: string;
+  at: number;
+  /** Recalled without help — the definition of a successful review. */
+  recalled: boolean;
+  /** Days the word had been waiting. A hit after 30 days is worth more than
+      one after a day, and only the log knows the difference. */
+  interval: number;
+}
+
+export function getReviewLog(): ReviewEvent[] {
+  try {
+    const raw = localStorage.getItem(REVIEW_LOG_KEY);
+    return raw ? (JSON.parse(raw) as ReviewEvent[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function appendReview(event: ReviewEvent) {
+  // A year of daily reviews is a few thousand rows; capped so a long-running
+  // account cannot quietly fill localStorage.
+  const log = [...getReviewLog(), event].slice(-4000);
+  localStorage.setItem(REVIEW_LOG_KEY, JSON.stringify(log));
+}
 
 function readAll(): VocabularyWord[] {
   try {
@@ -137,7 +165,24 @@ export function reviewWord(id: string, quality: 0 | 1 | 2 | 3) {
     lastReviewedAt: Date.now(),
   };
   writeAll(words);
+  appendReview({ id, at: Date.now(), recalled: quality >= 2, interval: current.interval });
   pushVocabularyWord(words[idx]);
+}
+
+/**
+ * How firmly a word is held, 0–100.
+ *
+ * Interval is the honest signal: the scheduler only grows it when the word was
+ * recalled, so a long interval *is* evidence of memory. Lapses pull it back,
+ * because a word forgotten twice is not the same as one never forgotten. The
+ * scale is logarithmic — the jump from one day to a week means much more than
+ * the jump from three months to four.
+ */
+export function wordStrength(word: VocabularyWord): number {
+  if (word.reviewCount === 0) return 0;
+  const base = Math.log2(1 + Math.max(0, word.interval)) / Math.log2(1 + 60);
+  const penalty = Math.min(0.4, (word.lapses ?? 0) * 0.1);
+  return Math.round(Math.max(0, Math.min(1, base - penalty)) * 100);
 }
 
 /** Words that keep being forgotten — the ones a learner should see differently. */
