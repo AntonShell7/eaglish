@@ -114,8 +114,7 @@ export function WordsIntoUse() {
               onChange={(e) => setText(e.target.value)}
               rows={10}
               placeholder={t("usage.placeholder")}
-              className="mt-5 w-full resize-none rounded-[var(--radius-md)] border p-4 text-sm leading-relaxed outline-none focus:border-[var(--color-primary)]"
-              style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+              className="field mt-5"
             />
 
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3">

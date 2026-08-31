@@ -15,11 +15,12 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 22px;
+  height: var(--control-h);
+  padding: 0 20px;
   border-radius: var(--radius-full);
   border: 1px solid transparent;
-  font-size: 0.9rem;
-  font-weight: 650;
+  font-size: 0.925rem;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
   transition:
@@ -53,9 +54,9 @@
 }
 
 .btn--ghost {
-  border-color: var(--color-border);
+  border-color: var(--color-border-strong);
   background: var(--color-surface);
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .btn--ghost:hover:not(:disabled) {
@@ -74,23 +75,37 @@
 }
 
 .btn--sm {
-  padding: 8px 16px;
-  font-size: 0.8rem;
+  height: var(--control-h-sm);
+  padding: 0 14px;
+  font-size: 0.82rem;
 }
 
 .btn--lg {
-  padding: 14px 30px;
+  height: var(--control-h-lg);
+  padding: 0 28px;
   font-size: 1rem;
 }
 
 /* ── Cards ────────────────────────────────────────────────────────────── */
 
+/* A card separates from the page by its rim first and its fill second — the
+   opposite of how it was built before, and the reason the dark theme used to
+   read as one flat smear. */
 .card {
   position: relative;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-1);
+}
+
+:root[data-theme="dark"] .card {
+  box-shadow: none;
+}
+
+:root[data-theme="dark"] .card--interactive:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-2);
 }
 
 /* Cards you can click lift towards the cursor and pick up a violet rim. The
@@ -134,7 +149,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 11px;
+  height: 28px;
+  padding: 0 12px;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
   background: var(--color-surface-2);
@@ -257,4 +273,77 @@
     opacity: 1;
     transform: none;
   }
+}
+
+/* ── Fields ───────────────────────────────────────────────────────────── */
+
+.field {
+  width: 100%;
+  height: var(--field-h);
+  padding: 0 16px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.field:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+.field::placeholder {
+  color: var(--color-text-faint);
+}
+
+textarea.field {
+  height: auto;
+  padding: 14px 16px;
+  line-height: 1.6;
+  resize: none;
+}
+
+/* ── Segmented control ────────────────────────────────────────────────── */
+
+/* Tabs used to be loose pills that floated apart; grouped in a track they read
+   as one control with one selected state, which is what a tab strip is. */
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+}
+
+.segmented__item {
+  height: 34px;
+  padding: 0 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  transition:
+    background var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
+}
+
+.segmented__item:hover {
+  color: var(--color-text);
+}
+
+.segmented__item.is-active {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-1);
+}
+
+:root[data-theme="dark"] .segmented__item.is-active {
+  background: var(--color-surface-3);
 }

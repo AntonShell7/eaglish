@@ -135,8 +135,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck={false}
-            className="w-full rounded-[var(--radius-md)] border px-4 py-3 text-lg outline-none focus:border-[var(--color-primary)]"
-            style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+            className="field text-lg"
           />
 
           <div className="flex flex-wrap items-center gap-3">

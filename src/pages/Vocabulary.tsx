@@ -54,15 +54,13 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
           value={word}
           onChange={(e) => { setWord(e.target.value); setError(null); }}
           placeholder={t("vocabulary.addWordPlaceholder")}
-          className="min-w-0 flex-1 rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+          className="field min-w-0 flex-1"
         />
         <input
           value={translation}
           onChange={(e) => setTranslation(e.target.value)}
           placeholder={t("vocabulary.addTranslationPlaceholder")}
-          className="min-w-0 flex-1 rounded-[var(--radius-md)] border px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+          className="field min-w-0 flex-1"
         />
         <button
           type="submit"
@@ -142,15 +140,11 @@ export default function Vocabulary() {
       title={t("nav.vocabulary")}
       description={t("home.descriptions.vocabulary")}
     >
-      <div className="mt-8 flex flex-wrap items-center gap-2">
+      <div className="segmented mt-8">
         <button
           type="button"
           onClick={() => setMode("list")}
-          className="rounded-full px-4 py-2 text-sm font-semibold"
-          style={{
-            background: mode === "list" ? "var(--color-primary)" : "var(--color-surface-2)",
-            color: mode === "list" ? "var(--color-on-primary)" : "var(--color-text-muted)",
-          }}
+          className={`segmented__item${mode === "list" ? " is-active" : ""}`}
         >
           {t("vocabulary.listTab", { count: words.length })}
         </button>
@@ -158,11 +152,7 @@ export default function Vocabulary() {
           type="button"
           onClick={startPractice}
           disabled={due.length === 0}
-          className="rounded-full px-4 py-2 text-sm font-semibold disabled:opacity-40"
-          style={{
-            background: mode === "practice" ? "var(--color-primary)" : "var(--color-surface-2)",
-            color: mode === "practice" ? "var(--color-on-primary)" : "var(--color-text-muted)",
-          }}
+          className={`segmented__item disabled:opacity-40${mode === "practice" ? " is-active" : ""}`}
         >
           {t("vocabulary.practiceTab")} · {t("vocabulary.dueCount", { count: due.length })}
         </button>
@@ -178,8 +168,7 @@ export default function Vocabulary() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t("vocabulary.searchPlaceholder")}
-              className="mb-4 w-full rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none focus:border-[var(--color-primary)]"
-              style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+              className="field mb-4"
             />
           )}
 

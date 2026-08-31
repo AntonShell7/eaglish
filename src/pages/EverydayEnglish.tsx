@@ -173,17 +173,13 @@ export default function EverydayEnglish() {
       title={t("nav.everydayEnglish")}
       description={t("everyday.intro")}
     >
-      <div className="mt-8 flex flex-wrap items-center gap-2">
+      <div className="segmented mt-8">
         {(["lessons", "phrases"] as Tab[]).map((key) => (
           <button
             key={key}
             type="button"
             onClick={() => setTab(key)}
-            className="rounded-full px-4 py-2 text-sm font-semibold"
-            style={{
-              background: tab === key ? "var(--color-primary)" : "var(--color-surface-2)",
-              color: tab === key ? "var(--color-on-primary)" : "var(--color-text-muted)",
-            }}
+            className={`segmented__item${tab === key ? " is-active" : ""}`}
           >
             {key === "lessons"
               ? `${t("everyday.lessonsTab")} · ${passed}/${everydayLessons.length}`
