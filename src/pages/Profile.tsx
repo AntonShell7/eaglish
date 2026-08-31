@@ -98,10 +98,7 @@ export default function Profile() {
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
 
       {/* Identity + level */}
-      <section
-        className="viz mt-6 rounded-[var(--radius-lg)] border p-6"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <section className="card viz mt-6 p-6">
         <div className="flex flex-wrap items-center gap-5">
           <div
             className="flex h-16 w-16 flex-none items-center justify-center rounded-full"
@@ -187,10 +184,7 @@ export default function Profile() {
       {/* The onboarding answers, editable by retaking the flow. */}
       <section className="mt-10">
         <h2 className="page-title text-xl">{t("onboarding.planTitle")}</h2>
-        <div
-          className="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[var(--radius-lg)] border p-5"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
-        >
+        <div className="card mt-4 flex flex-wrap items-center justify-between gap-4 p-5">
           {learner ? (
             <dl className="grid flex-1 gap-3 sm:grid-cols-2">
               <div>
@@ -245,10 +239,7 @@ export default function Profile() {
 
       <section className="mt-10">
         <h2 className="page-title text-xl">{t("profile.settings")}</h2>
-        <div
-          className="mt-4 rounded-[var(--radius-lg)] border p-6"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
-        >
+        <div className="card mt-4 p-6">
           <p className="text-sm font-semibold">{t("profile.dailyGoalLabel")}</p>
           <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
             {t("profile.dailyGoalHint")}

@@ -28,7 +28,7 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
 
   return (
     <div>
-      <div className="text-lg leading-loose">
+      <div className="reading-type">
         {text.sentences.map((s, i) => (
           <span key={i}>
             {splitTokens(s.text).map((token, j) => {

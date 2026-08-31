@@ -62,10 +62,7 @@ function StudyStage({ lesson, onDone }: { lesson: Lesson; onDone: () => void }) 
         {t("everyday.cardOf", { done: position + 1, total: lesson.phrases.length })}
       </p>
 
-      <div
-        className="mt-3 rounded-[var(--radius-lg)] border p-6 sm:p-8"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <div className="card mt-3 p-6 sm:p-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <h3 className="page-title text-2xl">{phrase.phrase}</h3>
           <RegisterPill register={phrase.register} />
@@ -318,10 +315,7 @@ function DrillStage({
         {t("everyday.taskOf", { done: index + 1, total: exercises.length })}
       </p>
 
-      <div
-        className="mt-3 rounded-[var(--radius-lg)] border p-6 sm:p-8"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <div className="card mt-3 p-6 sm:p-8">
         {exercise.kind === "gap" && (
           <>
             <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
@@ -523,10 +517,7 @@ export function LessonRunner({
         {stage === "drill" && <DrillStage exercises={lesson.exercises} onDone={complete} />}
 
         {stage === "done" && (
-          <div
-            className="rounded-[var(--radius-lg)] border p-7 text-center sm:p-10"
-            style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-          >
+          <div className="card p-7 text-center sm:p-10">
             <p className="page-title text-3xl">{t("everyday.doneTitle")}</p>
             <p className="mt-3 text-sm" style={{ color: "var(--color-text-muted)" }}>
               {t("everyday.doneScore", { correct: score, total })}

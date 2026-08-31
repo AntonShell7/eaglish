@@ -50,18 +50,22 @@ function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPer
       <button
         type="button"
         onClick={onPersonal}
-        className="mt-8 flex w-full flex-col rounded-[var(--radius-lg)] border p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
-        style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
+        className="card card--interactive mt-8 flex w-full flex-col overflow-hidden p-6 text-left"
+        style={{
+          background: "var(--gradient-brand)",
+          borderColor: "transparent",
+          boxShadow: "var(--shadow-3)",
+        }}
       >
-        <span className="page-title text-lg" style={{ color: "var(--color-primary)" }}>
+        <span className="page-title text-xl" style={{ color: "#ffffff" }}>
           {t("reading.personalTitle")}
         </span>
-        <span className="mt-1 text-sm" style={{ color: "var(--color-primary)" }}>
+        <span className="mt-1.5 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.86)" }}>
           {t("reading.personalTeaser")}
         </span>
       </button>
 
-      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {ordered.map((topic) => {
           const mine = interests.includes(topic.id) || interests.includes(topic.label);
           return (
@@ -70,12 +74,8 @@ function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPer
               type="button"
               onClick={() => onPick(topic.id)}
               disabled={topic.total === 0}
-              className="flex h-full flex-col rounded-[var(--radius-lg)] border p-5 text-left transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-50"
-              style={{
-                borderColor: mine ? "var(--color-primary)" : "var(--color-border)",
-                background: "var(--color-surface)",
-                boxShadow: "var(--shadow-soft)",
-              }}
+              className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
+              style={mine ? { borderColor: "var(--color-primary)" } : undefined}
             >
               <div className="flex items-start justify-between gap-3">
                 <h2 className="page-title text-lg leading-snug">{t(`reading.topics.${topic.id}`)}</h2>
@@ -202,7 +202,7 @@ function TextList({
         </div>
       </div>
 
-      <div className="mt-6 space-y-2">
+      <div data-stagger className="mt-6 space-y-2">
         {visible.map(({ text, coverage, recycled }) => {
           const best = quiz.filter((r) => r.textId === text.id).reduce((max, r) => Math.max(max, r.correct), -1);
           const fit = coverage ? fitOf(coverage.known) : null;
@@ -211,11 +211,8 @@ function TextList({
               key={text.id}
               type="button"
               onClick={() => onPick(text)}
-              className="flex w-full items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3 text-left"
-              style={{
-                borderColor: best >= 0 ? "var(--color-success)" : "var(--color-border)",
-                background: "var(--color-surface)",
-              }}
+              className="card card--interactive flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left"
+              style={best >= 0 ? { borderColor: "var(--color-success)" } : undefined}
             >
               <span className="min-w-0">
                 <span className="block text-sm font-semibold">{text.title}</span>
@@ -278,10 +275,7 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
         ← {t("reading.backToList")}
       </button>
 
-      <article
-        className="mt-4 rounded-[var(--radius-lg)] border p-6 sm:p-10"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <article className="card mt-4 p-6 sm:p-12" style={{ boxShadow: "var(--shadow-2)" }}>
         <h1 className="page-title text-2xl">{text.title}</h1>
 
         <div className="mt-2 flex flex-wrap items-center gap-3 text-xs" style={{ color: "var(--color-text-muted)" }}>
@@ -360,7 +354,7 @@ function PersonalTexts({
       </p>
 
       <div
-        className="mt-6 rounded-[var(--radius-lg)] border p-5"
+        className="card mt-6 p-5"
         style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
       >
         {targets.length === 0 ? (
@@ -408,7 +402,6 @@ function PersonalTexts({
             type="button"
             onClick={() => onPick(text)}
             className="flex w-full items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3 text-left"
-            style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
           >
             <span className="min-w-0">
               <span className="block text-sm font-semibold">{text.title}</span>

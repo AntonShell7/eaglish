@@ -41,7 +41,7 @@ function TopicCard({
     <button
       type="button"
       onClick={onOpen}
-      className="flex h-full flex-col rounded-[var(--radius-lg)] border p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
+      className="card flex h-full flex-col p-5 text-left transition-transform duration-200 hover:-translate-y-0.5"
       style={{
         borderColor: hasDraft ? "var(--color-accent)" : "var(--color-border)",
         background: "var(--color-surface)",
@@ -158,10 +158,7 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
         {/* ── Task and editor ─────────────────────────────────────────── */}
-        <div
-          className="rounded-[var(--radius-lg)] border p-6 sm:p-8"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-        >
+        <div className="card p-6 sm:p-8">
           <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
             {topic.prompt}
           </p>
@@ -284,10 +281,7 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
         <div className="space-y-6">
           <WriterTranslator source={topic.title} />
 
-          <aside
-            className="rounded-[var(--radius-lg)] border p-6"
-            style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-          >
+          <aside className="card p-6">
             <h3 className="page-title text-lg">{t("writing.guideTitle")}</h3>
 
             <p className="mt-5 text-xs font-semibold tracking-wide uppercase" style={{ color: "var(--color-accent)" }}>
@@ -350,10 +344,7 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
           </aside>
 
           {attempts.length > 0 && (
-            <aside
-              className="rounded-[var(--radius-lg)] border p-6"
-              style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
-            >
+            <aside className="card p-6">
               <h3 className="page-title text-lg">{t("writing.pastAttempts")}</h3>
               <ul className="mt-4 space-y-2">
                 {attempts.slice(0, 5).map((a) => (

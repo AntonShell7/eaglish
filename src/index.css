@@ -1,26 +1,42 @@
 @import "tailwindcss";
+@import "./styles/ui.css";
 
-/* Palette drawn from the Eaglish mark: one deep violet and white.
-   The mark is monochrome, so the accent is a lighter tint of the same
-   violet rather than a second hue. */
+/* ─────────────────────────────────────────────────────────────────────────
+   Design tokens.
+
+   The whole product is one deep violet, a warm paper ground and white cards.
+   What separates "a website" from something people want to sit inside is not
+   more colour — it is depth, rhythm and restraint: shadows that behave like
+   light, motion with a single easing curve, and type set for reading rather
+   than for filling a box.
+
+   Older names (--shadow-soft, --radius-md …) are kept as aliases so every
+   component written against them keeps working.
+   ───────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --color-bg: #faf9fd;
+  /* Ground and surfaces. The page is faintly warm, cards are pure white:
+     that contrast is what makes a card look like an object on a desk. */
+  --color-bg: #f7f5fb;
   --color-surface: #ffffff;
-  --color-surface-2: #f3f1f9;
-  --color-text: #1a1330;
-  --color-text-muted: #6b6482;
-  --color-border: #e6e1f0;
+  --color-surface-2: #f2eff9;
+  --color-surface-3: #e9e4f5;
+
+  --color-text: #17112b;
+  --color-text-muted: #6a6382;
+  --color-text-faint: #948da8;
+  --color-border: #e8e3f2;
+  --color-border-strong: #d8d1e9;
 
   --color-primary: #3b168f;
   --color-primary-hover: #2f1173;
   --color-primary-soft: #eeeafa;
+  --color-primary-softer: #f6f3fd;
   /* Text/icon colour to sit on a --color-primary fill. Flips to dark ink in
      the dark theme, where the primary is light enough that white would fail
      contrast. */
   --color-on-primary: #ffffff;
-  /* Lighter violet for rules, badges and secondary emphasis. */
   --color-accent: #6d4bc9;
-  /* Accent used as *text* — dark enough to stay readable on light surfaces. */
   --color-accent-ink: #4b2a9e;
   --color-danger: #dc2626;
   --color-success: #16a34a;
@@ -29,31 +45,74 @@
   --color-selection: #66e3c4;
   --color-selection-ink: #12122b;
 
-  --radius-sm: 8px;
+  --radius-sm: 10px;
   --radius-md: 14px;
   --radius-lg: 22px;
+  --radius-xl: 28px;
   --radius-full: 999px;
 
-  --shadow-soft: 0 10px 30px rgba(15, 15, 20, 0.06);
-  --shadow-soft-lg: 0 20px 50px rgba(15, 15, 20, 0.1);
+  /* Elevation. Two layers each — a tight contact shadow plus a wide soft one —
+     because a single blur reads as a grey smudge rather than as height. The
+     wide layer is violet-tinted: shadows in a violet room are not grey. */
+  --shadow-1:
+    0 1px 2px rgba(23, 17, 43, 0.04),
+    0 2px 8px rgba(59, 22, 143, 0.04);
+  --shadow-2:
+    0 2px 4px rgba(23, 17, 43, 0.05),
+    0 10px 28px rgba(59, 22, 143, 0.07);
+  --shadow-3:
+    0 4px 10px rgba(23, 17, 43, 0.06),
+    0 20px 50px rgba(59, 22, 143, 0.1);
+  --shadow-4:
+    0 10px 20px rgba(23, 17, 43, 0.08),
+    0 36px 90px rgba(59, 22, 143, 0.16);
+  --shadow-soft: var(--shadow-2);
+  --shadow-soft-lg: var(--shadow-3);
+
+  --gradient-brand: linear-gradient(135deg, #3b168f 0%, #5a2fb3 55%, #7c53dd 100%);
+  --gradient-sheen: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+
+  /* One easing curve for everything that moves, one springier curve for things
+     that appear. Consistency in motion is what makes an interface feel built
+     rather than assembled. */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --dur-1: 140ms;
+  --dur-2: 240ms;
+  --dur-3: 420ms;
+  --dur-4: 700ms;
+
+  --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 26%, transparent);
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  /* Newsreader carries both roles: display headings and long-form reading.
+     One voice reads as editorial; two serif families read as indecision. */
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --font-reading: "Newsreader", ui-serif, Georgia, serif;
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --color-bg: #0b0713;
-  --color-surface: #150e22;
-  --color-surface-2: #1d1430;
-  --color-text: #f3f0fa;
+  --color-bg: #0a0713;
+  --color-surface: #150e24;
+  --color-surface-2: #1d1432;
+  --color-surface-3: #261a41;
+
+  --color-text: #f4f1fb;
   --color-text-muted: #a79fbd;
+  --color-text-faint: #7d7595;
   --color-border: #2a2040;
+  --color-border-strong: #392c57;
 
   --color-primary: #a78bfa;
   --color-primary-hover: #c4b5fd;
   --color-primary-soft: #2a1d52;
+  --color-primary-softer: #1f1640;
   --color-on-primary: #150e22;
   --color-accent: #8b6fe8;
   --color-accent-ink: #b49dfb;
@@ -64,23 +123,29 @@
   --color-selection: #0f766e;
   --color-selection-ink: #f3f0fa;
 
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-soft-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+  /* In the dark, height reads through a light rim rather than a cast shadow,
+     so the tight layer becomes a highlight and the wide layer goes deeper. */
+  --shadow-1:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadow-2:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-3:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 22px 55px rgba(0, 0, 0, 0.55);
+  --shadow-4:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 40px 95px rgba(0, 0, 0, 0.65);
+  --shadow-soft: var(--shadow-2);
+  --shadow-soft-lg: var(--shadow-3);
+
+  --gradient-brand: linear-gradient(135deg, #2b1070 0%, #4a25a0 55%, #7c53dd 100%);
 
   color-scheme: dark;
 }
 
-/* Serif page/section headings, matching the crest's academic register. */
-.page-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.005em;
-}
-
-/* Label colour for filled buttons — stays readable in both themes. */
-.on-primary {
-  color: var(--color-on-primary);
-}
+/* ── Base ─────────────────────────────────────────────────────────────── */
 
 * {
   box-sizing: border-box;
@@ -92,14 +157,37 @@ body,
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
   background-color: var(--color-bg);
   color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
+    background-color var(--dur-3) var(--ease),
+    color var(--dur-3) var(--ease);
+}
+
+/* A single wide glow behind everything. Barely visible on its own; without it
+   the page reads as flat paper rather than as a lit room. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 15% -5%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 70%),
+    radial-gradient(50% 40% at 100% 0%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 70%);
 }
 
 a {
@@ -109,23 +197,41 @@ a {
 
 button {
   font-family: inherit;
+  cursor: pointer;
 }
 
-/* Selection highlight.
-   It used to reuse --color-primary-soft, which is a near-white lavender on
-   light and a near-black violet on dark — measured at 1.18:1 and 1.25:1
-   against their own surfaces, so selecting text looked like nothing happened.
-   Teal is the one family that reads clearly against a violet-and-white brand
-   without competing with it. Light sits at 1.57:1, matching the browser's own
-   selection blue (1.62:1) — visible, not loud.
+button:disabled {
+  cursor: not-allowed;
+}
 
-   The text colour is forced rather than inherited: muted grey on mint measures
-   only 3.5:1, so letting each element keep its own colour would leave some
-   selected text harder to read than before it was selected. */
+/* One focus style everywhere, and only for keyboard users. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-radius: var(--radius-sm);
+}
+
 ::selection {
   background-color: var(--color-selection);
   color: var(--color-selection-ink);
 }
+
+/* ── Headings ─────────────────────────────────────────────────────────── */
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Label colour for filled buttons — stays readable in both themes. */
+.on-primary {
+  color: var(--color-on-primary);
+}
+
+/* ── Motion ───────────────────────────────────────────────────────────── */
 
 @keyframes fade-up {
   from {
@@ -139,5 +245,19 @@ button {
 }
 
 .fade-up {
-  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-up var(--dur-4) var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

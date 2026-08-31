@@ -1,0 +1,260 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Primitives.
+
+   Every page had been styling its own buttons and cards inline, which is why
+   nothing quite matched: eight radii, five shadows, four hover behaviours. One
+   set of classes fixes that everywhere at once, and gives the small physical
+   details — the press, the lift, the ring — that make an interface feel
+   answerable rather than static.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    background-color var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
+}
+
+/* A button that moves a little when pressed feels like a physical control;
+   one that does nothing feels like a picture of a button. */
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-2);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-3);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.btn--quiet {
+  padding-inline: 14px;
+  color: var(--color-text-muted);
+}
+
+.btn--quiet:hover:not(:disabled) {
+  color: var(--color-primary);
+}
+
+.btn--sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+.btn--lg {
+  padding: 14px 30px;
+  font-size: 1rem;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────── */
+
+.card {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
+/* Cards you can click lift towards the cursor and pick up a violet rim. The
+   movement is small on purpose — 3px reads as attention, 10px as a toy. */
+.card--interactive {
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
+}
+
+.card--interactive:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+  box-shadow: var(--shadow-3);
+}
+
+.card--interactive:active {
+  transform: translateY(-1px);
+}
+
+/* A hairline of brand colour along the top edge, revealed on hover. */
+.card--accent::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--gradient-brand);
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease);
+}
+
+.card--accent:hover::after {
+  opacity: 1;
+}
+
+/* ── Chips ────────────────────────────────────────────────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+}
+
+.chip--brand {
+  border-color: transparent;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.chip--success {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-success) 16%, transparent);
+  color: var(--color-success);
+}
+
+/* ── Reading type ─────────────────────────────────────────────────────── */
+
+/* Long-form English gets a serif, a real measure and generous leading. This is
+   the single biggest lever on how a reading app feels: the same text set at
+   16px/1.5 in a UI sans reads like a form, and at this size like a page. */
+.reading-type {
+  font-family: var(--font-reading);
+  font-size: clamp(1.09rem, 0.98rem + 0.5vw, 1.28rem);
+  line-height: 1.78;
+  letter-spacing: 0.001em;
+  max-width: 68ch;
+}
+
+/* ── Reveal on scroll ─────────────────────────────────────────────────── */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-4) var(--ease),
+    transform var(--dur-4) var(--ease);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Children arrive one after another rather than as a block. */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fade-up var(--dur-4) var(--ease) both;
+}
+
+[data-stagger] > *:nth-child(1) { animation-delay: 40ms; }
+[data-stagger] > *:nth-child(2) { animation-delay: 90ms; }
+[data-stagger] > *:nth-child(3) { animation-delay: 140ms; }
+[data-stagger] > *:nth-child(4) { animation-delay: 190ms; }
+[data-stagger] > *:nth-child(5) { animation-delay: 240ms; }
+[data-stagger] > *:nth-child(6) { animation-delay: 290ms; }
+[data-stagger] > *:nth-child(7) { animation-delay: 330ms; }
+[data-stagger] > *:nth-child(8) { animation-delay: 370ms; }
+[data-stagger] > *:nth-child(n + 9) { animation-delay: 410ms; }
+
+/* ── Page transition ──────────────────────────────────────────────────── */
+
+.page-enter {
+  animation: page-in var(--dur-3) var(--ease) both;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Loading ──────────────────────────────────────────────────────────── */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-surface) 70%, transparent),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-stagger] > * {
+    opacity: 1;
+    transform: none;
+  }
+}

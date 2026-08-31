@@ -45,8 +45,7 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
   return (
     <form
       onSubmit={submit}
-      className="mb-5 rounded-[var(--radius-lg)] border p-5"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
+      className="card mb-5 p-5"
     >
       <p className="text-sm font-semibold">{t("vocabulary.addTitle")}</p>
       <div className="mt-3 flex flex-col gap-2 sm:flex-row">
@@ -201,7 +200,6 @@ export default function Vocabulary() {
               <div
                 key={w.id}
                 className="flex items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3"
-                style={{ borderColor: "var(--color-border)", background: "var(--color-surface)" }}
               >
                 <div className="min-w-0">
                   <p className="text-sm font-semibold">{w.word}</p>

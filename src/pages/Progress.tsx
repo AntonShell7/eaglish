@@ -105,10 +105,7 @@ export default function Progress() {
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
 
       {/* Hero + level meter: exactly one hero figure on the page */}
-      <section
-        className="viz mt-6 grid gap-6 rounded-[var(--radius-lg)] border p-6 lg:grid-cols-[auto_1fr] lg:items-center"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-      >
+      <section className="card viz mt-6 grid gap-6 p-6 lg:grid-cols-[auto_1fr] lg:items-center">
         <HeroFigure value={xp} label={t("progress.dashboardLead")} caption={t("progress.dashboardCaption")} />
         <div className="space-y-4 lg:pl-8">
           <Meter

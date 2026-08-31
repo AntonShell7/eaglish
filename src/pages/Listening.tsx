@@ -11,7 +11,7 @@ export default function Listening() {
       description={t("home.descriptions.listening")}
     >
       <div
-        className="mt-8 flex flex-col items-center gap-3 rounded-[var(--radius-lg)] border border-dashed p-16 text-center"
+        className="card mt-8 flex flex-col items-center gap-3 border-dashed p-16 text-center"
         style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
       >
         <span className="text-3xl">🎧</span>

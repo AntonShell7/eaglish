@@ -92,10 +92,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
         : "var(--color-danger)";
 
   return (
-    <div
-      className="mx-auto flex max-w-xl flex-col gap-5 rounded-[var(--radius-lg)] border p-6 sm:p-8"
-      style={{ borderColor: "var(--color-border)", background: "var(--color-surface)", boxShadow: "var(--shadow-soft)" }}
-    >
+    <div className="card mx-auto flex max-w-xl flex-col gap-5 p-6 sm:p-8">
       <p className="text-xs font-semibold tracking-wide uppercase" style={{ color: "var(--color-text-muted)" }}>
         {cloze ? t("vocabulary.fillTheGap") : t("vocabulary.recallWord")}
       </p>
