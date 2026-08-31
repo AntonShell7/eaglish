@@ -381,8 +381,7 @@ function PersonalTexts({
               type="button"
               onClick={make}
               disabled={busy}
-              className="mt-4 rounded-full px-5 py-2.5 text-sm font-semibold on-primary disabled:opacity-60"
-              style={{ background: "var(--color-primary)" }}
+              className="btn btn--primary mt-4 disabled:opacity-60"
             >
               {busy ? t("reading.personalWriting") : t("reading.personalCta")}
             </button>

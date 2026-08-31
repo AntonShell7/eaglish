@@ -203,8 +203,7 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
                 type="button"
                 onClick={handleSubmit}
                 disabled={loading || tooShort}
-                className="mt-4 rounded-full px-5 py-3 text-sm font-semibold on-primary disabled:opacity-40"
-                style={{ background: "var(--color-primary)" }}
+                className="btn btn--primary mt-4 disabled:opacity-40"
               >
                 {loading ? t("writing.assessing") : t("writing.submitForFeedback")}
               </button>

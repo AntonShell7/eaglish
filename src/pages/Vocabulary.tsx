@@ -66,8 +66,7 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
         <button
           type="submit"
           disabled={!word.trim() || !translation.trim()}
-          className="rounded-full px-4 py-2 text-sm font-semibold on-primary disabled:opacity-40"
-          style={{ background: "var(--color-primary)" }}
+          className="btn btn--primary disabled:opacity-40"
         >
           {t("vocabulary.addButton")}
         </button>
@@ -261,8 +260,7 @@ export default function Vocabulary() {
                   refresh();
                   setMode("list");
                 }}
-                className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold on-primary"
-                style={{ background: "var(--color-primary)" }}
+                className="btn btn--primary mt-6"
               >
                 {t("vocabulary.backToList")}
               </button>

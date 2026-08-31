@@ -144,8 +144,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
               type="button"
               onClick={check}
               disabled={!answer.trim()}
-              className="rounded-full px-5 py-2.5 text-sm font-semibold on-primary disabled:opacity-40"
-              style={{ background: "var(--color-primary)" }}
+              className="btn btn--primary disabled:opacity-40"
             >
               {t("vocabulary.check")}
             </button>
@@ -186,8 +185,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
             <button
               type="button"
               onClick={() => onGraded(verdict === "correct" ? 2 : verdict === "typo" ? 1 : 0)}
-              className="rounded-full px-5 py-2.5 text-sm font-semibold on-primary"
-              style={{ background: "var(--color-primary)" }}
+              className="btn btn--primary"
             >
               {t("vocabulary.next")}
             </button>
