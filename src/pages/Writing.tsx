@@ -171,8 +171,7 @@ function Workspace({ topic, onExit }: { topic: WritingTopic; onExit: () => void 
                 onChange={(e) => setText(e.target.value)}
                 rows={14}
                 placeholder={t("writing.placeholder")}
-                className="mt-5 w-full resize-none rounded-[var(--radius-md)] border p-4 text-sm leading-relaxed outline-none focus:border-[var(--color-primary)]"
-                style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+                className="field mt-5"
               />
 
               {/* Progress towards the target length, because "write 220 words"
@@ -407,17 +406,13 @@ export default function Writing() {
 
   return (
     <SectionHero kicker={t("nav.writing")} title={t("nav.writing")} description={t("writing.intro")}>
-      <div className="mt-8 flex flex-wrap gap-2">
+      <div className="segmented mt-8">
         {(["words", "briefs"] as Mode[]).map((key) => (
           <button
             key={key}
             type="button"
             onClick={() => setMode(key)}
-            className="rounded-full px-4 py-2 text-sm font-semibold"
-            style={{
-              background: mode === key ? "var(--color-primary)" : "var(--color-surface-2)",
-              color: mode === key ? "var(--color-on-primary)" : "var(--color-text-muted)",
-            }}
+            className={`segmented__item${mode === key ? " is-active" : ""}`}
           >
             {t(`writing.modes.${key}`)}
           </button>
@@ -426,17 +421,13 @@ export default function Writing() {
 
       {mode === "words" && <WordsIntoUse />}
 
-      <div className="mt-8 flex flex-wrap gap-2" style={{ display: mode === "briefs" ? undefined : "none" }}>
+      <div className="segmented mt-8" style={{ display: mode === "briefs" ? undefined : "none" }}>
         {CATEGORIES.map((key) => (
           <button
             key={key}
             type="button"
             onClick={() => setCategory(key)}
-            className="rounded-full px-4 py-2 text-sm font-semibold"
-            style={{
-              background: category === key ? "var(--color-primary)" : "var(--color-surface-2)",
-              color: category === key ? "var(--color-on-primary)" : "var(--color-text-muted)",
-            }}
+            className={`segmented__item${category === key ? " is-active" : ""}`}
           >
             {t(`writing.categories.${key}`)}
           </button>
