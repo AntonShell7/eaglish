@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { WordWorkout } from "@/components/reading/WordWorkout";
+import { ReadingProgress } from "@/components/reading/ReadingProgress";
 import {
   generatePersonalText,
   getPersonalTexts,
@@ -262,6 +263,7 @@ function TextList({
 
 function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
   const { t } = useTranslation();
+  const article = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // History only. Opening a text earns nothing; answering the questions below
@@ -271,11 +273,13 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-10">
+      <ReadingProgress target={article} />
+
       <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
         ← {t("reading.backToList")}
       </button>
 
-      <article className="card mt-4 p-6 sm:p-12" style={{ boxShadow: "var(--shadow-2)" }}>
+      <article ref={article} className="card mt-4 p-6 sm:p-12" style={{ boxShadow: "var(--shadow-2)" }}>
         <h1 className="page-title text-2xl">{text.title}</h1>
 
         <div className="mt-2 flex flex-wrap items-center gap-3 text-xs" style={{ color: "var(--color-text-muted)" }}>
