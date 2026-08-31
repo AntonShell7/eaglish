@@ -141,8 +141,7 @@ export function Layout() {
               </NavLink>
               <NavLink
                 to="/register"
-                className="rounded-full px-4 py-1.5 text-sm font-semibold on-primary"
-                style={{ background: "var(--color-primary)" }}
+                className="btn btn--primary"
               >
                 {t("landing.start")}
               </NavLink>

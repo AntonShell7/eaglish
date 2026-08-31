@@ -105,8 +105,7 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
             type="button"
             onClick={handleCheck}
             disabled={!allAnswered}
-            className="rounded-full px-5 py-3 text-sm font-semibold on-primary disabled:opacity-40"
-            style={{ background: "var(--color-primary)" }}
+            className="btn btn--primary disabled:opacity-40"
           >
             {t("reading.checkAnswers")}
           </button>

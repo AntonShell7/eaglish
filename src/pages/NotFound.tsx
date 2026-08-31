@@ -11,8 +11,7 @@ export default function NotFound() {
       </p>
       <Link
         to="/"
-        className="mt-6 rounded-full px-5 py-3 text-sm font-semibold on-primary"
-        style={{ background: "var(--color-primary)" }}
+        className="btn btn--primary mt-6"
       >
         {t("nav.home")}
       </Link>

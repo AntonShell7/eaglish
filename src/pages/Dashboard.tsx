@@ -99,8 +99,7 @@ export default function Dashboard() {
               <p className="text-sm">{t("dashboard.dueLine", { count: due })}</p>
               <Link
                 to="/vocabulary"
-                className="w-fit rounded-full px-5 py-3 text-sm font-semibold on-primary"
-                style={{ background: "var(--color-primary)" }}
+                className="btn btn--primary w-fit"
               >
                 {t("dashboard.reviewNow")}
               </Link>
@@ -112,8 +111,7 @@ export default function Dashboard() {
               </p>
               <Link
                 to="/reading"
-                className="w-fit rounded-full px-5 py-3 text-sm font-semibold on-primary"
-                style={{ background: "var(--color-primary)" }}
+                className="btn btn--primary w-fit"
               >
                 {t("dashboard.readSomething")}
               </Link>

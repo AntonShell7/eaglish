@@ -1,25 +1,54 @@
 /* The report button. Present but quiet: bottom-right on desktop, tucked above
    the tab bar on a phone so it never covers navigation. */
 
+/* On a phone the pill covered whatever sat in the bottom-right corner, so it
+   collapses to a single glyph there and only spells itself out where there is
+   room. Still one tap, still always reachable. */
 .fb-launch {
   position: fixed;
-  right: 16px;
-  bottom: calc(88px + env(safe-area-inset-bottom));
+  right: 14px;
+  bottom: calc(84px + env(safe-area-inset-bottom));
   z-index: 55;
-  padding: 9px 15px;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  font-size: 0;
+  opacity: 0.85;
   border-radius: 999px;
   border: 1px solid var(--color-border);
   background: color-mix(in srgb, var(--color-surface) 92%, transparent);
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow-soft);
-  font-size: 0.78rem;
   font-weight: 700;
   color: var(--color-text-muted);
+  overflow: hidden;
 }
 
 .fb-launch:hover {
   color: var(--color-primary);
   border-color: var(--color-primary);
+}
+
+.fb-launch::before {
+  content: "?";
+  font-size: 15px;
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .fb-launch {
+    width: auto;
+    height: auto;
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    opacity: 1;
+  }
+
+  .fb-launch::before {
+    content: none;
+  }
 }
 
 @media (min-width: 1024px) {

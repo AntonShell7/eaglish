@@ -129,8 +129,7 @@ export default function Profile() {
           ) : (
             <Link
               to="/login"
-              className="rounded-full px-4 py-2 text-sm font-semibold on-primary"
-              style={{ background: "var(--color-primary)" }}
+              className="btn btn--primary"
             >
               {t("profile.signIn")}
             </Link>
@@ -229,8 +228,7 @@ export default function Profile() {
 
           <Link
             to="/onboarding"
-            className="rounded-full px-4 py-2 text-sm font-semibold on-primary"
-            style={{ background: "var(--color-primary)" }}
+            className="btn btn--primary"
           >
             {learner ? t("onboarding.retake") : t("onboarding.promptCta")}
           </Link>

@@ -57,7 +57,13 @@ export function FeedbackButton() {
 
   return (
     <>
-      <button type="button" className="fb-launch" onClick={() => setOpen(true)}>
+      <button
+        type="button"
+        className="fb-launch"
+        onClick={() => setOpen(true)}
+        aria-label={t("feedback.launch")}
+        title={t("feedback.launch")}
+      >
         {t("feedback.launch")}
       </button>
 

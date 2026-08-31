@@ -73,8 +73,7 @@ export function SubmitButton({ loading, label }: { loading: boolean; label: stri
     <button
       type="submit"
       disabled={loading}
-      className="mt-6 w-full rounded-full py-3 text-sm font-semibold on-primary disabled:opacity-60"
-      style={{ background: "var(--color-primary)" }}
+      className="btn btn--primary mt-6 w-full disabled:opacity-60"
     >
       {loading ? t("common.loading") : label}
     </button>

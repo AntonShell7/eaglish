@@ -111,8 +111,7 @@ function StudyStage({ lesson, onDone }: { lesson: Lesson; onDone: () => void }) 
         <button
           type="button"
           onClick={() => (isLast ? onDone() : setIndex(position + 1))}
-          className="rounded-full px-5 py-2.5 text-sm font-semibold on-primary"
-          style={{ background: "var(--color-primary)" }}
+          className="btn btn--primary"
         >
           {isLast ? t("everyday.toPractice") : t("everyday.next")}
         </button>
@@ -255,8 +254,7 @@ function MatchStage({
         type="button"
         disabled={!done}
         onClick={() => onDone(phrases.length - missed.length)}
-        className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold on-primary disabled:opacity-40"
-        style={{ background: "var(--color-primary)" }}
+        className="btn btn--primary mt-6 disabled:opacity-40"
       >
         {t("everyday.continue")}
       </button>
@@ -412,8 +410,7 @@ function DrillStage({
         type="button"
         disabled={picked === null}
         onClick={next}
-        className="mt-5 rounded-full px-5 py-2.5 text-sm font-semibold on-primary disabled:opacity-40"
-        style={{ background: "var(--color-primary)" }}
+        className="btn btn--primary mt-5 disabled:opacity-40"
       >
         {isLast ? t("everyday.finishLesson") : t("everyday.next")}
       </button>
@@ -550,8 +547,7 @@ export function LessonRunner({
                 <button
                   type="button"
                   onClick={onNextLesson}
-                  className="rounded-full px-5 py-2.5 text-sm font-semibold on-primary"
-                  style={{ background: "var(--color-primary)" }}
+                  className="btn btn--primary"
                 >
                   {t("everyday.nextLesson")}
                 </button>
