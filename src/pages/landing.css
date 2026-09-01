@@ -4,30 +4,25 @@
 
 .lp {
   --lp-gutter: clamp(20px, 5vw, 56px);
+  /* The hero glow is wider than the column on purpose; clip it at the page
+     edge so it fades into the ground instead of ending on a visible seam. */
+  overflow-x: clip;
 }
 
 /* ── Hero ────────────────────────────────────────────────────────────── */
-.lp-hero {
-  isolation: isolate;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(ellipse 62% 54% at 50% 22%, #52259f 0%, transparent 64%),
-    linear-gradient(180deg, #3b168f 0%, #220b57 100%);
-  border: 1px solid rgba(196, 181, 253, 0.22);
-  padding: clamp(48px, 8vw, 92px) var(--lp-gutter) clamp(52px, 8vw, 96px);
-  text-align: center;
-  isolation: isolate;
-}
 
-.lp-hero__grain {
-  position: absolute;
-  inset: -20%;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+/*
+ * The hero used to be a violet box with rounded corners floating on the page —
+ * a panel pretending to be a page. Now the page itself is the hero: the type
+ * carries it, one restrained glow sits behind the mark, and the only saturated
+ * thing on screen is the button you are meant to press. That is how the sites
+ * this was measured against do it, and it is the reason they look expensive.
+ */
+.lp-hero {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(56px, 11vh, 128px) var(--lp-gutter) clamp(48px, 9vh, 104px);
+  text-align: center;
 }
 
 .lp-hero__inner {
@@ -37,64 +32,93 @@
   align-items: center;
 }
 
+.lp-hero__mark .brand-logo {
+  color: var(--color-text);
+}
+
 .lp-hero__mark {
-  width: clamp(96px, 16vw, 148px);
+  width: clamp(56px, 8vw, 78px);
+  filter: drop-shadow(0 10px 30px color-mix(in srgb, var(--color-accent) 45%, transparent));
 }
 
 .lp-hero__name {
-  margin: 20px 0 0;
+  margin: 22px 0 0;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2.4rem, 6vw, 3.9rem);
-  line-height: 1;
-  color: #f8f6ff;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--color-text);
 }
 
 .lp-hero__promise {
   margin: 20px auto 0;
-  max-width: 30ch;
-  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
-  line-height: 1.5;
-  color: #cfc4f0;
+  max-width: 34ch;
+  font-size: clamp(1.05rem, 2.1vw, 1.32rem);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  text-wrap: balance;
 }
 
 .lp-hero__actions {
+  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-top: 34px;
+  gap: 10px;
 }
 
-.lp-cta {
-  border-radius: 999px;
-  padding: 0.95rem 2.1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  background: #ffffff;
-  color: #3b168f;
-  transition: transform 0.2s ease;
+/* One soft light behind the mark, and nothing else. */
+.lp-hero__aurora {
+  position: absolute;
+  left: 50%;
+  top: -10%;
+  width: min(760px, 120vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 40%,
+    color-mix(in srgb, var(--color-accent) 26%, transparent) 0%,
+    transparent 62%
+  );
+  animation: aurora-drift 26s var(--ease) infinite alternate;
 }
 
-.lp-cta:hover {
-  transform: translateY(-2px);
+@keyframes aurora-drift {
+  from {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: translateX(-46%) scale(1.12);
+    opacity: 1;
+  }
 }
 
-.lp-ghost {
-  border-radius: 999px;
-  padding: 0.95rem 1.7rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #efeafd;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  transition: border-color 0.2s ease;
+/* The proof line: three facts, no adjectives. */
+.lp-facts {
+  margin: 40px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
 }
 
-.lp-ghost:hover {
-  border-color: rgba(196, 181, 253, 0.7);
+.lp-facts b {
+  color: var(--color-text);
+  font-weight: 650;
 }
 
-/* ── Section scaffolding ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .lp-hero__aurora {
+    animation: none;
+  }
+}
+
 .lp-section {
   margin-top: clamp(64px, 10vw, 116px);
 }
@@ -267,19 +291,7 @@
   margin-top: 26px;
 }
 
-.lp-close .lp-cta {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-}
 
-.lp-close .lp-ghost {
-  color: var(--color-text);
-  border-color: var(--color-border);
-}
-
-.lp-close .lp-ghost:hover {
-  border-color: var(--color-primary);
-}
 
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -313,6 +325,10 @@
 }
 
 /* The mark gets a soft halo so it sits in the light rather than on top of it. */
+.lp-hero__mark .brand-logo {
+  color: var(--color-text);
+}
+
 .lp-hero__mark {
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.35));
 }

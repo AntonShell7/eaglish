@@ -432,7 +432,10 @@
         "p": "Navigate in Russian if it helps. The English you came for is never translated away."
       }
     },
-    "closeTitle": "One text. Five minutes. Start today."
+    "closeTitle": "One text. Five minutes. Start today.",
+    "factTexts": "88 texts",
+    "factTopics": "10 topics",
+    "factFree": "Free"
   },
   "dashboard": {
     "greeting": "Welcome back",
