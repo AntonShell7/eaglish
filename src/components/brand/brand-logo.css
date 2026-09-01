@@ -24,8 +24,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(196, 181, 253, 0.09) 44%,
+    color-mix(in srgb, var(--color-accent) 20%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent) 9%, transparent) 44%,
     transparent 68%
   );
   animation: crest-halo 8s ease-in-out infinite;
@@ -52,7 +52,14 @@
 
 /* The artwork is already the brand violet, so only the placements that need
    white ask for one — no filter on the light-theme header. */
+/* The artwork is a flat silhouette, so it is repainted per theme rather than
+   shipped twice. It used to be forced white for a violet panel that no longer
+   exists — on the light theme that left the mark invisible. */
 .brand-art.brand-logo {
+  filter: brightness(0);
+}
+
+:root[data-theme="dark"] .brand-art.brand-logo {
   filter: brightness(0) invert(1);
 }
 

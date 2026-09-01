@@ -20,7 +20,6 @@ export default function Landing() {
   return (
     <div className="lp mx-auto max-w-5xl px-5 py-8">
       <section className="lp-hero">
-        <div className="lp-hero__grain" />
         <div className="lp-hero__aurora" aria-hidden />
         <div className="lp-hero__inner">
           <div className="crest-stage lp-hero__mark fade-up">
@@ -36,13 +35,24 @@ export default function Landing() {
           </p>
 
           <div className="lp-hero__actions fade-up" style={{ animationDelay: "210ms" }}>
-            <Link to="/register" className="lp-cta">
+            <Link to="/register" className="btn btn--primary btn--lg">
               {t("landing.start")}
             </Link>
-            <Link to="/login" className="lp-ghost">
+            <Link to="/login" className="btn btn--ghost btn--lg">
               {t("auth.logIn")}
             </Link>
           </div>
+          <p className="lp-facts fade-up" style={{ animationDelay: "300ms" }}>
+            <span>
+              <b>{t("landing.factTexts")}</b>
+            </span>
+            <span>
+              <b>{t("landing.factTopics")}</b>
+            </span>
+            <span>
+              <b>{t("landing.factFree")}</b>
+            </span>
+          </p>
         </div>
       </section>
 
@@ -83,10 +93,10 @@ export default function Landing() {
       <section className="lp-close" data-reveal>
         <h2 className="lp-close__h">{t("landing.closeTitle")}</h2>
         <div className="lp-close__actions">
-          <Link to="/register" className="lp-cta">
+          <Link to="/register" className="btn btn--primary btn--lg">
             {t("landing.start")}
           </Link>
-          <Link to="/login" className="lp-ghost">
+          <Link to="/login" className="btn btn--ghost btn--lg">
             {t("auth.logIn")}
           </Link>
         </div>
