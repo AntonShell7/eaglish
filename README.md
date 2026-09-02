@@ -78,8 +78,8 @@ npm run dev
 
 | Variable | Where to get it |
 | --- | --- |
-| `VITE_GROQ_API_KEY` | [console.groq.com](https://console.groq.com) → API Keys (free) |
-| `VITE_GROQ_MODEL` | Optional. Overrides the default model — handy when a provider retires one. |
+| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) → API Keys (free) |
+| `GROQ_MODEL` | Optional. Overrides the default model — handy when a provider retires one. |
 | `VITE_SUPABASE_URL` | Supabase dashboard → your project → API |
 | `VITE_SUPABASE_ANON_KEY` | Same page — the **publishable/anon** key, never the secret one |
 

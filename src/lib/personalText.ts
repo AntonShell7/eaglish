@@ -1,3 +1,4 @@
+import { askModel, AiError } from "./aiClient";
 import type { ReadingText } from "@/data/readingTexts";
 import type { ReadingLevel } from "./placement";
 import type { Unavailable } from "./translate";
@@ -23,8 +24,6 @@ import { normalise } from "./lexicon";
 
 const STORAGE_KEY = "personalTexts";
 const KEEP = 12;
-const GROQ_MODEL = import.meta.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
-const ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
 /** Enough words to build a text around, few enough to appear naturally. */
 export const TARGET_WORDS = 6;
@@ -132,32 +131,26 @@ export type PersonalTextResult = { text: PersonalText } | { error: Unavailable |
 
 /** Generates, validates and stores a text. Anything malformed is rejected. */
 export async function generatePersonalText(options: PersonalTextOptions): Promise<PersonalTextResult> {
-  const key = import.meta.env.VITE_GROQ_API_KEY;
-  if (!key) return { error: "no-key" };
+  let content: string;
+  try {
+    content = await askModel({
+      temperature: 0.9,
+      max_completion_tokens: 5500,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content: "You write graded reading material for an English-learning app, and you answer with JSON only.",
+        },
+        { role: "user", content: buildPrompt(options) },
+      ],
+    });
+  } catch (err) {
+    return { error: err instanceof AiError ? err.reason : "failed" };
+  }
 
   try {
-    const response = await fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-      body: JSON.stringify({
-        model: GROQ_MODEL,
-        temperature: 0.9,
-        max_completion_tokens: 5500,
-        reasoning_effort: "low",
-        response_format: { type: "json_object" },
-        messages: [
-          {
-            role: "system",
-            content: "You write graded reading material for an English-learning app, and you answer with JSON only.",
-          },
-          { role: "user", content: buildPrompt(options) },
-        ],
-      }),
-    });
-
-    if (!response.ok) return { error: "failed" };
-    const data = await response.json();
-    const raw = JSON.parse(data.choices?.[0]?.message?.content ?? "{}");
+    const raw = JSON.parse(content || "{}");
 
     const sentences = Array.isArray(raw.sentences) ? raw.sentences : [];
     const clean = sentences
