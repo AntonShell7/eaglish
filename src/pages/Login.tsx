@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { AuthCard, EmailField, FormError, SubmitButton } from "@/components/auth/AuthCard";
 import { PasswordField } from "@/components/auth/PasswordField";
@@ -9,6 +9,8 @@ export default function Login() {
   const { t } = useTranslation();
   const { signIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const returnTo = (location.state as { from?: string } | null)?.from ?? "/";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +26,8 @@ export default function Login() {
       setError(signInError);
       return;
     }
-    navigate("/");
+    // Back to whatever they were trying to reach when the wall stopped them.
+    navigate(returnTo, { replace: true });
   };
 
   return (

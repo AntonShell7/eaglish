@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { openConsentSettings } from "@/lib/consent";
 
-const SECTIONS = ["reading", "writing", "listening", "everydayEnglish", "vocabulary"] as const;
+const SECTIONS = ["reading", "writing", "everydayEnglish", "vocabulary"] as const;
 
 const PATHS: Record<(typeof SECTIONS)[number], string> = {
   reading: "/reading",
   writing: "/writing",
-  listening: "/listening",
   everydayEnglish: "/everyday-english",
   vocabulary: "/vocabulary",
 };
