@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
 import { ProgressRing } from "@/components/ui/ProgressRing";
-import { IconBook, IconPen, IconHeadphones, IconChat, IconBookmark } from "@/components/brand/icons";
+import { IconBook, IconPen, IconChat, IconBookmark } from "@/components/brand/icons";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getLevelState, getTotalXp } from "@/lib/gamification";
@@ -16,7 +16,6 @@ const FEATURES = [
   { to: "/writing", key: "writing", icon: <IconPen /> },
   { to: "/everyday-english", key: "everydayEnglish", icon: <IconChat /> },
   { to: "/vocabulary", key: "vocabulary", icon: <IconBookmark /> },
-  { to: "/listening", key: "listening", icon: <IconHeadphones /> },
 ] as const;
 
 /**
