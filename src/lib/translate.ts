@@ -1,3 +1,5 @@
+import { askModel, AiError, type AiFailure, type AiMessage, type AiRequest } from "./aiClient";
+
 export interface GlossaryLike {
   [word: string]: { translation: string; partOfSpeech?: string };
 }
@@ -38,35 +40,22 @@ export interface TextTranslationResult {
   unavailable?: Unavailable;
 }
 
-/**
- * Providers retire models without warning — llama-3.3-70b vanished from Groq's
- * catalogue mid-project and every call started 404ing while the UI quietly
- * showed its offline fallback. Keeping the name in an env var means the next
- * retirement is a config change, not a code hunt.
- */
-const GROQ_MODEL = import.meta.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
-const ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
-
 /** Distinguishes "never configured" from "configured but the call failed". */
-export type Unavailable = "no-key" | "failed";
+export type Unavailable = AiFailure;
 
-function apiKey(): string | undefined {
-  return import.meta.env.VITE_GROQ_API_KEY;
+/**
+ * Every lookup goes through the server endpoint now, so there is no key here to
+ * check before calling. The old `if (apiKey())` guards existed to avoid a
+ * pointless round trip; `askModel` remembers a missing key after the first
+ * 503 and fails instantly thereafter, which does the same job without the
+ * provider ever being named in the browser.
+ */
+async function groq(body: Omit<AiRequest, "messages"> & { messages: AiMessage[] }): Promise<string> {
+  return askModel(body);
 }
 
-async function groq(body: Record<string, unknown>): Promise<string> {
-  const key = apiKey();
-  if (!key) throw new Error("no api key");
-
-  const res = await fetch(ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify({ model: GROQ_MODEL, ...body }),
-  });
-  if (!res.ok) throw new Error(`Groq error ${res.status}`);
-
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content?.trim() ?? "";
+function reasonOf(error: unknown): Unavailable {
+  return error instanceof AiError ? error.reason : "failed";
 }
 
 /**
@@ -88,8 +77,9 @@ export async function lookupWord(
     return { word: cleaned, translation: entry.translation, partOfSpeech: entry.partOfSpeech, isLive: false };
   }
 
-  if (apiKey()) {
-    try {
+  let failure: Unavailable = "failed";
+
+  try {
       const raw = await groq({
         temperature: 0.2,
         response_format: { type: "json_object" },
@@ -111,12 +101,12 @@ export async function lookupWord(
       if (parsed.translation) {
         return { word: cleaned, translation: parsed.translation, partOfSpeech: parsed.partOfSpeech, isLive: true };
       }
-    } catch (err) {
-      console.error("[translate] word lookup failed", err);
-    }
+  } catch (err) {
+    failure = reasonOf(err);
+    if (failure === "failed") console.error("[translate] word lookup failed", err);
   }
 
-  return { word: cleaned, translation: "", isLive: false, unavailable: apiKey() ? "failed" : "no-key" };
+  return { word: cleaned, translation: "", isLive: false, unavailable: failure };
 }
 
 /** English → Russian for a whole sentence or passage. */
@@ -126,8 +116,9 @@ export async function translateToRussian(
 ): Promise<TextTranslationResult> {
   if (options.known) return { translation: options.known, isLive: false };
 
-  if (apiKey()) {
-    try {
+  let failure: Unavailable = "failed";
+
+  try {
       const out = await groq({
         temperature: 0.2,
         messages: [
@@ -140,12 +131,12 @@ export async function translateToRussian(
         ],
       });
       if (out) return { translation: out, isLive: true };
-    } catch (err) {
-      console.error("[translate] to-Russian failed", err);
-    }
+  } catch (err) {
+    failure = reasonOf(err);
+    if (failure === "failed") console.error("[translate] to-Russian failed", err);
   }
 
-  return { translation: "", isLive: false, unavailable: apiKey() ? "failed" : "no-key" };
+  return { translation: "", isLive: false, unavailable: failure };
 }
 
 /**
@@ -157,8 +148,9 @@ export async function translateToRussian(
 export async function translateToEnglish(
   phrase: string,
 ): Promise<{ english: string; note: string; example: string; isLive: boolean; unavailable?: Unavailable }> {
-  if (apiKey()) {
-    try {
+  let failure: Unavailable = "failed";
+
+  try {
       const raw = await groq({
         temperature: 0.3,
         response_format: { type: "json_object" },
@@ -180,12 +172,12 @@ export async function translateToEnglish(
           isLive: true,
         };
       }
-    } catch (err) {
-      console.error("[translate] to-English failed", err);
-    }
+  } catch (err) {
+    failure = reasonOf(err);
+    if (failure === "failed") console.error("[translate] to-English failed", err);
   }
 
-  return { english: "", note: "", example: "", isLive: false, unavailable: apiKey() ? "failed" : "no-key" };
+  return { english: "", note: "", example: "", isLive: false, unavailable: failure };
 }
 
 /**
@@ -198,10 +190,6 @@ export async function explainInEnglish(
   options: { sentence?: string } = {},
 ): Promise<WordExplanationResult> {
   const word = rawWord.trim();
-  if (!apiKey()) {
-    return { word, definition: "", example: "", unavailable: "no-key" };
-  }
-
   const context = options.sentence ? `\nIt appears in: "${options.sentence}"` : "";
 
   try {
@@ -241,7 +229,7 @@ Explain the meaning it carries in that sentence, not every meaning it can have. 
       example: (parsed.example ?? "").trim(),
       synonyms: (parsed.synonyms ?? []).filter(Boolean).slice(0, 3),
     };
-  } catch {
-    return { word, definition: "", example: "", unavailable: "failed" };
+  } catch (err) {
+    return { word, definition: "", example: "", unavailable: reasonOf(err) };
   }
 }

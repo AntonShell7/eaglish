@@ -30,7 +30,7 @@ import { dirname, join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const OUT_DIR = join(ROOT, "src/data/reading");
-const MODEL = process.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
+const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const CONCURRENCY = 1;
 /** Texts per request. Batching amortises the prompt and roughly triples throughput
  *  against a tokens-per-minute cap. */
@@ -247,8 +247,8 @@ async function respectBudget() {
 }
 
 async function groq(prompt) {
-  const key = process.env.VITE_GROQ_API_KEY;
-  if (!key) throw new Error("VITE_GROQ_API_KEY missing — put it in .env.local");
+  const key = process.env.GROQ_API_KEY;
+  if (!key) throw new Error("GROQ_API_KEY missing — put it in .env.local");
 
   await respectBudget();
 

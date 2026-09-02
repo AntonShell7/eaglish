@@ -1,3 +1,4 @@
+import { askModel, AiError } from "./aiClient";
 import type { Unavailable } from "./translate";
 
 /**
@@ -14,8 +15,6 @@ import type { Unavailable } from "./translate";
  * nothing they could act on.
  */
 
-const GROQ_MODEL = import.meta.env.VITE_GROQ_MODEL || "openai/gpt-oss-120b";
-const ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
 export interface WordVerdict {
   word: string;
@@ -45,19 +44,17 @@ function appears(text: string, word: string): boolean {
 }
 
 export async function checkWordUsage(text: string, targets: string[]): Promise<UsageReport> {
-  const key = import.meta.env.VITE_GROQ_API_KEY;
-  if (!key) {
-    return {
-      verdicts: targets.map((word) => ({
-        word,
-        used: appears(text, word),
-        correct: false,
-        comment: "",
-      })),
-      notes: [],
-      unavailable: "no-key",
-    };
-  }
+  /** The local-only report, used whenever the model cannot be reached. */
+  const offline = (reason: "no-key" | "failed"): UsageReport => ({
+    verdicts: targets.map((word) => ({
+      word,
+      used: appears(text, word),
+      correct: false,
+      comment: "",
+    })),
+    notes: [],
+    unavailable: reason,
+  });
 
   const prompt = `A learner wrote this text, trying to use specific English words they are learning.
 
@@ -81,30 +78,27 @@ Finally "improved": their text rewritten minimally — same content, same length
 Return JSON only:
 {"verdicts":[{"word":"...","used":true,"correct":true,"comment":"...","quote":"..."}],"notes":["..."],"improved":"..."}`;
 
+  let content: string;
   try {
-    const response = await fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-      body: JSON.stringify({
-        model: GROQ_MODEL,
-        temperature: 0.2,
-        max_completion_tokens: 2200,
-        reasoning_effort: "low",
-        response_format: { type: "json_object" },
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are a precise, kind English tutor who judges whether specific words were used correctly. You answer with JSON only, and you never inflate a verdict to be encouraging.",
-          },
-          { role: "user", content: prompt },
-        ],
-      }),
+    content = await askModel({
+      temperature: 0.2,
+      max_completion_tokens: 2200,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a precise, kind English tutor who judges whether specific words were used correctly. You answer with JSON only, and you never inflate a verdict to be encouraging.",
+        },
+        { role: "user", content: prompt },
+      ],
     });
+  } catch (err) {
+    return offline(err instanceof AiError ? err.reason : "failed");
+  }
 
-    if (!response.ok) throw new Error(String(response.status));
-    const data = await response.json();
-    const raw = JSON.parse(data.choices?.[0]?.message?.content ?? "{}");
+  try {
+    const raw = JSON.parse(content || "{}");
 
     const verdicts: WordVerdict[] = targets.map((word) => {
       const found = (Array.isArray(raw.verdicts) ? raw.verdicts : []).find(
@@ -128,15 +122,6 @@ Return JSON only:
       improved: String(raw.improved ?? "").trim() || undefined,
     };
   } catch {
-    return {
-      verdicts: targets.map((word) => ({
-        word,
-        used: appears(text, word),
-        correct: false,
-        comment: "",
-      })),
-      notes: [],
-      unavailable: "failed",
-    };
+    return offline("failed");
   }
 }
