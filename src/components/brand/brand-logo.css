@@ -63,8 +63,15 @@
   filter: brightness(0) invert(1);
 }
 
-:root[data-theme="dark"] .brand-art.brand-chip {
-  filter: brightness(0) invert(1);
+/* The artwork is a flat silhouette in the old brand violet, so the header mark
+   used to be recoloured with a filter — which can only reach black or white,
+   and left a violet eagle sitting above a pine-and-paper interface. Masking
+   paints the very same shape in any colour the palette holds, so the mark
+   follows the brand instead of contradicting it. */
+.brand-art.brand-chip {
+  background-color: var(--color-primary);
+  -webkit-mask: url("/logo-mark.png") center / contain no-repeat;
+  mask: url("/logo-mark.png") center / contain no-repeat;
 }
 
 @keyframes crest-halo {

@@ -267,8 +267,8 @@
   flex: 1 1 auto;
   padding: 11px 22px;
   border-radius: 999px;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
   font-size: 0.875rem;
   font-weight: 700;
 }

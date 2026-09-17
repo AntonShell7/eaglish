@@ -8,7 +8,7 @@
   background:
     radial-gradient(ellipse 68% 58% at 50% 28%, #52259f 0%, transparent 64%),
     linear-gradient(180deg, #3b168f 0%, #240c5e 100%);
-  border: 1px solid rgba(196, 181, 253, 0.22);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
   padding: 68px 32px 76px;
   text-align: center;
   /* Become the blending root so the logo's screen blend sees this
@@ -58,7 +58,7 @@
   font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #c4b5fd;
+  color: var(--color-primary);
 }
 
 .hero-crest__eyebrow::before,
@@ -66,7 +66,7 @@
   content: "";
   width: clamp(24px, 8vw, 64px);
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(196, 181, 253, 0.7), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-accent) 70%, transparent), transparent);
 }
 
 .hero-crest__tagline {
@@ -110,7 +110,7 @@
 }
 
 .hero-crest__ghost:hover {
-  border-color: rgba(196, 181, 253, 0.65);
+  border-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
 }
 
 /* ── Section heading with laurel-style rule ──────────────────────────── */
