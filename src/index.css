@@ -279,6 +279,32 @@ button:disabled {
   letter-spacing: -0.022em;
   line-height: 1.12;
   text-wrap: balance;
+  /* Russian words are long — "возвращением" is twelve letters — and a fixed
+     heading size that fits an English word runs off the side of a narrow phone.
+     The size follows the viewport, and a word with nowhere left to go breaks
+     rather than pushing the whole page sideways. */
+  font-size: clamp(1.55rem, 7.5vw, var(--page-title-size, 2.25rem));
+  overflow-wrap: break-word;
+}
+
+.page-title.text-3xl {
+  --page-title-size: 1.875rem;
+}
+
+.page-title.text-4xl {
+  --page-title-size: 2.25rem;
+}
+
+.page-title.text-2xl {
+  --page-title-size: 1.5rem;
+}
+
+.page-title.text-xl {
+  --page-title-size: 1.25rem;
+}
+
+.page-title.text-lg {
+  --page-title-size: 1.125rem;
 }
 
 /* Optical sizes: the bigger the type, the tighter it wants to be set. */

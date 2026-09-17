@@ -48,6 +48,8 @@
   flex: none;
   object-fit: contain;
   color: var(--color-primary);
+  /* The span carries no intrinsic size the way an <img> does. */
+  aspect-ratio: 1;
 }
 
 /* The artwork is already the brand violet, so only the placements that need
