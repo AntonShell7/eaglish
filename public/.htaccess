@@ -1,0 +1,70 @@
+# Apache settings for the site as reg.ru serves it.
+#
+# The app is a single-page application: the server holds one HTML file, and the
+# routing happens in the browser. Everything below follows from that, and from
+# the fact that this file is copied into the build as-is by Vite.
+
+# ---------- One address ----------
+# The site must answer at exactly one address, or a signed-in session at
+# https://eaglish.ru is a signed-out one at https://www.eaglish.ru — cookies
+# and stored sessions are per-origin, and a learner would silently lose their
+# place by following the wrong link.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Shared hosting often terminates TLS on a front server and passes the
+    # request on unencrypted, so %{HTTPS} alone is not enough to tell — without
+    # the second condition this rule would loop forever.
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^(.*)$ https://eaglish.ru/$1 [R=301,L]
+
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # ---------- Single-page routing ----------
+    # A reader who reloads on /reading, or opens a link to it, asks the server
+    # for a file that does not exist. Anything that is not a real file is handed
+    # to index.html, and the app reads the address itself.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---------- Headers ----------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---------- Caching ----------
+# Built assets carry a content hash in their name, so a changed file is a new
+# name and the old one can be cached forever. index.html must never be cached:
+# it is what points at the current asset names, and a stale copy pins visitors
+# to a version that no longer exists on the server.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(js|css|woff2|png|svg)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# ---------- Compression ----------
+# The 828 KB application file is what the filtering chokes on; served
+# compressed it is a fraction of that, which helps on slow connections too.
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
