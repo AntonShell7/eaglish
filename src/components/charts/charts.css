@@ -1,5 +1,5 @@
 /* Chart tokens.
-   Magnitude and trend use one hue — the brand violet — because sequential is
+   Magnitude and trend use one hue — the brand pine — because sequential is
    the safe default. The four-slot categorical ramp is only for the activity
    *mix*, where the categories themselves are the subject. Those four hues are
    the validated reference set (adjacent CVD ΔE 9.1 light / 8.4 dark), not
@@ -13,11 +13,11 @@
   --viz-ink-2: var(--color-text-muted);
 
   /* sequential: one hue, more-is-darker */
-  --viz-seq-1: #ede8fa;
-  --viz-seq-2: #cbbcf2;
-  --viz-seq-3: #a288e4;
-  --viz-seq-4: #6d4bc9;
-  --viz-seq-5: #3b168f;
+  --viz-seq-1: #e4efe9;
+  --viz-seq-2: #b9d9cc;
+  --viz-seq-3: #7fb9a2;
+  --viz-seq-4: #3f8a72;
+  --viz-seq-5: #164a3c;
 
   /* categorical, light steps */
   --viz-cat-1: #2a78d6;
@@ -27,11 +27,11 @@
 }
 
 :root[data-theme="dark"] .viz {
-  --viz-seq-1: #241a3d;
-  --viz-seq-2: #3a2a63;
-  --viz-seq-3: #5b41a3;
-  --viz-seq-4: #8b6fe8;
-  --viz-seq-5: #c4b5fd;
+  --viz-seq-1: #17302a;
+  --viz-seq-2: #1d4a3e;
+  --viz-seq-3: #2a6f5c;
+  --viz-seq-4: #3f9c81;
+  --viz-seq-5: #7fd0b4;
 
   /* categorical, dark steps — the same hues re-stepped for the dark surface */
   --viz-cat-1: #3987e5;

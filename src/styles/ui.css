@@ -41,14 +41,19 @@
   opacity: 0.45;
 }
 
+/* Ink, not colour.
+   A near-black button on warm paper needs no help being found, and it leaves
+   the brand hue free to mean something elsewhere. It also stops the page
+   arguing with itself: when every accent is the same violet, the button
+   competes with the chips, the links and the progress ring for attention. */
 .btn--primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
   box-shadow: var(--shadow-2);
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: var(--color-primary-hover);
+  background: var(--color-ink-hover);
   box-shadow: var(--shadow-3);
   transform: translateY(-1px);
 }
@@ -60,8 +65,8 @@
 }
 
 .btn--ghost:hover:not(:disabled) {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-2);
   transform: translateY(-1px);
 }
 

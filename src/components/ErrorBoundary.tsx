@@ -59,7 +59,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
                 padding: "11px 22px",
                 borderRadius: 999,
                 border: "none",
-                background: "#a78bfa",
+                background: "var(--color-ink)",
                 color: "#150e22",
                 fontSize: 14,
                 fontWeight: 700,

@@ -308,9 +308,13 @@
   inset: -30%;
   z-index: -1;
   pointer-events: none;
+  /* Two slow lights rather than one, so the space behind the mark has depth —
+     and both are drawn from the palette instead of the leftover violet and
+     mint of the old brand field, which were the last saturated things on the
+     page still arguing with it. */
   background:
-    radial-gradient(38% 42% at 30% 32%, rgba(167, 139, 250, 0.55), transparent 62%),
-    radial-gradient(34% 38% at 72% 65%, rgba(102, 227, 196, 0.28), transparent 60%);
+    radial-gradient(38% 42% at 30% 32%, color-mix(in srgb, var(--color-primary) 40%, transparent), transparent 62%),
+    radial-gradient(34% 38% at 72% 65%, color-mix(in srgb, var(--color-accent) 26%, transparent), transparent 60%);
   filter: blur(18px);
   animation: aurora-drift 24s var(--ease) infinite alternate;
 }
