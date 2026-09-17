@@ -12,6 +12,16 @@
  * try again later).
  */
 
+/**
+ * Where the model endpoint lives.
+ *
+ * Normally it is a path on this same site. Once the site is served from Russian
+ * hosting the function stays on Vercel — that is what keeps the provider seeing
+ * a European caller — so the build points this at an absolute address instead.
+ * The endpoint answers a fixed list of origins, and this is one of them.
+ */
+const ENDPOINT = import.meta.env.VITE_AI_ENDPOINT || "/api/ai";
+
 export type AiFailure = "no-key" | "failed";
 
 export class AiError extends Error {
@@ -54,7 +64,7 @@ export async function askModel(request: AiRequest): Promise<string> {
 
   let response: Response;
   try {
-    response = await fetch("/api/ai", {
+    response = await fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(request),

@@ -1,0 +1,65 @@
+name: Deploy to reg.ru
+
+# The site is served from Russian hosting because a .ru domain pointing at
+# foreign hosting gets its large files cut mid-transfer on Russian networks —
+# measured at 10 KB of an 828 KB bundle, repeatedly. The model endpoint stays on
+# Vercel, deployed separately by its own Git integration.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Забрать код
+        uses: actions/checkout@v4
+
+      - name: Поставить Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Установить зависимости
+        run: npm ci
+
+      - name: Собрать сайт
+        env:
+          # Public by design: the Supabase anon key is meant for the browser,
+          # and access is decided by the database's own row-level policies.
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_DEMO_MODE: "false"
+          # The model endpoint is on another origin now, so it needs naming in
+          # full. GROQ_API_KEY is deliberately absent here: it lives only in
+          # Vercel's environment, and nothing in this build may see it.
+          VITE_AI_ENDPOINT: https://eaglish.vercel.app/api/ai
+        run: npm run build
+
+      - name: Поставить lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Залить по SFTP
+        env:
+          HOST: ${{ secrets.FTP_SERVER }}
+          USER_NAME: ${{ secrets.FTP_USERNAME }}
+          PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_DIR: ${{ secrets.FTP_DIR }}
+        # Only dist/ is uploaded — the hosting serves the built site, never the
+        # sources. --delete keeps old asset files from accumulating forever,
+        # which is safe precisely because the whole site is in this one folder.
+        run: |
+          lftp -c "
+            set net:max-retries 5;
+            set net:timeout 30;
+            set net:reconnect-interval-base 5;
+            set sftp:auto-confirm yes;
+            open -u \"$USER_NAME\",\"$PASSWORD\" sftp://$HOST;
+            mirror --reverse --delete --verbose --parallel=2 \
+              --no-perms \
+              --ignore-time \
+              ./dist/ \"$REMOTE_DIR\"
+          "

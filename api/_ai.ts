@@ -133,18 +133,39 @@ export async function handleAi(raw: unknown, apiKey: string | undefined): Promis
 }
 
 /**
- * Same-origin only.
+ * Which sites may use this endpoint.
  *
- * This does not stop a determined script — Origin is trivially forged outside a
- * browser — but it does stop the endpoint being embedded in someone else's page
- * as a free model, which is the realistic way a public proxy gets drained.
+ * The rule used to be "same origin", which stopped being true the day the site
+ * moved to Russian hosting and the function stayed here: the page is served
+ * from eaglish.ru and calls a Vercel address, which is a cross-origin request
+ * by definition. That split is deliberate — it keeps the model calls leaving
+ * from Europe, where the provider serves us, while the heavy files come from a
+ * server that Russian networks do not throttle.
+ *
+ * So the check becomes a list instead. It does not stop a determined script,
+ * since Origin is trivially forged outside a browser, but it does stop the
+ * endpoint being embedded in someone else's page as a free model — which is
+ * the realistic way a public proxy gets drained.
  */
+const ALLOWED_ORIGINS = new Set([
+  "https://eaglish.ru",
+  "https://www.eaglish.ru",
+  "https://eaglish.vercel.app",
+  "http://localhost:5173",
+]);
+
 export function originAllowed(origin: string | undefined, host: string | undefined): boolean {
   if (!origin) return true; // same-origin fetches from some browsers omit it
-  if (!host) return false;
-  try {
-    return new URL(origin).host === host;
-  } catch {
-    return false;
-  }
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+
+  // Vercel's own preview deployments get a fresh hostname each time, and they
+  // are ours; anything else with our host is same-origin anyway.
+  if (host && origin === `https://${host}`) return true;
+  return /^https:\/\/eaglish-[a-z0-9-]+\.vercel\.app$/.test(origin);
+}
+
+/** The value to echo back, so a browser will accept the response. */
+export function corsOrigin(origin: string | undefined, host: string | undefined): string | null {
+  if (!origin) return null;
+  return originAllowed(origin, host) ? origin : null;
 }
