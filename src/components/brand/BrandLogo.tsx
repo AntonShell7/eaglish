@@ -27,5 +27,14 @@ export function BrandLogo({ className, variant = "hero" }: BrandLogoProps) {
     return <EagleMark className={classes} />;
   }
 
+  // The header mark is painted through a CSS mask so it can take the brand's
+  // colour, and a mask cannot recolour an <img>: it clips the element, but the
+  // image's own pixels still draw on top, which left a violet eagle sitting on
+  // a pine fill. A span has no pixels of its own, so the mask is the shape and
+  // the background is the colour.
+  if (variant === "chip") {
+    return <span aria-hidden className={`${classes} brand-art`} />;
+  }
+
   return <img src="/logo-mark.png" alt="" className={`${classes} brand-art`} onError={() => setAssetMissing(true)} />;
 }
