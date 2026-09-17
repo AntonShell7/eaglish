@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import {
   explainInEnglish,
@@ -139,16 +140,54 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
    * ground truth beats a whole level's worth of assumption, and it keeps the
    * review queue free of words that were never a problem.
    */
+  /** Placement, recomputed once the popup's real height is known. */
+  const [position, setPosition] = useState({ left: -9999, top: -9999 });
+
+  useLayoutEffect(() => {
+    const place = () => {
+      const height = ref.current?.offsetHeight ?? 220;
+      const margin = 12;
+      const maxLeft = Math.max(margin, window.innerWidth - WIDTH - margin);
+      const left = Math.min(Math.max(request.anchor.x - WIDTH / 2, margin), maxLeft);
+
+      // Below the word by default; above it when there is no room below.
+      const below = request.anchor.y + 14;
+      const fitsBelow = below + height + margin <= window.innerHeight;
+      const raw = fitsBelow ? below : request.anchor.y - height - 14;
+      const maxTop = Math.max(margin, window.innerHeight - height - margin);
+      setPosition({ left, top: Math.min(Math.max(raw, margin), maxTop) });
+    };
+
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [request.anchor.x, request.anchor.y, result, explanation, sentence]);
+
   const handleKnown = () => {
     if (!result) return;
     markKnown(result.word);
     onClose();
   };
 
-  const left = Math.min(Math.max(request.anchor.x - WIDTH / 2, 12), window.innerWidth - WIDTH - 12);
-  const top = Math.min(request.anchor.y + 14, window.innerHeight - 190);
+  const { left, top } = position;
 
-  return (
+  /*
+   * The popup is placed against the viewport, and it has to stay inside it.
+   *
+   * It used to be positioned with a single clamp against `window.innerWidth`
+   * and rendered inside the page. Both parts were wrong. `position: fixed`
+   * resolves against the nearest transformed ancestor rather than the viewport,
+   * and the page wrapper animates a transform on every navigation — so the
+   * popup's coordinates were measured from one box and applied to another, and
+   * a word near the top of a text opened its popup off-screen, above and to the
+   * left of everything. Tapping a word is the whole app; it cannot be a coin
+   * toss whether the answer lands somewhere reachable.
+   *
+   * So: a portal to <body>, escaping any ancestor that could capture it, and
+   * the real measured height used to decide whether the popup hangs below the
+   * word or flips above it.
+   */
+  return createPortal(
     <div
       ref={ref}
       className="fixed z-[60] rounded-2xl border p-4 backdrop-blur-xl"
@@ -291,6 +330,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
           </div>
         </>
       )}
-    </div>
+    </div>,
+    document.body,
   );
 }
