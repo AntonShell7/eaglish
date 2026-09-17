@@ -1,4 +1,5 @@
 import { askModel, AiError, type AiFailure, type AiMessage, type AiRequest } from "./aiClient";
+import { readCache, writeCache } from "./wordCache";
 
 export interface GlossaryLike {
   [word: string]: { translation: string; partOfSpeech?: string };
@@ -77,6 +78,19 @@ export async function lookupWord(
     return { word: cleaned, translation: entry.translation, partOfSpeech: entry.partOfSpeech, isLive: false };
   }
 
+  // Then the shared cache: someone, at some point, already paid for this word.
+  // It sits below the curated glossary on purpose — a hand-checked entry for
+  // this particular text beats a general one collected from anywhere.
+  const cached = await readCache(cleaned);
+  if (cached?.translation) {
+    return {
+      word: cleaned,
+      translation: cached.translation,
+      partOfSpeech: cached.partOfSpeech ?? undefined,
+      isLive: false,
+    };
+  }
+
   let failure: Unavailable = "failed";
 
   try {
@@ -99,6 +113,7 @@ export async function lookupWord(
       });
       const parsed = JSON.parse(raw || "{}");
       if (parsed.translation) {
+        void writeCache(cleaned, { translation: parsed.translation, partOfSpeech: parsed.partOfSpeech });
         return { word: cleaned, translation: parsed.translation, partOfSpeech: parsed.partOfSpeech, isLive: true };
       }
   } catch (err) {
@@ -190,6 +205,17 @@ export async function explainInEnglish(
   options: { sentence?: string } = {},
 ): Promise<WordExplanationResult> {
   const word = rawWord.trim();
+
+  const cached = await readCache(word);
+  if (cached?.definition) {
+    return {
+      word,
+      definition: cached.definition,
+      example: cached.example ?? "",
+      synonyms: cached.synonyms ?? undefined,
+    };
+  }
+
   const context = options.sentence ? `\nIt appears in: "${options.sentence}"` : "";
 
   try {
@@ -223,12 +249,11 @@ Explain the meaning it carries in that sentence, not every meaning it can have. 
     const definition = (parsed.definition ?? "").trim();
     if (!definition) return { word, definition: "", example: "", unavailable: "failed" };
 
-    return {
-      word,
-      definition,
-      example: (parsed.example ?? "").trim(),
-      synonyms: (parsed.synonyms ?? []).filter(Boolean).slice(0, 3),
-    };
+    const example = (parsed.example ?? "").trim();
+    const synonyms = (parsed.synonyms ?? []).filter(Boolean).slice(0, 3);
+    void writeCache(word, { definition, example, synonyms });
+
+    return { word, definition, example, synonyms };
   } catch (err) {
     return { word, definition: "", example: "", unavailable: reasonOf(err) };
   }
