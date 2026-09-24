@@ -112,7 +112,7 @@ export default function Progress() {
           label={t("progress.streak")}
           value={streak}
           hint={streak === 0 ? t("progress.streakNone") : t("progress.bestStreak", { count: best })}
-          icon={<IconFlame />}
+          icon={<IconFlame alive={streak > 0} />}
         />
         <StatTile label={t("progress.textsOpened")} value={textsRead} />
         <StatTile

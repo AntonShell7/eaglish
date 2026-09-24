@@ -1,15 +1,13 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
-import { completeTask, getDailyGoal, getTodayCount, type ActivityKind } from "@/lib/activityStore";
-import { XP_PER_ACTIVITY } from "@/lib/gamification";
+import { completeTask, type ActivityKind } from "@/lib/activityStore";
+import { getDueWords } from "@/lib/vocabularyStore";
 import "./task-done.css";
 
 interface Toast {
   title: string;
-  xp: number;
-  done: number;
-  goal: number;
-  goalJustReached: boolean;
+  left: number;
+  cleared: boolean;
 }
 
 interface TaskDoneApi {
@@ -40,19 +38,14 @@ export function TaskDoneProvider({ children }: { children: ReactNode }) {
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
   const finish = useCallback((kind: ActivityKind, taskId: string, title: string) => {
-    const goal = getDailyGoal();
-    const before = getTodayCount();
     const isNew = completeTask(kind, taskId);
     if (!isNew) return false;
 
-    const done = getTodayCount();
-    setToast({
-      title,
-      xp: XP_PER_ACTIVITY[kind] ?? 0,
-      done,
-      goal,
-      goalJustReached: before < goal && done >= goal,
-    });
+    // What is left to do, rather than points awarded for having done it. When
+    // the queue empties that is worth saying out loud — it is the only moment
+    // in the app where the work is genuinely finished.
+    const left = getDueWords().length;
+    setToast({ title, left, cleared: left === 0 });
 
     window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => setToast(null), VISIBLE_MS);
@@ -65,23 +58,20 @@ export function TaskDoneProvider({ children }: { children: ReactNode }) {
 
       {toast && (
         <div
-          className={`taskdone${toast.goalJustReached ? " taskdone--goal" : ""}`}
+          className={`taskdone${toast.cleared ? " taskdone--goal" : ""}`}
           role="status"
           aria-live="polite"
         >
           <span className="taskdone__tick" aria-hidden>
-            {toast.goalJustReached ? "★" : "✓"}
+            {toast.cleared ? "★" : "✓"}
           </span>
 
           <div className="taskdone__body">
             <p className="taskdone__h">
-              {toast.goalJustReached ? t("tasks.goalReachedTitle") : toast.title}
+              {toast.cleared ? t("tasks.queueClearTitle") : toast.title}
             </p>
             <p className="taskdone__p">
-              {toast.goalJustReached
-                ? t("tasks.goalReachedBody", { count: toast.done })
-                : t("tasks.progress", { done: toast.done, target: toast.goal })}
-              {toast.xp > 0 && ` · +${toast.xp} XP`}
+              {toast.cleared ? t("tasks.queueClearBody") : t("tasks.left", { count: toast.left })}
             </p>
           </div>
 
