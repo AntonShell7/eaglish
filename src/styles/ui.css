@@ -352,3 +352,53 @@ textarea.field {
 :root[data-theme="dark"] .segmented__item.is-active {
   background: var(--color-surface-3);
 }
+
+/* ── The streak flame ───────────────────────────────────────────────────── */
+
+.flame__core {
+  opacity: 0;
+}
+
+/* Only a live streak burns. A flame animating next to a zero would be
+   celebrating nothing, which is the fastest way to make a reward meaningless. */
+.flame.is-alive .flame__body {
+  transform-origin: 50% 85%;
+  animation: flame-breathe 2.6s var(--ease) infinite;
+}
+
+.flame.is-alive .flame__core {
+  opacity: 1;
+  transform-origin: 50% 85%;
+  color: var(--color-accent);
+  fill: var(--color-accent);
+  animation: flame-core 1.7s var(--ease) infinite;
+}
+
+@keyframes flame-breathe {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  45% {
+    transform: scaleY(1.07) scaleX(0.97);
+  }
+}
+
+@keyframes flame-core {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scaleY(1.18);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame.is-alive .flame__body,
+  .flame.is-alive .flame__core {
+    animation: none;
+  }
+}

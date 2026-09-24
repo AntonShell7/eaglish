@@ -103,7 +103,17 @@ export function rankByPreference<T extends { level: string; topic: string }>(ite
 
 /** Numeric difficulty, so a lesson band can be compared to a reading level. */
 const LEVEL_WEIGHT: Record<string, number> = { "A1-A2": 0.3, "B1-B2": 1.2, "C1-C2": 1.8 };
-const LESSON_WEIGHT: Record<string, number> = { A2: 0.3, "A2–B1": 0.7, B1: 1.2, "B1–B2": 1.6 };
+const LESSON_WEIGHT: Record<string, number> = {
+  A1: 0,
+  "A1–A2": 0.15,
+  A2: 0.3,
+  "A2–B1": 0.7,
+  B1: 1.2,
+  "B1–B2": 1.6,
+  B2: 2,
+  "B2–C1": 2.4,
+  C1: 2.8,
+};
 
 /** Lessons closest to the learner's level first — not the easiest, the right one. */
 export function rankLessons<T extends { level: string }>(items: T[]): T[] {

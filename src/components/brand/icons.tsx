@@ -76,10 +76,30 @@ export function IconUser() {
   );
 }
 
-export function IconFlame() {
+/**
+ * The streak flame.
+ *
+ * Two shapes rather than one: the outer body and an inner core that breathes
+ * on a slightly different rhythm, which is what makes a flame read as alive
+ * instead of as a blinking icon. The movement is small on purpose — this sits
+ * in a toolbar the learner looks at every day, and anything larger would be
+ * something to switch off rather than something to earn.
+ */
+export function IconFlame({ alive = false }: { alive?: boolean } = {}) {
   return (
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none">
-      <path d="M12.8 2.2c.5 2.6-.6 4-1.9 5.3-1.4 1.4-3.1 2.8-3.1 5.6a5.2 5.2 0 0010.4.3c0-2.2-1-3.6-2-4.7.2 1-.2 1.9-.9 2.3.3-2.6-.7-5.9-2.5-8.8z" />
+    <svg
+      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      fill="currentColor"
+      stroke="none"
+      className={alive ? "flame is-alive" : "flame"}
+    >
+      <path
+        className="flame__body"
+        d="M12.8 2.2c.5 2.6-.6 4-1.9 5.3-1.4 1.4-3.1 2.8-3.1 5.6a5.2 5.2 0 0010.4.3c0-2.2-1-3.6-2-4.7.2 1-.2 1.9-.9 2.3.3-2.6-.7-5.9-2.5-8.8z"
+      />
+      <path className="flame__core" d="M12.1 12.1c1.2 1 1.8 1.9 1.8 3a1.9 1.9 0 01-3.8 0c0-1.2.9-2.1 2-3z" />
     </svg>
   );
 }

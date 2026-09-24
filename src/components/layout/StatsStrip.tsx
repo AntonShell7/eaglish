@@ -34,7 +34,7 @@ export function StatsStrip({ routeKey }: { routeKey: string }) {
     <div className="stats-strip">
       {state.streak > 0 && (
         <span className="stat-chip" title={t("progress.streak")}>
-          <IconFlame />
+          <IconFlame alive />
           {state.streak}
           <span className="stat-chip__unit">{t("shell.dayStreakShort")}</span>
         </span>
