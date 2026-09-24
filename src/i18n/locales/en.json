@@ -477,8 +477,9 @@
     "dueLabel": "Today",
     "queueClearLabel": "Queue is empty",
     "dueSub": "These words came back exactly now, at the moment they were about to slip. That is all the work there is today, and it ends.",
-    "wordsCollected": "words collected",
-    "wordsHeld": "held firmly"
+    "wordsHeld": "held firmly",
+    "wordsCollected_one": "word collected",
+    "wordsCollected_other": "words collected"
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -785,7 +786,8 @@
       "ca": "Canadian",
       "nz": "New Zealand",
       "other": "English"
-    }
+    },
+    "perfect": "Every word, exactly right"
   },
   "levels": {
     "label": "Level",

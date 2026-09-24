@@ -129,7 +129,7 @@ export default function Dashboard() {
             <div>
               <p className="tabular text-3xl font-bold leading-none">{wordsShown}</p>
               <p className="mt-1.5 text-xs" style={{ color: "var(--color-text-muted)" }}>
-                {t("dashboard.wordsCollected")}
+                {t("dashboard.wordsCollected", { count: words })}
               </p>
             </div>
             <div>

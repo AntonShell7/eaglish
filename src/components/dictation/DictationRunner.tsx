@@ -290,11 +290,19 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
               })}
             </p>
 
-            <p className="dict__score tabular">
-              {t("dictation.accuracy", { percent: Math.round(result.accuracy * 100) })}
-            </p>
+            <p className="dict__ru">{sentence.translationRu}</p>
 
-            {sentence.translationRu && <p className="dict__ru">{sentence.translationRu}</p>}
+            <p className="dict__tap">{t("dictation.tapAnyWord")}</p>
+
+            {/* The verdict is stated even when nothing went wrong. A screen
+                that only appears after a mistake teaches that being right is
+                uneventful — and it would skip the reading of the sentence,
+                which is worth as much as the correction. */}
+            <p className={result.accuracy === 1 ? "dict__verdict is-perfect" : "dict__verdict"}>
+              {result.accuracy === 1
+                ? t("dictation.perfect")
+                : t("dictation.accuracy", { percent: Math.round(result.accuracy * 100) })}
+            </p>
 
             {offered.length > 0 && (
               <div className="dict__harvest">

@@ -300,3 +300,41 @@ button.dict__m:hover {
   font-family: inherit;
   font-size: 0.7rem;
 }
+
+/* The sentence and its translation read as one block, English above Russian,
+   because that pairing is the reading exercise hiding inside the dictation. */
+.dict__ru {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.dict__tap {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+.dict__verdict {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.dict__verdict.is-perfect {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-success) 16%, transparent);
+  color: var(--color-success);
+}
+
+.dict__verdict.is-perfect::before {
+  content: "✓";
+}
