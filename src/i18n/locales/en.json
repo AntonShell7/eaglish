@@ -83,9 +83,9 @@
     "descriptions": {
       "reading": "Read short texts by topic and level, and look up any word instantly as you go.",
       "writing": "Get short writing prompts and structured feedback on grammar and style.",
-      "listening": "In development. Reading, writing, vocabulary and everyday English work today — listening is the next section to be built.",
       "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
-      "vocabulary": "Every word you save comes back for review, right when you need it."
+      "vocabulary": "Every word you save comes back for review, right when you need it.",
+      "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in."
     }
   },
   "reading": {
@@ -304,7 +304,12 @@
     "you": "You",
     "dayStreakShort": "days",
     "xpTitle": "Level {{level}}",
-    "demoMode": "Demo mode: signed in without an account. Progress stays in this browser and is not synced."
+    "demoMode": "Demo mode: signed in without an account. Progress stays in this browser and is not synced.",
+    "wordsTitle": "Words in your vocabulary",
+    "dueShort": "due",
+    "dueTitle": "Words due for review",
+    "wordsCount_one": "word",
+    "wordsCount_other": "words"
   },
   "profile": {
     "title": "Your profile",
@@ -451,7 +456,12 @@
     "todayShort": "today",
     "goalMet": "Today's goal is done",
     "goalMetSub": "Anything past this is a bonus — the streak is safe either way.",
-    "nextStepSub": "One task is enough to keep the streak alive. Start with whatever you'd actually enjoy."
+    "nextStepSub": "One task is enough to keep the streak alive. Start with whatever you'd actually enjoy.",
+    "dueLabel": "Today",
+    "queueClearLabel": "Queue is empty",
+    "dueSub": "These words came back exactly now, at the moment they were about to slip. That is all the work there is today, and it ends.",
+    "wordsCollected": "words collected",
+    "wordsHeld": "held firmly"
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -744,6 +754,15 @@
     "taskDone": "Dictation done",
     "noVoiceTitle": "This browser cannot read aloud",
     "noVoiceBody": "Dictation uses the browser's built-in speech. There seems to be no English voice here — try Chrome, Safari or Edge.",
-    "voiceLabel": "Voice and accent:"
+    "voiceLabel": "Voice and accent:",
+    "hintCheck": "check, then next",
+    "hintReplay": "play again",
+    "tapAnyWord": "Tap any word to see its translation."
+  },
+  "levels": {
+    "label": "Level",
+    "all": "All",
+    "empty": "Nothing at this level here yet — try the one next to it.",
+    "yours": "yours"
   }
 }

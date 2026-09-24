@@ -1,61 +1,62 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { IconFlame, IconBolt, IconTarget } from "@/components/brand/icons";
-import { ACTIVITY_EVENT, getStreak, getDailyGoal, getTodayCount } from "@/lib/activityStore";
-import { getTotalXp, getLevelState } from "@/lib/gamification";
+import { Link } from "react-router-dom";
+import { IconFlame, IconBookmark } from "@/components/brand/icons";
+import { ACTIVITY_EVENT, getStreak } from "@/lib/activityStore";
+import { getDueWords, getVocabulary } from "@/lib/vocabularyStore";
 
 /**
- * The always-visible status strip: streak, XP and today's goal.
+ * The always-visible strip.
  *
- * Keeping these on screen is what makes a daily habit feel accountable — the
- * numbers are the reason to come back, so they shouldn't be buried on a
- * separate page. Re-reads on every navigation so it never shows stale counts.
+ * It used to carry XP and a daily goal of three tasks, and both were points
+ * awarded for attendance: neither number said anything about English, and an
+ * arbitrary target invites you to do the cheapest three things that clear it.
+ *
+ * What is left is what a learner would actually want glanced at — how many
+ * words they hold, how many are due back today, and the streak, which is the
+ * one game mechanic that measures something real: whether you showed up.
+ * The due count is a link, because unlike a score it is something to act on.
  */
 export function StatsStrip({ routeKey }: { routeKey: string }) {
   const { t } = useTranslation();
-  const [state, setState] = useState({ streak: 0, xp: 0, level: 1, today: 0, goal: 3 });
+  const [state, setState] = useState({ streak: 0, words: 0, due: 0 });
 
   useEffect(() => {
     const read = () =>
-      setState({
-        streak: getStreak(),
-        xp: getTotalXp(),
-        level: getLevelState().level,
-        today: getTodayCount(),
-        goal: getDailyGoal(),
-      });
+      setState({ streak: getStreak(), words: getVocabulary().length, due: getDueWords().length });
 
     read();
-    // Finishing a task has to move these numbers immediately — waiting for the
-    // next navigation would make the reward feel unrelated to the work.
     window.addEventListener(ACTIVITY_EVENT, read);
     return () => window.removeEventListener(ACTIVITY_EVENT, read);
   }, [routeKey]);
 
-  const goalDone = state.today >= state.goal;
-
   return (
     <div className="stats-strip">
-      <span className="stat-chip" title={t("progress.streak")}>
-        <IconFlame />
-        {state.streak}
-        <span className="stat-chip__unit">{t("shell.dayStreakShort")}</span>
+      {state.streak > 0 && (
+        <span className="stat-chip" title={t("progress.streak")}>
+          <IconFlame />
+          {state.streak}
+          <span className="stat-chip__unit">{t("shell.dayStreakShort")}</span>
+        </span>
+      )}
+
+      <span className="stat-chip" title={t("shell.wordsTitle")}>
+        <IconBookmark />
+        {state.words}
+        <span className="stat-chip__unit">{t("shell.wordsCount", { count: state.words })}</span>
       </span>
 
-      <span className="stat-chip" title={t("shell.xpTitle", { level: state.level })}>
-        <IconBolt />
-        {state.xp}
-        <span className="stat-chip__unit">XP</span>
-      </span>
-
-      <span
-        className="stat-chip"
-        title={t("progress.todayGoal")}
-        style={goalDone ? { borderColor: "var(--color-success)", color: "var(--color-success)" } : undefined}
-      >
-        <IconTarget />
-        {state.today}/{state.goal}
-      </span>
+      {state.due > 0 && (
+        <Link
+          to="/vocabulary"
+          className="stat-chip stat-chip--due"
+          title={t("shell.dueTitle")}
+          style={{ borderColor: "var(--color-accent)", color: "var(--color-accent-ink)" }}
+        >
+          {state.due}
+          <span className="stat-chip__unit">{t("shell.dueShort")}</span>
+        </Link>
+      )}
     </div>
   );
 }

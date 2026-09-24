@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { BrandLogo } from "@/components/brand/BrandLogo";
-import { Meter, StatTile } from "@/components/charts/figures";
+import { StatTile } from "@/components/charts/figures";
 import { IconFlame, IconBolt, IconBookmark } from "@/components/brand/icons";
 import { getStreak, getBestStreak, getDailyGoal, setDailyGoal, getTodayCount } from "@/lib/activityStore";
 import { getVocabulary } from "@/lib/vocabularyStore";
-import { getTotalXp, getLevelState, getAchievements, isUnlocked, type Achievement } from "@/lib/gamification";
+import { getTotalXp, getAchievements, isUnlocked, type Achievement } from "@/lib/gamification";
 import { getLearnerProfile, updateLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import "@/components/charts/charts.css";
 
@@ -60,7 +60,6 @@ export default function Profile() {
   const navigate = useNavigate();
 
   const [xp, setXp] = useState(0);
-  const [level, setLevel] = useState(getLevelState(0));
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [words, setWords] = useState(0);
@@ -72,7 +71,6 @@ export default function Profile() {
   const refresh = () => {
     const total = getTotalXp();
     setXp(total);
-    setLevel(getLevelState(total));
     setStreak(getStreak());
     setBest(getBestStreak());
     setWords(getVocabulary().length);
@@ -108,7 +106,7 @@ export default function Profile() {
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="text-lg font-extrabold">{t("profile.level", { level: level.level })}</p>
+            <p className="text-lg font-extrabold">{learner?.level ?? t("profile.noLevelYet")}</p>
             <p className="truncate text-sm" style={{ color: "var(--color-text-muted)" }}>
               {user ? `${t("profile.signedInAs")} ${user.email}` : t("profile.notSignedIn")}
             </p>
@@ -136,18 +134,6 @@ export default function Profile() {
           )}
         </div>
 
-        <div className="mt-6">
-          <Meter
-            value={level.xpIntoLevel}
-            max={level.xpForThisLevel}
-            label={t("progress.levelMeter", { level: level.level })}
-            valueLabel={t("profile.xpToNext", {
-              current: level.xpIntoLevel,
-              target: level.xpForThisLevel,
-              next: level.level + 1,
-            })}
-          />
-        </div>
       </section>
 
       {/* KPI row — headline numbers, not charts */}

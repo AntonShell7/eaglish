@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { HeroFigure, StatTile, Meter } from "@/components/charts/figures";
+import { StatTile } from "@/components/charts/figures";
 import { Columns, type ColumnDatum } from "@/components/charts/Columns";
 import { Heatmap, type HeatmapCell } from "@/components/charts/Heatmap";
 import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
@@ -15,10 +15,9 @@ import {
   getBestStreak,
   getRecentDays,
   getDailyGoal,
-  getTodayCount,
   type ActivityKind,
 } from "@/lib/activityStore";
-import { getTotalXp, getLevelState, getActivityMix } from "@/lib/gamification";
+import { getActivityMix } from "@/lib/gamification";
 import "@/components/charts/charts.css";
 
 const MIX_COLORS: Record<ActivityKind, string> = {
@@ -36,13 +35,9 @@ function weekdayLabels(locale: string, dates: string[]): string[] {
 
 export default function Progress() {
   const { t, i18n } = useTranslation();
-
-  const [xp, setXp] = useState(0);
-  const [level, setLevel] = useState(getLevelState(0));
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [goal, setGoal] = useState(3);
-  const [today, setToday] = useState(0);
   const [week, setWeek] = useState<ColumnDatum[]>([]);
   const [cells, setCells] = useState<HeatmapCell[]>([]);
   const [scores, setScores] = useState<TrendPoint[]>([]);
@@ -53,13 +48,9 @@ export default function Progress() {
   const [due, setDue] = useState(0);
 
   useEffect(() => {
-    const total = getTotalXp();
-    setXp(total);
-    setLevel(getLevelState(total));
     setStreak(getStreak());
     setBest(getBestStreak());
     setGoal(getDailyGoal());
-    setToday(getTodayCount());
 
     const last7 = getRecentDays(7);
     const labels = weekdayLabels(i18n.language, last7.map((d) => d.date));
@@ -111,26 +102,10 @@ export default function Progress() {
 
       <p className="eyebrow mt-12">{t("progress.effortTitle")}</p>
 
-      {/* Hero + level meter: exactly one hero figure on the page */}
-      <section className="card viz mt-6 grid gap-6 p-6 lg:grid-cols-[auto_1fr] lg:items-center">
-        <HeroFigure value={xp} label={t("progress.dashboardLead")} caption={t("progress.dashboardCaption")} />
-        <div className="space-y-4 lg:pl-8">
-          <Meter
-            value={level.xpIntoLevel}
-            max={level.xpForThisLevel}
-            label={t("progress.levelMeter", { level: level.level })}
-            valueLabel={`${level.xpIntoLevel} / ${level.xpForThisLevel} XP`}
-          />
-          <Meter
-            value={today}
-            max={goal}
-            label={t("progress.todayGoal")}
-            valueLabel={t("progress.goalProgress", { done: today, target: goal })}
-            done={today >= goal}
-          />
-        </div>
-      </section>
-
+      {/* Effort used to open with a hero figure of XP and a meter against an
+          invented daily target. Both are gone: the tiles below already say how
+          many days in a row, how many texts, how many words — in units that
+          mean something without a conversion rate. */}
       {/* KPI row */}
       <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatTile
