@@ -92,7 +92,7 @@ export default function Dictation() {
                 className="card card--interactive p-5 text-left"
                 onClick={() => setTopic(entry.id)}
               >
-                <h3 className="page-title text-lg">{entry.label}</h3>
+                <h3 className="page-title text-lg">{t(`reading.topics.${entry.id}`)}</h3>
                 <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
                   {t("reading.textCount", { count: entry.total })}
                 </p>

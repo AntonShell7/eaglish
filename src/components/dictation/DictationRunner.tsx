@@ -6,6 +6,7 @@ import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup";
+import { accentKey } from "./voices";
 import "./dictation.css";
 
 export interface DictationSentence {
@@ -76,22 +77,44 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
    * anywhere on the screen, including mid-word.
    */
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
-        event.preventDefault();
-        play();
+    // Ctrl on its own replays, which is the shortcut every dictation tool uses
+    // because it is the one key you can hit blind, mid-word, without leaving
+    // the text. Firing on keydown would break every Ctrl+C, so it fires on
+    // release and only when nothing was pressed while it was held.
+    let ctrlAlone = false;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Control" || event.key === "Meta") {
+        ctrlAlone = true;
         return;
       }
-      // Once the answer is on screen the input is gone, so a bare Enter is
-      // unambiguous and means "next".
+      ctrlAlone = false;
+
       if (event.key === "Enter" && result && !event.shiftKey) {
         event.preventDefault();
         next();
       }
     };
 
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const onKeyUp = (event: KeyboardEvent) => {
+      if ((event.key === "Control" || event.key === "Meta") && ctrlAlone) {
+        ctrlAlone = false;
+        play();
+      }
+    };
+
+    const onBlur = () => {
+      ctrlAlone = false;
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
+    window.addEventListener("blur", onBlur);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("blur", onBlur);
+    };
   });
 
   const check = () => {
@@ -310,7 +333,7 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
       </section>
 
       <p className="dict__hints">
-        <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>⌘/Ctrl</kbd>+<kbd>Enter</kbd> {t("dictation.hintReplay")}
+        <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
       </p>
 
       {lookup && <LookupPopup request={lookup} onClose={() => setLookup(null)} />}
@@ -338,7 +361,7 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
           >
             {voices.map((v) => (
               <option key={v.name} value={v.name}>
-                {v.name} · {v.lang}
+                {v.name} · {t(`dictation.accents.${accentKey(v.lang)}`)}
               </option>
             ))}
           </select>

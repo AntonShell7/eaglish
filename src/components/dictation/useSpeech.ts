@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { curateVoices } from "./voices";
 
 /**
  * The voice for dictation.
@@ -43,7 +44,9 @@ export function useSpeech() {
     };
   }, []);
 
-  const english = voices.filter((v) => v.lang.toLowerCase().startsWith("en"));
+  // Curated rather than complete: see voices.ts for why the raw system list is
+  // not something to put in front of anyone.
+  const english = useMemo(() => curateVoices(voices), [voices]);
 
   /**
    * Which voice reads the sentence — and why the learner gets to decide.
@@ -64,22 +67,10 @@ export function useSpeech() {
     const saved = chosenName && english.find((v) => v.name === chosenName);
     if (saved) return saved;
 
-    // Vendor voices are reliably good and reliably named in English, because
-    // the vendor ships the name: Google, Microsoft, and Apple's "Natural" and
-    // "Enhanced" downloads.
-    const vendor = english.find((v) => /google|microsoft|natural|neural|enhanced|premium|siri/i.test(v.name));
-    if (vendor) return vendor;
-
-    // Otherwise avoid en-US. That looks arbitrary and is not: the platform
-    // that ships joke voices — croaks, bells, "Bad News" — ships all of them
-    // as en-US, while its British, Irish, Australian and Indian voices are
-    // all ordinary speaking ones. With names localised beyond matching, the
-    // accent tag is the only signal left, and a learner is far better served
-    // by a British voice than by a novelty American one.
-    const nonUs = english.find((v) => v.lang.toLowerCase() !== "en-us");
-    if (nonUs) return nonUs;
-
-    return english.find((v) => v.default) ?? english[0];
+    // The list arrives already ranked, best first, so the default is simply
+    // its head — the clearest voice the machine has, which is what an exam
+    // recording sounds like.
+    return english[0] ?? null;
   }, [english, chosenName]);
 
   const chooseVoice = useCallback((name: string) => {

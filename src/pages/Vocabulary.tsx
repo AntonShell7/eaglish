@@ -5,22 +5,30 @@ import {
   getVocabulary,
   getDueWords,
   reviewWord,
-  removeVocabularyWord,
   addVocabularyWord,
   isWordSaved,
   getReviewedTodayCount,
   type VocabularyWord,
 } from "@/lib/vocabularyStore";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
-import { wordStrength } from "@/lib/vocabularyStore";
 import { ReviewCard } from "@/components/vocabulary/ReviewCard";
+import { WordList } from "@/components/vocabulary/WordList";
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Cards per completed task. Small enough to reach, big enough to mean something. */
 const REVIEWS_PER_TASK = 5;
 
+/**
+ * Adding a word by hand.
+ *
+ * Folded away by default, because it is the rarest thing anyone does here:
+ * words arrive from reading, dictation and writing, and a permanent two-field
+ * form above the list made the exception look like the main path — while
+ * pushing the collection itself below the fold.
+ */
 function ManualAdd({ onAdded }: { onAdded: () => void }) {
   const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -43,11 +51,16 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
     onAdded();
   };
 
+  if (!open) {
+    return (
+      <button type="button" className="btn btn--ghost btn--sm mb-4" onClick={() => setOpen(true)}>
+        + {t("vocabulary.addTitle")}
+      </button>
+    );
+  }
+
   return (
-    <form
-      onSubmit={submit}
-      className="card mb-5 p-5"
-    >
+    <form onSubmit={submit} className="card mb-5 p-5">
       <p className="text-sm font-semibold">{t("vocabulary.addTitle")}</p>
       <div className="mt-3 flex flex-col gap-2 sm:flex-row">
         <input
@@ -75,6 +88,9 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
           {error}
         </p>
       )}
+      <button type="button" className="btn btn--quiet btn--sm mt-2" onClick={() => setOpen(false)}>
+        {t("common.cancel")}
+      </button>
     </form>
   );
 }
@@ -184,69 +200,7 @@ export default function Vocabulary() {
             </p>
           )}
 
-          <div className="space-y-2">
-            {filtered.map((w) => (
-              <div
-                key={w.id}
-                className="flex items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3"
-              >
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold">{w.word}</p>
-                  <p className="truncate text-xs" style={{ color: "var(--color-text-muted)" }}>
-                    {w.translation}
-                  </p>
-                </div>
-
-                <div className="flex flex-none items-center gap-3">
-                  {/* How firmly the word is held. A list of words with no sense
-                      of which ones are shaky is a list you cannot act on. */}
-                  <span className="flex flex-col items-end gap-1.5">
-                    <span className="tabular text-[11px] font-bold" style={{ color: "var(--color-text-muted)" }}>
-                      {wordStrength(w)}%
-                    </span>
-                    <span
-                      className="block h-1.5 w-16 overflow-hidden rounded-full"
-                      style={{ background: "var(--color-surface-3)" }}
-                      title={t("vocabulary.strengthHint")}
-                    >
-                      <span
-                        className="block h-full rounded-full"
-                        style={{
-                          width: `${wordStrength(w)}%`,
-                          background:
-                            wordStrength(w) >= 70
-                              ? "var(--color-success)"
-                              : wordStrength(w) >= 30
-                                ? "var(--color-primary)"
-                                : "var(--color-accent)",
-                          transition: "width var(--dur-4) var(--ease)",
-                        }}
-                      />
-                    </span>
-                  </span>
-
-                  <span className="text-right text-[11px]" style={{ color: "var(--color-text-muted)" }}>
-                    {dueLabel(w)}
-                    <br />
-                    {t("vocabulary.reviewedTimes", { count: w.reviewCount })}
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={t("vocabulary.remove")}
-                    title={t("vocabulary.remove")}
-                    onClick={() => {
-                      removeVocabularyWord(w.id);
-                      refresh();
-                    }}
-                    className="text-xs"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    ✕
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <WordList words={filtered} onChanged={refresh} dueLabel={dueLabel} />
         </div>
       ) : (
         <div className="mt-8">
