@@ -7,6 +7,8 @@ import { LessonRunner } from "@/components/everyday/LessonRunner";
 import { getLessonResults, type LessonResult } from "@/lib/lessonProgress";
 import { addVocabularyWord } from "@/lib/vocabularyStore";
 import { rankLessons } from "@/lib/learnerProfile";
+import { LevelFilter } from "@/components/LevelFilter";
+import type { Cefr } from "@/lib/textLevel";
 
 type Tab = "lessons" | "phrases";
 type Filter = "all" | SlangEntry["category"];
@@ -17,6 +19,17 @@ const FILTERS: { key: Filter; labelKey: string }[] = [
   { key: "Slang", labelKey: "slang.slangWord" },
   { key: "Abbreviation", labelKey: "slang.abbreviation" },
 ];
+
+/**
+ * Lessons carry hybrid labels — "A2–B1" — because a conversation lesson sits
+ * between levels more often than a text does. The shelf is browsed by single
+ * levels, so a hybrid is filed under its lower half: a learner reaching for B1
+ * should be offered something they can finish, not something that starts there.
+ */
+function levelOf(lesson: Lesson): Cefr {
+  const first = lesson.level.split(/[–-]/)[0].trim();
+  return (["A1", "A2", "B1", "B2", "C1", "C2"].includes(first) ? first : "A2") as Cefr;
+}
 
 /** Rough reading + answering time, so the card can promise a realistic length. */
 function lessonMinutes(lesson: Lesson) {
@@ -86,7 +99,7 @@ function PhraseCard({ entry }: { entry: SlangEntry }) {
           className="mb-3 inline-block rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide uppercase"
           style={{ background: "var(--color-primary-soft)", color: "var(--color-primary)" }}
         >
-          {entry.category}
+          {t(`slang.categories.${entry.category.toLowerCase()}`)}
         </span>
 
         {flipped ? (
@@ -138,15 +151,29 @@ export default function EverydayEnglish() {
   const [openId, setOpenId] = useState<string | null>(null);
   const [results, setResults] = useState<Record<string, LessonResult>>({});
   const [filter, setFilter] = useState<Filter>("all");
+  const [level, setLevel] = useState<Cefr | null>(null);
 
   useEffect(() => setResults(getLessonResults()), [openId]);
 
-  const lessons = useMemo(() => rankLessons(everydayLessons), []);
+  const ranked = useMemo(() => rankLessons(everydayLessons), []);
+  const lessons = useMemo(
+    () => (level ? ranked.filter((lesson) => levelOf(lesson) === level) : ranked),
+    [ranked, level],
+  );
 
-  const lesson = openId ? lessons.find((l) => l.id === openId) : undefined;
+  const levelCounts = useMemo(() => {
+    const out: Partial<Record<Cefr, number>> = {};
+    for (const lesson of ranked) {
+      const key = levelOf(lesson);
+      out[key] = (out[key] ?? 0) + 1;
+    }
+    return out;
+  }, [ranked]);
+
+  const lesson = openId ? ranked.find((l) => l.id === openId) : undefined;
   // "Next" follows the order on screen, which is the level-aware one.
   const nextLesson = lesson
-    ? lessons[(lessons.findIndex((l) => l.id === lesson.id) + 1) % lessons.length]
+    ? ranked[(ranked.findIndex((l) => l.id === lesson.id) + 1) % ranked.length]
     : undefined;
 
   const visiblePhrases = useMemo(
@@ -189,11 +216,21 @@ export default function EverydayEnglish() {
       </div>
 
       {tab === "lessons" ? (
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <>
+        <div className="mt-6">
+          <LevelFilter value={level} counts={levelCounts} onChange={setLevel} />
+        </div>
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {lessons.length === 0 && (
+            <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+              {t("levels.empty")}
+            </p>
+          )}
           {lessons.map((l) => (
             <LessonCard key={l.id} lesson={l} result={results[l.id]} onOpen={() => setOpenId(l.id)} />
           ))}
         </div>
+        </>
       ) : (
         <>
           <p className="mt-6 text-sm" style={{ color: "var(--color-text-muted)" }}>

@@ -1,0 +1,203 @@
+/* The collection.
+   Grouped by how firmly a word is held, weakest group first, because that is
+   the order the learner should meet them in. */
+
+.wl {
+  display: grid;
+  gap: 14px;
+}
+
+.wl__group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.wl__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.wl__head:hover {
+  background: var(--color-surface-2);
+}
+
+/* One dot carries the group's meaning, so the rows below need no colour at
+   all and the list stays calm at two hundred words. */
+.wl__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.wl__group--shaky .wl__dot {
+  background: var(--color-accent);
+}
+
+.wl__group--settling .wl__dot {
+  background: var(--color-primary);
+}
+
+.wl__group--held .wl__dot {
+  background: var(--color-success);
+}
+
+.wl__title {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.wl__count {
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.wl__hint {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+@media (max-width: 640px) {
+  .wl__hint {
+    display: none;
+  }
+}
+
+.wl__items {
+  border-top: 1px solid var(--color-border);
+}
+
+.wl__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.wl__item:last-child {
+  border-bottom: 0;
+}
+
+.wl__item:hover {
+  background: var(--color-surface-2);
+}
+
+.wl__main {
+  min-width: 0;
+  flex: 1;
+}
+
+.wl__word {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.wl__translation {
+  margin-top: 1px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.wl__sentence {
+  margin-top: 5px;
+  font-family: var(--font-reading);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-text-faint);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.wl__meta {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.wl__bar {
+  display: block;
+  width: 72px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+
+.wl__bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: currentColor;
+  transition: width var(--dur-4) var(--ease);
+}
+
+.wl__group--shaky .wl__bar > span {
+  background: var(--color-accent);
+}
+
+.wl__group--settling .wl__bar > span {
+  background: var(--color-primary);
+}
+
+.wl__group--held .wl__bar > span {
+  background: var(--color-success);
+}
+
+.wl__due {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+/* Removal is destructive and rare, so it stays out of the way until the row is
+   actually under the pointer — and is always reachable by keyboard. */
+.wl__remove {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 0;
+  background: none;
+  color: var(--color-text-faint);
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease), background var(--dur-2) var(--ease);
+}
+
+.wl__item:hover .wl__remove,
+.wl__remove:focus-visible {
+  opacity: 1;
+}
+
+.wl__remove:hover {
+  background: var(--color-surface-3);
+  color: var(--color-danger);
+}
+
+@media (hover: none) {
+  .wl__remove {
+    opacity: 1;
+  }
+}

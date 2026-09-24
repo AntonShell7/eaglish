@@ -232,7 +232,17 @@
     "youWrote": "you wrote “{{answer}}”",
     "next": "Next",
     "wasEasy": "That was easy",
-    "strengthHint": "How firmly this word is held: grows with every recall over a longer gap, drops when it is forgotten."
+    "strengthHint": "How firmly this word is held: grows with every recall over a longer gap, drops when it is forgotten.",
+    "groups": {
+      "shaky": "Not holding yet",
+      "settling": "Settling in",
+      "held": "Held firmly"
+    },
+    "groupHints": {
+      "shaky": "the ones you forget most — start here",
+      "settling": "recognised, but the interval is still short",
+      "held": "come back rarely, just to stay"
+    }
   },
   "slang": {
     "categoryAll": "All",
@@ -242,7 +252,14 @@
     "meaning": "Meaning",
     "example": "Example",
     "tapToFlip": "Tap to see the meaning",
-    "saveToVocab": "Save to vocabulary"
+    "saveToVocab": "Save to vocabulary",
+    "categories": {
+      "idiom": "idiom",
+      "slang": "slang",
+      "abbreviation": "abbreviation",
+      "phrasal verb": "phrasal verb",
+      "collocation": "collocation"
+    }
   },
   "progress": {
     "title": "Your progress",
@@ -757,7 +774,18 @@
     "voiceLabel": "Voice and accent:",
     "hintCheck": "check, then next",
     "hintReplay": "play again",
-    "tapAnyWord": "Tap any word to see its translation."
+    "tapAnyWord": "Tap any word to see its translation.",
+    "accents": {
+      "us": "American",
+      "gb": "British",
+      "au": "Australian",
+      "ie": "Irish",
+      "in": "Indian",
+      "za": "South African",
+      "ca": "Canadian",
+      "nz": "New Zealand",
+      "other": "English"
+    }
   },
   "levels": {
     "label": "Level",
