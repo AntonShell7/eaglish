@@ -6,6 +6,7 @@ import { BrandLogo } from "@/components/brand/BrandLogo";
 import {
   IconHome,
   IconBook,
+  IconHeadphones,
   IconPen,
   IconChat,
   IconBookmark,
@@ -26,6 +27,7 @@ import "./shell.css";
 
 const PRACTICE = [
   { to: "/reading", key: "reading", Icon: IconBook },
+  { to: "/dictation", key: "dictation", Icon: IconHeadphones },
   { to: "/writing", key: "writing", Icon: IconPen },
   { to: "/everyday-english", key: "everydayEnglish", Icon: IconChat },
   { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
@@ -36,12 +38,15 @@ const YOU = [
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
-/** Five slots only — a tab bar with more becomes unhittable on a phone. */
+/* Five slots only — a tab bar with more becomes unhittable on a phone, so
+   adding dictation had to cost something. Progress is the one that leaves:
+   the dashboard already opens on a summary of it and links straight through,
+   while the practice sections have nowhere else to be reached from in one tap. */
 const TABS = [
   { to: "/", key: "home", Icon: IconHome },
   { to: "/reading", key: "reading", Icon: IconBook },
+  { to: "/dictation", key: "dictation", Icon: IconHeadphones },
   { to: "/writing", key: "writing", Icon: IconPen },
-  { to: "/progress", key: "progress", Icon: IconChart },
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 

@@ -13,7 +13,8 @@
     "logIn": "Log in",
     "logOut": "Log out",
     "signUp": "Sign up",
-    "listeningSoon": "Listening · soon"
+    "listeningSoon": "Listening · soon",
+    "dictation": "Dictation"
   },
   "common": {
     "continue": "Continue",
@@ -714,5 +715,35 @@
     "yourWords": "The words",
     "emptyTitle": "No words yet",
     "emptyBody": "Save a few words while reading — tap any word in a text — and this page will build an exercise around them."
+  },
+  "dictation": {
+    "intro": "Listen to a sentence and write it down. The words you miss go straight into your vocabulary, together with the sentence you met them in. Nothing to copy out by hand.",
+    "allTopics": "All topics",
+    "sentenceCount_one": "{{count}} sentence",
+    "sentenceCount_other": "{{count}} sentences",
+    "listenLabel": "Listen and write",
+    "play": "Play",
+    "slow": "Slower",
+    "slowOn": "Slower ✓",
+    "playCount_one": "{{count}} play",
+    "playCount_other": "{{count}} plays",
+    "placeholder": "Write what you heard",
+    "check": "Check",
+    "reveal": "Show the answer",
+    "next": "Next",
+    "finishBtn": "Finish",
+    "again": "Play again",
+    "accuracy": "{{percent}}% accurate",
+    "missedTitle": "Words you missed",
+    "missedBody": "Tap a word and it joins your vocabulary with this sentence attached — it will come back to you for review.",
+    "finished": "Dictation done",
+    "finishedBody": "Average accuracy across {{count}} sentences. The words you added are already waiting in your vocabulary.",
+    "chooseAnother": "Pick another text",
+    "back": "Back to the list",
+    "source": "Dictation: {{title}}",
+    "taskDone": "Dictation done",
+    "noVoiceTitle": "This browser cannot read aloud",
+    "noVoiceBody": "Dictation uses the browser's built-in speech. There seems to be no English voice here — try Chrome, Safari or Edge.",
+    "voiceLabel": "Voice and accent:"
   }
 }
