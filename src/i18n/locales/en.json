@@ -787,12 +787,39 @@
       "nz": "New Zealand",
       "other": "English"
     },
-    "perfect": "Every word, exactly right"
+    "perfect": "Every word, exactly right",
+    "mode": {
+      "voice": "From the library",
+      "video": "From a video"
+    },
+    "openOnYouTube": "open on YouTube"
   },
   "levels": {
     "label": "Level",
     "all": "All",
     "empty": "Nothing at this level here yet — try the one next to it.",
     "yours": "yours"
+  },
+  "video": {
+    "addTitle": "Add a video",
+    "addIntro": "Dictation over real speech. YouTube shows the timed transcript itself — copy it and paste it here. It cannot be fetched automatically: that breaks YouTube's terms and breaks itself every few months.",
+    "step1": "Open the video on YouTube and choose More → Show transcript.",
+    "step2": "Select the whole timestamped list and copy it.",
+    "step3": "Paste it here — the fragments are joined back into sentences.",
+    "urlPlaceholder": "Video link",
+    "titlePlaceholder": "Exercise title",
+    "channelPlaceholder": "Channel (for attribution)",
+    "parsed_one": "{{count}} sentence found",
+    "parsed_other": "{{count}} sentences found",
+    "firstLine": "First",
+    "save": "Save exercise",
+    "start": "Start",
+    "badUrl": "That does not look like a YouTube link.",
+    "badTranscript": "No sentences could be built from that text. It needs lines with timestamps.",
+    "untitled": "Untitled",
+    "empty": "Nothing here yet. Add a video — ideally one you may reuse: Creative Commons, or a public-domain source such as VOA Learning English. Exercises are kept in this browser only.",
+    "licenceNote": "The video plays in YouTube's own embedded player — nothing is downloaded and the channel keeps its views. The transcript belongs to whoever made the video, so these exercises stay in your browser and are never published.",
+    "credit": "Video by {{channel}}",
+    "creditUnknown": "Video from YouTube"
   }
 }

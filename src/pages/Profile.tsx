@@ -4,92 +4,35 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { StatTile } from "@/components/charts/figures";
-import { IconFlame, IconBolt, IconBookmark } from "@/components/brand/icons";
-import { getStreak, getBestStreak, getDailyGoal, setDailyGoal, getTodayCount } from "@/lib/activityStore";
+import { IconFlame, IconBookmark } from "@/components/brand/icons";
+import { getStreak, getBestStreak } from "@/lib/activityStore";
+import { getReadingHistory } from "@/lib/readingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
-import { getTotalXp, getAchievements, isUnlocked, type Achievement } from "@/lib/gamification";
-import { getLearnerProfile, updateLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
+import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import "@/components/charts/charts.css";
 
-const GOAL_CHOICES = [1, 3, 5, 10];
-
-function AchievementCard({ item }: { item: Achievement }) {
-  const { t } = useTranslation();
-  const unlocked = isUnlocked(item);
-  const pct = Math.min(100, Math.round((item.progress / item.target) * 100));
-
-  return (
-    <div
-      className="rounded-[var(--radius-md)] border p-4"
-      style={{
-        borderColor: unlocked ? "var(--color-primary)" : "var(--color-border)",
-        background: unlocked ? "var(--color-primary-soft)" : "var(--color-surface)",
-        opacity: unlocked ? 1 : 0.72,
-      }}
-    >
-      <div className="flex items-start justify-between gap-2">
-        <p className="text-sm font-semibold" style={unlocked ? { color: "var(--color-primary)" } : undefined}>
-          {t(`achievements.${item.key}.name`)}
-        </p>
-        <span aria-hidden style={{ color: unlocked ? "var(--color-primary)" : "var(--color-text-muted)" }}>
-          {unlocked ? "✓" : item.icon}
-        </span>
-      </div>
-
-      <p className="mt-1 text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-        {t(`achievements.${item.key}.desc`)}
-      </p>
-
-      {!unlocked && (
-        <>
-          <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full" style={{ background: "var(--color-surface-2)" }}>
-            <div className="h-full rounded-full" style={{ width: `${pct}%`, background: "var(--color-accent)" }} />
-          </div>
-          <p className="mt-1.5 text-[11px]" style={{ color: "var(--color-text-muted)" }}>
-            {item.progress} / {item.target}
-          </p>
-        </>
-      )}
-    </div>
-  );
-}
 
 export default function Profile() {
   const { t } = useTranslation();
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
-  const [xp, setXp] = useState(0);
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [words, setWords] = useState(0);
-  const [goal, setGoal] = useState(3);
-  const [today, setToday] = useState(0);
-  const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const [textsRead, setTextsRead] = useState(0);
   const [learner, setLearner] = useState<LearnerProfile | null>(null);
 
   const refresh = () => {
-    const total = getTotalXp();
-    setXp(total);
     setStreak(getStreak());
     setBest(getBestStreak());
     setWords(getVocabulary().length);
-    setGoal(getDailyGoal());
-    setToday(getTodayCount());
-    setAchievements(getAchievements());
+    setTextsRead(getReadingHistory().length);
     setLearner(getLearnerProfile());
   };
 
   useEffect(refresh, []);
 
-  const unlockedCount = achievements.filter(isUnlocked).length;
-
-  const chooseGoal = (n: number) => {
-    setDailyGoal(n);
-    // Keep the onboarding plan in step, or the profile would show two numbers.
-    updateLearnerProfile({ dailyGoal: n });
-    refresh();
-  };
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-8">
@@ -137,8 +80,10 @@ export default function Profile() {
       </section>
 
       {/* KPI row — headline numbers, not charts */}
-      <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatTile label={t("profile.totalXp")} value={xp} icon={<IconBolt />} />
+      {/* Three counts, all of them about English. XP and "0/3 today" lived
+          here after being removed everywhere else, and achievements filled
+          half the page with badges for things the numbers already say. */}
+      <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-3">
         <StatTile
           label={t("progress.streak")}
           value={streak}
@@ -146,24 +91,8 @@ export default function Profile() {
           icon={<IconFlame />}
         />
         <StatTile label={t("progress.wordsSaved")} value={words} icon={<IconBookmark />} />
-        <StatTile label={t("progress.todayGoal")} value={`${today}/${goal}`} />
+        <StatTile label={t("progress.textsOpened")} value={textsRead} />
       </div>
-
-      {/* Achievements */}
-      <section className="mt-10">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="page-title text-xl">{t("profile.achievements")}</h2>
-          <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-            {t("profile.unlockedCount", { unlocked: unlockedCount, total: achievements.length })}
-          </p>
-        </div>
-
-        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {achievements.map((a) => (
-            <AchievementCard key={a.id} item={a} />
-          ))}
-        </div>
-      </section>
 
       {/* Settings */}
       {/* The onboarding answers, editable by retaking the flow. */}
@@ -222,30 +151,6 @@ export default function Profile() {
       </section>
 
       <section className="mt-10">
-        <h2 className="page-title text-xl">{t("profile.settings")}</h2>
-        <div className="card mt-4 p-6">
-          <p className="text-sm font-semibold">{t("profile.dailyGoalLabel")}</p>
-          <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
-            {t("profile.dailyGoalHint")}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {GOAL_CHOICES.map((n) => (
-              <button
-                key={n}
-                type="button"
-                onClick={() => chooseGoal(n)}
-                className="rounded-full border px-4 py-2 text-sm font-semibold"
-                style={{
-                  borderColor: goal === n ? "var(--color-primary)" : "var(--color-border)",
-                  color: goal === n ? "var(--color-primary)" : "var(--color-text-muted)",
-                  background: goal === n ? "var(--color-primary-soft)" : "transparent",
-                }}
-              >
-                {n}
-              </button>
-            ))}
-          </div>
-        </div>
       </section>
     </div>
   );

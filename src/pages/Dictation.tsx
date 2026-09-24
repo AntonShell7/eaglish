@@ -2,6 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import { DictationRunner } from "@/components/dictation/DictationRunner";
+import { VideoDictation } from "@/components/dictation/VideoDictation";
+import { AddVideo } from "@/components/dictation/AddVideo";
+import { getVideoExercises, removeVideoExercise } from "@/lib/videoStore";
+import type { VideoExercise } from "@/lib/videoDictation";
 import { loadTopicTexts, readingTopics } from "@/data/readingLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
@@ -25,6 +29,10 @@ export default function Dictation() {
   const [open, setOpen] = useState<ReadingText | null>(null);
   const [loading, setLoading] = useState(false);
   const [picked, setPicked] = useState<Cefr | null>(null);
+  const [mode, setMode] = useState<"voice" | "video">("voice");
+  const [videos, setVideos] = useState<VideoExercise[]>(() => getVideoExercises());
+  const [adding, setAdding] = useState(false);
+  const [openVideo, setOpenVideo] = useState<VideoExercise | null>(null);
   const [levels, setLevels] = useState<Record<string, Cefr>>({});
 
   const bandOfLearner = getLearnerProfile()?.level ?? null;
@@ -66,6 +74,14 @@ export default function Dictation() {
     return [...filtered].sort((a, b) => Number(b.level === bandOfLearner) - Number(a.level === bandOfLearner));
   }, [texts, levels, picked, bandOfLearner]);
 
+  if (openVideo) {
+    return (
+      <div className="mx-auto max-w-6xl px-5 py-10">
+        <VideoDictation key={openVideo.id} exercise={openVideo} onExit={() => setOpenVideo(null)} />
+      </div>
+    );
+  }
+
   if (open) {
     return (
       <div className="mx-auto max-w-6xl px-5 py-10">
@@ -81,8 +97,75 @@ export default function Dictation() {
 
   return (
     <SectionHero kicker={t("nav.dictation")} title={t("nav.dictation")} description={t("dictation.intro")}>
-      {!topic ? (
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="segmented mt-8">
+        {(["voice", "video"] as const).map((key) => (
+          <button
+            key={key}
+            type="button"
+            className={`segmented__item${mode === key ? " is-active" : ""}`}
+            onClick={() => setMode(key)}
+          >
+            {t(`dictation.mode.${key}`)}
+          </button>
+        ))}
+      </div>
+
+      {mode === "video" ? (
+        adding ? (
+          <div className="mt-6">
+            <AddVideo
+              onAdded={() => {
+                setVideos(getVideoExercises());
+                setAdding(false);
+              }}
+              onCancel={() => setAdding(false)}
+            />
+          </div>
+        ) : (
+          <div className="mt-6">
+            <button type="button" className="btn btn--primary" onClick={() => setAdding(true)}>
+              + {t("video.addTitle")}
+            </button>
+
+            {videos.length === 0 ? (
+              <p className="mt-6 max-w-xl text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                {t("video.empty")}
+              </p>
+            ) : (
+              <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {videos.map((video) => (
+                  <div key={video.id} className="card flex h-full flex-col p-5">
+                    <span className="chip chip--brand self-start">{video.level}</span>
+                    <h3 className="page-title mt-3 text-base leading-snug">{video.title}</h3>
+                    <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
+                      {video.channel}
+                    </p>
+                    <p className="mt-2 flex-1 text-xs" style={{ color: "var(--color-text-faint)" }}>
+                      {t("dictation.sentenceCount", { count: video.segments.length })}
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <button type="button" className="btn btn--primary btn--sm" onClick={() => setOpenVideo(video)}>
+                        {t("video.start")}
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn--quiet btn--sm"
+                        onClick={() => {
+                          removeVideoExercise(video.id);
+                          setVideos(getVideoExercises());
+                        }}
+                      >
+                        {t("vocabulary.remove")}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      ) : !topic ? (
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {readingTopics
             .filter((entry) => entry.total > 0)
             .map((entry) => (
