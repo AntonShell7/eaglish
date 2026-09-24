@@ -1,5 +1,5 @@
 import { pushActivityDay } from "./sync";
-export type ActivityKind = "reading" | "writing" | "vocabulary" | "quiz";
+export type ActivityKind = "reading" | "listening" | "writing" | "vocabulary" | "quiz";
 
 export interface DayActivity {
   /** Local calendar day, YYYY-MM-DD. */

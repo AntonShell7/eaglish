@@ -24,6 +24,7 @@
   --viz-cat-2: #eb6834;
   --viz-cat-3: #1baf7a;
   --viz-cat-4: #eda100;
+  --viz-cat-5: #b6386d;
 }
 
 :root[data-theme="dark"] .viz {
@@ -38,6 +39,7 @@
   --viz-cat-2: #d95926;
   --viz-cat-3: #199e70;
   --viz-cat-4: #c98500;
+  --viz-cat-5: #e2719b;
 }
 
 .viz-card {
