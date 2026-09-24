@@ -242,7 +242,15 @@
       "shaky": "the ones you forget most — start here",
       "settling": "recognised, but the interval is still short",
       "held": "come back rarely, just to stay"
-    }
+    },
+    "style": {
+      "typed": "Type it",
+      "cards": "Cards"
+    },
+    "tapToFlip": "tap to flip",
+    "flipHint": "flip",
+    "didntKnow": "Didn't know",
+    "knew": "Knew it"
   },
   "slang": {
     "categoryAll": "All",
@@ -492,7 +500,11 @@
     "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
     "goalReachedBody_other": "{{count}} tasks done today — the streak lives on.",
     "workoutDone": "Words practised in context",
-    "usageDone": "Words put to use"
+    "usageDone": "Words put to use",
+    "queueClearTitle": "Queue is empty",
+    "queueClearBody": "Every word that was due has been reviewed. That's today done.",
+    "left_one": "{{count}} word still due",
+    "left_other": "{{count}} words still due"
   },
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",

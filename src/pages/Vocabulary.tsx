@@ -13,6 +13,7 @@ import {
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { ReviewCard } from "@/components/vocabulary/ReviewCard";
 import { WordList } from "@/components/vocabulary/WordList";
+import { FlashCard } from "@/components/vocabulary/FlashCard";
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Cards per completed task. Small enough to reach, big enough to mean something. */
@@ -104,6 +105,25 @@ export default function Vocabulary() {
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [reviewedInSession, setReviewedInSession] = useState(0);
   const [query, setQuery] = useState("");
+  /* Typing is the better test and stays the default; the deck exists because a
+     review that happens beats a stricter one that does not. The choice sticks,
+     because it is a habit rather than a per-session decision. */
+  const [style, setStyle] = useState<"typed" | "cards">(() => {
+    try {
+      return localStorage.getItem("reviewStyle") === "cards" ? "cards" : "typed";
+    } catch {
+      return "typed";
+    }
+  });
+
+  const chooseStyle = (next: "typed" | "cards") => {
+    setStyle(next);
+    try {
+      localStorage.setItem("reviewStyle", next);
+    } catch {
+      /* a remembered preference is a convenience, not a requirement */
+    }
+  };
 
   const refresh = () => {
     setWords(getVocabulary());
@@ -206,14 +226,33 @@ export default function Vocabulary() {
         <div className="mt-8">
           {currentCard ? (
             <>
-              <p className="mb-3 text-center text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
-                {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
-              </p>
-              <ReviewCard
-                key={currentCard.id}
-                word={currentCard}
-                onGraded={(q) => handleReview(currentCard.id, q)}
-              />
+              <div className="mb-5 flex flex-wrap items-center justify-center gap-3">
+                <p className="text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
+                  {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
+                </p>
+                <div className="segmented">
+                  {(["typed", "cards"] as const).map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      className={`segmented__item${style === option ? " is-active" : ""}`}
+                      onClick={() => chooseStyle(option)}
+                    >
+                      {t(`vocabulary.style.${option}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {style === "cards" ? (
+                <FlashCard key={currentCard.id} word={currentCard} onGraded={(q) => handleReview(currentCard.id, q)} />
+              ) : (
+                <ReviewCard
+                  key={currentCard.id}
+                  word={currentCard}
+                  onGraded={(q) => handleReview(currentCard.id, q)}
+                />
+              )}
             </>
           ) : (
             <div className="py-12 text-center">

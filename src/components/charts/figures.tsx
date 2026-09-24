@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useCountUp } from "@/lib/useCountUp";
 import "./charts.css";
 
 /**
@@ -37,6 +38,15 @@ export function HeroFigure({
   );
 }
 
+/**
+ * One number, given room.
+ *
+ * The number leads and the label follows it, because on a page of tiles the
+ * eye lands on figures and then looks for what they mean — reading the label
+ * first is work nobody does. Numbers count up on first sight: the movement is
+ * what makes a page of statistics feel like yours rather than like a report
+ * about you, and it costs one animation frame.
+ */
 export function StatTile({
   label,
   value,
@@ -48,22 +58,17 @@ export function StatTile({
   hint?: string;
   icon?: ReactNode;
 }) {
+  const numeric = typeof value === "number" ? value : null;
+  const shown = useCountUp(numeric ?? 0, 900);
+
   return (
-    <div className="viz viz-card">
-      <div className="flex items-start justify-between gap-3">
-        <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
-          {label}
-        </p>
-        {icon && <span style={{ color: "var(--viz-seq-4)" }}>{icon}</span>}
-      </div>
-      <p className="mt-2 text-2xl font-extrabold" style={{ fontFamily: "var(--font-sans)" }}>
-        {value}
+    <div className="viz viz-card stat-tile">
+      <p className="stat-tile__value tabular">{numeric === null ? value : shown}</p>
+      <p className="stat-tile__label">
+        {icon && <span className="stat-tile__icon">{icon}</span>}
+        {label}
       </p>
-      {hint && (
-        <p className="mt-1 text-[11px]" style={{ color: "var(--color-text-muted)" }}>
-          {hint}
-        </p>
-      )}
+      {hint && <p className="stat-tile__hint">{hint}</p>}
     </div>
   );
 }

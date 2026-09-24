@@ -1,0 +1,164 @@
+/* The flip card.
+   One object on an empty screen, because a card being recalled should have
+   nothing beside it to look at. */
+
+.fc {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.fc__card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 1400px;
+}
+
+.fc__inner {
+  position: relative;
+  display: block;
+  min-height: 15rem;
+  transform-style: preserve-3d;
+  transition: transform 520ms var(--ease);
+}
+
+.fc__card.is-flipped .fc__inner {
+  transform: rotateX(180deg);
+}
+
+/* Rotating on X rather than Y: the card turns away from you like a page on a
+   desk, which reads as revealing rather than as a carousel sliding past. */
+.fc__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+.fc__face--back {
+  transform: rotateX(180deg);
+  background: var(--color-surface-2);
+}
+
+.fc__word {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.fc__prompt {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.fc__translation {
+  font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.fc__sentence {
+  max-width: 26rem;
+  font-family: var(--font-reading);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.fc__grade {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  animation: fc-rise 320ms var(--ease) both;
+}
+
+@keyframes fc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.fc__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--control-h-lg);
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform var(--dur-1) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.fc__btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.fc__btn--again:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.fc__btn--knew {
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  border-color: transparent;
+}
+
+.fc__btn kbd {
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  opacity: 0.45;
+  font-size: 0.7rem;
+  font-family: inherit;
+}
+
+.fc__hint {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+.fc__hint kbd {
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc__inner {
+    transition: none;
+  }
+  .fc__grade {
+    animation: none;
+  }
+}

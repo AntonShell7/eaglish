@@ -153,3 +153,76 @@
   padding: 0;
   cursor: pointer;
 }
+
+/* ── Stat tiles ─────────────────────────────────────────────────────────── */
+
+.stat-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition:
+    transform var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
+}
+
+.stat-tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+}
+
+/* The figure carries the tile, so it is set in the display face at a size
+   nothing else on the card competes with. */
+.stat-tile__value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.stat-tile__label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.stat-tile__icon {
+  display: inline-flex;
+  color: var(--color-accent);
+}
+
+.stat-tile__icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.stat-tile__hint {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+}
+
+/* Bars and heatmap cells grow into place on first paint rather than appearing
+   finished: a chart that assembles itself is read, and a chart that is simply
+   there is skipped. */
+.viz-card rect,
+.viz-card .viz-bar {
+  transition:
+    height var(--dur-4) var(--ease),
+    y var(--dur-4) var(--ease),
+    opacity var(--dur-3) var(--ease);
+}
+
+.viz-card path {
+  transition: opacity var(--dur-3) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-card rect,
+  .viz-card .viz-bar,
+  .viz-card path {
+    transition: none;
+  }
+}

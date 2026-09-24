@@ -88,7 +88,7 @@ export default function Profile() {
           label={t("progress.streak")}
           value={streak}
           hint={t("progress.bestStreak", { count: best })}
-          icon={<IconFlame />}
+          icon={<IconFlame alive={streak > 0} />}
         />
         <StatTile label={t("progress.wordsSaved")} value={words} icon={<IconBookmark />} />
         <StatTile label={t("progress.textsOpened")} value={textsRead} />
