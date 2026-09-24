@@ -2,6 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
+import { LevelFilter } from "@/components/LevelFilter";
+import { measureLevel, type Band, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { WordWorkout } from "@/components/reading/WordWorkout";
@@ -129,17 +131,33 @@ function TextList({
   onBack: () => void;
 }) {
   const { t } = useTranslation();
-  const profileLevel = getLearnerProfile()?.level;
+  const profileBand = getLearnerProfile()?.level;
   const [lexicon, setLexicon] = useState(false);
 
   useEffect(() => {
     ensureLexicon().then(() => setLexicon(true));
   }, []);
 
-  const available = LEVELS.filter((level) => texts.some((text) => text.level === level));
-  const [level, setLevel] = useState<ReadingText["level"]>(
-    () => (profileLevel && available.includes(profileLevel) ? profileLevel : available[0]) ?? "A1-A2",
-  );
+  /* The shelf is browsed by the six real levels rather than the three bands the
+     generator wrote to. Measuring needs the frequency list, so until it loads
+     every text keeps its published band and nothing is filtered out. */
+  const measured = useMemo(() => {
+    const out: Record<string, Cefr> = {};
+    if (!lexicon) return out;
+    for (const text of texts) out[text.id] = measureLevel(text.level as Band, text.sentences).level;
+    return out;
+  }, [texts, lexicon]);
+
+  const counts = useMemo(() => {
+    const out: Partial<Record<Cefr, number>> = {};
+    for (const text of texts) {
+      const level = measured[text.id];
+      if (level) out[level] = (out[level] ?? 0) + 1;
+    }
+    return out;
+  }, [texts, measured]);
+
+  const [level, setLevel] = useState<Cefr | null>(null);
 
   /**
    * Scores every text against what the reader already knows, then orders by how
@@ -152,7 +170,7 @@ function TextList({
     const due = new Set(getDueWords().map((w) => normalise(w.word)));
 
     return texts
-      .filter((text) => text.level === level)
+      .filter((text) => !level || measured[text.id] === level)
       .map((text) => {
         const sentences = text.sentences.map((s) => s.text);
         const coverage = lexicon ? coverageOf(sentences, model) : null;
@@ -162,6 +180,12 @@ function TextList({
         return { text, coverage, recycled };
       })
       .sort((a, b) => {
+        // The learner's own band first when they are browsing everything:
+        // a shelf that opens on C2 for an A2 reader is a shelf they close.
+        if (!level && profileBand) {
+          const mine = Number(b.text.level === profileBand) - Number(a.text.level === profileBand);
+          if (mine !== 0) return mine;
+        }
         if (b.recycled !== a.recycled) return b.recycled - a.recycled;
         if (!a.coverage || !b.coverage) return 0;
         return (
@@ -181,26 +205,7 @@ function TextList({
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
         <h1 className="page-title text-3xl">{t(`reading.topics.${topicId}`)}</h1>
 
-        <div
-          className="flex items-center gap-0.5 rounded-full border p-0.5"
-          style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
-        >
-          {available.map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setLevel(option)}
-              className="rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-200"
-              style={{
-                background: level === option ? "var(--color-surface)" : "transparent",
-                color: level === option ? "var(--color-text)" : "var(--color-text-muted)",
-                boxShadow: level === option ? "var(--shadow-soft)" : "none",
-              }}
-            >
-              {option}
-            </button>
-          ))}
-        </div>
+        <LevelFilter value={level} counts={counts} onChange={setLevel} />
       </div>
 
       <div data-stagger className="mt-6 space-y-2">

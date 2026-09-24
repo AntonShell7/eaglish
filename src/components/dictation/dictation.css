@@ -270,3 +270,33 @@
   font-size: 0.78rem;
   max-width: 16rem;
 }
+
+/* Words in the result are buttons, so they must not look like a form: no
+   frame, no background, nothing that competes with the marking itself. */
+button.dict__m {
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button.dict__m:hover {
+  background: var(--color-primary-soft);
+}
+
+.dict__hints {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+}
+
+.dict__hints kbd {
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  font-family: inherit;
+  font-size: 0.7rem;
+}

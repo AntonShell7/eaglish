@@ -5,6 +5,7 @@ import { useSpeech } from "./useSpeech";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
+import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup";
 import "./dictation.css";
 
 export interface DictationSentence {
@@ -44,6 +45,7 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
   const [scores, setScores] = useState<number[]>([]);
   const [saved, setSaved] = useState<Record<string, "saving" | "done" | "failed">>({});
   const input = useRef<HTMLTextAreaElement>(null);
+  const [lookup, setLookup] = useState<LookupRequest | null>(null);
 
   const sentence = sentences[index];
   const done = index >= sentences.length;
@@ -66,6 +68,31 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
     setPlays((n) => n + 1);
     speak(sentence.text, slow ? 0.7 : 1);
   };
+
+  /**
+   * The whole exercise happens on the keyboard, so leaving it to reach for a
+   * replay button breaks the one rhythm that matters: hear, type, hear again.
+   * Enter checks and then moves on; the modifier plays the sentence back from
+   * anywhere on the screen, including mid-word.
+   */
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+        event.preventDefault();
+        play();
+        return;
+      }
+      // Once the answer is on screen the input is gone, so a bare Enter is
+      // unambiguous and means "next".
+      if (event.key === "Enter" && result && !event.shiftKey) {
+        event.preventDefault();
+        next();
+      }
+    };
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
 
   const check = () => {
     if (!sentence || !typed.trim()) return;
@@ -211,12 +238,33 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
           </>
         ) : (
           <div className="dict__result">
+            {/* Every word is tappable, not only the ones marked wrong. A
+                learner often types a word correctly from the sound and still
+                has no idea what it means — which is exactly the word worth
+                collecting, and exactly the one a mistake-driven list misses. */}
             <p className="dict__marks">
-              {result.marks.map((mark, i) => (
-                <span key={i} className={`dict__m dict__m--${mark.kind}`}>
-                  {mark.kind === "extra" ? mark.typed : mark.expected}
-                </span>
-              ))}
+              {result.marks.map((mark, i) => {
+                const word = mark.kind === "extra" ? mark.typed : mark.expected;
+                if (!word) return null;
+                return (
+                  <button
+                    type="button"
+                    key={i}
+                    className={`dict__m dict__m--${mark.kind}`}
+                    onClick={(e) =>
+                      setLookup({
+                        word: word.replace(/^[^\p{L}]+|[^\p{L}']+$/gu, ""),
+                        sentence: sentence.text,
+                        knownSentenceTranslation: sentence.translationRu,
+                        source: t("dictation.source", { title }),
+                        anchor: { x: e.clientX, y: e.clientY },
+                      })
+                    }
+                  >
+                    {word}
+                  </button>
+                );
+              })}
             </p>
 
             <p className="dict__score tabular">
@@ -260,6 +308,12 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
           </div>
         )}
       </section>
+
+      <p className="dict__hints">
+        <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>⌘/Ctrl</kbd>+<kbd>Enter</kbd> {t("dictation.hintReplay")}
+      </p>
+
+      {lookup && <LookupPopup request={lookup} onClose={() => setLookup(null)} />}
 
       {voices.length > 0 && (
         <p className="dict__voice">
