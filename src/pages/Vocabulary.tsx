@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { useSegmented } from "@/lib/useSegmented";
 import { SectionHero } from "@/components/SectionHero";
 import {
   getVocabulary,
@@ -105,10 +106,11 @@ export default function Vocabulary() {
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [reviewedInSession, setReviewedInSession] = useState(0);
   const [query, setQuery] = useState("");
+  const { ref: modeRef, style: modeStyle } = useSegmented(mode);
   /* Typing is the better test and stays the default; the deck exists because a
      review that happens beats a stricter one that does not. The choice sticks,
      because it is a habit rather than a per-session decision. */
-  const [style, setStyle] = useState<"typed" | "cards">(() => {
+  const [reviewStyle, setReviewStyle] = useState<"typed" | "cards">(() => {
     try {
       return localStorage.getItem("reviewStyle") === "cards" ? "cards" : "typed";
     } catch {
@@ -116,8 +118,10 @@ export default function Vocabulary() {
     }
   });
 
+  const { ref: styleRef, style: styleStyle } = useSegmented(reviewStyle);
+
   const chooseStyle = (next: "typed" | "cards") => {
-    setStyle(next);
+    setReviewStyle(next);
     try {
       localStorage.setItem("reviewStyle", next);
     } catch {
@@ -176,7 +180,7 @@ export default function Vocabulary() {
       title={t("nav.vocabulary")}
       description={t("home.descriptions.vocabulary")}
     >
-      <div className="segmented mt-8">
+      <div className="segmented mt-8" ref={modeRef} style={modeStyle}>
         <button
           type="button"
           onClick={() => setMode("list")}
@@ -230,12 +234,12 @@ export default function Vocabulary() {
                 <p className="text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
                   {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
                 </p>
-                <div className="segmented">
+                <div className="segmented" ref={styleRef} style={styleStyle}>
                   {(["typed", "cards"] as const).map((option) => (
                     <button
                       key={option}
                       type="button"
-                      className={`segmented__item${style === option ? " is-active" : ""}`}
+                      className={`segmented__item${reviewStyle === option ? " is-active" : ""}`}
                       onClick={() => chooseStyle(option)}
                     >
                       {t(`vocabulary.style.${option}`)}
@@ -244,7 +248,7 @@ export default function Vocabulary() {
                 </div>
               </div>
 
-              {style === "cards" ? (
+              {reviewStyle === "cards" ? (
                 <FlashCard key={currentCard.id} word={currentCard} onGraded={(q) => handleReview(currentCard.id, q)} />
               ) : (
                 <ReviewCard

@@ -102,8 +102,20 @@
 
   /* One easing curve for everything that moves, one springier curve for things
      that appear. */
+  /* Motion.
+     One curve does almost everything: fast at the start, settling at the end,
+     which is how physical objects move and why interfaces that use it feel
+     built rather than drawn. The spring is for things the learner caused
+     directly — a press, a card turning — where a little overshoot reads as
+     responsiveness. The exit curve is the mirror: things leaving should get
+     out of the way quickly rather than linger.
+
+     Durations are a scale, not a set of guesses. Anything under 150ms reads as
+     instant, anything over 500ms reads as slow, and a large object moving a
+     long way needs more time than a small one moving a short way. */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ease-out: cubic-bezier(0.4, 0, 1, 1);
   --dur-1: 140ms;
   --dur-2: 240ms;
   --dur-3: 420ms;

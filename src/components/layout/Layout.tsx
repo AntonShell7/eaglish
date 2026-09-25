@@ -21,6 +21,7 @@ import { ConsentSheet } from "@/components/consent/ConsentSheet";
 import { FeedbackButton } from "@/components/FeedbackButton";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { useReveal } from "@/lib/useReveal";
+import { useScrolled } from "@/lib/useScrolled";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
 import "./shell.css";
@@ -54,6 +55,7 @@ export function Layout() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const { user, demo } = useAuth();
+  const scrolled = useScrolled();
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {
@@ -126,7 +128,7 @@ export function Layout() {
       </aside>
 
       <div className="flex min-w-0 flex-col">
-        <header className="topline">
+        <header className={scrolled ? "topline is-scrolled" : "topline"}>
           <NavLink to="/" className="topline__brand">
             <BrandLogo variant="chip" className="h-7 w-7" />
             {t("brand")}

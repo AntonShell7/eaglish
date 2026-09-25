@@ -124,9 +124,23 @@
   justify-content: space-between;
   gap: 14px;
   padding: 12px 20px;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  /* At rest the bar is part of the page: no line, no shadow, nothing to
+     separate it from content that has not moved yet. It only becomes a bar
+     once something has scrolled under it — which is the moment the separation
+     starts carrying information rather than decoration. */
+  border-bottom: 1px solid transparent;
   background: color-mix(in srgb, var(--color-bg) 78%, transparent);
   backdrop-filter: blur(18px) saturate(140%);
+  transition:
+    border-color var(--dur-3) var(--ease),
+    box-shadow var(--dur-3) var(--ease),
+    background var(--dur-3) var(--ease);
+}
+
+.topline.is-scrolled {
+  border-bottom-color: color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-border) 40%, transparent);
 }
 
 .topline__brand {

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSegmented } from "@/lib/useSegmented";
 import { SectionHero } from "@/components/SectionHero";
 import { everydayLessons, type Lesson } from "@/data/everydayLessons";
 import { everydayEnglish, type SlangEntry } from "@/data/everydayEnglish";
@@ -152,6 +153,7 @@ export default function EverydayEnglish() {
   const [results, setResults] = useState<Record<string, LessonResult>>({});
   const [filter, setFilter] = useState<Filter>("all");
   const [level, setLevel] = useState<Cefr | null>(null);
+  const { ref, style } = useSegmented(tab);
 
   useEffect(() => setResults(getLessonResults()), [openId]);
 
@@ -200,7 +202,7 @@ export default function EverydayEnglish() {
       title={t("nav.everydayEnglish")}
       description={t("everyday.intro")}
     >
-      <div className="segmented mt-8">
+      <div className="segmented mt-8" ref={ref} style={style}>
         {(["lessons", "phrases"] as Tab[]).map((key) => (
           <button
             key={key}

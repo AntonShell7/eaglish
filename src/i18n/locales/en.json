@@ -86,22 +86,7 @@
       "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
       "vocabulary": "Every word you save comes back for review, right when you need it.",
       "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in."
-    },
-    "greeting": "Hello",
-    "subWords_one": "You have {{count}} word. Here's something to read today.",
-    "subWords_other": "You have {{count}} words. Here's something to read today.",
-    "subFirst": "Pick something to read. Tap any word you don't know — it comes back on its own.",
-    "streak_one": "{{count}} day in a row",
-    "streak_other": "{{count}} days in a row",
-    "offer": {
-      "review": "your words",
-      "read": "a read",
-      "dictate": "by ear"
-    },
-    "reviewTitle_one": "{{count}} word is waiting",
-    "reviewTitle_other": "{{count}} words are waiting",
-    "yours_one": "{{count}} word here you already know",
-    "yours_other": "{{count}} words here you already know"
+    }
   },
   "reading": {
     "minRead": "{{count}} min read",
@@ -257,15 +242,7 @@
       "shaky": "the ones you forget most — start here",
       "settling": "recognised, but the interval is still short",
       "held": "come back rarely, just to stay"
-    },
-    "style": {
-      "typed": "Type it",
-      "cards": "Cards"
-    },
-    "tapToFlip": "tap to flip",
-    "flipHint": "flip",
-    "didntKnow": "Didn't know",
-    "knew": "Knew it"
+    }
   },
   "slang": {
     "categoryAll": "All",
@@ -487,7 +464,7 @@
     "greeting": "Welcome back",
     "streakLine_one": "{{count}} day in a row. Keep it alive.",
     "streakLine_other": "{{count}} days in a row. Keep it alive.",
-    "noStreakLine": "Good to see you.",
+    "noStreakLine": "One activity today starts a streak.",
     "dueLine_one": "{{count}} word is ready for review.",
     "dueLine_other": "{{count}} words are ready for review.",
     "reviewNow": "Review now",
@@ -496,10 +473,10 @@
     "todayShort": "today",
     "goalMet": "Today's goal is done",
     "goalMetSub": "Anything past this is a bonus — the streak is safe either way.",
-    "nextStepSub": "Nothing is urgent. Read something if you feel like it.",
+    "nextStepSub": "One task is enough to keep the streak alive. Start with whatever you'd actually enjoy.",
     "dueLabel": "Today",
     "queueClearLabel": "Queue is empty",
-    "dueSub": "These came back on their own — review them whenever you like.",
+    "dueSub": "These words came back exactly now, at the moment they were about to slip. That is all the work there is today, and it ends.",
     "wordsHeld": "held firmly",
     "wordsCollected_one": "word collected",
     "wordsCollected_other": "words collected"
@@ -515,11 +492,7 @@
     "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
     "goalReachedBody_other": "{{count}} tasks done today — the streak lives on.",
     "workoutDone": "Words practised in context",
-    "usageDone": "Words put to use",
-    "queueClearTitle": "Queue is empty",
-    "queueClearBody": "Every word that was due has been reviewed. That's today done.",
-    "left_one": "{{count}} word still due",
-    "left_other": "{{count}} words still due"
+    "usageDone": "Words put to use"
   },
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
@@ -814,78 +787,12 @@
       "nz": "New Zealand",
       "other": "English"
     },
-    "perfect": "Every word, exactly right",
-    "mode": {
-      "voice": "From the library",
-      "video": "From a video"
-    },
-    "openOnYouTube": "open on YouTube"
+    "perfect": "Every word, exactly right"
   },
   "levels": {
     "label": "Level",
     "all": "All",
     "empty": "Nothing at this level here yet — try the one next to it.",
     "yours": "yours"
-  },
-  "video": {
-    "addTitle": "Add a video",
-    "addIntro": "Dictation over real speech. YouTube shows the timed transcript itself — copy it and paste it here. It cannot be fetched automatically: that breaks YouTube's terms and breaks itself every few months.",
-    "step1": "Open the video on YouTube and choose More → Show transcript.",
-    "step2": "Select the whole timestamped list and copy it.",
-    "step3": "Paste it here — the fragments are joined back into sentences.",
-    "urlPlaceholder": "Video link",
-    "titlePlaceholder": "Exercise title",
-    "channelPlaceholder": "Channel (for attribution)",
-    "parsed_one": "{{count}} sentence found",
-    "parsed_other": "{{count}} sentences found",
-    "firstLine": "First",
-    "save": "Save exercise",
-    "start": "Start",
-    "badUrl": "That does not look like a YouTube link.",
-    "badTranscript": "No sentences could be built from that text. It needs lines with timestamps.",
-    "untitled": "Untitled",
-    "empty": "Nothing here yet. Add a video — ideally one you may reuse: Creative Commons, or a public-domain source such as VOA Learning English. Exercises are kept in this browser only.",
-    "licenceNote": "The video plays in YouTube's own embedded player — nothing is downloaded and the channel keeps its views. The transcript belongs to whoever made the video, so these exercises stay in your browser and are never published.",
-    "credit": "Video by {{channel}}",
-    "creditUnknown": "Video from YouTube"
-  },
-  "today": {
-    "eyebrow": "Today",
-    "streak_one": "{{count}} day in a row",
-    "streak_other": "{{count}} days in a row",
-    "headline": {
-      "review_one": "{{count}} word is waiting",
-      "review_other": "{{count}} words are waiting",
-      "read": "Start with a text",
-      "dictate": "Start with your ears",
-      "use": "Time to use your words"
-    },
-    "lede": {
-      "review": "They came back exactly now, at the moment they were about to slip. A text and a short task follow.",
-      "read": "Nothing to review yet. This text is picked for your level — new words from it collect themselves.",
-      "dictate": "Nothing to review yet. Listen and write it down; the words you miss collect themselves.",
-      "use": "You have enough words. What is left is proving they are yours."
-    },
-    "start": {
-      "review": "Review words",
-      "read": "Read",
-      "dictate": "Listen and write",
-      "use": "Write"
-    },
-    "minutes": "{{count}} min",
-    "chosen": "Text: {{title}}",
-    "recycled_one": "contains {{count}} of your words",
-    "recycled_other": "contains {{count}} of your words",
-    "thenTitle": "Then · {{minutes}} min in all",
-    "step": {
-      "review": "Review words",
-      "read": "Read a text",
-      "dictate": "Dictation",
-      "use": "Use your words in a piece"
-    },
-    "nothingTitle": "That's today done",
-    "nothingBody": "The queue is empty and today's text is read. Come back tomorrow — or open the library if you want more.",
-    "libraryHint": "Rather choose yourself —",
-    "libraryLink": "open the library"
   }
 }

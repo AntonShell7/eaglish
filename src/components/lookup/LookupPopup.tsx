@@ -190,7 +190,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
   return createPortal(
     <div
       ref={ref}
-      className="fixed z-[60] rounded-2xl border p-4 backdrop-blur-xl"
+      className="fixed z-[60] rounded-2xl border p-4 backdrop-blur-xl lookup-pop"
       style={{
         left,
         top,
