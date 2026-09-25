@@ -1,0 +1,205 @@
+/* The drill.
+   One word, one box, and nothing else on the screen — the same emptiness a
+   flashcard has, because the rhythm is the same and only the demand is harder. */
+
+.drill {
+  max-width: 38rem;
+  margin: 0 auto;
+}
+
+.drill__card {
+  padding: 28px 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+  text-align: center;
+}
+
+.drill__word {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.drill__translation {
+  margin-top: 6px;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* The sentence it was met in, set in the reading face because it is a piece of
+   English rather than interface copy. Without it people write dictionary
+   definitions instead of sentences. */
+.drill__seen {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-reading);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-faint);
+}
+
+.drill__input {
+  margin-top: 18px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.drill__warn {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--color-accent-ink);
+}
+
+.drill__actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.drill__hintNote {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+/* ── Help ───────────────────────────────────────────────────────────────── */
+
+.drill__hint {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-strong);
+  background: var(--color-surface-2);
+  animation: hint-in var(--dur-3) var(--ease) both;
+}
+
+@keyframes hint-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.drill__hintRu {
+  margin-top: 6px;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.drill__hint--model {
+  border-style: solid;
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+
+.drill__hintEn {
+  margin-top: 6px;
+  font-family: var(--font-reading);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ── The verdict ────────────────────────────────────────────────────────── */
+
+.drill__result {
+  margin-top: 20px;
+  animation: hint-in var(--dur-3) var(--ease) both;
+}
+
+.drill__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.drill__badge.is-good {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-success) 16%, transparent);
+  color: var(--color-success);
+}
+
+.drill__badge.is-good::before {
+  content: "✓";
+}
+
+/* The learner's own sentence, quoted back. Seeing it beside the verdict is
+   what makes the correction land on something rather than float. */
+.drill__yours {
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 2px solid var(--color-border-strong);
+  font-family: var(--font-reading);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.drill__verdict {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.drill__fix {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+}
+
+.drill__fixText {
+  margin-top: 6px;
+  font-family: var(--font-reading);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+.drill__notes {
+  margin-top: 14px;
+  display: grid;
+  gap: 6px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.drill__notes li {
+  padding-left: 16px;
+  position: relative;
+}
+
+.drill__notes li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  font-size: 0.6em;
+  top: 0.5em;
+  color: var(--color-accent);
+}
+
+.drill__offline {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drill__hint,
+  .drill__result {
+    animation: none;
+  }
+}
