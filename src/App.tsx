@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import Reading from "@/pages/Reading";
 import Dictation from "@/pages/Dictation";
+import Today from "@/pages/Today";
 import Writing from "@/pages/Writing";
 import Vocabulary from "@/pages/Vocabulary";
 import EverydayEnglish from "@/pages/EverydayEnglish";
@@ -32,6 +33,7 @@ export default function App() {
 
         {/* Everything that writes progress needs an account to write it to. */}
         <Route element={<RequireAuth />}>
+          <Route path="today" element={<Today />} />
           <Route path="reading" element={<Reading />} />
           <Route path="dictation" element={<Dictation />} />
           <Route path="writing" element={<Writing />} />

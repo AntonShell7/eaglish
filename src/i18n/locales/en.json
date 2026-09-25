@@ -833,5 +833,44 @@
     "licenceNote": "The video plays in YouTube's own embedded player — nothing is downloaded and the channel keeps its views. The transcript belongs to whoever made the video, so these exercises stay in your browser and are never published.",
     "credit": "Video by {{channel}}",
     "creditUnknown": "Video from YouTube"
+  },
+  "today": {
+    "eyebrow": "Today",
+    "streak_one": "{{count}} day in a row",
+    "streak_other": "{{count}} days in a row",
+    "headline": {
+      "review_one": "{{count}} word is waiting",
+      "review_other": "{{count}} words are waiting",
+      "read": "Start with a text",
+      "dictate": "Start with your ears",
+      "use": "Time to use your words"
+    },
+    "lede": {
+      "review": "They came back exactly now, at the moment they were about to slip. A text and a short task follow.",
+      "read": "Nothing to review yet. This text is picked for your level — new words from it collect themselves.",
+      "dictate": "Nothing to review yet. Listen and write it down; the words you miss collect themselves.",
+      "use": "You have enough words. What is left is proving they are yours."
+    },
+    "start": {
+      "review": "Review words",
+      "read": "Read",
+      "dictate": "Listen and write",
+      "use": "Write"
+    },
+    "minutes": "{{count}} min",
+    "chosen": "Text: {{title}}",
+    "recycled_one": "contains {{count}} of your words",
+    "recycled_other": "contains {{count}} of your words",
+    "thenTitle": "Then · {{minutes}} min in all",
+    "step": {
+      "review": "Review words",
+      "read": "Read a text",
+      "dictate": "Dictation",
+      "use": "Use your words in a piece"
+    },
+    "nothingTitle": "That's today done",
+    "nothingBody": "The queue is empty and today's text is read. Come back tomorrow — or open the library if you want more.",
+    "libraryHint": "Rather choose yourself —",
+    "libraryLink": "open the library"
   }
 }
