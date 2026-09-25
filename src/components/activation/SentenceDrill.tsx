@@ -66,6 +66,7 @@ export function SentenceDrill({
         correct: false,
         verdict: t("activation.missingWord", { word: word.word }),
         notes: [],
+        alternatives: [],
       });
       return;
     }
@@ -186,6 +187,20 @@ export function SentenceDrill({
                     <li key={note}>{note}</li>
                   ))}
                 </ul>
+              )}
+
+              {/* What else the word can do. A word met once in one sentence
+                  gets filed as though it had one meaning, and seeing it work
+                  somewhere else is what widens it. */}
+              {verdict.alternatives.length > 0 && (
+                <div className="drill__alts">
+                  <p className="eyebrow">{t("activation.alsoTitle")}</p>
+                  <ul className="drill__altList">
+                    {verdict.alternatives.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </>
           )}

@@ -203,3 +203,35 @@
     animation: none;
   }
 }
+
+/* What else the word can do, set in the reading face because these are
+   sentences to read rather than instructions to follow. */
+.drill__alts {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.drill__altList {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+  font-family: var(--font-reading);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.drill__altList li {
+  padding-left: 14px;
+  position: relative;
+  color: var(--color-text-muted);
+}
+
+.drill__altList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-faint);
+}
