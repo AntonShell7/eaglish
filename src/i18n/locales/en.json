@@ -3,7 +3,7 @@
   "nav": {
     "home": "Home",
     "reading": "Reading",
-    "writing": "Into speech",
+    "writing": "Active vocabulary",
     "listening": "Listening",
     "everydayEnglish": "Everyday English & Slang",
     "vocabulary": "Vocabulary",
@@ -800,7 +800,6 @@
     "intro": "A word you have never said or written lives in recognition memory: it answers when asked and stays silent in the half-second speech allows. Here you build a sentence with it and get judged on that word alone.",
     "activeLabel": "Words you have actually used",
     "activeExplain": "Knowing a word and being able to reach for it are different things. The second number only moves when you build a sentence yourself.",
-    "start": "Write {{count}} sentences",
     "stop": "Finish",
     "useThis": "Write a sentence with this word",
     "placeholder": "Your own sentence with “{{word}}”",
@@ -825,7 +824,17 @@
     "taskDone": "Words put to work",
     "yoursTitle": "Your sentences",
     "emptyNoWords": "Collect some words first — they appear on their own while you read or take dictation.",
-    "emptyTooNew": "These words are still too fresh. Give them a couple of reviews first: reaching for a word you cannot yet recall is premature.",
-    "emptyLink": "open reading"
+    "emptyLink": "open reading",
+    "startAll": "Go through all words",
+    "setsTitle": "Sets",
+    "setFromText": "from a text",
+    "setFromWeek": "by when",
+    "setCount_one": "{{count}} word",
+    "setCount_other": "{{count}} words",
+    "setActive": "{{active}} of {{total}} used",
+    "weekThis": "This week",
+    "weekAgo_one": "{{count}} week ago",
+    "weekAgo_other": "{{count}} weeks ago",
+    "alsoTitle": "The word also works like this"
   }
 }

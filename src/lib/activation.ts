@@ -32,6 +32,12 @@ export interface UsageVerdict {
   fix?: string;
   /** Other issues worth naming, at most two, in Russian. */
   notes: string[];
+  /**
+   * Other sentences the same word could have made — including its other
+   * senses. A word met once in one context gets filed as if it had one
+   * meaning, and this is where that quietly gets corrected.
+   */
+  alternatives: string[];
   unavailable?: "no-key" | "failed";
 }
 
@@ -73,17 +79,18 @@ Judge one thing above all: is "${word.word}" used the way a native speaker would
 - "verdict": ONE sentence in Russian. If correct, say specifically what made it work — the collocation, the preposition, the register. If not, name exactly what is wrong with that word's use and what to say instead.
 - "fix": the learner's sentence rewritten with the smallest possible change, or null if nothing needs changing. Keep their idea and their voice.
 - "notes": at most two other issues in Russian, each naming a concrete fix. Ignore punctuation and capitalisation. If there is nothing worth saying, return an empty array.
+- "alternatives": two short ENGLISH sentences the learner could also have written with "${word.word}". If the word has a clearly different common sense from the one they used, make one of them show that other sense — meeting a word in one context leaves people believing it has one meaning. Natural, everyday sentences; never repeat theirs.
 
 Never invent praise. Never correct style where the grammar is fine.
 
 Return JSON only:
-{"correct": true, "verdict": "...", "fix": null, "notes": []}`;
+{"correct": true, "verdict": "...", "fix": null, "notes": [], "alternatives": ["...", "..."]}`;
 
   let content: string;
   try {
     content = await askModel({
       temperature: 0.2,
-      max_completion_tokens: 700,
+      max_completion_tokens: 900,
       response_format: { type: "json_object" },
       messages: [
         {
@@ -95,7 +102,7 @@ Return JSON only:
       ],
     });
   } catch (error) {
-    return { correct: false, verdict: "", notes: [], unavailable: reasonOf(error) };
+    return { correct: false, verdict: "", notes: [], alternatives: [], unavailable: reasonOf(error) };
   }
 
   try {
@@ -105,9 +112,12 @@ Return JSON only:
       verdict: String(raw.verdict ?? "").trim(),
       fix: raw.fix ? String(raw.fix).trim() : undefined,
       notes: Array.isArray(raw.notes) ? raw.notes.map(String).filter(Boolean).slice(0, 2) : [],
+      alternatives: Array.isArray(raw.alternatives)
+        ? raw.alternatives.map(String).filter(Boolean).slice(0, 2)
+        : [],
     };
   } catch {
-    return { correct: false, verdict: "", notes: [], unavailable: "failed" };
+    return { correct: false, verdict: "", notes: [], alternatives: [], unavailable: "failed" };
   }
 }
 
