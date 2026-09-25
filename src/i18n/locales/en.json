@@ -86,7 +86,22 @@
       "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
       "vocabulary": "Every word you save comes back for review, right when you need it.",
       "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in."
-    }
+    },
+    "greeting": "Hello",
+    "subWords_one": "You have {{count}} word. Here's something to read today.",
+    "subWords_other": "You have {{count}} words. Here's something to read today.",
+    "subFirst": "Pick something to read. Tap any word you don't know — it comes back on its own.",
+    "streak_one": "{{count}} day in a row",
+    "streak_other": "{{count}} days in a row",
+    "offer": {
+      "review": "your words",
+      "read": "a read",
+      "dictate": "by ear"
+    },
+    "reviewTitle_one": "{{count}} word is waiting",
+    "reviewTitle_other": "{{count}} words are waiting",
+    "yours_one": "{{count}} word here you already know",
+    "yours_other": "{{count}} words here you already know"
   },
   "reading": {
     "minRead": "{{count}} min read",
@@ -472,7 +487,7 @@
     "greeting": "Welcome back",
     "streakLine_one": "{{count}} day in a row. Keep it alive.",
     "streakLine_other": "{{count}} days in a row. Keep it alive.",
-    "noStreakLine": "One activity today starts a streak.",
+    "noStreakLine": "Good to see you.",
     "dueLine_one": "{{count}} word is ready for review.",
     "dueLine_other": "{{count}} words are ready for review.",
     "reviewNow": "Review now",
@@ -481,10 +496,10 @@
     "todayShort": "today",
     "goalMet": "Today's goal is done",
     "goalMetSub": "Anything past this is a bonus — the streak is safe either way.",
-    "nextStepSub": "One task is enough to keep the streak alive. Start with whatever you'd actually enjoy.",
+    "nextStepSub": "Nothing is urgent. Read something if you feel like it.",
     "dueLabel": "Today",
     "queueClearLabel": "Queue is empty",
-    "dueSub": "These words came back exactly now, at the moment they were about to slip. That is all the work there is today, and it ends.",
+    "dueSub": "These came back on their own — review them whenever you like.",
     "wordsHeld": "held firmly",
     "wordsCollected_one": "word collected",
     "wordsCollected_other": "words collected"
