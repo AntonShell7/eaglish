@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
 import { LevelFilter } from "@/components/LevelFilter";
+import { findTextById } from "@/lib/openByLink";
 import { measureLevel, type Band, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
@@ -441,6 +442,19 @@ export default function Reading() {
   const [texts, setTexts] = useState<ReadingText[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<ReadingText | null>(null);
+
+  /* A link from the home screen names a text; it has to open that text. */
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("text");
+    if (!wanted) return;
+    void findTextById(wanted).then((found) => {
+      if (found) {
+        setOpen(found);
+        // Clear the parameter so going back does not reopen it forever.
+        window.history.replaceState({}, "", window.location.pathname);
+      }
+    });
+  }, []);
   const [quiz, setQuiz] = useState<QuizResult[]>([]);
 
   // Re-read on leaving the reader, so a fresh score shows up in the list.

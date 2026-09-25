@@ -1,0 +1,141 @@
+/* Home.
+   Wide margins, few objects, nothing that asks for anything. The page should
+   feel like an open book left on a table rather than a notification. */
+
+.home {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: clamp(36px, 9vh, 88px) 20px 72px;
+}
+
+.home__h {
+  font-size: clamp(2rem, 7vw, 2.9rem);
+}
+
+.home__sub {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.home__streak {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent-ink);
+}
+
+.home__streak svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent);
+}
+
+.home__offers {
+  margin-top: 34px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Each offer is one quiet card. No badges, no counters, no time estimates —
+   those turn a suggestion into an assignment. */
+.offer {
+  display: grid;
+  gap: 8px;
+  padding: 22px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.offer:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.offer:active {
+  transform: translateY(0) scale(0.997);
+}
+
+.offer__kind {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.offer--review .offer__kind {
+  color: var(--color-accent-ink);
+}
+
+.offer__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* The taste line is set in the reading face, because it is a piece of the text
+   itself rather than interface copy. */
+.offer__taste {
+  font-family: var(--font-reading);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.offer__words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.offer__meta {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+/* Everything else, as a line of quiet links rather than a wall of tiles. */
+.home__more {
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+
+.home__more a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--dur-2) var(--ease);
+}
+
+.home__more a:hover {
+  color: var(--color-text);
+}
+
+.home__skeleton {
+  height: 120px;
+  border-radius: var(--radius-lg);
+}

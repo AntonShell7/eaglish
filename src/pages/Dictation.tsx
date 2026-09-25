@@ -9,6 +9,7 @@ import type { VideoExercise } from "@/lib/videoDictation";
 import { loadTopicTexts, readingTopics } from "@/data/readingLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
+import { findTextById } from "@/lib/openByLink";
 import { LevelFilter } from "@/components/LevelFilter";
 import { measureLevel, type Cefr, type Band } from "@/lib/textLevel";
 import { ensureLexicon } from "@/lib/lexicon";
@@ -33,6 +34,18 @@ export default function Dictation() {
   const [videos, setVideos] = useState<VideoExercise[]>(() => getVideoExercises());
   const [adding, setAdding] = useState(false);
   const [openVideo, setOpenVideo] = useState<VideoExercise | null>(null);
+
+  /* Same contract as reading: an offer that names a text opens that text. */
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get("text");
+    if (!wanted) return;
+    void findTextById(wanted).then((found) => {
+      if (found) {
+        setOpen(found);
+        window.history.replaceState({}, "", window.location.pathname);
+      }
+    });
+  }, []);
   const [levels, setLevels] = useState<Record<string, Cefr>>({});
 
   const bandOfLearner = getLearnerProfile()?.level ?? null;
