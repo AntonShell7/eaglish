@@ -1,0 +1,199 @@
+import { askModel, AiError } from "./aiClient";
+import type { VocabularyWord } from "./vocabularyStore";
+
+/**
+ * Turning a known word into a usable one.
+ *
+ * A word you can translate on a card and have never once produced is not yet
+ * yours. It sits in recognition memory, where it answers when prompted, and
+ * stays silent in the half-second speech actually allows: you know that a
+ * marsh is a marsh, and in conversation you say "wet place" because the word
+ * never had a path out. Every flashcard app stops at the point where that
+ * problem begins.
+ *
+ * So the exercise is production, one word at a time. Write a sentence with it.
+ * Get told whether a native would say that — not whether it is "correct" in the
+ * abstract, but whether the word is doing the job you gave it. Two levels of
+ * help sit behind a click for the moment nothing comes to mind, and they are
+ * ordered so the easier one still demands production: first a Russian sentence
+ * to render, which leaves the English entirely to you, and only then a model
+ * sentence, which does not.
+ *
+ * What this measures is different from what the scheduler measures, and it is
+ * tracked separately: a word can be firmly held and never once used.
+ */
+
+export interface UsageVerdict {
+  /** Was the target word used the way a native speaker would use it. */
+  correct: boolean;
+  /** One sentence in Russian: what worked, or exactly what is wrong. */
+  verdict: string;
+  /** The sentence rewritten minimally, when anything needs fixing. */
+  fix?: string;
+  /** Other issues worth naming, at most two, in Russian. */
+  notes: string[];
+  unavailable?: "no-key" | "failed";
+}
+
+export interface Hint {
+  /** A Russian sentence for the learner to render into English. */
+  toTranslate?: string;
+  /** A model English sentence, shown only when asked for twice. */
+  model?: string;
+  unavailable?: "no-key" | "failed";
+}
+
+function reasonOf(error: unknown): "no-key" | "failed" {
+  return error instanceof AiError ? error.reason : "failed";
+}
+
+/**
+ * Judges one sentence.
+ *
+ * The prompt is deliberately narrow: the question is whether *this word* is
+ * doing its job, not whether the sentence would pass an exam. A learner who
+ * gets five corrections for one attempt stops attempting, and the grammar they
+ * need is the grammar around the word they are practising.
+ */
+export async function checkSentence(word: VocabularyWord, sentence: string): Promise<UsageVerdict> {
+  const prompt = `A Russian-speaking learner is practising one English word by writing a sentence with it.
+
+WORD: "${word.word}"
+ITS MEANING FOR THEM: "${word.translation}"
+${word.sentence ? `THEY FIRST MET IT IN: "${word.sentence}"` : ""}
+
+THEIR SENTENCE:
+"""
+${sentence}
+"""
+
+Judge one thing above all: is "${word.word}" used the way a native speaker would use it — right sense, right grammar around it, natural collocation? A sentence can be clumsy elsewhere and still use the word correctly; say so when that is the case.
+
+- "correct": true only if the target word itself is used naturally.
+- "verdict": ONE sentence in Russian. If correct, say specifically what made it work — the collocation, the preposition, the register. If not, name exactly what is wrong with that word's use and what to say instead.
+- "fix": the learner's sentence rewritten with the smallest possible change, or null if nothing needs changing. Keep their idea and their voice.
+- "notes": at most two other issues in Russian, each naming a concrete fix. Ignore punctuation and capitalisation. If there is nothing worth saying, return an empty array.
+
+Never invent praise. Never correct style where the grammar is fine.
+
+Return JSON only:
+{"correct": true, "verdict": "...", "fix": null, "notes": []}`;
+
+  let content: string;
+  try {
+    content = await askModel({
+      temperature: 0.2,
+      max_completion_tokens: 700,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a precise English tutor judging whether one particular word was used naturally. You answer with JSON only, in Russian where the schema asks for Russian, and you never inflate a verdict to be encouraging.",
+        },
+        { role: "user", content: prompt },
+      ],
+    });
+  } catch (error) {
+    return { correct: false, verdict: "", notes: [], unavailable: reasonOf(error) };
+  }
+
+  try {
+    const raw = JSON.parse(content || "{}");
+    return {
+      correct: Boolean(raw.correct),
+      verdict: String(raw.verdict ?? "").trim(),
+      fix: raw.fix ? String(raw.fix).trim() : undefined,
+      notes: Array.isArray(raw.notes) ? raw.notes.map(String).filter(Boolean).slice(0, 2) : [],
+    };
+  } catch {
+    return { correct: false, verdict: "", notes: [], unavailable: "failed" };
+  }
+}
+
+/**
+ * Help, in two strengths.
+ *
+ * Both are fetched together because they cost one call instead of two, and the
+ * second is simply withheld until asked for — the learner should meet the
+ * harder help first, since a Russian sentence to render still makes them build
+ * the English themselves.
+ */
+export async function getHint(word: VocabularyWord): Promise<Hint> {
+  const prompt = `A Russian-speaking learner is practising the English word "${word.word}" (for them: "${word.translation}").
+
+Give two kinds of help.
+
+"toTranslate": one short, natural RUSSIAN sentence whose English version would naturally contain "${word.word}". Everyday situation, 6-10 words, nothing literary. Do not include the English word in it.
+
+"model": one short, natural ENGLISH sentence using "${word.word}" correctly — the kind of sentence a person would actually say, not a dictionary example.
+
+Return JSON only: {"toTranslate": "...", "model": "..."}`;
+
+  try {
+    const content = await askModel({
+      temperature: 0.7,
+      max_completion_tokens: 300,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: "You help a learner practise one word. You answer with JSON only." },
+        { role: "user", content: prompt },
+      ],
+    });
+    const raw = JSON.parse(content || "{}");
+    return {
+      toTranslate: raw.toTranslate ? String(raw.toTranslate).trim() : undefined,
+      model: raw.model ? String(raw.model).trim() : undefined,
+    };
+  } catch (error) {
+    return { unavailable: reasonOf(error) };
+  }
+}
+
+/* ── Which words have actually been used ──────────────────────────────── */
+
+const KEY = "activeWords";
+
+export interface Activation {
+  /** When the word was first produced correctly. */
+  at: number;
+  /** The learner's own sentence, kept because it is the best mnemonic there is. */
+  sentence: string;
+  /** How many times it has been produced correctly. */
+  times: number;
+}
+
+export function getActivations(): Record<string, Activation> {
+  try {
+    const raw = localStorage.getItem(KEY);
+    return raw ? (JSON.parse(raw) as Record<string, Activation>) : {};
+  } catch {
+    return {};
+  }
+}
+
+export function markActivated(word: string, sentence: string): void {
+  const key = word.trim().toLowerCase();
+  const all = getActivations();
+  const existing = all[key];
+  all[key] = {
+    at: existing?.at ?? Date.now(),
+    // The newest sentence replaces the old one: a learner's later attempt is
+    // usually the better example, and one example per word is enough.
+    sentence,
+    times: (existing?.times ?? 0) + 1,
+  };
+  try {
+    localStorage.setItem(KEY, JSON.stringify(all));
+  } catch {
+    /* losing this costs a badge, never the review schedule */
+  }
+}
+
+export function isActivated(word: string): boolean {
+  return Boolean(getActivations()[word.trim().toLowerCase()]);
+}
+
+export function activatedCount(): number {
+  return Object.keys(getActivations()).length;
+}
