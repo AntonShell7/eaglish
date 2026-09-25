@@ -39,6 +39,19 @@ export function WordList({
 }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState<Group | null>(null);
+  /* A row about to go. It stays in the list while it collapses, because
+     removing it from the data first would make it disappear instantly and the
+     animation would have nothing to play on. */
+  const [leaving, setLeaving] = useState<string | null>(null);
+
+  const remove = (id: string) => {
+    setLeaving(id);
+    window.setTimeout(() => {
+      removeVocabularyWord(id);
+      setLeaving(null);
+      onChanged();
+    }, 420);
+  };
 
   const groups = useMemo(() => {
     const out: Record<Group, VocabularyWord[]> = { shaky: [], settling: [], held: [] };
@@ -73,7 +86,7 @@ export function WordList({
             {!collapsed && (
               <ul className="wl__items">
                 {list.map((word) => (
-                  <li key={word.id} className="wl__item">
+                  <li key={word.id} className={leaving === word.id ? "wl__item is-leaving" : "wl__item"}>
                     <div className="wl__main">
                       <p className="wl__word">{word.word}</p>
                       <p className="wl__translation">{word.translation}</p>
@@ -98,10 +111,7 @@ export function WordList({
                       className="wl__remove"
                       aria-label={t("vocabulary.remove")}
                       title={t("vocabulary.remove")}
-                      onClick={() => {
-                        removeVocabularyWord(word.id);
-                        onChanged();
-                      }}
+                      onClick={() => remove(word.id)}
                     >
                       ✕
                     </button>

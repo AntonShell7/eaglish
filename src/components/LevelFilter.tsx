@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useSegmented } from "@/lib/useSegmented";
 import { CEFR_ORDER, type Cefr } from "@/lib/textLevel";
 
 /**
@@ -18,9 +19,10 @@ export function LevelFilter({
   onChange: (level: Cefr | null) => void;
 }) {
   const { t } = useTranslation();
+  const { ref, style } = useSegmented(value ?? "all");
 
   return (
-    <div className="segmented" role="group" aria-label={t("levels.label")}>
+    <div className="segmented" role="group" aria-label={t("levels.label")} ref={ref} style={style}>
       <button
         type="button"
         className={`segmented__item${value === null ? " is-active" : ""}`}

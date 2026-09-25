@@ -224,6 +224,10 @@
 
 /* ── Page transition ──────────────────────────────────────────────────── */
 
+/* Every route change plays this. It is deliberately small: a page that slides
+   a long way announces the navigation instead of the page, and the second time
+   you see it you are waiting rather than reading. Eight pixels and a fade is
+   enough to say "this is new" and short enough never to be in the way. */
 .page-enter {
   animation: page-in var(--dur-3) var(--ease) both;
 }
@@ -400,5 +404,128 @@ textarea.field {
   .flame.is-alive .flame__body,
   .flame.is-alive .flame__core {
     animation: none;
+  }
+}
+
+/* ── The sliding indicator ──────────────────────────────────────────────── */
+
+/*
+ * A segmented control used to swap a background between two buttons, which
+ * reads as two separate events — one thing switching off, another switching
+ * on. A single pill that travels reads as one object moving, which is what is
+ * actually happening, and it is the difference between a control that works
+ * and one that feels made.
+ *
+ * The pill is a pseudo-element on the track, positioned from two custom
+ * properties the component sets, so the markup stays a list of buttons and
+ * nothing needs a wrapper.
+ */
+.segmented {
+  position: relative;
+  isolation: isolate;
+}
+
+.segmented::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 3px;
+  bottom: 3px;
+  left: var(--seg-x, 3px);
+  width: var(--seg-w, 0);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+  transition:
+    left var(--dur-2) var(--ease),
+    width var(--dur-2) var(--ease);
+}
+
+/* Until the width is measured there is nothing to show, and a pill flashing at
+   zero width in the corner is worse than no pill. */
+.segmented:not([style*="--seg-w"])::before {
+  opacity: 0;
+}
+
+.segmented__item.is-active {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* ── Leaving ────────────────────────────────────────────────────────────── */
+
+/*
+ * Removal is the one place an interface can be genuinely confusing: a row that
+ * vanishes leaves you unsure whether you hit the right one. Collapsing it —
+ * fading, shrinking its own height, pulling the list up behind it — shows the
+ * list closing over the gap, which answers the question without a word.
+ */
+.is-leaving {
+  overflow: hidden;
+  animation: leave var(--dur-3) var(--ease-out) both;
+  pointer-events: none;
+}
+
+@keyframes leave {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  40% {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(14px);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .segmented::before {
+    transition: none;
+  }
+  .is-leaving {
+    animation-duration: 1ms;
+  }
+}
+
+/* ── The word popup ─────────────────────────────────────────────────────── */
+
+/*
+ * It grows from where it was summoned rather than fading in place: the eye is
+ * on the word that was just tapped, and a panel that appears somewhere else
+ * has to be found again. Scaling up from just under full size, anchored at the
+ * top, keeps the movement pointing back at the word.
+ *
+ * The scale stops at 0.96 rather than something dramatic — a popup that grows
+ * from nothing draws attention to itself, and this one's job is to answer a
+ * question, not to perform.
+ */
+.lookup-pop {
+  transform-origin: top center;
+  animation: pop-in var(--dur-2) var(--ease-spring) both;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lookup-pop {
+    animation-duration: 1ms;
   }
 }
