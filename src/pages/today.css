@@ -1,0 +1,184 @@
+/* The one screen.
+   Deliberately narrow and deliberately empty: everything on it is either the
+   next action or the shape of the session, and nothing else is allowed in. */
+
+.today {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: clamp(32px, 8vh, 72px) 20px 64px;
+}
+
+.today__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.today__streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent-ink);
+}
+
+.today__streak svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent);
+}
+
+.today__h {
+  margin-top: 14px;
+  font-size: clamp(1.9rem, 7vw, 2.6rem);
+}
+
+.today__lede {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* The button is the page. It is the width of the column and tall enough that
+   nothing else on the screen competes for the first tap. */
+.today__go {
+  margin-top: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 26px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow-3);
+  transition:
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.today__go:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-4);
+}
+
+.today__go:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.today__goLabel {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.today__goMeta {
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+.today__chosen {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+}
+
+.today__words {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* What comes after, so the session has a visible end. Quiet on purpose: these
+   are not buttons, they are the shape of the next ten minutes. */
+.today__rest {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+}
+
+.today__steps {
+  margin-top: 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.today__step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 4px;
+}
+
+.today__stepN {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+}
+
+.today__stepBody {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+
+.today__stepH {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.today__stepP {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.today__stepM {
+  flex: none;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+.today__library {
+  margin-top: 36px;
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.today__link {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.today__skeleton {
+  height: 120px;
+  border-radius: var(--radius-lg);
+}
+
+.today__skeleton--sm {
+  margin-top: 14px;
+  height: 60px;
+}
