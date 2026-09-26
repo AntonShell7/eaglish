@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
 import Reading from "@/pages/Reading";
@@ -6,7 +6,6 @@ import Dictation from "@/pages/Dictation";
 import Writing from "@/pages/Writing";
 import Vocabulary from "@/pages/Vocabulary";
 import Slang from "./pages/Slang";
-import EverydayEnglish from "@/pages/EverydayEnglish";
 import ProgressPage from "@/pages/Progress";
 import Profile from "@/pages/Profile";
 import Login from "@/pages/Login";
@@ -37,7 +36,9 @@ export default function App() {
           <Route path="dictation" element={<Dictation />} />
           <Route path="writing" element={<Writing />} />
           <Route path="vocabulary" element={<Vocabulary />} />
-          <Route path="everyday-english" element={<EverydayEnglish />} />
+          {/* Everyday English merged into Slang; the old address is in links
+              and in people's history, so it still arrives somewhere useful. */}
+          <Route path="everyday-english" element={<Navigate to="/slang" replace />} />
           <Route path="slang" element={<Slang />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="profile" element={<Profile />} />

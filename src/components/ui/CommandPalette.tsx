@@ -61,7 +61,7 @@ export function CommandPalette() {
       { id: "reading", label: t("nav.reading"), hint: "/reading", run: go("/reading") },
       { id: "writing", label: t("nav.writing"), hint: "/writing", run: go("/writing") },
       { id: "vocabulary", label: t("nav.vocabulary"), hint: "/vocabulary", run: go("/vocabulary") },
-      { id: "everyday", label: t("nav.everydayEnglish"), hint: "/everyday-english", run: go("/everyday-english") },
+      { id: "slang", label: t("nav.slang"), hint: "/slang", run: go("/slang") },
       { id: "progress", label: t("nav.progress"), hint: "/progress", run: go("/progress") },
       { id: "profile", label: t("nav.profile"), hint: "/profile", run: go("/profile") },
       {

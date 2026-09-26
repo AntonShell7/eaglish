@@ -52,7 +52,7 @@ function StudyStage({ lesson, onDone }: { lesson: Lesson; onDone: () => void }) 
   const save = () => {
     // The Russian side is what a learner needs on the back of the card; the
     // English definition is the lesson, not the flashcard.
-    addVocabularyWord(phrase.phrase, phrase.ru, t("nav.everydayEnglish"));
+    addVocabularyWord(phrase.phrase, phrase.ru, t("nav.slang"));
     setSavedTick((n) => n + 1);
   };
 
@@ -454,7 +454,7 @@ export function LessonRunner({
   };
 
   const saveEverything = () => {
-    lesson.phrases.forEach((p) => addVocabularyWord(p.phrase, p.ru, t("nav.everydayEnglish")));
+    lesson.phrases.forEach((p) => addVocabularyWord(p.phrase, p.ru, t("nav.slang")));
     setSavedAll(true);
   };
 

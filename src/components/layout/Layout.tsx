@@ -7,7 +7,6 @@ import {
   IconHome,
   IconBook,
   IconHeadphones,
-  IconChat,
   IconQuotes,
   IconBookmark,
   IconChart,
@@ -37,7 +36,6 @@ import "./shell.css";
 const PRACTICE = [
   { to: "/reading", key: "reading", Icon: IconBook },
   { to: "/dictation", key: "dictation", Icon: IconHeadphones },
-  { to: "/everyday-english", key: "everydayEnglish", Icon: IconChat },
   { to: "/slang", key: "slang", Icon: IconQuotes },
 ] as const;
 

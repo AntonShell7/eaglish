@@ -5,7 +5,6 @@
     "reading": "Reading",
     "writing": "Active vocabulary",
     "listening": "Listening",
-    "everydayEnglish": "Everyday English & Slang",
     "vocabulary": "Vocabulary",
     "progress": "Progress",
     "profile": "Profile",
@@ -15,7 +14,7 @@
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
     "dictation": "English by ear",
-    "slang": "Slang and idioms"
+    "slang": "Slang"
   },
   "common": {
     "continue": "Continue",
@@ -84,7 +83,6 @@
     "descriptions": {
       "reading": "Read short texts by topic and level, and look up any word instantly as you go.",
       "writing": "Get short writing prompts and structured feedback on grammar and style.",
-      "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
       "vocabulary": "Every word you save comes back for review, right when you need it.",
       "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in.",
       "slang": "Native dialogues: slang, idioms and expressions that do not translate word by word."
@@ -307,23 +305,6 @@
     "runDoneBody": "{{count}} still in the queue. Carry on, or come back later.",
     "carryOn": "Carry on ({{count}})",
     "enoughForToday": "That's enough for today"
-  },
-  "slang": {
-    "categoryAll": "All",
-    "idiom": "Idioms",
-    "slangWord": "Slang",
-    "abbreviation": "Abbreviations",
-    "meaning": "Meaning",
-    "example": "Example",
-    "tapToFlip": "Tap to see the meaning",
-    "saveToVocab": "Save to vocabulary",
-    "categories": {
-      "idiom": "idiom",
-      "slang": "slang",
-      "abbreviation": "abbreviation",
-      "phrasal verb": "phrasal verb",
-      "collocation": "collocation"
-    }
   },
   "progress": {
     "title": "Your progress",
@@ -568,8 +549,6 @@
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
     "lessonsTab": "Lessons",
-    "phrasesTab": "Phrasebook",
-    "phrasesIntro": "Reference shelf: idioms, slang and abbreviations. Flip a card, save what you need.",
     "phraseCount_one": "{{count}} phrase",
     "phraseCount_other": "{{count}} phrases",
     "minutes": "~{{count}} min",
@@ -986,6 +965,9 @@
       "multi": "Several meanings",
       "greeting": "Greeting",
       "synonym": "The precise word"
-    }
+    },
+    "dialoguesTab": "Dialogues",
+    "lessonsTab": "Lessons",
+    "lessonsIntro": "Short lessons: a phrase, its register — which rooms it fits — and exercises that ask you to choose it in a situation."
   }
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
-import { IconBook, IconPen, IconChat, IconBookmark, IconHeadphones } from "@/components/brand/icons";
+import { IconBook, IconPen, IconQuotes, IconBookmark, IconHeadphones } from "@/components/brand/icons";
 import { getDueWords, getVocabulary } from "@/lib/vocabularyStore";
 import { getStreak } from "@/lib/activityStore";
 import { masteredCount } from "@/lib/insights";
@@ -14,7 +14,7 @@ const FEATURES = [
   { to: "/dictation", key: "dictation", icon: <IconHeadphones /> },
   { to: "/reading", key: "reading", icon: <IconBook /> },
   { to: "/writing", key: "writing", icon: <IconPen /> },
-  { to: "/everyday-english", key: "everydayEnglish", icon: <IconChat /> },
+  { to: "/slang", key: "slang", icon: <IconQuotes /> },
   { to: "/vocabulary", key: "vocabulary", icon: <IconBookmark /> },
 ] as const;
 
