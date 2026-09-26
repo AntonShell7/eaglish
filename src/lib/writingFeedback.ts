@@ -13,7 +13,14 @@ export interface WritingFeedbackResult {
   isLive: boolean;
 }
 
-const GROQ_MODEL = "llama-3.3-70b-versatile";
+/**
+ * The provider retired llama-3.3 without warning, and this file kept asking
+ * for it: every request came back 404, the catch below swallowed it, and
+ * writing feedback had been silently serving the demo scorer to everyone.
+ * Naming no model at all is the fix — the endpoint picks its own default, so
+ * the next retirement cannot break this the same way.
+ */
+const GROQ_MODEL = undefined;
 
 /**
  * Real feedback through the server endpoint when the deployment has a key.

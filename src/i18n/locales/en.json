@@ -256,17 +256,31 @@
     "doorDueBody": "Time to revisit words learned earlier — the app worked out when, so you don't have to.",
     "doorDueEmpty": "Nothing to revisit today. It is all holding.",
     "doorAll": "All words",
-    "doorAllBody": "The whole collection below, with search and an arrangement by date.",
+    "doorAllBody": "The whole collection — by the day you collected them, or by how firmly each one is held.",
     "doorActive": "Active vocabulary",
     "doorActiveBody": "How many of your words you have actually put to work.",
     "style": {
       "typed": "Type it",
-      "cards": "Cards"
+      "cards": "Cards",
+      "write": "By hand"
     },
     "tapToFlip": "tap to flip",
     "flipHint": "flip",
     "didntKnow": "Didn't know",
-    "knew": "Knew it"
+    "knew": "Knew it",
+    "backToDoors": "Back to the vocabulary",
+    "practiseFolder": "Practise",
+    "write": {
+      "ask": "Write the English word by hand",
+      "hint": "Write right here — with a finger or a stylus",
+      "reading": "Reading your handwriting…",
+      "right": "Right",
+      "readAs": "Read as “{{read}}”",
+      "unreadable": "Nothing legible. Try writing bigger.",
+      "offline": "Handwriting checking is unavailable right now",
+      "clear": "Clear",
+      "check": "Check"
+    }
   },
   "slang": {
     "categoryAll": "All",
