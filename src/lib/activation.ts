@@ -50,6 +50,14 @@ export interface UsageVerdict {
   /** Everything else, each labelled by kind. */
   issues: Issue[];
   /**
+   * The attempt repeats one the learner already made.
+   *
+   * Its own state rather than a wrong answer: the word was used correctly, and
+   * calling that "not how the word is used" makes exactly the mistake this
+   * screen was rebuilt to stop making.
+   */
+  repeat?: boolean;
+  /**
    * Other sentences the same word could have made — including its other
    * senses. A word met once in one context gets filed as if it had one
    * meaning, and this is where that quietly gets corrected.
@@ -158,8 +166,13 @@ Return JSON only:
  * harder help first, since a Russian sentence to render still makes them build
  * the English themselves.
  */
-export async function getHint(word: VocabularyWord): Promise<Hint> {
-  const prompt = `A Russian-speaking learner is practising the English word "${word.word}" (for them: "${word.translation}").
+export async function getHint(word: VocabularyWord, avoid: string[] = []): Promise<Hint> {
+  const avoidBlock =
+    avoid.length > 0
+      ? `\n\nThey have already written these sentences with it, so both your suggestions must point somewhere clearly different — another situation, another sense of the word:\n${avoid.map((line) => `- ${line}`).join("\n")}`
+      : "";
+
+  const prompt = `A Russian-speaking learner is practising the English word "${word.word}" (for them: "${word.translation}").${avoidBlock}
 
 Give two kinds of help.
 
@@ -171,7 +184,8 @@ Return JSON only: {"toTranslate": "...", "model": "..."}`;
 
   try {
     const content = await askModel({
-      temperature: 0.7,
+      // Warm, because the point of asking again is to get somewhere else.
+      temperature: 0.9,
       max_completion_tokens: 300,
       response_format: { type: "json_object" },
       messages: [
@@ -196,8 +210,16 @@ const KEY = "activeWords";
 export interface Activation {
   /** When the word was first produced correctly. */
   at: number;
-  /** The learner's own sentence, kept because it is the best mnemonic there is. */
-  sentence: string;
+  /**
+   * Every sentence the learner has built with this word, newest last.
+   *
+   * Kept in full rather than replaced, for two reasons. Their own sentences are
+   * the best mnemonics they will ever have, and one is worth less than four.
+   * And the next time the word comes round, these are what the exercise has to
+   * beat: writing "I ghosted my friend" a second time rehearses a sentence
+   * rather than a word, which is the flashcard trap one level up.
+   */
+  sentences: string[];
   /** How many times it has been produced correctly. */
   times: number;
 }
@@ -215,11 +237,12 @@ export function markActivated(word: string, sentence: string): void {
   const key = word.trim().toLowerCase();
   const all = getActivations();
   const existing = all[key];
+  const kept = existing?.sentences ?? [];
   all[key] = {
     at: existing?.at ?? Date.now(),
-    // The newest sentence replaces the old one: a learner's later attempt is
-    // usually the better example, and one example per word is enough.
-    sentence,
+    // Six is enough to show the range of a word without turning the card into
+    // a wall of the learner's own prose.
+    sentences: [...kept, sentence].slice(-6),
     times: (existing?.times ?? 0) + 1,
   };
   try {
@@ -235,4 +258,41 @@ export function isActivated(word: string): boolean {
 
 export function activatedCount(): number {
   return Object.keys(getActivations()).length;
+}
+
+/** What this learner has already written with a word, oldest first. */
+export function sentencesFor(word: string): string[] {
+  return getActivations()[word.trim().toLowerCase()]?.sentences ?? [];
+}
+
+/**
+ * Whether a new attempt says something genuinely different.
+ *
+ * A cheap check, on purpose. Reusing a sentence with one word swapped is the
+ * obvious way to game the exercise, and catching it locally costs nothing and
+ * answers instantly; anything subtler than that is a judgement, and the model
+ * is asked to make it.
+ */
+export function tooSimilar(attempt: string, previous: string[]): boolean {
+  const words = (value: string) =>
+    new Set(
+      value
+        .toLowerCase()
+        .replace(/[^a-z\s']/g, " ")
+        .split(/\s+/)
+        .filter((token) => token.length > 2),
+    );
+
+  const now = words(attempt);
+  if (now.size === 0) return false;
+
+  return previous.some((old) => {
+    const before = words(old);
+    if (before.size === 0) return false;
+    let shared = 0;
+    for (const token of now) if (before.has(token)) shared++;
+    // Four fifths of the content words in common is a rewrite, not a new
+    // sentence.
+    return shared / Math.max(now.size, before.size) >= 0.8;
+  });
 }
