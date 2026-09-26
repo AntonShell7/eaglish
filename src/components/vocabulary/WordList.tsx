@@ -33,10 +33,17 @@ export function WordList({
   words,
   onChanged,
   dueLabel,
+  onDrill,
 }: {
   words: VocabularyWord[];
   onChanged: () => void;
   dueLabel: (word: VocabularyWord) => string;
+  /**
+   * Practise a group. Every heading here names a set worth drilling — the
+   * words that keep slipping, or the ones collected on a particular day — and
+   * a shelf you can only look at is a shelf that stops being opened.
+   */
+  onDrill: (words: VocabularyWord[], title: string) => void;
 }) {
   const { t, i18n } = useTranslation();
   /*
@@ -50,6 +57,10 @@ export function WordList({
    */
   const [arrange, setArrange] = useState<Arrange>("strength");
   const [open, setOpen] = useState<Group | null>(null);
+  /* Folders are shut by default only in the sense that opening one closes the
+     others: with a year of collecting, every day expanded at once is a page
+     nobody scrolls. */
+  const [openDay, setOpenDay] = useState<string | null>(null);
   /* A row about to go. It stays in the list while it collapses, because
      removing it from the data first would make it disappear instantly and the
      animation would have nothing to play on. */
@@ -139,16 +150,31 @@ export function WordList({
       </div>
 
       {arrange === "date" &&
-        byDate.map(([day, list]) => (
-          <section key={day} className="wl__group wl__group--date">
-            <div className="wl__head wl__head--static">
-              <span className="wl__dot" aria-hidden />
-              <span className="wl__title">{dateFormat.format(new Date(day))}</span>
-              <span className="wl__count tabular">{list.length}</span>
-            </div>
-            <ul className="wl__items">{list.map(row)}</ul>
-          </section>
-        ))}
+        byDate.map(([day, list]) => {
+          const label = dateFormat.format(new Date(day));
+          const shut = openDay !== null && openDay !== day;
+
+          return (
+            <section key={day} className="wl__group wl__group--date">
+              <div className="wl__headRow">
+                <button
+                  type="button"
+                  className="wl__head"
+                  onClick={() => setOpenDay(openDay === day ? null : day)}
+                  aria-expanded={!shut}
+                >
+                  <span className="wl__dot" aria-hidden />
+                  <span className="wl__title">{label}</span>
+                  <span className="wl__count tabular">{list.length}</span>
+                </button>
+                <button type="button" className="wl__drill" onClick={() => onDrill(list, label)}>
+                  {t("vocabulary.practiseFolder")}
+                </button>
+              </div>
+              {!shut && <ul className="wl__items">{list.map(row)}</ul>}
+            </section>
+          );
+        })}
 
       {arrange === "strength" &&
         visible.map((group) => {
@@ -157,17 +183,26 @@ export function WordList({
 
         return (
           <section key={group} className={`wl__group wl__group--${group}`}>
-            <button
-              type="button"
-              className="wl__head"
-              onClick={() => setOpen(open === group ? null : group)}
-              aria-expanded={!collapsed}
-            >
-              <span className="wl__dot" aria-hidden />
-              <span className="wl__title">{t(`vocabulary.groups.${group}`)}</span>
-              <span className="wl__count tabular">{list.length}</span>
-              <span className="wl__hint">{t(`vocabulary.groupHints.${group}`)}</span>
-            </button>
+            <div className="wl__headRow">
+              <button
+                type="button"
+                className="wl__head"
+                onClick={() => setOpen(open === group ? null : group)}
+                aria-expanded={!collapsed}
+              >
+                <span className="wl__dot" aria-hidden />
+                <span className="wl__title">{t(`vocabulary.groups.${group}`)}</span>
+                <span className="wl__count tabular">{list.length}</span>
+                <span className="wl__hint">{t(`vocabulary.groupHints.${group}`)}</span>
+              </button>
+              <button
+                type="button"
+                className="wl__drill"
+                onClick={() => onDrill(list, t(`vocabulary.groups.${group}`))}
+              >
+                {t("vocabulary.practiseFolder")}
+              </button>
+            </div>
 
             {!collapsed && (
               <ul className="wl__items">

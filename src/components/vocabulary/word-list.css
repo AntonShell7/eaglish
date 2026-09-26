@@ -234,12 +234,54 @@
   color: var(--color-text);
 }
 
-/* A date folder has nothing to collapse, so its header is not a button. */
-.wl__head--static {
+/* Every heading now names a set that can be practised, so the title and the
+   action sit on one row: the title opens the folder, the button drills it. */
+.wl__headRow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
+  gap: 8px;
+  padding-right: 14px;
+}
+
+.wl__headRow .wl__head {
+  min-width: 0;
+  flex: 1;
+}
+
+.wl__drill {
+  flex: none;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
+}
+
+/* Quiet until the group is under the cursor — and always visible on touch,
+   where there is no hover to reveal it. */
+.wl__group:hover .wl__drill,
+.wl__drill:focus-visible {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .wl__drill {
+    opacity: 1;
+  }
+}
+
+.wl__drill:hover {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
 }
 
 .wl__group--date .wl__dot {

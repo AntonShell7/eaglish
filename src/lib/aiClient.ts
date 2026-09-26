@@ -33,9 +33,16 @@ export class AiError extends Error {
   }
 }
 
+/**
+ * A message part, for the one caller that sends a picture: handwriting
+ * practice, which asks the model to read a word off a strip of canvas. The
+ * endpoint only forwards inline data URLs, never remote addresses.
+ */
+export type AiPart = { type: "text"; text: string } | { type: "image_url"; image_url: { url: string } };
+
 export interface AiMessage {
   role: "system" | "user" | "assistant";
-  content: string;
+  content: string | AiPart[];
 }
 
 export interface AiRequest {

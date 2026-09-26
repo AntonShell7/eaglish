@@ -1,0 +1,135 @@
+/* The writing card.
+   A strip of ruled paper, as close to the real thing as a screen gets: three
+   lines, a wide margin, and nothing else competing for attention while the
+   hand works. */
+
+.wc {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wc__prompt {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.wc__ask {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.wc__paper {
+  position: relative;
+  margin-top: 22px;
+  height: 160px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  /* Paper stays paper in dark mode. Ink needs something to be dark against,
+     and a model reading the strip needs the contrast even more than the eye
+     does. */
+  background: #fdfdfb;
+  overflow: hidden;
+  transition:
+    border-color var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.wc--right .wc__paper {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 20%, transparent);
+}
+
+.wc--wrong .wc__paper {
+  border-color: color-mix(in srgb, var(--color-danger) 60%, transparent);
+}
+
+.wc--reading .wc__paper {
+  opacity: 0.75;
+}
+
+/* The ruling: two guide lines and a baseline, at the proportions of a
+   handwriting exercise book. */
+.wc__rule {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.wc__rule--top {
+  top: 42px;
+  background: color-mix(in srgb, #2b5ea8 16%, transparent);
+}
+
+.wc__rule--mid {
+  top: 82px;
+  background: color-mix(in srgb, #2b5ea8 12%, transparent);
+  border-top: 1px dashed color-mix(in srgb, #2b5ea8 22%, transparent);
+  height: 0;
+}
+
+.wc__rule--base {
+  top: 122px;
+  background: color-mix(in srgb, #2b5ea8 30%, transparent);
+}
+
+.wc__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Without this the browser treats a stylus drag as a scroll and the first
+     stroke of every word is lost. */
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.wc__ghost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 92px;
+  font-size: 0.8rem;
+  color: #9aa0a6;
+  pointer-events: none;
+}
+
+.wc__status {
+  min-height: 24px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.wc__reading {
+  color: var(--color-text-muted);
+}
+
+.wc__right {
+  color: var(--color-success);
+}
+
+.wc__wrong {
+  color: var(--color-danger);
+}
+
+.wc__answer {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.wc__actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
