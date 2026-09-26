@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { checkDictation, worthLearning, type DictationResult } from "@/lib/dictation";
+import { checkDictation, maskAgainst, worthLearning, type DictationResult } from "@/lib/dictation";
 import { useSpeech } from "./useSpeech";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
@@ -41,6 +41,9 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [result, setResult] = useState<DictationResult | null>(null);
+  /* A wrong answer is shown as a skeleton first and only revealed on request:
+     the gap between trying and surrendering is where the listening happens. */
+  const [revealed, setRevealed] = useState(false);
   const [plays, setPlays] = useState(0);
   const [slow, setSlow] = useState(false);
   const [scores, setScores] = useState<number[]>([]);
@@ -57,6 +60,7 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
     if (!sentence || !supported) return;
     setTyped("");
     setResult(null);
+    setRevealed(false);
     setPlays(1);
     speak(sentence.text, slow ? 0.7 : 1);
     input.current?.focus();
@@ -122,6 +126,8 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
     stop();
     const outcome = checkDictation(sentence.text, typed);
     setResult(outcome);
+    // A perfect answer has nothing to hide behind, so it opens straight away.
+    setRevealed(outcome.accuracy === 1);
     setScores((all) => [...all, outcome.accuracy]);
   };
 
@@ -261,6 +267,39 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
           </>
         ) : (
           <div className="dict__result">
+            {!revealed ? (
+              <>
+                <p className="dict__skeleton">
+                  {maskAgainst(sentence.text, typed).map((word, i) => (
+                    // A real space, not a margin: the line has to survive being
+                    // copied and being read aloud by a screen reader.
+                    <span key={i} className={word.mask ? "dict__sk dict__sk--hidden" : "dict__sk"}>
+                      {word.mask ?? word.text}{" "}
+                    </span>
+                  ))}
+                </p>
+
+                <p className="dict__skHint">{t("dictation.skeletonHint")}</p>
+
+                <div className="dict__actions">
+                  <button
+                    type="button"
+                    className="btn btn--primary"
+                    onClick={() => {
+                      setResult(null);
+                      play();
+                      input.current?.focus();
+                    }}
+                  >
+                    {t("dictation.tryAgain")}
+                  </button>
+                  <button type="button" className="btn btn--ghost" onClick={() => setRevealed(true)}>
+                    {t("dictation.showAnswer")}
+                  </button>
+                </div>
+              </>
+            ) : (
+            <>
             {/* Every word is tappable, not only the ones marked wrong. A
                 learner often types a word correctly from the sound and still
                 has no idea what it means — which is exactly the word worth
@@ -336,6 +375,8 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
                 {t("dictation.again")}
               </button>
             </div>
+            </>
+            )}
           </div>
         )}
       </section>

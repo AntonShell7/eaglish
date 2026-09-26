@@ -25,7 +25,6 @@ import { ensureLexicon } from "@/lib/lexicon";
  */
 export default function Dictation() {
   const { t, i18n } = useTranslation();
-  const [topic, setTopic] = useState<string | null>(null);
   const [texts, setTexts] = useState<ReadingText[]>([]);
   const [open, setOpen] = useState<ReadingText | null>(null);
   const [loading, setLoading] = useState(false);
@@ -41,12 +40,18 @@ export default function Dictation() {
   const bandOfLearner = getLearnerProfile()?.level ?? null;
 
   useEffect(() => {
-    if (!topic) return;
     setLoading(true);
     let cancelled = false;
     void (async () => {
       // The frequency list has to be in memory before a text can be measured.
-      const [list] = await Promise.all([loadTopicTexts(topic), ensureLexicon()]);
+      // Every text, not one topic's worth: the shelf is browsed by level now,
+      // and asking for a subject before a single word has been heard put a
+      // decision in front of the thing the learner actually came for.
+      const [batches] = await Promise.all([
+        Promise.all(readingTopics.filter((entry) => entry.total > 0).map((entry) => loadTopicTexts(entry.id))),
+        ensureLexicon(),
+      ]);
+      const list = batches.flat();
       if (cancelled) return;
       const measured: Record<string, Cefr> = {};
       for (const text of list) {
@@ -59,7 +64,7 @@ export default function Dictation() {
     return () => {
       cancelled = true;
     };
-  }, [topic]);
+  }, []);
 
   const counts = useMemo(() => {
     const out: Partial<Record<Cefr, number>> = {};
@@ -167,30 +172,9 @@ export default function Dictation() {
             )}
           </div>
         )
-      ) : !topic ? (
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {readingTopics
-            .filter((entry) => entry.total > 0)
-            .map((entry) => (
-              <button
-                key={entry.id}
-                type="button"
-                className="card card--interactive p-5 text-left"
-                onClick={() => setTopic(entry.id)}
-              >
-                <h3 className="page-title text-lg">{t(`reading.topics.${entry.id}`)}</h3>
-                <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
-                  {t("reading.textCount", { count: entry.total })}
-                </p>
-              </button>
-            ))}
-        </div>
       ) : (
         <>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <button type="button" className="btn btn--quiet btn--sm" onClick={() => setTopic(null)}>
-              ← {t("dictation.allTopics")}
-            </button>
+          <div className="mt-6">
             {!loading && <LevelFilter value={picked} counts={counts} onChange={setPicked} />}
           </div>
 
@@ -200,7 +184,7 @@ export default function Dictation() {
               <div className="skeleton h-20 rounded-[var(--radius-lg)]" />
             </div>
           ) : (
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ordered.length === 0 && (
                 <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
                   {t("levels.empty")}
@@ -229,6 +213,7 @@ export default function Dictation() {
           )}
         </>
       )}
+
     </SectionHero>
   );
 }

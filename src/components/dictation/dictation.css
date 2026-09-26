@@ -367,3 +367,40 @@ button.dict__m:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* ── The skeleton ───────────────────────────────────────────────────────── */
+
+/*
+ * Words you got, in place; the rest reduced to their letter counts. Dots
+ * rather than asterisks: the shape has to be readable at a glance without the
+ * line turning into noise, and a row of asterisks reads as damage.
+ */
+.dict__skeleton {
+  font-family: var(--font-reading);
+  font-size: 1.15rem;
+  line-height: 2;
+  animation: hint-in var(--dur-3) var(--ease) both;
+}
+
+.dict__sk {
+  /* The gap is a real space in the markup; this only opens it up a little. */
+  margin-right: 0.12em;
+}
+
+.dict__sk--hidden {
+  color: var(--color-text-faint);
+  letter-spacing: 0.08em;
+}
+
+.dict__skHint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+@keyframes hint-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
