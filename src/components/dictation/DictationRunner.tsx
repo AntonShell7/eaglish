@@ -270,8 +270,14 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                 type="button"
                 className="btn btn--quiet"
                 onClick={() => {
+                  // Straight to the answer. Asking for it is already an
+                  // admission that nothing was heard, and the skeleton of a
+                  // perfect match is the sentence itself — so stopping there
+                  // made the learner press the same button twice to see the
+                  // thing they had just asked for.
                   setTyped(sentence.text);
                   setResult(checkDictation(sentence.text, sentence.text));
+                  setRevealed(true);
                 }}
               >
                 {t("dictation.reveal")}
