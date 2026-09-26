@@ -72,7 +72,16 @@
     "notConfigured": "Supabase is not connected yet — this won't work until it is.",
     "acceptLegal": "I accept the <terms>terms of use</terms> and the <privacy>privacy policy</privacy>.",
     "mustAccept": "Please accept the terms and the privacy policy to create an account.",
-    "dataNote": "What that means in practice: we store your email and your learning progress, and the texts you send for assessment are processed by an AI provider. Nothing is sold or advertised against."
+    "dataNote": "What that means in practice: we store your email and your learning progress, and the texts you send for assessment are processed by an AI provider. Nothing is sold or advertised against.",
+    "newPasswordTitle": "New password",
+    "newPasswordIntro": "Choose a new password and you are straight in.",
+    "newPassword": "New password",
+    "savePassword": "Save password",
+    "checkingLink": "Checking the link…",
+    "linkExpired": "This link no longer works. They last about an hour and work once — ask for a new one and it will arrive in a minute.",
+    "requestNewLink": "Send me a new link",
+    "passwordChanged": "Password changed. Taking you in…",
+    "passwordTooShort": "Password must be at least 8 characters"
   },
   "home": {
     "kicker": "AI English Learning Platform",
@@ -969,5 +978,19 @@
     "dialoguesTab": "Dialogues",
     "lessonsTab": "Lessons",
     "lessonsIntro": "Short lessons: a phrase, its register — which rooms it fits — and exercises that ask you to choose it in a situation."
+  },
+  "account": {
+    "title": "Your data",
+    "exportTitle": "Download everything we hold",
+    "exportBody": "One file with all of it: vocabulary, your sentences, study history, progress. Plain JSON — it opens in a text editor, and nothing is encrypted or hidden.",
+    "exportButton": "Download the file",
+    "deleteTitle": "Delete account",
+    "deleteBody": "The account and everything attached to it go for good.",
+    "deleteConfirmBody": "This removes the account, every word, every sentence you wrote and your whole study history — from the server and from this browser. It cannot be undone. If you want a copy, download the file above first.",
+    "deleteButton": "Delete account",
+    "deleteConfirm": "Yes, delete permanently",
+    "deleting": "Deleting…",
+    "deleteFailed": "Deletion failed. Try again, and if it keeps happening, tell us.",
+    "deleteNotSignedIn": "Your session seems to have expired. Sign in again and retry."
   }
 }

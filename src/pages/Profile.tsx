@@ -9,6 +9,7 @@ import { getStreak, getBestStreak } from "@/lib/activityStore";
 import { getReadingHistory } from "@/lib/readingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
+import { deleteAccount, downloadJson, exportMyData } from "@/lib/account";
 import "@/components/charts/charts.css";
 
 
@@ -150,8 +151,101 @@ export default function Profile() {
         </div>
       </section>
 
-      <section className="mt-10">
-      </section>
+      <DataControls />
     </div>
+  );
+}
+
+/**
+ * Your data, and the door out.
+ *
+ * Kept at the bottom and kept plain. These are not features to be sold — they
+ * are the two things the privacy policy already promises, and a policy whose
+ * promises have no buttons behind them is a sentence rather than a commitment.
+ *
+ * Deleting asks twice, and the second ask spells out exactly what goes,
+ * because this is the one action in the app that cannot be undone.
+ */
+function DataControls() {
+  const { t } = useTranslation();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [confirming, setConfirming] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const save = () => {
+    const stamp = new Date().toISOString().slice(0, 10);
+    downloadJson(exportMyData(user?.email ?? null), `eaglish-${stamp}.json`);
+  };
+
+  const remove = async () => {
+    setBusy(true);
+    setError(null);
+    const outcome = await deleteAccount();
+    setBusy(false);
+
+    if (outcome === "ok") {
+      navigate("/", { replace: true });
+      return;
+    }
+    setError(outcome === "not-signed-in" ? t("account.deleteNotSignedIn") : t("account.deleteFailed"));
+  };
+
+  return (
+    <section className="mt-12">
+      <p className="eyebrow">{t("account.title")}</p>
+
+      <div className="card mt-4 p-5">
+        <p className="text-sm font-semibold">{t("account.exportTitle")}</p>
+        <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
+          {t("account.exportBody")}
+        </p>
+        <button type="button" className="btn btn--ghost btn--sm mt-4" onClick={save}>
+          {t("account.exportButton")}
+        </button>
+      </div>
+
+      <div className="card mt-4 p-5" style={{ borderColor: confirming ? "var(--color-danger)" : undefined }}>
+        <p className="text-sm font-semibold">{t("account.deleteTitle")}</p>
+        <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
+          {confirming ? t("account.deleteConfirmBody") : t("account.deleteBody")}
+        </p>
+
+        {error && (
+          <p className="mt-3 text-sm font-medium" style={{ color: "var(--color-danger)" }}>
+            {error}
+          </p>
+        )}
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {confirming ? (
+            <>
+              <button
+                type="button"
+                className="btn btn--sm"
+                style={{ background: "var(--color-danger)", color: "#fff" }}
+                onClick={remove}
+                disabled={busy}
+              >
+                {busy ? t("account.deleting") : t("account.deleteConfirm")}
+              </button>
+              <button
+                type="button"
+                className="btn btn--quiet btn--sm"
+                onClick={() => setConfirming(false)}
+                disabled={busy}
+              >
+                {t("common.cancel")}
+              </button>
+            </>
+          ) : (
+            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setConfirming(true)}>
+              {t("account.deleteButton")}
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }

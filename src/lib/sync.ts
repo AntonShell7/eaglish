@@ -91,6 +91,13 @@ export function pushVocabularyWord(word: VocabularyWord) {
       ease_factor: word.easeFactor,
       due_at: new Date(word.dueAt).toISOString(),
       review_count: word.reviewCount,
+      // The memory model's own state. Without these a second device threw
+      // away every measured stability and rebuilt a guess from the interval.
+      stability: word.stability ?? null,
+      difficulty: word.difficulty ?? null,
+      lapses: word.lapses ?? 0,
+      last_reviewed_at: word.lastReviewedAt ? new Date(word.lastReviewedAt).toISOString() : null,
+      sentence: word.sentence ?? null,
     })
     .then(({ error }) => error && warn("push vocabulary", error));
 }
@@ -160,6 +167,10 @@ export function pushActivityDay(day: DayActivity) {
         writing: day.counts.writing ?? 0,
         vocabulary: day.counts.vocabulary ?? 0,
         quiz: day.counts.quiz ?? 0,
+        // Dictation and slang were simply not being sent: two sections a
+        // learner could work in every day, invisible on every other device.
+        listening: day.counts.listening ?? 0,
+        slang: day.counts.slang ?? 0,
       },
       { onConflict: "user_id,day" },
     )
@@ -168,7 +179,14 @@ export function pushActivityDay(day: DayActivity) {
 
 /* ── Pull + merge on sign-in ──────────────────────────────────────────── */
 
-const ACTIVITY_KINDS: ActivityKind[] = ["reading", "writing", "vocabulary", "quiz"];
+const ACTIVITY_KINDS: ActivityKind[] = [
+  "reading",
+  "writing",
+  "vocabulary",
+  "quiz",
+  "listening",
+  "slang",
+];
 
 async function pullAll() {
   const db = client();
@@ -198,6 +216,11 @@ async function pullAll() {
         easeFactor: r.ease_factor,
         dueAt: Date.parse(r.due_at),
         reviewCount: r.review_count,
+        stability: r.stability ?? undefined,
+        difficulty: r.difficulty ?? undefined,
+        lapses: r.lapses ?? 0,
+        lastReviewedAt: r.last_reviewed_at ? Date.parse(r.last_reviewed_at) : undefined,
+        sentence: r.sentence ?? undefined,
       })),
     );
   }

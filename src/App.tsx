@@ -6,6 +6,7 @@ import Dictation from "@/pages/Dictation";
 import Writing from "@/pages/Writing";
 import Vocabulary from "@/pages/Vocabulary";
 import Slang from "./pages/Slang";
+import ResetPassword from "@/pages/ResetPassword";
 import ProgressPage from "@/pages/Progress";
 import Profile from "@/pages/Profile";
 import Login from "@/pages/Login";
@@ -47,6 +48,7 @@ export default function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="reset-password" element={<ResetPassword />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
         <Route path="*" element={<NotFound />} />

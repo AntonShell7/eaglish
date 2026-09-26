@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# The signed-in application is behind an account; there is nothing there for a
+# crawler and it should not spend requests finding that out.
+Disallow: /vocabulary
+Disallow: /reading
+Disallow: /dictation
+Disallow: /slang
+Disallow: /writing
+Disallow: /progress
+Disallow: /profile
+Disallow: /onboarding
+Disallow: /reset-password
+
+Sitemap: https://eaglish.ru/sitemap.xml
