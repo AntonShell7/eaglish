@@ -224,10 +224,52 @@ export interface Activation {
   times: number;
 }
 
+/** The shape this store had before it kept every sentence. */
+interface LegacyActivation {
+  at: number;
+  sentence?: string;
+  sentences?: string[];
+  times?: number;
+}
+
+/**
+ * Reads the store, converting anything left from the older shape.
+ *
+ * The record used to hold a single `sentence` and now holds a list. Changing
+ * that in the code changed nothing in the browsers where the old records
+ * already sat, and the first thing to touch one called `.map` on a field that
+ * was not there — which took down the whole section for exactly the people who
+ * had used it most.
+ *
+ * Migrating on read rather than once at startup is deliberate: there is no
+ * moment when every client is known to have run a migration, and a store that
+ * can heal itself on the way past never needs one.
+ */
 export function getActivations(): Record<string, Activation> {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as Record<string, Activation>) : {};
+    if (!raw) return {};
+
+    const stored = JSON.parse(raw) as Record<string, LegacyActivation>;
+    const out: Record<string, Activation> = {};
+
+    for (const [word, entry] of Object.entries(stored)) {
+      if (!entry || typeof entry !== "object") continue;
+
+      const sentences = Array.isArray(entry.sentences)
+        ? entry.sentences.filter((line): line is string => typeof line === "string" && line.trim().length > 0)
+        : typeof entry.sentence === "string" && entry.sentence.trim()
+          ? [entry.sentence]
+          : [];
+
+      out[word] = {
+        at: typeof entry.at === "number" ? entry.at : Date.now(),
+        sentences,
+        times: typeof entry.times === "number" ? entry.times : sentences.length,
+      };
+    }
+
+    return out;
   } catch {
     return {};
   }

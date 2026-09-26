@@ -215,7 +215,7 @@ function Sentences() {
             {/* All of them, not the latest: four sentences with one word show
                 its range, and one shows only that it was used once. */}
             <ul className="mt-1 grid gap-1">
-              {entry.sentences.map((line) => (
+              {(entry.sentences ?? []).map((line) => (
                 <li
                   key={line}
                   className="text-sm leading-relaxed"
