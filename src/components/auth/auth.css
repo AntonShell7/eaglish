@@ -115,3 +115,37 @@
     font-size: 1.6rem;
   }
 }
+
+/* The moment after "send".
+   Nothing has visibly happened and the inbox is empty, so the one thing the
+   screen owes the reader is the address they typed — large enough to check a
+   character at a time — and a way straight back to the field if it is wrong. */
+.auth-sent {
+  margin-top: 26px;
+}
+
+.auth-sent__lead {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.auth-sent__mail {
+  margin-top: 6px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  word-break: break-all;
+  color: var(--color-primary);
+}
+
+.auth-sent__note {
+  margin-top: 14px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.auth-sent__again {
+  width: 100%;
+  margin-top: 20px;
+}

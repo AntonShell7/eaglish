@@ -85,7 +85,10 @@
     "continueWithGoogle": "Continue with Google",
     "signUpWithGoogle": "Sign up with Google",
     "googleGoing": "Taking you there…",
-    "or": "or"
+    "or": "or",
+    "resetSentTo": "The email is on its way to",
+    "resetSentNote": "Nothing after a couple of minutes? Check your spam folder. If the address is wrong, enter it again.",
+    "resetWrongAddress": "Use a different address"
   },
   "home": {
     "kicker": "AI English Learning Platform",

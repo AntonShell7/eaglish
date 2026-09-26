@@ -50,9 +50,31 @@ export default function ForgotPassword() {
       }
     >
       {sent ? (
-        <p className="mt-6 text-sm leading-relaxed" style={{ color: "var(--color-success)" }}>
-          {t("auth.resetSent")}
-        </p>
+        /*
+         * The address goes on screen, because this is the moment a person
+         * starts doubting themselves. Nothing has visibly happened, the inbox
+         * is empty, and the only question they have is "did I even type it
+         * right?" — which the old confirmation left them to answer alone.
+         *
+         * Printing what they typed is safe: it says nothing about whether an
+         * account exists, only what they entered a second ago.
+         */
+        <div className="auth-sent">
+          <p className="auth-sent__lead">{t("auth.resetSentTo")}</p>
+          <p className="auth-sent__mail">{email}</p>
+          <p className="auth-sent__note">{t("auth.resetSentNote")}</p>
+
+          <button
+            type="button"
+            className="btn btn--ghost auth-sent__again"
+            onClick={() => {
+              setSent(false);
+              setError(null);
+            }}
+          >
+            {t("auth.resetWrongAddress")}
+          </button>
+        </div>
       ) : (
         <>
           <EmailField value={email} onChange={setEmail} />
