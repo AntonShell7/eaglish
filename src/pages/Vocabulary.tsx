@@ -105,7 +105,16 @@ export default function Vocabulary() {
   const { finish } = useTaskDone();
   const [words, setWords] = useState<VocabularyWord[]>([]);
   const [due, setDue] = useState<VocabularyWord[]>([]);
-  const [mode, setMode] = useState<"list" | "practice">("list");
+  /*
+   * The vocabulary opens on the words that are due, when there are any.
+   *
+   * Arriving at a shelf and being asked to choose is the friction this section
+   * exists to remove: if something is due, that is the work, and putting a list
+   * in front of it makes the learner decide what the app already knows.
+   */
+  const [mode, setMode] = useState<"list" | "practice">(() =>
+    getDueWords().length > 0 ? "practice" : "list",
+  );
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [reviewedInSession, setReviewedInSession] = useState(0);
   const [query, setQuery] = useState("");
@@ -136,7 +145,16 @@ export default function Vocabulary() {
     setDue(getDueWords());
   };
 
-  useEffect(refresh, []);
+  useEffect(() => {
+    refresh();
+    // The queue is snapshotted on entry for the same reason it is snapshotted
+    // when practice starts by hand: a card answered mid-session must not
+    // reshuffle the ones behind it.
+    if (getDueWords().length > 0) {
+      setPracticeIndex(0);
+      setReviewedInSession(0);
+    }
+  }, []);
 
   /** Snapshots the queue: a card answered mid-session must not reshuffle the rest. */
   const startPractice = () => {
@@ -248,6 +266,16 @@ export default function Vocabulary() {
           {currentCard ? (
             <>
               <div className="mb-5 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  className="btn btn--quiet btn--sm"
+                  onClick={() => {
+                    refresh();
+                    setMode("list");
+                  }}
+                >
+                  ← {t("vocabulary.backToList")}
+                </button>
                 <p className="text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
                   {t("vocabulary.cardOf", { done: practiceIndex + 1, total: due.length })}
                 </p>

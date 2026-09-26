@@ -1,4 +1,11 @@
 import { pushVocabularyWord, deleteVocabularyWord } from "./sync";
+import {
+  dueDateFor,
+  retrievability,
+  schedule,
+  type Grade,
+  type MemoryState,
+} from "./memory";
 
 export interface VocabularyWord {
   id: string;
@@ -20,6 +27,47 @@ export interface VocabularyWord {
   sentence?: string;
   /** Times the word was forgotten after being learned. High counts mean trouble. */
   lapses?: number;
+  /**
+   * The memory model's view of this word: how many days until recall drops to
+   * ninety percent, and how stubborn the word is on a scale of one to ten.
+   *
+   * Absent on everything saved before the scheduler was replaced, which is why
+   * every reader goes through `memoryOf` rather than touching these directly.
+   */
+  stability?: number;
+  difficulty?: number;
+}
+
+/**
+ * The memory state of a word, reconstructing it for anything saved under the
+ * old scheduler.
+ *
+ * The previous system kept an interval and an "ease" multiplier, which is not
+ * a memory model and cannot be converted into one exactly. But an interval
+ * *is* an estimate of stability — it is how long the old scheduler was willing
+ * to wait — so it transfers honestly, and ease maps onto difficulty in the
+ * obvious direction: a card the old algorithm found easy is one this one
+ * should too.
+ */
+export function memoryOf(word: VocabularyWord): MemoryState | null {
+  if (typeof word.stability === "number" && word.stability > 0) {
+    return { stability: word.stability, difficulty: word.difficulty ?? 5 };
+  }
+  if (word.interval > 0) {
+    const ease = word.easeFactor || 2.5;
+    // Ease runs 1.3 (hard) to about 3 (easy); difficulty runs 10 to 1.
+    const difficulty = Math.min(10, Math.max(1, 10 - ((ease - 1.3) / 1.7) * 9));
+    return { stability: word.interval, difficulty };
+  }
+  return null;
+}
+
+/** How likely the learner is to recall this word right now, 0..1. */
+export function recallChance(word: VocabularyWord, now = Date.now()): number {
+  const memory = memoryOf(word);
+  if (!memory) return 0;
+  const days = (now - (word.lastReviewedAt ?? word.addedAt)) / DAY_MS;
+  return retrievability(Math.max(0, days), memory.stability);
 }
 
 const STORAGE_KEY = "vocabularyWords";
@@ -130,42 +178,36 @@ export function getDueWords(now = Date.now()): VocabularyWord[] {
  *
  * quality: 0 again, 1 hard, 2 good, 3 easy.
  */
-const MAX_INTERVAL_DAYS = 365;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-export function reviewWord(id: string, quality: 0 | 1 | 2 | 3) {
+export function reviewWord(id: string, quality: Grade) {
   const words = readAll();
   const idx = words.findIndex((w) => w.id === id);
   if (idx === -1) return;
 
   const current = words[idx];
-  let { interval, easeFactor } = current;
-  let lapses = current.lapses ?? 0;
+  const now = Date.now();
+  const previous = memoryOf(current);
+  const elapsed = previous ? (now - (current.lastReviewedAt ?? current.addedAt)) / DAY_MS : 0;
 
-  if (quality === 0) {
-    if (interval >= 1) lapses += 1;
-    interval = 0;
-    easeFactor = Math.max(1.3, easeFactor - 0.2);
-  } else {
-    easeFactor = Math.max(1.3, easeFactor + (quality === 3 ? 0.15 : quality === 1 ? -0.15 : 0));
-    interval = interval === 0 ? 1 : Math.min(MAX_INTERVAL_DAYS, Math.round(interval * easeFactor));
-  }
-
-  // Spread anything beyond a few days so the daily queue stays even.
-  const fuzz = interval > 3 ? 1 + (Math.random() * 0.2 - 0.1) : 1;
-  const dueAt = Date.now() + Math.round(interval * fuzz * DAY_MS);
+  const next = schedule(previous, elapsed, quality);
+  const lapses = (current.lapses ?? 0) + (quality === 0 && (previous?.stability ?? 0) >= 1 ? 1 : 0);
 
   words[idx] = {
     ...current,
-    interval,
-    easeFactor,
-    dueAt,
+    stability: next.stability,
+    difficulty: next.difficulty,
+    // Kept in step so anything still reading the old fields — and anything
+    // already synced to the server — stays meaningful.
+    interval: next.interval,
+    easeFactor: current.easeFactor,
+    dueAt: dueDateFor(next.interval, now),
     lapses,
     reviewCount: current.reviewCount + 1,
-    lastReviewedAt: Date.now(),
+    lastReviewedAt: now,
   };
   writeAll(words);
-  appendReview({ id, at: Date.now(), recalled: quality >= 2, interval: current.interval });
+  appendReview({ id, at: now, recalled: quality >= 2, interval: previous?.stability ?? 0 });
   pushVocabularyWord(words[idx]);
 }
 
@@ -178,9 +220,20 @@ export function reviewWord(id: string, quality: 0 | 1 | 2 | 3) {
  * scale is logarithmic — the jump from one day to a week means much more than
  * the jump from three months to four.
  */
+/**
+ * How firmly a word is held, as a percentage.
+ *
+ * Read off the memory model rather than invented: stability is days-until-you
+ * forget, and the scale below maps it onto something a person can glance at.
+ * Two months of durability counts as fully held, which is roughly where a word
+ * stops needing the app and starts belonging to the learner. Lapses still
+ * subtract, because a word that has been lost twice deserves suspicion even
+ * when the arithmetic has recovered.
+ */
 export function wordStrength(word: VocabularyWord): number {
-  if (word.reviewCount === 0) return 0;
-  const base = Math.log2(1 + Math.max(0, word.interval)) / Math.log2(1 + 60);
+  const memory = memoryOf(word);
+  if (!memory || word.reviewCount === 0) return 0;
+  const base = Math.log2(1 + memory.stability) / Math.log2(1 + 60);
   const penalty = Math.min(0.4, (word.lapses ?? 0) * 0.1);
   return Math.round(Math.max(0, Math.min(1, base - penalty)) * 100);
 }
