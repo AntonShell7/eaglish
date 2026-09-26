@@ -139,7 +139,9 @@
     "personalFailed": "Couldn't write the text this time. Try again in a minute.",
     "workoutTitle": "Work with the words",
     "workoutLede": "{{count}} of your words appeared in this text. Produce them now, while the context is still fresh.",
-    "workoutDone": "Done — {{count}} words practised in context."
+    "workoutDone": "Done — {{count}} words practised in context.",
+    "markPrompt": "Read it through? Mark it — finishing is what counts as a task.",
+    "markedNote": "Counted for today. The comprehension questions are below."
   },
   "writing": {
     "grammar": "Grammar",
@@ -190,7 +192,9 @@
     "modes": {
       "words": "Your words in use",
       "briefs": "Writing briefs"
-    }
+    },
+    "translatorHint": "Type it in Russian — you'll get the English, how it's used, and an example. It goes into your vocabulary too.",
+    "translatorGo": "Translate"
   },
   "vocabulary": {
     "clickToReveal": "Click to reveal",
@@ -248,13 +252,21 @@
       "strength": "by strength",
       "date": "by date"
     },
-    "doorDue": "Due now",
-    "doorDueBody": "These came back on their own, at the moment they were about to slip.",
-    "doorDueEmpty": "Nothing waiting. Look in tomorrow.",
+    "doorDue": "You may have forgotten these",
+    "doorDueBody": "Time to revisit words learned earlier — the app worked out when, so you don't have to.",
+    "doorDueEmpty": "Nothing to revisit today. It is all holding.",
     "doorAll": "All words",
     "doorAllBody": "The whole collection below, with search and an arrangement by date.",
     "doorActive": "Active vocabulary",
-    "doorActiveBody": "How many of your words you have actually put to work."
+    "doorActiveBody": "How many of your words you have actually put to work.",
+    "style": {
+      "typed": "Type it",
+      "cards": "Cards"
+    },
+    "tapToFlip": "tap to flip",
+    "flipHint": "flip",
+    "didntKnow": "Didn't know",
+    "knew": "Knew it"
   },
   "slang": {
     "categoryAll": "All",
@@ -355,7 +367,8 @@
     "signIn": "Sign in to sync",
     "dailyGoalLabel": "Daily goal",
     "dailyGoalHint": "How many activities count as a finished day.",
-    "memberSince": "Member since"
+    "memberSince": "Member since",
+    "noLevelYet": "Level not set"
   },
   "achievements": {
     "firstSteps": {
@@ -492,7 +505,8 @@
     "dueSub": "These words came back exactly now, at the moment they were about to slip. That is all the work there is today, and it ends.",
     "wordsHeld": "held firmly",
     "wordsCollected_one": "word collected",
-    "wordsCollected_other": "words collected"
+    "wordsCollected_other": "words collected",
+    "wordsCollected": "words collected"
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -505,7 +519,11 @@
     "goalReachedBody_one": "{{count}} task done today — the streak lives on.",
     "goalReachedBody_other": "{{count}} tasks done today — the streak lives on.",
     "workoutDone": "Words practised in context",
-    "usageDone": "Words put to use"
+    "usageDone": "Words put to use",
+    "queueClearTitle": "Queue is empty",
+    "queueClearBody": "Every word that was due has been reviewed. That's today done.",
+    "left_one": "{{count}} word still due",
+    "left_other": "{{count}} words still due"
   },
   "everyday": {
     "intro": "The phrases people actually use — learned in situations, not lists. Each lesson ends with choosing the right phrase for the moment.",
@@ -808,7 +826,8 @@
       "voice": "Ready texts",
       "video": "Your own video"
     },
-    "resume": "started · {{percent}}%"
+    "resume": "started · {{percent}}%",
+    "openOnYouTube": "open on YouTube"
   },
   "levels": {
     "label": "Level",
@@ -873,5 +892,32 @@
     "tooSimilar": "That is nearly the sentence you wrote before. Find a different situation: the word has to work somewhere new, or what sticks is the phrase rather than the word.",
     "another": "Another idea",
     "repeat": "You have written this"
+  },
+  "video": {
+    "addTitle": "Add a video",
+    "addIntro": "Dictation over real speech. YouTube shows the timed transcript itself — copy it and paste it here. It cannot be fetched automatically: that breaks YouTube's terms and breaks itself every few months.",
+    "step1": "Open the video on YouTube and choose More → Show transcript.",
+    "step2": "Select the whole timestamped list and copy it.",
+    "step3": "Paste it here — the fragments are joined back into sentences.",
+    "urlPlaceholder": "Video link",
+    "titlePlaceholder": "Exercise title",
+    "channelPlaceholder": "Channel (for attribution)",
+    "parsed_one": "{{count}} sentence found",
+    "parsed_other": "{{count}} sentences found",
+    "firstLine": "First",
+    "save": "Save exercise",
+    "start": "Start",
+    "badUrl": "That does not look like a YouTube link.",
+    "badTranscript": "No sentences could be built from that text. It needs lines with timestamps.",
+    "untitled": "Untitled",
+    "empty": "Nothing here yet. Add a video — ideally one you may reuse: Creative Commons, or a public-domain source such as VOA Learning English. Exercises are kept in this browser only.",
+    "licenceNote": "The video plays in YouTube's own embedded player — nothing is downloaded and the channel keeps its views. The transcript belongs to whoever made the video, so these exercises stay in your browser and are never published.",
+    "credit": "Video by {{channel}}",
+    "creditUnknown": "Video from YouTube"
+  },
+  "cookies": {
+    "message": "We use cookies to keep you signed in and understand how Eaglish is used.",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }
