@@ -814,8 +814,6 @@
     "skip": "Skip",
     "next": "Next",
     "tryAgain": "Rewrite",
-    "good": "The word lands",
-    "notYet": "Not quite",
     "fixTitle": "Closer would be",
     "offline": "Checking is unavailable right now — try again shortly. Your sentence stays put.",
     "sessionDone_one": "{{count}} word moved into active use",
@@ -835,6 +833,19 @@
     "weekAgo_one": "{{count}} week ago",
     "weekAgo_other": "{{count}} weeks ago",
     "alsoTitle": "The word also works like this",
-    "maybeMissing": "“{{word}}” doesn’t seem to be in there — you can still check it."
+    "maybeMissing": "“{{word}}” doesn’t seem to be in there — you can still check it.",
+    "perfect": "Used exactly right",
+    "wordOkay": "The word lands — a couple of things to fix",
+    "wordWrong": "Not how the word is used",
+    "issuesTitle": "Elsewhere in the sentence",
+    "issueKind": {
+      "grammar": "grammar",
+      "tense": "tense",
+      "preposition": "preposition",
+      "article": "article",
+      "wordChoice": "word choice",
+      "typo": "typo",
+      "naturalness": "unnatural"
+    }
   }
 }

@@ -235,3 +235,50 @@
   left: 0;
   color: var(--color-text-faint);
 }
+
+/* Three verdict states, told apart by colour and by wording, because the
+   difference between "your word was wrong" and "your word was right and the
+   tense was not" is the whole point of the exercise. */
+.drill__badge.is-partly {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: var(--color-accent-ink);
+}
+
+.drill__badge.is-partly::before {
+  content: "✓";
+}
+
+.drill__badge.is-wrong {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-danger) 14%, transparent);
+  color: var(--color-danger);
+}
+
+.drill__issues {
+  margin-top: 16px;
+}
+
+/* The kind is a small label rather than prose: "предлог", "время" — you can
+   see at a glance what sort of mistake it was before reading the sentence. */
+.drill__issueKind {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  vertical-align: 1px;
+}
+
+.drill__issues .drill__notes li::before {
+  content: none;
+}
+
+.drill__issues .drill__notes li {
+  padding-left: 0;
+}

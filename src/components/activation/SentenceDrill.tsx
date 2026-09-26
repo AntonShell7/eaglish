@@ -160,8 +160,23 @@ export function SentenceDrill({
             <p className="drill__offline">{t("activation.offline")}</p>
           ) : (
             <>
-              <p className={verdict.correct ? "drill__badge is-good" : "drill__badge"}>
-                {verdict.correct ? t("activation.good") : t("activation.notYet")}
+              {/* Three states, not two. The word can land in a sentence that
+                  still needs work, and saying "not quite" about that tells the
+                  learner the one part they got right was the part that failed. */}
+              <p
+                className={
+                  verdict.correct
+                    ? verdict.issues.length === 0
+                      ? "drill__badge is-good"
+                      : "drill__badge is-partly"
+                    : "drill__badge is-wrong"
+                }
+              >
+                {verdict.correct
+                  ? verdict.issues.length === 0
+                    ? t("activation.perfect")
+                    : t("activation.wordOkay")
+                  : t("activation.wordWrong")}
               </p>
 
               <p className="drill__yours">{sentence.trim()}</p>
@@ -175,12 +190,18 @@ export function SentenceDrill({
                 </div>
               )}
 
-              {verdict.notes.length > 0 && (
-                <ul className="drill__notes">
-                  {verdict.notes.map((note) => (
-                    <li key={note}>{note}</li>
-                  ))}
-                </ul>
+              {verdict.issues.length > 0 && (
+                <div className="drill__issues">
+                  <p className="eyebrow">{t("activation.issuesTitle")}</p>
+                  <ul className="drill__notes">
+                    {verdict.issues.map((issue) => (
+                      <li key={issue.note}>
+                        <span className="drill__issueKind">{t(`activation.issueKind.${issue.kind}`)}</span>
+                        {issue.note}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
               {/* What else the word can do. A word met once in one sentence
