@@ -1,0 +1,646 @@
+[
+ {
+  "id": "penguin-egg",
+  "level": "A1",
+  "topic": "animals",
+  "title": "The father who stands still",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "It is winter in Antarctica.",
+    "translationRu": "В Антарктиде зима."
+   },
+   {
+    "text": "The sun does not rise for months.",
+    "translationRu": "Солнце не встаёт месяцами."
+   },
+   {
+    "text": "The wind is the coldest on Earth.",
+    "translationRu": "Здесь самый холодный ветер на Земле."
+   },
+   {
+    "text": "And there is one egg.",
+    "translationRu": "И есть одно яйцо."
+   },
+   {
+    "text": "The mother lays it and walks away.",
+    "translationRu": "Мать откладывает его и уходит."
+   },
+   {
+    "text": "She walks to the sea to find fish.",
+    "translationRu": "Она идёт к морю за рыбой."
+   },
+   {
+    "text": "The sea is very far.",
+    "translationRu": "Море очень далеко."
+   },
+   {
+    "text": "The father keeps the egg.",
+    "translationRu": "Яйцо остаётся у отца."
+   },
+   {
+    "text": "He holds it on his feet.",
+    "translationRu": "Он держит его на лапах."
+   },
+   {
+    "text": "A warm fold of skin covers it.",
+    "translationRu": "Тёплая складка кожи укрывает его."
+   },
+   {
+    "text": "He cannot move.",
+    "translationRu": "Он не может двигаться."
+   },
+   {
+    "text": "If the egg touches the ice, it dies.",
+    "translationRu": "Если яйцо коснётся льда, оно погибнет."
+   },
+   {
+    "text": "So he stands.",
+    "translationRu": "И он стоит."
+   },
+   {
+    "text": "He stands for two months.",
+    "translationRu": "Он стоит два месяца."
+   },
+   {
+    "text": "He does not eat anything.",
+    "translationRu": "Он ничего не ест."
+   },
+   {
+    "text": "He loses half of his weight.",
+    "translationRu": "Он теряет половину веса."
+   },
+   {
+    "text": "Thousands of fathers stand together.",
+    "translationRu": "Тысячи отцов стоят вместе."
+   },
+   {
+    "text": "They make a tight circle.",
+    "translationRu": "Они сбиваются в плотный круг."
+   },
+   {
+    "text": "The birds outside are cold.",
+    "translationRu": "Птицам снаружи холодно."
+   },
+   {
+    "text": "So the circle turns slowly.",
+    "translationRu": "Поэтому круг медленно вращается."
+   },
+   {
+    "text": "Every bird gets a warm place.",
+    "translationRu": "Каждой птице достаётся тёплое место."
+   },
+   {
+    "text": "Then the mother comes back.",
+    "translationRu": "Потом возвращается мать."
+   },
+   {
+    "text": "She brings food in her body.",
+    "translationRu": "Она приносит еду в себе."
+   },
+   {
+    "text": "The egg opens, and she feeds the chick.",
+    "translationRu": "Яйцо раскрывается, и она кормит птенца."
+   },
+   {
+    "text": "Now the father walks to the sea.",
+    "translationRu": "Теперь к морю идёт отец."
+   }
+  ]
+ },
+ {
+  "id": "onion-tears",
+  "level": "A2",
+  "topic": "food",
+  "title": "Why an onion wins every time",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "You cut an onion, and two minutes later you are crying.",
+    "translationRu": "Режешь лук — и через две минуты плачешь."
+   },
+   {
+    "text": "The onion is not being cruel.",
+    "translationRu": "Лук не жестокий."
+   },
+   {
+    "text": "It is defending itself, and you are simply in the way.",
+    "translationRu": "Он защищается, а ты просто попал под раздачу."
+   },
+   {
+    "text": "An onion grows underground, where hungry animals live.",
+    "translationRu": "Лук растёт под землёй, где живут голодные звери."
+   },
+   {
+    "text": "It cannot run, and it has no thorns.",
+    "translationRu": "Убежать он не может, и колючек у него нет."
+   },
+   {
+    "text": "So it keeps a weapon inside its own cells.",
+    "translationRu": "Поэтому оружие он держит внутри собственных клеток."
+   },
+   {
+    "text": "The weapon comes in two parts, stored apart.",
+    "translationRu": "Оружие состоит из двух частей, и они хранятся порознь."
+   },
+   {
+    "text": "On their own, neither part does anything.",
+    "translationRu": "По отдельности ни одна часть ничего не делает."
+   },
+   {
+    "text": "Your knife breaks the walls between them.",
+    "translationRu": "Нож разрушает стенки между ними."
+   },
+   {
+    "text": "The two parts meet, and a gas is born.",
+    "translationRu": "Две части встречаются, и рождается газ."
+   },
+   {
+    "text": "The gas is light, so it rises straight to your face.",
+    "translationRu": "Газ лёгкий, поэтому поднимается прямо к лицу."
+   },
+   {
+    "text": "Your eye is mostly water.",
+    "translationRu": "Глаз состоит в основном из воды."
+   },
+   {
+    "text": "The gas touches the water and turns into a weak acid.",
+    "translationRu": "Газ касается воды и превращается в слабую кислоту."
+   },
+   {
+    "text": "Your eye feels the acid and panics.",
+    "translationRu": "Глаз чувствует кислоту и паникует."
+   },
+   {
+    "text": "It does the only thing it knows.",
+    "translationRu": "Он делает единственное, что умеет."
+   },
+   {
+    "text": "It washes.",
+    "translationRu": "Он промывает себя."
+   },
+   {
+    "text": "Tears are not sadness here.",
+    "translationRu": "Слёзы здесь — не печаль."
+   },
+   {
+    "text": "They are a cleaning system doing its job.",
+    "translationRu": "Это система очистки, которая делает свою работу."
+   },
+   {
+    "text": "Everyone has a trick against this.",
+    "translationRu": "У каждого есть хитрость против этого."
+   },
+   {
+    "text": "Some people cut the onion under running water.",
+    "translationRu": "Кто-то режет лук под струёй воды."
+   },
+   {
+    "text": "The gas dissolves before it can climb.",
+    "translationRu": "Газ растворяется, не успев подняться."
+   },
+   {
+    "text": "Some people cool the onion first.",
+    "translationRu": "Кто-то сначала охлаждает луковицу."
+   },
+   {
+    "text": "Cold slows the reaction down.",
+    "translationRu": "Холод замедляет реакцию."
+   },
+   {
+    "text": "A sharp knife also helps.",
+    "translationRu": "Помогает и острый нож."
+   },
+   {
+    "text": "It cuts cells instead of crushing them.",
+    "translationRu": "Он режет клетки, а не давит их."
+   },
+   {
+    "text": "Fewer broken cells mean less gas.",
+    "translationRu": "Меньше разрушенных клеток — меньше газа."
+   },
+   {
+    "text": "Heat destroys the weapon completely.",
+    "translationRu": "Жар уничтожает оружие полностью."
+   },
+   {
+    "text": "That is why cooked onion is sweet and harmless.",
+    "translationRu": "Поэтому варёный лук сладкий и безобидный."
+   },
+   {
+    "text": "The sharpness was never in the taste.",
+    "translationRu": "Острота никогда не была во вкусе."
+   },
+   {
+    "text": "It was a chemical reaction that only happens when the onion is hurt.",
+    "translationRu": "Это была химическая реакция, которая случается, только когда луку больно."
+   },
+   {
+    "text": "Garlic uses the same idea.",
+    "translationRu": "Чеснок использует ту же идею."
+   },
+   {
+    "text": "So do mustard and horseradish.",
+    "translationRu": "И горчица, и хрен тоже."
+   },
+   {
+    "text": "All of them are quiet until something bites them.",
+    "translationRu": "Все они тихие, пока их не укусят."
+   },
+   {
+    "text": "Then they fight, and we call it flavour.",
+    "translationRu": "А потом они дерутся, и мы называем это вкусом."
+   }
+  ]
+ },
+ {
+  "id": "city-water",
+  "level": "B2",
+  "topic": "cities",
+  "title": "How a city drinks",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Turn a tap in a large city and the water arrives instantly.",
+    "translationRu": "Откроешь кран в большом городе — вода появляется мгновенно."
+   },
+   {
+    "text": "It has usually travelled further than you have this year.",
+    "translationRu": "Обычно она проделала путь длиннее, чем ты за этот год."
+   },
+   {
+    "text": "Cities are rarely built where the clean water is.",
+    "translationRu": "Города редко стоят там, где есть чистая вода."
+   },
+   {
+    "text": "They are built where trade is easy, which is not the same thing.",
+    "translationRu": "Их строят там, где удобно торговать, а это не одно и то же."
+   },
+   {
+    "text": "So almost every great city has quietly annexed a distant valley.",
+    "translationRu": "Поэтому почти каждый крупный город тихо присвоил себе далёкую долину."
+   },
+   {
+    "text": "The water is gathered upstream, where the rivers are still innocent.",
+    "translationRu": "Воду собирают выше по течению, где реки ещё невинны."
+   },
+   {
+    "text": "A reservoir holds it, and gravity does most of the work from there.",
+    "translationRu": "Её держит водохранилище, а дальше почти всё делает сила тяжести."
+   },
+   {
+    "text": "This is the elegant part of the system.",
+    "translationRu": "Это изящная часть системы."
+   },
+   {
+    "text": "A pipe that falls two metres in every kilometre needs no pumps at all.",
+    "translationRu": "Трубе, которая опускается на два метра каждый километр, насосы не нужны вовсе."
+   },
+   {
+    "text": "The Romans understood this and built accordingly.",
+    "translationRu": "Римляне это понимали и строили соответственно."
+   },
+   {
+    "text": "Their aqueducts descend so gently that the slope is invisible to the eye.",
+    "translationRu": "Их акведуки спускаются так полого, что уклон не виден глазу."
+   },
+   {
+    "text": "Some of them still carry water today.",
+    "translationRu": "Некоторые из них до сих пор несут воду."
+   },
+   {
+    "text": "Before the water is fit to drink, it has to be persuaded to drop its cargo.",
+    "translationRu": "Прежде чем вода станет питьевой, её надо уговорить сбросить груз."
+   },
+   {
+    "text": "River water carries clay, silt and organic debris in suspension.",
+    "translationRu": "Речная вода несёт во взвеси глину, ил и органические обломки."
+   },
+   {
+    "text": "These particles are too fine to settle on their own.",
+    "translationRu": "Эти частицы слишком мелкие, чтобы осесть сами."
+   },
+   {
+    "text": "They repel one another, and so they hover indefinitely.",
+    "translationRu": "Они отталкиваются друг от друга и потому висят бесконечно."
+   },
+   {
+    "text": "The trick is to make them stick together.",
+    "translationRu": "Хитрость в том, чтобы заставить их слипнуться."
+   },
+   {
+    "text": "A salt is added that cancels the charge keeping them apart.",
+    "translationRu": "Добавляют соль, которая гасит заряд, разводящий их в стороны."
+   },
+   {
+    "text": "The particles clump into visible flakes and sink within an hour.",
+    "translationRu": "Частицы сбиваются в видимые хлопья и оседают за час."
+   },
+   {
+    "text": "Engineers call the flakes floc, and the word has an almost affectionate ring.",
+    "translationRu": "Инженеры зовут эти хлопья «флок», и в слове слышится почти нежность."
+   },
+   {
+    "text": "What settles is scraped away as sludge.",
+    "translationRu": "Осевшее сгребают как осадок."
+   },
+   {
+    "text": "What remains passes down through sand.",
+    "translationRu": "Остальное проходит вниз через песок."
+   },
+   {
+    "text": "A sand filter looks crude and is anything but.",
+    "translationRu": "Песчаный фильтр выглядит грубо и не является таковым."
+   },
+   {
+    "text": "Within days a living film forms on the surface of the bed.",
+    "translationRu": "За считанные дни на поверхности слоя образуется живая плёнка."
+   },
+   {
+    "text": "Bacteria in that film consume the organic matter the flakes missed.",
+    "translationRu": "Бактерии в ней съедают органику, которую хлопья упустили."
+   },
+   {
+    "text": "The filter is therefore half machine and half ecosystem.",
+    "translationRu": "Так что фильтр наполовину машина, наполовину экосистема."
+   },
+   {
+    "text": "Only then does chlorine enter the story.",
+    "translationRu": "И только тогда в истории появляется хлор."
+   },
+   {
+    "text": "Its job is not to clean the water but to keep it clean.",
+    "translationRu": "Его задача — не очистить воду, а сохранить её чистой."
+   },
+   {
+    "text": "A city's pipes run for thousands of kilometres and cannot be sterile.",
+    "translationRu": "Трубы города тянутся на тысячи километров и стерильными быть не могут."
+   },
+   {
+    "text": "A trace of chlorine patrols that distance and discourages anything that tries to settle.",
+    "translationRu": "Следы хлора патрулируют это расстояние и отбивают охоту у всего, что пытается там поселиться."
+   },
+   {
+    "text": "The dose is deliberately small.",
+    "translationRu": "Доза намеренно мала."
+   },
+   {
+    "text": "Too much, and the water tastes like a swimming pool.",
+    "translationRu": "Больше нужного — и вода на вкус как бассейн."
+   },
+   {
+    "text": "Too little, and the last street on the network is drinking something else entirely.",
+    "translationRu": "Меньше нужного — и последняя улица в сети пьёт уже нечто другое."
+   },
+   {
+    "text": "Pressure is the constraint nobody thinks about.",
+    "translationRu": "Давление — то ограничение, о котором никто не думает."
+   },
+   {
+    "text": "Water must arrive at the top floor of every building with force to spare.",
+    "translationRu": "Вода должна приходить на верхний этаж любого дома с запасом силы."
+   },
+   {
+    "text": "That is why water towers stand where the land is flat.",
+    "translationRu": "Вот зачем водонапорные башни стоят там, где местность ровная."
+   },
+   {
+    "text": "A tower is not storage so much as a weight held permanently above the city.",
+    "translationRu": "Башня — не столько хранилище, сколько груз, вечно подвешенный над городом."
+   },
+   {
+    "text": "Its height alone sets the pressure in every tap below it.",
+    "translationRu": "Одна её высота задаёт давление в каждом кране внизу."
+   },
+   {
+    "text": "The oldest parts of any network are the most troublesome.",
+    "translationRu": "Самые старые участки любой сети — самые беспокойные."
+   },
+   {
+    "text": "Victorian iron mains are still in service under several European capitals.",
+    "translationRu": "Викторианские чугунные магистрали до сих пор в строю под несколькими европейскими столицами."
+   },
+   {
+    "text": "They leak, and replacing them means closing the street above.",
+    "translationRu": "Они текут, а замена означает перекрытие улицы наверху."
+   },
+   {
+    "text": "Some cities lose a quarter of everything they treat before it reaches a customer.",
+    "translationRu": "Некоторые города теряют четверть всего очищенного, не доведя до потребителя."
+   },
+   {
+    "text": "That loss is invisible, which is exactly why it persists.",
+    "translationRu": "Эта потеря невидима — именно поэтому она и держится."
+   },
+   {
+    "text": "Engineers now hunt leaks by listening.",
+    "translationRu": "Сегодня инженеры ищут утечки на слух."
+   },
+   {
+    "text": "Escaping water hisses at a frequency that carries along the pipe for hundreds of metres.",
+    "translationRu": "Уходящая вода шипит на частоте, которая идёт по трубе сотни метров."
+   },
+   {
+    "text": "Microphones placed at two hydrants can locate the hole between them.",
+    "translationRu": "Микрофоны на двух гидрантах находят дыру между ними."
+   },
+   {
+    "text": "The whole apparatus is remarkable chiefly for being unnoticed.",
+    "translationRu": "Вся эта машинерия замечательна прежде всего тем, что незаметна."
+   },
+   {
+    "text": "A tap that works is a tap nobody thinks about.",
+    "translationRu": "Работающий кран — это кран, о котором никто не думает."
+   },
+   {
+    "text": "The engineering is judged, fairly, by the silence around it.",
+    "translationRu": "Инженерию судят — и справедливо — по тишине вокруг неё."
+   }
+  ]
+ },
+ {
+  "id": "ears-at-night",
+  "level": "C1",
+  "topic": "body",
+  "title": "The sense that never clocks off",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "You can shut your eyes.",
+    "translationRu": "Глаза можно закрыть."
+   },
+   {
+    "text": "You cannot shut your ears, and evolution saw no reason to let you.",
+    "translationRu": "Уши закрыть нельзя, и эволюция не увидела причин это позволить."
+   },
+   {
+    "text": "Hearing is the sentry that stays awake when everything else stands down.",
+    "translationRu": "Слух — часовой, который бодрствует, когда всё остальное уходит на покой."
+   },
+   {
+    "text": "Through the night the ear keeps working at full sensitivity.",
+    "translationRu": "Всю ночь ухо работает с полной чувствительностью."
+   },
+   {
+    "text": "What changes is not the ear but the audience upstairs.",
+    "translationRu": "Меняется не ухо, а слушатель этажом выше."
+   },
+   {
+    "text": "Sound still arrives; the sleeping brain simply declines to act on most of it.",
+    "translationRu": "Звук по-прежнему приходит; спящий мозг просто отказывается на большую часть реагировать."
+   },
+   {
+    "text": "The filtering is astonishingly discriminating.",
+    "translationRu": "Отбор поразительно разборчив."
+   },
+   {
+    "text": "A parent sleeps through a thunderstorm and wakes at a child turning over.",
+    "translationRu": "Родитель спит сквозь грозу и просыпается, когда ребёнок перевернулся."
+   },
+   {
+    "text": "The thunder is a hundred times louder and carries no meaning.",
+    "translationRu": "Гром в сто раз громче и не несёт смысла."
+   },
+   {
+    "text": "Meaning, not volume, is what gets you out of bed.",
+    "translationRu": "Из постели поднимает смысл, а не громкость."
+   },
+   {
+    "text": "Your own name will do it at a whisper.",
+    "translationRu": "Собственное имя поднимет даже шёпотом."
+   },
+   {
+    "text": "Something else is going on in there as well.",
+    "translationRu": "Внутри происходит и кое-что ещё."
+   },
+   {
+    "text": "The brain is not merely screening the night; it is rehearsing the day.",
+    "translationRu": "Мозг не просто фильтрует ночь — он репетирует день."
+   },
+   {
+    "text": "During deep sleep, the patterns fired while you were awake are replayed.",
+    "translationRu": "В глубоком сне заново прокручиваются те узоры, что горели днём."
+   },
+   {
+    "text": "They run compressed, sometimes twenty times faster than the original.",
+    "translationRu": "Они идут сжатыми, порой в двадцать раз быстрее оригинала."
+   },
+   {
+    "text": "This is not metaphorical.",
+    "translationRu": "Это не метафора."
+   },
+   {
+    "text": "Electrodes have watched it happen in sleeping animals for decades.",
+    "translationRu": "Электроды десятилетиями наблюдают это у спящих животных."
+   },
+   {
+    "text": "A rat that ran a maze runs it again in its sleep, turn for turn.",
+    "translationRu": "Крыса, прошедшая лабиринт, проходит его во сне заново, поворот за поворотом."
+   },
+   {
+    "text": "What the replay is for is the interesting question.",
+    "translationRu": "Интереснее другое: зачем это повторение."
+   },
+   {
+    "text": "The leading answer is filing.",
+    "translationRu": "Ведущий ответ — раскладывание по полкам."
+   },
+   {
+    "text": "A memory made during the day is held somewhere fast and fragile.",
+    "translationRu": "Память, созданная днём, лежит где-то в быстром и хрупком месте."
+   },
+   {
+    "text": "Overnight it is copied somewhere slow and durable, and the original space is freed.",
+    "translationRu": "За ночь она переписывается туда, где медленно и прочно, а прежнее место освобождается."
+   },
+   {
+    "text": "Wake someone repeatedly and the copying never finishes.",
+    "translationRu": "Буди человека снова и снова — переписывание не закончится никогда."
+   },
+   {
+    "text": "They will remember the day as a smear rather than a sequence.",
+    "translationRu": "День запомнится им пятном, а не последовательностью."
+   },
+   {
+    "text": "Language appears to be filed with particular care.",
+    "translationRu": "Язык, судя по всему, откладывают с особой тщательностью."
+   },
+   {
+    "text": "Learners who sleep after a vocabulary session hold far more of it a week later.",
+    "translationRu": "Те, кто спит после занятия словами, через неделю помнят их заметно больше."
+   },
+   {
+    "text": "Learners who study the same words and stay up hold conspicuously less.",
+    "translationRu": "Те, кто учит те же слова и не ложится, помнят ощутимо меньше."
+   },
+   {
+    "text": "The studying was identical; only the night differed.",
+    "translationRu": "Занятие было одинаковым; разной была только ночь."
+   },
+   {
+    "text": "This has an awkward implication for anyone who works late.",
+    "translationRu": "Для всех, кто работает допоздна, из этого следует неудобный вывод."
+   },
+   {
+    "text": "The hours you steal from sleep are taken from the very process that made the evening worthwhile.",
+    "translationRu": "Часы, украденные у сна, отняты у того самого процесса, ради которого вечер и затевался."
+   },
+   {
+    "text": "You keep the effort and lose the dividend.",
+    "translationRu": "Усилие остаётся, а дивиденд теряется."
+   },
+   {
+    "text": "Sound can be turned to advantage here, within limits.",
+    "translationRu": "Звук можно обратить себе на пользу — в известных пределах."
+   },
+   {
+    "text": "Steady, featureless noise masks the sudden ones that trigger the sentry.",
+    "translationRu": "Ровный однообразный шум маскирует внезапные, которые будят часового."
+   },
+   {
+    "text": "Rain and fans work because nothing in them ever means anything.",
+    "translationRu": "Дождь и вентилятор работают потому, что в них ничего никогда ничего не значит."
+   },
+   {
+    "text": "Music fails for the opposite reason.",
+    "translationRu": "Музыка не годится по обратной причине."
+   },
+   {
+    "text": "It is structured, it anticipates, and a brain listening for a resolution is a brain still at work.",
+    "translationRu": "Она выстроена, она предвосхищает, а мозг, ждущий разрешения, — это мозг, который ещё работает."
+   },
+   {
+    "text": "The one thing the sleeping ear cannot do is learn.",
+    "translationRu": "Единственное, чего спящее ухо не умеет, — учиться."
+   },
+   {
+    "text": "Playing a language tape through the night has been tested repeatedly and fails every time.",
+    "translationRu": "Прокручивание языковых записей ночью проверяли много раз, и каждый раз безрезультатно."
+   },
+   {
+    "text": "New information requires the very attention that sleep suspends.",
+    "translationRu": "Новое требует ровно того внимания, которое сон и отключает."
+   },
+   {
+    "text": "What sleep can do is strengthen what daylight already put there.",
+    "translationRu": "Что сон умеет — так это укрепить то, что дневной свет уже уложил."
+   },
+   {
+    "text": "So the ear keeps its watch, night after night, on a loop that never lifts.",
+    "translationRu": "И ухо несёт свою вахту ночь за ночью, по кругу, который не размыкается."
+   },
+   {
+    "text": "It is the oldest arrangement in the body, and the least negotiable.",
+    "translationRu": "Это старейшее соглашение в теле и наименее обсуждаемое."
+   },
+   {
+    "text": "Everything else in you can be persuaded to rest.",
+    "translationRu": "Всё остальное в тебе можно уговорить отдохнуть."
+   },
+   {
+    "text": "The hearing stays on, because once, long ago, something moved in the dark.",
+    "translationRu": "Слух остаётся включённым — потому что когда-то давно в темноте что-то шевельнулось."
+   }
+  ]
+ }
+]

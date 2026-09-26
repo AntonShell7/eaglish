@@ -1,4 +1,5 @@
 import batch1 from "./listening/batch1.json";
+import batch2 from "./listening/batch2.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -20,6 +21,11 @@ import type { ReadingText } from "./readingTexts";
  * Each item in `sentences` is one fragment: at most a sentence, and a long
  * sentence split where it naturally breathes.
  */
-export const listeningTexts = batch1 as ReadingText[];
+/*
+ * One file per batch, merged here. Written material arrives a few pieces at a
+ * time — each one is an hour of writing rather than a generator run — and a
+ * single growing file would turn every addition into a diff nobody can read.
+ */
+export const listeningTexts = [...batch1, ...batch2] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
