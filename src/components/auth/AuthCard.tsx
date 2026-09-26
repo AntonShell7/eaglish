@@ -1,6 +1,7 @@
 import { useId, type FormEvent, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { isSupabaseConfigured } from "@/lib/supabase";
+import "./auth.css";
 
 interface AuthCardProps {
   title: string;
@@ -14,18 +15,11 @@ export function AuthCard({ title, intro, onSubmit, children, footer }: AuthCardP
   const { t } = useTranslation();
 
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-5 py-10">
-      <form
-        className="card w-full p-8"
-        onSubmit={onSubmit}
-      >
-        <h1 className="page-title text-2xl">{title}</h1>
+    <div className="auth-page">
+      <form className="card auth-card" onSubmit={onSubmit}>
+        <h1 className="page-title auth-card__title">{title}</h1>
 
-        {intro && (
-          <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-            {intro}
-          </p>
-        )}
+        {intro && <p className="auth-card__intro">{intro}</p>}
 
         {!isSupabaseConfigured && (
           <p
@@ -49,8 +43,8 @@ export function EmailField({ value, onChange }: { value: string; onChange: (v: s
   const id = useId();
 
   return (
-    <div className="mt-6">
-      <label htmlFor={id} className="block text-sm font-medium">
+    <div className="auth-field">
+      <label htmlFor={id} className="auth-field__label">
         {t("auth.email")}
       </label>
       <input
@@ -60,8 +54,7 @@ export function EmailField({ value, onChange }: { value: string; onChange: (v: s
         autoComplete="email"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-[var(--radius-md)] border px-4 py-3 text-sm outline-none focus:border-[var(--color-primary)]"
-        style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
+        className="field"
       />
     </div>
   );
@@ -73,7 +66,7 @@ export function SubmitButton({ loading, label }: { loading: boolean; label: stri
     <button
       type="submit"
       disabled={loading}
-      className="btn btn--primary mt-6 w-full disabled:opacity-60"
+      className="btn btn--primary auth-submit"
     >
       {loading ? t("common.loading") : label}
     </button>

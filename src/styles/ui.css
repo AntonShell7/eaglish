@@ -299,12 +299,14 @@
   outline: none;
   transition:
     border-color var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease),
     background var(--dur-2) var(--ease);
 }
 
 .field:focus {
-  border-color: var(--color-accent);
+  border-color: var(--color-primary);
   background: var(--color-surface);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
 }
 
 .field::placeholder {
@@ -563,31 +565,25 @@ textarea.field {
 
 .auth-alt__btn {
   width: 100%;
-  gap: 10px;
+  height: var(--control-h-lg);
+  gap: 12px;
+  font-size: 0.975rem;
 }
 
-/* Google supplies one version for a light page and one for a dark one, each
-   with its own ring so the mark reads against that ground. Swapping them in
-   CSS rather than in the markup keeps the choice in the same place as every
-   other theme decision in the app. */
+/* The mark sits straight on the button.
+   Google's icon-button asset ships inside a ring on its own plate, which is
+   right for a bare round button and wrong here — the button already has a
+   surface, so the plate read as a sticker pasted onto it. This is the same
+   artwork with the plate left off, at a size where the four colours are
+   actually legible rather than a smudge. */
 .auth-alt__mark {
   flex: none;
   display: block;
-  width: 20px;
-  height: 20px;
-  background-image: url("/google-mark-light.svg");
+  width: 22px;
+  height: 22px;
+  background-image: url("/google-g.svg");
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .auth-alt__mark {
-    background-image: url("/google-mark-dark.svg");
-  }
-}
-
-:root[data-theme="dark"] .auth-alt__mark {
-  background-image: url("/google-mark-dark.svg");
 }
 
 .auth-alt__error {

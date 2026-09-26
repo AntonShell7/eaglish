@@ -48,12 +48,12 @@ export function PasswordField({
   const strengthColors = ["var(--color-danger)", "#8b6fe8", "var(--color-accent)", "var(--color-success)"];
 
   return (
-    <div className="mt-4">
-      <label htmlFor={id} className="block text-sm font-medium">
+    <div className="auth-field">
+      <label htmlFor={id} className="auth-field__label">
         {label}
       </label>
 
-      <div className="relative mt-2">
+      <div className="relative">
         <input
           id={id}
           type={visible ? "text" : "password"}
@@ -62,19 +62,15 @@ export function PasswordField({
           autoComplete={autoComplete}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-[var(--radius-md)] border py-3 pl-4 pr-12 text-sm outline-none focus:border-[var(--color-primary)]"
-          style={{
-            borderColor: error ? "var(--color-danger)" : "var(--color-border)",
-            background: "var(--color-surface-2)",
-          }}
+          className="field auth-field__input--withEye"
+          style={error ? { borderColor: "var(--color-danger)" } : undefined}
         />
         <button
           type="button"
           onClick={() => setVisible((v) => !v)}
           aria-label={visible ? t("auth.hidePassword") : t("auth.showPassword")}
           title={visible ? t("auth.hidePassword") : t("auth.showPassword")}
-          className="absolute right-1.5 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full"
-          style={{ color: "var(--color-text-muted)" }}
+          className="auth-field__eye"
         >
           {visible ? <EyeOff /> : <Eye />}
         </button>

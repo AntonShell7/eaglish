@@ -1,0 +1,117 @@
+/* The way in.
+   For a lot of people this is the first screen of the product, and it used to
+   be a box with fields stacked at whatever margins each component happened to
+   carry. One rhythm now: the same gap between every field, one entrance, and
+   room around the card so it sits on the page rather than in the corner of it. */
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72vh;
+  padding: 48px 20px 64px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 34px 32px;
+  box-shadow: var(--shadow-3);
+  animation: auth-in 520ms var(--ease) both;
+}
+
+/* A short rise, once. Anything longer turns a login into a performance. */
+@keyframes auth-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-card {
+    animation: none;
+  }
+}
+
+.auth-card__title {
+  font-size: 1.85rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.auth-card__intro {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* Every field is the same object, so they all sit the same distance apart. */
+.auth-field {
+  margin-top: 20px;
+}
+
+.auth-field__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-muted);
+}
+
+.auth-field__input--withEye {
+  padding-right: 46px;
+}
+
+.auth-field__eye {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition:
+    color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.auth-field__eye:hover {
+  color: var(--color-text);
+  background: var(--color-surface-3);
+}
+
+.auth-submit {
+  width: 100%;
+  height: var(--control-h-lg);
+  margin-top: 24px;
+  font-size: 0.975rem;
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 28px 16px 48px;
+    min-height: 0;
+  }
+
+  .auth-card {
+    padding: 28px 22px 26px;
+  }
+
+  .auth-card__title {
+    font-size: 1.6rem;
+  }
+}
