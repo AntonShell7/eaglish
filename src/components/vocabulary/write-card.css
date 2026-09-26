@@ -13,11 +13,14 @@
      into a chessboard the eye reads instead of a surface it writes on. */
   --wc-cell: 26px;
 
-  --wc-pen-ink: #2a2721;
-  --wc-pen-mint: #1f7a63;
+  --wc-pen-mint: #17806a;
+  /* The one red worth having: a clean, saturated signal red rather than the
+     brick shade a warm palette drifts towards. */
+  --wc-pen-red: #f5322a;
   --wc-pen-amber: #c07d1d;
-  --wc-pen-coral: #cf4a39;
   --wc-pen-violet: #7a5bd0;
+  /* Graphite, not black — a pencil rather than a marker. */
+  --wc-pen-ink: #46413a;
 
   max-width: 720px;
   margin: 0 auto;
@@ -62,11 +65,13 @@
     --wc-paper: #171512;
     --wc-grid: rgba(228, 214, 180, 0.11);
 
-    --wc-pen-ink: #ece6da;
-    --wc-pen-mint: #6ddcb4;
-    --wc-pen-amber: #efc06a;
-    --wc-pen-coral: #ff7b64;
-    --wc-pen-violet: #b79bff;
+    --wc-pen-mint: #55e6b8;
+    --wc-pen-red: #ff453a;
+    --wc-pen-amber: #f5c563;
+    --wc-pen-violet: #bda2ff;
+    /* Softened well below white: a stroke at full white was the brightest
+       thing on the sheet and read as glare rather than as ink. */
+    --wc-pen-ink: #b9b2a4;
   }
 }
 
@@ -74,11 +79,13 @@
   --wc-paper: #171512;
   --wc-grid: rgba(228, 214, 180, 0.11);
 
-  --wc-pen-ink: #ece6da;
-  --wc-pen-mint: #6ddcb4;
-  --wc-pen-amber: #efc06a;
-  --wc-pen-coral: #ff7b64;
-  --wc-pen-violet: #b79bff;
+  --wc-pen-mint: #55e6b8;
+  --wc-pen-red: #ff453a;
+  --wc-pen-amber: #f5c563;
+  --wc-pen-violet: #bda2ff;
+  /* Softened well below white: a stroke at full white was the brightest
+     thing on the sheet and read as glare rather than as ink. */
+  --wc-pen-ink: #b9b2a4;
 }
 
 .wc--right .wc__paper {
@@ -116,6 +123,47 @@
   font-size: 0.82rem;
   color: var(--color-text-faint);
   pointer-events: none;
+}
+
+/* The clear control, on the paper it clears. */
+.wc__clear {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--wc-grid);
+  background: color-mix(in srgb, var(--wc-paper) 82%, transparent);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  backdrop-filter: blur(6px);
+  transition:
+    color var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease);
+  animation: wc-fade var(--dur-2) var(--ease);
+}
+
+.wc__clear:hover {
+  color: var(--color-danger);
+  border-color: color-mix(in srgb, var(--color-danger) 45%, transparent);
+  transform: scale(1.06);
+}
+
+@keyframes wc-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc__clear {
+    animation: none;
+  }
 }
 
 .wc__pens {

@@ -28,14 +28,18 @@ const SETTLE_MS = 900;
 const HINT_KEY = "handwritingHintSeen";
 
 /**
- * Five inks.
+ * Five inks, mint first.
  *
- * Every one is a custom property on the paper, so the default ink can invert
- * with the theme and the rest can be tuned in one place. Resolving them at
- * draw time is what keeps a stroke the right colour after the theme changes
- * under it.
+ * Mint is the app's own colour and the one the card opens with; plain ink went
+ * to the end, because a near-white stroke was the loudest thing on a dark
+ * sheet and the least pleasant to look at. It is still there — sometimes you
+ * just want a pencil — but softened, and no longer the thing on offer.
+ *
+ * Every one is a custom property, so they can invert with the theme and be
+ * tuned in one place. Resolving them at draw time is what keeps a stroke the
+ * right colour after the theme changes under it.
  */
-const PENS = ["ink", "mint", "amber", "coral", "violet"] as const;
+const PENS = ["mint", "red", "amber", "violet", "ink"] as const;
 type Pen = (typeof PENS)[number];
 
 interface Stroke {
@@ -78,9 +82,9 @@ export function WriteCard({
   const [pen, setPen] = useState<Pen>(() => {
     try {
       const saved = localStorage.getItem("handwritingPen");
-      return PENS.includes(saved as Pen) ? (saved as Pen) : "ink";
+      return PENS.includes(saved as Pen) ? (saved as Pen) : "mint";
     } catch {
-      return "ink";
+      return "mint";
     }
   });
   const [hint, setHint] = useState(() => {
@@ -388,6 +392,26 @@ export function WriteCard({
           aria-label={t("vocabulary.write.ask")}
         />
         {hint && state.phase === "blank" && <span className="wc__ghost">{t("vocabulary.write.hint")}</span>}
+
+        {/* Clearing belongs on the paper, next to the thing being cleared —
+            not in a row of buttons underneath with the grading. It appears
+            only once there is something to remove. */}
+        {written && !busy && (
+          <button
+            type="button"
+            className="wc__clear"
+            onClick={clear}
+            aria-label={t("vocabulary.write.clear")}
+            title={t("vocabulary.write.clear")}
+          >
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+              strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8.5 19.5h11" />
+              <path d="M15.2 4.8l4 4a1.6 1.6 0 010 2.3l-7.2 7.2a1.6 1.6 0 01-2.3 0l-4-4a1.6 1.6 0 010-2.3l7.2-7.2a1.6 1.6 0 012.3 0z" />
+              <path d="M8 8.9l6.3 6.3" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Five inks. Purely for pleasure — the reader is sent plain dark ink
@@ -440,9 +464,6 @@ export function WriteCard({
         </div>
       ) : (
         <div className="wc__actions">
-          <button type="button" className="btn btn--quiet btn--sm" onClick={clear} disabled={busy}>
-            {t("vocabulary.write.clear")}
-          </button>
           <button type="button" className="btn btn--ghost btn--sm" onClick={check} disabled={busy || !written}>
             {t("vocabulary.write.check")}
           </button>

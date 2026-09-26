@@ -283,11 +283,11 @@
       "check": "Check",
       "penLabel": "Pen colour",
       "pens": {
-        "ink": "Ink",
         "mint": "Mint",
+        "red": "Red",
         "amber": "Amber",
-        "coral": "Coral",
-        "violet": "Violet"
+        "violet": "Violet",
+        "ink": "Graphite"
       }
     },
     "tabs": {
