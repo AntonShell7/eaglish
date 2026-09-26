@@ -1,10 +1,24 @@
 /* The writing card.
-   A strip of ruled paper, as close to the real thing as a screen gets: three
-   lines, a wide margin, and nothing else competing for attention while the
-   hand works. */
+   A sheet of squared paper, the kind a school exercise book is made of: the
+   grid gives a letter its height and its slant without ruling the hand into
+   one line, which is what the old three-rule strip did badly. */
 
 .wc {
-  max-width: 640px;
+  /* Paper, grid and inks live on the card rather than on the sheet, so the
+     ink swatches below it inherit the same values the canvas draws with — a
+     swatch that is not exactly the colour it produces is a lie in a control. */
+  --wc-paper: #f6efdc;
+  --wc-grid: rgba(120, 96, 52, 0.17);
+  --wc-grid-strong: rgba(120, 96, 52, 0.3);
+  --wc-cell: 34px;
+
+  --wc-pen-ink: #2a2721;
+  --wc-pen-mint: #1f7a63;
+  --wc-pen-amber: #c07d1d;
+  --wc-pen-coral: #cf4a39;
+  --wc-pen-violet: #7a5bd0;
+
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
 }
@@ -26,22 +40,62 @@
 .wc__paper {
   position: relative;
   margin-top: 22px;
-  height: 160px;
+  height: 240px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  /* Paper stays paper in dark mode. Ink needs something to be dark against,
-     and a model reading the strip needs the contrast even more than the eye
-     does. */
-  background: #fdfdfb;
+  background-color: var(--wc-paper);
+  /* The grid itself: two fine sets of lines, with every fourth one stronger,
+     the way squared paper is actually printed. */
+  background-image:
+    linear-gradient(to right, var(--wc-grid-strong) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--wc-grid-strong) 1px, transparent 1px),
+    linear-gradient(to right, var(--wc-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--wc-grid) 1px, transparent 1px);
+  background-size:
+    calc(var(--wc-cell) * 4) calc(var(--wc-cell) * 4),
+    calc(var(--wc-cell) * 4) calc(var(--wc-cell) * 4),
+    var(--wc-cell) var(--wc-cell),
+    var(--wc-cell) var(--wc-cell);
+  background-position: center center;
   overflow: hidden;
   transition:
     border-color var(--dur-2) var(--ease),
     box-shadow var(--dur-2) var(--ease);
 }
 
+/* In the dark the sheet goes dark too. A white rectangle in a dark room is the
+   brightest thing on the screen and the eye cannot leave it alone — which is
+   the opposite of what a page you are meant to concentrate on should do.
+   The inks lift at the same time, so mint on charcoal stays mint. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .wc {
+    --wc-paper: #171512;
+    --wc-grid: rgba(228, 214, 180, 0.08);
+    --wc-grid-strong: rgba(228, 214, 180, 0.15);
+
+    --wc-pen-ink: #ece6da;
+    --wc-pen-mint: #6ddcb4;
+    --wc-pen-amber: #efc06a;
+    --wc-pen-coral: #ff7b64;
+    --wc-pen-violet: #b79bff;
+  }
+}
+
+:root[data-theme="dark"] .wc {
+  --wc-paper: #171512;
+  --wc-grid: rgba(228, 214, 180, 0.08);
+  --wc-grid-strong: rgba(228, 214, 180, 0.15);
+
+  --wc-pen-ink: #ece6da;
+  --wc-pen-mint: #6ddcb4;
+  --wc-pen-amber: #efc06a;
+  --wc-pen-coral: #ff7b64;
+  --wc-pen-violet: #b79bff;
+}
+
 .wc--right .wc__paper {
   border-color: var(--color-success);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 22%, transparent);
 }
 
 .wc--wrong .wc__paper {
@@ -49,34 +103,7 @@
 }
 
 .wc--reading .wc__paper {
-  opacity: 0.75;
-}
-
-/* The ruling: two guide lines and a baseline, at the proportions of a
-   handwriting exercise book. */
-.wc__rule {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  height: 1px;
-  pointer-events: none;
-}
-
-.wc__rule--top {
-  top: 42px;
-  background: color-mix(in srgb, #2b5ea8 16%, transparent);
-}
-
-.wc__rule--mid {
-  top: 82px;
-  background: color-mix(in srgb, #2b5ea8 12%, transparent);
-  border-top: 1px dashed color-mix(in srgb, #2b5ea8 22%, transparent);
-  height: 0;
-}
-
-.wc__rule--base {
-  top: 122px;
-  background: color-mix(in srgb, #2b5ea8 30%, transparent);
+  opacity: 0.78;
 }
 
 .wc__canvas {
@@ -90,14 +117,46 @@
   cursor: crosshair;
 }
 
+/* Shown once, then never again: it is an instruction, and an instruction that
+   stays after it has been understood is just something in the way. */
 .wc__ghost {
   position: absolute;
   left: 0;
   right: 0;
-  top: 92px;
-  font-size: 0.8rem;
-  color: #9aa0a6;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
   pointer-events: none;
+}
+
+.wc__pens {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.wc__pen {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 1px var(--color-border);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.wc__pen:hover {
+  transform: scale(1.12);
+}
+
+.wc__pen.is-on {
+  transform: scale(1.18);
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-text);
 }
 
 .wc__status {
@@ -132,4 +191,14 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
+}
+
+@media (max-width: 520px) {
+  .wc {
+    --wc-cell: 28px;
+  }
+
+  .wc__paper {
+    height: 190px;
+  }
 }

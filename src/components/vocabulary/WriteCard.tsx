@@ -7,20 +7,41 @@ import "./write-card.css";
 /**
  * Writing the word by hand.
  *
- * This is the mode the whole section was asked for: a tablet, a stylus, a
- * ruled strip, and a word that has to come out of the hand rather than off a
+ * This is the mode the section was asked for: a tablet, a stylus, squared
+ * paper, and a word that has to come out of the hand rather than off a
  * keyboard. It is worth building for a reason beyond pleasantness — producing
  * a spelling stroke by stroke recruits more of the memory than recognising one
  * does, and a keyboard hides the difference by making every letter equally
  * easy to reach.
  *
- * When the writing is right the card moves on by itself. Asking someone to
- * write a word and then tap a button to confirm they wrote it is the kind of
- * small tax that ends a twenty-word session at eight.
+ * Strokes are kept as points rather than only as pixels. That is what lets the
+ * paper be redrawn when the card is resized, and — more importantly — lets the
+ * picture sent for reading be rendered in plain dark ink on white however the
+ * learner chose to write it. What colour someone likes writing in is a matter
+ * of pleasure; what a reader receives should be the same every time.
  */
 
 /** How long the pen must rest before the card reads what was written. */
 const SETTLE_MS = 900;
+
+/** Whether the "write here" hint has been seen. It is guidance, not furniture. */
+const HINT_KEY = "handwritingHintSeen";
+
+/**
+ * Five inks.
+ *
+ * Every one is a custom property on the paper, so the default ink can invert
+ * with the theme and the rest can be tuned in one place. Resolving them at
+ * draw time is what keeps a stroke the right colour after the theme changes
+ * under it.
+ */
+const PENS = ["ink", "mint", "amber", "coral", "violet"] as const;
+type Pen = (typeof PENS)[number];
+
+interface Stroke {
+  pen: Pen;
+  points: { x: number; y: number; w: number }[];
+}
 
 type State =
   | { phase: "blank" }
@@ -48,17 +69,68 @@ export function WriteCard({
 }) {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const paperRef = useRef<HTMLDivElement | null>(null);
+  const strokes = useRef<Stroke[]>([]);
   const drawing = useRef(false);
-  const dirty = useRef(false);
   const settle = useRef<number | null>(null);
+
   const [state, setState] = useState<State>({ phase: "blank" });
+  const [pen, setPen] = useState<Pen>(() => {
+    try {
+      const saved = localStorage.getItem("handwritingPen");
+      return PENS.includes(saved as Pen) ? (saved as Pen) : "ink";
+    } catch {
+      return "ink";
+    }
+  });
+  const [hint, setHint] = useState(() => {
+    try {
+      return localStorage.getItem(HINT_KEY) !== "1";
+    } catch {
+      return true;
+    }
+  });
   /* One wrong reading is a spelling slip worth fixing in place; a second means
      the word is not there, and the card should stop pretending otherwise. */
   const [attempts, setAttempts] = useState(0);
 
+  /** Resolves a pen name to whatever the stylesheet currently says it is. */
+  const colourOf = useCallback((name: Pen): string => {
+    const paper = paperRef.current;
+    if (!paper) return "#1c1a17";
+    const value = getComputedStyle(paper).getPropertyValue(`--wc-pen-${name}`).trim();
+    return value || "#1c1a17";
+  }, []);
+
+  /** Paints every stroke held in memory onto the visible canvas. */
+  const redraw = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    const ratio = Math.min(2, window.devicePixelRatio || 1);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, canvas.width / ratio, canvas.height / ratio);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+
+    for (const stroke of strokes.current) {
+      ctx.strokeStyle = colourOf(stroke.pen);
+      for (let i = 1; i < stroke.points.length; i += 1) {
+        const from = stroke.points[i - 1];
+        const to = stroke.points[i];
+        ctx.beginPath();
+        ctx.lineWidth = to.w;
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.stroke();
+      }
+    }
+  }, [colourOf]);
+
   /** Sizes the canvas to its box at device resolution — a canvas stretched by
-      CSS draws blurred strokes, which is exactly what handwriting cannot
-      afford when something else has to read it. */
+      CSS draws blurred strokes, which is what handwriting can least afford
+      when something else has to read it. */
   const fit = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -69,14 +141,8 @@ export function WriteCard({
     if (canvas.width === w && canvas.height === h) return;
     canvas.width = w;
     canvas.height = h;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    ctx.scale(ratio, ratio);
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.strokeStyle = "#111318";
-    ctx.lineWidth = 2.6;
-  }, []);
+    redraw();
+  }, [redraw]);
 
   useEffect(() => {
     fit();
@@ -84,30 +150,42 @@ export function WriteCard({
     return () => window.removeEventListener("resize", fit);
   }, [fit]);
 
-  const clear = useCallback(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!canvas || !ctx) return;
-    ctx.save();
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.restore();
-    dirty.current = false;
-    setState({ phase: "blank" });
-  }, []);
+  /*
+   * Ink follows the room. Switching to the light theme mid-word would
+   * otherwise leave the strokes in the shade they were drawn in while the
+   * swatch below showed the new one — the two disagreeing about the same pen.
+   * Keeping strokes as points rather than pixels is what makes this a repaint
+   * rather than a problem.
+   */
+  useEffect(() => {
+    const scheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const observer = new MutationObserver(redraw);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    scheme.addEventListener("change", redraw);
+    return () => {
+      observer.disconnect();
+      scheme.removeEventListener("change", redraw);
+    };
+  }, [redraw]);
 
-  // A new word arrives on a clean strip.
+  const clear = useCallback(() => {
+    strokes.current = [];
+    redraw();
+    setState({ phase: "blank" });
+  }, [redraw]);
+
+  // A new word arrives on a clean sheet.
   useEffect(() => {
     clear();
     setAttempts(0);
   }, [word.id, clear]);
 
   /**
-   * Flattens the strokes onto white before sending.
+   * The picture sent for reading: the same strokes, in dark ink on white.
    *
-   * The canvas is transparent, and a transparent PNG read by a model that
-   * composites onto black is black ink on black paper. White here costs
-   * nothing and removes the whole class of problem.
+   * Rendering what is on screen would send neon on charcoal, which is a
+   * harder problem than it needs to be — and the colour was never part of the
+   * answer.
    */
   const snapshot = (): string | null => {
     const canvas = canvasRef.current;
@@ -117,14 +195,31 @@ export function WriteCard({
     flat.height = canvas.height;
     const ctx = flat.getContext("2d");
     if (!ctx) return null;
+
+    const ratio = Math.min(2, window.devicePixelRatio || 1);
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, flat.width, flat.height);
-    ctx.drawImage(canvas, 0, 0);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#111111";
+
+    for (const stroke of strokes.current) {
+      for (let i = 1; i < stroke.points.length; i += 1) {
+        const from = stroke.points[i - 1];
+        const to = stroke.points[i];
+        ctx.beginPath();
+        ctx.lineWidth = to.w;
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.stroke();
+      }
+    }
     return flat.toDataURL("image/png");
   };
 
   const check = useCallback(async () => {
-    if (!dirty.current) return;
+    if (strokes.current.length === 0) return;
     setState({ phase: "reading" });
     const image = snapshot();
     if (!image) return;
@@ -146,20 +241,48 @@ export function WriteCard({
     setState({ phase: "wrong", reading });
   }, [onGraded, word.word]);
 
+  const choosePen = (next: Pen) => {
+    setPen(next);
+    try {
+      localStorage.setItem("handwritingPen", next);
+    } catch {
+      /* a remembered preference is a convenience, not a requirement */
+    }
+  };
+
+  const widthFor = (pressure: number) => (pressure > 0 ? 1.6 + pressure * 2.8 : 2.8);
+
   const pointerDown = (event: React.PointerEvent<HTMLCanvasElement>) => {
     if (state.phase === "reading" || state.phase === "right") return;
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
-    if (!canvas || !ctx) return;
+    if (!canvas) return;
     canvas.setPointerCapture(event.pointerId);
     drawing.current = true;
-    dirty.current = true;
     if (settle.current) window.clearTimeout(settle.current);
+
+    // The hint has done its job the moment someone writes. It is instruction,
+    // and instruction that stays after it is understood becomes clutter.
+    if (hint) {
+      setHint(false);
+      try {
+        localStorage.setItem(HINT_KEY, "1");
+      } catch {
+        /* nothing here is worth failing over */
+      }
+    }
     setState({ phase: "drawing" });
 
     const box = canvas.getBoundingClientRect();
-    ctx.beginPath();
-    ctx.moveTo(event.clientX - box.left, event.clientY - box.top);
+    strokes.current.push({
+      pen,
+      points: [
+        {
+          x: event.clientX - box.left,
+          y: event.clientY - box.top,
+          w: widthFor(event.pressure),
+        },
+      ],
+    });
   };
 
   const pointerMove = (event: React.PointerEvent<HTMLCanvasElement>) => {
@@ -167,11 +290,28 @@ export function WriteCard({
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
+
+    const stroke = strokes.current[strokes.current.length - 1];
+    if (!stroke) return;
+
     const box = canvas.getBoundingClientRect();
-    // A stylus reports pressure; a finger and a mouse report zero, and a
-    // constant line is the right answer for both.
-    ctx.lineWidth = event.pressure > 0 ? 1.6 + event.pressure * 2.6 : 2.6;
-    ctx.lineTo(event.clientX - box.left, event.clientY - box.top);
+    const point = {
+      x: event.clientX - box.left,
+      y: event.clientY - box.top,
+      // A stylus reports pressure; a finger and a mouse report zero, and a
+      // constant line is the right answer for both.
+      w: widthFor(event.pressure),
+    };
+    const previous = stroke.points[stroke.points.length - 1];
+    stroke.points.push(point);
+
+    // Drawn incrementally rather than by repainting everything, so a long
+    // word stays smooth under the pen.
+    ctx.strokeStyle = colourOf(stroke.pen);
+    ctx.beginPath();
+    ctx.lineWidth = point.w;
+    ctx.moveTo(previous.x, previous.y);
+    ctx.lineTo(point.x, point.y);
     ctx.stroke();
   };
 
@@ -187,18 +327,14 @@ export function WriteCard({
   useEffect(() => () => { if (settle.current) window.clearTimeout(settle.current); }, []);
 
   const busy = state.phase === "reading";
+  const written = state.phase !== "blank";
 
   return (
     <div className={`wc wc--${state.phase}`}>
       <p className="wc__prompt">{word.translation}</p>
       <p className="wc__ask">{t("vocabulary.write.ask")}</p>
 
-      <div className="wc__paper">
-        {/* The ruling is drawn under the canvas rather than on it, so it never
-            ends up in the picture the model reads. */}
-        <span className="wc__rule wc__rule--top" aria-hidden />
-        <span className="wc__rule wc__rule--mid" aria-hidden />
-        <span className="wc__rule wc__rule--base" aria-hidden />
+      <div className="wc__paper" ref={paperRef} data-pen={pen}>
         <canvas
           ref={canvasRef}
           className="wc__canvas"
@@ -208,7 +344,26 @@ export function WriteCard({
           onPointerCancel={pointerUp}
           aria-label={t("vocabulary.write.ask")}
         />
-        {state.phase === "blank" && <span className="wc__ghost">{t("vocabulary.write.hint")}</span>}
+        {hint && state.phase === "blank" && <span className="wc__ghost">{t("vocabulary.write.hint")}</span>}
+      </div>
+
+      {/* Five inks. Purely for pleasure — the reader is sent plain dark ink
+          whatever is chosen here — and pleasure is most of why anyone picks up
+          a stylus rather than a keyboard. */}
+      <div className="wc__pens" role="radiogroup" aria-label={t("vocabulary.write.penLabel")}>
+        {PENS.map((name) => (
+          <button
+            key={name}
+            type="button"
+            role="radio"
+            aria-checked={pen === name}
+            aria-label={t(`vocabulary.write.pens.${name}`)}
+            title={t(`vocabulary.write.pens.${name}`)}
+            className={pen === name ? "wc__pen is-on" : "wc__pen"}
+            style={{ background: `var(--wc-pen-${name})` }}
+            onClick={() => choosePen(name)}
+          />
+        ))}
       </div>
 
       <div className="wc__status" role="status" aria-live="polite">
@@ -241,22 +396,17 @@ export function WriteCard({
           </button>
         </div>
       ) : (
-      <div className="wc__actions">
-        <button type="button" className="btn btn--quiet btn--sm" onClick={clear} disabled={busy}>
-          {t("vocabulary.write.clear")}
-        </button>
-        <button type="button" className="btn btn--ghost btn--sm" onClick={check} disabled={busy || !dirty.current}>
-          {t("vocabulary.write.check")}
-        </button>
-        <button
-          type="button"
-          className="btn btn--quiet btn--sm"
-          onClick={() => onGraded(0)}
-          disabled={busy}
-        >
-          {t("vocabulary.didntKnow")}
-        </button>
-      </div>
+        <div className="wc__actions">
+          <button type="button" className="btn btn--quiet btn--sm" onClick={clear} disabled={busy}>
+            {t("vocabulary.write.clear")}
+          </button>
+          <button type="button" className="btn btn--ghost btn--sm" onClick={check} disabled={busy || !written}>
+            {t("vocabulary.write.check")}
+          </button>
+          <button type="button" className="btn btn--quiet btn--sm" onClick={() => onGraded(0)} disabled={busy}>
+            {t("vocabulary.didntKnow")}
+          </button>
+        </div>
       )}
     </div>
   );

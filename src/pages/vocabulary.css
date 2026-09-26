@@ -1,79 +1,46 @@
-/* The three doors.
-   Each one leads somewhere genuinely different, so each states its own number
-   first — what is waiting, what is held, what has been used. A row of equal
-   tiles with equal weight would hide that they are not alternatives. */
+/* The three tabs.
+   Long labels and a phone are the constraint, so the switcher scrolls sideways
+   instead of wrapping: a segmented control that becomes two rows stops looking
+   like one control and stops behaving like one. */
 
-.vocab-doors {
-  margin-top: 28px;
-  display: grid;
-  gap: 14px;
+.vocab-tabs {
+  margin-top: 26px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media (min-width: 720px) {
-  .vocab-doors {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.vocab-tabs::-webkit-scrollbar {
+  display: none;
 }
 
-.vocab-door {
-  display: grid;
-  gap: 4px;
-  align-content: start;
-  padding: 20px 22px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  text-align: left;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  transition:
-    transform var(--dur-2) var(--ease),
-    border-color var(--dur-2) var(--ease),
-    box-shadow var(--dur-2) var(--ease);
+.vocab-tabs .segmented {
+  width: max-content;
+  min-width: 100%;
 }
 
-.vocab-door:hover:not(:disabled):not(.vocab-door--static) {
-  transform: translateY(-2px);
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-2);
+.vocab-tabs .segmented__item {
+  white-space: nowrap;
 }
 
-.vocab-door:disabled {
-  cursor: default;
-  opacity: 0.6;
-}
-
-/* The one with work behind it is the only one that is coloured. */
-.vocab-door--due:not(:disabled) {
-  border-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
-  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
-}
-
-.vocab-door--static {
-  cursor: default;
-}
-
-.vocab-door__n {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-
-.vocab-door--due:not(:disabled) .vocab-door__n {
-  color: var(--color-accent-ink);
-}
-
-.vocab-door__h {
-  margin-top: 6px;
-  font-size: 0.95rem;
+/* The count rides along with the label rather than sitting in its own column:
+   it is part of the name of the room, not a separate fact about it. */
+.vocab-tabs__n {
+  margin-left: 7px;
+  font-size: 0.78em;
   font-weight: 700;
+  opacity: 0.55;
 }
 
-.vocab-door__p {
-  font-size: 0.8rem;
-  line-height: 1.5;
+.vocab-empty {
+  padding: 56px 0;
+  text-align: center;
+}
+
+.vocab-empty__p {
+  margin: 10px auto 0;
+  max-width: 34ch;
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }

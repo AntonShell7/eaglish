@@ -41,10 +41,19 @@ export function Drill({
   onExit,
 }: {
   queue: VocabularyWord[];
-  /** What is being practised — the due queue, or a day's folder. */
-  title: string;
+  /**
+   * What is being practised — a day's folder, or a strength group. Left empty
+   * when the tab above already names it: a heading repeated two lines apart is
+   * noise, not orientation.
+   */
+  title?: string;
   onReview: (id: string, quality: 0 | 1 | 2 | 3, lastInQueue: boolean) => void;
-  onExit: () => void;
+  /**
+   * How to leave. Omitted when the drill is what a tab shows, because the tabs
+   * are the way out and a second exit button next to them would offer a choice
+   * that does not exist.
+   */
+  onExit?: () => void;
 }) {
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
@@ -56,7 +65,7 @@ export function Drill({
   useEffect(() => {
     setIndex(0);
     setDone(0);
-  }, [title]);
+  }, [queue]);
 
   const chooseStyle = (next: Style) => {
     setStyle(next);
@@ -86,9 +95,11 @@ export function Drill({
             {t("vocabulary.sessionSummary", { count: done })}
           </p>
         )}
-        <button type="button" onClick={onExit} className="btn btn--primary mt-6">
-          {t("vocabulary.backToList")}
-        </button>
+        {onExit && (
+          <button type="button" onClick={onExit} className="btn btn--primary mt-6">
+            {t("vocabulary.backToList")}
+          </button>
+        )}
       </div>
     );
   }
@@ -96,11 +107,14 @@ export function Drill({
   return (
     <>
       <div className="mb-5 flex flex-wrap items-center justify-center gap-3">
-        <button type="button" className="btn btn--quiet btn--sm" onClick={onExit}>
-          ← {t("vocabulary.backToList")}
-        </button>
+        {onExit && (
+          <button type="button" className="btn btn--quiet btn--sm" onClick={onExit}>
+            ← {t("vocabulary.backToList")}
+          </button>
+        )}
         <p className="text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
-          {title} · {t("vocabulary.cardOf", { done: index + 1, total: queue.length })}
+          {title ? `${title} · ` : ""}
+          {t("vocabulary.cardOf", { done: index + 1, total: queue.length })}
         </p>
         <div className="segmented" ref={styleRef} style={styleStyle}>
           {STYLES.map((option) => (

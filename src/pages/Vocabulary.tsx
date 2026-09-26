@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { SectionHero } from "@/components/SectionHero";
 import {
   getVocabulary,
@@ -14,7 +13,9 @@ import {
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { WordList } from "@/components/vocabulary/WordList";
 import { Drill } from "@/components/vocabulary/Drill";
+import { ActiveVocabulary } from "@/components/activation/ActiveVocabulary";
 import { activatedCount } from "@/lib/activation";
+import { useSegmented } from "@/lib/useSegmented";
 import "./vocabulary.css";
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -99,16 +100,20 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
 }
 
 /**
- * Where the three doors lead.
+ * The three rooms of the vocabulary.
  *
- * `doors` is the section's front page; `shelf` is everything ever collected,
- * arranged by strength or by the day it arrived; `drill` is a run through some
- * set of words, whichever set the learner came from.
+ * They used to be three cards you clicked into and then had to come back out
+ * of, which is a menu pretending to be a section: every move between the
+ * review queue and the shelf cost two clicks and a full change of screen. They
+ * are tabs now, so switching is instant and the section reads as one place
+ * with three views rather than three places.
+ *
+ * `drill` is not a tab — it is what a tab hands you off to, from the queue or
+ * from any folder on the shelf.
  */
-type View =
-  | { kind: "doors" }
-  | { kind: "shelf" }
-  | { kind: "drill"; queue: VocabularyWord[]; title: string };
+type Tab = "due" | "all" | "active";
+
+const TABS: Tab[] = ["due", "all", "active"];
 
 export default function Vocabulary() {
   const { t } = useTranslation();
@@ -117,17 +122,11 @@ export default function Vocabulary() {
   const [due, setDue] = useState<VocabularyWord[]>([]);
   const [query, setQuery] = useState("");
 
-  /*
-   * The vocabulary opens on the words that are due, when there are any.
-   *
-   * Arriving at a shelf and being asked to choose is the friction this section
-   * exists to remove: if something is due, that is the work, and putting a list
-   * in front of it makes the learner decide what the app already knows.
-   */
-  const [view, setView] = useState<View>(() => {
-    const queue = getDueWords();
-    return queue.length > 0 ? { kind: "drill", queue, title: "" } : { kind: "doors" };
-  });
+  /* If something is due, that is the work, and the section opens on it. */
+  const [tab, setTab] = useState<Tab>(() => (getDueWords().length > 0 ? "due" : "all"));
+  const [drill, setDrill] = useState<{ queue: VocabularyWord[]; title: string } | null>(null);
+
+  const { ref: tabsRef, style: tabsStyle } = useSegmented(tab);
 
   const refresh = () => {
     setWords(getVocabulary());
@@ -137,14 +136,14 @@ export default function Vocabulary() {
   useEffect(refresh, []);
 
   /** Snapshots the queue: a card answered mid-session must not reshuffle the rest. */
-  const drill = (queue: VocabularyWord[], title: string) => {
+  const startDrill = (queue: VocabularyWord[], title: string) => {
     if (queue.length === 0) return;
-    setView({ kind: "drill", queue, title });
+    setDrill({ queue, title });
   };
 
   const leaveDrill = () => {
     refresh();
-    setView({ kind: "doors" });
+    setDrill(null);
   };
 
   const handleReview = (id: string, quality: 0 | 1 | 2 | 3, lastInQueue: boolean) => {
@@ -172,96 +171,93 @@ export default function Vocabulary() {
     return t("vocabulary.dueIn", { count: Math.max(1, Math.ceil(diff / DAY)) });
   };
 
+  const count = (key: Tab) =>
+    key === "due" ? due.length : key === "all" ? words.length : activatedCount();
+
   return (
-    <SectionHero
-      kicker={t("nav.vocabulary")}
-      title={t("nav.vocabulary")}
-      description={t("home.descriptions.vocabulary")}
-    >
-      {/* Three doors, as distinct as the things behind them.
-          Words that are due are work with a deadline. All words is the shelf,
-          for browsing and drilling. The active vocabulary is proof, and lives
-          one click away because it draws on the same collection. */}
-      {view.kind === "doors" && (
-        <>
-          <div className="vocab-doors">
+    <SectionHero title={t("nav.vocabulary")} description={t("home.descriptions.vocabulary")}>
+      {/* The switcher stays put while a drill runs, so leaving one is a single
+          tap onto wherever you actually wanted to be. */}
+      <div className="vocab-tabs">
+        <div className="segmented" ref={tabsRef} style={tabsStyle} role="tablist">
+          {TABS.map((key) => (
             <button
+              key={key}
               type="button"
-              className={due.length > 0 ? "vocab-door vocab-door--due" : "vocab-door"}
-              onClick={() => drill(getDueWords(), t("vocabulary.doorDue"))}
-              disabled={due.length === 0}
+              role="tab"
+              aria-selected={tab === key}
+              className={`segmented__item${tab === key ? " is-active" : ""}`}
+              onClick={() => {
+                setTab(key);
+                setDrill(null);
+                refresh();
+              }}
             >
-              <span className="vocab-door__n tabular">{due.length}</span>
-              <span className="vocab-door__h">{t("vocabulary.doorDue")}</span>
-              <span className="vocab-door__p">
-                {due.length > 0 ? t("vocabulary.doorDueBody") : t("vocabulary.doorDueEmpty")}
-              </span>
+              {t(`vocabulary.tabs.${key}`)}
+              <span className="vocab-tabs__n tabular">{count(key)}</span>
             </button>
-
-            <button type="button" className="vocab-door" onClick={() => setView({ kind: "shelf" })}>
-              <span className="vocab-door__n tabular">{words.length}</span>
-              <span className="vocab-door__h">{t("vocabulary.doorAll")}</span>
-              <span className="vocab-door__p">{t("vocabulary.doorAllBody")}</span>
-            </button>
-
-            <Link to="/writing" className="vocab-door">
-              <span className="vocab-door__n tabular">{activatedCount()}</span>
-              <span className="vocab-door__h">{t("vocabulary.doorActive")}</span>
-              <span className="vocab-door__p">{t("vocabulary.doorActiveBody")}</span>
-            </Link>
-          </div>
-
-          {words.length === 0 && (
-            <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {t("vocabulary.empty")}
-            </p>
-          )}
-        </>
-      )}
-
-      {view.kind === "shelf" && (
-        <div className="mt-6">
-          <button type="button" className="btn btn--quiet btn--sm mb-4" onClick={() => setView({ kind: "doors" })}>
-            ← {t("vocabulary.backToDoors")}
-          </button>
-
-          <ManualAdd onAdded={refresh} />
-
-          {words.length > 0 && (
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t("vocabulary.searchPlaceholder")}
-              className="field mb-4"
-            />
-          )}
-
-          {words.length === 0 && (
-            <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {t("vocabulary.empty")}
-            </p>
-          )}
-
-          {words.length > 0 && filtered.length === 0 && (
-            <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {t("vocabulary.noMatches")}
-            </p>
-          )}
-
-          <WordList words={filtered} onChanged={refresh} dueLabel={dueLabel} onDrill={drill} />
+          ))}
         </div>
-      )}
+      </div>
 
-      {view.kind === "drill" && (
+      {drill ? (
         <div className="mt-8">
           <Drill
-            queue={view.queue}
-            title={view.title || t("vocabulary.doorDue")}
+            queue={drill.queue}
+            title={drill.title}
             onReview={handleReview}
             onExit={leaveDrill}
           />
         </div>
+      ) : (
+        <>
+          {tab === "due" && (
+            <div className="mt-8">
+              {due.length > 0 ? (
+                <Drill queue={due} onReview={handleReview} />
+              ) : (
+                <div className="vocab-empty">
+                  <p className="page-title text-2xl">{t("vocabulary.allCaughtUp")}</p>
+                  <p className="vocab-empty__p">
+                    {words.length > 0 ? t("vocabulary.doorDueEmpty") : t("vocabulary.empty")}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {tab === "all" && (
+            <div className="mt-8">
+              <ManualAdd onAdded={refresh} />
+
+              {words.length > 0 && (
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder={t("vocabulary.searchPlaceholder")}
+                  className="field mb-4"
+                />
+              )}
+
+              {words.length === 0 && (
+                <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+                  {t("vocabulary.empty")}
+                </p>
+              )}
+
+              {words.length > 0 && filtered.length === 0 && (
+                <p className="py-12 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+                  {t("vocabulary.noMatches")}
+                </p>
+              )}
+
+              <WordList words={filtered} onChanged={refresh} dueLabel={dueLabel} onDrill={startDrill} />
+            </div>
+          )}
+
+          {tab === "active" && <ActiveVocabulary />}
+        </>
       )}
     </SectionHero>
   );

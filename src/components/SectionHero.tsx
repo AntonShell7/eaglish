@@ -1,7 +1,12 @@
 import type { ReactNode } from "react";
 
 interface SectionHeroProps {
-  kicker: string;
+  /**
+   * The small line above the title. Optional, because on some pages it can
+   * only repeat the title — and a heading printed twice reads as a mistake,
+   * not as emphasis.
+   */
+  kicker?: string;
   title: string;
   description: string;
   children?: ReactNode;
@@ -20,8 +25,8 @@ export function SectionHero({ kicker, title, description, children }: SectionHer
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
       <header>
-        <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title mt-2 max-w-2xl text-4xl">{title}</h1>
+        {kicker && <p className="eyebrow">{kicker}</p>}
+        <h1 className={`page-title max-w-2xl text-4xl${kicker ? " mt-2" : ""}`}>{title}</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
           {description}
         </p>

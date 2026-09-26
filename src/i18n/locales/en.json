@@ -280,7 +280,20 @@
       "unreadable": "Nothing legible. Try writing bigger.",
       "offline": "Handwriting checking is unavailable right now",
       "clear": "Clear",
-      "check": "Check"
+      "check": "Check",
+      "penLabel": "Pen colour",
+      "pens": {
+        "ink": "Ink",
+        "mint": "Mint",
+        "amber": "Amber",
+        "coral": "Coral",
+        "violet": "Violet"
+      }
+    },
+    "tabs": {
+      "due": "You have probably forgotten these",
+      "all": "All words",
+      "active": "Active vocabulary"
     }
   },
   "slang": {
