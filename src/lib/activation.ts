@@ -23,15 +23,32 @@ import type { VocabularyWord } from "./vocabularyStore";
  * tracked separately: a word can be firmly held and never once used.
  */
 
+/** What kind of thing went wrong, so the learner can tell one from another. */
+export type IssueKind = "grammar" | "tense" | "preposition" | "article" | "wordChoice" | "typo" | "naturalness";
+
+export interface Issue {
+  kind: IssueKind;
+  /** One sentence in Russian naming the fix. */
+  note: string;
+}
+
 export interface UsageVerdict {
-  /** Was the target word used the way a native speaker would use it. */
+  /**
+   * Whether the target word was used correctly — and nothing else.
+   *
+   * These were one verdict, and that was wrong. "I just ghosted my friend
+   * since she won't insult me" uses "ghost someone" perfectly and has a
+   * separate problem with its tenses, and reporting that as "not quite" tells
+   * the learner their word was wrong when it was the only part that was right.
+   * The two questions are independent and are now answered separately.
+   */
   correct: boolean;
-  /** One sentence in Russian: what worked, or exactly what is wrong. */
+  /** One sentence in Russian about the word's use. */
   verdict: string;
   /** The sentence rewritten minimally, when anything needs fixing. */
   fix?: string;
-  /** Other issues worth naming, at most two, in Russian. */
-  notes: string[];
+  /** Everything else, each labelled by kind. */
+  issues: Issue[];
   /**
    * Other sentences the same word could have made — including its other
    * senses. A word met once in one context gets filed as if it had one
@@ -80,13 +97,15 @@ Judge one thing above all: is "${word.word}" used the way a native speaker would
 - "correct": true only if the target word itself is used naturally.
 - "verdict": ONE sentence in Russian. If correct, say specifically what made it work — the collocation, the preposition, the register. If not, name exactly what is wrong with that word's use and what to say instead.
 - "fix": the learner's sentence rewritten with the smallest possible change, or null if nothing needs changing. Keep their idea and their voice.
-- "notes": at most two other issues in Russian, each naming a concrete fix. Ignore punctuation and capitalisation. If there is nothing worth saying, return an empty array.
+- "issues": everything wrong with the sentence APART from the target word, at most three. Each is {"kind": one of "grammar" | "tense" | "preposition" | "article" | "wordChoice" | "typo" | "naturalness", "note": one sentence in Russian naming the concrete fix}. A misspelling is "typo". Ignore punctuation entirely, and ignore a lower-case first letter — that is typing, not English. If the sentence is clean, return an empty array.
+
+Crucially: "correct" is about the target word ALONE. A sentence can be full of tense errors and still use the word perfectly, and it must be reported that way.
 - "alternatives": two short ENGLISH sentences the learner could also have written with "${word.word}". If the word has a clearly different common sense from the one they used, make one of them show that other sense — meeting a word in one context leaves people believing it has one meaning. Natural, everyday sentences; never repeat theirs.
 
 Never invent praise. Never correct style where the grammar is fine.
 
 Return JSON only:
-{"correct": true, "verdict": "...", "fix": null, "notes": [], "alternatives": ["...", "..."]}`;
+{"correct": true, "verdict": "...", "fix": null, "issues": [{"kind": "tense", "note": "..."}], "alternatives": ["...", "..."]}`;
 
   let content: string;
   try {
@@ -104,7 +123,7 @@ Return JSON only:
       ],
     });
   } catch (error) {
-    return { correct: false, verdict: "", notes: [], alternatives: [], unavailable: reasonOf(error) };
+    return { correct: false, verdict: "", issues: [], alternatives: [], unavailable: reasonOf(error) };
   }
 
   try {
@@ -113,13 +132,21 @@ Return JSON only:
       correct: Boolean(raw.correct),
       verdict: String(raw.verdict ?? "").trim(),
       fix: raw.fix ? String(raw.fix).trim() : undefined,
-      notes: Array.isArray(raw.notes) ? raw.notes.map(String).filter(Boolean).slice(0, 2) : [],
+      issues: Array.isArray(raw.issues)
+        ? raw.issues
+            .filter((issue: unknown): issue is Issue => {
+              if (typeof issue !== "object" || issue === null) return false;
+              const { kind, note } = issue as Record<string, unknown>;
+              return typeof kind === "string" && typeof note === "string" && note.trim().length > 0;
+            })
+            .slice(0, 3)
+        : [],
       alternatives: Array.isArray(raw.alternatives)
         ? raw.alternatives.map(String).filter(Boolean).slice(0, 2)
         : [],
     };
   } catch {
-    return { correct: false, verdict: "", notes: [], alternatives: [], unavailable: "failed" };
+    return { correct: false, verdict: "", issues: [], alternatives: [], unavailable: "failed" };
   }
 }
 
