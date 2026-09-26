@@ -248,41 +248,95 @@
   flex: 1;
 }
 
+/* The practice button, which is the point of a folder having a heading at all.
+   It used to appear on hover, which is a nice idea and a bad one: on a touch
+   screen there is no hover, and on a desktop it hid the one action the row
+   exists to offer. It is now simply there. */
 .wl__drill {
   flex: none;
-  padding: 6px 12px;
-  border: 1px solid var(--color-border);
+  padding: 8px 15px;
+  border: 1px solid var(--color-border-strong);
   border-radius: 999px;
-  background: var(--color-surface);
+  background: var(--color-surface-2);
   font: inherit;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   cursor: pointer;
-  opacity: 0;
   transition:
-    opacity var(--dur-2) var(--ease),
     color var(--dur-2) var(--ease),
-    border-color var(--dur-2) var(--ease);
-}
-
-/* Quiet until the group is under the cursor — and always visible on touch,
-   where there is no hover to reveal it. */
-.wl__group:hover .wl__drill,
-.wl__drill:focus-visible {
-  opacity: 1;
-}
-
-@media (hover: none) {
-  .wl__drill {
-    opacity: 1;
-  }
+    background var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease);
 }
 
 .wl__drill:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
 }
+
+/* On a date folder it is the loud one: a day's words are a set somebody
+   deliberately went looking for, and opening the cards is what they came to
+   do. Filled rather than outlined, so it is findable without reading. */
+.wl__drill--loud {
+  padding: 9px 18px;
+  font-size: 0.84rem;
+  border-color: transparent;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.wl__drill--loud:hover {
+  border-color: transparent;
+  background: var(--color-primary-hover);
+}
+
+/* The arrow that says a heading can be pressed. */
+.wl__chevron {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: var(--color-text-faint);
+  transition: transform var(--dur-2) var(--ease);
+}
+
+.wl__group.is-open .wl__chevron {
+  transform: rotate(90deg);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wl__chevron {
+    transition: none;
+  }
+}
+
+/* Arranged by strength the heading does nothing, so it does not pretend to. */
+.wl__head--static {
+  cursor: default;
+}
+
+.wl__head--static:hover {
+  background: none;
+}
+
+.wl__toggleAll {
+  justify-self: start;
+  margin-bottom: -4px;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.wl__toggleAll:hover {
+  color: var(--color-text);
+}
+
 
 .wl__group--date .wl__dot {
   background: var(--color-text-faint);

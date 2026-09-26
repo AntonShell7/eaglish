@@ -294,7 +294,9 @@
       "due": "You have probably forgotten these",
       "all": "All words",
       "active": "Active vocabulary"
-    }
+    },
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all"
   },
   "slang": {
     "categoryAll": "All",

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { removeVocabularyWord, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
 import "./word-list.css";
@@ -56,11 +56,17 @@ export function WordList({
    * it arrived.
    */
   const [arrange, setArrange] = useState<Arrange>("strength");
-  const [open, setOpen] = useState<Group | null>(null);
-  /* Folders are shut by default only in the sense that opening one closes the
-     others: with a year of collecting, every day expanded at once is a page
-     nobody scrolls. */
-  const [openDay, setOpenDay] = useState<string | null>(null);
+  /*
+   * Which date folders are open.
+   *
+   * Each one is independent — closing September does not force October shut,
+   * because these are folders, not an accordion, and a person comparing two
+   * days should not have to choose between them. They start closed apart from
+   * the most recent, which is both the compact view and the useful one: after
+   * a year of collecting, every day expanded at once is a page nobody scrolls,
+   * and a page of nothing but headings tells you nothing at all.
+   */
+  const [openDays, setOpenDays] = useState<Set<string> | null>(null);
   /* A row about to go. It stays in the list while it collapses, because
      removing it from the data first would make it disappear instantly and the
      animation would have nothing to play on. */
@@ -96,6 +102,26 @@ export function WordList({
       }),
     [i18n.language],
   );
+
+  /* Seeded once the days are known, and left alone afterwards so that adding
+     a word does not reopen everything the learner has closed. */
+  const days = useMemo(() => byDate.map(([day]) => day).join("|"), [byDate]);
+  useEffect(() => {
+    setOpenDays((current) => current ?? new Set(byDate.length > 0 ? [byDate[0][0]] : []));
+  }, [days, byDate]);
+
+  const toggleDay = (day: string) =>
+    setOpenDays((current) => {
+      const next = new Set(current ?? []);
+      if (next.has(day)) next.delete(day);
+      else next.add(day);
+      return next;
+    });
+
+  const allOpen = openDays !== null && byDate.length > 0 && byDate.every(([day]) => openDays.has(day));
+
+  const toggleAll = () =>
+    setOpenDays(allOpen ? new Set() : new Set(byDate.map(([day]) => day)));
 
   const groups = useMemo(() => {
     const out: Record<Group, VocabularyWord[]> = { shaky: [], settling: [], held: [] };
@@ -149,52 +175,66 @@ export function WordList({
         ))}
       </div>
 
+      {arrange === "date" && byDate.length > 1 && (
+        <button type="button" className="wl__toggleAll" onClick={toggleAll}>
+          {allOpen ? t("vocabulary.collapseAll") : t("vocabulary.expandAll")}
+        </button>
+      )}
+
       {arrange === "date" &&
         byDate.map(([day, list]) => {
           const label = dateFormat.format(new Date(day));
-          const shut = openDay !== null && openDay !== day;
+          const shown = openDays?.has(day) ?? false;
 
           return (
-            <section key={day} className="wl__group wl__group--date">
+            <section key={day} className={shown ? "wl__group wl__group--date is-open" : "wl__group wl__group--date"}>
               <div className="wl__headRow">
                 <button
                   type="button"
                   className="wl__head"
-                  onClick={() => setOpenDay(openDay === day ? null : day)}
-                  aria-expanded={!shut}
+                  onClick={() => toggleDay(day)}
+                  aria-expanded={shown}
                 >
-                  <span className="wl__dot" aria-hidden />
+                  {/* The arrow is the whole affordance: a heading that turns
+                      is a heading people know they can press. */}
+                  <span className="wl__chevron" aria-hidden>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                   <span className="wl__title">{label}</span>
                   <span className="wl__count tabular">{list.length}</span>
                 </button>
-                <button type="button" className="wl__drill" onClick={() => onDrill(list, label)}>
+                <button
+                  type="button"
+                  className="wl__drill wl__drill--loud"
+                  onClick={() => onDrill(list, label)}
+                >
                   {t("vocabulary.practiseFolder")}
                 </button>
               </div>
-              {!shut && <ul className="wl__items">{list.map(row)}</ul>}
+              {shown && <ul className="wl__items">{list.map(row)}</ul>}
             </section>
           );
         })}
 
+      {/* Arranged by strength, nothing folds away. There are only ever three
+          groups, and the point of the arrangement is to see the shape of the
+          whole collection at once — hiding a third of it would undo that. */}
       {arrange === "strength" &&
         visible.map((group) => {
         const list = groups[group];
-        const collapsed = open !== null && open !== group;
 
         return (
           <section key={group} className={`wl__group wl__group--${group}`}>
             <div className="wl__headRow">
-              <button
-                type="button"
-                className="wl__head"
-                onClick={() => setOpen(open === group ? null : group)}
-                aria-expanded={!collapsed}
-              >
+              <div className="wl__head wl__head--static">
                 <span className="wl__dot" aria-hidden />
                 <span className="wl__title">{t(`vocabulary.groups.${group}`)}</span>
                 <span className="wl__count tabular">{list.length}</span>
                 <span className="wl__hint">{t(`vocabulary.groupHints.${group}`)}</span>
-              </button>
+              </div>
               <button
                 type="button"
                 className="wl__drill"
@@ -204,42 +244,7 @@ export function WordList({
               </button>
             </div>
 
-            {!collapsed && (
-              <ul className="wl__items">
-                {list.map((word) => (
-                  <li key={word.id} className={leaving === word.id ? "wl__item is-leaving" : "wl__item"}>
-                    <div className="wl__main">
-                      <p className="wl__word">{word.word}</p>
-                      <p className="wl__translation">{word.translation}</p>
-                      {/* The sentence it was met in, which is what makes a
-                          collected word a memory rather than an entry. */}
-                      {word.sentence && <p className="wl__sentence">{word.sentence}</p>}
-                    </div>
-
-                    <div className="wl__meta">
-                      <span
-                        className="wl__bar"
-                        title={t("vocabulary.strengthHint")}
-                        aria-label={`${wordStrength(word)}%`}
-                      >
-                        <span style={{ width: `${wordStrength(word)}%` }} />
-                      </span>
-                      <span className="wl__due tabular">{dueLabel(word)}</span>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="wl__remove"
-                      aria-label={t("vocabulary.remove")}
-                      title={t("vocabulary.remove")}
-                      onClick={() => remove(word.id)}
-                    >
-                      ✕
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <ul className="wl__items">{list.map(row)}</ul>
           </section>
         );
       })}
