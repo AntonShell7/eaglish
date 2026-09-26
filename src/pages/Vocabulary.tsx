@@ -13,6 +13,7 @@ import {
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { WordList } from "@/components/vocabulary/WordList";
 import { Drill } from "@/components/vocabulary/Drill";
+import { DueSession } from "@/components/vocabulary/DueSession";
 import { ActiveVocabulary } from "@/components/activation/ActiveVocabulary";
 import { activatedCount } from "@/lib/activation";
 import { useSegmented } from "@/lib/useSegmented";
@@ -214,7 +215,13 @@ export default function Vocabulary() {
           {tab === "due" && (
             <div className="mt-8">
               {due.length > 0 ? (
-                <Drill queue={due} onReview={handleReview} />
+                <DueSession
+                  onReview={handleReview}
+                  onLeave={() => {
+                    refresh();
+                    setTab("all");
+                  }}
+                />
               ) : (
                 <div className="vocab-empty">
                   <p className="page-title text-2xl">{t("vocabulary.allCaughtUp")}</p>

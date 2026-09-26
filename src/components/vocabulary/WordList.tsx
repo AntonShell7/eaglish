@@ -67,6 +67,8 @@ export function WordList({
    * and a page of nothing but headings tells you nothing at all.
    */
   const [openDays, setOpenDays] = useState<Set<string> | null>(null);
+  /** How many rows each section has been asked to show, past the default. */
+  const [shown, setShown] = useState<Record<string, number>>({});
   /* A row about to go. It stays in the list while it collapses, because
      removing it from the data first would make it disappear instantly and the
      animation would have nothing to play on. */
@@ -133,6 +135,36 @@ export function WordList({
 
   const visible = ORDER.filter((group) => groups[group].length > 0);
 
+  /*
+   * How many rows a section shows before asking.
+   *
+   * After a year this list is thousands of entries, and a section that renders
+   * all of them is both a slow page and an unreadable one. Fifty is about the
+   * point where scanning stops working anyway, so past that it asks.
+   */
+  const PAGE = 50;
+
+  const rows = (list: VocabularyWord[], key: string) => {
+    const limit = shown[key] ?? PAGE;
+    const visibleRows = list.slice(0, limit);
+    const rest = list.length - visibleRows.length;
+
+    return (
+      <>
+        <ul className="wl__items">{visibleRows.map(row)}</ul>
+        {rest > 0 && (
+          <button
+            type="button"
+            className="wl__more"
+            onClick={() => setShown((current) => ({ ...current, [key]: limit + PAGE }))}
+          >
+            {t("vocabulary.showMore", { count: Math.min(PAGE, rest) })}
+          </button>
+        )}
+      </>
+    );
+  };
+
   const row = (word: VocabularyWord) => (
     <li key={word.id} className={leaving === word.id ? "wl__item is-leaving" : "wl__item"}>
       <div className="wl__main">
@@ -184,16 +216,16 @@ export function WordList({
       {arrange === "date" &&
         byDate.map(([day, list]) => {
           const label = dateFormat.format(new Date(day));
-          const shown = openDays?.has(day) ?? false;
+          const isOpen = openDays?.has(day) ?? false;
 
           return (
-            <section key={day} className={shown ? "wl__group wl__group--date is-open" : "wl__group wl__group--date"}>
+            <section key={day} className={isOpen ? "wl__group wl__group--date is-open" : "wl__group wl__group--date"}>
               <div className="wl__headRow">
                 <button
                   type="button"
                   className="wl__head"
                   onClick={() => toggleDay(day)}
-                  aria-expanded={shown}
+                  aria-expanded={isOpen}
                 >
                   {/* The arrow is the whole affordance: a heading that turns
                       is a heading people know they can press. */}
@@ -214,7 +246,7 @@ export function WordList({
                   {t("vocabulary.practiseFolder")}
                 </button>
               </div>
-              {shown && <ul className="wl__items">{list.map(row)}</ul>}
+              {isOpen && rows(list, day)}
             </section>
           );
         })}
@@ -237,14 +269,14 @@ export function WordList({
               </div>
               <button
                 type="button"
-                className="wl__drill"
+                className="wl__drill wl__drill--loud"
                 onClick={() => onDrill(list, t(`vocabulary.groups.${group}`))}
               >
-                {t("vocabulary.practiseFolder")}
+                {t("vocabulary.practiseAll")}
               </button>
             </div>
 
-            <ul className="wl__items">{list.map(row)}</ul>
+            {rows(list, group)}
           </section>
         );
       })}

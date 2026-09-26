@@ -1,6 +1,7 @@
 import type { Cefr } from "@/lib/textLevel";
 import { batch1 } from "./slang/batch1";
 import { batch2 } from "./slang/batch2";
+import { batch3 } from "./slang/batch3";
 
 /**
  * Slang, as it is actually met.
@@ -110,7 +111,7 @@ export interface Dialogue {
   checks: Check[];
 }
 
-export const slangDialogues: Dialogue[] = [...batch1, ...batch2];
+export const slangDialogues: Dialogue[] = [...batch1, ...batch2, ...batch3];
 
 /** Every expression in the module, for counting and for search. */
 export function allExpressions(): Expression[] {

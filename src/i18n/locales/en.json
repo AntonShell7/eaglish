@@ -296,7 +296,17 @@
       "active": "Active vocabulary"
     },
     "expandAll": "Expand all",
-    "collapseAll": "Collapse all"
+    "collapseAll": "Collapse all",
+    "practiseAll": "Practise all",
+    "showMore": "Show {{count}} more",
+    "queueEmpty": "Nothing due",
+    "queueEmptyBody": "Nothing to review today. Words come back on their own when they are due.",
+    "riskCleared": "You have reviewed everything you might have forgotten",
+    "riskClearedBody": "What is left is {{count}} you already know well. You can go through them too, or leave them for tomorrow — they will keep.",
+    "runDone": "Run finished",
+    "runDoneBody": "{{count}} still in the queue. Carry on, or come back later.",
+    "carryOn": "Carry on ({{count}})",
+    "enoughForToday": "That's enough for today"
   },
   "slang": {
     "categoryAll": "All",
@@ -951,7 +961,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "Conversations where people talk the way they actually talk: slang, idioms, phrasal verbs, and words that mean nothing like what they look like.",
+    "intro": "Conversations where people talk the way they actually talk — from a greeting outside a pub to the idioms that fill books and newspapers and translate word for word into nothing.",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",
