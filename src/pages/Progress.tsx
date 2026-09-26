@@ -26,6 +26,7 @@ const MIX_COLORS: Record<ActivityKind, string> = {
   vocabulary: "var(--viz-cat-3)",
   quiz: "var(--viz-cat-4)",
   listening: "var(--viz-cat-5)",
+  slang: "var(--viz-cat-6, var(--viz-cat-1))",
 };
 
 function weekdayLabels(locale: string, dates: string[]): string[] {
@@ -73,6 +74,7 @@ export default function Progress() {
       writing: t("nav.writing"),
       vocabulary: t("progress.mixVocabulary"),
       quiz: t("reading.comprehension"),
+      slang: t("nav.slang"),
     };
     setMix(
       (Object.keys(m) as ActivityKind[]).map((k) => ({

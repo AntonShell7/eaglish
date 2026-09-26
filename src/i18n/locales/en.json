@@ -86,7 +86,8 @@
       "writing": "Get short writing prompts and structured feedback on grammar and style.",
       "everydayEnglish": "Learn slang, idioms and the phrases people actually use.",
       "vocabulary": "Every word you save comes back for review, right when you need it.",
-      "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in."
+      "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in.",
+      "slang": "Native dialogues: slang, idioms and expressions that do not translate word by word."
     }
   },
   "reading": {
@@ -933,5 +934,33 @@
     "message": "We use cookies to keep you signed in and understand how Eaglish is used.",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "slangModule": {
+    "intro": "Conversations where people talk the way they actually talk: slang, idioms, phrasal verbs, and words that mean nothing like what they look like.",
+    "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
+    "cardMeta": "{{count}} expressions",
+    "backToList": "Back to the dialogues",
+    "tapHint": "Tap anything underlined — that is where the explanation is.",
+    "toChecks": "Check yourself",
+    "trap": "The trap",
+    "addToVocabulary": "Add to vocabulary",
+    "inVocabulary": "Already saved",
+    "remaining": "{{count}} left",
+    "score": "{{correct}} out of {{total}}",
+    "saveAll": "Save every expression",
+    "saveAllBody": "Take all {{count}} into your vocabulary at once — they will come back for review on their own.",
+    "taskDone": "Dialogue finished",
+    "stage": {
+      "read": "Reading",
+      "checks": "Checking"
+    },
+    "kinds": {
+      "slang": "Slang",
+      "idiom": "Idiom",
+      "phrasal": "Phrasal verb",
+      "multi": "Several meanings",
+      "greeting": "Greeting",
+      "synonym": "The precise word"
+    }
   }
 }
