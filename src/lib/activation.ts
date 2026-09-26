@@ -73,6 +73,8 @@ THEIR SENTENCE:
 ${sentence}
 """
 
+The entry "${word.word}" may be a phrase with a placeholder — "someone", "something", "one's" — which the learner fills in with their own words, and it may appear in any inflected form: ghost → ghosted, make a decision → made the decision. Any of those count as using it. Ignore missing accents: a learner typing "cafe" for "café" has used the word.
+
 Judge one thing above all: is "${word.word}" used the way a native speaker would use it — right sense, right grammar around it, natural collocation? A sentence can be clumsy elsewhere and still use the word correctly; say so when that is the case.
 
 - "correct": true only if the target word itself is used naturally.
