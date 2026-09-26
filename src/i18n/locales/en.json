@@ -81,7 +81,11 @@
     "linkExpired": "This link no longer works. They last about an hour and work once — ask for a new one and it will arrive in a minute.",
     "requestNewLink": "Send me a new link",
     "passwordChanged": "Password changed. Taking you in…",
-    "passwordTooShort": "Password must be at least 8 characters"
+    "passwordTooShort": "Password must be at least 8 characters",
+    "continueWithGoogle": "Continue with Google",
+    "signUpWithGoogle": "Sign up with Google",
+    "googleGoing": "Taking you there…",
+    "or": "or"
   },
   "home": {
     "kicker": "AI English Learning Platform",

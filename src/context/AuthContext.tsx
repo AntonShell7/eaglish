@@ -11,6 +11,7 @@ interface AuthContextValue {
   demo: boolean;
   signUp: (email: string, password: string) => Promise<{ error: string | null }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
+  signInWithGoogle: () => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
 }
 
@@ -82,6 +83,33 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error?.message ?? null };
   };
 
+  /**
+   * Sign in with a Google account.
+   *
+   * Worth having for a reason beyond convenience: most people who abandon a
+   * sign-up do it at the password field, either inventing one they will forget
+   * or reusing one that has already leaked. A button that needs neither
+   * removes the commonest place to give up — and removes our need to hold a
+   * password at all for whoever uses it.
+   *
+   * This leaves the page: the browser goes to Google and comes back with a
+   * session in the URL, which the client exchanges on arrival. Nothing after
+   * the call runs, so there is no success branch here.
+   */
+  const signInWithGoogle = async () => {
+    if (DEMO) {
+      setDemoSignedIn(true);
+      return { error: null };
+    }
+    if (!supabase) return { error: "Supabase is not configured yet." };
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: `${window.location.origin}/` },
+    });
+    return { error: error?.message ?? null };
+  };
+
   const signOut = async () => {
     if (DEMO) {
       setDemoSignedIn(false);
@@ -94,7 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const user = DEMO ? (demoSignedIn ? DEMO_USER : null) : (session?.user ?? null);
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, demo: DEMO, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, session, loading, demo: DEMO, signUp, signIn, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );

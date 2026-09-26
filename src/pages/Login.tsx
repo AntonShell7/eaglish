@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { AuthCard, EmailField, FormError, SubmitButton } from "@/components/auth/AuthCard";
+import { GoogleButton } from "@/components/auth/GoogleButton";
 import { PasswordField } from "@/components/auth/PasswordField";
 
 export default function Login() {
@@ -43,6 +44,8 @@ export default function Login() {
         </p>
       }
     >
+      <GoogleButton label={t("auth.continueWithGoogle")} />
+
       <EmailField value={email} onChange={setEmail} />
 
       <PasswordField

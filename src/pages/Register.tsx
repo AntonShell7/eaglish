@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { AuthCard, EmailField, FormError, SubmitButton } from "@/components/auth/AuthCard";
+import { GoogleButton } from "@/components/auth/GoogleButton";
 import { PasswordField } from "@/components/auth/PasswordField";
 import { Trans } from "react-i18next";
 import { recordLegalAcceptance } from "@/lib/consent";
@@ -66,7 +67,9 @@ export default function Register() {
         </p>
       ) : (
         <>
-          <EmailField value={email} onChange={setEmail} />
+          <GoogleButton label={t("auth.signUpWithGoogle")} />
+
+      <EmailField value={email} onChange={setEmail} />
 
           <PasswordField
             label={t("auth.password")}
