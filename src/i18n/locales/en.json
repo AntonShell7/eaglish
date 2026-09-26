@@ -14,7 +14,7 @@
     "logOut": "Log out",
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
-    "dictation": "Dictation"
+    "dictation": "English by ear"
   },
   "common": {
     "continue": "Continue",
@@ -787,7 +787,14 @@
       "nz": "New Zealand",
       "other": "English"
     },
-    "perfect": "Every word, exactly right"
+    "perfect": "Every word, exactly right",
+    "skeletonHint": "Dots cover what didn't match — one per letter. Listen again and try once more.",
+    "tryAgain": "Try again",
+    "showAnswer": "Show the answer",
+    "mode": {
+      "voice": "Ready texts",
+      "video": "Your own video"
+    }
   },
   "levels": {
     "label": "Level",

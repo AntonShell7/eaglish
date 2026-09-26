@@ -175,3 +175,49 @@ function dedupe(words: string[]): string[] {
   }
   return out;
 }
+
+
+/* ── The skeleton ───────────────────────────────────────────────────────── */
+
+export interface MaskedWord {
+  /** The word as it should be, when the learner got it. */
+  text: string;
+  /** Otherwise its shape: one dot per letter. */
+  mask?: string;
+}
+
+/**
+ * What to show after a wrong attempt.
+ *
+ * "Incorrect" is a verdict with no information in it: the learner knows they
+ * were wrong, and knowing nothing else they either guess again blindly or give
+ * up and reveal. Showing the words they did get, in place, with the rest
+ * reduced to their letter counts, turns the same failure into a clue — you can
+ * see it was one short word you missed, and where.
+ *
+ * The answer itself is still one click away. This is what sits between trying
+ * and surrendering, and most of the learning happens there.
+ */
+export function maskAgainst(expected: string, typed: string): MaskedWord[] {
+  const result = checkDictation(expected, typed);
+  const out: MaskedWord[] = [];
+
+  for (const mark of result.marks) {
+    if (mark.kind === "extra") continue;
+    const word = mark.expected ?? "";
+    if (!word) continue;
+
+    if (mark.kind === "correct") {
+      out.push({ text: word });
+    } else {
+      // Punctuation stays visible: it is part of the shape, and hiding a comma
+      // teaches nothing.
+      out.push({
+        text: word,
+        mask: word.replace(/[\p{L}\p{N}]/gu, "·"),
+      });
+    }
+  }
+
+  return out;
+}
