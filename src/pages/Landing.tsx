@@ -34,7 +34,7 @@ export default function Landing() {
             {t("landing.promise")}
           </p>
 
-          <div className="lp-hero__actions fade-up" style={{ animationDelay: "210ms" }}>
+          <div className="lp-hero__actions cta-pair fade-up" style={{ animationDelay: "210ms" }}>
             <Link to="/register" className="btn btn--primary btn--lg">
               {t("landing.start")}
             </Link>
@@ -92,7 +92,7 @@ export default function Landing() {
 
       <section className="lp-close" data-reveal>
         <h2 className="lp-close__h">{t("landing.closeTitle")}</h2>
-        <div className="lp-close__actions">
+        <div className="lp-close__actions cta-pair">
           <Link to="/register" className="btn btn--primary btn--lg">
             {t("landing.start")}
           </Link>

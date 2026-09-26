@@ -67,9 +67,7 @@ export default function Register() {
         </p>
       ) : (
         <>
-          <GoogleButton label={t("auth.signUpWithGoogle")} />
-
-      <EmailField value={email} onChange={setEmail} />
+          <EmailField value={email} onChange={setEmail} />
 
           <PasswordField
             label={t("auth.password")}
@@ -119,6 +117,8 @@ export default function Register() {
           <FormError message={error} />
 
           <SubmitButton loading={loading} label={t("auth.createAccount")} />
+
+          <GoogleButton label={t("auth.signUpWithGoogle")} />
         </>
       )}
     </AuthCard>

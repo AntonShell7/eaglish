@@ -62,10 +62,6 @@
 
 .lp-hero__actions {
   margin-top: 34px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
 }
 
 /* One soft light behind the mark, and nothing else. */
@@ -284,10 +280,6 @@
 }
 
 .lp-close__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
   margin-top: 26px;
 }
 

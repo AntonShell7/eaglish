@@ -6,21 +6,22 @@ import { isSupabaseConfigured } from "@/lib/supabase";
 /**
  * Sign in with a Google account.
  *
- * It sits above the email form rather than below it, because for most people
- * it is the faster path and burying the faster path is a small act of
- * sabotage. The divider underneath says the two are alternatives, not steps.
+ * It sits below the email form, after a divider. Above the form it read as the
+ * primary path and crowded the fields; below, it is what it actually is — the
+ * other way in, for people who would rather not invent a password.
  *
- * The mark is deliberately plain text rather than Google's coloured logo:
- * that logo is their trademark and comes with its own rules about size,
- * spacing and wording, so the honest options are to use their official asset
- * exactly as published or to use no mark at all. This does the second, and
- * the button works identically either way.
+ * The mark is loaded from a file rather than drawn here. Google's G is their
+ * trademark and comes with published rules about its shape, colour and
+ * clear space, so the right way to show it is their own asset, unaltered. If
+ * the file is absent the button simply appears without it and works exactly
+ * the same, which is why nothing here depends on it arriving.
  */
 export function GoogleButton({ label }: { label: string }) {
   const { t } = useTranslation();
   const { signInWithGoogle } = useAuth();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [markMissing, setMarkMissing] = useState(false);
 
   if (!isSupabaseConfigured) return null;
 
@@ -29,30 +30,36 @@ export function GoogleButton({ label }: { label: string }) {
     setError(null);
     const { error: oauthError } = await signInWithGoogle();
     // On success the browser has already left for Google, so reaching this
-    // line at all means something went wrong.
+    // line at all means the attempt failed.
     setBusy(false);
     if (oauthError) setError(oauthError);
   };
 
   return (
-    <>
-      <button type="button" className="btn btn--ghost w-full justify-center" onClick={go} disabled={busy}>
+    <div className="auth-alt">
+      <div className="auth-alt__rule">
+        <span />
+        <span className="auth-alt__or">{t("auth.or")}</span>
+        <span />
+      </div>
+
+      <button type="button" className="btn btn--ghost auth-alt__btn" onClick={go} disabled={busy}>
+        {!markMissing && (
+          <img
+            src="/google-mark.svg"
+            alt=""
+            width={18}
+            height={18}
+            className="auth-alt__mark"
+            onError={() => setMarkMissing(true)}
+          />
+        )}
         {busy ? t("auth.googleGoing") : label}
       </button>
 
       {error && (
-        <p className="mt-2 text-xs font-medium" style={{ color: "var(--color-danger)" }}>
-          {error}
-        </p>
+        <p className="auth-alt__error">{error}</p>
       )}
-
-      <div className="my-5 flex items-center gap-3">
-        <span className="h-px flex-1" style={{ background: "var(--color-border)" }} />
-        <span className="text-xs font-semibold" style={{ color: "var(--color-text-faint)" }}>
-          {t("auth.or")}
-        </span>
-        <span className="h-px flex-1" style={{ background: "var(--color-border)" }} />
-      </div>
-    </>
+    </div>
   );
 }

@@ -44,8 +44,6 @@ export default function Login() {
         </p>
       }
     >
-      <GoogleButton label={t("auth.continueWithGoogle")} />
-
       <EmailField value={email} onChange={setEmail} />
 
       <PasswordField
@@ -66,6 +64,8 @@ export default function Login() {
       </Link>
 
       <SubmitButton loading={loading} label={t("auth.logIn")} />
+
+      <GoogleButton label={t("auth.continueWithGoogle")} />
     </AuthCard>
   );
 }
