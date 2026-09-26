@@ -22,6 +22,8 @@ import { rankOf, tokenise } from "./lexicon";
  */
 
 export type Cefr = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
+
+export const CEFR_ORDER: Cefr[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 export type Band = "A1-A2" | "B1-B2" | "C1-C2";
 
 const HALVES: Record<Band, [Cefr, Cefr]> = {
@@ -66,7 +68,28 @@ export interface TextDifficulty {
   sentenceLength: number;
 }
 
+/** Whether a label is already one of the six levels rather than a band. */
+export function isCefr(value: string): value is Cefr {
+  return (CEFR_ORDER as string[]).includes(value);
+}
+
+/**
+ * Texts written for listening carry an exact level, because a person chose it
+ * while writing. Only the generated library labels a band and needs measuring,
+ * and a measurement has no business overruling a decision.
+ */
+export function levelOf(label: string, sentences: { text: string }[]): Cefr {
+  if (isCefr(label)) return label;
+  return measureLevel(label as Band, sentences).level;
+}
+
 export function measureLevel(band: Band, sentences: { text: string }[]): TextDifficulty {
+  // A label outside the three known bands would otherwise destructure to
+  // undefined and take the whole shelf down with it.
+  if (!HALVES[band]) {
+    return { level: "B1", rank: 0, sentenceLength: 0 };
+  }
+
   const ranks: number[] = [];
   let words = 0;
 
@@ -96,4 +119,3 @@ export function measureLevel(band: Band, sentences: { text: string }[]): TextDif
   return { level: harder ? upper : lower, rank, sentenceLength };
 }
 
-export const CEFR_ORDER: Cefr[] = ["A1", "A2", "B1", "B2", "C1", "C2"];

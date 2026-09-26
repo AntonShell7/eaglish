@@ -8,10 +8,12 @@ import { AddVideo } from "@/components/dictation/AddVideo";
 import { getVideoExercises, removeVideoExercise } from "@/lib/videoStore";
 import type { VideoExercise } from "@/lib/videoDictation";
 import { loadTopicTexts, readingTopics } from "@/data/readingLibrary";
+import { listeningTexts } from "@/data/listeningLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { LevelFilter } from "@/components/LevelFilter";
-import { measureLevel, type Cefr, type Band } from "@/lib/textLevel";
+import { progressOf } from "@/lib/dictationProgress";
+import { levelOf, type Cefr } from "@/lib/textLevel";
 import { ensureLexicon } from "@/lib/lexicon";
 
 /**
@@ -51,11 +53,13 @@ export default function Dictation() {
         Promise.all(readingTopics.filter((entry) => entry.total > 0).map((entry) => loadTopicTexts(entry.id))),
         ensureLexicon(),
       ]);
-      const list = batches.flat();
+      // Written-for-listening texts first: they are long enough to be worth
+      // sitting down to, which the sixty-word reading pieces are not.
+      const list = [...listeningTexts, ...batches.flat()];
       if (cancelled) return;
       const measured: Record<string, Cefr> = {};
       for (const text of list) {
-        measured[text.id] = measureLevel(text.level as Band, text.sentences).level;
+        measured[text.id] = levelOf(text.level, text.sentences);
       }
       setTexts(list);
       setLevels(measured);
@@ -95,6 +99,7 @@ export default function Dictation() {
       <div className="mx-auto max-w-6xl px-5 py-10">
         <DictationRunner
           key={open.id}
+          id={open.id}
           title={open.title}
           sentences={open.sentences}
           onExit={() => setOpen(null)}
@@ -207,6 +212,32 @@ export default function Dictation() {
                   <p className="mt-3 text-xs" style={{ color: "var(--color-text-faint)" }}>
                     {t("dictation.sentenceCount", { count: text.sentences.length })}
                   </p>
+
+                  {/* Started but unfinished is the common state for a long
+                      dictation, and the shelf should say so rather than making
+                      every text look untouched. */}
+                  {progressOf(text.id, text.sentences.length) > 0 && (
+                    <>
+                      <span
+                        className="mt-2 block h-1 overflow-hidden rounded-full"
+                        style={{ background: "var(--color-surface-3)" }}
+                      >
+                        <span
+                          className="block h-full rounded-full"
+                          style={{
+                            width: `${progressOf(text.id, text.sentences.length) * 100}%`,
+                            background: "var(--color-accent)",
+                            transition: "width var(--dur-4) var(--ease)",
+                          }}
+                        />
+                      </span>
+                      <span className="mt-1.5 block text-[11px]" style={{ color: "var(--color-accent-ink)" }}>
+                        {t("dictation.resume", {
+                          percent: Math.round(progressOf(text.id, text.sentences.length) * 100),
+                        })}
+                      </span>
+                    </>
+                  )}
                 </button>
               ))}
             </div>

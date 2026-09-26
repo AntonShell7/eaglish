@@ -794,7 +794,8 @@
     "mode": {
       "voice": "Ready texts",
       "video": "Your own video"
-    }
+    },
+    "resume": "started · {{percent}}%"
   },
   "levels": {
     "label": "Level",
