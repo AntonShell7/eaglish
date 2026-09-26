@@ -566,9 +566,28 @@ textarea.field {
   gap: 10px;
 }
 
+/* Google supplies one version for a light page and one for a dark one, each
+   with its own ring so the mark reads against that ground. Swapping them in
+   CSS rather than in the markup keeps the choice in the same place as every
+   other theme decision in the app. */
 .auth-alt__mark {
   flex: none;
   display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/google-mark-light.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .auth-alt__mark {
+    background-image: url("/google-mark-dark.svg");
+  }
+}
+
+:root[data-theme="dark"] .auth-alt__mark {
+  background-image: url("/google-mark-dark.svg");
 }
 
 .auth-alt__error {

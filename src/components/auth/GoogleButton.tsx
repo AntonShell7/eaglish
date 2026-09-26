@@ -10,18 +10,17 @@ import { isSupabaseConfigured } from "@/lib/supabase";
  * primary path and crowded the fields; below, it is what it actually is — the
  * other way in, for people who would rather not invent a password.
  *
- * The mark is loaded from a file rather than drawn here. Google's G is their
- * trademark and comes with published rules about its shape, colour and
- * clear space, so the right way to show it is their own asset, unaltered. If
- * the file is absent the button simply appears without it and works exactly
- * the same, which is why nothing here depends on it arriving.
+ * The mark is Google's own published asset, used exactly as supplied — their
+ * G is a trademark with rules about its shape, colour and the space around
+ * it, so drawing an approximation would be both wrong and worse-looking. It
+ * ships in two versions, for a light page and a dark one, and the stylesheet
+ * picks between them the same way everything else in the app switches theme.
  */
 export function GoogleButton({ label }: { label: string }) {
   const { t } = useTranslation();
   const { signInWithGoogle } = useAuth();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [markMissing, setMarkMissing] = useState(false);
 
   if (!isSupabaseConfigured) return null;
 
@@ -44,16 +43,7 @@ export function GoogleButton({ label }: { label: string }) {
       </div>
 
       <button type="button" className="btn btn--ghost auth-alt__btn" onClick={go} disabled={busy}>
-        {!markMissing && (
-          <img
-            src="/google-mark.svg"
-            alt=""
-            width={18}
-            height={18}
-            className="auth-alt__mark"
-            onError={() => setMarkMissing(true)}
-          />
-        )}
+        <span aria-hidden className="auth-alt__mark" />
         {busy ? t("auth.googleGoing") : label}
       </button>
 
