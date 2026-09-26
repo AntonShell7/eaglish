@@ -94,23 +94,62 @@ export function WriteCard({
      the word is not there, and the card should stop pretending otherwise. */
   const [attempts, setAttempts] = useState(0);
 
-  /** Resolves a pen name to whatever the stylesheet currently says it is. */
-  const colourOf = useCallback((name: Pen): string => {
+  /** Reads a custom property off the paper, so the canvas and the stylesheet
+      never hold two opinions about the same colour. */
+  const cssValue = useCallback((name: string, fallback: string): string => {
     const paper = paperRef.current;
-    if (!paper) return "#1c1a17";
-    const value = getComputedStyle(paper).getPropertyValue(`--wc-pen-${name}`).trim();
-    return value || "#1c1a17";
+    if (!paper) return fallback;
+    return getComputedStyle(paper).getPropertyValue(name).trim() || fallback;
   }, []);
 
-  /** Paints every stroke held in memory onto the visible canvas. */
+  const cssNumber = useCallback(
+    (name: string, fallback: number): number => {
+      const parsed = Number.parseFloat(cssValue(name, String(fallback)));
+      return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+    },
+    [cssValue],
+  );
+
+  /** Resolves a pen name to whatever the stylesheet currently says it is. */
+  const colourOf = useCallback(
+    (name: Pen): string => cssValue(`--wc-pen-${name}`, "#1c1a17"),
+    [cssValue],
+  );
+
+  /**
+   * Paints the grid, then every stroke held in memory.
+   *
+   * The grid used to be a CSS background, and it looked it: a repeating
+   * gradient lands its lines wherever the maths falls, which on a screen with
+   * fractional device pixels means some lines land on a pixel boundary and
+   * some straddle two — so the squares came out visibly uneven. Drawing it
+   * here instead lets every line sit on a whole device pixel, which is the
+   * only way a one-pixel line is ever crisp.
+   *
+   * It costs nothing to keep it out of what the reader receives, because the
+   * picture sent for recognition is rendered separately from the stroke data
+   * and never includes the paper.
+   */
   const redraw = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
 
     const ratio = Math.min(2, window.devicePixelRatio || 1);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Whole device pixels throughout, and the leftover split evenly so the
+    // grid is centred rather than cut off down one edge.
+    const cell = Math.max(10, Math.round(cssNumber("--wc-cell", 26) * ratio));
+    const offsetX = Math.floor((canvas.width % cell) / 2);
+    const offsetY = Math.floor((canvas.height % cell) / 2);
+
+    ctx.fillStyle = cssValue("--wc-grid", "rgba(0,0,0,0.12)");
+    for (let x = offsetX; x <= canvas.width; x += cell) ctx.fillRect(x, 0, 1, canvas.height);
+    for (let y = offsetY; y <= canvas.height; y += cell) ctx.fillRect(0, y, canvas.width, 1);
+
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.clearRect(0, 0, canvas.width / ratio, canvas.height / ratio);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
@@ -126,7 +165,7 @@ export function WriteCard({
         ctx.stroke();
       }
     }
-  }, [colourOf]);
+  }, [colourOf, cssNumber, cssValue]);
 
   /** Sizes the canvas to its box at device resolution — a canvas stretched by
       CSS draws blurred strokes, which is what handwriting can least afford
@@ -138,9 +177,13 @@ export function WriteCard({
     const ratio = Math.min(2, window.devicePixelRatio || 1);
     const w = Math.round(box.width * ratio);
     const h = Math.round(box.height * ratio);
-    if (canvas.width === w && canvas.height === h) return;
-    canvas.width = w;
-    canvas.height = h;
+    // Assigning a size clears the canvas, so this is skipped when nothing
+    // changed — but the repaint is not, or a card mounted at the size it
+    // already had would come up with no paper under it.
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
+    }
     redraw();
   }, [redraw]);
 

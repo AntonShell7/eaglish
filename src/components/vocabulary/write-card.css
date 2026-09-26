@@ -8,9 +8,10 @@
      ink swatches below it inherit the same values the canvas draws with — a
      swatch that is not exactly the colour it produces is a lie in a control. */
   --wc-paper: #f6efdc;
-  --wc-grid: rgba(120, 96, 52, 0.17);
-  --wc-grid-strong: rgba(120, 96, 52, 0.3);
-  --wc-cell: 34px;
+  --wc-grid: rgba(96, 82, 56, 0.16);
+  /* Small and uniform, the way a tablet's own grid paper is: big squares turn
+     into a chessboard the eye reads instead of a surface it writes on. */
+  --wc-cell: 26px;
 
   --wc-pen-ink: #2a2721;
   --wc-pen-mint: #1f7a63;
@@ -43,20 +44,9 @@
   height: 240px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  /* Paper only. The grid is drawn on the canvas, where a line can be told to
+     sit on a whole device pixel. */
   background-color: var(--wc-paper);
-  /* The grid itself: two fine sets of lines, with every fourth one stronger,
-     the way squared paper is actually printed. */
-  background-image:
-    linear-gradient(to right, var(--wc-grid-strong) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--wc-grid-strong) 1px, transparent 1px),
-    linear-gradient(to right, var(--wc-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--wc-grid) 1px, transparent 1px);
-  background-size:
-    calc(var(--wc-cell) * 4) calc(var(--wc-cell) * 4),
-    calc(var(--wc-cell) * 4) calc(var(--wc-cell) * 4),
-    var(--wc-cell) var(--wc-cell),
-    var(--wc-cell) var(--wc-cell);
-  background-position: center center;
   overflow: hidden;
   transition:
     border-color var(--dur-2) var(--ease),
@@ -70,8 +60,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .wc {
     --wc-paper: #171512;
-    --wc-grid: rgba(228, 214, 180, 0.08);
-    --wc-grid-strong: rgba(228, 214, 180, 0.15);
+    --wc-grid: rgba(228, 214, 180, 0.11);
 
     --wc-pen-ink: #ece6da;
     --wc-pen-mint: #6ddcb4;
@@ -83,8 +72,7 @@
 
 :root[data-theme="dark"] .wc {
   --wc-paper: #171512;
-  --wc-grid: rgba(228, 214, 180, 0.08);
-  --wc-grid-strong: rgba(228, 214, 180, 0.15);
+  --wc-grid: rgba(228, 214, 180, 0.11);
 
   --wc-pen-ink: #ece6da;
   --wc-pen-mint: #6ddcb4;
@@ -195,7 +183,7 @@
 
 @media (max-width: 520px) {
   .wc {
-    --wc-cell: 28px;
+    --wc-cell: 22px;
   }
 
   .wc__paper {
