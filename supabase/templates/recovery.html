@@ -32,7 +32,7 @@
             </h1>
 
             <p style="margin:0 0 30px 0;font-size:15px;line-height:1.65;color:#5b544a;">
-              Нажми кнопку — и сразу задашь новый пароль. Ссылка работает один раз и живёт час.
+              Нажми кнопку, чтобы создать новый пароль. Ссылка работает один раз и живёт час.
             </p>
 
             <table role="presentation" cellpadding="0" cellspacing="0" border="0">
@@ -46,13 +46,8 @@
               </tr>
             </table>
 
-            <p style="margin:30px 0 0 0;font-size:12px;line-height:1.6;color:#8e8779;">
-              Кнопка не открылась? Скопируй ссылку:<br>
-              <a href="{{ .ConfirmationURL }}" style="color:#1f6353;word-break:break-all;">{{ .ConfirmationURL }}</a>
-            </p>
-
-            <p style="margin:26px 0 0 0;padding-top:20px;border-top:1px solid #ece5d6;font-size:12px;line-height:1.6;color:#8e8779;">
-              Если пароль меняешь не ты — просто удали это письмо, ничего не произойдёт.
+            <p style="margin:28px 0 0 0;font-size:12px;line-height:1.6;color:#8e8779;">
+              Кнопка не работает? <a href="{{ .ConfirmationURL }}" style="color:#1f6353;font-weight:600;">Открой ссылку здесь</a>.
             </p>
 
           </td>
