@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
 import { LevelFilter } from "@/components/LevelFilter";
-import { measureLevel, type Band, type Cefr } from "@/lib/textLevel";
+import { levelOf, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
 import { WordWorkout } from "@/components/reading/WordWorkout";
@@ -144,7 +144,7 @@ function TextList({
   const measured = useMemo(() => {
     const out: Record<string, Cefr> = {};
     if (!lexicon) return out;
-    for (const text of texts) out[text.id] = measureLevel(text.level as Band, text.sentences).level;
+    for (const text of texts) out[text.id] = levelOf(text.level, text.sentences);
     return out;
   }, [texts, lexicon]);
 

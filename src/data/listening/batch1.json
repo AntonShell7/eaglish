@@ -1,0 +1,601 @@
+[
+ {
+  "id": "hockey-shifts",
+  "level": "B1",
+  "topic": "sport",
+  "title": "Why hockey players change every forty-five seconds",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "A hockey shift lasts about forty-five seconds.",
+    "translationRu": "Смена в хоккее длится около сорока пяти секунд."
+   },
+   {
+    "text": "Then the player climbs over the boards,",
+    "translationRu": "Потом игрок перелезает через борт,"
+   },
+   {
+    "text": "and someone else takes his place.",
+    "translationRu": "и его место занимает другой."
+   },
+   {
+    "text": "Nobody is tired after forty-five seconds of anything else.",
+    "translationRu": "Ни от чего другого за сорок пять секунд человек не устаёт."
+   },
+   {
+    "text": "So why does hockey work this way?",
+    "translationRu": "Так почему в хоккее всё устроено именно так?"
+   },
+   {
+    "text": "The answer is in how the body makes energy.",
+    "translationRu": "Ответ в том, как тело вырабатывает энергию."
+   },
+   {
+    "text": "Muscles have three different fuel systems.",
+    "translationRu": "У мышц есть три разные системы топлива."
+   },
+   {
+    "text": "The first one burns for about ten seconds.",
+    "translationRu": "Первая работает около десяти секунд."
+   },
+   {
+    "text": "The second one lasts somewhere under a minute.",
+    "translationRu": "Вторая держится чуть меньше минуты."
+   },
+   {
+    "text": "The third can run for hours, but it is slow.",
+    "translationRu": "Третья способна работать часами, но она медленная."
+   },
+   {
+    "text": "Skating at full speed uses the second system.",
+    "translationRu": "Бег на коньках в полную силу задействует вторую систему."
+   },
+   {
+    "text": "It produces energy quickly,",
+    "translationRu": "Она даёт энергию быстро,"
+   },
+   {
+    "text": "and it produces acid at the same time.",
+    "translationRu": "и одновременно производит кислоту."
+   },
+   {
+    "text": "The acid builds up inside the muscle.",
+    "translationRu": "Кислота накапливается внутри мышцы."
+   },
+   {
+    "text": "After forty or fifty seconds, the legs stop answering properly.",
+    "translationRu": "Через сорок-пятьдесят секунд ноги перестают слушаться как надо."
+   },
+   {
+    "text": "The player can still skate,",
+    "translationRu": "Игрок ещё может кататься,"
+   },
+   {
+    "text": "but not at the speed that matters.",
+    "translationRu": "но не на той скорости, которая решает."
+   },
+   {
+    "text": "A coach cannot see acid.",
+    "translationRu": "Тренер не видит кислоту."
+   },
+   {
+    "text": "What he sees is a player arriving half a second late.",
+    "translationRu": "Он видит, что игрок приезжает на полсекунды позже."
+   },
+   {
+    "text": "Half a second is the difference between a blocked shot and a goal.",
+    "translationRu": "Полсекунды — это разница между заблокированным броском и голом."
+   },
+   {
+    "text": "So the shift ends before the player feels finished.",
+    "translationRu": "Поэтому смена заканчивается раньше, чем игрок чувствует усталость."
+   },
+   {
+    "text": "This is why hockey looks different from football.",
+    "translationRu": "Вот почему хоккей выглядит иначе, чем футбол."
+   },
+   {
+    "text": "A footballer runs for ninety minutes with short walks in between.",
+    "translationRu": "Футболист бегает девяносто минут, переходя иногда на шаг."
+   },
+   {
+    "text": "A hockey player works at nearly maximum effort,",
+    "translationRu": "Хоккеист работает почти на пределе,"
+   },
+   {
+    "text": "then sits down completely.",
+    "translationRu": "а потом полностью садится."
+   },
+   {
+    "text": "On the bench, the acid clears.",
+    "translationRu": "На скамейке кислота уходит."
+   },
+   {
+    "text": "Four minutes later he is ready again.",
+    "translationRu": "Через четыре минуты он снова готов."
+   },
+   {
+    "text": "Teams carry four lines of forwards for this reason.",
+    "translationRu": "Именно поэтому команды держат четыре тройки нападающих."
+   },
+   {
+    "text": "Each line plays, rests, and returns.",
+    "translationRu": "Каждое звено играет, отдыхает и возвращается."
+   },
+   {
+    "text": "Over a game, one player might skate for only eighteen minutes.",
+    "translationRu": "За матч один игрок может провести на льду всего восемнадцать минут."
+   },
+   {
+    "text": "Those eighteen minutes are spread across sixty.",
+    "translationRu": "И эти восемнадцать минут растянуты на шестьдесят."
+   },
+   {
+    "text": "The system was not designed by scientists.",
+    "translationRu": "Эту систему придумали не учёные."
+   },
+   {
+    "text": "It grew from what coaches noticed on the ice.",
+    "translationRu": "Она выросла из того, что тренеры замечали на льду."
+   },
+   {
+    "text": "Players who stayed out too long made mistakes late in the shift.",
+    "translationRu": "Те, кто задерживался, ошибались в конце смены."
+   },
+   {
+    "text": "The mistakes were always the same kind:",
+    "translationRu": "Ошибки всегда были одного рода:"
+   },
+   {
+    "text": "a step behind, a pass a moment late.",
+    "translationRu": "шаг позади, пас на мгновение позже."
+   },
+   {
+    "text": "Modern teams now measure all of it.",
+    "translationRu": "Сегодня команды всё это измеряют."
+   },
+   {
+    "text": "Sensors track how far each player skates and how fast.",
+    "translationRu": "Датчики следят, сколько и как быстро проезжает каждый игрок."
+   },
+   {
+    "text": "The data agrees with what the old coaches guessed.",
+    "translationRu": "Данные подтверждают то, о чём старые тренеры догадывались."
+   },
+   {
+    "text": "Performance falls off a cliff somewhere after forty seconds.",
+    "translationRu": "Где-то после сороковой секунды качество игры обрывается."
+   },
+   {
+    "text": "There is one exception.",
+    "translationRu": "Есть одно исключение."
+   },
+   {
+    "text": "A defenceman can stay out longer, because he skates less.",
+    "translationRu": "Защитник может оставаться дольше, потому что катается меньше."
+   },
+   {
+    "text": "He reads the game and moves shorter distances.",
+    "translationRu": "Он читает игру и перемещается на меньшие расстояния."
+   },
+   {
+    "text": "Some defencemen play twenty-eight minutes in a match.",
+    "translationRu": "Некоторые защитники проводят на льду двадцать восемь минут."
+   },
+   {
+    "text": "Goalkeepers never change at all.",
+    "translationRu": "Вратари не меняются вообще."
+   },
+   {
+    "text": "They play the whole game, and they barely skate.",
+    "translationRu": "Они играют весь матч и почти не катаются."
+   },
+   {
+    "text": "Their work is short, violent movements separated by long waits.",
+    "translationRu": "Их работа — короткие резкие движения, разделённые долгим ожиданием."
+   },
+   {
+    "text": "That is a different problem for the body,",
+    "translationRu": "Для тела это другая задача,"
+   },
+   {
+    "text": "and a different kind of tiredness.",
+    "translationRu": "и усталость тоже другая."
+   }
+  ]
+ },
+ {
+  "id": "why-bread-rises",
+  "level": "A2",
+  "topic": "food",
+  "title": "What actually makes bread rise",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Bread is mostly flour, water, salt and yeast.",
+    "translationRu": "Хлеб — это в основном мука, вода, соль и дрожжи."
+   },
+   {
+    "text": "Three of those are not alive.",
+    "translationRu": "Три из них неживые."
+   },
+   {
+    "text": "Yeast is.",
+    "translationRu": "Дрожжи — живые."
+   },
+   {
+    "text": "Yeast is a tiny fungus.",
+    "translationRu": "Дрожжи — это крошечный гриб."
+   },
+   {
+    "text": "One gram of it holds about ten billion cells.",
+    "translationRu": "В одном грамме их около десяти миллиардов клеток."
+   },
+   {
+    "text": "When you add warm water, the cells wake up.",
+    "translationRu": "Когда добавляешь тёплую воду, клетки просыпаются."
+   },
+   {
+    "text": "They start looking for food.",
+    "translationRu": "Они начинают искать пищу."
+   },
+   {
+    "text": "The food is sugar, and flour is full of it.",
+    "translationRu": "Пища — это сахар, и в муке его много."
+   },
+   {
+    "text": "Flour does not taste sweet,",
+    "translationRu": "Мука не сладкая на вкус,"
+   },
+   {
+    "text": "but starch is made of sugar joined together.",
+    "translationRu": "но крахмал состоит из соединённых друг с другом сахаров."
+   },
+   {
+    "text": "The dough breaks the starch apart slowly.",
+    "translationRu": "Тесто медленно расщепляет крахмал."
+   },
+   {
+    "text": "The yeast eats the sugar and makes two things.",
+    "translationRu": "Дрожжи едят сахар и производят две вещи."
+   },
+   {
+    "text": "One is alcohol.",
+    "translationRu": "Первая — спирт."
+   },
+   {
+    "text": "The other is carbon dioxide, a gas.",
+    "translationRu": "Вторая — углекислый газ."
+   },
+   {
+    "text": "The gas cannot escape.",
+    "translationRu": "Газу некуда деться."
+   },
+   {
+    "text": "Flour and water make a stretchy net called gluten.",
+    "translationRu": "Мука и вода образуют упругую сетку — клейковину."
+   },
+   {
+    "text": "The net catches every bubble.",
+    "translationRu": "Эта сетка ловит каждый пузырёк."
+   },
+   {
+    "text": "Thousands of bubbles push the dough outwards.",
+    "translationRu": "Тысячи пузырьков расталкивают тесто наружу."
+   },
+   {
+    "text": "That is rising.",
+    "translationRu": "Это и есть подъём теста."
+   },
+   {
+    "text": "You can see it if you wait an hour.",
+    "translationRu": "Это видно, если подождать час."
+   },
+   {
+    "text": "Now think about what happens in the oven.",
+    "translationRu": "Теперь подумай, что происходит в духовке."
+   },
+   {
+    "text": "Heat makes gas expand.",
+    "translationRu": "От тепла газ расширяется."
+   },
+   {
+    "text": "Every bubble grows quickly.",
+    "translationRu": "Каждый пузырёк быстро растёт."
+   },
+   {
+    "text": "The loaf jumps up in the first ten minutes.",
+    "translationRu": "Буханка подскакивает в первые десять минут."
+   },
+   {
+    "text": "Bakers call this the oven spring.",
+    "translationRu": "Пекари называют это подъёмом в печи."
+   },
+   {
+    "text": "Then the heat kills the yeast.",
+    "translationRu": "Потом жар убивает дрожжи."
+   },
+   {
+    "text": "Nothing more is made after that.",
+    "translationRu": "После этого больше ничего не производится."
+   },
+   {
+    "text": "The alcohol boils away into the air.",
+    "translationRu": "Спирт выкипает в воздух."
+   },
+   {
+    "text": "That is why bread smells so good while baking.",
+    "translationRu": "Поэтому хлеб так вкусно пахнет во время выпечки."
+   },
+   {
+    "text": "The gluten net becomes hard and keeps its shape.",
+    "translationRu": "Сетка из клейковины твердеет и сохраняет форму."
+   },
+   {
+    "text": "Cut the loaf open and look at the holes.",
+    "translationRu": "Разрежь буханку и посмотри на дырки."
+   },
+   {
+    "text": "Each hole was a bubble of gas.",
+    "translationRu": "Каждая дырка была пузырьком газа."
+   },
+   {
+    "text": "Big holes mean a wet dough and a long rise.",
+    "translationRu": "Крупные дырки — это влажное тесто и долгий подъём."
+   },
+   {
+    "text": "Small even holes mean a drier dough.",
+    "translationRu": "Мелкие ровные дырки — тесто посуше."
+   },
+   {
+    "text": "Neither one is better.",
+    "translationRu": "Ни то ни другое не лучше."
+   },
+   {
+    "text": "They are different kinds of bread.",
+    "translationRu": "Это просто разный хлеб."
+   },
+   {
+    "text": "Bread without yeast is called flatbread.",
+    "translationRu": "Хлеб без дрожжей называют лепёшкой."
+   },
+   {
+    "text": "It is flat because nothing made gas inside it.",
+    "translationRu": "Он плоский, потому что внутри ничего не выделяло газ."
+   },
+   {
+    "text": "People baked flatbread for thousands of years.",
+    "translationRu": "Лепёшки пекли тысячи лет."
+   },
+   {
+    "text": "Risen bread was probably an accident.",
+    "translationRu": "Поднявшийся хлеб, скорее всего, получился случайно."
+   },
+   {
+    "text": "Someone left dough out too long in warm air.",
+    "translationRu": "Кто-то оставил тесто в тепле слишком надолго."
+   },
+   {
+    "text": "Wild yeast from the air landed in it.",
+    "translationRu": "В него попали дикие дрожжи из воздуха."
+   },
+   {
+    "text": "The dough grew, and they baked it anyway.",
+    "translationRu": "Тесто поднялось, и его всё равно испекли."
+   },
+   {
+    "text": "Sourdough still works exactly like that.",
+    "translationRu": "Закваска работает ровно так же и сегодня."
+   },
+   {
+    "text": "No packet of yeast is added.",
+    "translationRu": "Никакие покупные дрожжи не добавляют."
+   },
+   {
+    "text": "The baker keeps a jar of flour and water alive.",
+    "translationRu": "Пекарь держит живой банку с мукой и водой."
+   },
+   {
+    "text": "Wild yeast lives in it and is fed every day.",
+    "translationRu": "В ней живут дикие дрожжи, и их кормят каждый день."
+   },
+   {
+    "text": "Some bakeries have kept the same jar for fifty years.",
+    "translationRu": "В некоторых пекарнях одна и та же банка живёт пятьдесят лет."
+   }
+  ]
+ },
+ {
+  "id": "paper-recycling",
+  "level": "B2",
+  "topic": "environment",
+  "title": "What happens to paper after the bin",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Most paper you put in a recycling bin is paper again within two weeks.",
+    "translationRu": "Большая часть бумаги из контейнера снова становится бумагой за две недели."
+   },
+   {
+    "text": "The speed surprises people.",
+    "translationRu": "Скорость удивляет."
+   },
+   {
+    "text": "So does the ceiling.",
+    "translationRu": "И предел тоже."
+   },
+   {
+    "text": "Those same fibres can only make the journey five or six times.",
+    "translationRu": "Одни и те же волокна выдерживают такой путь всего пять-шесть раз."
+   },
+   {
+    "text": "Every cycle shortens them.",
+    "translationRu": "Каждый цикл их укорачивает."
+   },
+   {
+    "text": "A wood fibre begins around three millimetres long.",
+    "translationRu": "Древесное волокно начинается длиной около трёх миллиметров."
+   },
+   {
+    "text": "Each trip through the pulping process breaks a little off the ends.",
+    "translationRu": "Каждый проход через варку отламывает немного с концов."
+   },
+   {
+    "text": "Short fibres bond poorly.",
+    "translationRu": "Короткие волокна плохо сцепляются."
+   },
+   {
+    "text": "Paper made entirely from them tears when it is wet.",
+    "translationRu": "Бумага только из них рвётся, когда намокает."
+   },
+   {
+    "text": "It crumbles at the fold.",
+    "translationRu": "И крошится на сгибе."
+   },
+   {
+    "text": "So every batch of recycled pulp is mixed with new wood.",
+    "translationRu": "Поэтому к каждой партии вторичной массы добавляют свежую древесину."
+   },
+   {
+    "text": "The process itself is mostly water.",
+    "translationRu": "Сам процесс — это в основном вода."
+   },
+   {
+    "text": "Paper arrives at the mill compressed into bales.",
+    "translationRu": "Бумага приезжает на завод спрессованной в кипы."
+   },
+   {
+    "text": "It goes into a machine that works like an enormous kitchen blender.",
+    "translationRu": "Она попадает в машину, работающую как огромный кухонный блендер."
+   },
+   {
+    "text": "Water and movement separate the sheet back into fibres.",
+    "translationRu": "Вода и движение разбивают лист обратно на волокна."
+   },
+   {
+    "text": "What comes out is a grey soup.",
+    "translationRu": "На выходе получается серый суп."
+   },
+   {
+    "text": "Then the unwanted things have to leave.",
+    "translationRu": "Дальше из него надо убрать лишнее."
+   },
+   {
+    "text": "Staples and paper clips sink and are pulled out magnetically.",
+    "translationRu": "Скобы и скрепки тонут, их вытягивают магнитом."
+   },
+   {
+    "text": "Plastic windows from envelopes float and are skimmed off.",
+    "translationRu": "Плёнка из окошек конвертов всплывает, её снимают."
+   },
+   {
+    "text": "Ink is harder.",
+    "translationRu": "С краской сложнее."
+   },
+   {
+    "text": "Air is blown through the soup with soap.",
+    "translationRu": "Через суп продувают воздух вместе с мылом."
+   },
+   {
+    "text": "Ink particles stick to the bubbles and rise as a grey foam.",
+    "translationRu": "Частицы краски липнут к пузырькам и поднимаются серой пеной."
+   },
+   {
+    "text": "The foam is scraped away.",
+    "translationRu": "Пену снимают."
+   },
+   {
+    "text": "The industry calls this flotation, and it removes most but never all.",
+    "translationRu": "В отрасли это называют флотацией; она убирает почти всё, но не всё."
+   },
+   {
+    "text": "This is why recycled paper is slightly grey.",
+    "translationRu": "Поэтому вторичная бумага чуть сероватая."
+   },
+   {
+    "text": "Whitening it further costs chemicals and energy.",
+    "translationRu": "Отбелить её сильнее стоит химии и энергии."
+   },
+   {
+    "text": "At some point the environmental saving disappears.",
+    "translationRu": "В какой-то момент экологическая выгода исчезает."
+   },
+   {
+    "text": "Some grades are deliberately left grey for that reason.",
+    "translationRu": "Некоторые сорта намеренно оставляют серыми именно поэтому."
+   },
+   {
+    "text": "Not everything in the bin can be used.",
+    "translationRu": "Не всё из контейнера годится в дело."
+   },
+   {
+    "text": "Paper coated in plastic is the common problem.",
+    "translationRu": "Главная беда — бумага с пластиковым покрытием."
+   },
+   {
+    "text": "A takeaway coffee cup looks like cardboard.",
+    "translationRu": "Стакан из-под кофе выглядит как картон."
+   },
+   {
+    "text": "Inside there is a thin plastic film that keeps it from leaking.",
+    "translationRu": "Внутри у него тонкая плёнка, чтобы не протекал."
+   },
+   {
+    "text": "Ordinary mills cannot separate the two.",
+    "translationRu": "Обычные заводы не умеют их разделять."
+   },
+   {
+    "text": "Most of those cups are burned or buried.",
+    "translationRu": "Большинство таких стаканов сжигают или закапывают."
+   },
+   {
+    "text": "Grease is the other problem.",
+    "translationRu": "Вторая беда — жир."
+   },
+   {
+    "text": "Oil does not dissolve in water, so a greasy pizza box ruins the batch.",
+    "translationRu": "Масло не растворяется в воде, и жирная коробка от пиццы портит партию."
+   },
+   {
+    "text": "The clean half of the box is fine.",
+    "translationRu": "Чистая половина коробки годится."
+   },
+   {
+    "text": "The greasy half belongs in the food waste.",
+    "translationRu": "Жирную надо в пищевые отходы."
+   },
+   {
+    "text": "Where does paper go when it can no longer be paper?",
+    "translationRu": "Куда девается бумага, когда бумагой быть уже не может?"
+   },
+   {
+    "text": "The short fibres become egg boxes and packing material.",
+    "translationRu": "Короткие волокна идут на лотки для яиц и упаковку."
+   },
+   {
+    "text": "After that they become insulation, or they are burned for heat.",
+    "translationRu": "Потом — на утеплитель, или их сжигают ради тепла."
+   },
+   {
+    "text": "The whole chain takes about twenty years from tree to ash.",
+    "translationRu": "Вся цепочка от дерева до золы занимает лет двадцать."
+   },
+   {
+    "text": "A tree that becomes a newspaper and nothing else lasts a day.",
+    "translationRu": "Дерево, ставшее только газетой, живёт один день."
+   },
+   {
+    "text": "That difference is the entire argument for recycling.",
+    "translationRu": "В этой разнице и состоит весь смысл переработки."
+   },
+   {
+    "text": "It is not that the paper lasts forever.",
+    "translationRu": "Дело не в том, что бумага вечна."
+   },
+   {
+    "text": "It is that each tree does six jobs instead of one.",
+    "translationRu": "А в том, что каждое дерево выполняет шесть работ вместо одной."
+   }
+  ]
+ }
+]

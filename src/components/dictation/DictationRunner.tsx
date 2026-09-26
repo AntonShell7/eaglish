@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkDictation, maskAgainst, worthLearning, type DictationResult } from "@/lib/dictation";
 import { useSpeech } from "./useSpeech";
+import { clearProgress, getProgress, saveProgress } from "@/lib/dictationProgress";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
@@ -15,6 +16,8 @@ export interface DictationSentence {
 }
 
 interface Props {
+  /** Stable id, so the place can be kept between visits. */
+  id: string;
   title: string;
   sentences: DictationSentence[];
   onExit: () => void;
@@ -33,12 +36,18 @@ interface Props {
  * the same review queue that the reading and writing sections feed. Nothing is
  * copied anywhere by hand, and nothing has to be remembered on the way.
  */
-export function DictationRunner({ title, sentences, onExit }: Props) {
+export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const { t } = useTranslation();
   const { speak, stop, speaking, supported, voices, voice, chooseVoice } = useSpeech();
   const { finish } = useTaskDone();
 
-  const [index, setIndex] = useState(0);
+  // Resumes where the last session stopped: fifty fragments is twenty minutes,
+  // and an exercise that always restarts from the first sentence is one that
+  // never gets finished.
+  const [index, setIndex] = useState(() => {
+    const saved = getProgress(id);
+    return saved && saved.index < sentences.length ? saved.index : 0;
+  });
   const [typed, setTyped] = useState("");
   const [result, setResult] = useState<DictationResult | null>(null);
   /* A wrong answer is shown as a skeleton first and only revealed on request:
@@ -46,7 +55,7 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
   const [revealed, setRevealed] = useState(false);
   const [plays, setPlays] = useState(0);
   const [slow, setSlow] = useState(false);
-  const [scores, setScores] = useState<number[]>([]);
+  const [scores, setScores] = useState<number[]>(() => getProgress(id)?.scores ?? []);
   const [saved, setSaved] = useState<Record<string, "saving" | "done" | "failed">>({});
   const input = useRef<HTMLTextAreaElement>(null);
   const [lookup, setLookup] = useState<LookupRequest | null>(null);
@@ -132,10 +141,14 @@ export function DictationRunner({ title, sentences, onExit }: Props) {
   };
 
   const next = () => {
-    if (index + 1 >= sentences.length) {
-      finish("listening", `dictation:${title}:${new Date().toDateString()}`, t("dictation.taskDone"));
+    const nextIndex = index + 1;
+    if (nextIndex >= sentences.length) {
+      finish("listening", `dictation:${id}:${new Date().toDateString()}`, t("dictation.taskDone"));
+      clearProgress(id);
+    } else {
+      saveProgress(id, nextIndex, scores);
     }
-    setIndex((i) => i + 1);
+    setIndex(nextIndex);
   };
 
   /** Only words worth a place in a review queue — articles are not gaps. */
