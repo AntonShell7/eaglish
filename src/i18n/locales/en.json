@@ -803,7 +803,6 @@
     "stop": "Finish",
     "useThis": "Write a sentence with this word",
     "placeholder": "Your own sentence with “{{word}}”",
-    "missingWord": "The sentence doesn't contain “{{word}}” — that word is the task.",
     "check": "Check",
     "checking": "Checking…",
     "thinking": "Thinking…",
@@ -835,6 +834,7 @@
     "weekThis": "This week",
     "weekAgo_one": "{{count}} week ago",
     "weekAgo_other": "{{count}} weeks ago",
-    "alsoTitle": "The word also works like this"
+    "alsoTitle": "The word also works like this",
+    "maybeMissing": "“{{word}}” doesn’t seem to be in there — you can still check it."
   }
 }

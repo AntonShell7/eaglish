@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkSentence, getHint, markActivated, type Hint, type UsageVerdict } from "@/lib/activation";
 import { reviewWord, type VocabularyWord } from "@/lib/vocabularyStore";
+import { usesWord } from "@/lib/wordMatch";
 import "./activation.css";
 
 /**
@@ -57,20 +58,6 @@ export function SentenceDrill({
     const text = sentence.trim();
     if (!text || busy) return;
 
-    // Whether a string contains a word is not a question worth asking a
-    // language model: it costs a round trip and a slice of the daily quota to
-    // be told something the browser already knows. More importantly the answer
-    // arrives instantly, which is what it should do for a mistake this simple.
-    if (!containsWord) {
-      setVerdict({
-        correct: false,
-        verdict: t("activation.missingWord", { word: word.word }),
-        notes: [],
-        alternatives: [],
-      });
-      return;
-    }
-
     setBusy(true);
     const result = await checkSentence(word, text);
     setVerdict(result);
@@ -85,7 +72,16 @@ export function SentenceDrill({
     }
   };
 
-  const containsWord = sentence.toLowerCase().includes(word.word.toLowerCase().slice(0, Math.max(4, word.word.length - 2)));
+  /*
+   * A hint, never a gate.
+   *
+   * This used to block the submission, which meant a heuristic got the last
+   * word over a person: "ghost someone" written as "I ghosted my friend" was
+   * refused, and so was "cafe" for "café", because the learner's keyboard has
+   * no acute accent. A check that cannot be sure has no business refusing an
+   * answer — it can only raise an eyebrow, and the model decides.
+   */
+  const containsWord = !sentence.trim() || usesWord(sentence, word.word);
 
   return (
     <div className="drill">
@@ -120,9 +116,7 @@ export function SentenceDrill({
             spellCheck={false}
           />
 
-          {sentence.trim() && !containsWord && (
-            <p className="drill__warn">{t("activation.missingWord", { word: word.word })}</p>
-          )}
+          {!containsWord && <p className="drill__warn">{t("activation.maybeMissing", { word: word.word })}</p>}
 
           {hint && hintLevel >= 1 && hint.toTranslate && (
             <div className="drill__hint">
