@@ -7,7 +7,6 @@ import {
   IconHome,
   IconBook,
   IconHeadphones,
-  IconPen,
   IconChat,
   IconBookmark,
   IconChart,
@@ -26,13 +25,21 @@ import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
 import "./shell.css";
 
+/*
+ * Practice is where English comes in; the vocabulary is where it is kept.
+ *
+ * The active vocabulary used to sit here as a fifth kind of practice, which
+ * was wrong twice: it is not a way of meeting words but a way of proving you
+ * have them, and separating it from the collection it draws on meant two
+ * places for one subject. It is an entrance inside the vocabulary now.
+ */
 const PRACTICE = [
   { to: "/reading", key: "reading", Icon: IconBook },
   { to: "/dictation", key: "dictation", Icon: IconHeadphones },
-  { to: "/writing", key: "writing", Icon: IconPen },
-  { to: "/everyday-english", key: "everydayEnglish", Icon: IconChat },
-  { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
+  { to: "/everyday-english", key: "slang", Icon: IconChat },
 ] as const;
+
+const WORDS = [{ to: "/vocabulary", key: "vocabulary", Icon: IconBookmark }] as const;
 
 const YOU = [
   { to: "/progress", key: "progress", Icon: IconChart },
@@ -47,7 +54,7 @@ const TABS = [
   { to: "/", key: "home", Icon: IconHome },
   { to: "/reading", key: "reading", Icon: IconBook },
   { to: "/dictation", key: "dictation", Icon: IconHeadphones },
-  { to: "/writing", key: "writing", Icon: IconPen },
+  { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
@@ -83,6 +90,20 @@ export function Layout() {
             <p className="rail__label">{t("shell.practice")}</p>
             <nav className="rail__group">
               {PRACTICE.map(({ to, key, Icon }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}
+                >
+                  <Icon />
+                  {t(`nav.${key}`)}
+                </NavLink>
+              ))}
+            </nav>
+
+            <p className="rail__label">{t("shell.words")}</p>
+            <nav className="rail__group">
+              {WORDS.map(({ to, key, Icon }) => (
                 <NavLink
                   key={to}
                   to={to}

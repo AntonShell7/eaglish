@@ -201,3 +201,47 @@
     opacity: 1;
   }
 }
+
+/* Two arrangements of the same shelf: by how firmly a word is held, or by the
+   day it arrived. Small and quiet — it is a preference, not a decision. */
+.wl__arrange {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.wl__arrangeBtn {
+  padding: 4px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition:
+    background var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
+}
+
+.wl__arrangeBtn:hover {
+  color: var(--color-text);
+}
+
+.wl__arrangeBtn.is-on {
+  background: var(--color-surface-3);
+  color: var(--color-text);
+}
+
+/* A date folder has nothing to collapse, so its header is not a button. */
+.wl__head--static {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.wl__group--date .wl__dot {
+  background: var(--color-text-faint);
+}

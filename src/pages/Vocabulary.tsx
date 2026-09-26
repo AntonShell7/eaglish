@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { useSegmented } from "@/lib/useSegmented";
 import { SectionHero } from "@/components/SectionHero";
 import {
@@ -14,6 +15,8 @@ import {
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { ReviewCard } from "@/components/vocabulary/ReviewCard";
 import { WordList } from "@/components/vocabulary/WordList";
+import { activatedCount } from "@/lib/activation";
+import "./vocabulary.css";
 import { FlashCard } from "@/components/vocabulary/FlashCard";
 
 const DAY = 24 * 60 * 60 * 1000;
@@ -106,7 +109,6 @@ export default function Vocabulary() {
   const [practiceIndex, setPracticeIndex] = useState(0);
   const [reviewedInSession, setReviewedInSession] = useState(0);
   const [query, setQuery] = useState("");
-  const { ref: modeRef, style: modeStyle } = useSegmented(mode);
   /* Typing is the better test and stays the default; the deck exists because a
      review that happens beats a stricter one that does not. The choice sticks,
      because it is a habit rather than a per-session decision. */
@@ -180,23 +182,38 @@ export default function Vocabulary() {
       title={t("nav.vocabulary")}
       description={t("home.descriptions.vocabulary")}
     >
-      <div className="segmented mt-8" ref={modeRef} style={modeStyle}>
-        <button
-          type="button"
-          onClick={() => setMode("list")}
-          className={`segmented__item${mode === "list" ? " is-active" : ""}`}
-        >
-          {t("vocabulary.listTab", { count: words.length })}
-        </button>
-        <button
-          type="button"
-          onClick={startPractice}
-          disabled={due.length === 0}
-          className={`segmented__item disabled:opacity-40${mode === "practice" ? " is-active" : ""}`}
-        >
-          {t("vocabulary.practiceTab")} · {t("vocabulary.dueCount", { count: due.length })}
-        </button>
-      </div>
+      {/* Three doors, as distinct as the things behind them.
+          Words that are due are work with a deadline. All words is the shelf,
+          for browsing and drilling. The active vocabulary is proof, and lives
+          one click away because it draws on the same collection. */}
+      {mode === "list" && (
+        <div className="vocab-doors">
+          <button
+            type="button"
+            className={due.length > 0 ? "vocab-door vocab-door--due" : "vocab-door"}
+            onClick={startPractice}
+            disabled={due.length === 0}
+          >
+            <span className="vocab-door__n tabular">{due.length}</span>
+            <span className="vocab-door__h">{t("vocabulary.doorDue")}</span>
+            <span className="vocab-door__p">
+              {due.length > 0 ? t("vocabulary.doorDueBody") : t("vocabulary.doorDueEmpty")}
+            </span>
+          </button>
+
+          <div className="vocab-door vocab-door--static">
+            <span className="vocab-door__n tabular">{words.length}</span>
+            <span className="vocab-door__h">{t("vocabulary.doorAll")}</span>
+            <span className="vocab-door__p">{t("vocabulary.doorAllBody")}</span>
+          </div>
+
+          <Link to="/writing" className="vocab-door">
+            <span className="vocab-door__n tabular">{activatedCount()}</span>
+            <span className="vocab-door__h">{t("vocabulary.doorActive")}</span>
+            <span className="vocab-door__p">{t("vocabulary.doorActiveBody")}</span>
+          </Link>
+        </div>
+      )}
 
       {mode === "list" ? (
         <div className="mt-6">
