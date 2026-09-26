@@ -14,7 +14,8 @@
     "logOut": "Log out",
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
-    "dictation": "English by ear"
+    "dictation": "English by ear",
+    "slang": "Slang and idioms"
   },
   "common": {
     "continue": "Continue",
@@ -242,7 +243,18 @@
       "shaky": "the ones you forget most — start here",
       "settling": "recognised, but the interval is still short",
       "held": "come back rarely, just to stay"
-    }
+    },
+    "arrange": {
+      "strength": "by strength",
+      "date": "by date"
+    },
+    "doorDue": "Due now",
+    "doorDueBody": "These came back on their own, at the moment they were about to slip.",
+    "doorDueEmpty": "Nothing waiting. Look in tomorrow.",
+    "doorAll": "All words",
+    "doorAllBody": "The whole collection below, with search and an arrangement by date.",
+    "doorActive": "Active vocabulary",
+    "doorActiveBody": "How many of your words you have actually put to work."
   },
   "slang": {
     "categoryAll": "All",
@@ -326,7 +338,8 @@
     "dueShort": "due",
     "dueTitle": "Words due for review",
     "wordsCount_one": "word",
-    "wordsCount_other": "words"
+    "wordsCount_other": "words",
+    "words": "Words"
   },
   "profile": {
     "title": "Your profile",

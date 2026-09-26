@@ -4,6 +4,7 @@ import { removeVocabularyWord, wordStrength, type VocabularyWord } from "@/lib/v
 import "./word-list.css";
 
 type Group = "shaky" | "settling" | "held";
+type Arrange = "strength" | "date";
 
 /**
  * The collection, arranged so it can be acted on.
@@ -37,7 +38,17 @@ export function WordList({
   onChanged: () => void;
   dueLabel: (word: VocabularyWord) => string;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  /*
+   * Two ways to arrange the same shelf.
+   *
+   * By how firmly a word is held, which answers "what should I work on"; or by
+   * the day it was collected, which answers "what did I get from that article
+   * last Tuesday". The second is the folder people actually build by hand in
+   * other apps, and here it needs no building — every word already knows when
+   * it arrived.
+   */
+  const [arrange, setArrange] = useState<Arrange>("strength");
   const [open, setOpen] = useState<Group | null>(null);
   /* A row about to go. It stays in the list while it collapses, because
      removing it from the data first would make it disappear instantly and the
@@ -53,6 +64,28 @@ export function WordList({
     }, 420);
   };
 
+  const byDate = useMemo(() => {
+    const out = new Map<string, VocabularyWord[]>();
+    for (const word of words) {
+      const day = new Date(word.addedAt);
+      const key = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, "0")}-${String(day.getDate()).padStart(2, "0")}`;
+      const list = out.get(key) ?? [];
+      list.push(word);
+      out.set(key, list);
+    }
+    return [...out.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+  }, [words]);
+
+  const dateFormat = useMemo(
+    () =>
+      new Intl.DateTimeFormat(i18n.language.startsWith("ru") ? "ru-RU" : "en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+    [i18n.language],
+  );
+
   const groups = useMemo(() => {
     const out: Record<Group, VocabularyWord[]> = { shaky: [], settling: [], held: [] };
     for (const word of words) out[groupOf(word)].push(word);
@@ -63,9 +96,62 @@ export function WordList({
 
   const visible = ORDER.filter((group) => groups[group].length > 0);
 
+  const row = (word: VocabularyWord) => (
+    <li key={word.id} className={leaving === word.id ? "wl__item is-leaving" : "wl__item"}>
+      <div className="wl__main">
+        <p className="wl__word">{word.word}</p>
+        <p className="wl__translation">{word.translation}</p>
+        {word.sentence && <p className="wl__sentence">{word.sentence}</p>}
+      </div>
+
+      <div className="wl__meta">
+        <span className="wl__bar" title={t("vocabulary.strengthHint")} aria-label={`${wordStrength(word)}%`}>
+          <span style={{ width: `${wordStrength(word)}%` }} />
+        </span>
+        <span className="wl__due tabular">{dueLabel(word)}</span>
+      </div>
+
+      <button
+        type="button"
+        className="wl__remove"
+        aria-label={t("vocabulary.remove")}
+        title={t("vocabulary.remove")}
+        onClick={() => remove(word.id)}
+      >
+        ✕
+      </button>
+    </li>
+  );
+
   return (
     <div className="wl">
-      {visible.map((group) => {
+      <div className="wl__arrange">
+        {(["strength", "date"] as Arrange[]).map((option) => (
+          <button
+            key={option}
+            type="button"
+            className={arrange === option ? "wl__arrangeBtn is-on" : "wl__arrangeBtn"}
+            onClick={() => setArrange(option)}
+          >
+            {t(`vocabulary.arrange.${option}`)}
+          </button>
+        ))}
+      </div>
+
+      {arrange === "date" &&
+        byDate.map(([day, list]) => (
+          <section key={day} className="wl__group wl__group--date">
+            <div className="wl__head wl__head--static">
+              <span className="wl__dot" aria-hidden />
+              <span className="wl__title">{dateFormat.format(new Date(day))}</span>
+              <span className="wl__count tabular">{list.length}</span>
+            </div>
+            <ul className="wl__items">{list.map(row)}</ul>
+          </section>
+        ))}
+
+      {arrange === "strength" &&
+        visible.map((group) => {
         const list = groups[group];
         const collapsed = open !== null && open !== group;
 

@@ -1,0 +1,79 @@
+/* The three doors.
+   Each one leads somewhere genuinely different, so each states its own number
+   first — what is waiting, what is held, what has been used. A row of equal
+   tiles with equal weight would hide that they are not alternatives. */
+
+.vocab-doors {
+  margin-top: 28px;
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 720px) {
+  .vocab-doors {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vocab-door {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  padding: 20px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.vocab-door:hover:not(:disabled):not(.vocab-door--static) {
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-2);
+}
+
+.vocab-door:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* The one with work behind it is the only one that is coloured. */
+.vocab-door--due:not(:disabled) {
+  border-color: color-mix(in srgb, var(--color-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
+}
+
+.vocab-door--static {
+  cursor: default;
+}
+
+.vocab-door__n {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.vocab-door--due:not(:disabled) .vocab-door__n {
+  color: var(--color-accent-ink);
+}
+
+.vocab-door__h {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.vocab-door__p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
