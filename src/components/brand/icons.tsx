@@ -120,3 +120,17 @@ export function IconTarget() {
     </svg>
   );
 }
+
+/**
+ * Two speech marks, for the slang module. Not a speech bubble — that already
+ * belongs to Everyday English, and the two sections need to be told apart at a
+ * glance in a sidebar.
+ */
+export function IconQuotes() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <path d="M9.5 6.5C7 7.6 5.5 9.8 5.5 12.4v5.1h5V12h-3" />
+      <path d="M18.5 6.5c-2.5 1.1-4 3.3-4 5.9v5.1h5V12h-3" />
+    </svg>
+  );
+}

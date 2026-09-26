@@ -5,6 +5,7 @@ import Reading from "@/pages/Reading";
 import Dictation from "@/pages/Dictation";
 import Writing from "@/pages/Writing";
 import Vocabulary from "@/pages/Vocabulary";
+import Slang from "./pages/Slang";
 import EverydayEnglish from "@/pages/EverydayEnglish";
 import ProgressPage from "@/pages/Progress";
 import Profile from "@/pages/Profile";
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="writing" element={<Writing />} />
           <Route path="vocabulary" element={<Vocabulary />} />
           <Route path="everyday-english" element={<EverydayEnglish />} />
+          <Route path="slang" element={<Slang />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="profile" element={<Profile />} />
         </Route>

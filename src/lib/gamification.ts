@@ -20,6 +20,9 @@ export const XP_PER_ACTIVITY: Record<ActivityKind, number> = {
   reading: 12,
   quiz: 12,
   vocabulary: 10,
+  // A dialogue is read whole and then answered on new sentences, which is
+  // closer to a text than to a card.
+  slang: 14,
   // Dictation sits between reading and writing: you cannot skim it, every
   // sentence is typed out, and it is checked word by word.
   listening: 20,
@@ -126,7 +129,7 @@ export function isUnlocked(a: Achievement): boolean {
 /* ── Activity mix, for the dashboard's composition chart ──────────────── */
 
 export function getActivityMix(): Record<ActivityKind, number> {
-  const mix: Record<ActivityKind, number> = { reading: 0, listening: 0, writing: 0, vocabulary: 0, quiz: 0 };
+  const mix: Record<ActivityKind, number> = { reading: 0, listening: 0, writing: 0, vocabulary: 0, quiz: 0, slang: 0 };
   for (const day of getActivity()) {
     for (const [kind, n] of Object.entries(day.counts) as [ActivityKind, number][]) {
       mix[kind] += n ?? 0;
