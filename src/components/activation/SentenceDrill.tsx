@@ -1,6 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { checkSentence, getHint, markActivated, type Hint, type UsageVerdict } from "@/lib/activation";
+import {
+  checkSentence,
+  getHint,
+  markActivated,
+  sentencesFor,
+  tooSimilar,
+  type Hint,
+  type UsageVerdict,
+} from "@/lib/activation";
 import { reviewWord, type VocabularyWord } from "@/lib/vocabularyStore";
 import { usesWord } from "@/lib/wordMatch";
 import "./activation.css";
@@ -14,6 +22,8 @@ import "./activation.css";
  * wrong. The rhythm is a flashcard's — see, answer, learn — with the one change
  * that matters: the answer has to be built rather than recognised.
  */
+let verdictKey = 0;
+
 export function SentenceDrill({
   word,
   onDone,
@@ -31,6 +41,9 @@ export function SentenceDrill({
   const [hintLevel, setHintLevel] = useState(0);
   const [hintBusy, setHintBusy] = useState(false);
   const input = useRef<HTMLTextAreaElement>(null);
+  /* What this learner already wrote with this word. The exercise is to say
+     something new, not to reproduce a sentence that once worked. */
+  const written = useMemo(() => sentencesFor(word.word), [word.word, verdictKey]);
 
   useEffect(() => {
     setSentence("");
@@ -48,15 +61,37 @@ export function SentenceDrill({
       return;
     }
     setHintBusy(true);
-    const got = await getHint(word);
+    // The learner's own sentences go with the request, so the suggestion
+    // points somewhere they have not been rather than back at what they wrote.
+    const got = await getHint(word, written);
     setHint(got);
     setHintLevel(1);
+    setHintBusy(false);
+  };
+
+  /** Another idea, when the first one does not spark anything. */
+  const anotherHint = async () => {
+    setHintBusy(true);
+    const got = await getHint(word, [...written, hint?.toTranslate ?? "", hint?.model ?? ""].filter(Boolean));
+    setHint(got);
+    setHintLevel((level) => Math.max(1, level));
     setHintBusy(false);
   };
 
   const submit = async () => {
     const text = sentence.trim();
     if (!text || busy) return;
+
+    if (tooSimilar(text, written)) {
+      setVerdict({
+        correct: false,
+        repeat: true,
+        verdict: t("activation.tooSimilar"),
+        issues: [],
+        alternatives: [],
+      });
+      return;
+    }
 
     setBusy(true);
     const result = await checkSentence(word, text);
@@ -65,6 +100,7 @@ export function SentenceDrill({
 
     if (result.correct) {
       markActivated(word.word, text);
+      verdictKey++;
       // Producing a word unprompted is stronger evidence than any card, so it
       // counts as a good recall — but not an easy one, because the word was on
       // screen the whole time.
@@ -95,6 +131,18 @@ export function SentenceDrill({
             what stops the sentence coming out as a dictionary definition. */}
         {word.sentence && <p className="drill__seen">{word.sentence}</p>}
       </div>
+
+      {written.length > 0 && (
+        <div className="drill__written">
+          <p className="eyebrow">{t("activation.alreadyWrote")}</p>
+          <ul className="drill__writtenList">
+            {written.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+          <p className="drill__writtenHint">{t("activation.sayNew")}</p>
+        </div>
+      )}
 
       {!verdict ? (
         <>
@@ -147,6 +195,12 @@ export function SentenceDrill({
               </button>
             )}
 
+            {hint && (
+              <button type="button" className="btn btn--quiet" onClick={anotherHint} disabled={hintBusy}>
+                {t("activation.another")}
+              </button>
+            )}
+
             <button type="button" className="btn btn--quiet" onClick={onSkip}>
               {t("activation.skip")}
             </button>
@@ -165,18 +219,22 @@ export function SentenceDrill({
                   learner the one part they got right was the part that failed. */}
               <p
                 className={
-                  verdict.correct
-                    ? verdict.issues.length === 0
-                      ? "drill__badge is-good"
-                      : "drill__badge is-partly"
-                    : "drill__badge is-wrong"
+                  verdict.repeat
+                    ? "drill__badge is-partly"
+                    : verdict.correct
+                      ? verdict.issues.length === 0
+                        ? "drill__badge is-good"
+                        : "drill__badge is-partly"
+                      : "drill__badge is-wrong"
                 }
               >
-                {verdict.correct
-                  ? verdict.issues.length === 0
-                    ? t("activation.perfect")
-                    : t("activation.wordOkay")
-                  : t("activation.wordWrong")}
+                {verdict.repeat
+                  ? t("activation.repeat")
+                  : verdict.correct
+                    ? verdict.issues.length === 0
+                      ? t("activation.perfect")
+                      : t("activation.wordOkay")
+                    : t("activation.wordWrong")}
               </p>
 
               <p className="drill__yours">{sentence.trim()}</p>
@@ -224,7 +282,7 @@ export function SentenceDrill({
             <button type="button" className="btn btn--primary" onClick={() => onDone(verdict.correct)}>
               {t("activation.next")}
             </button>
-            {!verdict.correct && (
+            {(!verdict.correct || verdict.repeat) && (
               <button
                 type="button"
                 className="btn btn--ghost"

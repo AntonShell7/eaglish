@@ -854,6 +854,11 @@
       "wordChoice": "word choice",
       "typo": "typo",
       "naturalness": "unnatural"
-    }
+    },
+    "alreadyWrote": "You've already written with this word",
+    "sayNew": "Now say something else — another situation, another sense.",
+    "tooSimilar": "That is nearly the sentence you wrote before. Find a different situation: the word has to work somewhere new, or what sticks is the phrase rather than the word.",
+    "another": "Another idea",
+    "repeat": "You have written this"
   }
 }
