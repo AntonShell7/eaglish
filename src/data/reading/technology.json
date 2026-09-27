@@ -485,5 +485,194 @@
     "explanation": "A loud master no longer wins anything."
    }
   ]
+ },
+ {
+  "id": "why-software-is-late",
+  "level": "C2",
+  "topic": "technology",
+  "generated": false,
+  "title": "Why Software Is Always Late, Including This Time",
+  "sentences": [
+   {
+    "text": "Ask a group of engineers how long a piece of work will take, double the answer, and you will still be optimistic.",
+    "translationRu": "Спроси у группы инженеров, сколько займёт работа, удвой ответ — и всё равно останешься оптимистом."
+   },
+   {
+    "text": "This is so widely observed that it has a name, Hofstadter's law, which states with deliberate circularity that it always takes longer than you expect, even when you take Hofstadter's law into account.",
+    "translationRu": "Наблюдение настолько всеобщее, что у него есть имя — закон Хофштадтера, который с намеренной рекурсивностью гласит: всё занимает больше времени, чем ожидаешь, даже если учитывать закон Хофштадтера."
+   },
+   {
+    "text": "The joke conceals a real question.",
+    "translationRu": "За шуткой прячется настоящий вопрос."
+   },
+   {
+    "text": "Estimates in most fields are noisy but unbiased; software estimates are wrong in one direction, almost without exception, and have been since the field existed.",
+    "translationRu": "В большинстве областей оценки шумные, но несмещённые; оценки в разработке ошибочны в одну сторону, почти без исключений, и так с самого появления отрасли."
+   },
+   {
+    "text": "Several things are going on at once.",
+    "translationRu": "Тут работает сразу несколько вещей."
+   },
+   {
+    "text": "The first is that estimating is a memory task disguised as a planning task.",
+    "translationRu": "Первое: оценка — это задача на память, переодетая задачей на планирование."
+   },
+   {
+    "text": "You are not predicting the future so much as recalling how the last similar job went, and memory systematically discards the unglamorous parts: the day lost to a broken build, the week spent discovering that the third-party service does not do the one thing its documentation implies.",
+    "translationRu": "Ты не столько предсказываешь будущее, сколько вспоминаешь, как шла прошлая похожая работа, а память систематически выбрасывает неблагодарное: день, потерянный на сломанной сборке, неделю на выяснение, что сторонний сервис не делает того единственного, на что намекает его документация."
+   },
+   {
+    "text": "What survives is the shape of the solution, which is the part that was interesting, and the shape is fast.",
+    "translationRu": "Остаётся форма решения — то, что было интересно, — а форма быстра."
+   },
+   {
+    "text": "The second is that the work is not what is being estimated.",
+    "translationRu": "Второе: оценивают не ту работу."
+   },
+   {
+    "text": "A feature is not a piece of code.",
+    "translationRu": "Функция — это не кусок кода."
+   },
+   {
+    "text": "It is a piece of code, plus the tests, plus the interaction with two systems written by people who have left, plus a migration, plus the discovery halfway through that the requirement as written is internally inconsistent and somebody has to decide what it should say.",
+    "translationRu": "Это кусок кода плюс тесты, плюс взаимодействие с двумя системами, написанными ушедшими людьми, плюс миграция, плюс обнаружение на полпути, что требование внутренне противоречиво и кто-то должен решить, каким оно должно быть."
+   },
+   {
+    "text": "Only the first item is visible when the estimate is given, and the last is the one that takes the time.",
+    "translationRu": "В момент оценки виден только первый пункт, а время съедает последний."
+   },
+   {
+    "text": "The third, and the most awkward, is that the estimate is not a forecast but a negotiation.",
+    "translationRu": "Третье и самое неудобное: оценка — не прогноз, а переговоры."
+   },
+   {
+    "text": "It is offered to a person who wants a smaller number, in a room where the smaller number is rewarded, and it is remembered as a commitment rather than a probability.",
+    "translationRu": "Её называют человеку, которому нужно число поменьше, в комнате, где меньшее число поощряется, и запоминают её как обязательство, а не как вероятность."
+   },
+   {
+    "text": "Nobody says four weeks with a wide distribution behind it, because nobody has ever been thanked for that sentence.",
+    "translationRu": "Никто не говорит «четыре недели с широким разбросом», потому что за такую фразу никого никогда не благодарили."
+   },
+   {
+    "text": "The famous response to lateness makes it worse.",
+    "translationRu": "Знаменитая реакция на отставание делает хуже."
+   },
+   {
+    "text": "Fred Brooks observed half a century ago that adding people to a late project makes it later, because the new arrivals must be taught by the people who were already the bottleneck, and because the number of conversations required grows with the square of the team.",
+    "translationRu": "Фред Брукс полвека назад заметил: добавление людей в опаздывающий проект делает его ещё более опаздывающим, потому что новых должны учить те, кто и так был узким местом, и потому что число необходимых разговоров растёт как квадрат размера команды."
+   },
+   {
+    "text": "The observation is old enough to be a cliché and is still being rediscovered quarterly by organisations that have read the book.",
+    "translationRu": "Наблюдение настолько старо, что стало клише, — и его всё равно поквартально переоткрывают организации, читавшие эту книгу."
+   },
+   {
+    "text": "The teams that cope are not the ones with better estimators.",
+    "translationRu": "Справляются не те команды, где оценщики точнее."
+   },
+   {
+    "text": "They are the ones that have stopped treating the estimate as the interesting number and started shipping small enough pieces that being wrong about any one of them costs a day rather than a quarter.",
+    "translationRu": "Это те, кто перестал считать оценку главным числом и начал выпускать куски настолько мелкие, что ошибка в любом из них стоит дня, а не квартала."
+   },
+   {
+    "text": "You cannot fix the forecast.",
+    "translationRu": "Прогноз починить нельзя."
+   },
+   {
+    "text": "You can make it matter less.",
+    "translationRu": "Можно сделать так, чтобы он значил меньше."
+   }
+  ],
+  "glossary": {
+   "estimate": {
+    "translation": "оценка (сроков)",
+    "partOfSpeech": "noun"
+   },
+   "unbiased": {
+    "translation": "несмещённый",
+    "partOfSpeech": "adjective"
+   },
+   "disguised as": {
+    "translation": "замаскированный под",
+    "partOfSpeech": "phrase"
+   },
+   "discard": {
+    "translation": "отбрасывать",
+    "partOfSpeech": "verb"
+   },
+   "migration": {
+    "translation": "миграция (данных)",
+    "partOfSpeech": "noun"
+   },
+   "inconsistent": {
+    "translation": "противоречивый",
+    "partOfSpeech": "adjective"
+   },
+   "forecast": {
+    "translation": "прогноз",
+    "partOfSpeech": "noun"
+   },
+   "commitment": {
+    "translation": "обязательство",
+    "partOfSpeech": "noun"
+   },
+   "bottleneck": {
+    "translation": "узкое место",
+    "partOfSpeech": "noun"
+   },
+   "ship": {
+    "translation": "выпускать, поставлять",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-software-is-late-q1",
+    "question": "Why is estimating called a memory task?",
+    "options": [
+     "Engineers forget dates",
+     "You recall the last similar job, and memory drops the unglamorous parts",
+     "Plans are written down",
+     "It requires studying"
+    ],
+    "answer": 1,
+    "explanation": "What survives is the shape of the solution, and the shape is fast."
+   },
+   {
+    "id": "why-software-is-late-q2",
+    "question": "What part of a feature usually takes the time?",
+    "options": [
+     "Writing the code",
+     "Discovering the requirement is inconsistent and deciding what it should say",
+     "Naming variables",
+     "Running tests"
+    ],
+    "answer": 1,
+    "explanation": "Only the first item is visible when the estimate is given."
+   },
+   {
+    "id": "why-software-is-late-q3",
+    "question": "Why is an estimate described as a negotiation?",
+    "options": [
+     "It is priced",
+     "It is given to someone who wants a smaller number and is remembered as a commitment",
+     "Lawyers are involved",
+     "Teams vote on it"
+    ],
+    "answer": 1,
+    "explanation": "Nobody is thanked for quoting a wide distribution."
+   },
+   {
+    "id": "why-software-is-late-q4",
+    "question": "What do the teams that cope actually do?",
+    "options": [
+     "Hire more people",
+     "Ship pieces small enough that a wrong estimate costs a day",
+     "Estimate twice",
+     "Extend deadlines"
+    ],
+    "answer": 1,
+    "explanation": "You cannot fix the forecast; you can make it matter less."
+   }
+  ]
  }
 ]

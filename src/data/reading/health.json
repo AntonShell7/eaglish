@@ -771,5 +771,170 @@
     "explanation": "A few strides usually does it."
    }
   ]
+ },
+ {
+  "id": "why-your-stomach-talks",
+  "level": "A1",
+  "topic": "health",
+  "generated": false,
+  "title": "Why Your Stomach Makes Noise",
+  "sentences": [
+   {
+    "text": "Your stomach makes noise sometimes.",
+    "translationRu": "Иногда в животе урчит."
+   },
+   {
+    "text": "It happens in a quiet room, in class, in a lift.",
+    "translationRu": "Это случается в тихой комнате, на уроке, в лифте."
+   },
+   {
+    "text": "Everybody can hear it, and you cannot stop it.",
+    "translationRu": "Все слышат, а остановить нельзя."
+   },
+   {
+    "text": "Most people think the noise means you are hungry.",
+    "translationRu": "Большинство думает, что урчание значит «я голоден»."
+   },
+   {
+    "text": "That is only part of the story.",
+    "translationRu": "Это только часть истории."
+   },
+   {
+    "text": "Inside you there is a long tube.",
+    "translationRu": "Внутри тебя есть длинная трубка."
+   },
+   {
+    "text": "Food goes down it, and the walls push the food along.",
+    "translationRu": "Еда идёт по ней вниз, а стенки толкают её дальше."
+   },
+   {
+    "text": "The walls do this all day and all night.",
+    "translationRu": "Стенки делают это весь день и всю ночь."
+   },
+   {
+    "text": "They do it when there is food, and they do it when there is no food.",
+    "translationRu": "Делают, когда еда есть, и когда её нет."
+   },
+   {
+    "text": "When the tube is full, the food makes the sound soft.",
+    "translationRu": "Когда трубка полная, еда делает звук мягким."
+   },
+   {
+    "text": "When the tube is empty, there is only air and water inside.",
+    "translationRu": "Когда трубка пустая, внутри только воздух и вода."
+   },
+   {
+    "text": "Air in an empty tube is loud.",
+    "translationRu": "Воздух в пустой трубке — это громко."
+   },
+   {
+    "text": "So the noise is not new.",
+    "translationRu": "Так что звук не новый."
+   },
+   {
+    "text": "It is the same noise as always.",
+    "translationRu": "Это тот же самый звук, что всегда."
+   },
+   {
+    "text": "You can only hear it now.",
+    "translationRu": "Просто теперь его слышно."
+   },
+   {
+    "text": "There is also a special moment.",
+    "translationRu": "Есть ещё один момент."
+   },
+   {
+    "text": "About two hours after you eat, your body cleans the tube.",
+    "translationRu": "Примерно через два часа после еды тело чистит трубку."
+   },
+   {
+    "text": "It pushes everything down, like water in a pipe.",
+    "translationRu": "Оно проталкивает всё вниз, как вода в трубе."
+   },
+   {
+    "text": "This is often the loudest sound of the day.",
+    "translationRu": "Часто это самый громкий звук за день."
+   },
+   {
+    "text": "So when your stomach speaks in a quiet room, it is not always asking for food.",
+    "translationRu": "Так что когда живот подаёт голос в тихой комнате, он не всегда просит еды."
+   },
+   {
+    "text": "Sometimes it is just doing the washing up.",
+    "translationRu": "Иногда он просто моет посуду."
+   }
+  ],
+  "glossary": {
+   "stomach": {
+    "translation": "живот, желудок",
+    "partOfSpeech": "noun"
+   },
+   "noise": {
+    "translation": "шум",
+    "partOfSpeech": "noun"
+   },
+   "quiet": {
+    "translation": "тихий",
+    "partOfSpeech": "adjective"
+   },
+   "tube": {
+    "translation": "трубка",
+    "partOfSpeech": "noun"
+   },
+   "wall": {
+    "translation": "стенка",
+    "partOfSpeech": "noun"
+   },
+   "push": {
+    "translation": "толкать",
+    "partOfSpeech": "verb"
+   },
+   "empty": {
+    "translation": "пустой",
+    "partOfSpeech": "adjective"
+   },
+   "loud": {
+    "translation": "громкий",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-your-stomach-talks-q1",
+    "question": "When is the sound loud?",
+    "options": [
+     "When the tube is full",
+     "When the tube is empty and has air in it",
+     "When you drink water",
+     "When you sleep"
+    ],
+    "answer": 1,
+    "explanation": "Air in an empty tube is loud."
+   },
+   {
+    "id": "why-your-stomach-talks-q2",
+    "question": "Do the walls stop pushing when there is no food?",
+    "options": [
+     "Yes",
+     "No, they do it all day and night",
+     "Only at night",
+     "Only after eating"
+    ],
+    "answer": 1,
+    "explanation": "They do it with food and without."
+   },
+   {
+    "id": "why-your-stomach-talks-q3",
+    "question": "What happens about two hours after you eat?",
+    "options": [
+     "You get hungry",
+     "The body cleans the tube",
+     "The stomach sleeps",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "Often the loudest sound of the day."
+   }
+  ]
  }
 ]

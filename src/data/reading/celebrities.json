@@ -948,5 +948,351 @@
     "explanation": "Stated in the final sentence."
    }
   ]
+ },
+ {
+  "id": "verstappen-before-school",
+  "level": "A2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Max Verstappen Was Racing Before He Could Spell",
+  "sentences": [
+   {
+    "text": "Max Verstappen is one of the best Formula 1 drivers in the world.",
+    "translationRu": "Макс Ферстаппен — один из лучших пилотов Формулы-1 в мире."
+   },
+   {
+    "text": "He started very early.",
+    "translationRu": "Начал он очень рано."
+   },
+   {
+    "text": "He was four years old when he first drove a kart.",
+    "translationRu": "Ему было четыре года, когда он впервые сел в карт."
+   },
+   {
+    "text": "A kart is a small, low car with no roof.",
+    "translationRu": "Карт — это маленькая низкая машинка без крыши."
+   },
+   {
+    "text": "It is not a toy.",
+    "translationRu": "Это не игрушка."
+   },
+   {
+    "text": "A good kart is fast and hard to control.",
+    "translationRu": "Хороший карт быстрый, и управлять им непросто."
+   },
+   {
+    "text": "Max grew up in a racing family.",
+    "translationRu": "Макс рос в гоночной семье."
+   },
+   {
+    "text": "His father, Jos, drove in Formula 1.",
+    "translationRu": "Его отец Йос выступал в Формуле-1."
+   },
+   {
+    "text": "His mother, Sophie, was a kart champion.",
+    "translationRu": "Его мать Софи была чемпионкой по картингу."
+   },
+   {
+    "text": "So at home, cars were normal.",
+    "translationRu": "Поэтому дома машины были обычным делом."
+   },
+   {
+    "text": "His father was also his coach, and he was very hard.",
+    "translationRu": "Отец был ещё и тренером — очень жёстким."
+   },
+   {
+    "text": "After one bad race, Jos left him at a petrol station and drove away.",
+    "translationRu": "После одной плохой гонки Йос оставил его на заправке и уехал."
+   },
+   {
+    "text": "Max says today that he did not enjoy it, but that it made him strong.",
+    "translationRu": "Сегодня Макс говорит, что удовольствия не получал, но это сделало его сильнее."
+   },
+   {
+    "text": "Other families went to the beach in the summer.",
+    "translationRu": "Другие семьи летом ездили на пляж."
+   },
+   {
+    "text": "The Verstappens went to kart tracks in Belgium, Italy and France.",
+    "translationRu": "Ферстаппены ездили на картодромы в Бельгию, Италию и Францию."
+   },
+   {
+    "text": "Max was seventeen when he drove his first Formula 1 race.",
+    "translationRu": "Максу было семнадцать, когда он провёл первую гонку в Формуле-1."
+   },
+   {
+    "text": "He was too young to drive a normal car on the road.",
+    "translationRu": "Для обычной машины на дороге он был ещё слишком мал."
+   },
+   {
+    "text": "At eighteen he won a race, and nobody that young had ever won one.",
+    "translationRu": "В восемнадцать он выиграл гонку — таких молодых победителей ещё не было."
+   },
+   {
+    "text": "Later he won the world championship again and again.",
+    "translationRu": "Позже он побеждал в чемпионате мира снова и снова."
+   },
+   {
+    "text": "People ask what his secret is.",
+    "translationRu": "Люди спрашивают, в чём его секрет."
+   },
+   {
+    "text": "Part of it is talent, and part of it is that he has been doing this since he was four.",
+    "translationRu": "Отчасти талант, а отчасти то, что он занимается этим с четырёх лет."
+   }
+  ],
+  "glossary": {
+   "driver": {
+    "translation": "пилот, водитель",
+    "partOfSpeech": "noun"
+   },
+   "kart": {
+    "translation": "карт",
+    "partOfSpeech": "noun"
+   },
+   "roof": {
+    "translation": "крыша",
+    "partOfSpeech": "noun"
+   },
+   "control": {
+    "translation": "управлять",
+    "partOfSpeech": "verb"
+   },
+   "coach": {
+    "translation": "тренер",
+    "partOfSpeech": "noun"
+   },
+   "petrol station": {
+    "translation": "заправка",
+    "partOfSpeech": "noun"
+   },
+   "track": {
+    "translation": "трасса",
+    "partOfSpeech": "noun"
+   },
+   "championship": {
+    "translation": "чемпионат",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "verstappen-before-school-q1",
+    "question": "How old was Max when he first drove a kart?",
+    "options": [
+     "Four",
+     "Seven",
+     "Twelve",
+     "Seventeen"
+    ],
+    "answer": 0,
+    "explanation": "Stated near the beginning."
+   },
+   {
+    "id": "verstappen-before-school-q2",
+    "question": "What did his father do after one bad race?",
+    "options": [
+     "Bought him a new kart",
+     "Left him at a petrol station and drove away",
+     "Said nothing",
+     "Stopped coaching him"
+    ],
+    "answer": 1,
+    "explanation": "Max says it was not enjoyable but made him strong."
+   },
+   {
+    "id": "verstappen-before-school-q3",
+    "question": "What was unusual about his first F1 race?",
+    "options": [
+     "He won it",
+     "He was seventeen, too young to drive on the road",
+     "It was in Belgium",
+     "He started last"
+    ],
+    "answer": 1,
+    "explanation": "He won a race at eighteen."
+   }
+  ]
+ },
+ {
+  "id": "leclerc-and-monaco",
+  "level": "C1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Charles Leclerc and the Race He Grew Up Next To",
+  "sentences": [
+   {
+    "text": "The Monaco Grand Prix runs through ordinary streets, past balconies and hotel walls, on a circuit so tight that overtaking is close to impossible and a mistake of twenty centimetres ends the afternoon.",
+    "translationRu": "Гран-при Монако идёт по обычным улицам, мимо балконов и стен отелей, по трассе настолько тесной, что обгон почти невозможен, а ошибка в двадцать сантиметров заканчивает день."
+   },
+   {
+    "text": "Charles Leclerc grew up in a flat you can see from the track.",
+    "translationRu": "Шарль Леклер вырос в квартире, которую с трассы видно."
+   },
+   {
+    "text": "As a boy he watched cars pass the end of his street once a year, and for a driver from Monaco, which produces almost none, winning that race is not one result among twenty-four.",
+    "translationRu": "Мальчишкой он раз в год смотрел, как машины проносятся в конце его улицы, и для пилота из Монако, которое почти не даёт гонщиков, победа в этой гонке — не один результат из двадцати четырёх."
+   },
+   {
+    "text": "For years it looked as though he would never have it.",
+    "translationRu": "Годами казалось, что ему её не видать."
+   },
+   {
+    "text": "In 2018 he arrived in Formula 1 with a reputation built on a season in the junior categories that had been merciless, won while his father was dying, and he has said that his father asked, in the last weeks, whether Formula 1 was still possible.",
+    "translationRu": "В 2018-м он пришёл в Формулу-1 с репутацией, построенной на беспощадном сезоне в младших категориях, выигранном, пока умирал его отец; Шарль рассказывал, что в последние недели отец спрашивал, остаётся ли Формула-1 возможной."
+   },
+   {
+    "text": "Leclerc told him it was already arranged.",
+    "translationRu": "Леклер ответил, что всё уже решено."
+   },
+   {
+    "text": "It was not, yet.",
+    "translationRu": "Тогда ещё не было."
+   },
+   {
+    "text": "What followed at Monaco became a long joke that stopped being funny.",
+    "translationRu": "Дальше в Монако началась долгая шутка, которая перестала быть смешной."
+   },
+   {
+    "text": "He crashed in qualifying in 2021 while holding provisional pole, took the position anyway because nobody could beat the time, and then did not start: the impact had quietly damaged the driveshaft, and the car failed on the way to the grid.",
+    "translationRu": "В 2021-м он разбился в квалификации, идя с промежуточным поулом, позицию всё равно получил, потому что время никто не побил, — и не стартовал: удар тихо повредил полуось, и машина сломалась по пути на стартовую решётку."
+   },
+   {
+    "text": "The year before, his team had made a strategy call that cost him everything.",
+    "translationRu": "Годом раньше команда приняла стратегическое решение, стоившее ему всего."
+   },
+   {
+    "text": "In 2022 he led comfortably, and the pit wall called him in twice in three laps, dropping him to fourth on a track where fourth is where you stay.",
+    "translationRu": "В 2022-м он уверенно лидировал, и командный мостик вызвал его в боксы дважды за три круга, отбросив на четвёртое место — там, где четвёртое становится окончательным."
+   },
+   {
+    "text": "The radio message he sent afterwards was broadcast around the world.",
+    "translationRu": "Его радиосообщение потом разошлось по всему миру."
+   },
+   {
+    "text": "Commentators began calling it a curse, which is the word people use when a pattern has no explanation left.",
+    "translationRu": "Комментаторы заговорили о проклятии — так говорят, когда объяснений у закономерности больше не осталось."
+   },
+   {
+    "text": "He won it in 2024.",
+    "translationRu": "Он выиграл в 2024-м."
+   },
+   {
+    "text": "He started on pole, controlled the pace from the front for seventy-eight laps, and the only real drama was whether anything mechanical would betray him again.",
+    "translationRu": "Стартовал с поула, семьдесят восемь кругов диктовал темп впереди, и единственной настоящей интригой было, не предаст ли его снова техника."
+   },
+   {
+    "text": "Nothing did.",
+    "translationRu": "Не предала."
+   },
+   {
+    "text": "What is worth noticing is how unspectacular the winning drive was.",
+    "translationRu": "Стоит заметить, насколько невпечатляющей была эта победная гонка."
+   },
+   {
+    "text": "There was no overtake to remember, no heroic recovery, none of the material that usually makes a race famous.",
+    "translationRu": "Ни одного запоминающегося обгона, никакого героического отыгрыша, ничего из того, что обычно делает гонку знаменитой."
+   },
+   {
+    "text": "He simply did not make an error for two hours in the one place where errors are guaranteed, and the story people tell is not about speed at all.",
+    "translationRu": "Он просто не ошибся за два часа в единственном месте, где ошибки гарантированы, — и история, которую пересказывают, вообще не о скорости."
+   },
+   {
+    "text": "It is about the fact that he kept turning up.",
+    "translationRu": "Она о том, что он продолжал приезжать."
+   }
+  ],
+  "glossary": {
+   "circuit": {
+    "translation": "трасса",
+    "partOfSpeech": "noun"
+   },
+   "overtake": {
+    "translation": "обгон; обгонять",
+    "partOfSpeech": "noun"
+   },
+   "merciless": {
+    "translation": "беспощадный",
+    "partOfSpeech": "adjective"
+   },
+   "qualifying": {
+    "translation": "квалификация",
+    "partOfSpeech": "noun"
+   },
+   "provisional": {
+    "translation": "промежуточный, временный",
+    "partOfSpeech": "adjective"
+   },
+   "grid": {
+    "translation": "стартовая решётка",
+    "partOfSpeech": "noun"
+   },
+   "pit wall": {
+    "translation": "командный мостик",
+    "partOfSpeech": "noun"
+   },
+   "lap": {
+    "translation": "круг",
+    "partOfSpeech": "noun"
+   },
+   "curse": {
+    "translation": "проклятие",
+    "partOfSpeech": "noun"
+   },
+   "betray": {
+    "translation": "предать, подвести",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "leclerc-and-monaco-q1",
+    "question": "Why does Monaco matter more to Leclerc than other races?",
+    "options": [
+     "It pays more",
+     "He grew up in a flat you can see from the track, in a country that produces almost no drivers",
+     "It is the longest",
+     "He has never raced elsewhere"
+    ],
+    "answer": 1,
+    "explanation": "Not one result among twenty-four."
+   },
+   {
+    "id": "leclerc-and-monaco-q2",
+    "question": "What happened in 2021?",
+    "options": [
+     "He finished second",
+     "He took pole after crashing, then a damaged driveshaft stopped him before the start",
+     "He was disqualified",
+     "It rained"
+    ],
+    "answer": 1,
+    "explanation": "The car failed on the way to the grid."
+   },
+   {
+    "id": "leclerc-and-monaco-q3",
+    "question": "What cost him the 2022 race?",
+    "options": [
+     "A crash",
+     "Two pit stops in three laps",
+     "An engine failure",
+     "A penalty"
+    ],
+    "answer": 1,
+    "explanation": "He dropped to fourth, where fourth is where you stay."
+   },
+   {
+    "id": "leclerc-and-monaco-q4",
+    "question": "What does the text say made the 2024 win notable?",
+    "options": [
+     "A famous overtake",
+     "That it was unspectacular — he simply did not make an error",
+     "The weather",
+     "A late safety car"
+    ],
+    "answer": 1,
+    "explanation": "The story is about the fact that he kept turning up."
+   }
+  ]
  }
 ]

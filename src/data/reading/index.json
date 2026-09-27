@@ -11,6 +11,17 @@
   "total": 11
  },
  {
+  "id": "celebrities",
+  "label": "Celebrities",
+  "counts": {
+   "B1": 3,
+   "B2": 3,
+   "A2": 1,
+   "C1": 1
+  },
+  "total": 8
+ },
+ {
   "id": "environment",
   "label": "Environment",
   "counts": {
@@ -20,15 +31,6 @@
    "A1": 4
   },
   "total": 8
- },
- {
-  "id": "celebrities",
-  "label": "Celebrities",
-  "counts": {
-   "B1": 3,
-   "B2": 3
-  },
-  "total": 6
  },
  {
   "id": "culture",
@@ -47,9 +49,10 @@
   "counts": {
    "B1": 2,
    "C1": 1,
-   "B2": 2
+   "B2": 2,
+   "A1": 1
   },
-  "total": 5
+  "total": 6
  },
  {
   "id": "sport",
@@ -58,6 +61,16 @@
    "B1": 2,
    "A2": 1,
    "B2": 1
+  },
+  "total": 4
+ },
+ {
+  "id": "technology",
+  "label": "Technology",
+  "counts": {
+   "B1": 2,
+   "A1": 1,
+   "C2": 1
   },
   "total": 4
  },
@@ -79,15 +92,6 @@
    "B1": 1,
    "A2": 1,
    "C2": 1
-  },
-  "total": 3
- },
- {
-  "id": "technology",
-  "label": "Technology",
-  "counts": {
-   "B1": 2,
-   "A1": 1
   },
   "total": 3
  }
