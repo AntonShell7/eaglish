@@ -630,5 +630,174 @@
     "explanation": "The city can stop falling but cannot come back up."
    }
   ]
+ },
+ {
+  "id": "the-island-that-changes-country",
+  "level": "A2",
+  "topic": "travel",
+  "generated": false,
+  "title": "The Island That Changes Country Twice a Year",
+  "sentences": [
+   {
+    "text": "There is a small island in a river between France and Spain.",
+    "translationRu": "На реке между Францией и Испанией есть маленький остров."
+   },
+   {
+    "text": "It is called Pheasant Island.",
+    "translationRu": "Он называется Фазаний остров."
+   },
+   {
+    "text": "It is not big.",
+    "translationRu": "Он невелик."
+   },
+   {
+    "text": "You can walk from one end to the other in less than a minute.",
+    "translationRu": "От одного конца до другого можно дойти меньше чем за минуту."
+   },
+   {
+    "text": "Nobody lives there.",
+    "translationRu": "Никто там не живёт."
+   },
+   {
+    "text": "There are some trees, some grass, and a stone with words on it.",
+    "translationRu": "Там несколько деревьев, немного травы и камень с надписью."
+   },
+   {
+    "text": "But this island is special, because it belongs to two countries.",
+    "translationRu": "Но остров особенный: он принадлежит двум странам."
+   },
+   {
+    "text": "Not at the same time.",
+    "translationRu": "Не одновременно."
+   },
+   {
+    "text": "From February to July, it is Spanish.",
+    "translationRu": "С февраля по июль он испанский."
+   },
+   {
+    "text": "From August to January, it is French.",
+    "translationRu": "С августа по январь — французский."
+   },
+   {
+    "text": "Then it changes again, every year.",
+    "translationRu": "И так каждый год."
+   },
+   {
+    "text": "This has been happening since 1659.",
+    "translationRu": "Так продолжается с 1659 года."
+   },
+   {
+    "text": "In that year, the two countries stopped a long war.",
+    "translationRu": "В том году две страны прекратили долгую войну."
+   },
+   {
+    "text": "They needed a place to talk.",
+    "translationRu": "Им нужно было место для переговоров."
+   },
+   {
+    "text": "The island was in the middle, so it was good for both sides.",
+    "translationRu": "Остров был посередине — и подошёл обеим сторонам."
+   },
+   {
+    "text": "They also decided to share it, and they never stopped.",
+    "translationRu": "Они решили и владеть им по очереди — и с тех пор не переставали."
+   },
+   {
+    "text": "Today two navy officers meet there and sign a paper.",
+    "translationRu": "Сегодня двое морских офицеров встречаются там и подписывают бумагу."
+   },
+   {
+    "text": "Then the island has a new country for six months.",
+    "translationRu": "И на полгода у острова новая страна."
+   },
+   {
+    "text": "Normal people cannot go to the island.",
+    "translationRu": "Обычным людям на остров нельзя."
+   },
+   {
+    "text": "You can only look at it from the river bank.",
+    "translationRu": "На него можно только смотреть с берега."
+   },
+   {
+    "text": "It is probably the smallest and quietest border in the world.",
+    "translationRu": "Наверное, это самая маленькая и тихая граница в мире."
+   }
+  ],
+  "glossary": {
+   "island": {
+    "translation": "остров",
+    "partOfSpeech": "noun"
+   },
+   "grass": {
+    "translation": "трава",
+    "partOfSpeech": "noun"
+   },
+   "belong to": {
+    "translation": "принадлежать",
+    "partOfSpeech": "phrase"
+   },
+   "war": {
+    "translation": "война",
+    "partOfSpeech": "noun"
+   },
+   "share": {
+    "translation": "делить, владеть совместно",
+    "partOfSpeech": "verb"
+   },
+   "officer": {
+    "translation": "офицер",
+    "partOfSpeech": "noun"
+   },
+   "sign": {
+    "translation": "подписывать",
+    "partOfSpeech": "verb"
+   },
+   "bank": {
+    "translation": "берег",
+    "partOfSpeech": "noun"
+   },
+   "border": {
+    "translation": "граница",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-island-that-changes-country-q1",
+    "question": "When is the island Spanish?",
+    "options": [
+     "All year",
+     "From February to July",
+     "From August to January",
+     "Never"
+    ],
+    "answer": 1,
+    "explanation": "It is French for the other six months."
+   },
+   {
+    "id": "the-island-that-changes-country-q2",
+    "question": "Why did the two countries meet there in 1659?",
+    "options": [
+     "To build a bridge",
+     "To stop a long war, on ground in the middle",
+     "To fish",
+     "To plant trees"
+    ],
+    "answer": 1,
+    "explanation": "The island was good for both sides."
+   },
+   {
+    "id": "the-island-that-changes-country-q3",
+    "question": "Can visitors go to the island?",
+    "options": [
+     "Yes, in summer",
+     "No, you can only look from the bank",
+     "Only Spanish people",
+     "Only by boat"
+    ],
+    "answer": 1,
+    "explanation": "Stated near the end."
+   }
+  ]
  }
 ]

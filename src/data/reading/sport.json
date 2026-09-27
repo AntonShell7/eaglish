@@ -682,5 +682,170 @@
     "explanation": "Almost none have even three."
    }
   ]
+ },
+ {
+  "id": "the-longest-tennis-match",
+  "level": "A1",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Tennis Match That Lasted Three Days",
+  "sentences": [
+   {
+    "text": "A tennis match is usually two or three hours.",
+    "translationRu": "Теннисный матч обычно идёт два-три часа."
+   },
+   {
+    "text": "Sometimes four.",
+    "translationRu": "Иногда четыре."
+   },
+   {
+    "text": "In 2010, at Wimbledon in London, two men played for eleven hours.",
+    "translationRu": "В 2010 году на Уимблдоне в Лондоне двое играли одиннадцать часов."
+   },
+   {
+    "text": "Their names were John Isner and Nicolas Mahut.",
+    "translationRu": "Их звали Джон Изнер и Николя Маю."
+   },
+   {
+    "text": "The match did not finish in one day.",
+    "translationRu": "Матч не закончился за один день."
+   },
+   {
+    "text": "It did not finish in two days.",
+    "translationRu": "Не закончился и за два."
+   },
+   {
+    "text": "It took three days.",
+    "translationRu": "Он занял три дня."
+   },
+   {
+    "text": "The problem was the last set.",
+    "translationRu": "Проблема была в последнем сете."
+   },
+   {
+    "text": "In that set, you must win by two games, so the set can go on and on.",
+    "translationRu": "В нём нужно выиграть с разницей в два гейма, поэтому сет может длиться и длиться."
+   },
+   {
+    "text": "The score in the last set was 70-68.",
+    "translationRu": "Счёт в последнем сете был 70:68."
+   },
+   {
+    "text": "Normally a set finishes at six.",
+    "translationRu": "Обычно сет заканчивается на шести."
+   },
+   {
+    "text": "On the second evening, it was too dark to see the ball, and they stopped.",
+    "translationRu": "На второй вечер стало слишком темно, чтобы видеть мяч, и они остановились."
+   },
+   {
+    "text": "They came back the next day and played again.",
+    "translationRu": "На следующий день они вернулись и играли снова."
+   },
+   {
+    "text": "The screen with the score broke, because nobody made it for numbers so big.",
+    "translationRu": "Табло со счётом сломалось: его никто не делал под такие большие числа."
+   },
+   {
+    "text": "Isner won at the end.",
+    "translationRu": "В конце победил Изнер."
+   },
+   {
+    "text": "Then he lost his next match very quickly, because he could not walk well.",
+    "translationRu": "Потом он очень быстро проиграл следующий матч, потому что едва ходил."
+   },
+   {
+    "text": "The two players were given a small gift by Wimbledon.",
+    "translationRu": "Уимблдон подарил обоим по небольшому подарку."
+   },
+   {
+    "text": "There is a sign on the court today with their names on it.",
+    "translationRu": "Сегодня на корте висит табличка с их именами."
+   },
+   {
+    "text": "A few years later, tennis changed the rules.",
+    "translationRu": "Через несколько лет теннис поменял правила."
+   },
+   {
+    "text": "Now the last set cannot go on forever.",
+    "translationRu": "Теперь последний сет не может идти вечно."
+   },
+   {
+    "text": "So this match will probably never happen again.",
+    "translationRu": "Так что такой матч, скорее всего, больше не повторится."
+   }
+  ],
+  "glossary": {
+   "match": {
+    "translation": "матч",
+    "partOfSpeech": "noun"
+   },
+   "set": {
+    "translation": "сет",
+    "partOfSpeech": "noun"
+   },
+   "game": {
+    "translation": "гейм; игра",
+    "partOfSpeech": "noun"
+   },
+   "score": {
+    "translation": "счёт",
+    "partOfSpeech": "noun"
+   },
+   "dark": {
+    "translation": "тёмный",
+    "partOfSpeech": "adjective"
+   },
+   "screen": {
+    "translation": "экран, табло",
+    "partOfSpeech": "noun"
+   },
+   "rule": {
+    "translation": "правило",
+    "partOfSpeech": "noun"
+   },
+   "forever": {
+    "translation": "вечно",
+    "partOfSpeech": "adverb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-longest-tennis-match-q1",
+    "question": "How long did the match last?",
+    "options": [
+     "Three hours",
+     "Eleven hours over three days",
+     "One long day",
+     "Two days"
+    ],
+    "answer": 1,
+    "explanation": "It did not finish in one day or two."
+   },
+   {
+    "id": "the-longest-tennis-match-q2",
+    "question": "Why can the last set go on and on?",
+    "options": [
+     "Nobody is watching",
+     "You must win by two games",
+     "There is no umpire",
+     "The players are tired"
+    ],
+    "answer": 1,
+    "explanation": "The score reached 70-68."
+   },
+   {
+    "id": "the-longest-tennis-match-q3",
+    "question": "What happened to the score screen?",
+    "options": [
+     "It was turned off",
+     "It broke",
+     "It showed the wrong score",
+     "It was moved"
+    ],
+    "answer": 1,
+    "explanation": "Nobody made it for numbers so big."
+   }
+  ]
  }
 ]

@@ -674,5 +674,190 @@
     "explanation": "You cannot fix the forecast; you can make it matter less."
    }
   ]
+ },
+ {
+  "id": "why-your-battery-dies",
+  "level": "B2",
+  "topic": "technology",
+  "generated": false,
+  "title": "Your Phone Battery Is Dying on Purpose",
+  "sentences": [
+   {
+    "text": "A phone that held a full day when you bought it holds most of an afternoon two years later.",
+    "translationRu": "Телефон, который при покупке держал целый день, через два года держит полдня."
+   },
+   {
+    "text": "Nothing is broken, and the battery is not being sabotaged by the manufacturer, whatever the internet says.",
+    "translationRu": "Ничего не сломано, и производитель батарею не саботирует, что бы ни писали в интернете."
+   },
+   {
+    "text": "What is happening is chemistry doing exactly what it always does, slightly faster than anyone would like.",
+    "translationRu": "Происходит химия, делающая ровно то, что делает всегда, — чуть быстрее, чем хотелось бы."
+   },
+   {
+    "text": "A lithium-ion cell works by moving lithium ions from one side to the other and back.",
+    "translationRu": "Литий-ионный элемент работает, перегоняя ионы лития с одной стороны на другую и обратно."
+   },
+   {
+    "text": "Charging pushes them into the negative electrode; using the phone lets them travel back.",
+    "translationRu": "Зарядка загоняет их в отрицательный электрод; работа телефона позволяет им вернуться."
+   },
+   {
+    "text": "Nothing is burnt and nothing is consumed, which is why the thing is rechargeable at all.",
+    "translationRu": "Ничего не сгорает и не расходуется — именно поэтому всё это вообще перезаряжаемо."
+   },
+   {
+    "text": "The trouble is at the surfaces.",
+    "translationRu": "Беда — на поверхностях."
+   },
+   {
+    "text": "Every time ions cross, a very thin layer builds up where the electrode meets the liquid, and a few lithium ions get locked into that layer permanently.",
+    "translationRu": "При каждом переходе на границе электрода и жидкости нарастает очень тонкий слой, и несколько ионов лития навсегда застревают в нём."
+   },
+   {
+    "text": "They are still inside the battery.",
+    "translationRu": "Они по-прежнему внутри батареи."
+   },
+   {
+    "text": "They are simply no longer available, in the way that money in a wall is still money.",
+    "translationRu": "Просто они больше недоступны — как деньги, замурованные в стене, всё ещё деньги."
+   },
+   {
+    "text": "Do that a few hundred times and the cell holds visibly less.",
+    "translationRu": "Проделай это пару сотен раз — и ёмкость заметно падает."
+   },
+   {
+    "text": "Two things make it happen much faster, and both are ordinary.",
+    "translationRu": "Две вещи сильно это ускоряют, и обе — бытовые."
+   },
+   {
+    "text": "Heat is the first: the layer grows faster when warm, so a phone left on a car dashboard in summer, or charged fast inside a thick case, ages in weeks the way it would otherwise age in months.",
+    "translationRu": "Первая — жара: слой растёт быстрее в тепле, так что телефон, оставленный летом на приборной панели или заряжаемый быстро в толстом чехле, стареет за недели так, как иначе старел бы за месяцы."
+   },
+   {
+    "text": "The second is time spent at a full charge.",
+    "translationRu": "Вторая — время, проведённое на полном заряде."
+   },
+   {
+    "text": "A cell sitting at one hundred per cent is under real electrical pressure, and pressure is what drives the unwanted reaction.",
+    "translationRu": "Элемент на ста процентах находится под настоящим электрическим давлением, а давление и гонит нежелательную реакцию."
+   },
+   {
+    "text": "A cell sitting at fifty is comfortable.",
+    "translationRu": "Элементу на пятидесяти комфортно."
+   },
+   {
+    "text": "This is why phones now learn your alarm and deliberately stop at eighty per cent overnight, finishing the last twenty just before you wake.",
+    "translationRu": "Поэтому телефоны теперь запоминают будильник и нарочно останавливаются на восьмидесяти процентах на ночь, добирая последние двадцать перед подъёмом."
+   },
+   {
+    "text": "It looks like the phone is failing to charge.",
+    "translationRu": "Выглядит так, будто телефон не дозаряжается."
+   },
+   {
+    "text": "It is the single most useful thing the software does for the hardware.",
+    "translationRu": "На деле это самое полезное, что софт делает для железа."
+   },
+   {
+    "text": "The practical advice follows from all of it and is unexciting.",
+    "translationRu": "Практический вывод отсюда очевиден и скучен."
+   },
+   {
+    "text": "Keep it cool, avoid long stretches at full, do not bother running it flat, and accept that a battery is a consumable part with a life of roughly three to five years, like tyres.",
+    "translationRu": "Держи прохладным, избегай долгих стоянок на полном, не гоняйся за полным разрядом и прими, что батарея — расходник со сроком примерно в три-пять лет, как шины."
+   },
+   {
+    "text": "The argument worth having is not about chemistry but about design: whether that consumable part should be glued in.",
+    "translationRu": "Спорить стоит не о химии, а о конструкции: должен ли этот расходник быть вклеен."
+   }
+  ],
+  "glossary": {
+   "cell": {
+    "translation": "элемент (батареи)",
+    "partOfSpeech": "noun"
+   },
+   "electrode": {
+    "translation": "электрод",
+    "partOfSpeech": "noun"
+   },
+   "rechargeable": {
+    "translation": "перезаряжаемый",
+    "partOfSpeech": "adjective"
+   },
+   "layer": {
+    "translation": "слой",
+    "partOfSpeech": "noun"
+   },
+   "locked in": {
+    "translation": "запертый, застрявший",
+    "partOfSpeech": "phrase"
+   },
+   "dashboard": {
+    "translation": "приборная панель",
+    "partOfSpeech": "noun"
+   },
+   "age": {
+    "translation": "стареть",
+    "partOfSpeech": "verb"
+   },
+   "consumable": {
+    "translation": "расходный",
+    "partOfSpeech": "adjective"
+   },
+   "glue in": {
+    "translation": "вклеить",
+    "partOfSpeech": "phrase"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-your-battery-dies-q1",
+    "question": "Where does the capacity actually go?",
+    "options": [
+     "It leaks out",
+     "Lithium gets locked into a layer at the surfaces",
+     "The software hides it",
+     "The screen uses it"
+    ],
+    "answer": 1,
+    "explanation": "Still inside, but no longer available."
+   },
+   {
+    "id": "why-your-battery-dies-q2",
+    "question": "Why is heat a problem?",
+    "options": [
+     "It melts the case",
+     "The unwanted layer grows faster when warm",
+     "It drains the charge",
+     "It damages the screen"
+    ],
+    "answer": 1,
+    "explanation": "Weeks instead of months."
+   },
+   {
+    "id": "why-your-battery-dies-q3",
+    "question": "Why do phones stop at eighty per cent overnight?",
+    "options": [
+     "To save electricity",
+     "A full charge keeps the cell under electrical pressure",
+     "To wake you later",
+     "To test the battery"
+    ],
+    "answer": 1,
+    "explanation": "It looks like a fault; it is the most useful thing the software does."
+   },
+   {
+    "id": "why-your-battery-dies-q4",
+    "question": "What does the text say the real argument is about?",
+    "options": [
+     "Chemistry",
+     "Design — whether a consumable part should be glued in",
+     "Charger speed",
+     "Battery size"
+    ],
+    "answer": 1,
+    "explanation": "The closing sentence."
+   }
+  ]
  }
 ]

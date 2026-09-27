@@ -859,5 +859,186 @@
     "explanation": "The crowd stops being a crowd."
    }
   ]
+ },
+ {
+  "id": "why-everyone-dresses-the-same",
+  "level": "C1",
+  "topic": "society",
+  "generated": false,
+  "title": "Why Everyone Suddenly Started Dressing the Same",
+  "sentences": [
+   {
+    "text": "Walk through any large city and you will notice that a great many strangers have independently arrived at the same silhouette.",
+    "translationRu": "Пройдись по любому большому городу — и заметишь, что множество незнакомых людей независимо друг от друга пришли к одному силуэту."
+   },
+   {
+    "text": "Fashion has always moved in waves, but the wave used to be slow enough to be invisible from inside it.",
+    "translationRu": "Мода всегда шла волнами, но раньше волна была достаточно медленной, чтобы изнутри её не видеть."
+   },
+   {
+    "text": "A look took two or three years to travel from a runway in Paris to a high street in a provincial town, which was long enough for it to be adapted, misunderstood and made local on the way.",
+    "translationRu": "Образ шёл с парижского подиума до улицы провинциального города два-три года — достаточно долго, чтобы по пути его адаптировали, поняли не так и сделали местным."
+   },
+   {
+    "text": "That delay was where regional style came from, and the delay has gone.",
+    "translationRu": "Именно в этой задержке рождался региональный стиль — и задержка исчезла."
+   },
+   {
+    "text": "Two mechanisms removed it, and they are not the ones usually blamed.",
+    "translationRu": "Её убрали два механизма, и не те, которых обычно винят."
+   },
+   {
+    "text": "The first is the supply chain.",
+    "translationRu": "Первый — цепочка поставок."
+   },
+   {
+    "text": "A garment can now be designed, cut, sewn and delivered within a fortnight, which means a retailer no longer forecasts a season; it watches what is selling this week and manufactures more of it.",
+    "translationRu": "Вещь сегодня можно спроектировать, раскроить, сшить и доставить за две недели, а значит ритейлер больше не прогнозирует сезон: он смотрит, что продаётся на этой неделе, и производит этого больше."
+   },
+   {
+    "text": "Production has become a feedback loop rather than a bet, and feedback loops converge.",
+    "translationRu": "Производство стало обратной связью, а не ставкой, — а обратные связи сходятся."
+   },
+   {
+    "text": "The second is recommendation.",
+    "translationRu": "Второй — рекомендации."
+   },
+   {
+    "text": "An algorithm that shows people what similar people engaged with is, by construction, a machine for amplifying whatever is already slightly popular.",
+    "translationRu": "Алгоритм, показывающий людям то, на что реагировали похожие люди, по устройству своему есть машина усиления всего, что уже немного популярно."
+   },
+   {
+    "text": "It does not have a taste to impose.",
+    "translationRu": "Своего вкуса он не навязывает."
+   },
+   {
+    "text": "It has a bias towards agreement, and the aggregate of a billion small agreements is a monoculture.",
+    "translationRu": "У него есть склонность к согласию, а сумма миллиарда мелких согласий — это монокультура."
+   },
+   {
+    "text": "The visible result is a cycle that now completes in months.",
+    "translationRu": "Видимый итог — цикл, который теперь замыкается за месяцы."
+   },
+   {
+    "text": "A garment appears, saturates, becomes a shorthand for being late, and is gone, and the people wearing it were not slower than anyone else; they simply bought it at the moment the curve turned.",
+    "translationRu": "Вещь появляется, насыщает рынок, превращается в знак «опоздал» и исчезает, и те, кто в ней ходит, не медленнее прочих — они просто купили её в момент, когда кривая повернула."
+   },
+   {
+    "text": "There is a decent argument that this is not fashion accelerating but fashion ending, because a trend requires somewhere for it to spread from and somewhere for it not to have reached yet.",
+    "translationRu": "Есть неплохой довод, что это не ускорение моды, а её конец: тренду нужно место, откуда расходиться, и место, куда он ещё не дошёл."
+   },
+   {
+    "text": "When everyone is served the same feed on the same day, the geography that a trend used to travel across no longer exists.",
+    "translationRu": "Когда всем в один день отдают одну и ту же ленту, географии, по которой тренд раньше путешествовал, больше нет."
+   },
+   {
+    "text": "What replaces it is interesting.",
+    "translationRu": "Замена любопытна."
+   },
+   {
+    "text": "Distinction migrates from what you wear to how you signal that you were not told to wear it: a specific old thing, an obscure brand, a deliberate refusal.",
+    "translationRu": "Отличие переезжает с того, что ты носишь, на то, как ты показываешь, что тебе этого не подсказывали: конкретная старая вещь, малоизвестная марка, демонстративный отказ."
+   },
+   {
+    "text": "Those signals are then detected, indexed and sold back within a season, which is the same machine running one level up.",
+    "translationRu": "Эти сигналы затем распознают, каталогизируют и перепродают тебе же за сезон — та же машина уровнем выше."
+   },
+   {
+    "text": "The only stable exit anybody has found is to stop treating clothes as a message, which is easy to write and, for most people at most ages, almost impossible to mean.",
+    "translationRu": "Единственный устойчивый выход, который нашли, — перестать считать одежду сообщением; написать это легко, а для большинства людей в большинстве возрастов — почти невозможно всерьёз."
+   }
+  ],
+  "glossary": {
+   "silhouette": {
+    "translation": "силуэт",
+    "partOfSpeech": "noun"
+   },
+   "runway": {
+    "translation": "подиум",
+    "partOfSpeech": "noun"
+   },
+   "high street": {
+    "translation": "главная торговая улица",
+    "partOfSpeech": "noun"
+   },
+   "garment": {
+    "translation": "предмет одежды",
+    "partOfSpeech": "noun"
+   },
+   "fortnight": {
+    "translation": "две недели",
+    "partOfSpeech": "noun"
+   },
+   "retailer": {
+    "translation": "розничный продавец",
+    "partOfSpeech": "noun"
+   },
+   "converge": {
+    "translation": "сходиться",
+    "partOfSpeech": "verb"
+   },
+   "amplify": {
+    "translation": "усиливать",
+    "partOfSpeech": "verb"
+   },
+   "saturate": {
+    "translation": "насыщать",
+    "partOfSpeech": "verb"
+   },
+   "distinction": {
+    "translation": "отличие, особость",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-everyone-dresses-the-same-q1",
+    "question": "Where did regional style come from, according to the text?",
+    "options": [
+     "Local materials",
+     "The delay between a runway and a provincial high street",
+     "Local designers",
+     "Climate"
+    ],
+    "answer": 1,
+    "explanation": "Long enough to be adapted and made local."
+   },
+   {
+    "id": "why-everyone-dresses-the-same-q2",
+    "question": "How has production changed?",
+    "options": [
+     "It is slower",
+     "It is a feedback loop rather than a bet, and loops converge",
+     "It moved abroad",
+     "It is seasonal"
+    ],
+    "answer": 1,
+    "explanation": "Retailers watch what sells this week."
+   },
+   {
+    "id": "why-everyone-dresses-the-same-q3",
+    "question": "What does the recommendation algorithm actually do?",
+    "options": [
+     "Impose a taste",
+     "Amplify whatever is already slightly popular",
+     "Follow designers",
+     "Predict weather"
+    ],
+    "answer": 1,
+    "explanation": "A bias towards agreement."
+   },
+   {
+    "id": "why-everyone-dresses-the-same-q4",
+    "question": "What happens to signals of distinction?",
+    "options": [
+     "They last",
+     "They are detected, indexed and sold back within a season",
+     "They are banned",
+     "They spread slowly"
+    ],
+    "answer": 1,
+    "explanation": "The same machine one level up."
+   }
+  ]
  }
 ]
