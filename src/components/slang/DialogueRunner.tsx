@@ -141,9 +141,10 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
       </button>
 
       <header className="sl-run__head">
-        <p className="eyebrow">
-          {dialogue.level} · {t(`slangModule.stage.${stage === "done" ? "checks" : stage}`)}
-        </p>
+        {/* No level here either. The shelf stopped showing one because
+            colloquial English does not vary along that axis, and a runner that
+            reintroduces it contradicts the room it was opened from. */}
+        <p className="eyebrow">{t(`slangModule.stage.${stage === "done" ? "checks" : stage}`)}</p>
         <h2 className="page-title mt-2 text-3xl">{ru ? dialogue.titleRu : dialogue.title}</h2>
         <p className="sl-run__scene">{ru ? dialogue.sceneRu : dialogue.scene}</p>
       </header>
@@ -166,6 +167,8 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
          */
         <div className={opened ? "sl-read is-open" : "sl-read"}>
           <div className="sl-read__main">
+            <p className="sl-hint sl-hint--lead">{t("slangModule.tapHint")}</p>
+
             <div className="sl-dialogue">
             {dialogue.lines.map((line, i) => (
               <p key={i} className={line.who === 0 ? "sl-line sl-line--a" : "sl-line sl-line--b"}>
@@ -200,7 +203,23 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
             ))}
             </div>
 
-            <p className="sl-hint">{t("slangModule.tapHint")}</p>
+            {/* What registers turned up in this conversation. The panel says
+                it one phrase at a time; this is the only place a learner sees
+                the shape of the whole thing, which is the point of the axis. */}
+            <ul className="sl-registers">
+              {(["neutral", "casual", "veryCasual"] as const)
+                .map((register) => ({
+                  register,
+                  count: dialogue.expressions.filter((e) => e.register === register).length,
+                }))
+                .filter((entry) => entry.count > 0)
+                .map(({ register, count }) => (
+                  <li key={register} className={`sl-register is-${register}`}>
+                    <span className="sl-register__dot" aria-hidden />
+                    {t(`everyday.registerShort.${register}`)} · {count}
+                  </li>
+                ))}
+            </ul>
 
             <button type="button" className="btn btn--primary mt-6" onClick={() => setStage("checks")}>
               {t("slangModule.toChecks")}
@@ -227,6 +246,9 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
             const given = answers[i];
             return (
               <section key={i} className="sl-check">
+                <p className="sl-check__count">
+                  {i + 1} / {dialogue.checks.length}
+                </p>
                 <p className="sl-check__text">{check.text}</p>
                 <p className="sl-check__q">{check.question}</p>
 
@@ -245,7 +267,10 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
                         onClick={() => answer(i, j)}
                         disabled={given !== null}
                       >
-                        {option}
+                        <span className="sl-option__key" aria-hidden>
+                          {String.fromCharCode(65 + j)}
+                        </span>
+                        <span>{option}</span>
                       </button>
                     );
                   })}

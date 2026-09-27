@@ -46,6 +46,10 @@
 .sl-line--b {
   margin-left: 28px;
   background: var(--color-surface-2);
+  /* Was borderless, which in the dark theme read as an unfinished card rather
+     than a deliberate contrast. Both speakers get a rim; the fill carries the
+     difference. */
+  border: 1px solid var(--color-border);
 }
 
 .sl-line__who {
@@ -57,10 +61,13 @@
 }
 
 /* A marked expression is underlined rather than highlighted: a line with four
-   coloured blocks in it stops being readable, and reading it is the exercise. */
+   coloured blocks in it stops being readable, and reading it is the exercise.
+   Gold rather than mint, because every other mark in the app moved to gold and
+   a section that keeps its own accent reads as a different product. */
 .sl-mark {
   border: 0;
-  padding: 0;
+  padding: 1px 2px;
+  margin: 0 -2px;
   font: inherit;
   color: inherit;
   background: none;
@@ -69,14 +76,30 @@
   text-decoration-style: dotted;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
-  text-decoration-color: var(--color-primary);
-  transition: background var(--dur-2) var(--ease);
-  border-radius: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 70%, transparent);
+  border-radius: 4px;
+  transition:
+    background var(--dur-2) var(--ease),
+    text-decoration-color var(--dur-2) var(--ease);
 }
 
-.sl-mark:hover,
+.sl-mark:hover {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  text-decoration-color: var(--color-accent);
+}
+
+/*
+ * The open one has to be unmistakable, and it was not: hover and open shared a
+ * style, so with the panel on the right there was no way to tell which of six
+ * underlined phrases it was showing. It is solid, filled and a shade darker
+ * now — one phrase on the page looks like this at a time.
+ */
 .sl-mark.is-open {
-  background: var(--color-primary-soft);
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-accent);
+  font-weight: 600;
 }
 
 .sl-hint {
@@ -146,10 +169,13 @@
   }
 }
 
+/* Small on purpose. The panel is swapped far more often than it is opened —
+   one tap per expression down a conversation — and an 8px jump on every swap
+   reads as the layout twitching rather than as the content changing. */
 @keyframes sl-rise {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(4px);
   }
 }
 
@@ -255,10 +281,14 @@
   background: var(--color-surface);
 }
 
+/* A quoted line, set as a quotation rather than in italics: a whole sentence
+   in italic is measurably slower to read, and this is the sentence the question
+   is about. */
 .sl-check__text {
+  padding-left: 14px;
+  border-left: 2px solid color-mix(in srgb, var(--color-accent) 45%, transparent);
   font-size: 1.02rem;
   line-height: 1.6;
-  font-style: italic;
 }
 
 .sl-check__q {
@@ -275,6 +305,9 @@
 }
 
 .sl-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
   padding: 11px 14px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -290,7 +323,37 @@
 }
 
 .sl-option:hover:not(:disabled) {
-  border-color: var(--color-border-strong);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
+  background: var(--color-surface-3);
+}
+
+/* The letter is a target as much as a label: it gives the row a fixed left
+   edge so four options of different lengths still scan as a column. */
+.sl-option__key {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+}
+
+.sl-option.is-right .sl-option__key {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: #fff;
+}
+
+.sl-option.is-wrong .sl-option__key {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #fff;
 }
 
 .sl-option:disabled {
@@ -331,89 +394,65 @@
   gap: 8px;
 }
 
-/* ── The shelf ──────────────────────────────────────────────────────────── */
+/* ── Register, at a glance ──────────────────────────────────────────────── */
 
-.sl-grid {
-  margin-top: 22px;
-  display: grid;
-  gap: 14px;
-}
-
-@media (min-width: 680px) {
-  .sl-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1040px) {
-  .sl-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.sl-card {
+/*
+ * The panel names a register one phrase at a time, which never adds up to a
+ * picture. This strip is the only place a learner sees the shape of the whole
+ * conversation — three neutral, four casual, one you would only say to a
+ * friend — and register is the axis this section exists to teach.
+ */
+.sl-registers {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 8px;
-  padding: 20px 22px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  font: inherit;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition:
-    transform var(--dur-2) var(--ease),
-    border-color var(--dur-2) var(--ease),
-    box-shadow var(--dur-2) var(--ease);
+  margin-top: 18px;
 }
 
-.sl-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-2);
-}
-
-.sl-card__top {
-  display: flex;
+.sl-register {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.sl-card__level {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-}
-
-.sl-card__done {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--color-success);
-}
-
-.sl-card__title {
-  font-family: var(--font-display);
-  font-size: 1.12rem;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-
-.sl-card__scene {
-  flex: 1;
-  font-size: 0.84rem;
-  line-height: 1.55;
+  gap: 7px;
+  padding: 5px 11px 5px 9px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  font-size: 0.74rem;
+  font-weight: 650;
   color: var(--color-text-muted);
 }
 
-.sl-card__meta {
-  font-size: 0.75rem;
+.sl-register__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Cool to warm as the room gets smaller: safe anywhere, safe with friends,
+   safe with these friends. */
+.sl-register.is-neutral {
+  color: var(--color-success);
+}
+
+.sl-register.is-casual {
+  color: var(--color-accent-ink);
+}
+
+.sl-register.is-veryCasual {
+  color: var(--color-danger);
+}
+
+/* A hint before the thing it explains, not after it. */
+.sl-hint--lead {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.sl-check__count {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   color: var(--color-text-faint);
+  margin-bottom: 10px;
 }
