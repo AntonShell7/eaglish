@@ -325,7 +325,12 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
         </div>
       </article>
 
-      <ComprehensionQuiz textId={text.id} questions={text.questions} />
+      <ComprehensionQuiz
+        textId={text.id}
+        questions={text.questions}
+        title={text.title}
+        words={Object.keys(text.glossary ?? {}).slice(0, 6)}
+      />
 
       {/* Work with the words this text contained, while it is still fresh. */}
       <WordWorkout text={text} />

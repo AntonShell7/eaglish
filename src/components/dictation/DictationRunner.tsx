@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkDictation, maskAgainst, worthLearning, type DictationResult } from "@/lib/dictation";
+import { RetellDrill } from "@/components/retell/RetellDrill";
 import { useSpeech } from "./useSpeech";
 import { clearProgress, getProgress, saveProgress } from "@/lib/dictationProgress";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
@@ -56,6 +57,10 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const [plays, setPlays] = useState(0);
   const [slow, setSlow] = useState(false);
   const [scores, setScores] = useState<number[]>(() => getProgress(id)?.scores ?? []);
+  /* Every word missed across the whole dictation, not just the last sentence.
+     The retelling at the end is about the session, and a learner who stumbled
+     on "brittle" in sentence four should be asked to use it. */
+  const [missedAll, setMissedAll] = useState<string[]>([]);
   const [saved, setSaved] = useState<Record<string, "saving" | "done" | "failed">>({});
   const input = useRef<HTMLTextAreaElement>(null);
   const [lookup, setLookup] = useState<LookupRequest | null>(null);
@@ -138,6 +143,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     // A perfect answer has nothing to hide behind, so it opens straight away.
     setRevealed(outcome.accuracy === 1);
     setScores((all) => [...all, outcome.accuracy]);
+    setMissedAll((all) => [...new Set([...all, ...outcome.missed])]);
   };
 
   const next = () => {
@@ -185,7 +191,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   if (done) {
     const average = scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
     return (
-      <div className="card mx-auto max-w-xl p-8 text-center">
+      <div className="card mx-auto max-w-2xl p-8 text-center">
         <p className="eyebrow">{t("dictation.finished")}</p>
         <p className="page-title mt-2 text-3xl">{Math.round(average * 100)}%</p>
         <p className="mx-auto mt-3 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
@@ -195,6 +201,12 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
           <button type="button" className="btn btn--primary" onClick={onExit}>
             {t("dictation.chooseAnother")}
           </button>
+        </div>
+
+        {/* The dictation is already scored and saved; this is the offer to do
+            something with the words that caught you out. */}
+        <div className="text-left">
+          <RetellDrill title={title} words={worthLearning(missedAll).slice(0, 6)} />
         </div>
       </div>
     );

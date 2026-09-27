@@ -3,13 +3,17 @@ import { useTranslation } from "react-i18next";
 import type { ComprehensionQuestion } from "@/data/readingTexts";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { recordQuizResult } from "@/lib/readingHistory";
+import { RetellDrill } from "@/components/retell/RetellDrill";
 
 interface ComprehensionQuizProps {
   textId: string;
   questions: ComprehensionQuestion[];
+  /** For the retelling offer that follows the answers. */
+  title: string;
+  words: string[];
 }
 
-export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps) {
+export function ComprehensionQuiz({ textId, questions, title, words }: ComprehensionQuizProps) {
   const { t } = useTranslation();
   const { finish } = useTaskDone();
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -31,11 +35,6 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
     // it has been understood. Once per text per day — retaking it to raise a
     // score is welcome, farming the daily goal with the same five questions is not.
     finish("reading", `quiz:${textId}`, t("tasks.quizDone"));
-  };
-
-  const handleRetry = () => {
-    setAnswers({});
-    setChecked(false);
   };
 
   return (
@@ -123,17 +122,12 @@ export function ComprehensionQuiz({ textId, questions }: ComprehensionQuizProps)
             <span className="text-sm" style={{ color: "var(--color-text-muted)" }}>
               {correctCount === questions.length ? t("reading.perfect") : t("reading.keepGoing")}
             </span>
-            <button
-              type="button"
-              onClick={handleRetry}
-              className="rounded-full border px-5 py-2.5 text-sm font-semibold"
-              style={{ borderColor: "var(--color-border)" }}
-            >
-              {t("reading.tryAgain")}
-            </button>
           </>
         )}
       </div>
+
+      {/* The text is finished and counted by now. What follows is an offer. */}
+      {checked && <RetellDrill title={title} words={words} />}
     </section>
   );
 }
