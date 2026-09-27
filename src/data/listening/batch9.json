@@ -1,0 +1,1237 @@
+[
+ {
+  "id": "the-first-olympics",
+  "level": "A1",
+  "topic": "sport",
+  "title": "The first Olympic Games had one event",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "The Olympic Games are very old.",
+    "translationRu": "Олимпийские игры очень старые."
+   },
+   {
+    "text": "They started in Greece.",
+    "translationRu": "Они начались в Греции."
+   },
+   {
+    "text": "About two thousand eight hundred years ago.",
+    "translationRu": "Примерно две тысячи восемьсот лет назад."
+   },
+   {
+    "text": "Today there are many sports.",
+    "translationRu": "Сегодня видов спорта много."
+   },
+   {
+    "text": "Running, swimming, jumping, boxing.",
+    "translationRu": "Бег, плавание, прыжки, бокс."
+   },
+   {
+    "text": "More than three hundred events.",
+    "translationRu": "Больше трёхсот дисциплин."
+   },
+   {
+    "text": "The first games had one.",
+    "translationRu": "В первых играх была одна."
+   },
+   {
+    "text": "Only one.",
+    "translationRu": "Всего одна."
+   },
+   {
+    "text": "It was a running race.",
+    "translationRu": "Это был забег."
+   },
+   {
+    "text": "About one hundred and ninety metres.",
+    "translationRu": "Примерно сто девяносто метров."
+   },
+   {
+    "text": "The length of the stadium.",
+    "translationRu": "Длина стадиона."
+   },
+   {
+    "text": "That was the whole games.",
+    "translationRu": "И это были все игры."
+   },
+   {
+    "text": "One race, and then everybody went home.",
+    "translationRu": "Один забег — и все расходились по домам."
+   },
+   {
+    "text": "We know the name of the first winner.",
+    "translationRu": "Мы знаем имя первого победителя."
+   },
+   {
+    "text": "He was a cook.",
+    "translationRu": "Он был поваром."
+   },
+   {
+    "text": "Slowly they added more sports.",
+    "translationRu": "Постепенно добавляли новые виды."
+   },
+   {
+    "text": "Longer races. Then wrestling.",
+    "translationRu": "Более длинные забеги. Потом борьбу."
+   },
+   {
+    "text": "Then a race in armour.",
+    "translationRu": "Потом бег в доспехах."
+   },
+   {
+    "text": "Runners carried a shield and a helmet.",
+    "translationRu": "Бегуны несли щит и шлем."
+   },
+   {
+    "text": "It was very heavy and people fell.",
+    "translationRu": "Было очень тяжело, и люди падали."
+   },
+   {
+    "text": "The crowd liked that part.",
+    "translationRu": "Публике это нравилось."
+   },
+   {
+    "text": "There were no medals.",
+    "translationRu": "Медалей не было."
+   },
+   {
+    "text": "The winner got a crown of leaves.",
+    "translationRu": "Победитель получал венок из листьев."
+   },
+   {
+    "text": "From a tree near the temple.",
+    "translationRu": "С дерева у храма."
+   },
+   {
+    "text": "That sounds like a small prize.",
+    "translationRu": "Звучит как маленький приз."
+   },
+   {
+    "text": "It was not.",
+    "translationRu": "Это было не так."
+   },
+   {
+    "text": "At home his city gave him money.",
+    "translationRu": "Дома его город давал ему деньги."
+   },
+   {
+    "text": "And free food for the rest of his life.",
+    "translationRu": "И бесплатную еду до конца жизни."
+   },
+   {
+    "text": "Sometimes they broke the city wall.",
+    "translationRu": "Иногда в стене города пробивали проход."
+   },
+   {
+    "text": "So he could enter through a new hole.",
+    "translationRu": "Чтобы он вошёл через новое отверстие."
+   },
+   {
+    "text": "A city with a hero, they said,",
+    "translationRu": "Город, у которого есть герой, говорили они,"
+   },
+   {
+    "text": "does not need a wall.",
+    "translationRu": "в стене не нуждается."
+   },
+   {
+    "text": "There was one strange rule.",
+    "translationRu": "Было одно странное правило."
+   },
+   {
+    "text": "During the games, wars had to stop.",
+    "translationRu": "На время игр войны должны были прекращаться."
+   },
+   {
+    "text": "Not everywhere, and not always.",
+    "translationRu": "Не везде и не всегда."
+   },
+   {
+    "text": "But enough for people to travel safely.",
+    "translationRu": "Но достаточно, чтобы люди могли безопасно доехать."
+   },
+   {
+    "text": "The games ran for over a thousand years.",
+    "translationRu": "Игры шли больше тысячи лет."
+   },
+   {
+    "text": "Then they stopped for fifteen hundred.",
+    "translationRu": "Потом остановились на полторы тысячи."
+   },
+   {
+    "text": "And then somebody started them again.",
+    "translationRu": "А потом кто-то начал их заново."
+   }
+  ]
+ },
+ {
+  "id": "why-a-football-is-not-round",
+  "level": "A2",
+  "topic": "sport",
+  "title": "A football is not actually round",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Look closely at a football.",
+    "translationRu": "Посмотри на футбольный мяч внимательно."
+   },
+   {
+    "text": "It is made of flat pieces.",
+    "translationRu": "Он сделан из плоских кусков."
+   },
+   {
+    "text": "Sewn or glued together.",
+    "translationRu": "Сшитых или склеенных."
+   },
+   {
+    "text": "So it is not a true ball.",
+    "translationRu": "Значит, это не настоящий шар."
+   },
+   {
+    "text": "It is a shape with many flat sides.",
+    "translationRu": "Это фигура со множеством плоских граней."
+   },
+   {
+    "text": "The classic one has thirty-two pieces.",
+    "translationRu": "У классического мяча тридцать два куска."
+   },
+   {
+    "text": "Twenty white ones with six sides.",
+    "translationRu": "Двадцать белых с шестью сторонами."
+   },
+   {
+    "text": "Twelve black ones with five sides.",
+    "translationRu": "Двенадцать чёрных с пятью."
+   },
+   {
+    "text": "Why not use only six-sided pieces?",
+    "translationRu": "Почему не использовать только шестиугольники?"
+   },
+   {
+    "text": "Because six-sided pieces make a flat sheet.",
+    "translationRu": "Потому что шестиугольники дают плоский лист."
+   },
+   {
+    "text": "Like the floor of a bathroom.",
+    "translationRu": "Как плитка в ванной."
+   },
+   {
+    "text": "They will never curve.",
+    "translationRu": "Они никогда не изогнутся."
+   },
+   {
+    "text": "The five-sided pieces are what bend it.",
+    "translationRu": "Изгибают его именно пятиугольники."
+   },
+   {
+    "text": "Each one pulls the sheet inwards.",
+    "translationRu": "Каждый стягивает лист внутрь."
+   },
+   {
+    "text": "You need exactly twelve of them.",
+    "translationRu": "И нужно ровно двенадцать."
+   },
+   {
+    "text": "Not eleven. Not thirteen. Twelve.",
+    "translationRu": "Не одиннадцать. Не тринадцать. Двенадцать."
+   },
+   {
+    "text": "This is not a football rule.",
+    "translationRu": "Это не футбольное правило."
+   },
+   {
+    "text": "It is a rule about shapes.",
+    "translationRu": "Это правило о формах."
+   },
+   {
+    "text": "It is true for any ball made this way.",
+    "translationRu": "Оно верно для любого такого мяча."
+   },
+   {
+    "text": "The black and white colours came later.",
+    "translationRu": "Чёрно-белая раскраска появилась позже."
+   },
+   {
+    "text": "They were chosen for television.",
+    "translationRu": "Её выбрали ради телевидения."
+   },
+   {
+    "text": "Television was black and white then.",
+    "translationRu": "Телевидение тогда было чёрно-белым."
+   },
+   {
+    "text": "A plain brown ball was hard to see.",
+    "translationRu": "Простой коричневый мяч было плохо видно."
+   },
+   {
+    "text": "The pattern made it easy to follow.",
+    "translationRu": "Рисунок позволял следить за мячом."
+   },
+   {
+    "text": "And you could see it spinning.",
+    "translationRu": "И было видно, как он вращается."
+   },
+   {
+    "text": "Modern balls have fewer pieces.",
+    "translationRu": "У современных мячей кусков меньше."
+   },
+   {
+    "text": "Some have only six.",
+    "translationRu": "У некоторых всего шесть."
+   },
+   {
+    "text": "Fewer seams means a smoother surface.",
+    "translationRu": "Меньше швов — глаже поверхность."
+   },
+   {
+    "text": "And a smoother ball moves differently.",
+    "translationRu": "А более гладкий мяч летит иначе."
+   },
+   {
+    "text": "One World Cup ball was very smooth.",
+    "translationRu": "Один мяч чемпионата мира был очень гладким."
+   },
+   {
+    "text": "Goalkeepers complained about it for months.",
+    "translationRu": "Вратари жаловались на него месяцами."
+   },
+   {
+    "text": "It moved in the air in a strange way.",
+    "translationRu": "Он странно вёл себя в воздухе."
+   },
+   {
+    "text": "Scientists tested it and agreed.",
+    "translationRu": "Учёные проверили и согласились."
+   },
+   {
+    "text": "A ball that is too smooth",
+    "translationRu": "Слишком гладкий мяч"
+   },
+   {
+    "text": "does not hold the air around it.",
+    "translationRu": "не удерживает воздух вокруг себя."
+   },
+   {
+    "text": "It moves late, and suddenly.",
+    "translationRu": "Он смещается поздно и резко."
+   },
+   {
+    "text": "Which is exactly what a goalkeeper hates.",
+    "translationRu": "А это ровно то, что вратарь ненавидит."
+   },
+   {
+    "text": "The next ball had small bumps added.",
+    "translationRu": "У следующего мяча добавили мелкие бугорки."
+   },
+   {
+    "text": "On purpose, to make it less perfect.",
+    "translationRu": "Нарочно, чтобы сделать его менее совершенным."
+   }
+  ]
+ },
+ {
+  "id": "how-ants-find-the-way",
+  "level": "B1",
+  "topic": "animals",
+  "title": "How a colony of ants solves a problem nobody understands",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Put food near an ant nest and wait.",
+    "translationRu": "Положи еду рядом с муравейником и подожди."
+   },
+   {
+    "text": "At first the ants wander.",
+    "translationRu": "Сначала муравьи бродят."
+   },
+   {
+    "text": "They go in every direction, badly.",
+    "translationRu": "Идут во все стороны, бестолково."
+   },
+   {
+    "text": "An hour later there is a clean line.",
+    "translationRu": "Через час появляется чёткая линия."
+   },
+   {
+    "text": "Two-way traffic, on the shortest route.",
+    "translationRu": "Двустороннее движение по кратчайшему пути."
+   },
+   {
+    "text": "No ant worked this out.",
+    "translationRu": "Ни один муравей этого не вычислил."
+   },
+   {
+    "text": "No ant could.",
+    "translationRu": "Ни один и не смог бы."
+   },
+   {
+    "text": "An individual ant is not clever.",
+    "translationRu": "Отдельный муравей не умён."
+   },
+   {
+    "text": "It has around a quarter of a million neurons.",
+    "translationRu": "У него около четверти миллиона нейронов."
+   },
+   {
+    "text": "It cannot see the nest and the food at once.",
+    "translationRu": "Он не видит гнездо и еду одновременно."
+   },
+   {
+    "text": "It has no map and no plan.",
+    "translationRu": "У него нет ни карты, ни плана."
+   },
+   {
+    "text": "What it has is a chemical.",
+    "translationRu": "Что у него есть — это вещество."
+   },
+   {
+    "text": "An ant that finds food walks home",
+    "translationRu": "Муравей, нашедший еду, идёт домой"
+   },
+   {
+    "text": "leaving a faint trail behind it.",
+    "translationRu": "оставляя за собой слабый след."
+   },
+   {
+    "text": "Other ants prefer to follow a trail.",
+    "translationRu": "Другие муравьи предпочитают идти по следу."
+   },
+   {
+    "text": "And they add their own as they go.",
+    "translationRu": "И добавляют свой по пути."
+   },
+   {
+    "text": "That is the entire rule.",
+    "translationRu": "Вот и всё правило."
+   },
+   {
+    "text": "Follow the smell, and add to it.",
+    "translationRu": "Иди по запаху и добавляй к нему."
+   },
+   {
+    "text": "Now watch what that produces.",
+    "translationRu": "Теперь смотри, что из этого выходит."
+   },
+   {
+    "text": "Imagine two routes to the same food.",
+    "translationRu": "Представь два пути к одной еде."
+   },
+   {
+    "text": "One short, one long.",
+    "translationRu": "Один короткий, один длинный."
+   },
+   {
+    "text": "Ants take both, at random, at first.",
+    "translationRu": "Сначала муравьи идут по обоим, случайно."
+   },
+   {
+    "text": "The ones on the short route get back sooner.",
+    "translationRu": "Те, кто на коротком, возвращаются раньше."
+   },
+   {
+    "text": "So they lay their trail sooner.",
+    "translationRu": "И раньше оставляют свой след."
+   },
+   {
+    "text": "And they go back out and lay it again.",
+    "translationRu": "Потом выходят снова и кладут его снова."
+   },
+   {
+    "text": "The short route gets stronger faster.",
+    "translationRu": "Короткий путь усиливается быстрее."
+   },
+   {
+    "text": "A stronger trail attracts more ants.",
+    "translationRu": "Более сильный след притягивает больше муравьёв."
+   },
+   {
+    "text": "More ants make it stronger still.",
+    "translationRu": "Больше муравьёв делают его ещё сильнее."
+   },
+   {
+    "text": "Meanwhile the chemical evaporates.",
+    "translationRu": "А вещество тем временем испаряется."
+   },
+   {
+    "text": "The long route fades faster than it is refreshed.",
+    "translationRu": "Длинный путь выцветает быстрее, чем обновляется."
+   },
+   {
+    "text": "Within an hour it is gone.",
+    "translationRu": "За час он исчезает."
+   },
+   {
+    "text": "Nobody chose the short route.",
+    "translationRu": "Короткий путь никто не выбирал."
+   },
+   {
+    "text": "It was not compared to the long one.",
+    "translationRu": "Его не сравнивали с длинным."
+   },
+   {
+    "text": "It simply survived a process.",
+    "translationRu": "Он просто пережил процесс."
+   },
+   {
+    "text": "That evaporation matters more than it sounds.",
+    "translationRu": "Испарение важнее, чем кажется."
+   },
+   {
+    "text": "Without it the first trail would win forever.",
+    "translationRu": "Без него первый след побеждал бы навсегда."
+   },
+   {
+    "text": "Even after the food was gone.",
+    "translationRu": "Даже когда еда кончилась."
+   },
+   {
+    "text": "Forgetting is what lets the colony change its mind.",
+    "translationRu": "Забывание и позволяет колонии передумать."
+   },
+   {
+    "text": "Engineers now copy this deliberately.",
+    "translationRu": "Инженеры теперь нарочно это копируют."
+   },
+   {
+    "text": "It is used to route data through networks.",
+    "translationRu": "Это применяют для маршрутизации данных в сетях."
+   },
+   {
+    "text": "And to plan delivery vans around a city.",
+    "translationRu": "И для планирования развозки по городу."
+   },
+   {
+    "text": "The method is named after the ants.",
+    "translationRu": "Метод назван в честь муравьёв."
+   },
+   {
+    "text": "Which is unusually honest for engineering.",
+    "translationRu": "Что для инженерии необычно честно."
+   }
+  ]
+ },
+ {
+  "id": "keeping-the-sea-out",
+  "level": "B2",
+  "topic": "cities",
+  "title": "A quarter of a country sits below the sea",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Around a quarter of the Netherlands",
+    "translationRu": "Примерно четверть Нидерландов"
+   },
+   {
+    "text": "lies below sea level.",
+    "translationRu": "лежит ниже уровня моря."
+   },
+   {
+    "text": "More than half is at risk of flooding.",
+    "translationRu": "Больше половины под угрозой затопления."
+   },
+   {
+    "text": "The largest cities are in that half.",
+    "translationRu": "И крупнейшие города — в этой половине."
+   },
+   {
+    "text": "None of that is a natural accident.",
+    "translationRu": "И это не природная случайность."
+   },
+   {
+    "text": "Much of the land was under water",
+    "translationRu": "Немалая часть этой земли была под водой"
+   },
+   {
+    "text": "and was taken back on purpose.",
+    "translationRu": "и была отвоёвана нарочно."
+   },
+   {
+    "text": "The method is old and unglamorous.",
+    "translationRu": "Метод старый и неэффектный."
+   },
+   {
+    "text": "Build a wall around a shallow area.",
+    "translationRu": "Обнеси мелководье стеной."
+   },
+   {
+    "text": "Then pump the water out from inside it.",
+    "translationRu": "Потом откачай воду изнутри."
+   },
+   {
+    "text": "Windmills did this for centuries.",
+    "translationRu": "Веками это делали ветряные мельницы."
+   },
+   {
+    "text": "Thousands of them, working in stages.",
+    "translationRu": "Тысячи мельниц, работая ступенями."
+   },
+   {
+    "text": "Each one lifting water a metre or two.",
+    "translationRu": "Каждая поднимала воду на метр-другой."
+   },
+   {
+    "text": "Passing it to the next one along.",
+    "translationRu": "И передавала следующей."
+   },
+   {
+    "text": "The land that appears is excellent.",
+    "translationRu": "Появляющаяся земля превосходна."
+   },
+   {
+    "text": "Flat, fertile, and immediately below the sea.",
+    "translationRu": "Плоская, плодородная и сразу ниже моря."
+   },
+   {
+    "text": "Which means the pumping never stops.",
+    "translationRu": "А значит, откачка не прекращается никогда."
+   },
+   {
+    "text": "Not for a season. Not for a year.",
+    "translationRu": "Ни на сезон. Ни на год."
+   },
+   {
+    "text": "Stop pumping anywhere in the country",
+    "translationRu": "Останови откачку где угодно в стране —"
+   },
+   {
+    "text": "and the water comes back within weeks.",
+    "translationRu": "и вода вернётся за недели."
+   },
+   {
+    "text": "The whole landscape is a machine",
+    "translationRu": "Весь этот ландшафт — машина,"
+   },
+   {
+    "text": "that has been switched on since the Middle Ages.",
+    "translationRu": "включённая со Средних веков."
+   },
+   {
+    "text": "The decisive event was in 1953.",
+    "translationRu": "Решающим событием стал 1953 год."
+   },
+   {
+    "text": "A storm met a spring tide at night.",
+    "translationRu": "Шторм совпал с высоким приливом ночью."
+   },
+   {
+    "text": "The old dykes failed in many places at once.",
+    "translationRu": "Старые дамбы рухнули сразу во многих местах."
+   },
+   {
+    "text": "More than eighteen hundred people died.",
+    "translationRu": "Погибло больше тысячи восьмисот человек."
+   },
+   {
+    "text": "The response was not to rebuild what failed.",
+    "translationRu": "Ответом было не восстановить то, что рухнуло."
+   },
+   {
+    "text": "It was to ask a different question.",
+    "translationRu": "Ответом был другой вопрос."
+   },
+   {
+    "text": "Not how high was the last flood.",
+    "translationRu": "Не «какой высоты было прошлое наводнение»."
+   },
+   {
+    "text": "But how often should this area flood at all.",
+    "translationRu": "А «как часто этот район вообще должен затапливаться»."
+   },
+   {
+    "text": "They chose numbers and then built to them.",
+    "translationRu": "Выбрали числа — и строили под них."
+   },
+   {
+    "text": "Once in four thousand years for a city.",
+    "translationRu": "Раз в четыре тысячи лет для города."
+   },
+   {
+    "text": "Once in a thousand for farmland.",
+    "translationRu": "Раз в тысячу для сельхозземель."
+   },
+   {
+    "text": "That is a political decision, not an engineering one.",
+    "translationRu": "Это политическое решение, а не инженерное."
+   },
+   {
+    "text": "It says out loud what a life is worth",
+    "translationRu": "Оно вслух говорит, сколько стоит жизнь"
+   },
+   {
+    "text": "compared to the cost of a wall.",
+    "translationRu": "по сравнению с ценой стены."
+   },
+   {
+    "text": "Most countries never write that number down.",
+    "translationRu": "Большинство стран этого числа не записывает."
+   },
+   {
+    "text": "The current thinking has changed again.",
+    "translationRu": "Нынешний подход снова изменился."
+   },
+   {
+    "text": "Higher walls create a quiet problem.",
+    "translationRu": "Высокие стены создают тихую проблему."
+   },
+   {
+    "text": "They make the rare failure worse.",
+    "translationRu": "Они делают редкую аварию хуже."
+   },
+   {
+    "text": "So some dykes have been moved backwards.",
+    "translationRu": "Поэтому часть дамб отодвинули назад."
+   },
+   {
+    "text": "Fields are allowed to flood on purpose.",
+    "translationRu": "Полям позволяют затапливаться нарочно."
+   },
+   {
+    "text": "Giving the water somewhere to go",
+    "translationRu": "Дать воде куда деться"
+   },
+   {
+    "text": "turns out to beat telling it not to come.",
+    "translationRu": "оказалось лучше, чем запрещать ей приходить."
+   }
+  ]
+ },
+ {
+  "id": "the-voice-they-studied",
+  "level": "C1",
+  "topic": "work",
+  "title": "The voice that scientists examined after it was gone",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Most singers are described in adjectives.",
+    "translationRu": "Большинство певцов описывают прилагательными."
+   },
+   {
+    "text": "Powerful, warm, distinctive, unique.",
+    "translationRu": "Мощный, тёплый, узнаваемый, уникальный."
+   },
+   {
+    "text": "None of which can be checked.",
+    "translationRu": "Ничего из этого не проверить."
+   },
+   {
+    "text": "In 2016 a group of voice scientists",
+    "translationRu": "В 2016 году группа исследователей голоса"
+   },
+   {
+    "text": "decided to check one of them anyway.",
+    "translationRu": "всё же решила проверить один из них."
+   },
+   {
+    "text": "They analysed recordings of Freddie Mercury.",
+    "translationRu": "Они разобрали записи Фредди Меркьюри."
+   },
+   {
+    "text": "And they hired a singer to imitate him",
+    "translationRu": "И наняли певца, чтобы тот его имитировал"
+   },
+   {
+    "text": "while a camera filmed inside the throat.",
+    "translationRu": "пока камера снимала происходящее в горле."
+   },
+   {
+    "text": "The first finding contradicted a famous claim.",
+    "translationRu": "Первый вывод опроверг известное утверждение."
+   },
+   {
+    "text": "His range was often reported as four octaves.",
+    "translationRu": "Его диапазон часто называли четырёхоктавным."
+   },
+   {
+    "text": "The recordings do not support that.",
+    "translationRu": "Записи этого не подтверждают."
+   },
+   {
+    "text": "What they support is something else.",
+    "translationRu": "Они подтверждают другое."
+   },
+   {
+    "text": "He was, by the measurements, a baritone",
+    "translationRu": "По измерениям он был баритоном,"
+   },
+   {
+    "text": "who sang most of his work as a tenor.",
+    "translationRu": "который пел большую часть своего репертуара как тенор."
+   },
+   {
+    "text": "Which is harder, and audibly so.",
+    "translationRu": "Это труднее — и слышно, что труднее."
+   },
+   {
+    "text": "The effort is part of the sound.",
+    "translationRu": "Усилие — часть звучания."
+   },
+   {
+    "text": "The second finding was the interesting one.",
+    "translationRu": "Второй вывод оказался интереснее."
+   },
+   {
+    "text": "His vibrato was irregular.",
+    "translationRu": "Его вибрато было нерегулярным."
+   },
+   {
+    "text": "Trained classical vibrato is even.",
+    "translationRu": "Поставленное классическое вибрато ровное."
+   },
+   {
+    "text": "A steady wobble, around six times a second.",
+    "translationRu": "Ровное колебание, около шести раз в секунду."
+   },
+   {
+    "text": "His was faster and less regular.",
+    "translationRu": "У него — быстрее и менее регулярное."
+   },
+   {
+    "text": "Which a conservatoire would call a fault.",
+    "translationRu": "Консерватория назвала бы это дефектом."
+   },
+   {
+    "text": "Listeners call it emotion.",
+    "translationRu": "Слушатели зовут это эмоцией."
+   },
+   {
+    "text": "Then they found something rarer.",
+    "translationRu": "А потом нашли кое-что более редкое."
+   },
+   {
+    "text": "Evidence of a second set of folds vibrating.",
+    "translationRu": "Признаки вибрации второй пары складок."
+   },
+   {
+    "text": "Structures above the vocal cords",
+    "translationRu": "Структур над голосовыми связками,"
+   },
+   {
+    "text": "that most people never use for sound.",
+    "translationRu": "которые большинство людей для звука не использует."
+   },
+   {
+    "text": "Throat singers in Central Asia use them.",
+    "translationRu": "Горловые певцы Центральной Азии их используют."
+   },
+   {
+    "text": "Very few pop singers do.",
+    "translationRu": "Поп-певцы — почти никогда."
+   },
+   {
+    "text": "Two things vibrating at slightly different rates",
+    "translationRu": "Две вибрации с чуть разной частотой"
+   },
+   {
+    "text": "produce a rough, layered tone.",
+    "translationRu": "дают шероховатый, слоистый тон."
+   },
+   {
+    "text": "The word people reach for is grit.",
+    "translationRu": "Слово, за которым тянутся люди, — «хрип»."
+   },
+   {
+    "text": "What is worth taking from this is not the ranking.",
+    "translationRu": "Забрать отсюда стоит не рейтинг."
+   },
+   {
+    "text": "Nobody proved he was the best at anything.",
+    "translationRu": "Никто не доказал, что он в чём-то лучший."
+   },
+   {
+    "text": "What the study shows is more specific.",
+    "translationRu": "Исследование показывает более конкретное."
+   },
+   {
+    "text": "Several of the qualities people loved",
+    "translationRu": "Несколько качеств, которые люди любили,"
+   },
+   {
+    "text": "were technically irregularities.",
+    "translationRu": "технически были нарушениями."
+   },
+   {
+    "text": "A voice trained out of them",
+    "translationRu": "Голос, из которого их бы вытренировали,"
+   },
+   {
+    "text": "would have been more correct and less recognisable.",
+    "translationRu": "был бы правильнее и менее узнаваем."
+   },
+   {
+    "text": "Which is a fair description of most style.",
+    "translationRu": "А это неплохое описание стиля вообще."
+   },
+   {
+    "text": "It is usually what somebody failed to remove.",
+    "translationRu": "Обычно это то, что кто-то не сумел убрать."
+   }
+  ]
+ },
+ {
+  "id": "putting-out-every-fire",
+  "level": "C1",
+  "topic": "environment",
+  "title": "Putting out every fire is what made the fires worse",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "For most of the twentieth century",
+    "translationRu": "Большую часть двадцатого века"
+   },
+   {
+    "text": "forest policy in several countries was simple.",
+    "translationRu": "лесная политика в ряде стран была проста."
+   },
+   {
+    "text": "Put out every fire, as fast as possible.",
+    "translationRu": "Тушить каждый пожар как можно быстрее."
+   },
+   {
+    "text": "The reasoning was obvious.",
+    "translationRu": "Логика была очевидной."
+   },
+   {
+    "text": "Fire destroys forest. Forest is valuable.",
+    "translationRu": "Огонь уничтожает лес. Лес ценен."
+   },
+   {
+    "text": "Therefore stop the fire.",
+    "translationRu": "Значит, останови огонь."
+   },
+   {
+    "text": "The policy worked, which was the problem.",
+    "translationRu": "Политика сработала — в этом и была проблема."
+   },
+   {
+    "text": "Many forests are not damaged by fire.",
+    "translationRu": "Многие леса огнём не повреждаются."
+   },
+   {
+    "text": "They are maintained by it.",
+    "translationRu": "Они им поддерживаются."
+   },
+   {
+    "text": "A fire passing through every decade or so",
+    "translationRu": "Пожар, проходящий раз в десятилетие,"
+   },
+   {
+    "text": "burns what is lying on the ground.",
+    "translationRu": "выжигает то, что лежит на земле."
+   },
+   {
+    "text": "Dead needles, fallen branches, small shrubs.",
+    "translationRu": "Сухую хвою, упавшие ветки, мелкий подлесок."
+   },
+   {
+    "text": "It moves fast and stays low.",
+    "translationRu": "Он идёт быстро и держится низко."
+   },
+   {
+    "text": "Mature trees have thick bark",
+    "translationRu": "У взрослых деревьев толстая кора,"
+   },
+   {
+    "text": "and their lowest branches are high up.",
+    "translationRu": "и нижние ветки высоко."
+   },
+   {
+    "text": "The fire passes underneath them.",
+    "translationRu": "Огонь проходит под ними."
+   },
+   {
+    "text": "Some species need it to reproduce.",
+    "translationRu": "Некоторым видам он нужен для размножения."
+   },
+   {
+    "text": "Their cones are sealed with resin",
+    "translationRu": "Их шишки запечатаны смолой,"
+   },
+   {
+    "text": "which only melts in heat.",
+    "translationRu": "которая плавится только в жару."
+   },
+   {
+    "text": "A forest with no fire is a forest",
+    "translationRu": "Лес без огня — это лес,"
+   },
+   {
+    "text": "that is quietly filling up.",
+    "translationRu": "который тихо заполняется."
+   },
+   {
+    "text": "Each year adds fuel that nothing removes.",
+    "translationRu": "Каждый год добавляет топливо, которое ничто не убирает."
+   },
+   {
+    "text": "Young trees grow densely in the shade.",
+    "translationRu": "В тени густо растут молодые деревья."
+   },
+   {
+    "text": "They form a ladder from the ground",
+    "translationRu": "Они образуют лестницу от земли"
+   },
+   {
+    "text": "to the branches of the old trees.",
+    "translationRu": "к кронам старых деревьев."
+   },
+   {
+    "text": "Do that for eighty years",
+    "translationRu": "Делай так восемьдесят лет —"
+   },
+   {
+    "text": "and the next fire is not the old kind.",
+    "translationRu": "и следующий пожар будет не прежним."
+   },
+   {
+    "text": "It climbs the ladder into the crowns.",
+    "translationRu": "Он забирается по лестнице в кроны."
+   },
+   {
+    "text": "And a crown fire kills everything.",
+    "translationRu": "А верховой пожар убивает всё."
+   },
+   {
+    "text": "Including the trees that survived the others.",
+    "translationRu": "Включая деревья, пережившие все прежние."
+   },
+   {
+    "text": "So a century of successful suppression",
+    "translationRu": "Значит, век успешного тушения"
+   },
+   {
+    "text": "produced forests that burn catastrophically.",
+    "translationRu": "произвёл леса, горящие катастрофически."
+   },
+   {
+    "text": "Not despite the policy. Because of it.",
+    "translationRu": "Не вопреки политике. Из-за неё."
+   },
+   {
+    "text": "The people who lived there knew this.",
+    "translationRu": "Жившие там люди это знали."
+   },
+   {
+    "text": "Many indigenous communities burned deliberately.",
+    "translationRu": "Многие коренные общины жгли нарочно."
+   },
+   {
+    "text": "In cool seasons, in small patches, for millennia.",
+    "translationRu": "В прохладный сезон, малыми участками, тысячелетиями."
+   },
+   {
+    "text": "That practice was banned in several countries",
+    "translationRu": "Эту практику запретили в ряде стран"
+   },
+   {
+    "text": "by the same authorities writing the policy.",
+    "translationRu": "те же власти, что писали ту политику."
+   },
+   {
+    "text": "It is now being reintroduced",
+    "translationRu": "Сейчас её возвращают"
+   },
+   {
+    "text": "under the name of controlled burning.",
+    "translationRu": "под названием контролируемого выжигания."
+   },
+   {
+    "text": "Which is an awkward sentence",
+    "translationRu": "Неудобная фраза"
+   },
+   {
+    "text": "for anyone reading the dates carefully.",
+    "translationRu": "для всякого, кто внимательно читает даты."
+   }
+  ]
+ },
+ {
+  "id": "who-decides-the-time",
+  "level": "C2",
+  "topic": "things",
+  "title": "Nobody has agreed what time it is",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Time feels like something measured.",
+    "translationRu": "Время кажется чем-то измеряемым."
+   },
+   {
+    "text": "A thing out there, that clocks report.",
+    "translationRu": "Чем-то существующим, о чём часы сообщают."
+   },
+   {
+    "text": "It is closer to something negotiated.",
+    "translationRu": "Оно ближе к чему-то согласованному."
+   },
+   {
+    "text": "For most of history the definition was the Earth.",
+    "translationRu": "Большую часть истории определением была Земля."
+   },
+   {
+    "text": "One rotation is a day.",
+    "translationRu": "Один оборот — сутки."
+   },
+   {
+    "text": "Divide it and you have the second.",
+    "translationRu": "Раздели их — получишь секунду."
+   },
+   {
+    "text": "This has one flaw, discovered late.",
+    "translationRu": "У этого есть изъян, обнаруженный поздно."
+   },
+   {
+    "text": "The Earth is not a reliable clock.",
+    "translationRu": "Земля — ненадёжные часы."
+   },
+   {
+    "text": "It is slowing down, very gradually.",
+    "translationRu": "Она замедляется, очень постепенно."
+   },
+   {
+    "text": "Mostly because the Moon is pulling on the oceans.",
+    "translationRu": "В основном потому, что Луна тянет океаны."
+   },
+   {
+    "text": "And the tides drag against the seabed.",
+    "translationRu": "А приливы трутся о дно."
+   },
+   {
+    "text": "It also speeds up and slows unpredictably.",
+    "translationRu": "Она ещё и непредсказуемо ускоряется и замедляется."
+   },
+   {
+    "text": "Earthquakes change it. Weather changes it.",
+    "translationRu": "Землетрясения меняют её ход. Погода меняет."
+   },
+   {
+    "text": "Water moving between ice and ocean changes it.",
+    "translationRu": "Вода, переходящая из льда в океан, меняет."
+   },
+   {
+    "text": "So in 1967 the second was redefined.",
+    "translationRu": "Поэтому в 1967 году секунду переопределили."
+   },
+   {
+    "text": "It is now a count of oscillations",
+    "translationRu": "Теперь это счёт колебаний"
+   },
+   {
+    "text": "in a particular atom under particular conditions.",
+    "translationRu": "определённого атома в определённых условиях."
+   },
+   {
+    "text": "A number of them, exactly, every second.",
+    "translationRu": "Ровно столько-то в каждую секунду."
+   },
+   {
+    "text": "Atomic clocks are extraordinarily stable.",
+    "translationRu": "Атомные часы исключительно стабильны."
+   },
+   {
+    "text": "The best would lose under a second",
+    "translationRu": "Лучшие потеряли бы меньше секунды"
+   },
+   {
+    "text": "over the age of the universe.",
+    "translationRu": "за время существования вселенной."
+   },
+   {
+    "text": "Which creates the awkward situation.",
+    "translationRu": "Что и создаёт неудобную ситуацию."
+   },
+   {
+    "text": "We now have two kinds of time.",
+    "translationRu": "Теперь у нас два вида времени."
+   },
+   {
+    "text": "One is perfectly regular and means nothing.",
+    "translationRu": "Одно идеально ровное и ничего не значит."
+   },
+   {
+    "text": "The other wobbles and decides when the sun rises.",
+    "translationRu": "Другое шатается и решает, когда взойдёт солнце."
+   },
+   {
+    "text": "Civil time has to follow the second one.",
+    "translationRu": "Гражданское время обязано следовать второму."
+   },
+   {
+    "text": "Or noon slowly drifts towards the evening.",
+    "translationRu": "Иначе полдень медленно уползёт к вечеру."
+   },
+   {
+    "text": "The fix was the leap second.",
+    "translationRu": "Решением стала високосная секунда."
+   },
+   {
+    "text": "Occasionally a minute contains sixty-one.",
+    "translationRu": "Иногда в минуте шестьдесят одна секунда."
+   },
+   {
+    "text": "Added by international decision, with months of warning.",
+    "translationRu": "Добавляется международным решением, с предупреждением за месяцы."
+   },
+   {
+    "text": "Twenty-seven have been added since 1972.",
+    "translationRu": "С 1972 года добавили двадцать семь."
+   },
+   {
+    "text": "Computers hated every one of them.",
+    "translationRu": "Компьютеры ненавидели каждую."
+   },
+   {
+    "text": "Software assumes minutes have sixty seconds.",
+    "translationRu": "Программы считают, что в минуте шестьдесят секунд."
+   },
+   {
+    "text": "Financial systems, airlines and networks",
+    "translationRu": "Финансовые системы, авиакомпании и сети"
+   },
+   {
+    "text": "have all failed on leap-second days.",
+    "translationRu": "все падали в дни високосной секунды."
+   },
+   {
+    "text": "Some large companies now smear it instead.",
+    "translationRu": "Некоторые крупные компании теперь её «размазывают»."
+   },
+   {
+    "text": "Slowing their clocks fractionally across a day",
+    "translationRu": "Чуть замедляя часы в течение суток,"
+   },
+   {
+    "text": "so the extra second never arrives at once.",
+    "translationRu": "чтобы лишняя секунда не приходила разом."
+   },
+   {
+    "text": "Which means their time is deliberately wrong.",
+    "translationRu": "То есть их время нарочно неверно."
+   },
+   {
+    "text": "In a controlled and documented way.",
+    "translationRu": "Контролируемо и задокументированно."
+   },
+   {
+    "text": "In 2022 it was agreed to stop adding them",
+    "translationRu": "В 2022 году договорились перестать их добавлять"
+   },
+   {
+    "text": "by around 2035.",
+    "translationRu": "примерно к 2035 году."
+   },
+   {
+    "text": "Letting the two times drift apart",
+    "translationRu": "Позволив двум временам разойтись"
+   },
+   {
+    "text": "and leaving the problem to a later generation.",
+    "translationRu": "и оставив задачу следующему поколению."
+   },
+   {
+    "text": "Which is how most calendars have always worked.",
+    "translationRu": "Так, впрочем, работали почти все календари."
+   }
+  ]
+ }
+]
