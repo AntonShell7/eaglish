@@ -36,21 +36,76 @@ import subprocess
 import sys
 import tempfile
 import time
+import ssl
 import urllib.error
 import urllib.request
 import wave
 
+# Python on macOS ships without a usable trust store unless somebody ran the
+# installer's certificate script, and nobody ever does. curl works, urllib does
+# not, and the failure arrives as a generic URLError — which the retry loop
+# below then swallows into a minute of silent backoff before giving up. That
+# cost an afternoon, so the context is built explicitly from certifi when it is
+# there and left to the system default when it is not.
+try:
+    import certifi
+
+    SSL_CONTEXT: ssl.SSLContext | None = ssl.create_default_context(cafile=certifi.where())
+except ImportError:  # pragma: no cover - depends on the machine
+    SSL_CONTEXT = None
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "public" / "voice"
-MODEL = "canopylabs/orpheus-v1-english"
-ENDPOINT = "https://api.groq.com/openai/v1/audio/speech"
 
-# The model's own ceiling. Anything longer comes back truncated or refused, so
-# long sentences are cut into clauses and the pieces are joined afterwards.
-MAX_CHARS = 200
-PRICE_PER_MILLION = 22.0
+# ── Providers ────────────────────────────────────────────────────────────────
+#
+# Two of them, because the first one turned out to be unusable at this size.
+#
+# Groq serves a good voice at $22 per million characters, and then rations it:
+# a hundred requests a day, measured rather than read off a docs page — each
+# call pushes the reset timer out by fourteen minutes and twenty-four seconds,
+# which works out to exactly one full bucket per twenty-four hours. The library
+# is 4,959 fragments. That is fifty days.
+#
+# OpenAI charges $15 per million characters for tts-1 and does not ration like
+# that, so the whole library is one run of about half an hour. The Groq path is
+# kept because it works, it sounds good, and a rate limit is a business
+# decision that can change.
+#
+# Everything downstream of this table is shared: hashing, splitting, joining,
+# compression, resumability.
 
-VOICES = ["tara", "troy", "hannah", "austin", "leah", "leo"]
+PROVIDERS = {
+    "groq": {
+        "endpoint": "https://api.groq.com/openai/v1/audio/speech",
+        "model": "canopylabs/orpheus-v1-english",
+        "key_env": "GROQ_API_KEY",
+        # Longer input comes back truncated or refused.
+        "max_chars": 200,
+        "price_per_million": 22.0,
+        # Not in the docs. This list comes back in the error message when you
+        # ask for a name that does not exist.
+        "voices": ["autumn", "diana", "hannah", "austin", "daniel", "troy"],
+        "default_voice": "daniel",
+        "format": "wav",
+    },
+    "openai": {
+        "endpoint": "https://api.openai.com/v1/audio/speech",
+        "model": "tts-1",
+        "key_env": "OPENAI_API_KEY",
+        "max_chars": 4096,
+        "price_per_million": 15.0,
+        "voices": ["alloy", "echo", "fable", "onyx", "nova", "shimmer"],
+        "default_voice": "nova",
+        "format": "wav",
+    },
+}
+
+# Filled in by main() once the provider is chosen.
+P: dict = PROVIDERS["openai"]
+MAX_CHARS = P["max_chars"]
+PRICE_PER_MILLION = P["price_per_million"]
+VOICES = P["voices"]
 
 
 # ── what to say ──────────────────────────────────────────────────────────────
@@ -117,20 +172,30 @@ def split(text: str) -> list[str]:
 def speak(chunk: str, voice: str, api_key: str) -> bytes:
     """One request, with the retries a rate-limited endpoint requires."""
     body = json.dumps(
-        {"model": MODEL, "input": chunk, "voice": voice, "response_format": "wav"}
+        {
+            "model": P["model"],
+            "input": chunk,
+            "voice": voice,
+            "response_format": P["format"],
+        }
     ).encode()
 
     for attempt in range(6):
         request = urllib.request.Request(
-            ENDPOINT,
+            P["endpoint"],
             data=body,
             headers={
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
+                # Without this the request is refused with a bare 403. The
+                # endpoint sits behind a CDN that blocks urllib's default
+                # agent, and the refusal says nothing about why — curl works
+                # from the same machine, same key, same second.
+                "User-Agent": "eaglish-voice/1.0",
             },
         )
         try:
-            with urllib.request.urlopen(request, timeout=120) as response:
+            with urllib.request.urlopen(request, timeout=120, context=SSL_CONTEXT) as response:
                 return response.read()
         except urllib.error.HTTPError as error:
             detail = error.read().decode("utf-8", "replace")[:200]
@@ -140,12 +205,31 @@ def speak(chunk: str, voice: str, api_key: str) -> bytes:
                     "Open https://console.groq.com/playground?model="
                     "canopylabs%2Forpheus-v1-english and accept them, then rerun.\n"
                 )
+            if error.code in (401, 403):
+                raise SystemExit(
+                    f"\nHTTP {error.code}: {detail}\n"
+                    f"Check that {P['key_env']} is set and valid.\n"
+                )
             # 429 is the normal state of a parallel run, not an error.
             if error.code in (429, 500, 502, 503, 529) and attempt < 5:
                 time.sleep(2 ** attempt)
                 continue
             raise SystemExit(f"HTTP {error.code}: {detail}")
-        except (urllib.error.URLError, TimeoutError):
+        except urllib.error.URLError as error:
+            # A broken trust store fails identically every time; retrying it six
+            # times only hides the message that would have explained it.
+            if isinstance(error.reason, ssl.SSLError):
+                raise SystemExit(
+                    f"\nTLS failed: {error.reason}\n"
+                    "Python cannot verify the certificate. Run\n"
+                    '  "/Applications/Python 3.13/Install Certificates.command"\n'
+                    "or install certifi, then rerun.\n"
+                )
+            if attempt < 5:
+                time.sleep(2 ** attempt)
+                continue
+            raise
+        except TimeoutError:
             if attempt < 5:
                 time.sleep(2 ** attempt)
                 continue
@@ -211,15 +295,30 @@ def voice_one(text: str, voice: str, api_key: str) -> tuple[str, int, bool]:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--voice", default="tara")
+    parser.add_argument("--provider", default="openai", choices=sorted(PROVIDERS))
+    parser.add_argument("--voice", default=None)
     parser.add_argument("--limit", type=int, default=0, help="stop after N sentences")
     parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--samples", action="store_true", help="one line per voice")
     args = parser.parse_args()
 
-    api_key = os.environ.get("GROQ_API_KEY") or read_key()
+    global P, MAX_CHARS, PRICE_PER_MILLION, VOICES
+    P = PROVIDERS[args.provider]
+    MAX_CHARS = P["max_chars"]
+    PRICE_PER_MILLION = P["price_per_million"]
+    VOICES = P["voices"]
+    if args.voice is None:
+        args.voice = P["default_voice"]
+    if args.voice not in VOICES and not args.samples:
+        raise SystemExit(f"{args.voice} is not one of {VOICES}")
+
+    api_key = os.environ.get(P["key_env"]) or read_key(P["key_env"])
     if not api_key:
-        raise SystemExit("GROQ_API_KEY not found in the environment or .env.local")
+        raise SystemExit(
+            f"{P['key_env']} not found in the environment or .env.local"
+        )
+
+    print(f"{args.provider} / {P['model']} / {args.voice}")
 
     OUT.mkdir(parents=True, exist_ok=True)
 
@@ -264,8 +363,9 @@ def main() -> None:
 
     write_manifest(args.voice)
 
-    size = sum(p.stat().st_size for p in OUT.glob("*.m4a"))
-    print(f"\nDone. {len(list(OUT.glob('*.m4a')))} files, {size / 1e6:.0f} MB, "
+    real = [f for f in OUT.glob("*.m4a") if len(f.stem) == 16]
+    size = sum(f.stat().st_size for f in real)
+    print(f"\nDone. {len(real)} files, {size / 1e6:.0f} MB, "
           f"${chars / 1e6 * PRICE_PER_MILLION:.2f} spent this run.")
 
 
@@ -278,12 +378,15 @@ def write_manifest(voice: str) -> None:
     do: a miss is indistinguishable from a sentence that simply was not in the
     library. One known file, one request, one definite answer.
     """
-    files = sorted(OUT.glob("*.m4a"))
+    # Only the content-addressed recordings. The sample and comparison files
+    # live in the same folder and are not part of the library — counting them
+    # would tell the client the library is voiced when it holds six auditions.
+    files = sorted(f for f in OUT.glob("*.m4a") if len(f.stem) == 16 and all(c in "0123456789abcdef" for c in f.stem))
     (OUT / "manifest.json").write_text(
         json.dumps(
             {
                 "voice": voice,
-                "model": MODEL,
+                "model": P["model"],
                 "count": len(files),
                 "bytes": sum(f.stat().st_size for f in files),
                 "generated": time.strftime("%Y-%m-%d"),
@@ -294,12 +397,13 @@ def write_manifest(voice: str) -> None:
     )
 
 
-def read_key() -> str | None:
+def read_key(name: str) -> str | None:
+    """The key from .env.local, which is gitignored and stays that way."""
     env = ROOT / ".env.local"
     if not env.exists():
         return None
     for line in env.read_text().splitlines():
-        if line.startswith("GROQ_API_KEY="):
+        if line.startswith(f"{name}="):
             return line.split("=", 1)[1].strip()
     return None
 
