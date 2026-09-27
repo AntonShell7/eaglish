@@ -57,6 +57,7 @@ function lastDays(n: number): string[] {
 export default function Progress() {
   const { t } = useTranslation();
   const [words, setWords] = useState<DayCount[]>([]);
+  const [delta, setDelta] = useState<number | null>(null);
   const [calendar, setCalendar] = useState<{ date: string; minutes: number }[]>([]);
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
@@ -72,7 +73,31 @@ export default function Progress() {
       const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
       collected.set(key, (collected.get(key) ?? 0) + 1);
     }
-    setWords(lastDays(30).map((date) => ({ date, count: collected.get(date) ?? 0 })));
+    /*
+     * The window starts where the data starts.
+     *
+     * A fixed thirty days meant a new account opened on a chart that was flat
+     * and empty for three weeks before the line began — it read as a broken
+     * chart rather than as a short history. So leading empty days are dropped
+     * and the line begins at the left edge, with a floor of a week so a single
+     * day of use still has a shape to draw.
+     */
+    const full = lastDays(30).map((date) => ({ date, count: collected.get(date) ?? 0 }));
+    const firstReal = full.findIndex((d) => d.count > 0);
+    const from = firstReal === -1 ? full.length - 7 : Math.min(firstReal, full.length - 7);
+    const window = full.slice(Math.max(0, from));
+    setWords(window);
+
+    /* The same number of days immediately before the window — the only
+       comparison that is not apples to oranges. The window is the last `span`
+       days, so twice that length, cut in half, is exactly the period before
+       it. */
+    const span = window.length;
+    const before = lastDays(span * 2)
+      .slice(0, span)
+      .reduce((sum, date) => sum + (collected.get(date) ?? 0), 0);
+    const now = window.reduce((sum, d) => sum + d.count, 0);
+    setDelta(before > 0 ? Math.round(((now - before) / before) * 100) : null);
 
     setCalendar(minutesByDay(140));
     setStreak(getStreak());
@@ -113,7 +138,7 @@ export default function Progress() {
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
 
       <section className="pg-card" style={{ marginTop: 24 }}>
-        <DayLine days={words} unit={t("progress.wordsUnit")} />
+        <DayLine days={words} unit={t("progress.wordsUnit")} delta={delta} />
       </section>
 
       <section className="pg-section">

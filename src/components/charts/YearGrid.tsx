@@ -44,6 +44,26 @@ export function YearGrid({ days }: { days: GridDay[] }) {
 
   const today = days[days.length - 1]?.date;
 
+  /* One label per week column that opens a new month. Positioned by index
+     rather than laid out in the flow, so a month lines up with the column it
+     actually starts in instead of drifting as the widths change. */
+  const months = useMemo(() => {
+    const fmtMonth = new Intl.DateTimeFormat(ru ? "ru-RU" : "en-GB", { month: "short" });
+    const out: { key: string; label: string; week: number }[] = [];
+    let last = -1;
+    weeks.forEach((week, index) => {
+      const day = week.find(Boolean);
+      if (!day) return;
+      const month = new Date(day.date).getMonth();
+      if (month === last) return;
+      last = month;
+      // A label needs room to the right of it, or it collides with the next.
+      if (out.length > 0 && index - out[out.length - 1].week < 3) return;
+      out.push({ key: `${month}-${index}`, label: fmtMonth.format(new Date(day.date)).replace(".", ""), week: index });
+    });
+    return out;
+  }, [weeks, ru]);
+
   const level = (minutes: number) => {
     if (minutes < BANDS[0]) return 0;
     if (minutes < BANDS[1]) return 1;
@@ -72,6 +92,14 @@ export function YearGrid({ days }: { days: GridDay[] }) {
         </ul>
 
         <div className="ygrid__scroll">
+          <div className="ygrid__months" aria-hidden>
+            {months.map((m) => (
+              <span key={m.key} style={{ left: `${m.week * 18}px` }}>
+                {m.label}
+              </span>
+            ))}
+          </div>
+
           <div className="ygrid__weeks">
             {weeks.map((week, i) => (
               <div key={i} className="ygrid__week">

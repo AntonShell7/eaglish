@@ -404,3 +404,61 @@
   background: var(--color-primary);
   transition: width var(--dur-4) var(--ease);
 }
+
+/* Direction, next to the total. A number on its own says nothing about
+   whether things are getting better, which is what anyone opening a progress
+   page came to find out. */
+.dl__delta {
+  margin-left: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  vertical-align: 6px;
+}
+
+.dl__delta.is-up {
+  color: var(--color-primary);
+}
+
+.dl__delta.is-down {
+  color: var(--color-text-faint);
+}
+
+/* The best day, marked on the line rather than only named underneath. */
+.dl__dot.is-peak {
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  background: var(--color-surface);
+  box-shadow: 0 0 0 2px var(--pg-gold);
+}
+
+.dl__peakLabel {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* Month names above the calendar, positioned by column. */
+.ygrid__months {
+  position: relative;
+  height: 16px;
+  margin-bottom: 4px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.ygrid__months span {
+  position: absolute;
+  top: 0;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+/* The weekday column has to clear the month row so the rows still line up. */
+.ygrid__days {
+  padding-top: 20px;
+}

@@ -24,7 +24,7 @@ const PAD_B = 8;
  * curve through daily counts invents values between the days that nobody
  * recorded, and the invented bits are always the prettiest part.
  */
-export function DayLine({ days, unit }: { days: DayCount[]; unit: string }) {
+export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string; delta: number | null }) {
   const { t, i18n } = useTranslation();
 
   const label = useMemo(
@@ -38,6 +38,7 @@ export function DayLine({ days, unit }: { days: DayCount[]; unit: string }) {
 
   const total = days.reduce((sum, d) => sum + d.count, 0);
   const max = Math.max(1, ...days.map((d) => d.count));
+  const peak = days.reduce((best, d) => (d.count > best.count ? d : best), days[0] ?? { date: "", count: 0 });
 
   const points = days.map((day, i) => {
     const x = days.length > 1 ? (i / (days.length - 1)) * W : W / 2;
@@ -56,6 +57,14 @@ export function DayLine({ days, unit }: { days: DayCount[]; unit: string }) {
           <p className="dl__total tabular">
             {total}
             <span className="dl__unit">{unit}</span>
+            {/* Against the same number of days before this window. A total on
+                its own says nothing about direction, which is the thing anyone
+                opening a progress page is actually asking. */}
+            {delta !== null && (
+              <span className={delta >= 0 ? "dl__delta is-up" : "dl__delta is-down"}>
+                {delta >= 0 ? "▲" : "▼"} {Math.abs(delta)}%
+              </span>
+            )}
           </p>
         </div>
         <p className="dl__sub">{t("progress.wordsByDaySub", { count: days.length })}</p>
@@ -88,7 +97,7 @@ export function DayLine({ days, unit }: { days: DayCount[]; unit: string }) {
         {points.map((p) => (
           <span
             key={p.date}
-            className={p.count > 0 ? "dl__dot is-on" : "dl__dot"}
+            className={`dl__dot${p.count > 0 ? " is-on" : ""}${p.date === peak.date && p.count > 0 ? " is-peak" : ""}`}
             style={{ left: `${(p.x / W) * 100}%`, top: `${(p.y / H) * 100}%` }}
             title={`${label.format(new Date(p.date))} — ${p.count}`}
           />
@@ -97,7 +106,10 @@ export function DayLine({ days, unit }: { days: DayCount[]; unit: string }) {
 
       <footer className="dl__foot">
         <span>{label.format(new Date(days[0]?.date ?? Date.now()))}</span>
-        <span className="dl__peak">{t("progress.peak", { count: max })}</span>
+        <span className="dl__peakLabel">
+          {t("progress.peak", { count: max })}
+          {peak.date ? ` · ${label.format(new Date(peak.date))}` : ""}
+        </span>
         <span>{label.format(new Date(days[days.length - 1]?.date ?? Date.now()))}</span>
       </footer>
     </section>
