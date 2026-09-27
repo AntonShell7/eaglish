@@ -3,12 +3,12 @@
   "id": "science",
   "label": "Science",
   "counts": {
-   "C1": 2,
+   "C1": 3,
    "A2": 3,
    "A1": 1,
-   "C2": 3
+   "C2": 4
   },
-  "total": 9
+  "total": 11
  },
  {
   "id": "environment",
@@ -17,9 +17,9 @@
    "B2": 1,
    "A2": 2,
    "C1": 1,
-   "A1": 3
+   "A1": 4
   },
-  "total": 7
+  "total": 8
  },
  {
   "id": "celebrities",

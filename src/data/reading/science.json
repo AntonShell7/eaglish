@@ -1447,5 +1447,319 @@
     "explanation": "Blocking those opioids blocks the placebo response."
    }
   ]
+ },
+ {
+  "id": "perfect-pitch-is-learned",
+  "level": "C1",
+  "topic": "science",
+  "generated": false,
+  "title": "Perfect Pitch Is Less of a Gift Than It Looks",
+  "sentences": [
+   {
+    "text": "Some people can hear a note and name it instantly, with no reference to compare it against.",
+    "translationRu": "Некоторые слышат ноту и мгновенно её называют, не имея ничего для сравнения."
+   },
+   {
+    "text": "This is called absolute pitch, and it is usually described as a gift a person either has or does not.",
+    "translationRu": "Это называют абсолютным слухом и обычно описывают как дар, который либо есть, либо нет."
+   },
+   {
+    "text": "The evidence points somewhere more uncomfortable.",
+    "translationRu": "Данные указывают в сторону менее удобную."
+   },
+   {
+    "text": "Absolute pitch is dramatically more common among speakers of tonal languages, where the pitch of a syllable changes the word it belongs to.",
+    "translationRu": "Абсолютный слух заметно чаще встречается у носителей тоновых языков, где высота слога меняет само слово."
+   },
+   {
+    "text": "In Mandarin, the same sound produced at a different pitch is a different word, so a child learning it must attend to absolute frequency from the beginning, in the way a child learning English never has to.",
+    "translationRu": "В китайском один и тот же звук на другой высоте — другое слово, и ребёнок, осваивая его, обязан с самого начала следить за абсолютной частотой, чего ребёнку с английским делать не приходится."
+   },
+   {
+    "text": "Studies comparing music students of similar training have repeatedly found rates several times higher in tonal-language populations.",
+    "translationRu": "Исследования, сравнивавшие студентов-музыкантов схожей подготовки, раз за разом находили доли в несколько раз выше у носителей тоновых языков."
+   },
+   {
+    "text": "There is also a window.",
+    "translationRu": "Есть и окно."
+   },
+   {
+    "text": "Musical training begun before roughly the age of six produces absolute pitch at rates that training begun at ten does not approach, and training begun in adulthood almost never produces it at all.",
+    "translationRu": "Занятия музыкой, начатые примерно до шести лет, дают абсолютный слух с частотой, к которой начатые в десять не приближаются, а начатые взрослым не дают почти никогда."
+   },
+   {
+    "text": "Put those two findings together and the shape of the thing changes.",
+    "translationRu": "Сложите два этих факта — и картина меняется."
+   },
+   {
+    "text": "It starts to look less like a rare gift and more like an ordinary capacity that most people are never given a reason to keep.",
+    "translationRu": "Это начинает выглядеть не редким даром, а обычной способностью, которую большинству просто незачем сохранить."
+   },
+   {
+    "text": "Infants appear to attend to absolute pitch by default.",
+    "translationRu": "Младенцы, по-видимому, по умолчанию обращают внимание на абсолютную высоту."
+   },
+   {
+    "text": "What most of us do, as language arrives, is trade it for something more useful: relative pitch, the ability to recognise a melody regardless of the key it is played in.",
+    "translationRu": "А большинство из нас, по мере прихода языка, меняет её на более полезное — относительный слух, умение узнать мелодию в любой тональности."
+   },
+   {
+    "text": "That trade is obviously the right one for a speaker of a non-tonal language.",
+    "translationRu": "Для носителя нетонового языка обмен, очевидно, правильный."
+   },
+   {
+    "text": "A sentence means the same thing whether it is spoken by a child or by a man with a cold, and a listener who could not discard absolute frequency would struggle to understand either.",
+    "translationRu": "Фраза значит одно и то же, произносит её ребёнок или простуженный мужчина, и слушатель, неспособный отбросить абсолютную частоту, понял бы с трудом обоих."
+   },
+   {
+    "text": "The people we call gifted may largely be the people who, for reasons of language or early training, were never required to make the trade.",
+    "translationRu": "Те, кого мы зовём одарёнными, — во многом просто те, кого по причинам языка или ранних занятий никогда не заставили этот обмен совершить."
+   },
+   {
+    "text": "It is a useful reminder that some abilities are not built but retained, and that the interesting question about a rare skill is occasionally not how it was acquired but why everybody else stopped.",
+    "translationRu": "Полезное напоминание: некоторые способности не выстраивают, а сохраняют, и интересный вопрос о редком умении иногда не «как его приобрели», а «почему все остальные перестали»."
+   }
+  ],
+  "glossary": {
+   "note": {
+    "translation": "нота",
+    "partOfSpeech": "noun"
+   },
+   "pitch": {
+    "translation": "высота звука",
+    "partOfSpeech": "noun"
+   },
+   "tonal": {
+    "translation": "тоновый",
+    "partOfSpeech": "adjective"
+   },
+   "syllable": {
+    "translation": "слог",
+    "partOfSpeech": "noun"
+   },
+   "attend to": {
+    "translation": "обращать внимание на",
+    "partOfSpeech": "phrase"
+   },
+   "frequency": {
+    "translation": "частота",
+    "partOfSpeech": "noun"
+   },
+   "capacity": {
+    "translation": "способность",
+    "partOfSpeech": "noun"
+   },
+   "discard": {
+    "translation": "отбрасывать",
+    "partOfSpeech": "verb"
+   },
+   "retain": {
+    "translation": "сохранять",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "perfect-pitch-is-learned-q1",
+    "question": "Why is absolute pitch commoner among tonal-language speakers?",
+    "options": [
+     "They train harder",
+     "Pitch changes the meaning of a word, so children must attend to it",
+     "They have better hearing",
+     "They start music later"
+    ],
+    "answer": 1,
+    "explanation": "A child learning Mandarin must attend to absolute frequency from the start."
+   },
+   {
+    "id": "perfect-pitch-is-learned-q2",
+    "question": "What do most people trade absolute pitch for?",
+    "options": [
+     "Loudness",
+     "Relative pitch, recognising a melody in any key",
+     "Rhythm",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "The trade is right for a non-tonal speaker."
+   },
+   {
+    "id": "perfect-pitch-is-learned-q3",
+    "question": "What is the closing reminder?",
+    "options": [
+     "Talent is fixed",
+     "Some abilities are retained rather than built",
+     "Training is useless after six",
+     "Language harms music"
+    ],
+    "answer": 1,
+    "explanation": "The interesting question may be why everybody else stopped."
+   }
+  ]
+ },
+ {
+  "id": "memory-is-not-a-recording",
+  "level": "C2",
+  "topic": "science",
+  "generated": false,
+  "title": "Your Memory Is Not a Recording, and It Never Was",
+  "sentences": [
+   {
+    "text": "The folk model of memory is a camera.",
+    "translationRu": "Обиходная модель памяти — это камера."
+   },
+   {
+    "text": "Something happens, it is recorded, and remembering means locating the file and playing it back, with age and inattention causing degradation.",
+    "translationRu": "Что-то происходит, записывается, а вспомнить — значит найти файл и проиграть; возраст и невнимательность портят запись."
+   },
+   {
+    "text": "Almost none of this survives contact with the research.",
+    "translationRu": "Почти ничего из этого не выдерживает встречи с исследованиями."
+   },
+   {
+    "text": "Remembering is not retrieval but reconstruction, assembled each time from fragments, general knowledge and a strong sense of how the event ought to have gone.",
+    "translationRu": "Вспоминание — не извлечение, а реконструкция, каждый раз собираемая из обрывков, общих знаний и сильного ощущения, как событие должно было идти."
+   },
+   {
+    "text": "The reconstruction is then stored again, which means every act of recall is also an act of writing.",
+    "translationRu": "Реконструкция затем снова сохраняется — то есть каждое припоминание является ещё и записью."
+   },
+   {
+    "text": "A memory you revisit often is not better preserved.",
+    "translationRu": "Часто навещаемое воспоминание не лучше сохранено."
+   },
+   {
+    "text": "It is a copy of a copy, drifting a little with each pass, and the drift moves reliably towards what makes narrative sense.",
+    "translationRu": "Это копия копии, чуть уплывающая с каждым проходом, и уплывает она надёжно в сторону того, что складывается в связный рассказ."
+   },
+   {
+    "text": "Elizabeth Loftus spent a career demonstrating how easily this can be exploited, and the demonstrations are unnerving in their smallness.",
+    "translationRu": "Элизабет Лофтус посвятила карьеру тому, как легко этим пользоваться, и её демонстрации пугают именно своей незначительностью."
+   },
+   {
+    "text": "Witnesses shown a filmed collision estimated higher speeds when asked how fast the cars were going when they smashed rather than when they hit, and a week later were more likely to report broken glass that had never been in the film.",
+    "translationRu": "Свидетели, посмотревшие запись столкновения, называли большую скорость, если их спрашивали, с какой скоростью машины «врезались», а не «столкнулись», и неделю спустя чаще сообщали о разбитом стекле, которого в записи не было."
+   },
+   {
+    "text": "One verb had edited the memory.",
+    "translationRu": "Один глагол отредактировал воспоминание."
+   },
+   {
+    "text": "Whole events can be installed.",
+    "translationRu": "Можно установить и целое событие."
+   },
+   {
+    "text": "A substantial minority of subjects, told by a trusted relative that they had been lost in a shopping centre as a child, come to remember it over a few sessions, and supply details nobody gave them: the colour of a coat, the kindness of the man who helped.",
+    "translationRu": "Немалая доля участников, услышав от доверенного родственника, что в детстве они потерялись в торговом центре, за несколько бесед начинают это помнить и добавляют подробности, которых им никто не давал: цвет пальто, доброту человека, который помог."
+   },
+   {
+    "text": "They are not lying, and this is the part that matters.",
+    "translationRu": "Они не лгут — и это самое важное."
+   },
+   {
+    "text": "A false memory is indistinguishable from the inside, and confidence is no guide at all: people are frequently most certain about the details they have rehearsed most, which are precisely the ones most rewritten.",
+    "translationRu": "Ложное воспоминание изнутри неотличимо, и уверенность тут не подсказчик: люди обычно тверже всего уверены в тех подробностях, которые чаще повторяли, — а именно они и переписаны сильнее прочих."
+   },
+   {
+    "text": "The legal implications took decades to be taken seriously and are still only partly absorbed.",
+    "translationRu": "Юридические следствия принимали всерьёз десятилетиями и усвоили лишь отчасти."
+   },
+   {
+    "text": "The personal ones are harder to act on.",
+    "translationRu": "С личными следствиями сложнее."
+   },
+   {
+    "text": "You cannot audit your own past, because the only instrument available for the audit is the thing under suspicion.",
+    "translationRu": "Провести ревизию собственного прошлого нельзя: единственный доступный инструмент — это и есть то, что под подозрением."
+   },
+   {
+    "text": "What can be done is modest: hold the vivid ones a little more loosely, and be suspicious of the stories that have become too well shaped, because the shape is the giveaway.",
+    "translationRu": "Сделать можно немного: держать яркие воспоминания чуть свободнее и подозревать истории, которые стали слишком складными, — потому что складность и выдаёт."
+   },
+   {
+    "text": "Life does not arrive with that much structure.",
+    "translationRu": "Жизнь не приходит настолько выстроенной."
+   },
+   {
+    "text": "Memory supplies it afterwards, and does not mention that it has.",
+    "translationRu": "Структуру подставляет память — и не упоминает, что подставила."
+   }
+  ],
+  "glossary": {
+   "retrieval": {
+    "translation": "извлечение",
+    "partOfSpeech": "noun"
+   },
+   "reconstruction": {
+    "translation": "реконструкция",
+    "partOfSpeech": "noun"
+   },
+   "recall": {
+    "translation": "припоминание",
+    "partOfSpeech": "noun"
+   },
+   "drift": {
+    "translation": "уплывать; смещение",
+    "partOfSpeech": "verb"
+   },
+   "unnerving": {
+    "translation": "тревожный, выбивающий",
+    "partOfSpeech": "adjective"
+   },
+   "collision": {
+    "translation": "столкновение",
+    "partOfSpeech": "noun"
+   },
+   "indistinguishable": {
+    "translation": "неотличимый",
+    "partOfSpeech": "adjective"
+   },
+   "audit": {
+    "translation": "ревизия, проверка",
+    "partOfSpeech": "noun"
+   },
+   "giveaway": {
+    "translation": "то, что выдаёт",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "memory-is-not-a-recording-q1",
+    "question": "Why is a frequently revisited memory not better preserved?",
+    "options": [
+     "It fades faster",
+     "Each recall rewrites it, so it is a copy of a copy",
+     "It is stored twice",
+     "It moves to another part of the brain"
+    ],
+    "answer": 1,
+    "explanation": "The drift moves towards what makes narrative sense."
+   },
+   {
+    "id": "memory-is-not-a-recording-q2",
+    "question": "What did changing one verb do in the collision study?",
+    "options": [
+     "Nothing",
+     "Raised speed estimates and later produced glass that was never filmed",
+     "Improved accuracy",
+     "Confused the question"
+    ],
+    "answer": 1,
+    "explanation": "One verb had edited the memory."
+   },
+   {
+    "id": "memory-is-not-a-recording-q3",
+    "question": "Why is confidence no guide?",
+    "options": [
+     "People lie",
+     "The most rehearsed details are the most rewritten",
+     "Everyone is equally sure",
+     "Confidence is not measurable"
+    ],
+    "answer": 1,
+    "explanation": "A false memory is indistinguishable from the inside."
+   }
+  ]
  }
 ]

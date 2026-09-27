@@ -1089,5 +1089,162 @@
     "explanation": "The longer the shaking, the further the flowers."
    }
   ]
+ },
+ {
+  "id": "the-sheep-who-hid",
+  "level": "A1",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Sheep Who Hid for Six Years",
+  "sentences": [
+   {
+    "text": "Farmers cut the wool from sheep every year.",
+    "translationRu": "Фермеры каждый год стригут овец."
+   },
+   {
+    "text": "The sheep does not like it, but it is good for the sheep.",
+    "translationRu": "Овце это не нравится, но для неё это хорошо."
+   },
+   {
+    "text": "Wool grows and grows and never stops.",
+    "translationRu": "Шерсть растёт и растёт и никогда не останавливается."
+   },
+   {
+    "text": "In New Zealand one sheep did not want this.",
+    "translationRu": "В Новой Зеландии одна овца этого не захотела."
+   },
+   {
+    "text": "His name was Shrek.",
+    "translationRu": "Его звали Шрек."
+   },
+   {
+    "text": "He ran away and lived in the mountains.",
+    "translationRu": "Он сбежал и жил в горах."
+   },
+   {
+    "text": "He found a cave and stayed there.",
+    "translationRu": "Он нашёл пещеру и остался в ней."
+   },
+   {
+    "text": "Nobody saw him for six years.",
+    "translationRu": "Шесть лет его никто не видел."
+   },
+   {
+    "text": "When they found him, he did not look like a sheep.",
+    "translationRu": "Когда его нашли, он не был похож на овцу."
+   },
+   {
+    "text": "He looked like a big grey cloud with legs.",
+    "translationRu": "Он был похож на большое серое облако с ногами."
+   },
+   {
+    "text": "His wool was very heavy.",
+    "translationRu": "Шерсть была очень тяжёлой."
+   },
+   {
+    "text": "It was about twenty-seven kilograms.",
+    "translationRu": "Примерно двадцать семь килограммов."
+   },
+   {
+    "text": "A normal sheep has about five.",
+    "translationRu": "У обычной овцы около пяти."
+   },
+   {
+    "text": "He could not see well and he could not walk fast.",
+    "translationRu": "Он плохо видел и не мог быстро ходить."
+   },
+   {
+    "text": "They cut his wool on television.",
+    "translationRu": "Его стригли по телевидению."
+   },
+   {
+    "text": "It took twenty minutes.",
+    "translationRu": "Это заняло двадцать минут."
+   },
+   {
+    "text": "Under all that wool there was a small, thin sheep.",
+    "translationRu": "Под всей этой шерстью оказалась маленькая худая овца."
+   },
+   {
+    "text": "Shrek became famous in New Zealand.",
+    "translationRu": "Шрек стал знаменит в Новой Зеландии."
+   },
+   {
+    "text": "He met the prime minister.",
+    "translationRu": "Он встретился с премьер-министром."
+   },
+   {
+    "text": "He lived for many more years, and he did not run away again.",
+    "translationRu": "Он прожил ещё много лет и больше не убегал."
+   }
+  ],
+  "glossary": {
+   "wool": {
+    "translation": "шерсть",
+    "partOfSpeech": "noun"
+   },
+   "sheep": {
+    "translation": "овца",
+    "partOfSpeech": "noun"
+   },
+   "cave": {
+    "translation": "пещера",
+    "partOfSpeech": "noun"
+   },
+   "cloud": {
+    "translation": "облако",
+    "partOfSpeech": "noun"
+   },
+   "heavy": {
+    "translation": "тяжёлый",
+    "partOfSpeech": "adjective"
+   },
+   "thin": {
+    "translation": "худой",
+    "partOfSpeech": "adjective"
+   },
+   "famous": {
+    "translation": "знаменитый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-sheep-who-hid-q1",
+    "question": "Why did Shrek run away?",
+    "options": [
+     "He was hungry",
+     "He did not want his wool cut",
+     "He was lost",
+     "He followed a dog"
+    ],
+    "answer": 1,
+    "explanation": "The text says he did not want this."
+   },
+   {
+    "id": "the-sheep-who-hid-q2",
+    "question": "How heavy was his wool?",
+    "options": [
+     "Five kilograms",
+     "About twenty-seven kilograms",
+     "One hundred kilograms",
+     "Two kilograms"
+    ],
+    "answer": 1,
+    "explanation": "A normal sheep has about five."
+   },
+   {
+    "id": "the-sheep-who-hid-q3",
+    "question": "What was under the wool?",
+    "options": [
+     "Another sheep",
+     "A small thin sheep",
+     "Nothing",
+     "A dog"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   }
+  ]
  }
 ]
