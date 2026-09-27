@@ -1744,5 +1744,194 @@
     "explanation": "About twice the winner's time."
    }
   ]
+ },
+ {
+  "id": "the-penalty-is-not-a-lottery",
+  "level": "B2",
+  "topic": "sport",
+  "generated": false,
+  "title": "A Penalty Shootout Is Not a Lottery, and the Data Says So Loudly",
+  "sentences": [
+   {
+    "text": "Managers who lose a shootout invariably describe it as a lottery.",
+    "translationRu": "Тренеры, проигравшие серию пенальти, неизменно называют её лотереей."
+   },
+   {
+    "text": "It is a comforting thing to say and it is not supported by anything.",
+    "translationRu": "Утешительная фраза, ничем не подкреплённая."
+   },
+   {
+    "text": "Penalties have been studied more intensively than almost any other moment in football, partly because the situation is so clean: one shooter, one keeper, a fixed distance, thousands of recorded repetitions.",
+    "translationRu": "Пенальти изучены интенсивнее почти любого другого момента в футболе, отчасти потому, что ситуация очень чистая: один бьющий, один вратарь, фиксированное расстояние, тысячи записанных повторений."
+   },
+   {
+    "text": "Start with the shot itself.",
+    "translationRu": "Начнём с самого удара."
+   },
+   {
+    "text": "A ball struck firmly into the top corner cannot be saved by a human being, because the flight takes less time than a goalkeeper needs to move.",
+    "translationRu": "Мяч, плотно пробитый в верхний угол, человеку не взять: полёт занимает меньше времени, чем нужно вратарю на перемещение."
+   },
+   {
+    "text": "The keeper must therefore commit before the ball is struck, which converts the whole event from a reaction into a guess made under a deadline.",
+    "translationRu": "Значит, вратарь должен решиться до удара, и всё событие превращается из реакции в догадку под дедлайном."
+   },
+   {
+    "text": "That explains the most famous result in the literature.",
+    "translationRu": "Этим объясняется самый известный результат в этой литературе."
+   },
+   {
+    "text": "Analysis of hundreds of penalties found that keepers dive left or right the overwhelming majority of the time, while a meaningful share of shots go down the middle, and that keepers who simply stood still would concede fewer.",
+    "translationRu": "Анализ сотен пенальти показал, что вратари в подавляющем большинстве случаев прыгают влево или вправо, тогда как заметная доля ударов идёт по центру, и что вратари, которые просто стояли бы на месте, пропускали бы меньше."
+   },
+   {
+    "text": "They dive anyway, and the researchers' explanation is behavioural rather than tactical: a keeper who dives and is beaten looks like he tried, and a keeper who stands still and is beaten looks like he did nothing.",
+    "translationRu": "Они всё равно прыгают, и объяснение исследователей поведенческое, а не тактическое: вратарь, который прыгнул и пропустил, выглядит старавшимся, а вратарь, который стоял и пропустил, выглядит бездействовавшим."
+   },
+   {
+    "text": "The cost of looking passive is paid by the keeper; the cost of the goal is shared with the team.",
+    "translationRu": "Цену за вид бездействия платит вратарь, цену гола делит команда."
+   },
+   {
+    "text": "On the shooter's side, the division is between two strategies.",
+    "translationRu": "На стороне бьющего разделение между двумя стратегиями."
+   },
+   {
+    "text": "A goalkeeper-independent penalty means choosing a corner in advance and hitting it hard, ignoring everything the keeper does.",
+    "translationRu": "Пенальти, не зависящий от вратаря, — это выбрать угол заранее и бить сильно, игнорируя всё, что делает вратарь."
+   },
+   {
+    "text": "A goalkeeper-dependent penalty means waiting, reading the dive and going the other way, which scores at a higher rate when it works and fails badly against a keeper who holds his position.",
+    "translationRu": "Зависящий от вратаря — ждать, прочитать прыжок и уйти в другую сторону: при удаче процент выше, но против стоящего вратаря он проваливается."
+   },
+   {
+    "text": "Elite shooters mostly use the first, because it removes the other person from the problem entirely.",
+    "translationRu": "Элитные исполнители чаще выбирают первый: он вовсе убирает второго человека из задачи."
+   },
+   {
+    "text": "Then there is the sequence, which is where the argument is liveliest.",
+    "translationRu": "Есть ещё порядок ударов, и здесь спор самый живой."
+   },
+   {
+    "text": "An influential study found that the team shooting first won around sixty per cent of shootouts, and attributed it to accumulated pressure on the team that is always behind.",
+    "translationRu": "Влиятельное исследование нашло, что бьющая первой команда выигрывает около шестидесяти процентов серий, и связало это с накопленным давлением на ту, что всё время отстаёт."
+   },
+   {
+    "text": "Later work with larger samples has found the advantage to be smaller and in some datasets absent, which is a useful reminder that a striking early result in sports analytics often shrinks.",
+    "translationRu": "Более поздние работы с большими выборками нашли преимущество меньшим, а в части данных отсутствующим, — полезное напоминание, что яркий ранний результат в спортивной аналитике часто усыхает."
+   },
+   {
+    "text": "What has survived replication is the psychological finding underneath it.",
+    "translationRu": "Что пережило воспроизведение — так это психологический вывод под ним."
+   },
+   {
+    "text": "Conversion rates drop sharply when a miss ends the contest, and they drop most for the players who care most.",
+    "translationRu": "Реализация резко падает, когда промах заканчивает противостояние, и сильнее всего — у тех, кому важнее всех."
+   },
+   {
+    "text": "Which is why the practice that appears to help is not shooting more penalties.",
+    "translationRu": "Поэтому помогает, похоже, не битьё большего числа пенальти."
+   },
+   {
+    "text": "It is rehearsing the walk: the long approach from the halfway line, the waiting, the referee, the noise.",
+    "translationRu": "А репетиция подхода: длинный путь от центра поля, ожидание, судья, шум."
+   },
+   {
+    "text": "The kick was never the hard part.",
+    "translationRu": "Сам удар никогда не был трудной частью."
+   }
+  ],
+  "glossary": {
+   "shootout": {
+    "translation": "серия пенальти",
+    "partOfSpeech": "noun"
+   },
+   "invariably": {
+    "translation": "неизменно",
+    "partOfSpeech": "adverb"
+   },
+   "keeper": {
+    "translation": "вратарь",
+    "partOfSpeech": "noun"
+   },
+   "commit": {
+    "translation": "решиться, обязаться",
+    "partOfSpeech": "verb"
+   },
+   "concede": {
+    "translation": "пропускать (гол)",
+    "partOfSpeech": "verb"
+   },
+   "passive": {
+    "translation": "пассивный",
+    "partOfSpeech": "adjective"
+   },
+   "sequence": {
+    "translation": "последовательность, порядок",
+    "partOfSpeech": "noun"
+   },
+   "attribute to": {
+    "translation": "приписывать (причине)",
+    "partOfSpeech": "phrase"
+   },
+   "sample": {
+    "translation": "выборка",
+    "partOfSpeech": "noun"
+   },
+   "conversion rate": {
+    "translation": "процент реализации",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-penalty-is-not-a-lottery-q1",
+    "question": "Why must a keeper guess?",
+    "options": [
+     "He cannot see",
+     "A firm shot arrives faster than he can move",
+     "The rules require it",
+     "The run-up is short"
+    ],
+    "answer": 1,
+    "explanation": "A reaction becomes a guess under a deadline."
+   },
+   {
+    "id": "the-penalty-is-not-a-lottery-q2",
+    "question": "Why do keepers dive anyway?",
+    "options": [
+     "It works",
+     "Diving and losing looks like trying; standing still and losing looks like nothing",
+     "Coaches insist",
+     "It is faster"
+    ],
+    "answer": 1,
+    "explanation": "The cost of looking passive is paid by the keeper alone."
+   },
+   {
+    "id": "the-penalty-is-not-a-lottery-q3",
+    "question": "What is a goalkeeper-independent penalty?",
+    "options": [
+     "Waiting for the dive",
+     "Choosing a corner in advance and hitting it hard",
+     "Aiming down the middle",
+     "Shooting low"
+    ],
+    "answer": 1,
+    "explanation": "It removes the other person from the problem."
+   },
+   {
+    "id": "the-penalty-is-not-a-lottery-q4",
+    "question": "What survived replication about shooting order?",
+    "options": [
+     "The sixty per cent advantage",
+     "The psychological finding that conversion drops when a miss ends the contest",
+     "Nothing",
+     "That order does not matter"
+    ],
+    "answer": 1,
+    "explanation": "Rehearsing the walk is what appears to help."
+   }
+  ]
  }
 ]

@@ -1692,5 +1692,170 @@
     "explanation": "A long-overdue correction."
    }
   ]
+ },
+ {
+  "id": "the-train-through-the-market",
+  "level": "A2",
+  "topic": "travel",
+  "generated": false,
+  "title": "The Train That Goes Through the Middle of a Market",
+  "sentences": [
+   {
+    "text": "About an hour from Bangkok, in Thailand, there is a market called Maeklong.",
+    "translationRu": "Примерно в часе от Бангкока, в Таиланде, есть рынок Мэклонг."
+   },
+   {
+    "text": "People sell fish, fruit and vegetables on the ground, under big cloth roofs.",
+    "translationRu": "Люди продают рыбу, фрукты и овощи прямо на земле, под большими тканевыми навесами."
+   },
+   {
+    "text": "It looks like a normal market in Asia.",
+    "translationRu": "Выглядит как обычный азиатский рынок."
+   },
+   {
+    "text": "But there is one difference.",
+    "translationRu": "Но есть одно отличие."
+   },
+   {
+    "text": "The market is on a railway line.",
+    "translationRu": "Рынок стоит на железнодорожных путях."
+   },
+   {
+    "text": "Not next to it.",
+    "translationRu": "Не рядом с ними."
+   },
+   {
+    "text": "On it.",
+    "translationRu": "На них."
+   },
+   {
+    "text": "The boxes of fish sit on the rails.",
+    "translationRu": "Ящики с рыбой стоят на рельсах."
+   },
+   {
+    "text": "Eight times a day, a train comes.",
+    "translationRu": "Восемь раз в день приходит поезд."
+   },
+   {
+    "text": "A few minutes before, a man makes an announcement.",
+    "translationRu": "За несколько минут до этого человек делает объявление."
+   },
+   {
+    "text": "Then everybody moves, and they move fast.",
+    "translationRu": "И все начинают двигаться — быстро."
+   },
+   {
+    "text": "The sellers pull their boxes back about half a metre.",
+    "translationRu": "Продавцы оттягивают ящики назад примерно на полметра."
+   },
+   {
+    "text": "They pull the cloth roofs up with a rope.",
+    "translationRu": "Тканевые навесы поднимают верёвкой."
+   },
+   {
+    "text": "It takes them less than a minute.",
+    "translationRu": "У них уходит меньше минуты."
+   },
+   {
+    "text": "The train comes through very slowly, and it is very close.",
+    "translationRu": "Поезд идёт очень медленно и очень близко."
+   },
+   {
+    "text": "If you stand still, it passes maybe ten centimetres from your face.",
+    "translationRu": "Если стоять неподвижно, он проходит сантиметрах в десяти от лица."
+   },
+   {
+    "text": "Then the train is gone.",
+    "translationRu": "Потом поезд уходит."
+   },
+   {
+    "text": "The roofs come down, the boxes go back, and people start selling again.",
+    "translationRu": "Навесы опускают, ящики возвращают, и торговля продолжается."
+   },
+   {
+    "text": "Nothing is broken and nobody is surprised.",
+    "translationRu": "Ничто не сломано, и никто не удивлён."
+   },
+   {
+    "text": "The market was there first, and the railway came later.",
+    "translationRu": "Рынок был первым, железная дорога пришла позже."
+   },
+   {
+    "text": "Nobody moved, so both things learned to live in the same place.",
+    "translationRu": "Никто не ушёл — и обе вещи научились жить в одном месте."
+   }
+  ],
+  "glossary": {
+   "market": {
+    "translation": "рынок",
+    "partOfSpeech": "noun"
+   },
+   "cloth": {
+    "translation": "ткань",
+    "partOfSpeech": "noun"
+   },
+   "railway": {
+    "translation": "железная дорога",
+    "partOfSpeech": "noun"
+   },
+   "rail": {
+    "translation": "рельс",
+    "partOfSpeech": "noun"
+   },
+   "announcement": {
+    "translation": "объявление",
+    "partOfSpeech": "noun"
+   },
+   "seller": {
+    "translation": "продавец",
+    "partOfSpeech": "noun"
+   },
+   "rope": {
+    "translation": "верёвка",
+    "partOfSpeech": "noun"
+   },
+   "slowly": {
+    "translation": "медленно",
+    "partOfSpeech": "adverb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-train-through-the-market-q1",
+    "question": "Where is the market?",
+    "options": [
+     "Next to a railway line",
+     "On a railway line",
+     "In a station",
+     "Under a bridge"
+    ],
+    "answer": 1,
+    "explanation": "The boxes of fish sit on the rails."
+   },
+   {
+    "id": "the-train-through-the-market-q2",
+    "question": "What do the sellers do when the train comes?",
+    "options": [
+     "They go home",
+     "They pull the boxes back and lift the roofs",
+     "They stop the train",
+     "They cover everything"
+    ],
+    "answer": 1,
+    "explanation": "It takes less than a minute."
+   },
+   {
+    "id": "the-train-through-the-market-q3",
+    "question": "Why is the market on the line?",
+    "options": [
+     "It is cheaper",
+     "The market was there first and nobody moved",
+     "The trains are new",
+     "There is no other space"
+    ],
+    "answer": 1,
+    "explanation": "Both things learned to live in the same place."
+   }
+  ]
  }
 ]

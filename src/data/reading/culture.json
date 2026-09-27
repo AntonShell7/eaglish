@@ -1777,5 +1777,194 @@
     "explanation": "The question everyone was arguing about all along."
    }
   ]
+ },
+ {
+  "id": "the-language-that-came-back",
+  "level": "B1",
+  "topic": "culture",
+  "generated": false,
+  "title": "A Language Came Back From the Dead, and It Only Happened Once",
+  "sentences": [
+   {
+    "text": "Languages die regularly.",
+    "translationRu": "Языки умирают регулярно."
+   },
+   {
+    "text": "Linguists estimate that one stops being spoken every few weeks somewhere in the world.",
+    "translationRu": "Лингвисты оценивают, что где-то в мире раз в несколько недель на каком-то перестают говорить."
+   },
+   {
+    "text": "Almost none come back.",
+    "translationRu": "Почти ни один не возвращается."
+   },
+   {
+    "text": "A language can be recorded, taught in a class and used in a ceremony, and still have nobody who thinks in it, argues in it or shouts at a child in it.",
+    "translationRu": "Язык можно записать, преподавать на занятиях и использовать в обряде — и при этом не иметь никого, кто на нём думает, спорит или кричит на ребёнка."
+   },
+   {
+    "text": "That last group is what keeps a language alive, and it is very hard to rebuild.",
+    "translationRu": "Именно эти последние держат язык живым, и восстановить их очень трудно."
+   },
+   {
+    "text": "There is one clear exception in modern history, and it is Hebrew.",
+    "translationRu": "В новейшей истории есть одно ясное исключение — иврит."
+   },
+   {
+    "text": "For roughly seventeen hundred years, Hebrew was not an everyday language.",
+    "translationRu": "Примерно тысячу семьсот лет иврит не был языком повседневности."
+   },
+   {
+    "text": "It was alive in a specific and limited way: prayer, study, religious law, letters between scholars in different countries.",
+    "translationRu": "Он был жив ограниченно и специфично: молитва, учёба, религиозное право, письма между учёными из разных стран."
+   },
+   {
+    "text": "Jewish communities spoke Yiddish, Ladino, Arabic, Russian, Polish and dozens of other languages at home.",
+    "translationRu": "Еврейские общины дома говорили на идише, ладино, арабском, русском, польском и десятках других языков."
+   },
+   {
+    "text": "Hebrew was the language you read in, not the language you lived in.",
+    "translationRu": "На иврите читали, а не жили."
+   },
+   {
+    "text": "The change began in the late nineteenth century, and one man is usually given too much of the credit.",
+    "translationRu": "Перемена началась в конце XIX века, и одному человеку обычно приписывают слишком много."
+   },
+   {
+    "text": "Eliezer Ben-Yehuda moved to Jerusalem in 1881 and decided that his household would speak only Hebrew.",
+    "translationRu": "Элиэзер Бен-Йехуда переехал в Иерусалим в 1881 году и решил, что в его доме будут говорить только на иврите."
+   },
+   {
+    "text": "His son is often described as the first native speaker in many centuries, which is roughly true and slightly unfair to several other families doing the same thing.",
+    "translationRu": "Его сына часто называют первым носителем за много веков — это примерно верно и слегка несправедливо к нескольким другим семьям, делавшим то же самое."
+   },
+   {
+    "text": "Ben-Yehuda also spent decades inventing words the old language had never needed: ice cream, newspaper, bicycle, office.",
+    "translationRu": "Бен-Йехуда ещё и десятилетиями изобретал слова, которые старому языку никогда не были нужны: мороженое, газета, велосипед, контора."
+   },
+   {
+    "text": "But dictionaries do not revive anything on their own.",
+    "translationRu": "Но словари сами по себе ничего не возрождают."
+   },
+   {
+    "text": "What actually did it was the schools.",
+    "translationRu": "Сделали это школы."
+   },
+   {
+    "text": "Teachers in the new settlements decided to teach every subject in Hebrew, to children who arrived speaking a dozen different home languages and therefore had no shared alternative.",
+    "translationRu": "Учителя в новых поселениях решили вести все предметы на иврите — детям, приходившим с десятком разных домашних языков и потому не имевшим общей альтернативы."
+   },
+   {
+    "text": "Those children became the generation that spoke it in the street, and once children argue in a language in a playground, it is no longer a project.",
+    "translationRu": "Эти дети стали поколением, говорившим на нём на улице, а когда дети ругаются на языке во дворе, это уже не проект."
+   },
+   {
+    "text": "Today about nine million people speak Hebrew, most of them from birth.",
+    "translationRu": "Сегодня на иврите говорят около девяти миллионов человек, большинство — с рождения."
+   },
+   {
+    "text": "Other revival efforts, from Irish to Cornish to Hawaiian, have studied the case closely and have had partial success at best.",
+    "translationRu": "Другие попытки возрождения — от ирландского до корнского и гавайского — внимательно изучали этот случай и в лучшем случае добились частичного успеха."
+   },
+   {
+    "text": "The conditions were unusual: a population arriving from everywhere with no common tongue, a religious text that had kept the grammar intact, and a political movement that made the choice feel urgent.",
+    "translationRu": "Условия были необычными: население, съезжающееся отовсюду без общего языка, религиозный текст, сохранивший грамматику нетронутой, и политическое движение, сделавшее выбор срочным."
+   },
+   {
+    "text": "Take away any one of those and the story probably does not happen.",
+    "translationRu": "Убери любое из трёх — и история, скорее всего, не случается."
+   }
+  ],
+  "glossary": {
+   "linguist": {
+    "translation": "лингвист",
+    "partOfSpeech": "noun"
+   },
+   "ceremony": {
+    "translation": "обряд, церемония",
+    "partOfSpeech": "noun"
+   },
+   "prayer": {
+    "translation": "молитва",
+    "partOfSpeech": "noun"
+   },
+   "scholar": {
+    "translation": "учёный, книжник",
+    "partOfSpeech": "noun"
+   },
+   "credit": {
+    "translation": "заслуга, признание",
+    "partOfSpeech": "noun"
+   },
+   "household": {
+    "translation": "домохозяйство, семья",
+    "partOfSpeech": "noun"
+   },
+   "native speaker": {
+    "translation": "носитель языка",
+    "partOfSpeech": "noun"
+   },
+   "revive": {
+    "translation": "возрождать",
+    "partOfSpeech": "verb"
+   },
+   "settlement": {
+    "translation": "поселение",
+    "partOfSpeech": "noun"
+   },
+   "intact": {
+    "translation": "нетронутый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-language-that-came-back-q1",
+    "question": "What keeps a language alive, according to the text?",
+    "options": [
+     "Recordings",
+     "People who think, argue and shout at children in it",
+     "Classes",
+     "Dictionaries"
+    ],
+    "answer": 1,
+    "explanation": "That group is very hard to rebuild."
+   },
+   {
+    "id": "the-language-that-came-back-q2",
+    "question": "How was Hebrew used before the revival?",
+    "options": [
+     "Not at all",
+     "In prayer, study, law and letters between scholars",
+     "Only in Jerusalem",
+     "As a trade language"
+    ],
+    "answer": 1,
+    "explanation": "The language you read in, not the one you lived in."
+   },
+   {
+    "id": "the-language-that-came-back-q3",
+    "question": "What actually did the reviving?",
+    "options": [
+     "Ben-Yehuda's dictionary",
+     "Schools teaching every subject in Hebrew to children with no shared alternative",
+     "Newspapers",
+     "Government policy"
+    ],
+    "answer": 1,
+    "explanation": "Once children argue in it in a playground, it is no longer a project."
+   },
+   {
+    "id": "the-language-that-came-back-q4",
+    "question": "Why has the case been hard to copy?",
+    "options": [
+     "It is secret",
+     "Three unusual conditions had to hold at once",
+     "It took too long",
+     "Nobody has tried"
+    ],
+    "answer": 1,
+    "explanation": "Take away any one and it probably does not happen."
+   }
+  ]
  }
 ]

@@ -1736,5 +1736,206 @@
     "explanation": "The alternative has to be shown on the same page as a price."
    }
   ]
+ },
+ {
+  "id": "no-perfect-voting-system",
+  "level": "C2",
+  "topic": "society",
+  "generated": false,
+  "title": "There Is No Fair Way to Count Votes, and This Was Proved",
+  "sentences": [
+   {
+    "text": "Arguments about electoral systems usually proceed as though the right one exists and has simply not been adopted yet.",
+    "translationRu": "Споры об избирательных системах обычно идут так, будто правильная существует и её просто ещё не приняли."
+   },
+   {
+    "text": "In 1951 an economist named Kenneth Arrow demonstrated that for choices among three or more options, no method of combining individual rankings into a group ranking can satisfy a short list of requirements that all seem indispensable.",
+    "translationRu": "В 1951 году экономист Кеннет Эрроу доказал: при выборе из трёх и более вариантов ни один способ сложить индивидуальные ранжирования в групповое не удовлетворяет короткому списку требований, каждое из которых кажется необходимым."
+   },
+   {
+    "text": "The result is a theorem, not an opinion, and it has not been overturned in seventy years of trying.",
+    "translationRu": "Это теорема, а не мнение, и за семьдесят лет попыток её не опровергли."
+   },
+   {
+    "text": "The requirements are modest, which is what makes the conclusion bite.",
+    "translationRu": "Требования скромные — потому вывод и кусается."
+   },
+   {
+    "text": "If everybody prefers A to B, the group should prefer A to B.",
+    "translationRu": "Если все предпочитают A вместо B, группа должна предпочесть A вместо B."
+   },
+   {
+    "text": "No single voter should determine the outcome regardless of everyone else.",
+    "translationRu": "Ни один избиратель не должен определять исход вне зависимости от остальных."
+   },
+   {
+    "text": "And the group's ranking of A against B should depend on how voters rank A against B, not on the presence of an unrelated candidate C.",
+    "translationRu": "И групповое сравнение A и B должно зависеть от того, как избиратели сравнивают A и B, а не от присутствия постороннего кандидата C."
+   },
+   {
+    "text": "That last condition is the one every real system violates, and its violation is familiar to anyone who has watched an election.",
+    "translationRu": "Последнее условие нарушает любая реальная система, и это нарушение знакомо всякому, кто наблюдал выборы."
+   },
+   {
+    "text": "A third candidate enters, takes votes disproportionately from the candidate closest to them, and hands victory to the one those voters liked least.",
+    "translationRu": "Появляется третий кандидат, непропорционально забирает голоса у ближайшего к себе и вручает победу тому, кто этим избирателям нравился меньше всех."
+   },
+   {
+    "text": "Nobody changed their mind about the original two.",
+    "translationRu": "Насчёт первых двух никто не передумал."
+   },
+   {
+    "text": "The result changed anyway.",
+    "translationRu": "Результат тем не менее изменился."
+   },
+   {
+    "text": "It is worth being precise about what the theorem does and does not say, because it is routinely overstated.",
+    "translationRu": "Стоит быть точным в том, что теорема говорит и чего не говорит: её постоянно раздувают."
+   },
+   {
+    "text": "It does not say that all systems are equally bad, that democracy is incoherent, or that the choice does not matter.",
+    "translationRu": "Она не говорит, что все системы одинаково плохи, что демократия бессвязна или что выбор не важен."
+   },
+   {
+    "text": "It says that any system must sacrifice at least one property you would not willingly give up, and that the interesting question is therefore which sacrifice you prefer, not how to avoid one.",
+    "translationRu": "Она говорит, что любая система обязана пожертвовать хотя бы одним свойством, отказываться от которого не хочется, и что интересный вопрос — какая жертва тебе предпочтительнее, а не как её избежать."
+   },
+   {
+    "text": "Different systems make different trades, and the trades are legible.",
+    "translationRu": "Разные системы идут на разные размены, и размены эти читаемы."
+   },
+   {
+    "text": "First past the post produces decisive single-party governments and regularly elects a candidate that a majority opposed.",
+    "translationRu": "Мажоритарная система относительного большинства даёт решительные однопартийные правительства и регулярно избирает кандидата, против которого было большинство."
+   },
+   {
+    "text": "Proportional representation reflects the distribution of opinion accurately and hands the final choice of government to post-election negotiation among parties, which no voter directly authorised.",
+    "translationRu": "Пропорциональная точно отражает распределение мнений и отдаёт окончательный выбор правительства послевыборным переговорам партий, которых прямо не санкционировал ни один избиратель."
+   },
+   {
+    "text": "Ranked systems remove the spoiler effect in most practical cases and are harder to explain, and a system people cannot explain is a system they trust less when they lose.",
+    "translationRu": "Ранжированные системы в большинстве практических случаев убирают эффект спойлера и труднее объяснимы, а системе, которую люди не могут объяснить, они меньше доверяют, проигрывая."
+   },
+   {
+    "text": "There is a companion result, from Gibbard and Satterthwaite, that is if anything more uncomfortable.",
+    "translationRu": "Есть сопутствующий результат Гиббарда и Саттертуэйта, пожалуй, ещё более неудобный."
+   },
+   {
+    "text": "Every reasonable voting system can be manipulated: there will be situations in which a voter gets a better outcome by submitting a ranking that is not their honest one.",
+    "translationRu": "Любую разумную систему голосования можно манипулировать: найдутся ситуации, где избиратель получит лучший исход, подав нечестное ранжирование."
+   },
+   {
+    "text": "Tactical voting is not a flaw in a particular ballot design.",
+    "translationRu": "Тактическое голосование — не изъян конкретного бюллетеня."
+   },
+   {
+    "text": "It is a permanent feature of aggregating preferences.",
+    "translationRu": "Это постоянное свойство агрегирования предпочтений."
+   },
+   {
+    "text": "What follows from all this is not cynicism but a change of standard.",
+    "translationRu": "Отсюда следует не цинизм, а смена стандарта."
+   },
+   {
+    "text": "An electoral system cannot be judged by whether it is fair in the abstract, since none is.",
+    "translationRu": "Избирательную систему нельзя судить по абстрактной справедливости — её нет ни у одной."
+   },
+   {
+    "text": "It can be judged by whether its particular failures are ones a society can live with, notice when they occur, and correct afterwards.",
+    "translationRu": "Её можно судить по тому, можно ли жить с её конкретными сбоями, заметны ли они, когда случаются, и поправимы ли после."
+   }
+  ],
+  "glossary": {
+   "electoral": {
+    "translation": "избирательный",
+    "partOfSpeech": "adjective"
+   },
+   "ranking": {
+    "translation": "ранжирование",
+    "partOfSpeech": "noun"
+   },
+   "indispensable": {
+    "translation": "незаменимый, необходимый",
+    "partOfSpeech": "adjective"
+   },
+   "theorem": {
+    "translation": "теорема",
+    "partOfSpeech": "noun"
+   },
+   "overturn": {
+    "translation": "опровергнуть",
+    "partOfSpeech": "verb"
+   },
+   "violate": {
+    "translation": "нарушать",
+    "partOfSpeech": "verb"
+   },
+   "disproportionately": {
+    "translation": "непропорционально",
+    "partOfSpeech": "adverb"
+   },
+   "legible": {
+    "translation": "читаемый, различимый",
+    "partOfSpeech": "adjective"
+   },
+   "spoiler effect": {
+    "translation": "эффект спойлера",
+    "partOfSpeech": "noun"
+   },
+   "aggregate": {
+    "translation": "агрегировать, складывать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "no-perfect-voting-system-q1",
+    "question": "What does Arrow's theorem establish?",
+    "options": [
+     "Democracy fails",
+     "No method of combining rankings satisfies all of a short list of necessary conditions",
+     "Voting should be banned",
+     "Two options are enough"
+    ],
+    "answer": 1,
+    "explanation": "A theorem, not an opinion."
+   },
+   {
+    "id": "no-perfect-voting-system-q2",
+    "question": "Which condition does every real system violate?",
+    "options": [
+     "Unanimity",
+     "Independence from an unrelated third candidate",
+     "No dictator",
+     "Secret ballot"
+    ],
+    "answer": 1,
+    "explanation": "The spoiler effect is the familiar form."
+   },
+   {
+    "id": "no-perfect-voting-system-q3",
+    "question": "What does the theorem not say?",
+    "options": [
+     "That trades exist",
+     "That all systems are equally bad or the choice does not matter",
+     "That three options are hard",
+     "That rankings are used"
+    ],
+    "answer": 1,
+    "explanation": "The question is which sacrifice you prefer."
+   },
+   {
+    "id": "no-perfect-voting-system-q4",
+    "question": "What does Gibbard-Satterthwaite add?",
+    "options": [
+     "Systems are fair",
+     "Every reasonable system can be manipulated by dishonest ranking",
+     "Tactical voting is illegal",
+     "Ranked ballots solve it"
+    ],
+    "answer": 1,
+    "explanation": "A permanent feature of aggregating preferences."
+   }
+  ]
  }
 ]
