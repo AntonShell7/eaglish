@@ -2006,5 +2006,162 @@
     "explanation": "Not a template, but it moved negotiations."
    }
   ]
+ },
+ {
+  "id": "eleven-and-a-shaved-head",
+  "level": "A1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "She Was Eleven and They Asked Her to Shave Her Head",
+  "sentences": [
+   {
+    "text": "Millie Bobby Brown is famous for a television show called Stranger Things.",
+    "translationRu": "Милли Бобби Браун знаменита благодаря сериалу «Очень странные дела»."
+   },
+   {
+    "text": "She plays a girl with no name, only a number: Eleven.",
+    "translationRu": "Она играет девочку без имени, только с номером: Одиннадцать."
+   },
+   {
+    "text": "When she got the part, she was eleven years old too.",
+    "translationRu": "Когда она получила роль, ей тоже было одиннадцать."
+   },
+   {
+    "text": "Before that, things were not going well.",
+    "translationRu": "До этого дела шли не очень."
+   },
+   {
+    "text": "She went to many auditions in America and did not get the parts.",
+    "translationRu": "Она ходила на множество проб в Америке и ролей не получала."
+   },
+   {
+    "text": "Her family had very little money left.",
+    "translationRu": "У её семьи почти не осталось денег."
+   },
+   {
+    "text": "They were thinking about going home to England.",
+    "translationRu": "Они думали вернуться домой в Англию."
+   },
+   {
+    "text": "Then she did one more audition.",
+    "translationRu": "И тут она сходила ещё на одну пробу."
+   },
+   {
+    "text": "The people making the show liked her.",
+    "translationRu": "Создателям сериала она понравилась."
+   },
+   {
+    "text": "But there was one thing.",
+    "translationRu": "Но было одно условие."
+   },
+   {
+    "text": "The character has no hair.",
+    "translationRu": "У героини нет волос."
+   },
+   {
+    "text": "They asked if she would shave her head.",
+    "translationRu": "Её спросили, согласится ли она побриться налысо."
+   },
+   {
+    "text": "For a girl of eleven, this is not a small question.",
+    "translationRu": "Для одиннадцатилетней девочки это не мелкий вопрос."
+   },
+   {
+    "text": "Her parents said it was her choice.",
+    "translationRu": "Родители сказали, что это её выбор."
+   },
+   {
+    "text": "She said yes.",
+    "translationRu": "Она сказала «да»."
+   },
+   {
+    "text": "She said later that she was afraid for one minute, and then she felt strong.",
+    "translationRu": "Позже она рассказала, что боялась минуту, а потом почувствовала силу."
+   },
+   {
+    "text": "The show came out in 2016.",
+    "translationRu": "Сериал вышел в 2016 году."
+   },
+   {
+    "text": "It was very big, very fast.",
+    "translationRu": "Он стал очень популярным и очень быстро."
+   },
+   {
+    "text": "The girl with no hair is now one of the most famous faces in the world.",
+    "translationRu": "Девочка без волос теперь одно из самых известных лиц в мире."
+   }
+  ],
+  "glossary": {
+   "famous": {
+    "translation": "знаменитый",
+    "partOfSpeech": "adjective"
+   },
+   "show": {
+    "translation": "сериал, шоу",
+    "partOfSpeech": "noun"
+   },
+   "part": {
+    "translation": "роль",
+    "partOfSpeech": "noun"
+   },
+   "audition": {
+    "translation": "проба, прослушивание",
+    "partOfSpeech": "noun"
+   },
+   "character": {
+    "translation": "персонаж",
+    "partOfSpeech": "noun"
+   },
+   "shave": {
+    "translation": "брить",
+    "partOfSpeech": "verb"
+   },
+   "choice": {
+    "translation": "выбор",
+    "partOfSpeech": "noun"
+   },
+   "afraid": {
+    "translation": "напуганный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "eleven-and-a-shaved-head-q1",
+    "question": "What was happening before she got the part?",
+    "options": [
+     "She was in other shows",
+     "She was not getting parts and her family had little money",
+     "She lived in America",
+     "She was at school"
+    ],
+    "answer": 1,
+    "explanation": "They were thinking about going home."
+   },
+   {
+    "id": "eleven-and-a-shaved-head-q2",
+    "question": "What did the show ask her to do?",
+    "options": [
+     "Learn an accent",
+     "Shave her head",
+     "Move house",
+     "Sing"
+    ],
+    "answer": 1,
+    "explanation": "The character has no hair."
+   },
+   {
+    "id": "eleven-and-a-shaved-head-q3",
+    "question": "What did she say she felt?",
+    "options": [
+     "Nothing",
+     "Afraid for a minute, then strong",
+     "Angry",
+     "Sad"
+    ],
+    "answer": 1,
+    "explanation": "Her parents said it was her choice."
+   }
+  ]
  }
 ]

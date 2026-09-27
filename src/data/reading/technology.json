@@ -1917,5 +1917,190 @@
     "explanation": "The product no longer needs to win an argument with you."
    }
   ]
+ },
+ {
+  "id": "why-models-make-things-up",
+  "level": "C2",
+  "topic": "technology",
+  "generated": false,
+  "title": "A Language Model Does Not Know That It Does Not Know",
+  "sentences": [
+   {
+    "text": "Ask a large language model for a book that does not exist and it will frequently supply one: a plausible title, a real author who never wrote it, a publisher, a year, sometimes a page number.",
+    "translationRu": "Попроси у большой языковой модели несуществующую книгу — и она часто её выдаст: правдоподобное название, реального автора, который её не писал, издательство, год, иногда номер страницы."
+   },
+   {
+    "text": "The industry calls this hallucination, which is a poor metaphor, because it suggests a malfunction in an otherwise truthful process.",
+    "translationRu": "В индустрии это зовут галлюцинацией — метафора неудачная: она намекает на сбой в иначе правдивом процессе."
+   },
+   {
+    "text": "What is actually happening is the process working exactly as designed, on a task it was never designed for.",
+    "translationRu": "На деле процесс работает ровно так, как спроектирован, — на задаче, для которой его не проектировали."
+   },
+   {
+    "text": "A model of this kind is trained to predict a continuation.",
+    "translationRu": "Модель такого рода обучают предсказывать продолжение."
+   },
+   {
+    "text": "Given a sequence of text, it produces a distribution over what comes next, and it is rewarded during training for being close to what actually followed in the data.",
+    "translationRu": "По последовательности текста она выдаёт распределение того, что идёт дальше, и во время обучения награждается за близость к тому, что действительно следовало в данных."
+   },
+   {
+    "text": "Nothing in that objective contains a notion of truth.",
+    "translationRu": "В этой цели нет никакого понятия истины."
+   },
+   {
+    "text": "It contains a notion of plausibility, and for an enormous fraction of human text those two things coincide closely enough that the difference does not show.",
+    "translationRu": "Есть понятие правдоподобия, и для огромной доли человеческих текстов эти вещи совпадают достаточно близко, чтобы разница не проявлялась."
+   },
+   {
+    "text": "Where they come apart is precisely at the edges: obscure facts, specific citations, small numbers, anything where the plausible-looking answer is abundant and the correct one is rare.",
+    "translationRu": "Расходятся они ровно на краях: малоизвестные факты, конкретные ссылки, мелкие числа — всё, где правдоподобных ответов много, а верный редок."
+   },
+   {
+    "text": "A citation is the worst possible case, because the format is highly regular and the content is arbitrary, so the model can generate something perfectly shaped and entirely invented.",
+    "translationRu": "Ссылка — худший случай: формат крайне регулярен, а содержание произвольно, поэтому модель порождает нечто идеальной формы и целиком выдуманное."
+   },
+   {
+    "text": "There is a second mechanism, and it is a human one.",
+    "translationRu": "Есть и второй механизм, и он человеческий."
+   },
+   {
+    "text": "Models are tuned after training on preferences collected from people, who rate answers.",
+    "translationRu": "Модели после обучения донастраивают на предпочтениях, собранных у людей, которые оценивают ответы."
+   },
+   {
+    "text": "People reliably prefer a confident, complete, well-organised answer to a hedged or partial one, and they do so even when they are not in a position to check which is correct.",
+    "translationRu": "Люди надёжно предпочитают уверенный, полный, хорошо организованный ответ осторожному или неполному — причём даже когда не в состоянии проверить, какой верен."
+   },
+   {
+    "text": "Training on that preference is training the confidence and the content separately, and only one of them is being checked.",
+    "translationRu": "Обучение на таком предпочтении обучает уверенности и содержанию по отдельности, а проверяется только одно из двух."
+   },
+   {
+    "text": "The system learns the register of expertise very well, because the register is what was scored.",
+    "translationRu": "Система отлично осваивает регистр экспертности, потому что оценивали именно регистр."
+   },
+   {
+    "text": "This is why the failures are so disorienting in practice.",
+    "translationRu": "Поэтому на практике сбои так дезориентируют."
+   },
+   {
+    "text": "A person who does not know something usually signals it, through hesitation, hedging or vagueness, and we have spent our lives calibrating on those signals.",
+    "translationRu": "Человек, который чего-то не знает, обычно это сигнализирует — заминкой, оговоркой, расплывчатостью, — и мы всю жизнь калибруемся по этим сигналам."
+   },
+   {
+    "text": "A model's fluency is constant, so the signal carries no information at all, and the most dangerous output is not the obviously wrong one but the one that is right about the surrounding nine facts.",
+    "translationRu": "У модели беглость постоянна, значит сигнал не несёт информации вовсе, и опаснее всего не явно неверный ответ, а тот, что верен в девяти окружающих фактах."
+   },
+   {
+    "text": "Mitigations exist and none of them solve it.",
+    "translationRu": "Смягчения существуют, и ни одно не решает проблему."
+   },
+   {
+    "text": "Retrieving real documents and requiring the answer to be grounded in them helps substantially, and introduces the new failure of confidently misreading a real source.",
+    "translationRu": "Извлечение настоящих документов с требованием опираться на них помогает существенно — и вносит новый сбой: уверенное неверное прочтение реального источника."
+   },
+   {
+    "text": "Asking a model to state its confidence produces numbers that are themselves generated text.",
+    "translationRu": "Просьба назвать уверенность даёт числа, которые сами являются сгенерированным текстом."
+   },
+   {
+    "text": "The only robust protection remains external verification, which is to say the boring practice of checking, and the practical difficulty is that the output is optimised to make checking feel unnecessary.",
+    "translationRu": "Единственная надёжная защита — внешняя проверка, то есть скучная практика перепроверки, и практическая трудность в том, что вывод оптимизирован так, чтобы проверка казалась излишней."
+   }
+  ],
+  "glossary": {
+   "plausible": {
+    "translation": "правдоподобный",
+    "partOfSpeech": "adjective"
+   },
+   "malfunction": {
+    "translation": "сбой, неисправность",
+    "partOfSpeech": "noun"
+   },
+   "continuation": {
+    "translation": "продолжение",
+    "partOfSpeech": "noun"
+   },
+   "distribution": {
+    "translation": "распределение",
+    "partOfSpeech": "noun"
+   },
+   "objective": {
+    "translation": "целевая функция, цель",
+    "partOfSpeech": "noun"
+   },
+   "coincide": {
+    "translation": "совпадать",
+    "partOfSpeech": "verb"
+   },
+   "citation": {
+    "translation": "ссылка на источник",
+    "partOfSpeech": "noun"
+   },
+   "hedge": {
+    "translation": "осторожничать, делать оговорки",
+    "partOfSpeech": "verb"
+   },
+   "calibrate": {
+    "translation": "калиброваться",
+    "partOfSpeech": "verb"
+   },
+   "grounded in": {
+    "translation": "опирающийся на",
+    "partOfSpeech": "phrase"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-models-make-things-up-q1",
+    "question": "Why is 'hallucination' called a poor metaphor?",
+    "options": [
+     "It is rude",
+     "It implies a malfunction in an otherwise truthful process",
+     "It is too technical",
+     "It is inaccurate medically"
+    ],
+    "answer": 1,
+    "explanation": "The process is working as designed on a task it was not designed for."
+   },
+   {
+    "id": "why-models-make-things-up-q2",
+    "question": "Why are citations the worst case?",
+    "options": [
+     "They are long",
+     "The format is regular and the content arbitrary, so shape and truth come apart",
+     "They are rare in training",
+     "Models avoid them"
+    ],
+    "answer": 1,
+    "explanation": "Perfectly shaped and entirely invented."
+   },
+   {
+    "id": "why-models-make-things-up-q3",
+    "question": "What does human preference training reinforce?",
+    "options": [
+     "Accuracy",
+     "Confidence and completeness, which are scored even when correctness cannot be checked",
+     "Brevity",
+     "Hedging"
+    ],
+    "answer": 1,
+    "explanation": "The register of expertise is what was scored."
+   },
+   {
+    "id": "why-models-make-things-up-q4",
+    "question": "Why is constant fluency dangerous?",
+    "options": [
+     "It is boring",
+     "It removes the uncertainty signals people calibrate on",
+     "It is slow",
+     "It hides sources"
+    ],
+    "answer": 1,
+    "explanation": "The worst output is right about the surrounding nine facts."
+   }
+  ]
  }
 ]

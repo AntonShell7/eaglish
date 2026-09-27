@@ -1817,5 +1817,170 @@
     "explanation": "People have died at marathons."
    }
   ]
+ },
+ {
+  "id": "why-we-sneeze",
+  "level": "A1",
+  "topic": "health",
+  "generated": false,
+  "title": "A Sneeze Is Faster Than a Car",
+  "sentences": [
+   {
+    "text": "Something small goes into your nose.",
+    "translationRu": "В нос попадает что-то маленькое."
+   },
+   {
+    "text": "Dust, pepper, a bit of hair from a cat.",
+    "translationRu": "Пыль, перец, кошачья шерстинка."
+   },
+   {
+    "text": "Your nose does not like it.",
+    "translationRu": "Носу это не нравится."
+   },
+   {
+    "text": "Small parts inside the nose send a message to the brain.",
+    "translationRu": "Маленькие датчики внутри носа шлют сигнал в мозг."
+   },
+   {
+    "text": "The brain says: get it out.",
+    "translationRu": "Мозг говорит: выбрось это."
+   },
+   {
+    "text": "Then a lot of things happen at the same time.",
+    "translationRu": "Дальше сразу происходит много всего."
+   },
+   {
+    "text": "You take a big breath.",
+    "translationRu": "Ты делаешь большой вдох."
+   },
+   {
+    "text": "Your chest gets tight.",
+    "translationRu": "Грудь сжимается."
+   },
+   {
+    "text": "Your eyes close.",
+    "translationRu": "Глаза закрываются."
+   },
+   {
+    "text": "And the air comes out very fast.",
+    "translationRu": "И воздух выходит очень быстро."
+   },
+   {
+    "text": "The air in a sneeze moves at about fifty kilometres an hour.",
+    "translationRu": "Воздух при чихании идёт примерно пятьдесят километров в час."
+   },
+   {
+    "text": "Some scientists say it can be faster.",
+    "translationRu": "Некоторые учёные говорят, что бывает и быстрее."
+   },
+   {
+    "text": "You cannot do this with your normal breathing.",
+    "translationRu": "Обычным дыханием так не получится."
+   },
+   {
+    "text": "Your body does it for you, and you cannot stop it.",
+    "translationRu": "Тело делает это за тебя, и остановить нельзя."
+   },
+   {
+    "text": "Why do your eyes close?",
+    "translationRu": "Почему закрываются глаза?"
+   },
+   {
+    "text": "Nobody is completely sure.",
+    "translationRu": "Точно никто не знает."
+   },
+   {
+    "text": "It is probably just part of the same big movement.",
+    "translationRu": "Вероятно, это просто часть того же общего движения."
+   },
+   {
+    "text": "Old people said your eyes close so they do not fall out, but that is not true.",
+    "translationRu": "Старики говорили, что глаза закрываются, чтобы не выпасть, но это неправда."
+   },
+   {
+    "text": "One more strange thing: many people sneeze when they look at the sun.",
+    "translationRu": "Ещё одна странность: многие чихают, посмотрев на солнце."
+   },
+   {
+    "text": "About one person in four does this.",
+    "translationRu": "Так делает примерно каждый четвёртый."
+   },
+   {
+    "text": "It comes from the family, like eye colour.",
+    "translationRu": "Это передаётся в семье, как цвет глаз."
+   }
+  ],
+  "glossary": {
+   "sneeze": {
+    "translation": "чихать; чихание",
+    "partOfSpeech": "verb"
+   },
+   "dust": {
+    "translation": "пыль",
+    "partOfSpeech": "noun"
+   },
+   "pepper": {
+    "translation": "перец",
+    "partOfSpeech": "noun"
+   },
+   "message": {
+    "translation": "сообщение, сигнал",
+    "partOfSpeech": "noun"
+   },
+   "breath": {
+    "translation": "вдох, дыхание",
+    "partOfSpeech": "noun"
+   },
+   "chest": {
+    "translation": "грудь",
+    "partOfSpeech": "noun"
+   },
+   "tight": {
+    "translation": "напряжённый, сжатый",
+    "partOfSpeech": "adjective"
+   },
+   "sun": {
+    "translation": "солнце",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-we-sneeze-q1",
+    "question": "How fast does the air move?",
+    "options": [
+     "Five kilometres an hour",
+     "About fifty kilometres an hour",
+     "Five hundred",
+     "Nobody knows"
+    ],
+    "answer": 1,
+    "explanation": "Faster than normal breathing can do."
+   },
+   {
+    "id": "why-we-sneeze-q2",
+    "question": "Why do the eyes close?",
+    "options": [
+     "To protect them",
+     "Nobody is completely sure",
+     "So they do not fall out",
+     "To see better"
+    ],
+    "answer": 1,
+    "explanation": "Probably part of the same big movement."
+   },
+   {
+    "id": "why-we-sneeze-q3",
+    "question": "How many people sneeze at the sun?",
+    "options": [
+     "Everyone",
+     "About one in four",
+     "Only children",
+     "Nobody"
+    ],
+    "answer": 1,
+    "explanation": "It runs in families."
+   }
+  ]
  }
 ]
