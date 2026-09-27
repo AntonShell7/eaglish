@@ -1298,5 +1298,182 @@
     "explanation": "Their brains have learned unfamiliar rooms are not dangerous."
    }
   ]
+ },
+ {
+  "id": "sitting-is-not-smoking",
+  "level": "C1",
+  "topic": "health",
+  "generated": false,
+  "title": "Sitting Is Not the New Smoking, and the Phrase Did Harm",
+  "sentences": [
+   {
+    "text": "Around 2014 a phrase escaped into general circulation: sitting is the new smoking.",
+    "translationRu": "Около 2014 года в широкий оборот вырвалась фраза: сидение — это новое курение."
+   },
+   {
+    "text": "It sold standing desks, it produced a great many articles, and as a summary of the evidence it is badly wrong in a way that matters.",
+    "translationRu": "Она продала стоячие столы, породила множество статей — и как изложение данных она серьёзно неверна, причём существенно."
+   },
+   {
+    "text": "Start with the size of the thing.",
+    "translationRu": "Начнём с масштаба."
+   },
+   {
+    "text": "Smoking multiplies the risk of lung cancer by something in the region of fifteen to thirty times.",
+    "translationRu": "Курение увеличивает риск рака лёгкого примерно в пятнадцать-тридцать раз."
+   },
+   {
+    "text": "The association between sitting time and early death, in the studies that find one, is a matter of tens of per cent.",
+    "translationRu": "Связь между временем сидения и ранней смертью в тех работах, где её находят, измеряется десятками процентов."
+   },
+   {
+    "text": "Those are not the same kind of number, and putting them in the same sentence trains people to treat a modest risk factor and the largest preventable cause of death in the world as comparable problems.",
+    "translationRu": "Это числа разного рода, и постановка их в одну фразу приучает считать умеренный фактор риска и крупнейшую предотвратимую причину смерти в мире сопоставимыми проблемами."
+   },
+   {
+    "text": "There is a more specific error underneath.",
+    "translationRu": "Под этим лежит более конкретная ошибка."
+   },
+   {
+    "text": "Much of the early alarm came from studies measuring total sitting time and adjusting for exercise, which found that sitting predicted poor outcomes independently.",
+    "translationRu": "Немалая часть ранней тревоги шла из исследований, измерявших суммарное время сидения с поправкой на физическую активность: сидение предсказывало плохие исходы независимо."
+   },
+   {
+    "text": "Later work with better measurement complicated that considerably.",
+    "translationRu": "Более поздние работы с лучшими измерениями это заметно усложнили."
+   },
+   {
+    "text": "A large pooled analysis found that in people who managed something like an hour of moderate activity a day, the association between sitting time and mortality largely disappeared.",
+    "translationRu": "Крупный объединённый анализ показал: у людей, набиравших примерно час умеренной активности в день, связь между сидением и смертностью по большей части исчезала."
+   },
+   {
+    "text": "The risk did not sit in the chair.",
+    "translationRu": "Риск сидел не в кресле."
+   },
+   {
+    "text": "It sat in the total absence of movement, of which a long day at a desk is the most visible symptom rather than the cause.",
+    "translationRu": "Он сидел в полном отсутствии движения, а долгий день за столом — его самый заметный симптом, а не причина."
+   },
+   {
+    "text": "This distinction has practical consequences, which is why the sloppy phrase is not harmless.",
+    "translationRu": "У этого различия есть практические следствия — поэтому неряшливая фраза не безобидна."
+   },
+   {
+    "text": "If sitting is the poison, the solution is a standing desk, and standing desks have a thin evidence base: they change posture, they burn a trivial number of additional calories, and trials measuring health outcomes have generally found very little.",
+    "translationRu": "Если яд — сидение, то решение — стоячий стол, а у стоячих столов доказательная база тонкая: они меняют позу, сжигают ничтожно больше калорий, и испытания с оценкой здоровья находили, как правило, очень мало."
+   },
+   {
+    "text": "Standing still for eight hours is not exercise; it is standing still, with added back pain.",
+    "translationRu": "Стоять неподвижно восемь часов — не упражнение; это неподвижность плюс боль в спине."
+   },
+   {
+    "text": "If the absence of movement is the problem, the solution is movement, and the dose that appears repeatedly in the literature is unspectacular: walking, most days, for a length of time most people could actually manage.",
+    "translationRu": "Если проблема — отсутствие движения, решение — движение, и доза, раз за разом всплывающая в литературе, невпечатляюща: ходьба, в большинство дней, столько, сколько реально осилить."
+   },
+   {
+    "text": "There is a broader lesson in the episode about how health advice travels.",
+    "translationRu": "В этом эпизоде есть и более широкий урок о том, как путешествуют советы о здоровье."
+   },
+   {
+    "text": "A claim spreads in proportion to how quotable it is, not how well it is supported, and the most quotable form of any finding is an equation with something everybody already fears.",
+    "translationRu": "Утверждение расходится пропорционально своей цитируемости, а не обоснованности, и самая цитируемая форма любого результата — приравнивание к тому, чего все уже боятся."
+   },
+   {
+    "text": "Once made, the equation is almost impossible to withdraw, because the correction is a paragraph and the claim is five words.",
+    "translationRu": "Раз произнесённое, такое приравнивание почти невозможно отозвать: поправка — это абзац, а утверждение — пять слов."
+   }
+  ],
+  "glossary": {
+   "circulation": {
+    "translation": "оборот, обращение",
+    "partOfSpeech": "noun"
+   },
+   "association": {
+    "translation": "связь (статистическая)",
+    "partOfSpeech": "noun"
+   },
+   "risk factor": {
+    "translation": "фактор риска",
+    "partOfSpeech": "noun"
+   },
+   "preventable": {
+    "translation": "предотвратимый",
+    "partOfSpeech": "adjective"
+   },
+   "adjust for": {
+    "translation": "делать поправку на",
+    "partOfSpeech": "phrase"
+   },
+   "pooled analysis": {
+    "translation": "объединённый анализ",
+    "partOfSpeech": "noun"
+   },
+   "mortality": {
+    "translation": "смертность",
+    "partOfSpeech": "noun"
+   },
+   "posture": {
+    "translation": "осанка, поза",
+    "partOfSpeech": "noun"
+   },
+   "trial": {
+    "translation": "испытание, исследование",
+    "partOfSpeech": "noun"
+   },
+   "quotable": {
+    "translation": "цитируемый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "sitting-is-not-smoking-q1",
+    "question": "What is wrong with comparing sitting to smoking?",
+    "options": [
+     "Both are harmless",
+     "The risk numbers differ by orders of magnitude",
+     "Smoking is less studied",
+     "Sitting is worse"
+    ],
+    "answer": 1,
+    "explanation": "Fifteen to thirty times versus tens of per cent."
+   },
+   {
+    "id": "sitting-is-not-smoking-q2",
+    "question": "What did the large pooled analysis find?",
+    "options": [
+     "Sitting is fatal",
+     "In people with about an hour of daily activity, the association largely disappeared",
+     "Exercise does not help",
+     "Standing is best"
+    ],
+    "answer": 1,
+    "explanation": "The risk did not sit in the chair."
+   },
+   {
+    "id": "sitting-is-not-smoking-q3",
+    "question": "Why are standing desks criticised here?",
+    "options": [
+     "They are expensive",
+     "Standing still is not exercise and the outcome evidence is thin",
+     "They cause injury",
+     "They reduce productivity"
+    ],
+    "answer": 1,
+    "explanation": "Standing still, with added back pain."
+   },
+   {
+    "id": "sitting-is-not-smoking-q4",
+    "question": "What is the broader lesson?",
+    "options": [
+     "Studies are useless",
+     "Claims spread by quotability, and a five-word equation outruns a paragraph of correction",
+     "Journalists lie",
+     "Health advice changes"
+    ],
+    "answer": 1,
+    "explanation": "The closing paragraph."
+   }
+  ]
  }
 ]

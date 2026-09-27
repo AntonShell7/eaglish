@@ -1032,5 +1032,170 @@
     "explanation": "Equipment made the second half impossible to ignore."
    }
   ]
+ },
+ {
+  "id": "basketball-and-the-peach-basket",
+  "level": "A1",
+  "topic": "sport",
+  "generated": false,
+  "title": "Basketball Started With Two Fruit Baskets",
+  "sentences": [
+   {
+    "text": "Basketball is a young game.",
+    "translationRu": "Баскетбол — молодая игра."
+   },
+   {
+    "text": "It is younger than football and much younger than tennis.",
+    "translationRu": "Он моложе футбола и намного моложе тенниса."
+   },
+   {
+    "text": "One man invented it in one afternoon.",
+    "translationRu": "Один человек придумал его за один день."
+   },
+   {
+    "text": "His name was James Naismith, and he was a teacher in America.",
+    "translationRu": "Его звали Джеймс Нейсмит, он был учителем в Америке."
+   },
+   {
+    "text": "It was winter, in 1891.",
+    "translationRu": "Была зима 1891 года."
+   },
+   {
+    "text": "It was cold and wet outside, and his students could not go out.",
+    "translationRu": "На улице было холодно и сыро, и студенты не могли выйти."
+   },
+   {
+    "text": "They were bored and they were fighting.",
+    "translationRu": "Им было скучно, и они дрались."
+   },
+   {
+    "text": "His boss said: make a new game for inside.",
+    "translationRu": "Начальник сказал: придумай новую игру для зала."
+   },
+   {
+    "text": "Naismith had two days.",
+    "translationRu": "У Нейсмита было два дня."
+   },
+   {
+    "text": "He wanted a game with no kicking and no running with the ball, because the floor was hard.",
+    "translationRu": "Он хотел игру без ударов ногой и без бега с мячом, потому что пол был жёстким."
+   },
+   {
+    "text": "So the players had to throw the ball to each other.",
+    "translationRu": "Поэтому игроки должны были перебрасывать мяч друг другу."
+   },
+   {
+    "text": "He also wanted a goal that was high, so nobody could stand in front of it.",
+    "translationRu": "Ещё он хотел, чтобы цель была высоко: тогда никто не встанет перед ней."
+   },
+   {
+    "text": "He asked for two boxes.",
+    "translationRu": "Он попросил две коробки."
+   },
+   {
+    "text": "There were no boxes, but there were two old baskets for fruit.",
+    "translationRu": "Коробок не было, зато нашлись две старые корзины из-под фруктов."
+   },
+   {
+    "text": "He put one basket on each wall, high up.",
+    "translationRu": "Он повесил по корзине на каждой стене, высоко."
+   },
+   {
+    "text": "The first game had eighteen players and one goal in total.",
+    "translationRu": "В первой игре было восемнадцать игроков и всего один гол."
+   },
+   {
+    "text": "There was one problem.",
+    "translationRu": "Была одна проблема."
+   },
+   {
+    "text": "The bottom of the basket was closed.",
+    "translationRu": "Дно корзины было закрыто."
+   },
+   {
+    "text": "After every goal, a man with a ladder had to take the ball out.",
+    "translationRu": "После каждого гола человек с лестницей доставал мяч."
+   },
+   {
+    "text": "For years, nobody thought about cutting a hole.",
+    "translationRu": "Годами никто не додумался прорезать дырку."
+   },
+   {
+    "text": "Today more than four hundred million people play this game.",
+    "translationRu": "Сегодня в эту игру играют больше четырёхсот миллионов человек."
+   }
+  ],
+  "glossary": {
+   "invent": {
+    "translation": "изобретать",
+    "partOfSpeech": "verb"
+   },
+   "teacher": {
+    "translation": "учитель",
+    "partOfSpeech": "noun"
+   },
+   "bored": {
+    "translation": "скучающий",
+    "partOfSpeech": "adjective"
+   },
+   "kick": {
+    "translation": "бить ногой",
+    "partOfSpeech": "verb"
+   },
+   "throw": {
+    "translation": "бросать",
+    "partOfSpeech": "verb"
+   },
+   "basket": {
+    "translation": "корзина",
+    "partOfSpeech": "noun"
+   },
+   "goal": {
+    "translation": "гол; цель",
+    "partOfSpeech": "noun"
+   },
+   "ladder": {
+    "translation": "лестница, стремянка",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "basketball-and-the-peach-basket-q1",
+    "question": "Why did Naismith need a new game?",
+    "options": [
+     "The students wanted to win",
+     "It was winter and the students could not go outside",
+     "The school was new",
+     "Football was banned"
+    ],
+    "answer": 1,
+    "explanation": "They were bored and fighting."
+   },
+   {
+    "id": "basketball-and-the-peach-basket-q2",
+    "question": "Why was the goal high?",
+    "options": [
+     "To make it hard",
+     "So nobody could stand in front of it",
+     "There was no space",
+     "The walls were high"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   },
+   {
+    "id": "basketball-and-the-peach-basket-q3",
+    "question": "What was the problem with the baskets?",
+    "options": [
+     "They were too small",
+     "The bottom was closed, so someone had to get the ball out",
+     "They fell down",
+     "They were made of glass"
+    ],
+    "answer": 1,
+    "explanation": "A man with a ladder did it after every goal."
+   }
+  ]
  }
 ]

@@ -1242,5 +1242,190 @@
     "explanation": "Distinctive films are often the ones that left it alone."
    }
   ]
+ },
+ {
+  "id": "why-everyone-uses-subtitles",
+  "level": "B2",
+  "topic": "culture",
+  "generated": false,
+  "title": "Why You Watch Everything With Subtitles Now",
+  "sentences": [
+   {
+    "text": "A large majority of young viewers now watch films and series in their own language with the subtitles switched on.",
+    "translationRu": "Большинство молодых зрителей сегодня смотрят фильмы и сериалы на родном языке с включёнными субтитрами."
+   },
+   {
+    "text": "Surveys in Britain and the United States put it above half for people under thirty, and far lower for their parents.",
+    "translationRu": "Опросы в Британии и США дают больше половины среди тех, кому нет тридцати, и заметно меньше у их родителей."
+   },
+   {
+    "text": "The usual explanation is short attention spans and second screens, and while that is part of it, the more interesting causes are technical, and the dialogue really has become harder to hear.",
+    "translationRu": "Обычное объяснение — короткое внимание и второй экран; доля правды тут есть, но более интересные причины технические, и реплики действительно стало труднее расслышать."
+   },
+   {
+    "text": "Start with microphones.",
+    "translationRu": "Начнём с микрофонов."
+   },
+   {
+    "text": "For decades, actors were recorded by a boom held just outside the frame, and they projected, because the room and the camera required it.",
+    "translationRu": "Десятилетиями актёров писали «удочкой» чуть за кадром, и они подавали голос, потому что этого требовали зал и камера."
+   },
+   {
+    "text": "Tiny radio microphones hidden in a costume changed that.",
+    "translationRu": "Крошечные радиомикрофоны, спрятанные в костюме, это изменили."
+   },
+   {
+    "text": "A performer can now murmur at conversational volume, and many prefer to, because it reads as natural on a screen.",
+    "translationRu": "Актёр теперь может бормотать на разговорной громкости, и многие предпочитают именно так: на экране это читается как естественность."
+   },
+   {
+    "text": "Naturalism is a style, and this one is quiet.",
+    "translationRu": "Натурализм — это стиль, и этот стиль тихий."
+   },
+   {
+    "text": "Then the mix.",
+    "translationRu": "Дальше сведение."
+   },
+   {
+    "text": "Films are mixed for a cinema with a calibrated multi-speaker system and a controlled noise floor, then delivered to a flat television whose speakers fire backwards into a wall, or to a laptop.",
+    "translationRu": "Фильмы сводят для кинозала с откалиброванной многоканальной системой и контролируемым уровнем шума, а доставляют на плоский телевизор, чьи динамики бьют назад в стену, или на ноутбук."
+   },
+   {
+    "text": "Dialogue in a cinema mix lives in a centre channel that a television has to fold into two, where it competes with music and effects that were never meant to share space with it.",
+    "translationRu": "Речь в кинотеатральном сведении живёт в центральном канале, который телевизор вынужден свернуть в два, где она конкурирует с музыкой и эффектами, никогда не предназначенными делить с ней место."
+   },
+   {
+    "text": "The result is the familiar experience of reaching for the remote during a whisper and again during an explosion.",
+    "translationRu": "Отсюда знакомое: тянешься к пульту на шёпоте и снова на взрыве."
+   },
+   {
+    "text": "Add the content itself.",
+    "translationRu": "Добавь само содержание."
+   },
+   {
+    "text": "Streaming made international television normal, and a viewer now moves between accents and dialects constantly rather than a few times a year, which is the situation subtitles were invented for.",
+    "translationRu": "Стриминг сделал международное телевидение обычным делом, и зритель теперь постоянно, а не пару раз в год, переключается между акцентами и диалектами — ровно та ситуация, ради которой субтитры и придуманы."
+   },
+   {
+    "text": "And there is a habit effect that nobody planned: a generation that grew up watching short video in public, muted, with burned-in captions, simply finds reading while watching normal.",
+    "translationRu": "И есть эффект привычки, которого никто не планировал: поколение, выросшее на коротком видео в общественных местах, без звука, с вшитыми подписями, просто считает чтение во время просмотра нормой."
+   },
+   {
+    "text": "What is worth noticing is the effect running the other way.",
+    "translationRu": "Стоит заметить и обратный эффект."
+   },
+   {
+    "text": "Once a large share of the audience is reading, writers and directors begin, consciously or not, to rely on it.",
+    "translationRu": "Как только значительная доля аудитории читает, сценаристы и режиссёры начинают — сознательно или нет — на это опираться."
+   },
+   {
+    "text": "Dialogue can be faster, quieter, more overlapping, less explanatory, because the text will carry what the voice does not.",
+    "translationRu": "Диалог может быть быстрее, тише, с большим наложением, менее разъяснительным: текст донесёт то, чего не донесёт голос."
+   },
+   {
+    "text": "That is a real gain in realism and a real loss for anyone watching without them, and the gap between the two experiences is widening.",
+    "translationRu": "Это настоящий выигрыш в достоверности и настоящая потеря для того, кто смотрит без них, и разрыв между двумя опытами растёт."
+   },
+   {
+    "text": "Subtitles began as an accessibility feature for a minority.",
+    "translationRu": "Субтитры начинались как средство доступности для меньшинства."
+   },
+   {
+    "text": "They are quietly becoming part of how the thing is written.",
+    "translationRu": "Они тихо становятся частью того, как это пишется."
+   }
+  ],
+  "glossary": {
+   "subtitle": {
+    "translation": "субтитр",
+    "partOfSpeech": "noun"
+   },
+   "attention span": {
+    "translation": "объём внимания",
+    "partOfSpeech": "noun"
+   },
+   "boom": {
+    "translation": "микрофонная удочка",
+    "partOfSpeech": "noun"
+   },
+   "project": {
+    "translation": "подавать голос",
+    "partOfSpeech": "verb"
+   },
+   "murmur": {
+    "translation": "бормотать",
+    "partOfSpeech": "verb"
+   },
+   "mix": {
+    "translation": "сведение (звука)",
+    "partOfSpeech": "noun"
+   },
+   "noise floor": {
+    "translation": "уровень фонового шума",
+    "partOfSpeech": "noun"
+   },
+   "fold into": {
+    "translation": "свести в",
+    "partOfSpeech": "phrase"
+   },
+   "caption": {
+    "translation": "подпись, титр",
+    "partOfSpeech": "noun"
+   },
+   "overlapping": {
+    "translation": "накладывающийся",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-everyone-uses-subtitles-q1",
+    "question": "How did radio microphones change performance?",
+    "options": [
+     "Actors speak faster",
+     "Actors can murmur at conversational volume",
+     "Actors shout",
+     "Actors are dubbed"
+    ],
+    "answer": 1,
+    "explanation": "Naturalism is a style, and this one is quiet."
+   },
+   {
+    "id": "why-everyone-uses-subtitles-q2",
+    "question": "What happens to the centre channel on a television?",
+    "options": [
+     "It is removed",
+     "It is folded into two channels, competing with music and effects",
+     "It is amplified",
+     "It is delayed"
+    ],
+    "answer": 1,
+    "explanation": "Hence the remote during a whisper and an explosion."
+   },
+   {
+    "id": "why-everyone-uses-subtitles-q3",
+    "question": "What unplanned habit does the text describe?",
+    "options": [
+     "Watching twice",
+     "Growing up on muted short video with burned-in captions",
+     "Reading books",
+     "Watching in groups"
+    ],
+    "answer": 1,
+    "explanation": "Reading while watching feels normal."
+   },
+   {
+    "id": "why-everyone-uses-subtitles-q4",
+    "question": "What is the effect running the other way?",
+    "options": [
+     "Subtitles get shorter",
+     "Writing relies on subtitles, so dialogue gets quieter and less explanatory",
+     "Films get longer",
+     "Accents disappear"
+    ],
+    "answer": 1,
+    "explanation": "A gain in realism, a loss for anyone without them."
+   }
+  ]
  }
 ]

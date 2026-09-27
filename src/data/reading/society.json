@@ -1040,5 +1040,170 @@
     "explanation": "The same machine one level up."
    }
   ]
+ },
+ {
+  "id": "the-human-library",
+  "level": "A2",
+  "topic": "society",
+  "generated": false,
+  "title": "The Library Where You Borrow a Person",
+  "sentences": [
+   {
+    "text": "In a normal library you borrow a book.",
+    "translationRu": "В обычной библиотеке ты берёшь книгу."
+   },
+   {
+    "text": "In this library you borrow a person.",
+    "translationRu": "В этой библиотеке ты берёшь человека."
+   },
+   {
+    "text": "You sit down with them and you talk for about thirty minutes.",
+    "translationRu": "Ты садишься с ним и говоришь примерно полчаса."
+   },
+   {
+    "text": "The idea started in Denmark in the year 2000.",
+    "translationRu": "Идея появилась в Дании в 2000 году."
+   },
+   {
+    "text": "A group of young people wanted to do something about hate between groups.",
+    "translationRu": "Группа молодых людей захотела что-то сделать с враждой между группами."
+   },
+   {
+    "text": "So they made a library of people.",
+    "translationRu": "И они сделали библиотеку людей."
+   },
+   {
+    "text": "Each person is a book with a title.",
+    "translationRu": "Каждый человек — книга с названием."
+   },
+   {
+    "text": "The title is the thing that people usually think they know about them.",
+    "translationRu": "Название — это то, что про такого человека обычно «и так знают»."
+   },
+   {
+    "text": "Refugee.",
+    "translationRu": "Беженец."
+   },
+   {
+    "text": "Homeless.",
+    "translationRu": "Бездомный."
+   },
+   {
+    "text": "Police officer.",
+    "translationRu": "Полицейский."
+   },
+   {
+    "text": "Person with depression.",
+    "translationRu": "Человек с депрессией."
+   },
+   {
+    "text": "You choose a title, and then the person tells you their story.",
+    "translationRu": "Ты выбираешь название — и человек рассказывает свою историю."
+   },
+   {
+    "text": "You can ask any question.",
+    "translationRu": "Можно задать любой вопрос."
+   },
+   {
+    "text": "That is the important rule.",
+    "translationRu": "Это и есть главное правило."
+   },
+   {
+    "text": "You can ask the question that you could never ask in the street.",
+    "translationRu": "Можно спросить то, что на улице никогда не спросишь."
+   },
+   {
+    "text": "The books do not get angry, because they came to be asked.",
+    "translationRu": "«Книги» не злятся, потому что они пришли, чтобы их спрашивали."
+   },
+   {
+    "text": "Today there are human libraries in more than eighty countries.",
+    "translationRu": "Сегодня человеческие библиотеки есть больше чем в восьмидесяти странах."
+   },
+   {
+    "text": "Schools use the idea, and so do some companies.",
+    "translationRu": "Идею используют школы и некоторые компании."
+   },
+   {
+    "text": "The people who organise it say something simple.",
+    "translationRu": "Организаторы говорят простую вещь."
+   },
+   {
+    "text": "It is difficult to hate a group when you have had coffee with one of them.",
+    "translationRu": "Трудно ненавидеть группу, когда ты выпил кофе с кем-то из неё."
+   }
+  ],
+  "glossary": {
+   "borrow": {
+    "translation": "брать на время",
+    "partOfSpeech": "verb"
+   },
+   "hate": {
+    "translation": "ненависть; ненавидеть",
+    "partOfSpeech": "noun"
+   },
+   "title": {
+    "translation": "название",
+    "partOfSpeech": "noun"
+   },
+   "refugee": {
+    "translation": "беженец",
+    "partOfSpeech": "noun"
+   },
+   "homeless": {
+    "translation": "бездомный",
+    "partOfSpeech": "adjective"
+   },
+   "question": {
+    "translation": "вопрос",
+    "partOfSpeech": "noun"
+   },
+   "angry": {
+    "translation": "сердитый",
+    "partOfSpeech": "adjective"
+   },
+   "organise": {
+    "translation": "организовывать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-human-library-q1",
+    "question": "What do you borrow here?",
+    "options": [
+     "A rare book",
+     "A person, for about thirty minutes",
+     "A film",
+     "A room"
+    ],
+    "answer": 1,
+    "explanation": "You sit down and talk."
+   },
+   {
+    "id": "the-human-library-q2",
+    "question": "What is a 'title' in this library?",
+    "options": [
+     "A job",
+     "The thing people usually think they know about that person",
+     "A book name",
+     "A country"
+    ],
+    "answer": 1,
+    "explanation": "Refugee, homeless, police officer."
+   },
+   {
+    "id": "the-human-library-q3",
+    "question": "What is the important rule?",
+    "options": [
+     "Be quiet",
+     "You can ask any question",
+     "Thirty minutes maximum",
+     "No photographs"
+    ],
+    "answer": 1,
+    "explanation": "The books came to be asked."
+   }
+  ]
  }
 ]

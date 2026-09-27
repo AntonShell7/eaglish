@@ -41,24 +41,48 @@
   "label": "Culture",
   "counts": {
    "C1": 3,
-   "B2": 1,
+   "B2": 2,
    "A1": 1,
    "C2": 2,
    "A2": 1
   },
-  "total": 8
+  "total": 9
  },
  {
   "id": "health",
   "label": "Health",
   "counts": {
    "B1": 2,
-   "C1": 1,
+   "C1": 2,
    "B2": 2,
    "A1": 2,
    "C2": 1
   },
-  "total": 8
+  "total": 9
+ },
+ {
+  "id": "society",
+  "label": "Society",
+  "counts": {
+   "B1": 2,
+   "A2": 2,
+   "C2": 1,
+   "B2": 1,
+   "C1": 1
+  },
+  "total": 7
+ },
+ {
+  "id": "sport",
+  "label": "Sport",
+  "counts": {
+   "B1": 2,
+   "A2": 1,
+   "B2": 1,
+   "A1": 2,
+   "C1": 1
+  },
+  "total": 7
  },
  {
   "id": "technology",
@@ -84,29 +108,5 @@
    "C2": 1
   },
   "total": 7
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1": 2,
-   "A2": 1,
-   "C2": 1,
-   "B2": 1,
-   "C1": 1
-  },
-  "total": 6
- },
- {
-  "id": "sport",
-  "label": "Sport",
-  "counts": {
-   "B1": 2,
-   "A2": 1,
-   "B2": 1,
-   "A1": 1,
-   "C1": 1
-  },
-  "total": 6
  }
 ]
