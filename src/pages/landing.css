@@ -46,20 +46,25 @@
 }
 
 .lp-hero__mark.brand-chip {
-  width: clamp(54px, 7vw, 68px);
+  width: clamp(80px, 10vw, 104px);
   height: auto;
   background-color: var(--mint);
 }
 
 /* The name, in the book face the reading itself is set in. A product about
    reading should say its own name in the type it reads in. */
+/* A didone for the name: the extreme thick-to-thin of this class of face is
+   where "expensive" comes from in print, and it only works at display size on
+   a quiet ground — which is exactly what this page is. The reading faces stay
+   where they belong, inside the texts. */
 .lp-wordmark {
-  margin: 26px 0 0;
-  font-family: var(--font-display);
+  margin: 28px 0 0;
+  font-family: "Bodoni Moda", var(--font-display);
   font-weight: 600;
-  font-size: clamp(3rem, 9vw, 5.4rem);
+  font-size: clamp(3.1rem, 9.5vw, 5.8rem);
+  font-optical-sizing: auto;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
   color: var(--mint);
 }
 

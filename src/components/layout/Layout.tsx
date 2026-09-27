@@ -165,18 +165,14 @@ export function Layout() {
               <StatsStrip routeKey={pathname} />
             </span>
           ) : (
-            <div className="flex items-center gap-2">
-              <NavLink
-                to="/login"
-                className="rounded-full px-3 py-1.5 text-sm font-semibold"
-                style={{ color: "var(--color-text-muted)" }}
-              >
+            <div className="topline__guest">
+              <LanguageToggle />
+              <ThemeToggle compact />
+              <span className="topline__sep" aria-hidden />
+              <NavLink to="/login" className="guest-btn guest-btn--quiet">
                 {t("auth.logIn")}
               </NavLink>
-              <NavLink
-                to="/register"
-                className="btn btn--primary"
-              >
+              <NavLink to="/register" className="guest-btn guest-btn--go">
                 {t("landing.start")}
               </NavLink>
             </div>

@@ -289,3 +289,82 @@
     padding-bottom: 0;
   }
 }
+
+/* ── Guest header ─────────────────────────────────────────────────────── */
+
+/* The header of the front page carries the same two actions as the page
+   itself, so it wears the same clothes: mint for the one to press, a gold
+   hairline for the quiet one. A header whose buttons look like a different
+   product's is the fastest way to make a page feel assembled from parts. */
+.topline__guest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topline__sep {
+  width: 1px;
+  height: 20px;
+  margin-inline: 2px;
+  background: var(--color-border);
+}
+
+.guest-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    background var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease);
+}
+
+.guest-btn--go {
+  background: #7fd0b4;
+  color: #07231c;
+}
+
+.guest-btn--go:hover {
+  background: #96e0c6;
+  transform: translateY(-1px);
+}
+
+.guest-btn--quiet {
+  border-color: rgba(224, 171, 92, 0.38);
+  color: var(--color-text);
+}
+
+.guest-btn--quiet:hover {
+  border-color: #e0ab5c;
+  color: #e0ab5c;
+  transform: translateY(-1px);
+}
+
+/* The switches lose their panel here — two chips in a bordered tray on a page
+   built from hairlines would be the only boxed thing on screen. */
+.topline__guest [role="radiogroup"] {
+  border-color: var(--color-border) !important;
+  background: transparent !important;
+}
+
+@media (max-width: 620px) {
+  .topline__sep,
+  .topline__guest [aria-label="Язык"],
+  .topline__guest [aria-label="Language"] {
+    display: none;
+  }
+
+  .guest-btn {
+    height: 34px;
+    padding: 0 14px;
+    font-size: 0.82rem;
+  }
+}

@@ -7,9 +7,15 @@ const OPTIONS: { mode: ThemeMode; icon: string }[] = [
   { mode: "system", icon: "◐" },
 ];
 
-export function ThemeToggle() {
+export function ThemeToggle({ compact = false }: { compact?: boolean } = {}) {
   const { mode, setMode } = useTheme();
   const { t } = useTranslation();
+
+  /* On the front page the choice is light or dark and nothing else: "follow
+     the system" is a preference for people who already live in the app, and
+     offering three states to a first-time visitor is a question they did not
+     come here to answer. */
+  const options = compact ? OPTIONS.filter((o) => o.mode !== "system") : OPTIONS;
 
   return (
     <div
@@ -18,7 +24,7 @@ export function ThemeToggle() {
       className="flex items-center gap-0.5 rounded-full border p-0.5"
       style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
     >
-      {OPTIONS.map((option) => {
+      {options.map((option) => {
         const active = option.mode === mode;
         return (
           <button
