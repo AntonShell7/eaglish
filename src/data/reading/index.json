@@ -56,17 +56,28 @@
   "label": "Society",
   "counts": {
    "B1": 1,
-   "A2": 1
+   "A2": 1,
+   "C2": 1
   },
-  "total": 2
+  "total": 3
  },
  {
   "id": "sport",
   "label": "Sport",
   "counts": {
-   "B1": 2
+   "B1": 2,
+   "A2": 1
   },
-  "total": 2
+  "total": 3
+ },
+ {
+  "id": "technology",
+  "label": "Technology",
+  "counts": {
+   "B1": 2,
+   "A1": 1
+  },
+  "total": 3
  },
  {
   "id": "travel",
@@ -76,13 +87,5 @@
    "B2": 1
   },
   "total": 2
- },
- {
-  "id": "technology",
-  "label": "Technology",
-  "counts": {
-   "B1": 1
-  },
-  "total": 1
  }
 ]

@@ -304,5 +304,186 @@
     "explanation": "Short does not mean small."
    }
   ]
+ },
+ {
+  "id": "the-other-queue",
+  "level": "C2",
+  "topic": "society",
+  "generated": false,
+  "title": "The Other Queue Really Is Faster, and It Is Not Bad Luck",
+  "sentences": [
+   {
+    "text": "You join one of three queues at a supermarket and, with a regularity that feels personal, the other two move faster.",
+    "translationRu": "Ты встаёшь в одну из трёх очередей в супермаркете — и с регулярностью, которая кажется адресной, две другие идут быстрее."
+   },
+   {
+    "text": "The usual response is to treat this as a joke about luck.",
+    "translationRu": "Обычно на это отвечают шуткой про везение."
+   },
+   {
+    "text": "It is not luck, and the arithmetic is worth a minute, because it explains a great deal more than supermarkets.",
+    "translationRu": "Дело не в везении, и на арифметику стоит потратить минуту: она объясняет куда больше, чем супермаркеты."
+   },
+   {
+    "text": "Begin with the trivial part.",
+    "translationRu": "Начнём с очевидного."
+   },
+   {
+    "text": "With three queues, there are two others, so on any given visit the chance that yours is the quickest is roughly one in three.",
+    "translationRu": "При трёх очередях две — чужие, так что в любой конкретный раз шанс, что твоя самая быстрая, примерно один к трём."
+   },
+   {
+    "text": "You will be overtaken about twice as often as you overtake, and memory, which stores irritation far more reliably than satisfaction, does the rest.",
+    "translationRu": "Тебя будут обгонять примерно вдвое чаще, чем ты, а память, которая хранит раздражение куда надёжнее удовольствия, доделает остальное."
+   },
+   {
+    "text": "But the deeper reason is about variance rather than averages.",
+    "translationRu": "Но более глубокая причина — в разбросе, а не в средних."
+   },
+   {
+    "text": "Suppose all three queues are identical in every measurable way: same length, same staff, same average time per customer.",
+    "translationRu": "Допустим, все три очереди одинаковы по любому измеримому признаку: та же длина, те же кассиры, то же среднее время на покупателя."
+   },
+   {
+    "text": "They will still finish at different times, because service times are not fixed but scattered around an average, and one unexpected event — a price check, a card that will not read, a conversation about the weather — is enough to separate them.",
+    "translationRu": "Они всё равно закончатся в разное время, потому что время обслуживания не фиксировано, а разбросано вокруг среднего, и одного непредвиденного случая — проверки цены, нечитаемой карты, разговора о погоде — хватает, чтобы их развести."
+   },
+   {
+    "text": "The queue that hits no such event finishes first.",
+    "translationRu": "Первой закончится та, где такого случая не произошло."
+   },
+   {
+    "text": "And here is the asymmetry that makes queueing feel unjust: a delay can be arbitrarily large, while the best possible outcome is merely that nothing goes wrong.",
+    "translationRu": "И вот асимметрия, из-за которой очередь кажется несправедливой: задержка может быть сколь угодно большой, тогда как лучший исход — всего лишь отсутствие сбоя."
+   },
+   {
+    "text": "There is no event that speeds a queue up the way a broken till slows one down.",
+    "translationRu": "Не бывает события, ускоряющего очередь так же, как сломанная касса её замедляет."
+   },
+   {
+    "text": "The distribution has a long tail on one side only, and the rare disaster drags the average away from the typical experience.",
+    "translationRu": "Распределение имеет длинный хвост только с одной стороны, и редкая катастрофа утаскивает среднее прочь от типичного случая."
+   },
+   {
+    "text": "This is exactly why airports, banks and hospitals moved to a single line feeding many servers.",
+    "translationRu": "Именно поэтому аэропорты, банки и больницы перешли к одной общей линии, питающей несколько окон."
+   },
+   {
+    "text": "A single queue does not make anyone faster on average; the throughput is identical.",
+    "translationRu": "Общая очередь в среднем никого не ускоряет: пропускная способность та же."
+   },
+   {
+    "text": "What it does is abolish the variance between customers, so nobody stands still watching a stranger who arrived later walk out first.",
+    "translationRu": "Она устраняет разброс между людьми: никто не стоит, глядя, как пришедший позже незнакомец уходит первым."
+   },
+   {
+    "text": "The wait becomes fairer without becoming shorter, and it is remarkable how much of the complaining that disappears.",
+    "translationRu": "Ожидание становится справедливее, не становясь короче, — и поразительно, сколько недовольства при этом исчезает."
+   },
+   {
+    "text": "Supermarkets know all this perfectly well.",
+    "translationRu": "Супермаркеты всё это прекрасно знают."
+   },
+   {
+    "text": "They keep separate tills because a single snaking line looks alarming from the door, and a customer who judges the shop too busy from outside never comes in to be served at all.",
+    "translationRu": "Они держат отдельные кассы, потому что одна извивающаяся очередь пугает от входа, а покупатель, решивший снаружи, что тут слишком людно, вообще не заходит."
+   },
+   {
+    "text": "So the design that annoys you persists, not because nobody has done the mathematics, but because someone has, and concluded that your irritation is cheaper than your absence.",
+    "translationRu": "Так что раздражающая конструкция держится не потому, что никто не считал, а потому, что кто-то посчитал и решил: твоё раздражение обходится дешевле твоего отсутствия."
+   }
+  ],
+  "glossary": {
+   "queue": {
+    "translation": "очередь",
+    "partOfSpeech": "noun"
+   },
+   "overtake": {
+    "translation": "обгонять",
+    "partOfSpeech": "verb"
+   },
+   "variance": {
+    "translation": "разброс, дисперсия",
+    "partOfSpeech": "noun"
+   },
+   "scattered": {
+    "translation": "разбросанный",
+    "partOfSpeech": "adjective"
+   },
+   "asymmetry": {
+    "translation": "асимметрия",
+    "partOfSpeech": "noun"
+   },
+   "till": {
+    "translation": "касса",
+    "partOfSpeech": "noun"
+   },
+   "tail": {
+    "translation": "хвост распределения",
+    "partOfSpeech": "noun"
+   },
+   "throughput": {
+    "translation": "пропускная способность",
+    "partOfSpeech": "noun"
+   },
+   "abolish": {
+    "translation": "упразднять",
+    "partOfSpeech": "verb"
+   },
+   "snaking": {
+    "translation": "извивающийся",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-other-queue-q1",
+    "question": "Why are you overtaken more often than you overtake?",
+    "options": [
+     "Staff are slower",
+     "With three queues, two of them are not yours",
+     "You choose badly",
+     "Trolleys are heavier"
+    ],
+    "answer": 1,
+    "explanation": "Roughly a one-in-three chance yours is quickest."
+   },
+   {
+    "id": "the-other-queue-q2",
+    "question": "What is the asymmetry described?",
+    "options": [
+     "Queues are different lengths",
+     "Delays can be huge, while the best case is only that nothing goes wrong",
+     "Staff work at different speeds",
+     "Customers buy different amounts"
+    ],
+    "answer": 1,
+    "explanation": "The distribution has a long tail on one side only."
+   },
+   {
+    "id": "the-other-queue-q3",
+    "question": "What does a single queue actually change?",
+    "options": [
+     "Throughput",
+     "The variance between customers, and so the fairness",
+     "Staff numbers",
+     "Average service time"
+    ],
+    "answer": 1,
+    "explanation": "Fairer without being shorter."
+   },
+   {
+    "id": "the-other-queue-q4",
+    "question": "Why do supermarkets keep separate tills?",
+    "options": [
+     "It is cheaper",
+     "One long line looks alarming from outside and deters customers",
+     "The mathematics is unknown",
+     "Customers prefer choosing"
+    ],
+    "answer": 1,
+    "explanation": "Your irritation is cheaper than your absence."
+   }
+  ]
  }
 ]

@@ -163,5 +163,327 @@
     "explanation": "Stated directly before the practical advice."
    }
   ]
+ },
+ {
+  "id": "why-qwerty",
+  "level": "A1",
+  "topic": "technology",
+  "generated": false,
+  "title": "Why Your Keyboard Starts With QWERTY",
+  "sentences": [
+   {
+    "text": "Look at the top line of letters on your keyboard.",
+    "translationRu": "Посмотри на верхний ряд букв на клавиатуре."
+   },
+   {
+    "text": "It says Q, W, E, R, T, Y.",
+    "translationRu": "Там Q, W, E, R, T, Y."
+   },
+   {
+    "text": "This is a very strange order.",
+    "translationRu": "Это очень странный порядок."
+   },
+   {
+    "text": "Why not A, B, C, D?",
+    "translationRu": "Почему не A, B, C, D?"
+   },
+   {
+    "text": "The answer is old.",
+    "translationRu": "Ответ старый."
+   },
+   {
+    "text": "It comes from the typewriter.",
+    "translationRu": "Он идёт от пишущей машинки."
+   },
+   {
+    "text": "A typewriter is a machine with small metal arms.",
+    "translationRu": "Пишущая машинка — это машина с маленькими металлическими рычажками."
+   },
+   {
+    "text": "Every arm has one letter on it.",
+    "translationRu": "На каждом рычажке одна буква."
+   },
+   {
+    "text": "You press a key, and the arm hits the paper.",
+    "translationRu": "Ты нажимаешь клавишу, и рычажок бьёт по бумаге."
+   },
+   {
+    "text": "But there was a problem.",
+    "translationRu": "Но была проблема."
+   },
+   {
+    "text": "When you typed fast, two arms came up together.",
+    "translationRu": "Когда печатали быстро, два рычажка поднимались вместе."
+   },
+   {
+    "text": "They hit each other and stopped.",
+    "translationRu": "Они ударялись друг о друга и застревали."
+   },
+   {
+    "text": "Then you had to move them back with your hand.",
+    "translationRu": "Тогда приходилось разводить их рукой."
+   },
+   {
+    "text": "So the letters were moved around.",
+    "translationRu": "Поэтому буквы переставили."
+   },
+   {
+    "text": "Letters that people use together were put far apart.",
+    "translationRu": "Буквы, которые часто идут вместе, развели подальше."
+   },
+   {
+    "text": "Now the arms did not meet so often.",
+    "translationRu": "Теперь рычажки сталкивались реже."
+   },
+   {
+    "text": "That was more than one hundred and fifty years ago.",
+    "translationRu": "Это было больше ста пятидесяти лет назад."
+   },
+   {
+    "text": "Your phone has no metal arms.",
+    "translationRu": "В твоём телефоне нет металлических рычажков."
+   },
+   {
+    "text": "Your laptop has no metal arms.",
+    "translationRu": "В твоём ноутбуке их тоже нет."
+   },
+   {
+    "text": "But the letters stay in the same place, because everybody already knows them.",
+    "translationRu": "Но буквы остаются на тех же местах, потому что все их уже знают."
+   }
+  ],
+  "glossary": {
+   "keyboard": {
+    "translation": "клавиатура",
+    "partOfSpeech": "noun"
+   },
+   "order": {
+    "translation": "порядок",
+    "partOfSpeech": "noun"
+   },
+   "typewriter": {
+    "translation": "пишущая машинка",
+    "partOfSpeech": "noun"
+   },
+   "metal": {
+    "translation": "металлический",
+    "partOfSpeech": "adjective"
+   },
+   "arm": {
+    "translation": "рычаг, рычажок",
+    "partOfSpeech": "noun"
+   },
+   "press": {
+    "translation": "нажимать",
+    "partOfSpeech": "verb"
+   },
+   "apart": {
+    "translation": "врозь, на расстоянии",
+    "partOfSpeech": "adverb"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-qwerty-q1",
+    "question": "Where does the QWERTY order come from?",
+    "options": [
+     "Phones",
+     "The typewriter",
+     "A game",
+     "The alphabet"
+    ],
+    "answer": 1,
+    "explanation": "Stated in the middle of the text."
+   },
+   {
+    "id": "why-qwerty-q2",
+    "question": "What was the problem with fast typing?",
+    "options": [
+     "The paper tore",
+     "Two arms hit each other and stopped",
+     "The ink ran out",
+     "The keys were too small"
+    ],
+    "answer": 1,
+    "explanation": "Then you had to move them back by hand."
+   },
+   {
+    "id": "why-qwerty-q3",
+    "question": "Why do we still use QWERTY?",
+    "options": [
+     "It is the fastest",
+     "Everybody already knows it",
+     "The law says so",
+     "Phones need it"
+    ],
+    "answer": 1,
+    "explanation": "The last sentence gives the reason."
+   }
+  ]
+ },
+ {
+  "id": "the-loudness-war",
+  "level": "B1",
+  "topic": "technology",
+  "generated": false,
+  "title": "Why Music Got Louder and Lost Something",
+  "sentences": [
+   {
+    "text": "Put on a pop song from 1975, then a pop song from today, and you will probably reach for the volume.",
+    "translationRu": "Включи поп-песню 1975 года, потом сегодняшнюю — и, скорее всего, потянешься к громкости."
+   },
+   {
+    "text": "The new one is louder.",
+    "translationRu": "Новая громче."
+   },
+   {
+    "text": "This is not an accident, and it is not because modern speakers are better.",
+    "translationRu": "Это не случайность и не заслуга современных колонок."
+   },
+   {
+    "text": "It is the result of a competition between record companies that lasted about thirty years.",
+    "translationRu": "Это итог соревнования между звукозаписывающими компаниями, которое длилось около тридцати лет."
+   },
+   {
+    "text": "The idea behind it is simple.",
+    "translationRu": "Идея за ним простая."
+   },
+   {
+    "text": "When two songs play one after the other, the louder one sounds better to most listeners, even when it is not.",
+    "translationRu": "Когда две песни идут подряд, громкая большинству кажется лучше — даже если это не так."
+   },
+   {
+    "text": "It sounds closer, stronger, more exciting.",
+    "translationRu": "Она звучит ближе, мощнее, интереснее."
+   },
+   {
+    "text": "So if your song is on the radio next to somebody else's, you want yours to be the loud one.",
+    "translationRu": "Значит, если твоя песня идёт на радио рядом с чужой, ты хочешь, чтобы громкой была твоя."
+   },
+   {
+    "text": "The problem is that there is a limit.",
+    "translationRu": "Проблема в том, что есть предел."
+   },
+   {
+    "text": "A recording cannot go past a certain level, and if you push everything up to the ceiling, the quiet parts have to come up too.",
+    "translationRu": "Запись не может выйти за определённый уровень, и если поднять всё под потолок, тихие места тоже подтянутся."
+   },
+   {
+    "text": "The difference between loud and quiet is called dynamic range, and it is where a lot of the feeling in music lives.",
+    "translationRu": "Разница между громким и тихим называется динамическим диапазоном, и именно в ней живёт немалая часть чувства в музыке."
+   },
+   {
+    "text": "A drum hit is powerful because of the silence around it.",
+    "translationRu": "Удар барабана мощный из-за тишины вокруг него."
+   },
+   {
+    "text": "A singer dropping to a whisper works because the rest of the song is not a whisper.",
+    "translationRu": "Певец, уходящий в шёпот, работает потому, что остальная песня — не шёпот."
+   },
+   {
+    "text": "Take that away and everything arrives at the same level, all the time.",
+    "translationRu": "Убери это — и всё приходит на одном уровне, постоянно."
+   },
+   {
+    "text": "The song is louder and somehow flatter, and after twenty minutes your ears are tired.",
+    "translationRu": "Песня громче и почему-то площе, а через двадцать минут уши устают."
+   },
+   {
+    "text": "Listeners noticed before the industry admitted it.",
+    "translationRu": "Слушатели заметили раньше, чем это признала индустрия."
+   },
+   {
+    "text": "One famous album in 2008 was so heavily squashed that fans asked the band to release it again more quietly.",
+    "translationRu": "Один известный альбом 2008 года был так сильно сплющен, что фанаты просили группу переиздать его тише."
+   },
+   {
+    "text": "What ended the war was not taste but streaming.",
+    "translationRu": "Войну закончил не вкус, а стриминг."
+   },
+   {
+    "text": "Services like Spotify and Apple Music turn every track down to a similar level before you hear it, so a loud master no longer wins anything.",
+    "translationRu": "Сервисы вроде Spotify и Apple Music приводят каждый трек примерно к одному уровню, прежде чем ты его услышишь, так что громкий мастеринг больше ничего не выигрывает."
+   },
+   {
+    "text": "It just arrives flat and tired.",
+    "translationRu": "Он просто приходит плоским и уставшим."
+   },
+   {
+    "text": "Thirty years of shouting, ended by a piece of software that politely turns everyone down.",
+    "translationRu": "Тридцать лет крика закончила программа, которая вежливо всех приглушила."
+   }
+  ],
+  "glossary": {
+   "volume": {
+    "translation": "громкость",
+    "partOfSpeech": "noun"
+   },
+   "recording": {
+    "translation": "запись",
+    "partOfSpeech": "noun"
+   },
+   "ceiling": {
+    "translation": "потолок; предел",
+    "partOfSpeech": "noun"
+   },
+   "dynamic range": {
+    "translation": "динамический диапазон",
+    "partOfSpeech": "noun"
+   },
+   "whisper": {
+    "translation": "шёпот",
+    "partOfSpeech": "noun"
+   },
+   "flat": {
+    "translation": "плоский, невыразительный",
+    "partOfSpeech": "adjective"
+   },
+   "squash": {
+    "translation": "сплющивать",
+    "partOfSpeech": "verb"
+   },
+   "master": {
+    "translation": "мастеринг, финальная версия записи",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-loudness-war-q1",
+    "question": "Why did companies make songs louder?",
+    "options": [
+     "Speakers were bad",
+     "A louder song sounds better next to a quieter one",
+     "Listeners asked for it",
+     "It saved money"
+    ],
+    "answer": 1,
+    "explanation": "Even when it is not better."
+   },
+   {
+    "id": "the-loudness-war-q2",
+    "question": "What is lost when everything is pushed up?",
+    "options": [
+     "The words",
+     "Dynamic range, the difference between loud and quiet",
+     "The drums",
+     "The tempo"
+    ],
+    "answer": 1,
+    "explanation": "A drum hit is powerful because of the silence around it."
+   },
+   {
+    "id": "the-loudness-war-q3",
+    "question": "What ended the loudness war?",
+    "options": [
+     "A law",
+     "Streaming services levelling every track",
+     "Better taste",
+     "Vinyl"
+    ],
+    "answer": 1,
+    "explanation": "A loud master no longer wins anything."
+   }
+  ]
  }
 ]

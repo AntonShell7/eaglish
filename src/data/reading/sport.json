@@ -348,5 +348,166 @@
     "explanation": "Comfort at kilometre ten was the mistake."
    }
   ]
+ },
+ {
+  "id": "the-man-who-jumped-backwards",
+  "level": "A2",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Man Who Jumped Backwards",
+  "sentences": [
+   {
+    "text": "In the high jump you run at a bar and try to go over it.",
+    "translationRu": "В прыжках в высоту ты разбегаешься к планке и стараешься её перелететь."
+   },
+   {
+    "text": "For many years everyone jumped in the same way.",
+    "translationRu": "Много лет все прыгали одинаково."
+   },
+   {
+    "text": "They went over the bar facing down, with one leg first, like a person climbing a wall.",
+    "translationRu": "Люди шли через планку лицом вниз, сначала одной ногой, как будто лезли через стену."
+   },
+   {
+    "text": "Then came an American student called Dick Fosbury.",
+    "translationRu": "Потом появился американский студент по имени Дик Фосбери."
+   },
+   {
+    "text": "He was not very good at the old way.",
+    "translationRu": "Старым способом у него получалось плохо."
+   },
+   {
+    "text": "So he started to turn in the air and go over the bar backwards, on his back, head first.",
+    "translationRu": "И он начал разворачиваться в воздухе и идти через планку спиной вперёд, головой."
+   },
+   {
+    "text": "People laughed at him.",
+    "translationRu": "Над ним смеялись."
+   },
+   {
+    "text": "A newspaper said he looked like a fish on a boat.",
+    "translationRu": "Одна газета написала, что он похож на рыбу в лодке."
+   },
+   {
+    "text": "His coach was not happy either.",
+    "translationRu": "Тренер тоже был не в восторге."
+   },
+   {
+    "text": "But the strange jump worked.",
+    "translationRu": "Но странный прыжок работал."
+   },
+   {
+    "text": "When you go over backwards, your body can bend around the bar.",
+    "translationRu": "Когда идёшь спиной, тело может обогнуть планку."
+   },
+   {
+    "text": "Your head is over the bar, then your back, then your legs.",
+    "translationRu": "Сначала над планкой голова, потом спина, потом ноги."
+   },
+   {
+    "text": "Not all of your body is high at the same moment.",
+    "translationRu": "Не всё тело оказывается наверху в один момент."
+   },
+   {
+    "text": "At the Olympic Games in Mexico City in 1968, Fosbury won the gold medal.",
+    "translationRu": "На Олимпийских играх в Мехико в 1968 году Фосбери выиграл золото."
+   },
+   {
+    "text": "The crowd loved him.",
+    "translationRu": "Публика его полюбила."
+   },
+   {
+    "text": "Four years later, most of the best jumpers in the world were jumping backwards.",
+    "translationRu": "Через четыре года спиной прыгало уже большинство лучших прыгунов мира."
+   },
+   {
+    "text": "Today it is difficult to find anyone who jumps any other way.",
+    "translationRu": "Сегодня трудно найти того, кто прыгает иначе."
+   },
+   {
+    "text": "The jump has his name: the Fosbury flop.",
+    "translationRu": "У прыжка его имя: фосбери-флоп."
+   },
+   {
+    "text": "It is a good story about being the only person doing something.",
+    "translationRu": "Хорошая история про то, каково быть единственным, кто делает что-то по-своему."
+   },
+   {
+    "text": "For a short time it looks silly, and then it looks normal.",
+    "translationRu": "Недолго это выглядит глупо, а потом становится нормой."
+   }
+  ],
+  "glossary": {
+   "high jump": {
+    "translation": "прыжок в высоту",
+    "partOfSpeech": "noun"
+   },
+   "bar": {
+    "translation": "планка",
+    "partOfSpeech": "noun"
+   },
+   "backwards": {
+    "translation": "спиной вперёд, назад",
+    "partOfSpeech": "adverb"
+   },
+   "coach": {
+    "translation": "тренер",
+    "partOfSpeech": "noun"
+   },
+   "bend": {
+    "translation": "сгибаться, огибать",
+    "partOfSpeech": "verb"
+   },
+   "crowd": {
+    "translation": "толпа, публика",
+    "partOfSpeech": "noun"
+   },
+   "medal": {
+    "translation": "медаль",
+    "partOfSpeech": "noun"
+   },
+   "silly": {
+    "translation": "глупый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-man-who-jumped-backwards-q1",
+    "question": "How did people jump before Fosbury?",
+    "options": [
+     "Backwards",
+     "Facing down, one leg first",
+     "Feet first",
+     "They did not jump"
+    ],
+    "answer": 1,
+    "explanation": "Like a person climbing a wall."
+   },
+   {
+    "id": "the-man-who-jumped-backwards-q2",
+    "question": "Why does going over backwards work?",
+    "options": [
+     "You run faster",
+     "The body bends around the bar, so not all of it is high at once",
+     "The bar is lower",
+     "You can use your hands"
+    ],
+    "answer": 1,
+    "explanation": "Head, then back, then legs."
+   },
+   {
+    "id": "the-man-who-jumped-backwards-q3",
+    "question": "What happened four years after 1968?",
+    "options": [
+     "People stopped jumping",
+     "Most top jumpers were jumping backwards",
+     "The jump was banned",
+     "Fosbury won again"
+    ],
+    "answer": 1,
+    "explanation": "Stated near the end."
+   }
+  ]
  }
 ]
