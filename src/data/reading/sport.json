@@ -191,5 +191,162 @@
     "explanation": "The closing lines contrast legs going at thirty-two with composure not going."
    }
   ]
+ },
+ {
+  "id": "hitting-the-wall",
+  "level": "B1",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Wall That Marathon Runners Talk About Is Real",
+  "sentences": [
+   {
+    "text": "A marathon is just over forty-two kilometres, and something strange happens to most runners at around thirty.",
+    "translationRu": "Марафон — чуть больше сорока двух километров, и примерно на тридцатом с большинством происходит странное."
+   },
+   {
+    "text": "They describe it as hitting a wall, and the phrase is almost literal.",
+    "translationRu": "Они называют это «врезаться в стену», и выражение почти буквальное."
+   },
+   {
+    "text": "The legs stop answering.",
+    "translationRu": "Ноги перестают отвечать."
+   },
+   {
+    "text": "The pace collapses even though the runner is trying just as hard.",
+    "translationRu": "Темп рушится, хотя бежишь ты ровно с тем же усилием."
+   },
+   {
+    "text": "Some people cry without knowing why.",
+    "translationRu": "Кто-то плачет, не понимая почему."
+   },
+   {
+    "text": "The cause is not willpower and not the muscles giving up.",
+    "translationRu": "Причина не в силе воли и не в сдавшихся мышцах."
+   },
+   {
+    "text": "It is fuel.",
+    "translationRu": "Причина в топливе."
+   },
+   {
+    "text": "Your body stores sugar in the muscles and the liver, and that store holds roughly enough for two hours of hard running.",
+    "translationRu": "Тело хранит сахар в мышцах и печени, и этого запаса хватает примерно на два часа тяжёлого бега."
+   },
+   {
+    "text": "A marathon takes most people longer than that.",
+    "translationRu": "Марафон у большинства занимает дольше."
+   },
+   {
+    "text": "When the sugar runs out the body switches to burning fat, which works but is slower, and the brain notices immediately.",
+    "translationRu": "Когда сахар кончается, тело переходит на жир: это работает, но медленнее, и мозг замечает сразу."
+   },
+   {
+    "text": "The brain runs on sugar too, and it does not like sharing.",
+    "translationRu": "Мозг тоже работает на сахаре и делиться не любит."
+   },
+   {
+    "text": "That is why the wall feels emotional as well as physical.",
+    "translationRu": "Поэтому стена ощущается не только телом, но и эмоционально."
+   },
+   {
+    "text": "Runners deal with it in two ways, and both are boring.",
+    "translationRu": "Бегуны справляются двумя способами, и оба скучные."
+   },
+   {
+    "text": "They eat during the race, small amounts, early, before they feel they need it.",
+    "translationRu": "Они едят по ходу гонки — понемногу и рано, до того как почувствуют нужду."
+   },
+   {
+    "text": "And they train the body to burn fat earlier, by running long and slow in preparation.",
+    "translationRu": "И приучают тело раньше переходить на жир — длинными медленными тренировками."
+   },
+   {
+    "text": "There is a third method which is not boring at all.",
+    "translationRu": "Есть и третий способ, вовсе не скучный."
+   },
+   {
+    "text": "Start slower than feels right.",
+    "translationRu": "Стартовать медленнее, чем кажется правильным."
+   },
+   {
+    "text": "Almost everyone who hits the wall was running comfortably at kilometre ten, and that comfort was the mistake.",
+    "translationRu": "Почти каждый, кто врезается в стену, на десятом километре бежал комфортно — и этот комфорт и был ошибкой."
+   },
+   {
+    "text": "The race is decided in the first hour, quietly, long before anyone can see it.",
+    "translationRu": "Гонка решается в первый час, тихо, задолго до того, как это становится видно."
+   }
+  ],
+  "glossary": {
+   "pace": {
+    "translation": "темп",
+    "partOfSpeech": "noun"
+   },
+   "collapse": {
+    "translation": "рушиться",
+    "partOfSpeech": "verb"
+   },
+   "fuel": {
+    "translation": "топливо",
+    "partOfSpeech": "noun"
+   },
+   "store": {
+    "translation": "запас",
+    "partOfSpeech": "noun"
+   },
+   "liver": {
+    "translation": "печень",
+    "partOfSpeech": "noun"
+   },
+   "run out": {
+    "translation": "закончиться",
+    "partOfSpeech": "phrase"
+   },
+   "burn": {
+    "translation": "сжигать",
+    "partOfSpeech": "verb"
+   },
+   "comfort": {
+    "translation": "комфорт, удобство",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What causes the wall?",
+    "options": [
+     "Weak muscles",
+     "The body's sugar store running out",
+     "Cold weather",
+     "Poor shoes"
+    ],
+    "answer": 1,
+    "explanation": "The store holds roughly two hours of hard running."
+   },
+   {
+    "id": "q2",
+    "question": "Why does it feel emotional?",
+    "options": [
+     "Runners are tired",
+     "The brain runs on sugar too and does not like sharing",
+     "The crowd disappears",
+     "Music stops"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly in the text."
+   },
+   {
+    "id": "q3",
+    "question": "What is the third method?",
+    "options": [
+     "Eat more at the end",
+     "Start slower than feels right",
+     "Run with friends",
+     "Train at night"
+    ],
+    "answer": 1,
+    "explanation": "Comfort at kilometre ten was the mistake."
+   }
+  ]
  }
 ]

@@ -791,5 +791,162 @@
     "explanation": "Called the boring middle of the story."
    }
   ]
+ },
+ {
+  "id": "mbappe-and-speed",
+  "level": "B1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Kylian Mbappé and the Thing Speed Cannot Buy",
+  "sentences": [
+   {
+    "text": "Kylian Mbappé is a French footballer, and the first thing anyone says about him is that he is fast.",
+    "translationRu": "Килиан Мбаппе — французский футболист, и первое, что о нём говорят, — что он быстрый."
+   },
+   {
+    "text": "This is true and slightly misleading.",
+    "translationRu": "Это правда и слегка сбивает с толку."
+   },
+   {
+    "text": "Plenty of footballers are fast.",
+    "translationRu": "Быстрых футболистов хватает."
+   },
+   {
+    "text": "Athletics clubs are full of people who would beat him over a hundred metres in a straight line.",
+    "translationRu": "В легкоатлетических клубах полно тех, кто обыграл бы его на стометровке по прямой."
+   },
+   {
+    "text": "What almost nobody can do is arrive at top speed with the ball still under control and a decision still to make.",
+    "translationRu": "Чего почти никто не умеет — набрать максимальную скорость, сохранив мяч под контролем и оставив себе решение."
+   },
+   {
+    "text": "Speed in football is not a measurement.",
+    "translationRu": "Скорость в футболе — не измерение."
+   },
+   {
+    "text": "It is a question of how much of your brain the running is using.",
+    "translationRu": "Это вопрос о том, сколько мозга занимает у тебя бег."
+   },
+   {
+    "text": "He grew up in Bondy, a town just outside Paris, where his father was a coach and his mother had played handball.",
+    "translationRu": "Он вырос в Бонди, городке под Парижем: отец был тренером, мать играла в гандбол."
+   },
+   {
+    "text": "Coaches from those years describe a child who was not especially humble and was correct about himself often enough to get away with it.",
+    "translationRu": "Тренеры тех лет вспоминают ребёнка не особенно скромного — и достаточно часто оказывавшегося правым, чтобы ему это сходило с рук."
+   },
+   {
+    "text": "He was a full international before he could legally drink in most of Europe.",
+    "translationRu": "Он играл за сборную раньше, чем ему по закону налили бы в большинстве стран Европы."
+   },
+   {
+    "text": "What changed him, by his own account, was losing.",
+    "translationRu": "Изменили его, по собственным словам, поражения."
+   },
+   {
+    "text": "A player who wins everything early has no reason to examine anything.",
+    "translationRu": "Игроку, который выигрывает всё рано, незачем что-то в себе разбирать."
+   },
+   {
+    "text": "The interesting part of his game now is not the sprint but the pause before it.",
+    "translationRu": "Интересное в его игре сейчас — не рывок, а пауза перед ним."
+   },
+   {
+    "text": "He walks, almost lazily, until a defender relaxes for half a step, and the half step is the whole thing.",
+    "translationRu": "Он идёт пешком, почти лениво, пока защитник не расслабится на полшага, — и эти полшага решают всё."
+   },
+   {
+    "text": "Defenders know this and it does not help them, which is the definition of a good move.",
+    "translationRu": "Защитники это знают, и это им не помогает, — что и есть определение хорошего приёма."
+   },
+   {
+    "text": "He has also been unusually deliberate off the pitch.",
+    "translationRu": "Вне поля он тоже необычно расчётлив."
+   },
+   {
+    "text": "He negotiates his own contracts closely, speaks several languages in interviews, and has been careful about which version of himself the public gets.",
+    "translationRu": "Он плотно ведёт собственные контракты, говорит в интервью на нескольких языках и внимателен к тому, какую свою версию получает публика."
+   },
+   {
+    "text": "Whether you find that impressive or calculating probably says more about you than about him.",
+    "translationRu": "Считать это впечатляющим или расчётливым — вопрос скорее о вас, чем о нём."
+   },
+   {
+    "text": "Either way it is a reminder that at the top of any sport, the physical gift is the entry ticket and not the performance.",
+    "translationRu": "В любом случае это напоминание: на вершине любого спорта физический дар — входной билет, а не само выступление."
+   }
+  ],
+  "glossary": {
+   "misleading": {
+    "translation": "сбивающий с толку",
+    "partOfSpeech": "adjective"
+   },
+   "straight": {
+    "translation": "прямой",
+    "partOfSpeech": "adjective"
+   },
+   "humble": {
+    "translation": "скромный",
+    "partOfSpeech": "adjective"
+   },
+   "get away with": {
+    "translation": "сойти с рук",
+    "partOfSpeech": "phrase"
+   },
+   "sprint": {
+    "translation": "рывок, спринт",
+    "partOfSpeech": "noun"
+   },
+   "relax": {
+    "translation": "расслабиться",
+    "partOfSpeech": "verb"
+   },
+   "deliberate": {
+    "translation": "расчётливый, обдуманный",
+    "partOfSpeech": "adjective"
+   },
+   "calculating": {
+    "translation": "расчётливый (с холодком)",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why is calling him fast slightly misleading?",
+    "options": [
+     "He is actually slow",
+     "Many are fast; few keep control and a decision at top speed",
+     "He never runs",
+     "Speed is not allowed"
+    ],
+    "answer": 1,
+    "explanation": "The text says athletics clubs are full of faster people in a straight line."
+   },
+   {
+    "id": "q2",
+    "question": "What does the text call the interesting part of his game?",
+    "options": [
+     "The sprint",
+     "The pause before it",
+     "His shooting",
+     "His passing"
+    ],
+    "answer": 1,
+    "explanation": "He walks until a defender relaxes for half a step."
+   },
+   {
+    "id": "q3",
+    "question": "What does the closing line say about physical gifts?",
+    "options": [
+     "They are everything",
+     "They are the entry ticket, not the performance",
+     "They fade quickly",
+     "They can be trained"
+    ],
+    "answer": 1,
+    "explanation": "Stated in the final sentence."
+   }
+  ]
  }
 ]

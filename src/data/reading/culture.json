@@ -594,5 +594,158 @@
     "explanation": "The bulletin example makes an argument that can truthfully be denied."
    }
   ]
+ },
+ {
+  "id": "why-horror-works",
+  "level": "C1",
+  "topic": "culture",
+  "generated": false,
+  "title": "Why People Pay to Be Frightened",
+  "sentences": [
+   {
+    "text": "Horror is the only genre that promises to make the audience feel worse and still sells tickets.",
+    "translationRu": "Хоррор — единственный жанр, который обещает зрителю ухудшение самочувствия и всё равно продаёт билеты."
+   },
+   {
+    "text": "On the face of it this makes no sense, and the explanations offered are usually unsatisfying.",
+    "translationRu": "На первый взгляд это бессмысленно, а объяснения обычно неудовлетворительны."
+   },
+   {
+    "text": "The most durable one turns on a distinction between fear and the conditions that produce it.",
+    "translationRu": "Самое устойчивое строится на различении страха и условий, его порождающих."
+   },
+   {
+    "text": "Fear in the world is unpleasant largely because it is open-ended: you do not know how long it lasts or whether you survive it.",
+    "translationRu": "Страх в жизни неприятен во многом из-за незавершённости: неизвестно, сколько он продлится и выживешь ли ты."
+   },
+   {
+    "text": "Fear in a cinema comes with a guarantee attached, and the guarantee is what converts it into something people will queue for.",
+    "translationRu": "Страх в кинозале идёт с гарантией, и именно гарантия превращает его в то, за чем встают в очередь."
+   },
+   {
+    "text": "The body cannot tell the difference and reacts fully: the heart accelerates, attention narrows, the skin cools.",
+    "translationRu": "Тело разницы не видит и реагирует в полную силу: сердце разгоняется, внимание сужается, кожа холодеет."
+   },
+   {
+    "text": "The mind, meanwhile, knows there is a door behind it.",
+    "translationRu": "А ум при этом знает, что за спиной дверь."
+   },
+   {
+    "text": "This combination — genuine arousal with certain safety — is rare in ordinary life and, it turns out, pleasurable.",
+    "translationRu": "Это сочетание — настоящее возбуждение при гарантированной безопасности — в обычной жизни редкость и, как выясняется, удовольствие."
+   },
+   {
+    "text": "Directors who understand the genre spend most of their effort on anticipation rather than on the thing itself.",
+    "translationRu": "Режиссёры, понимающие жанр, тратят основные усилия не на само страшное, а на ожидание."
+   },
+   {
+    "text": "A monster shown clearly stops being frightening almost immediately, because the imagination has been relieved of duty and the imagination was doing the work.",
+    "translationRu": "Ясно показанное чудовище перестаёт пугать почти мгновенно: воображение освобождено от службы, а работало именно оно."
+   },
+   {
+    "text": "This is why the cheapest effective tool in horror is a closed door and the most expensive failure is a fully rendered creature in good lighting.",
+    "translationRu": "Поэтому самый дешёвый действенный приём в хорроре — закрытая дверь, а самый дорогой провал — полностью отрисованное существо при хорошем свете."
+   },
+   {
+    "text": "There is a social dimension that the physiological account misses.",
+    "translationRu": "Есть и социальное измерение, которое физиологическое объяснение упускает."
+   },
+   {
+    "text": "Horror is watched together far more than other genres, and the shared flinch is half the point.",
+    "translationRu": "Хоррор смотрят вместе гораздо чаще других жанров, и общее вздрагивание — половина смысла."
+   },
+   {
+    "text": "Being frightened in a room of people who are also frightened is a form of intimacy that requires no conversation, which may explain its enduring popularity among the young.",
+    "translationRu": "Бояться в комнате, где боятся и остальные, — форма близости, не требующая разговора; возможно, отсюда и стойкая популярность жанра среди молодых."
+   },
+   {
+    "text": "The genre also does something respectable that its reputation obscures.",
+    "translationRu": "Жанр делает и кое-что уважаемое, чего репутация не даёт разглядеть."
+   },
+   {
+    "text": "Horror takes the fears a society will not discuss directly and puts them on a screen where they can be looked at.",
+    "translationRu": "Хоррор берёт страхи, которые общество не обсуждает прямо, и выносит их на экран, где на них можно смотреть."
+   },
+   {
+    "text": "Whatever a decade is frightened of, its horror films will tell you, usually before anybody has written it down.",
+    "translationRu": "Чего боится десятилетие, расскажут его фильмы ужасов — обычно раньше, чем это кто-нибудь запишет."
+   }
+  ],
+  "glossary": {
+   "durable": {
+    "translation": "устойчивый, долговечный",
+    "partOfSpeech": "adjective"
+   },
+   "open-ended": {
+    "translation": "незавершённый, без известного конца",
+    "partOfSpeech": "adjective"
+   },
+   "arousal": {
+    "translation": "возбуждение (физиологическое)",
+    "partOfSpeech": "noun"
+   },
+   "anticipation": {
+    "translation": "ожидание, предвкушение",
+    "partOfSpeech": "noun"
+   },
+   "relieve of duty": {
+    "translation": "освободить от службы",
+    "partOfSpeech": "phrase"
+   },
+   "rendered": {
+    "translation": "отрисованный",
+    "partOfSpeech": "adjective"
+   },
+   "flinch": {
+    "translation": "вздрагивание",
+    "partOfSpeech": "noun"
+   },
+   "intimacy": {
+    "translation": "близость",
+    "partOfSpeech": "noun"
+   },
+   "obscure": {
+    "translation": "заслонять, затемнять",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What makes cinema fear bearable?",
+    "options": [
+     "It is weaker",
+     "It comes with a guarantee of safety",
+     "It is shorter",
+     "It is funny"
+    ],
+    "answer": 1,
+    "explanation": "Genuine arousal with certain safety."
+   },
+   {
+    "id": "q2",
+    "question": "Why does showing the monster clearly fail?",
+    "options": [
+     "Budgets are limited",
+     "The imagination was doing the work and is relieved of duty",
+     "Audiences dislike effects",
+     "It takes too long"
+    ],
+    "answer": 1,
+    "explanation": "The cheapest effective tool is a closed door."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text say horror does for a society?",
+    "options": [
+     "Nothing serious",
+     "Puts undiscussed fears on a screen where they can be looked at",
+     "Teaches history",
+     "Reduces crime"
+    ],
+    "answer": 1,
+    "explanation": "Its films tell you what a decade fears, usually first."
+   }
+  ]
  }
 ]
