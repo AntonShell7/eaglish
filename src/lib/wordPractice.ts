@@ -2,17 +2,20 @@ import { askModel, AiError } from "./aiClient";
 import { fold } from "./wordMatch";
 
 /**
- * Retelling what you have just read, in your own words.
+ * Putting the new words into sentences of your own.
  *
- * Answering four questions proves you followed a text. It does not prove you
- * could produce any of it — and producing is the direction that stays broken
- * longest, because every other exercise in a reading app rehearses
- * recognition. A word you have only ever recognised is a word you will not
- * reach for in a conversation.
+ * Answering four questions proves a text was followed. It does not prove a
+ * word could be produced — and production is the direction that stays broken
+ * longest, because everything else here rehearses recognition. A word you have
+ * only ever recognised is a word you will not reach for in conversation.
  *
- * So this is offered, never required: the text is already finished and counted
- * by the time it appears. Something optional that people do because they want
- * to is worth more than something compulsory they learn to click past.
+ * It is not a retelling, and asking for one was a mistake: a summary makes the
+ * text the subject and the words incidental, so a learner writes around the
+ * hard ones. Separate sentences, connected to nothing, put each word at the
+ * centre of its own attempt — which is the only thing being practised.
+ *
+ * Offered, never required: the text is already finished and counted by the
+ * time this appears.
  */
 
 export type WordStatus = "good" | "wrong" | "missing";
@@ -31,7 +34,7 @@ export interface LanguageNote {
   why: string;
 }
 
-export interface RetellFeedback {
+export interface PracticeFeedback {
   /** One warm, honest sentence about the whole thing, in Russian. */
   summary: string;
   words: WordVerdict[];
@@ -42,7 +45,9 @@ export interface RetellFeedback {
 
 const SYSTEM = [
   "You are a warm, exacting English tutor writing to a Russian-speaking learner.",
-  "They have read a text and retold it in their own words, trying to use specific words from it.",
+  "They have just met some new English words and have written sentences of their own using them.",
+  "The sentences do not have to connect to each other or to any text, and they need not be a summary.",
+  "Do not ask for a retelling or criticise the sentences for being unrelated.",
   "Judge two things separately and never confuse them:",
   "(1) whether each target word is used correctly and with its real meaning;",
   "(2) whether the English is grammatical.",
@@ -57,15 +62,15 @@ const SYSTEM = [
   "Keep grammar to the three most useful corrections. Omit it entirely if the English is clean.",
 ].join(" ");
 
-export type RetellResult =
-  | { ok: true; feedback: RetellFeedback }
+export type PracticeResult =
+  | { ok: true; feedback: PracticeFeedback }
   | { ok: false; reason: "unavailable" | "unreadable" };
 
-export async function checkRetelling(
-  title: string,
+export async function checkSentences(
+  context: string,
   words: string[],
-  retelling: string,
-): Promise<RetellResult> {
+  written: string,
+): Promise<PracticeResult> {
   let raw: string;
   try {
     raw = await askModel({
@@ -77,10 +82,10 @@ export async function checkRetelling(
         {
           role: "user",
           content: [
-            `Text title: ${title}`,
+            `Where the words came from: ${context}`,
             `Target words: ${words.join(", ")}`,
-            "Learner's retelling:",
-            retelling,
+            "The learner's sentences:",
+            written,
           ].join("\n"),
         },
       ],
@@ -91,7 +96,7 @@ export async function checkRetelling(
   }
 
   try {
-    const parsed = JSON.parse(raw) as Partial<RetellFeedback>;
+    const parsed = JSON.parse(raw) as Partial<PracticeFeedback>;
     const verdicts = Array.isArray(parsed.words) ? parsed.words : [];
 
     /*
@@ -100,9 +105,9 @@ export async function checkRetelling(
      * and a false "good" teaches nothing while a false "missing" is merely
      * annoying. Matching is done on folded text so inflections still count.
      */
-    const written = fold(retelling);
+    const folded = fold(written);
     const words_ = words.map((word) => {
-      const said = written.includes(fold(word).split(" ")[0]);
+      const said = folded.includes(fold(word).split(" ")[0]);
       const found = verdicts.find((v) => fold(v.word) === fold(word));
       if (!said) {
         return { word, status: "missing" as WordStatus, note: found?.note ?? "" };

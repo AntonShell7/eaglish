@@ -3,14 +3,14 @@ import { useTranslation } from "react-i18next";
 import type { ComprehensionQuestion } from "@/data/readingTexts";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { recordQuizResult } from "@/lib/readingHistory";
-import { RetellDrill } from "@/components/retell/RetellDrill";
+import { WordPractice, type PracticeWord } from "@/components/practice/WordPractice";
 
 interface ComprehensionQuizProps {
   textId: string;
   questions: ComprehensionQuestion[];
-  /** For the retelling offer that follows the answers. */
+  /** For the writing offer that follows the answers. */
   title: string;
-  words: string[];
+  words: PracticeWord[];
 }
 
 export function ComprehensionQuiz({ textId, questions, title, words }: ComprehensionQuizProps) {
@@ -127,7 +127,7 @@ export function ComprehensionQuiz({ textId, questions, title, words }: Comprehen
       </div>
 
       {/* The text is finished and counted by now. What follows is an offer. */}
-      {checked && <RetellDrill title={title} words={words} />}
+      {checked && <WordPractice context={title} words={words} />}
     </section>
   );
 }

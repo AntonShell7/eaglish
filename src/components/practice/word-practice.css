@@ -2,7 +2,7 @@
    Quiet by default: it appears after the work is already done and counted, so
    it must read as an offer rather than as one more thing standing in the way. */
 
-.rt {
+.wp {
   margin-top: 26px;
   padding: 22px 24px;
   border: 1px solid var(--color-border);
@@ -10,17 +10,17 @@
   background: var(--color-surface);
 }
 
-.rt--invite {
+.wp--invite {
   border-style: dashed;
   background: var(--color-surface-2);
 }
 
-.rt__title {
+.wp__title {
   font-size: 0.95rem;
   font-weight: 700;
 }
 
-.rt__body {
+.wp__body {
   margin-top: 6px;
   max-width: 58ch;
   font-size: 0.86rem;
@@ -28,11 +28,11 @@
   color: var(--color-text-muted);
 }
 
-.rt--invite .btn {
+.wp--invite .btn {
   margin-top: 14px;
 }
 
-.rt__words {
+.wp__words {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
@@ -41,7 +41,7 @@
   list-style: none;
 }
 
-.rt__word {
+.wp__word {
   padding: 5px 12px;
   border: 1px solid var(--color-border-strong);
   border-radius: 999px;
@@ -54,23 +54,23 @@
     background var(--dur-2) var(--ease);
 }
 
-.rt__word.is-good {
+.wp__word.is-good {
   border-color: var(--color-success);
   color: var(--color-success);
   background: color-mix(in srgb, var(--color-success) 10%, transparent);
 }
 
-.rt__word.is-wrong {
+.wp__word.is-wrong {
   border-color: var(--color-accent);
   color: var(--color-accent-ink);
   background: color-mix(in srgb, var(--color-accent) 10%, transparent);
 }
 
-.rt__word.is-missing {
+.wp__word.is-missing {
   opacity: 0.45;
 }
 
-.rt__input {
+.wp__input {
   margin-top: 16px;
   height: auto;
   padding: 14px 16px;
@@ -78,7 +78,7 @@
   resize: vertical;
 }
 
-.rt__actions {
+.wp__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -86,30 +86,30 @@
   margin-top: 14px;
 }
 
-.rt__hint,
-.rt__why {
+.wp__hint,
+.wp__why {
   font-size: 0.76rem;
   color: var(--color-text-faint);
 }
 
-.rt__error {
+.wp__error {
   margin-top: 12px;
   font-size: 0.82rem;
   color: var(--color-danger);
 }
 
-.rt__feedback {
+.wp__feedback {
   margin-top: 20px;
   padding-top: 18px;
   border-top: 1px solid var(--color-border);
 }
 
-.rt__summary {
+.wp__summary {
   font-size: 0.92rem;
   line-height: 1.6;
 }
 
-.rt__verdicts {
+.wp__verdicts {
   display: grid;
   gap: 8px;
   margin: 16px 0 0;
@@ -117,7 +117,7 @@
   list-style: none;
 }
 
-.rt__verdict {
+.wp__verdict {
   display: grid;
   grid-template-columns: minmax(90px, auto) 1fr;
   gap: 12px;
@@ -128,32 +128,32 @@
   font-size: 0.84rem;
 }
 
-.rt__verdictWord {
+.wp__verdictWord {
   font-weight: 700;
 }
 
-.rt__verdict.is-good .rt__verdictWord {
+.wp__verdict.is-good .wp__verdictWord {
   color: var(--color-success);
 }
 
-.rt__verdict.is-wrong .rt__verdictWord {
+.wp__verdict.is-wrong .wp__verdictWord {
   color: var(--color-accent-ink);
 }
 
-.rt__verdict.is-missing {
+.wp__verdict.is-missing {
   opacity: 0.6;
 }
 
-.rt__verdictNote {
+.wp__verdictNote {
   color: var(--color-text-muted);
   line-height: 1.55;
 }
 
-.rt__notes {
+.wp__notes {
   margin-top: 18px;
 }
 
-.rt__notesTitle {
+.wp__notesTitle {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -161,21 +161,44 @@
   color: var(--color-text-faint);
 }
 
-.rt__note {
+.wp__note {
   margin-top: 8px;
   font-size: 0.86rem;
   line-height: 1.6;
 }
 
-.rt__note s {
+.wp__note s {
   color: var(--color-text-faint);
 }
 
-.rt__why {
+.wp__why {
   display: block;
   margin-top: 2px;
 }
 
-.rt__feedback .btn {
+.wp__feedback .btn {
   margin-top: 18px;
+}
+
+/* A chip is a button now: tapping it shows the meaning again, because
+   forgetting a word ninety seconds after meeting it is the normal case and
+   scrolling back up to check is how an exercise gets abandoned. */
+.wp__words li {
+  display: flex;
+}
+
+.wp__word {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.wp__gloss {
+  padding-left: 8px;
+  border-left: 1px solid var(--color-border);
+  font-weight: 500;
+  font-size: 0.76rem;
+  color: var(--color-text-faint);
 }

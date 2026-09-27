@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkDictation, maskAgainst, worthLearning, type DictationResult } from "@/lib/dictation";
-import { RetellDrill } from "@/components/retell/RetellDrill";
+import { WordPractice } from "@/components/practice/WordPractice";
 import { useSpeech } from "./useSpeech";
 import { clearProgress, getProgress, saveProgress } from "@/lib/dictationProgress";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
@@ -206,7 +206,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
         {/* The dictation is already scored and saved; this is the offer to do
             something with the words that caught you out. */}
         <div className="text-left">
-          <RetellDrill title={title} words={worthLearning(missedAll).slice(0, 6)} />
+          <WordPractice context={title} words={worthLearning(missedAll).slice(0, 6).map((word) => ({ word }))} />
         </div>
       </div>
     );

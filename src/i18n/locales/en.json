@@ -1079,13 +1079,15 @@
     "colReaders": "Readers",
     "quizLine": "Correct answers across everyone: {{correct}} of {{total}}."
   },
-  "retell": {
-    "inviteTitle": "Want to make the new words stick?",
-    "inviteBody": "Write a short retelling of what you just read, using the unfamiliar words from it. That is how a word moves from \"I recognise it\" to \"I can say it\" — the one exercise here where you produce rather than recognise. Entirely optional: the text is already counted.",
-    "start": "Write a retelling",
-    "taskTitle": "Retell it in your own words",
-    "taskBody": "A few sentences about what the text was about. Try to work in the words below — we will check both the meaning and the grammar.",
+  "practice": {
+    "inviteTitle": "Make the new words stick",
+    "inviteBody": "Write a couple of sentences using the new words. They do not have to connect to each other, and this is not a summary — what matters is using the words and getting a feel for how they behave. Optional: the text is already counted.",
+    "start": "Write sentences",
+    "taskTitle": "Write sentences with these words",
+    "taskBody": "Any sentences, connected to each other or not. Forgotten a meaning? Tap the word. We will check both the sense and the grammar.",
     "placeholder": "Write here, in English…",
+    "tapForMeaning": "Tap to see the meaning",
+    "noTranslation": "no translation found",
     "check": "Check it",
     "checking": "Reading…",
     "optional": "Optional — you can close this and leave",

@@ -329,7 +329,9 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
         textId={text.id}
         questions={text.questions}
         title={text.title}
-        words={Object.keys(text.glossary ?? {}).slice(0, 6)}
+        words={Object.entries(text.glossary ?? {})
+          .slice(0, 6)
+          .map(([word, entry]) => ({ word, translation: entry.translation }))}
       />
 
       {/* Work with the words this text contained, while it is still fresh. */}
