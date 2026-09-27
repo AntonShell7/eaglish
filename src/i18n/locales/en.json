@@ -132,7 +132,8 @@
       "business": "Work and business",
       "health": "Health and the body",
       "environment": "Environment",
-      "society": "Society"
+      "society": "Society",
+      "celebrities": "Famous people"
     },
     "knownShare": "{{percent}}% known",
     "fit": {

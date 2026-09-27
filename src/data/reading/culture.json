@@ -284,5 +284,315 @@
     "explanation": "An old friend who still finds you ridiculous is worth more than an agent."
    }
   ]
+ },
+ {
+  "id": "the-dog-who-waited",
+  "level": "A1",
+  "topic": "culture",
+  "generated": false,
+  "title": "The Dog Who Waited",
+  "sentences": [
+   {
+    "text": "This is a true story about a dog in Japan.",
+    "translationRu": "Это правдивая история о собаке из Японии."
+   },
+   {
+    "text": "His name was Hachiko.",
+    "translationRu": "Его звали Хатико."
+   },
+   {
+    "text": "His owner was a teacher at a university in Tokyo.",
+    "translationRu": "Его хозяин был преподавателем в университете в Токио."
+   },
+   {
+    "text": "Every morning the teacher went to work by train.",
+    "translationRu": "Каждое утро преподаватель ехал на работу на поезде."
+   },
+   {
+    "text": "Every evening Hachiko walked to the station and waited for him.",
+    "translationRu": "Каждый вечер Хатико приходил на станцию и ждал его."
+   },
+   {
+    "text": "They went home together.",
+    "translationRu": "Домой они шли вместе."
+   },
+   {
+    "text": "One day in 1925 the teacher did not come back.",
+    "translationRu": "Однажды в 1925 году преподаватель не вернулся."
+   },
+   {
+    "text": "He died at work, and the dog did not know this.",
+    "translationRu": "Он умер на работе, а собака этого не знала."
+   },
+   {
+    "text": "So Hachiko went to the station again.",
+    "translationRu": "И Хатико снова пришёл на станцию."
+   },
+   {
+    "text": "He waited, and then he went home alone.",
+    "translationRu": "Он подождал и пошёл домой один."
+   },
+   {
+    "text": "The next evening he came back.",
+    "translationRu": "Следующим вечером он пришёл снова."
+   },
+   {
+    "text": "And the evening after that.",
+    "translationRu": "И ещё через вечер."
+   },
+   {
+    "text": "He came to the station every day for almost ten years.",
+    "translationRu": "Он приходил на станцию каждый день почти десять лет."
+   },
+   {
+    "text": "People at the station saw him.",
+    "translationRu": "Люди на станции его видели."
+   },
+   {
+    "text": "They gave him food and water.",
+    "translationRu": "Они давали ему еду и воду."
+   },
+   {
+    "text": "A newspaper wrote about him, and soon all of Japan knew his name.",
+    "translationRu": "О нём написала газета, и вскоре его имя знала вся Япония."
+   },
+   {
+    "text": "Today there is a statue of Hachiko at that station.",
+    "translationRu": "Сегодня на той станции стоит памятник Хатико."
+   },
+   {
+    "text": "People still meet their friends there.",
+    "translationRu": "Люди до сих пор назначают там встречи."
+   },
+   {
+    "text": "They say: see you at the dog.",
+    "translationRu": "Они говорят: встретимся у собаки."
+   }
+  ],
+  "glossary": {
+   "owner": {
+    "translation": "хозяин",
+    "partOfSpeech": "noun"
+   },
+   "station": {
+    "translation": "станция, вокзал",
+    "partOfSpeech": "noun"
+   },
+   "wait for": {
+    "translation": "ждать кого-то",
+    "partOfSpeech": "phrase"
+   },
+   "alone": {
+    "translation": "один",
+    "partOfSpeech": "adverb"
+   },
+   "newspaper": {
+    "translation": "газета",
+    "partOfSpeech": "noun"
+   },
+   "statue": {
+    "translation": "памятник, статуя",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why did Hachiko go to the station?",
+    "options": [
+     "To find food",
+     "To wait for his owner",
+     "To sleep",
+     "To meet other dogs"
+    ],
+    "answer": 1,
+    "explanation": "Every evening he walked to the station and waited, and they went home together."
+   },
+   {
+    "id": "q2",
+    "question": "How long did he come back?",
+    "options": [
+     "Ten days",
+     "Ten months",
+     "Almost ten years",
+     "One year"
+    ],
+    "answer": 2,
+    "explanation": "The text says almost ten years."
+   },
+   {
+    "id": "q3",
+    "question": "What is at the station today?",
+    "options": [
+     "A café",
+     "A statue of Hachiko",
+     "A school",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "People still say: see you at the dog."
+   }
+  ]
+ },
+ {
+  "id": "the-face-that-changes",
+  "level": "C2",
+  "topic": "culture",
+  "generated": false,
+  "title": "The Face That Changes When Nothing Changes",
+  "sentences": [
+   {
+    "text": "In the early 1920s a Soviet film-maker named Lev Kuleshov ran an experiment that has quietly governed cinema ever since.",
+    "translationRu": "В начале 1920-х советский кинематографист Лев Кулешов поставил опыт, который с тех пор тихо управляет кинематографом."
+   },
+   {
+    "text": "He took a single shot of an actor's face, expressionless, and cut it together with three other shots in turn.",
+    "translationRu": "Он взял один кадр с бесстрастным лицом актёра и склеил его по очереди с тремя другими кадрами."
+   },
+   {
+    "text": "Audiences reported that the actor conveyed hunger, then grief, then tenderness, and praised the subtlety of his performance.",
+    "translationRu": "Зрители сообщали, что актёр передаёт то голод, то горе, то нежность, и хвалили тонкость его игры."
+   },
+   {
+    "text": "The face had been identical every time.",
+    "translationRu": "Лицо каждый раз было одним и тем же."
+   },
+   {
+    "text": "What the audience had been reading was not the actor at all but the join between two shots, and they had attributed the meaning they themselves supplied to the person on screen.",
+    "translationRu": "Зрители читали вовсе не актёра, а стык двух кадров — и приписывали человеку на экране тот смысл, который подставляли сами."
+   },
+   {
+    "text": "This is not a trick that stopped working once it was explained.",
+    "translationRu": "Это не фокус, который перестал работать, когда его объяснили."
+   },
+   {
+    "text": "It cannot be unlearned, because it is not learned in the first place.",
+    "translationRu": "Его нельзя разучиться видеть, потому что ему и не учатся."
+   },
+   {
+    "text": "The mind treats adjacency as causation with a promptness that no amount of sophistication corrects.",
+    "translationRu": "Ум принимает соседство за причинность с такой готовностью, какую не исправляет никакая искушённость."
+   },
+   {
+    "text": "Editors have exploited this for a century, and the best of them are invisible precisely because their work consists of arranging for you to have an idea and then believing it was yours.",
+    "translationRu": "Монтажёры пользуются этим уже век, и лучшие из них невидимы именно потому, что их работа — устроить так, чтобы мысль пришла вам самим."
+   },
+   {
+    "text": "The implications reach well past film.",
+    "translationRu": "Следствия уходят далеко за пределы кино."
+   },
+   {
+    "text": "A news bulletin that places a report about crime immediately after a report about immigration has made an argument without stating one, and can truthfully deny having stated it.",
+    "translationRu": "Выпуск новостей, поставивший сюжет о преступности сразу после сюжета о миграции, высказал довод, ничего не утверждая, — и может честно отрицать, что утверждал."
+   },
+   {
+    "text": "Nothing has been claimed, so nothing can be disproved, and the viewer leaves carrying a conclusion they will defend as their own reasoning.",
+    "translationRu": "Ничего не заявлено, значит ничего не опровергнешь, а зритель уходит с выводом, который будет защищать как собственное рассуждение."
+   },
+   {
+    "text": "This is why the sequence of a thing is never a neutral matter of housekeeping.",
+    "translationRu": "Поэтому порядок чего бы то ни было — никогда не нейтральный вопрос аккуратности."
+   },
+   {
+    "text": "Order is an argument.",
+    "translationRu": "Порядок — это довод."
+   },
+   {
+    "text": "Kuleshov himself was making a point about craft rather than about manipulation: he wanted to show that cinema's raw material is not the photographed world but the relationship between pieces of it.",
+    "translationRu": "Сам Кулешов говорил о ремесле, а не о манипуляции: он хотел показать, что сырьё кино — не заснятый мир, а отношения между его кусками."
+   },
+   {
+    "text": "A century of advertising has since demonstrated the less generous application.",
+    "translationRu": "Век рекламы с тех пор продемонстрировал применение менее благородное."
+   },
+   {
+    "text": "The defence, such as it is, is modest and worth having.",
+    "translationRu": "Защита, какая есть, скромна — и всё же стоит того."
+   },
+   {
+    "text": "When something on a screen makes you feel certain of a connection, it is worth asking whether you were shown the connection or merely shown two things in a row.",
+    "translationRu": "Когда что-то на экране убеждает вас в наличии связи, стоит спросить: вам показали связь — или просто показали две вещи подряд."
+   },
+   {
+    "text": "The answer is more often the second than anyone would like.",
+    "translationRu": "Ответом чаще оказывается второе, чем кому-либо хотелось бы."
+   }
+  ],
+  "glossary": {
+   "expressionless": {
+    "translation": "бесстрастный, без выражения",
+    "partOfSpeech": "adjective"
+   },
+   "convey": {
+    "translation": "передавать (чувство, смысл)",
+    "partOfSpeech": "verb"
+   },
+   "subtlety": {
+    "translation": "тонкость",
+    "partOfSpeech": "noun"
+   },
+   "attribute": {
+    "translation": "приписывать",
+    "partOfSpeech": "verb"
+   },
+   "adjacency": {
+    "translation": "соседство, смежность",
+    "partOfSpeech": "noun"
+   },
+   "promptness": {
+    "translation": "готовность, быстрота",
+    "partOfSpeech": "noun"
+   },
+   "sophistication": {
+    "translation": "искушённость",
+    "partOfSpeech": "noun"
+   },
+   "exploit": {
+    "translation": "использовать, эксплуатировать",
+    "partOfSpeech": "verb"
+   },
+   "housekeeping": {
+    "translation": "наведение порядка, рутина",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What did audiences believe they were seeing?",
+    "options": [
+     "Three different actors",
+     "Subtle changes in one actor's expression",
+     "A documentary",
+     "A mistake in the film"
+    ],
+    "answer": 1,
+    "explanation": "The face was identical; they praised the performance's subtlety."
+   },
+   {
+    "id": "q2",
+    "question": "Why can the effect not be unlearned?",
+    "options": [
+     "It is taught in schools",
+     "It was never learned in the first place",
+     "Films are too fast",
+     "It only affects children"
+    ],
+    "answer": 1,
+    "explanation": "The mind treats adjacency as causation regardless of sophistication."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text mean by 'order is an argument'?",
+    "options": [
+     "Editing should be alphabetical",
+     "Sequence makes a claim without stating one",
+     "Long films are more persuasive",
+     "News should be shorter"
+    ],
+    "answer": 1,
+    "explanation": "The bulletin example makes an argument that can truthfully be denied."
+   }
+  ]
  }
 ]

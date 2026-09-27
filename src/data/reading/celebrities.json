@@ -1,0 +1,638 @@
+[
+ {
+  "id": "ronaldo-the-machine",
+  "level": "B1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Cristiano Ronaldo and the Boring Secret",
+  "sentences": [
+   {
+    "text": "Cristiano Ronaldo is a Portuguese footballer, and for close to twenty years he has been one of the two or three most famous athletes alive.",
+    "translationRu": "Криштиану Роналду — португальский футболист, и уже почти двадцать лет он один из двух-трёх самых известных спортсменов на планете."
+   },
+   {
+    "text": "Ask people why, and most will mention the goals.",
+    "translationRu": "Спросите людей почему — большинство вспомнит голы."
+   },
+   {
+    "text": "Ask the people who have trained beside him, and they mention something far less exciting.",
+    "translationRu": "Спросите тех, кто тренировался рядом, — они вспомнят кое-что куда менее эффектное."
+   },
+   {
+    "text": "He grew up on Madeira, a small Portuguese island, in a family with very little money.",
+    "translationRu": "Он вырос на Мадейре, небольшом португальском острове, в семье, где денег почти не было."
+   },
+   {
+    "text": "At twelve he was sent alone to Lisbon to join a football academy, which meant leaving his mother and learning to live among strangers who laughed at his island accent.",
+    "translationRu": "В двенадцать его одного отправили в Лиссабон, в футбольную академию: пришлось расстаться с матерью и жить среди чужих, смеявшихся над его островным выговором."
+   },
+   {
+    "text": "Teammates from those years describe a boy who stayed behind after every session.",
+    "translationRu": "Партнёры тех лет вспоминают мальчика, который оставался после каждой тренировки."
+   },
+   {
+    "text": "That habit never went away.",
+    "translationRu": "Эта привычка так никуда и не делась."
+   },
+   {
+    "text": "The details that come up again and again are almost dull.",
+    "translationRu": "Подробности, которые всплывают снова и снова, почти скучны."
+   },
+   {
+    "text": "He sleeps in short blocks rather than one long night, sometimes five times a day.",
+    "translationRu": "Он спит короткими отрезками, а не одну длинную ночь, иногда по пять раз за день."
+   },
+   {
+    "text": "He eats the same narrow list of foods, mostly fish, rice and vegetables, and has done for years.",
+    "translationRu": "Он ест один и тот же узкий набор — в основном рыбу, рис и овощи — и делает так годами."
+   },
+   {
+    "text": "He does not drink alcohol.",
+    "translationRu": "Он не пьёт алкоголь."
+   },
+   {
+    "text": "None of this is glamorous, and that is rather the point.",
+    "translationRu": "Ничего гламурного в этом нет — и в этом всё дело."
+   },
+   {
+    "text": "What separates him from other gifted players is not a secret technique but a refusal to have an off day.",
+    "translationRu": "Отличает его от других одарённых игроков не тайная техника, а отказ позволить себе день вполсилы."
+   },
+   {
+    "text": "He was also willing to rebuild parts of his own game, which is rarer than it sounds.",
+    "translationRu": "Он ещё и готов был перестраивать собственную игру — а это реже, чем кажется."
+   },
+   {
+    "text": "As a young winger he was all tricks, and coaches privately worried he would never be more than a showman.",
+    "translationRu": "Молодым крайним он был сплошным набором финтов, и тренеры про себя опасались, что дальше циркача дело не пойдёт."
+   },
+   {
+    "text": "He set about becoming dangerous with his weaker foot, then with his head, then from free kicks, and simply kept going.",
+    "translationRu": "Он взялся стать опасным слабой ногой, потом головой, потом со штрафных — и просто продолжал."
+   },
+   {
+    "text": "By his thirties he had changed position entirely, moving from the wing into the middle, where speed matters less and timing matters more.",
+    "translationRu": "К тридцати он вовсе сменил позицию, уйдя с фланга в центр, где меньше решает скорость и больше — выбор момента."
+   },
+   {
+    "text": "It is a strange kind of talent: the talent for admitting what you are losing and preparing for it early.",
+    "translationRu": "Это странный талант — талант признать, что именно ты теряешь, и подготовиться к этому заранее."
+   },
+   {
+    "text": "He is not, by most accounts, an easy man to be around.",
+    "translationRu": "Он, по общему мнению, не самый простой человек в общении."
+   },
+   {
+    "text": "He is competitive about everything, including things that are not competitions.",
+    "translationRu": "Он соревнуется во всём, включая то, что соревнованием не является."
+   },
+   {
+    "text": "But the lesson people take from him has nothing to do with football.",
+    "translationRu": "Но урок, который из него извлекают, к футболу отношения не имеет."
+   },
+   {
+    "text": "Extraordinary results usually come from ordinary things repeated for an unreasonable length of time.",
+    "translationRu": "Выдающийся результат обычно складывается из обычных вещей, повторяемых неразумно долго."
+   }
+  ],
+  "glossary": {
+   "academy": {
+    "translation": "академия, школа (спортивная)",
+    "partOfSpeech": "noun"
+   },
+   "session": {
+    "translation": "тренировка, занятие",
+    "partOfSpeech": "noun"
+   },
+   "dull": {
+    "translation": "скучный, пресный",
+    "partOfSpeech": "adjective"
+   },
+   "glamorous": {
+    "translation": "гламурный, эффектный",
+    "partOfSpeech": "adjective"
+   },
+   "off day": {
+    "translation": "день не в форме",
+    "partOfSpeech": "phrase"
+   },
+   "winger": {
+    "translation": "крайний нападающий",
+    "partOfSpeech": "noun"
+   },
+   "showman": {
+    "translation": "артист, циркач",
+    "partOfSpeech": "noun"
+   },
+   "competitive": {
+    "translation": "соревновательный, азартный",
+    "partOfSpeech": "adjective"
+   },
+   "unreasonable": {
+    "translation": "неразумный, чрезмерный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What do people who trained with him mention?",
+    "options": [
+     "His goals",
+     "Something far less exciting than goals",
+     "His interviews",
+     "His clothes"
+    ],
+    "answer": 1,
+    "explanation": "The text sets the public answer against what teammates actually say."
+   },
+   {
+    "id": "q2",
+    "question": "What does the text call a rarer talent than skill?",
+    "options": [
+     "Speed",
+     "Admitting what you are losing and preparing early",
+     "Free kicks",
+     "Being liked"
+    ],
+    "answer": 1,
+    "explanation": "He changed position in his thirties, before speed left him."
+   },
+   {
+    "id": "q3",
+    "question": "What is the lesson the text draws?",
+    "options": [
+     "Talent is everything",
+     "Ordinary things repeated for an unreasonable length of time",
+     "Luck matters most",
+     "Start young or not at all"
+    ],
+    "answer": 1,
+    "explanation": "Stated in the closing sentence."
+   }
+  ]
+ },
+ {
+  "id": "messi-and-ronaldo",
+  "level": "B2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Two Ways to Be the Best",
+  "sentences": [
+   {
+    "text": "For fifteen years football had an argument it could not settle: Lionel Messi or Cristiano Ronaldo.",
+    "translationRu": "Пятнадцать лет футбол вёл спор, который не мог решить: Лионель Месси или Криштиану Роналду."
+   },
+   {
+    "text": "What made it endless was that the two men were not better and worse versions of the same thing.",
+    "translationRu": "Бесконечным его делало то, что эти двое — не лучшая и худшая версии одного и того же."
+   },
+   {
+    "text": "They were opposite answers to the same question, and each answer was complete.",
+    "translationRu": "Это были противоположные ответы на один вопрос, и каждый ответ был исчерпывающим."
+   },
+   {
+    "text": "Ronaldo is the case for construction.",
+    "translationRu": "Роналду — довод в пользу конструирования."
+   },
+   {
+    "text": "Everything about him has been built on purpose, in a gym, over two decades, and rebuilt whenever it started to fail.",
+    "translationRu": "Всё в нём построено намеренно, в зале, за два десятилетия, и перестраивалось всякий раз, когда начинало сдавать."
+   },
+   {
+    "text": "Messi is the case for something nobody has managed to teach.",
+    "translationRu": "Месси — довод в пользу того, чему никто так и не научился учить."
+   },
+   {
+    "text": "He is short, and he plays low to the ground, which turns out to be an enormous advantage when changing direction.",
+    "translationRu": "Он невысок и играет низко к земле — и это оказывается огромным преимуществом при смене направления."
+   },
+   {
+    "text": "As a boy in Argentina he was found to have a growth hormone deficiency, and the treatment was expensive enough that his family could not have continued it alone.",
+    "translationRu": "Мальчиком в Аргентине у него нашли дефицит гормона роста, и лечение стоило столько, что семья одна бы не потянула."
+   },
+   {
+    "text": "A Spanish club agreed to pay, and he left for Barcelona at thirteen.",
+    "translationRu": "Испанский клуб согласился платить, и в тринадцать он уехал в Барселону."
+   },
+   {
+    "text": "Watch him and the striking thing is how little he appears to be doing.",
+    "translationRu": "Смотришь на него — и поражает, как мало он, кажется, делает."
+   },
+   {
+    "text": "He walks for long stretches, which infuriated commentators for years until analysts noticed he was reading where the gaps would open rather than chasing where they currently were.",
+    "translationRu": "Он подолгу ходит пешком, и годами это бесило комментаторов — пока аналитики не заметили, что он читает, где просветы откроются, а не бежит туда, где они есть сейчас."
+   },
+   {
+    "text": "The walking was the work.",
+    "translationRu": "Ходьба и была работой."
+   },
+   {
+    "text": "The contrast runs through everything, including what the two want from the game.",
+    "translationRu": "Контраст проходит сквозь всё, включая то, чего эти двое хотят от игры."
+   },
+   {
+    "text": "Ronaldo has always seemed to be pursuing greatness as a measurable quantity, and talks about it openly.",
+    "translationRu": "Роналду словно всегда преследовал величие как измеримую величину и говорит об этом открыто."
+   },
+   {
+    "text": "Messi has spent his career looking faintly embarrassed by attention and answering questions as briefly as politeness allows.",
+    "translationRu": "Месси всю карьеру выглядит слегка смущённым вниманием и отвечает на вопросы настолько коротко, насколько позволяет вежливость."
+   },
+   {
+    "text": "Neither approach is the correct one, which is precisely why the argument outlived both of their peaks.",
+    "translationRu": "Ни один из подходов не правильный — потому спор и пережил пики их обоих."
+   },
+   {
+    "text": "If there is a conclusion, it is unfashionable.",
+    "translationRu": "Если вывод и есть, он немодный."
+   },
+   {
+    "text": "Being the best at something does not have a single shape, and any advice built on copying one of these two will produce a worse version of that person rather than a better version of you.",
+    "translationRu": "У вершины нет единственной формы, и любой совет, построенный на копировании одного из них, даст худшую версию его, а не лучшую версию тебя."
+   }
+  ],
+  "glossary": {
+   "settle": {
+    "translation": "разрешить (спор)",
+    "partOfSpeech": "verb"
+   },
+   "deficiency": {
+    "translation": "дефицит, нехватка",
+    "partOfSpeech": "noun"
+   },
+   "striking": {
+    "translation": "поразительный",
+    "partOfSpeech": "adjective"
+   },
+   "infuriate": {
+    "translation": "бесить, приводить в ярость",
+    "partOfSpeech": "verb"
+   },
+   "gap": {
+    "translation": "просвет, разрыв",
+    "partOfSpeech": "noun"
+   },
+   "pursue": {
+    "translation": "преследовать, добиваться",
+    "partOfSpeech": "verb"
+   },
+   "faintly": {
+    "translation": "слегка, еле заметно",
+    "partOfSpeech": "adverb"
+   },
+   "unfashionable": {
+    "translation": "немодный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why was the argument endless?",
+    "options": [
+     "Both played for the same club",
+     "They were opposite complete answers, not better and worse versions",
+     "Nobody kept statistics",
+     "They never met"
+    ],
+    "answer": 1,
+    "explanation": "The text says each answer was complete."
+   },
+   {
+    "id": "q2",
+    "question": "What did analysts realise about Messi's walking?",
+    "options": [
+     "He was tired",
+     "He was reading where gaps would open",
+     "He was injured",
+     "He was arguing with the referee"
+    ],
+    "answer": 1,
+    "explanation": "The walking was the work."
+   },
+   {
+    "id": "q3",
+    "question": "What conclusion does the text call unfashionable?",
+    "options": [
+     "Talent beats work",
+     "Being the best has no single shape",
+     "Only youth matters",
+     "Records decide everything"
+    ],
+    "answer": 1,
+    "explanation": "Copying either produces a worse version of them rather than a better you."
+   }
+  ]
+ },
+ {
+  "id": "what-f1-does-to-a-body",
+  "level": "B2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "What Formula 1 Actually Does to a Driver",
+  "sentences": [
+   {
+    "text": "Formula 1 looks, from the outside, like the least physical sport at the top of world athletics.",
+    "translationRu": "Со стороны Формула-1 выглядит самым нефизическим видом среди вершин мирового спорта."
+   },
+   {
+    "text": "The driver sits down.",
+    "translationRu": "Пилот сидит."
+   },
+   {
+    "text": "The car does the work.",
+    "translationRu": "Работу делает машина."
+   },
+   {
+    "text": "This impression survives exactly as long as it takes to learn what happens to a human neck in a fast corner.",
+    "translationRu": "Это впечатление живёт ровно до момента, когда узнаёшь, что происходит с человеческой шеей в быстром повороте."
+   },
+   {
+    "text": "In heavy braking and in high-speed corners a driver's head, plus helmet, can weigh the equivalent of around thirty or forty kilograms.",
+    "translationRu": "При жёстком торможении и в скоростных поворотах голова пилота вместе со шлемом весит как тридцать-сорок килограммов."
+   },
+   {
+    "text": "It does this several hundred times in a race, and the neck has to hold it steady enough to aim a car at a gap the width of a doorway.",
+    "translationRu": "И так несколько сотен раз за гонку, а шея должна держать голову достаточно ровно, чтобы целить машину в просвет шириной с дверной проём."
+   },
+   {
+    "text": "Drivers train their necks the way other athletes train legs.",
+    "translationRu": "Пилоты тренируют шею так, как другие спортсмены — ноги."
+   },
+   {
+    "text": "The cockpit is also extremely hot, often well above fifty degrees, and a driver may lose two or three kilograms of water in an afternoon.",
+    "translationRu": "В кокпите ещё и очень жарко, часто заметно выше пятидесяти градусов, и за гонку пилот теряет два-три килограмма воды."
+   },
+   {
+    "text": "They are doing this while making decisions at a rate that would be considered unreasonable in any other job.",
+    "translationRu": "И всё это — принимая решения с частотой, которую в любой другой работе сочли бы невозможной."
+   },
+   {
+    "text": "The two drivers who have defined the recent era arrived by opposite routes.",
+    "translationRu": "Двое пилотов, определивших недавнюю эпоху, пришли противоположными путями."
+   },
+   {
+    "text": "Max Verstappen was raised for it almost as a profession from childhood; his father was himself a Formula 1 driver and ran his karting years with a severity that Verstappen has since described without much sentiment.",
+    "translationRu": "Макса Ферстаппена растили для этого почти как для профессии с детства: его отец сам был пилотом Формулы-1 и вёл его картинговые годы со строгостью, о которой Ферстаппен позже говорил без особой сентиментальности."
+   },
+   {
+    "text": "Charles Leclerc grew up in Monaco, where the race runs past the streets he knew, and lost both his father and his closest mentor early in his career.",
+    "translationRu": "Шарль Леклер вырос в Монако, где трасса проходит по знакомым ему улицам, и рано потерял и отца, и ближайшего наставника."
+   },
+   {
+    "text": "One is often described as ruthless, the other as emotional, and both descriptions are too neat to be much use.",
+    "translationRu": "Одного часто зовут безжалостным, другого эмоциональным, и оба описания слишком аккуратны, чтобы быть полезными."
+   },
+   {
+    "text": "What they share is the thing the sport actually selects for, which is not bravery.",
+    "translationRu": "Общее у них то, ради чего этот спорт и отбирает людей, — и это не смелость."
+   },
+   {
+    "text": "It is the ability to keep making fine judgements while frightened and exhausted.",
+    "translationRu": "Это способность продолжать тонко судить, будучи испуганным и вымотанным."
+   },
+   {
+    "text": "Plenty of people can drive quickly for one lap.",
+    "translationRu": "Быстро проехать один круг может кто угодно."
+   },
+   {
+    "text": "Very few can do it for ninety minutes while their body is failing and a small mistake means a wall.",
+    "translationRu": "Очень немногие — полтора часа, пока тело сдаёт, а маленькая ошибка означает стену."
+   },
+   {
+    "text": "Which is why the most revealing statistic in the sport is not top speed.",
+    "translationRu": "Поэтому самая говорящая цифра в этом спорте — не максимальная скорость."
+   },
+   {
+    "text": "It is the gap between a driver's first lap and their last one.",
+    "translationRu": "Это разрыв между первым и последним кругом пилота."
+   }
+  ],
+  "glossary": {
+   "braking": {
+    "translation": "торможение",
+    "partOfSpeech": "noun"
+   },
+   "steady": {
+    "translation": "неподвижно, ровно",
+    "partOfSpeech": "adjective"
+   },
+   "cockpit": {
+    "translation": "кокпит, кабина",
+    "partOfSpeech": "noun"
+   },
+   "severity": {
+    "translation": "строгость, суровость",
+    "partOfSpeech": "noun"
+   },
+   "ruthless": {
+    "translation": "безжалостный",
+    "partOfSpeech": "adjective"
+   },
+   "neat": {
+    "translation": "аккуратный, слишком гладкий",
+    "partOfSpeech": "adjective"
+   },
+   "judgement": {
+    "translation": "суждение, оценка",
+    "partOfSpeech": "noun"
+   },
+   "revealing": {
+    "translation": "показательный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why is the sport more physical than it looks?",
+    "options": [
+     "The cars are heavy to push",
+     "Forces make the head weigh far more, hundreds of times a race",
+     "Drivers run between laps",
+     "The races last all day"
+    ],
+    "answer": 1,
+    "explanation": "The neck must hold a head that effectively weighs thirty or forty kilograms."
+   },
+   {
+    "id": "q2",
+    "question": "What does the text say the sport selects for?",
+    "options": [
+     "Bravery",
+     "Fine judgement while frightened and exhausted",
+     "Fast reactions alone",
+     "Small body size"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly, and set against bravery."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text call the most revealing statistic?",
+    "options": [
+     "Top speed",
+     "The gap between a driver's first and last lap",
+     "Number of wins",
+     "Pit stop times"
+    ],
+    "answer": 1,
+    "explanation": "The closing line."
+   }
+  ]
+ },
+ {
+  "id": "growing-up-on-camera",
+  "level": "B1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Growing Up in Front of Forty Million People",
+  "sentences": [
+   {
+    "text": "When Stranger Things appeared in 2016, most of its cast were children.",
+    "translationRu": "Когда в 2016 году вышли «Очень странные дела», большинство актёров были детьми."
+   },
+   {
+    "text": "Millie Bobby Brown was eleven when she was cast, and Noah Schnapp was about the same age.",
+    "translationRu": "Милли Бобби Браун было одиннадцать, когда её утвердили, примерно столько же было и Ноа Шнаппу."
+   },
+   {
+    "text": "Within a year, both were recognised in airports on the other side of the world.",
+    "translationRu": "Через год обоих узнавали в аэропортах на другом конце света."
+   },
+   {
+    "text": "For the role, Brown had her head shaved.",
+    "translationRu": "Ради роли Браун побрили голову."
+   },
+   {
+    "text": "She has said she cried, and then found she liked it.",
+    "translationRu": "Она рассказывала, что плакала, а потом обнаружила, что ей нравится."
+   },
+   {
+    "text": "It is a small story that says something larger about the job: a child actor is asked to make adult decisions about their own appearance, in public, before they have finished deciding who they are.",
+    "translationRu": "Маленькая история, которая говорит о большом: ребёнок-актёр принимает взрослые решения о собственной внешности, публично, ещё не решив, кто он такой."
+   },
+   {
+    "text": "The strange part of that kind of fame is not the attention.",
+    "translationRu": "Странное в такой славе — не внимание."
+   },
+   {
+    "text": "It is that millions of people watched them grow, frame by frame, across several years.",
+    "translationRu": "Странно, что миллионы смотрели, как они растут, кадр за кадром, несколько лет подряд."
+   },
+   {
+    "text": "Ordinary teenagers change in private and only their families notice.",
+    "translationRu": "Обычные подростки меняются в частном порядке, и замечает это только семья."
+   },
+   {
+    "text": "These ones changed on a schedule, between seasons, and the internet compared the photographs.",
+    "translationRu": "Эти менялись по графику, между сезонами, и интернет сравнивал фотографии."
+   },
+   {
+    "text": "The history of child stardom is not encouraging, and everyone involved knew it.",
+    "translationRu": "История детской славы не обнадёживает, и все причастные это знали."
+   },
+   {
+    "text": "What seems to have helped this particular group is that there were several of them at once.",
+    "translationRu": "Этой конкретной компании, похоже, помогло то, что их было сразу несколько."
+   },
+   {
+    "text": "They were in the same situation, the same age, on the same set, for years.",
+    "translationRu": "Они были в одинаковом положении, одного возраста, на одной площадке, годами."
+   },
+   {
+    "text": "A shared strange experience is far easier to survive than a private one.",
+    "translationRu": "Общий странный опыт пережить куда легче, чем одиночный."
+   },
+   {
+    "text": "Brown has since started a company and directed her own projects.",
+    "translationRu": "Браун с тех пор основала компанию и взялась за собственные проекты."
+   },
+   {
+    "text": "Schnapp has spoken publicly about his own life in a way that would have been unimaginable for a young actor a generation ago.",
+    "translationRu": "Шнапп открыто говорил о собственной жизни так, как молодому актёру поколение назад было бы немыслимо."
+   },
+   {
+    "text": "Both, in other words, took the one thing fame genuinely offers and used it: leverage.",
+    "translationRu": "Иначе говоря, оба взяли то единственное, что слава действительно даёт, — рычаг — и воспользовались им."
+   },
+   {
+    "text": "It is worth remembering when watching them that the performance you admire was given by someone who also had homework.",
+    "translationRu": "Глядя на них, стоит помнить: игру, которой вы восхищаетесь, выдал человек, у которого ещё и уроки были не сделаны."
+   }
+  ],
+  "glossary": {
+   "cast": {
+    "translation": "утвердить на роль",
+    "partOfSpeech": "verb"
+   },
+   "shave": {
+    "translation": "брить",
+    "partOfSpeech": "verb"
+   },
+   "appearance": {
+    "translation": "внешность",
+    "partOfSpeech": "noun"
+   },
+   "stardom": {
+    "translation": "звёздность, слава",
+    "partOfSpeech": "noun"
+   },
+   "encouraging": {
+    "translation": "обнадёживающий",
+    "partOfSpeech": "adjective"
+   },
+   "set": {
+    "translation": "съёмочная площадка",
+    "partOfSpeech": "noun"
+   },
+   "unimaginable": {
+    "translation": "немыслимый",
+    "partOfSpeech": "adjective"
+   },
+   "leverage": {
+    "translation": "рычаг, влияние",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does the text say is the strange part of this fame?",
+    "options": [
+     "The money",
+     "Millions watched them grow up frame by frame",
+     "The travelling",
+     "The costumes"
+    ],
+    "answer": 1,
+    "explanation": "Ordinary teenagers change in private; these changed on a schedule."
+   },
+   {
+    "id": "q2",
+    "question": "What seems to have helped this group?",
+    "options": [
+     "Strict parents",
+     "There were several of them in the same situation at once",
+     "Short filming days",
+     "Living abroad"
+    ],
+    "answer": 1,
+    "explanation": "A shared strange experience is easier to survive than a private one."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text say fame genuinely offers?",
+    "options": [
+     "Happiness",
+     "Leverage",
+     "Privacy",
+     "Safety"
+    ],
+    "answer": 1,
+    "explanation": "Both took leverage and used it."
+   }
+  ]
+ }
+]

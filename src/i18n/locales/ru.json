@@ -136,7 +136,8 @@
       "business": "Работа и бизнес",
       "health": "Здоровье и тело",
       "environment": "Экология",
-      "society": "Общество"
+      "society": "Общество",
+      "celebrities": "Известные люди"
     },
     "knownShare": "знакомо {{percent}}%",
     "fit": {
