@@ -2,10 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import { LevelFilter } from "@/components/LevelFilter";
-import { useSegmented } from "@/lib/useSegmented";
 import { DialogueRunner } from "@/components/slang/DialogueRunner";
 import { LessonRunner } from "@/components/everyday/LessonRunner";
-import { slangDialogues, allExpressions, type Dialogue } from "@/data/slangDialogues";
+import { slangDialogues, slangShelf, type Dialogue, type SlangTopic } from "@/data/slangDialogues";
 import { everydayLessons, type Lesson } from "@/data/everydayLessons";
 import { getSlangResults } from "@/lib/slangProgress";
 import { getLessonResults, type LessonResult } from "@/lib/lessonProgress";
@@ -14,22 +13,18 @@ import type { Cefr } from "@/lib/textLevel";
 import "@/components/slang/slang.css";
 
 /**
- * Lessons carry hybrid labels — "A2–B1" — because a conversation sits between
- * levels more often than a text does. The shelf is browsed by single levels,
- * so a hybrid is filed under its lower half: someone reaching for B1 should be
- * offered something they can finish, not something that starts there.
+ * One shelf, not two.
+ *
+ * Dialogues and lessons used to live behind a pair of tabs, which asked the
+ * learner to choose a *format* before they had seen a subject. Nobody knows
+ * whether they want a dialogue or a lesson; they know they are going to a
+ * party on Friday. So the subject comes first, the same way it does in reading
+ * and in dictation, and the two formats sit together inside it with a label
+ * saying which is which.
  */
-function levelOfLesson(lesson: Lesson): Cefr {
-  const first = lesson.level.split(/[–-]/)[0].trim();
-  return (["A1", "A2", "B1", "B2", "C1", "C2"].includes(first) ? first : "A2") as Cefr;
-}
-
-/** Rough reading and answering time, so a card can promise a realistic length. */
-function lessonMinutes(lesson: Lesson) {
-  return Math.max(3, Math.round((lesson.phrases.length * 0.5 + lesson.exercises.length * 0.6) * 1.2));
-}
-
-type Tab = "dialogues" | "lessons";
+type Item =
+  | { kind: "dialogue"; id: string; topic: SlangTopic; level: string; dialogue: Dialogue }
+  | { kind: "lesson"; id: string; topic: SlangTopic; level: string; lesson: Lesson };
 
 /**
  * Slang — one section, where there were two.
@@ -50,12 +45,11 @@ type Tab = "dialogues" | "lessons";
 export default function Slang() {
   const { t, i18n } = useTranslation();
   const ru = i18n.language.startsWith("ru");
-  const [tab, setTab] = useState<Tab>("dialogues");
+  const [topic, setTopic] = useState<SlangTopic | null>(null);
   const [level, setLevel] = useState<Cefr | null>(null);
   const [open, setOpen] = useState<Dialogue | null>(null);
   const [openLesson, setOpenLesson] = useState<string | null>(null);
   const [lessonResults, setLessonResults] = useState<Record<string, LessonResult>>({});
-  const { ref: tabsRef, style: tabsStyle } = useSegmented(tab);
 
   useEffect(() => setLessonResults(getLessonResults()), [openLesson]);
 
@@ -67,32 +61,54 @@ export default function Slang() {
     ? ranked[(ranked.findIndex((l) => l.id === lesson.id) + 1) % ranked.length]
     : undefined;
 
-  const lessons = useMemo(
-    () => (level ? ranked.filter((l) => levelOfLesson(l) === level) : ranked),
-    [ranked, level],
-  );
+  /** The nine rooms and what each one holds. Fixed data, computed once. */
+  const shelf = useMemo(() => slangShelf(everydayLessons), []);
 
-  const lessonCounts = useMemo(() => {
-    const out: Partial<Record<Cefr, number>> = {};
-    for (const l of ranked) {
-      const key = levelOfLesson(l);
-      out[key] = (out[key] ?? 0) + 1;
-    }
-    return out;
+  /*
+   * Both formats in one list, ordered so a conversation comes before the
+   * lesson that dissects it. Meeting an expression in use and then taking it
+   * apart is the order that works; the reverse is a vocabulary list with a
+   * story attached.
+   */
+  const items = useMemo<Item[]>(() => {
+    const dialogues: Item[] = slangDialogues.map((dialogue) => ({
+      kind: "dialogue",
+      id: dialogue.id,
+      topic: dialogue.topic,
+      level: dialogue.level,
+      dialogue,
+    }));
+    const lessons: Item[] = ranked.map((lesson) => ({
+      kind: "lesson",
+      id: lesson.id,
+      topic: lesson.topic,
+      level: lesson.level,
+      lesson,
+    }));
+    return [...dialogues, ...lessons];
   }, [ranked]);
+
+  const inTopic = useMemo(
+    () => (topic ? items.filter((item) => item.topic === topic) : []),
+    [items, topic],
+  );
 
   const counts = useMemo(() => {
     const out: Partial<Record<Cefr, number>> = {};
-    for (const dialogue of slangDialogues) out[dialogue.level] = (out[dialogue.level] ?? 0) + 1;
+    for (const item of inTopic) {
+      const key = item.level.split(/[–-]/)[0].trim() as Cefr;
+      out[key] = (out[key] ?? 0) + 1;
+    }
     return out;
-  }, []);
+  }, [inTopic]);
 
   const shown = useMemo(
-    () => (level ? slangDialogues.filter((d) => d.level === level) : slangDialogues),
-    [level],
+    () =>
+      level
+        ? inTopic.filter((item) => item.level.split(/[–-]/)[0].trim() === level)
+        : inTopic,
+    [inTopic, level],
   );
-
-  const passed = everydayLessons.filter((l) => lessonResults[l.id]).length;
 
   /* Every hook above this line, every early return below it. Opening a lesson
      returned before two of the memos had run, and React counts hooks — so the
@@ -118,102 +134,126 @@ export default function Slang() {
 
   return (
     <SectionHero title={t("nav.slang")} description={t("slangModule.intro")}>
-      <div className="segmented mt-7" ref={tabsRef} style={tabsStyle} role="tablist">
-        {(["dialogues", "lessons"] as Tab[]).map((key) => (
-          <button
-            key={key}
-            type="button"
-            role="tab"
-            aria-selected={tab === key}
-            onClick={() => {
-              setTab(key);
-              setLevel(null);
-            }}
-            className={`segmented__item${tab === key ? " is-active" : ""}`}
-          >
-            {key === "dialogues"
-              ? t("slangModule.dialoguesTab")
-              : `${t("slangModule.lessonsTab")} · ${passed}/${everydayLessons.length}`}
-          </button>
-        ))}
-      </div>
+      {/* Stage one: the subject. Same shape as reading and dictation, because
+          the three shelves are browsed by the same person and a section that
+          rearranges itself between visits is one people stop trusting. */}
+      {!topic && (
+        <div data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {shelf.map((entry) => (
+            <button
+              key={entry.id}
+              type="button"
+              onClick={() => setTopic(entry.id)}
+              disabled={entry.total === 0}
+              className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
+            >
+              <h2 className="page-title text-lg leading-snug">
+                {t(`slangModule.topics.${entry.id}`)}
+              </h2>
+              <p className="mt-2 flex-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {t("slangModule.itemCount", { count: entry.total })}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {(["A1", "A2", "B1", "B2", "C1", "C2"] as const)
+                  .filter((lv) => entry.counts[lv])
+                  .map((lv) => (
+                    <span
+                      key={lv}
+                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
+                      style={{ background: "var(--color-surface-2)", color: "var(--color-text-muted)" }}
+                    >
+                      {lv} · {entry.counts[lv]}
+                    </span>
+                  ))}
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
 
-      {tab === "lessons" ? (
+      {topic && (
         <>
-          <p className="mt-6 text-sm" style={{ color: "var(--color-text-muted)" }}>
-            {t("slangModule.lessonsIntro")}
-          </p>
-
-          <div className="mt-5">
-            <LevelFilter value={level} counts={lessonCounts} onChange={setLevel} />
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                setTopic(null);
+                setLevel(null);
+              }}
+              className="text-sm font-semibold"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              ← {t("slangModule.allTopics")}
+            </button>
+            <LevelFilter value={level} counts={counts} onChange={setLevel} />
           </div>
 
-          <div className="sl-grid">
-            {lessons.length === 0 && (
+          {/* A list, not a grid of tiles — titles are what is being scanned. */}
+          <div data-stagger className="mt-5 space-y-2">
+            {shown.length === 0 && (
               <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
                 {t("levels.empty")}
               </p>
             )}
-            {lessons.map((l) => {
-              const result = lessonResults[l.id];
+            {shown.map((item) => {
+              const done =
+                item.kind === "dialogue" ? results[item.id] : lessonResults[item.id];
               return (
-                <button key={l.id} type="button" className="sl-card" onClick={() => setOpenLesson(l.id)}>
-                  <div className="sl-card__top">
-                    <span className="sl-card__level">{l.level}</span>
-                    {result && (
-                      <span className="sl-card__done">
-                        ✓ {result.bestCorrect}/{result.total}
-                      </span>
-                    )}
-                  </div>
-                  <span className="sl-card__title">{l.title}</span>
-                  <span className="sl-card__scene">{ru ? l.goalRu : l.goal}</span>
-                  <span className="sl-card__meta">
-                    {t("everyday.phraseCount", { count: l.phrases.length })} ·{" "}
-                    {t("everyday.minutes", { count: lessonMinutes(l) })}
+                <button
+                  key={item.id}
+                  type="button"
+                  className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
+                  onClick={() =>
+                    item.kind === "dialogue" ? setOpen(item.dialogue) : setOpenLesson(item.id)
+                  }
+                >
+                  <span className="level flex-none">{item.level}</span>
+
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold">
+                      {item.kind === "dialogue"
+                        ? ru
+                          ? item.dialogue.titleRu
+                          : item.dialogue.title
+                        : ru
+                          ? item.lesson.titleRu
+                          : item.lesson.title}
+                    </span>
+                    <span className="mt-0.5 block truncate text-xs" style={{ color: "var(--color-text-muted)" }}>
+                      {item.kind === "dialogue"
+                        ? ru
+                          ? item.dialogue.sceneRu
+                          : item.dialogue.scene
+                        : ru
+                          ? item.lesson.goalRu
+                          : item.lesson.goal}
+                    </span>
                   </span>
+
+                  {/* Which of the two this is. The formats teach differently and
+                      a learner should be able to tell before opening one. */}
+                  <span
+                    className="hidden flex-none rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline-flex"
+                    style={{
+                      background: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+                      color: "var(--color-accent-ink)",
+                    }}
+                  >
+                    {t(`slangModule.kind.${item.kind}`)}
+                  </span>
+
+                  {done && (
+                    <span className="flex-none text-xs font-bold" style={{ color: "var(--color-success)" }}>
+                      ✓ {done.bestCorrect}/{done.total}
+                    </span>
+                  )}
                 </button>
               );
             })}
           </div>
         </>
-      ) : (
-        <>
-      <p className="mt-6 text-sm" style={{ color: "var(--color-text-muted)" }}>
-        {t("slangModule.shelfMeta", {
-          dialogues: slangDialogues.length,
-          expressions: allExpressions().length,
-        })}
-      </p>
-
-      <div className="mt-5">
-        <LevelFilter value={level} counts={counts} onChange={setLevel} />
-      </div>
-
-      <div className="sl-grid">
-        {shown.map((dialogue) => {
-          const result = results[dialogue.id];
-          return (
-            <button key={dialogue.id} type="button" className="sl-card" onClick={() => setOpen(dialogue)}>
-              <div className="sl-card__top">
-                <span className="sl-card__level">{dialogue.level}</span>
-                {result && (
-                  <span className="sl-card__done">
-                    ✓ {result.bestCorrect}/{result.total}
-                  </span>
-                )}
-              </div>
-              <span className="sl-card__title">{ru ? dialogue.titleRu : dialogue.title}</span>
-              <span className="sl-card__scene">{ru ? dialogue.sceneRu : dialogue.scene}</span>
-              <span className="sl-card__meta">
-                {t("slangModule.cardMeta", { count: dialogue.expressions.length })}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-        </>
       )}
+
     </SectionHero>
   );
 }

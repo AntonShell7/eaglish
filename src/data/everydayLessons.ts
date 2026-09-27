@@ -11,6 +11,8 @@
  * the same role the word-lookup popup plays while reading.
  */
 
+import type { SlangTopic } from "./slangDialogues";
+
 /** How formal a phrase is — what decides if it fits the room. */
 export type Register = "neutral" | "casual" | "veryCasual";
 
@@ -56,6 +58,11 @@ export type Exercise = GapExercise | ReplyExercise | RegisterExercise;
 
 export interface Lesson {
   id: string;
+  /** The Russian title. The shelf is read in Russian; a half-translated row
+      reads as an oversight, because it is one. */
+  titleRu: string;
+  /** Same nine rooms the dialogues use; the shelf mixes both kinds. */
+  topic: SlangTopic;
   title: string;
   /** What the learner can do afterwards, stated as a promise. */
   goal: string;
@@ -68,7 +75,9 @@ export interface Lesson {
 export const everydayLessons: Lesson[] = [
   {
     id: "small-talk",
+    topic: "natives",
     title: "Small talk without the awkward pause",
+    titleRu: "Светская беседа без неловкой паузы",
     goal: "Open, hold and end a short conversation with someone you barely know.",
     goalRu: "Начать, поддержать и закончить короткий разговор с человеком, которого почти не знаешь.",
     level: "A2",
@@ -151,7 +160,9 @@ export const everydayLessons: Lesson[] = [
 
   {
     id: "making-plans",
+    topic: "natives",
     title: "Making plans — and moving them",
+    titleRu: "Договориться о встрече — и перенести её",
     goal: "Suggest a time, agree to it, and postpone politely when life happens.",
     goalRu: "Предложить время, согласиться и вежливо перенести встречу, когда планы срываются.",
     level: "A2–B1",
@@ -234,7 +245,9 @@ export const everydayLessons: Lesson[] = [
 
   {
     id: "cafes-and-shops",
+    topic: "city",
     title: "Cafés, shops and checkouts",
+    titleRu: "Кафе, магазины и касса",
     goal: "Order, pay and browse without rehearsing the sentence in your head first.",
     goalRu: "Заказать, заплатить и просто посмотреть товар, не репетируя фразу заранее.",
     level: "A2",
@@ -322,7 +335,9 @@ export const everydayLessons: Lesson[] = [
 
   {
     id: "reacting",
+    topic: "natives",
     title: "Reacting like a native",
+    titleRu: "Реагировать как носитель",
     goal: "Show surprise, sympathy and agreement in two or three words instead of freezing.",
     goalRu: "Выразить удивление, сочувствие и согласие в два-три слова, а не молчать в ответ.",
     level: "B1",
@@ -405,7 +420,9 @@ export const everydayLessons: Lesson[] = [
 
   {
     id: "texting",
+    topic: "texting",
     title: "Texting: short forms that aren't lazy",
+    titleRu: "Переписка: сокращения, которые не лень",
     goal: "Read and write real messages — the abbreviations natives use every day.",
     goalRu: "Понимать и писать настоящие сообщения — сокращения, которые носители используют каждый день.",
     level: "A2–B1",
@@ -488,7 +505,9 @@ export const everydayLessons: Lesson[] = [
 
   {
     id: "saying-no",
+    topic: "pushback",
     title: "Saying no without sounding rude",
+    titleRu: "Отказать и не прозвучать грубо",
     goal: "Refuse, disagree and set a limit while keeping the relationship intact.",
     goalRu: "Отказать, не согласиться и обозначить границу, не испортив отношения.",
     level: "B1–B2",
@@ -575,7 +594,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "when-english-runs-out",
+    topic: "natives",
     title: "When your English runs out",
+    titleRu: "Когда английский закончился",
     goal: "Keep a conversation alive when you did not understand, instead of nodding and hoping.",
     goalRu: "Не дать разговору развалиться, когда ты не понял, — вместо того чтобы кивать наугад.",
     level: "A1",
@@ -661,7 +682,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "getting-around",
+    topic: "city",
     title: "Getting around a city",
+    titleRu: "Ориентироваться в городе",
     goal: "Ask for directions, buy a ticket and survive public transport in a place you do not know.",
     goalRu: "Спросить дорогу, купить билет и разобраться с транспортом в незнакомом городе.",
     level: "A1–A2",
@@ -740,7 +763,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "doctor-and-pharmacy",
+    topic: "city",
     title: "At the doctor and the pharmacy",
+    titleRu: "У врача и в аптеке",
     goal: "Describe what hurts and understand what you are told to do about it.",
     goalRu: "Объяснить, что болит, и понять, что с этим делать.",
     level: "A2",
@@ -814,7 +839,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "phone-calls",
+    topic: "texting",
     title: "Phone calls and voice messages",
+    titleRu: "Звонки и голосовые",
     goal: "Start, hold and end a call in English without the panic of not seeing the other face.",
     goalRu: "Начать, провести и закончить разговор по телефону, не видя лица собеседника.",
     level: "A2–B1",
@@ -893,7 +920,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "apologising",
+    topic: "pushback",
     title: "Apologising and fixing it",
+    titleRu: "Извиниться и всё починить",
     goal: "Apologise in proportion to the mistake, and move straight to the repair.",
     goalRu: "Извиниться соразмерно ошибке и сразу перейти к тому, как её исправить.",
     level: "B1",
@@ -972,7 +1001,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "asking-at-work",
+    topic: "work",
     title: "Asking for things at work",
+    titleRu: "Просить о чём-то на работе",
     goal: "Ask a colleague for help, time or a decision without sounding either demanding or apologetic.",
     goalRu: "Попросить коллегу о помощи, времени или решении — не приказывая и не извиняясь без конца.",
     level: "B1",
@@ -1046,7 +1077,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "disagreeing",
+    topic: "pushback",
     title: "Disagreeing without a fight",
+    titleRu: "Возразить без ссоры",
     goal: "Say that you think otherwise, and keep the other person listening.",
     goalRu: "Сказать, что ты думаешь иначе, и при этом не потерять собеседника.",
     level: "B1–B2",
@@ -1125,7 +1158,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "hedging",
+    topic: "pushback",
     title: "Hedging: saying less than you mean",
+    titleRu: "Смягчить: сказать меньше, чем думаешь",
     goal: "Soften a claim so it invites discussion instead of a fight — the habit that makes English sound native.",
     goalRu: "Смягчать утверждение так, чтобы оно приглашало к разговору, — привычка, которая и делает речь естественной.",
     level: "B2",
@@ -1204,7 +1239,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "interviews",
+    topic: "work",
     title: "Interviews: talking about yourself",
+    titleRu: "Собеседование: рассказать о себе",
     goal: "Answer the standard interview questions with structure instead of improvisation.",
     goalRu: "Отвечать на типовые вопросы собеседования структурно, а не на импровизации.",
     level: "B2–C1",
@@ -1288,7 +1325,9 @@ export const everydayLessons: Lesson[] = [
   },
   {
     id: "indirect-english",
+    topic: "idioms",
     title: "Reading between the lines",
+    titleRu: "Читать между строк",
     goal: "Hear what British English means rather than what it says — and answer the real message.",
     goalRu: "Слышать, что британский английский имеет в виду, а не что говорит, — и отвечать на настоящий смысл.",
     level: "C1",

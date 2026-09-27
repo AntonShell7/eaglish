@@ -1018,7 +1018,25 @@
     },
     "dialoguesTab": "Dialogues",
     "lessonsTab": "Lessons",
-    "lessonsIntro": "Short lessons: a phrase, its register — which rooms it fits — and exercises that ask you to choose it in a situation."
+    "lessonsIntro": "Short lessons: a phrase, its register — which rooms it fits — and exercises that ask you to choose it in a situation.",
+    "topics": {
+      "natives": "Talking to natives",
+      "study": "School and university",
+      "texting": "Texting and calls",
+      "idioms": "Idioms",
+      "literary": "Elegant English",
+      "pushback": "Pushing back",
+      "city": "Life in a city",
+      "work": "Work",
+      "feelings": "Feelings"
+    },
+    "allTopics": "All subjects",
+    "itemCount_one": "{{count}} item",
+    "itemCount_other": "{{count}} items",
+    "kind": {
+      "dialogue": "dialogue",
+      "lesson": "lesson"
+    }
   },
   "account": {
     "title": "Your data",

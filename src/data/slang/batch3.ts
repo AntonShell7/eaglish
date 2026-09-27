@@ -22,6 +22,7 @@ import type { Dialogue } from "../slangDialogues";
 export const batch3: Dialogue[] = [
   {
     id: "caught-red-handed",
+    topic: "idioms",
     title: "Caught red-handed",
     titleRu: "Пойман с поличным",
     level: "C1",
@@ -138,6 +139,7 @@ export const batch3: Dialogue[] = [
 
   {
     id: "rock-and-a-hard-place",
+    topic: "idioms",
     title: "Between a rock and a hard place",
     titleRu: "Между молотом и наковальней",
     level: "C1",
@@ -247,6 +249,7 @@ export const batch3: Dialogue[] = [
 
   {
     id: "feet-of-clay",
+    topic: "literary",
     title: "Feet of clay",
     titleRu: "Колосс на глиняных ногах",
     level: "C2",
@@ -363,6 +366,7 @@ export const batch3: Dialogue[] = [
 
   {
     id: "a-stitch-in-time",
+    topic: "literary",
     title: "A stitch in time",
     titleRu: "Дорога ложка к обеду",
     level: "B2",
@@ -472,6 +476,7 @@ export const batch3: Dialogue[] = [
 
   {
     id: "carrot-and-stick",
+    topic: "literary",
     title: "Carrot and stick",
     titleRu: "Кнут и пряник",
     level: "C1",
@@ -589,6 +594,7 @@ export const batch3: Dialogue[] = [
 
   {
     id: "alright-mate",
+    topic: "natives",
     title: "Alright, mate?",
     titleRu: "Здорово, дружище",
     level: "B1",

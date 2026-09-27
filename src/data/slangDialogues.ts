@@ -97,8 +97,37 @@ export interface Check {
   why: string;
 }
 
+
+/**
+ * The nine rooms this module is browsed by.
+ *
+ * Slang needs two axes where reading and dictation needed one. A topic answers
+ * "where will I need this"; the register already on every expression answers
+ * "can I say it here". The second is the question learners actually get wrong:
+ * the phrase is usually right and the room is wrong.
+ *
+ * "idioms" and "literary" look like one subject and are not. The first is what
+ * will be said *to* you — caught red-handed, between a rock and a hard place —
+ * and has to be understood at speed. The second is what makes you sound
+ * well-read in writing, and saying it in a bar is its own kind of mistake.
+ */
+export const slangTopics = [
+  "natives",
+  "study",
+  "texting",
+  "idioms",
+  "literary",
+  "pushback",
+  "city",
+  "work",
+  "feelings",
+] as const;
+
+export type SlangTopic = (typeof slangTopics)[number];
+
 export interface Dialogue {
   id: string;
+  topic: SlangTopic;
   title: string;
   titleRu: string;
   level: Cefr;
@@ -134,4 +163,31 @@ export function parseLine(text: string): Piece[] {
   }
   if (last < text.length) out.push({ text: text.slice(last) });
   return out;
+}
+
+/**
+ * How many items each room holds, and at which levels.
+ *
+ * Both kinds in one count, because the shelf mixes them: a learner opening
+ * "Work" wants everything about work, not a choice between two formats before
+ * they have seen what is inside either.
+ */
+export function slangShelf(lessons: { topic: SlangTopic; level: string }[]) {
+  const out = new Map<SlangTopic, { total: number; counts: Record<string, number> }>();
+  for (const topic of slangTopics) out.set(topic, { total: 0, counts: {} });
+
+  const note = (topic: SlangTopic, level: string) => {
+    const entry = out.get(topic);
+    if (!entry) return;
+    entry.total += 1;
+    // A lesson carries a hybrid label; it is filed under the lower half, the
+    // same rule the level filter uses.
+    const key = level.split(/[–-]/)[0].trim();
+    entry.counts[key] = (entry.counts[key] ?? 0) + 1;
+  };
+
+  for (const d of slangDialogues) note(d.topic, d.level);
+  for (const l of lessons) note(l.topic, l.level);
+
+  return [...out.entries()].map(([id, value]) => ({ id, ...value }));
 }

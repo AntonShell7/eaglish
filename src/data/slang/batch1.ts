@@ -7,6 +7,7 @@ import type { Dialogue } from "../slangDialogues";
 export const batch1: Dialogue[] = [
   {
     id: "long-time-no-see",
+    topic: "natives",
     title: "Long time no see",
     titleRu: "Сто лет не виделись",
     level: "A2",
@@ -118,6 +119,7 @@ export const batch1: Dialogue[] = [
 
   {
     id: "plans-falling-through",
+    topic: "natives",
     title: "Plans falling through",
     titleRu: "Планы сорвались",
     level: "A2",
@@ -225,6 +227,7 @@ export const batch1: Dialogue[] = [
 
   {
     id: "shift-from-hell",
+    topic: "work",
     title: "The shift from hell",
     titleRu: "Смена из ада",
     level: "B1",
@@ -335,6 +338,7 @@ export const batch1: Dialogue[] = [
 
   {
     id: "left-on-read",
+    topic: "texting",
     title: "Left on read",
     titleRu: "Прочитал и не ответил",
     level: "B1",
@@ -451,6 +455,7 @@ export const batch1: Dialogue[] = [
 
   {
     id: "flatmate-standoff",
+    topic: "city",
     title: "The flatmate standoff",
     titleRu: "Противостояние соседей",
     level: "B2",
@@ -566,6 +571,7 @@ export const batch1: Dialogue[] = [
 
   {
     id: "skint-till-friday",
+    topic: "city",
     title: "Skint till Friday",
     titleRu: "На мели до пятницы",
     level: "B2",

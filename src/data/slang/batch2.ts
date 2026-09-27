@@ -8,6 +8,7 @@ import type { Dialogue } from "../slangDialogues";
 export const batch2: Dialogue[] = [
   {
     id: "the-meeting-after-the-meeting",
+    topic: "work",
     title: "The meeting after the meeting",
     titleRu: "Совещание после совещания",
     level: "B2",
@@ -130,6 +131,7 @@ export const batch2: Dialogue[] = [
 
   {
     id: "down-to-the-wire",
+    topic: "work",
     title: "Down to the wire",
     titleRu: "До последней секунды",
     level: "B2",
@@ -247,6 +249,7 @@ export const batch2: Dialogue[] = [
 
   {
     id: "the-breakup-nobody-saw",
+    topic: "feelings",
     title: "The break-up nobody saw coming",
     titleRu: "Расставание, которого никто не ждал",
     level: "C1",
@@ -364,6 +367,7 @@ export const batch2: Dialogue[] = [
 
   {
     id: "overrated-or-a-masterpiece",
+    topic: "pushback",
     title: "Overrated, or a masterpiece",
     titleRu: "Переоценённый или шедевр",
     level: "C1",
@@ -487,6 +491,7 @@ export const batch2: Dialogue[] = [
 
   {
     id: "talking-your-way-out",
+    topic: "pushback",
     title: "Talking your way out of it",
     titleRu: "Выкрутиться на ходу",
     level: "C1",
@@ -597,6 +602,7 @@ export const batch2: Dialogue[] = [
 
   {
     id: "with-all-due-respect",
+    topic: "pushback",
     title: "With all due respect",
     titleRu: "При всём уважении",
     level: "C1",
