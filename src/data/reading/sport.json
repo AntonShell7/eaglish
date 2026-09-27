@@ -509,5 +509,178 @@
     "explanation": "Stated near the end."
    }
   ]
+ },
+ {
+  "id": "the-valley-that-makes-runners",
+  "level": "B2",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Town Where the Marathon Is Decided",
+  "sentences": [
+   {
+    "text": "Look at the finish of any big-city marathon and the pattern is hard to miss.",
+    "translationRu": "Посмотри на финиш любого крупного городского марафона — закономерность не спрятать."
+   },
+   {
+    "text": "A very large share of the winners over the last forty years have come from Kenya and Ethiopia, and within Kenya, a startling number come from a single region in the Rift Valley, around a town called Iten.",
+    "translationRu": "Очень большая доля победителей за последние сорок лет — из Кении и Эфиопии, а внутри Кении поразительно многие — из одного района Рифтовой долины, вокруг городка Итен."
+   },
+   {
+    "text": "A sign over the road there reads that this is the home of champions, and for once the claim is modest.",
+    "translationRu": "Указатель над дорогой сообщает, что это дом чемпионов, и вот тут заявление даже скромное."
+   },
+   {
+    "text": "The easy explanation is genetic, and it is not quite wrong, but it is doing much less work than people assume.",
+    "translationRu": "Простое объяснение — генетика; оно не совсем ложно, но делает куда меньше работы, чем принято думать."
+   },
+   {
+    "text": "Distance running rewards a particular build: long, thin lower legs, which cost less energy to swing forward thousands of times, and this build is common among the Kalenjin, the group most of the runners belong to.",
+    "translationRu": "Бег на длинные дистанции награждает определённое сложение: длинные тонкие голени, которые дешевле переносить вперёд тысячи раз, — и такое сложение часто встречается у календжин, к которым относится большинство бегунов."
+   },
+   {
+    "text": "But plenty of populations are built lightly and produce no champions at all, so the body cannot be the answer on its own.",
+    "translationRu": "Но лёгкое сложение есть у многих народов, а чемпионов они не дают вовсе, значит тело само по себе — не ответ."
+   },
+   {
+    "text": "Altitude does more.",
+    "translationRu": "Высота делает больше."
+   },
+   {
+    "text": "Iten sits about 2,400 metres above the sea, high enough that the blood adapts and low enough that hard training is still possible, which is a narrower window than it sounds.",
+    "translationRu": "Итен лежит примерно на 2400 метрах — достаточно высоко, чтобы кровь адаптировалась, и достаточно низко, чтобы можно было тяжело тренироваться; окно уже, чем кажется."
+   },
+   {
+    "text": "Children there often run to school and back, not as training but as transport, which quietly assembles an aerobic base over ten years.",
+    "translationRu": "Дети там часто бегают в школу и обратно — не как тренировка, а как транспорт, — и за десять лет это тихо собирает аэробную базу."
+   },
+   {
+    "text": "Then there is the part that has nothing to do with physiology.",
+    "translationRu": "А дальше начинается то, что к физиологии отношения не имеет."
+   },
+   {
+    "text": "Running is the most visible route out of a poor region, and everybody can see someone who took it.",
+    "translationRu": "Бег — самый заметный способ выбраться из бедного района, и каждый видел того, кто им воспользовался."
+   },
+   {
+    "text": "A winner in Berlin or Chicago comes home and builds a house that the whole town walks past.",
+    "translationRu": "Победитель в Берлине или Чикаго возвращается и строит дом, мимо которого ходит весь город."
+   },
+   {
+    "text": "The result is that the local talent pool is not the handful of people who happen to like running, as it is in most countries, but something closer to everyone.",
+    "translationRu": "В итоге местный резерв талантов — это не горстка тех, кому случайно нравится бегать, как в большинстве стран, а почти все."
+   },
+   {
+    "text": "Training camps run on a logic that would break most Western athletes, with groups of forty leaving at dawn and the pace rising until only a few are left, week after week.",
+    "translationRu": "Лагеря работают по логике, которая сломала бы большинство западных спортсменов: группы по сорок человек выходят на рассвете, темп растёт, пока не останется несколько — и так неделя за неделей."
+   },
+   {
+    "text": "Almost nobody survives that process, and the ones who do are, by definition, extraordinary.",
+    "translationRu": "Через это почти никто не проходит, и те, кто прошёл, по определению исключительны."
+   },
+   {
+    "text": "Put it together and the mystery thins out.",
+    "translationRu": "Сложи всё — и загадка тает."
+   },
+   {
+    "text": "A useful build, a good altitude, a childhood of daily running, a reason to want it more than anything, and a selection process brutal enough to find the one athlete in a thousand.",
+    "translationRu": "Удобное сложение, хорошая высота, детство с ежедневным бегом, причина хотеть этого сильнее всего и отбор, достаточно жестокий, чтобы найти одного спортсмена на тысячу."
+   },
+   {
+    "text": "Any country with all five would produce the same runners.",
+    "translationRu": "Любая страна со всеми пятью условиями давала бы тех же бегунов."
+   },
+   {
+    "text": "Almost none have even three.",
+    "translationRu": "Почти ни у одной нет и трёх."
+   }
+  ],
+  "glossary": {
+   "share": {
+    "translation": "доля",
+    "partOfSpeech": "noun"
+   },
+   "claim": {
+    "translation": "утверждение",
+    "partOfSpeech": "noun"
+   },
+   "build": {
+    "translation": "телосложение",
+    "partOfSpeech": "noun"
+   },
+   "swing": {
+    "translation": "переносить, махать",
+    "partOfSpeech": "verb"
+   },
+   "altitude": {
+    "translation": "высота над уровнем моря",
+    "partOfSpeech": "noun"
+   },
+   "aerobic base": {
+    "translation": "аэробная база",
+    "partOfSpeech": "noun"
+   },
+   "talent pool": {
+    "translation": "резерв талантов",
+    "partOfSpeech": "noun"
+   },
+   "dawn": {
+    "translation": "рассвет",
+    "partOfSpeech": "noun"
+   },
+   "brutal": {
+    "translation": "жестокий",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-valley-that-makes-runners-q1",
+    "question": "Why is genetics not the whole answer?",
+    "options": [
+     "No one has studied it",
+     "Other lightly built populations produce no champions",
+     "Kenyans are not fast",
+     "Build does not matter in running"
+    ],
+    "answer": 1,
+    "explanation": "The body cannot be the answer on its own."
+   },
+   {
+    "id": "the-valley-that-makes-runners-q2",
+    "question": "Why is 2,400 metres described as a narrow window?",
+    "options": [
+     "It is cold",
+     "High enough for blood to adapt, low enough to train hard",
+     "It is the legal limit",
+     "Oxygen is normal there"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   },
+   {
+    "id": "the-valley-that-makes-runners-q3",
+    "question": "What makes the local talent pool unusual?",
+    "options": [
+     "Coaches recruit abroad",
+     "Running is a visible route out, so nearly everyone tries",
+     "Schools require it",
+     "Prizes are larger"
+    ],
+    "answer": 1,
+    "explanation": "A winner comes home and builds a house the town walks past."
+   },
+   {
+    "id": "the-valley-that-makes-runners-q4",
+    "question": "What is the final claim?",
+    "options": [
+     "Only Kenyans can run",
+     "Any country with all five conditions would produce the same runners",
+     "Altitude alone decides",
+     "Training camps should change"
+    ],
+    "answer": 1,
+    "explanation": "Almost none have even three."
+   }
+  ]
  }
 ]

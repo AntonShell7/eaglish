@@ -45,9 +45,30 @@
   "id": "health",
   "label": "Health",
   "counts": {
-   "B1": 1,
+   "B1": 2,
    "C1": 1,
    "B2": 2
+  },
+  "total": 5
+ },
+ {
+  "id": "sport",
+  "label": "Sport",
+  "counts": {
+   "B1": 2,
+   "A2": 1,
+   "B2": 1
+  },
+  "total": 4
+ },
+ {
+  "id": "travel",
+  "label": "Travel",
+  "counts": {
+   "A2": 1,
+   "B2": 1,
+   "A1": 1,
+   "C1": 1
   },
   "total": 4
  },
@@ -62,15 +83,6 @@
   "total": 3
  },
  {
-  "id": "sport",
-  "label": "Sport",
-  "counts": {
-   "B1": 2,
-   "A2": 1
-  },
-  "total": 3
- },
- {
   "id": "technology",
   "label": "Technology",
   "counts": {
@@ -78,14 +90,5 @@
    "A1": 1
   },
   "total": 3
- },
- {
-  "id": "travel",
-  "label": "Travel",
-  "counts": {
-   "A2": 1,
-   "B2": 1
-  },
-  "total": 2
  }
 ]

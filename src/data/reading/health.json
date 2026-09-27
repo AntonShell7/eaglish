@@ -598,5 +598,178 @@
     "explanation": "Mosquitoes are weak fliers."
    }
   ]
+ },
+ {
+  "id": "why-you-get-a-stitch",
+  "level": "B1",
+  "topic": "health",
+  "generated": false,
+  "title": "The Stab in Your Side When You Run",
+  "sentences": [
+   {
+    "text": "You are twenty minutes into a run and something sharp arrives just under your ribs, usually on the right.",
+    "translationRu": "Ты бежишь двадцать минут, и под рёбрами, обычно справа, появляется что-то острое."
+   },
+   {
+    "text": "It is not an injury, it goes away when you stop, and almost everyone who runs has met it.",
+    "translationRu": "Это не травма, при остановке проходит, и почти каждый бегун с этим сталкивался."
+   },
+   {
+    "text": "In English it is called a stitch, which is also the word for a single pull of thread through cloth, because that is what it feels like.",
+    "translationRu": "По-английски это называют stitch — так же зовут стежок иглой по ткани, потому что ощущение именно такое."
+   },
+   {
+    "text": "For a long time the explanation was the diaphragm, the big muscle under the lungs that does most of your breathing.",
+    "translationRu": "Долго объясняли это диафрагмой — большой мышцей под лёгкими, которая делает основную работу при дыхании."
+   },
+   {
+    "text": "The idea was that it ran short of blood and cramped, like a calf muscle.",
+    "translationRu": "Считалось, что ей не хватает крови и её сводит, как икру."
+   },
+   {
+    "text": "It is a neat story, and the evidence has not been kind to it.",
+    "translationRu": "История складная, но данные её не поддержали."
+   },
+   {
+    "text": "Swimmers get stitches, and swimmers are horizontal.",
+    "translationRu": "Пловцы получают эту боль тоже, а пловцы — горизонтальны."
+   },
+   {
+    "text": "Riders on horseback get them without running at all.",
+    "translationRu": "Всадники получают её, вовсе не бегая."
+   },
+   {
+    "text": "What those activities share with running is not hard breathing but repeated movement of the trunk.",
+    "translationRu": "Общее у этих занятий с бегом — не тяжёлое дыхание, а повторяющееся движение корпуса."
+   },
+   {
+    "text": "The better explanation now points at the peritoneum, two thin sheets of tissue that line the inside of your abdomen and wrap your organs.",
+    "translationRu": "Более удачное объяснение указывает на брюшину — два тонких листка ткани, выстилающих живот изнутри и обнимающих органы."
+   },
+   {
+    "text": "Normally a little fluid keeps them sliding over each other without notice.",
+    "translationRu": "Обычно немного жидкости позволяет им скользить друг по другу незаметно."
+   },
+   {
+    "text": "If they rub instead of slide, the nerves there report it sharply, and they report it in a place that is not quite where the problem is, which is why the pain is hard to point at.",
+    "translationRu": "Если они трутся вместо скольжения, здешние нервы докладывают об этом резко — и докладывают не совсем оттуда, где проблема, поэтому боль трудно указать пальцем."
+   },
+   {
+    "text": "This fits the things runners already know by accident.",
+    "translationRu": "Это сходится с тем, что бегуны и так знают по опыту."
+   },
+   {
+    "text": "A large meal or a bottle of something sweet shortly before running makes a stitch much more likely, because a full stomach presses on exactly those sheets.",
+    "translationRu": "Плотная еда или бутылка сладкого незадолго до пробежки резко повышают вероятность боли: полный желудок давит как раз на эти листки."
+   },
+   {
+    "text": "It also explains why beginners suffer more and why the same people stop suffering after a few months, with no change in how they breathe.",
+    "translationRu": "Это объясняет и то, почему новички страдают чаще и почему через пару месяцев те же люди перестают — без всяких изменений в дыхании."
+   },
+   {
+    "text": "If one arrives mid-run, the reliable fix is unglamorous.",
+    "translationRu": "Если прихватило на бегу, надёжное средство неэффектно."
+   },
+   {
+    "text": "Slow down, press your fingers into the spot, and breathe out hard as the foot on the painful side lands.",
+    "translationRu": "Сбавь темп, прижми пальцы к больному месту и сильно выдохни в момент, когда опускается нога с больной стороны."
+   },
+   {
+    "text": "Do that for a few strides and it usually lets go.",
+    "translationRu": "Несколько шагов — и обычно отпускает."
+   },
+   {
+    "text": "Then eat earlier next time, which is the whole of the prevention.",
+    "translationRu": "А в следующий раз поешь заранее — в этом вся профилактика."
+   }
+  ],
+  "glossary": {
+   "rib": {
+    "translation": "ребро",
+    "partOfSpeech": "noun"
+   },
+   "stitch": {
+    "translation": "колющая боль в боку; стежок",
+    "partOfSpeech": "noun"
+   },
+   "diaphragm": {
+    "translation": "диафрагма",
+    "partOfSpeech": "noun"
+   },
+   "cramp": {
+    "translation": "сводить судорогой",
+    "partOfSpeech": "verb"
+   },
+   "trunk": {
+    "translation": "корпус, туловище",
+    "partOfSpeech": "noun"
+   },
+   "tissue": {
+    "translation": "ткань (биол.)",
+    "partOfSpeech": "noun"
+   },
+   "abdomen": {
+    "translation": "живот, брюшная полость",
+    "partOfSpeech": "noun"
+   },
+   "rub": {
+    "translation": "тереться",
+    "partOfSpeech": "verb"
+   },
+   "stride": {
+    "translation": "шаг (бегового типа)",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-you-get-a-stitch-q1",
+    "question": "What weakens the diaphragm explanation?",
+    "options": [
+     "It is too old",
+     "Swimmers and riders get stitches without running",
+     "Nobody tested it",
+     "The diaphragm is small"
+    ],
+    "answer": 1,
+    "explanation": "What they share is trunk movement, not hard breathing."
+   },
+   {
+    "id": "why-you-get-a-stitch-q2",
+    "question": "What is the peritoneum?",
+    "options": [
+     "A muscle",
+     "Two thin sheets lining the abdomen and wrapping the organs",
+     "A nerve",
+     "Part of the lung"
+    ],
+    "answer": 1,
+    "explanation": "Fluid normally lets them slide."
+   },
+   {
+    "id": "why-you-get-a-stitch-q3",
+    "question": "Why does a big meal beforehand matter?",
+    "options": [
+     "It uses oxygen",
+     "A full stomach presses on those sheets",
+     "It slows the legs",
+     "It raises the heart rate"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   },
+   {
+    "id": "why-you-get-a-stitch-q4",
+    "question": "What is the suggested fix mid-run?",
+    "options": [
+     "Stop completely",
+     "Slow down, press the spot, breathe out as that foot lands",
+     "Drink water",
+     "Run faster"
+    ],
+    "answer": 1,
+    "explanation": "A few strides usually does it."
+   }
+  ]
  }
 ]

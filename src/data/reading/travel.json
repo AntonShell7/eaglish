@@ -288,5 +288,347 @@
     "explanation": "Twenty minutes and a bus fare show more than a week of museums."
    }
   ]
+ },
+ {
+  "id": "the-shortest-flight",
+  "level": "A1",
+  "topic": "travel",
+  "generated": false,
+  "title": "The Shortest Flight in the World",
+  "sentences": [
+   {
+    "text": "Most flights take hours.",
+    "translationRu": "Большинство перелётов длятся часами."
+   },
+   {
+    "text": "You sit down, you eat something, you watch a film.",
+    "translationRu": "Ты садишься, что-то ешь, смотришь фильм."
+   },
+   {
+    "text": "But there is one flight in Scotland that is different.",
+    "translationRu": "Но в Шотландии есть один рейс, не похожий на другие."
+   },
+   {
+    "text": "It goes between two small islands in the north.",
+    "translationRu": "Он летает между двумя маленькими островами на севере."
+   },
+   {
+    "text": "Their names are Westray and Papa Westray.",
+    "translationRu": "Их зовут Уэстрей и Папа-Уэстрей."
+   },
+   {
+    "text": "The plane is very small.",
+    "translationRu": "Самолёт совсем маленький."
+   },
+   {
+    "text": "It has only eight seats.",
+    "translationRu": "В нём всего восемь мест."
+   },
+   {
+    "text": "The pilot sits in front of you, and you can see his hands.",
+    "translationRu": "Пилот сидит перед тобой, и видно его руки."
+   },
+   {
+    "text": "The flight takes about ninety seconds.",
+    "translationRu": "Полёт занимает около девяноста секунд."
+   },
+   {
+    "text": "That is a minute and a half.",
+    "translationRu": "Это полторы минуты."
+   },
+   {
+    "text": "When the wind is good, it can take less than one minute.",
+    "translationRu": "При хорошем ветре бывает меньше минуты."
+   },
+   {
+    "text": "The plane goes up, and then it comes down again.",
+    "translationRu": "Самолёт поднимается — и сразу идёт вниз."
+   },
+   {
+    "text": "There is no time for anything.",
+    "translationRu": "Ни на что нет времени."
+   },
+   {
+    "text": "The people on the islands use it like a bus.",
+    "translationRu": "Жители островов пользуются им как автобусом."
+   },
+   {
+    "text": "They fly to work, to the doctor, or to see family.",
+    "translationRu": "Летают на работу, к врачу или к родным."
+   },
+   {
+    "text": "A boat is also possible, but the sea in winter is not kind.",
+    "translationRu": "Можно и на лодке, но зимой море недоброе."
+   },
+   {
+    "text": "Tourists come to take the flight too.",
+    "translationRu": "Туристы тоже приезжают, чтобы полетать."
+   },
+   {
+    "text": "They get a small paper from the airline to say they did it.",
+    "translationRu": "Авиакомпания даёт им бумажку в подтверждение."
+   },
+   {
+    "text": "It is a strange thing to be proud of.",
+    "translationRu": "Странная вещь, чтобы ею гордиться."
+   },
+   {
+    "text": "But people are proud of it, and they keep the paper.",
+    "translationRu": "Но люди гордятся — и бумажку хранят."
+   }
+  ],
+  "glossary": {
+   "flight": {
+    "translation": "рейс, полёт",
+    "partOfSpeech": "noun"
+   },
+   "island": {
+    "translation": "остров",
+    "partOfSpeech": "noun"
+   },
+   "seat": {
+    "translation": "место, сиденье",
+    "partOfSpeech": "noun"
+   },
+   "pilot": {
+    "translation": "пилот",
+    "partOfSpeech": "noun"
+   },
+   "wind": {
+    "translation": "ветер",
+    "partOfSpeech": "noun"
+   },
+   "boat": {
+    "translation": "лодка",
+    "partOfSpeech": "noun"
+   },
+   "proud": {
+    "translation": "гордый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-shortest-flight-q1",
+    "question": "How long does the flight take?",
+    "options": [
+     "Ninety minutes",
+     "About ninety seconds",
+     "Half an hour",
+     "Ten minutes"
+    ],
+    "answer": 1,
+    "explanation": "A minute and a half, sometimes less."
+   },
+   {
+    "id": "the-shortest-flight-q2",
+    "question": "Why do the islanders use it?",
+    "options": [
+     "For fun",
+     "To get to work, the doctor or family",
+     "To see the sea",
+     "To learn to fly"
+    ],
+    "answer": 1,
+    "explanation": "They use it like a bus."
+   },
+   {
+    "id": "the-shortest-flight-q3",
+    "question": "What do tourists get?",
+    "options": [
+     "A free meal",
+     "A small paper from the airline",
+     "A photo with the pilot",
+     "A seat in front"
+    ],
+    "answer": 1,
+    "explanation": "And they keep it."
+   }
+  ]
+ },
+ {
+  "id": "the-city-that-is-sinking",
+  "level": "C1",
+  "topic": "travel",
+  "generated": false,
+  "title": "Mexico City Is Sinking Into the Lake It Was Built On",
+  "sentences": [
+   {
+    "text": "Mexico City is going down by roughly fifty centimetres a year in its worst districts, and it has been doing so for over a century.",
+    "translationRu": "Мехико опускается примерно на полметра в год в худших районах — и делает это больше века."
+   },
+   {
+    "text": "Not the sea rising around it; the ground itself dropping away beneath twenty-two million people.",
+    "translationRu": "Не море поднимается вокруг — сама земля уходит вниз под двадцатью двумя миллионами человек."
+   },
+   {
+    "text": "The cause is a decision taken five hundred years ago and never really reversed.",
+    "translationRu": "Причина — решение, принятое пятьсот лет назад и так и не отменённое."
+   },
+   {
+    "text": "The Aztec capital of Tenochtitlan was built on an island in a shallow lake, reached by causeways, fed by canals, and defended rather effectively by the water around it.",
+    "translationRu": "Ацтекская столица Теночтитлан стояла на острове в мелком озере, к ней вели дамбы, её питали каналы, и вода вокруг неплохо её защищала."
+   },
+   {
+    "text": "The Spanish took the city, and then, finding the floods intolerable, spent three centuries draining the lake.",
+    "translationRu": "Испанцы взяли город, а потом, не стерпев наводнений, три века осушали озеро."
+   },
+   {
+    "text": "They succeeded.",
+    "translationRu": "Им удалось."
+   },
+   {
+    "text": "What they left behind was a modern metropolis sitting on the bed of a drained lake, which is to say on clay: fine, soft, and holding an enormous quantity of water in the spaces between its particles.",
+    "translationRu": "Осталась современная агломерация на дне осушённого озера, то есть на глине — тонкой, мягкой и удерживающей огромное количество воды в промежутках между частицами."
+   },
+   {
+    "text": "That clay is now being emptied.",
+    "translationRu": "Эту глину сейчас опустошают."
+   },
+   {
+    "text": "The city draws most of its drinking water from aquifers directly underneath itself, faster than rain can refill them.",
+    "translationRu": "Город берёт большую часть питьевой воды из водоносных слоёв прямо под собой — быстрее, чем дожди успевают их пополнять."
+   },
+   {
+    "text": "As the water leaves, the clay compacts, and the surface follows it down.",
+    "translationRu": "Вода уходит, глина уплотняется, а поверхность идёт за ней вниз."
+   },
+   {
+    "text": "Anyone can see the results without instruments.",
+    "translationRu": "Результат виден без приборов."
+   },
+   {
+    "text": "The great cathedral on the main square has been leaning and settling unevenly for generations, and engineers have spent decades excavating soil from under the higher side to let it sink to meet the lower one.",
+    "translationRu": "Огромный собор на главной площади поколениями кренится и оседает неравномерно, и инженеры десятилетиями выбирают грунт из-под высокой стороны, чтобы она опустилась к низкой."
+   },
+   {
+    "text": "Elsewhere, doorways sit below the pavement, staircases climb up to street level from front doors that were once flush with it, and water pipes crack so routinely that around forty per cent of the supply is lost before it reaches a tap.",
+    "translationRu": "В других местах дверные проёмы оказались ниже тротуара, лестницы поднимаются к уровню улицы от дверей, которые когда-то были с ним вровень, а трубы лопаются так регулярно, что около сорока процентов воды теряется, не дойдя до крана."
+   },
+   {
+    "text": "The cruelty of the arrangement is that every part of it feeds the next.",
+    "translationRu": "Жестокость этой конструкции в том, что каждая её часть питает следующую."
+   },
+   {
+    "text": "Broken pipes lose water, so more must be pumped from below, so the ground sinks further, so more pipes break.",
+    "translationRu": "Лопнувшие трубы теряют воду, значит снизу надо качать больше, значит земля проседает сильнее, значит рвётся ещё больше труб."
+   },
+   {
+    "text": "The sinking is also uneven, which is worse than sinking uniformly would be, because a building that goes down as a whole survives while one that tilts does not.",
+    "translationRu": "Проседание к тому же неравномерное, а это хуже равномерного: здание, уходящее целиком, выстаивает, а накренившееся — нет."
+   },
+   {
+    "text": "And because the old lake bed amplifies earthquake waves, the same soft ground that is swallowing the city makes it shake harder than the rock around it when the earth moves, as it did catastrophically in 1985.",
+    "translationRu": "А поскольку старое дно усиливает сейсмические волны, тот же мягкий грунт, что поглощает город, заставляет его трястись сильнее окружающих скал — как это катастрофически случилось в 1985 году."
+   },
+   {
+    "text": "Proposals exist: recharge the aquifer, capture rainwater rather than flushing it out through the drains built by the Spanish, repair the network.",
+    "translationRu": "Предложения есть: пополнять водоносный слой, собирать дождевую воду вместо сброса через каналы, построенные испанцами, чинить сеть."
+   },
+   {
+    "text": "All of them are expensive, slow and politically thankless, and none undoes what has happened, because compacted clay does not rise again when you put the water back.",
+    "translationRu": "Все они дороги, медленны и политически неблагодарны, и ни одно не отменяет случившегося: уплотнённая глина не поднимается обратно, когда воду вернёшь."
+   },
+   {
+    "text": "The city can stop falling.",
+    "translationRu": "Город может перестать падать."
+   },
+   {
+    "text": "It cannot come back up.",
+    "translationRu": "Подняться обратно он не может."
+   }
+  ],
+  "glossary": {
+   "district": {
+    "translation": "район",
+    "partOfSpeech": "noun"
+   },
+   "causeway": {
+    "translation": "дамба, насыпная дорога",
+    "partOfSpeech": "noun"
+   },
+   "drain": {
+    "translation": "осушать; сток",
+    "partOfSpeech": "verb"
+   },
+   "clay": {
+    "translation": "глина",
+    "partOfSpeech": "noun"
+   },
+   "aquifer": {
+    "translation": "водоносный слой",
+    "partOfSpeech": "noun"
+   },
+   "compact": {
+    "translation": "уплотняться",
+    "partOfSpeech": "verb"
+   },
+   "excavate": {
+    "translation": "выбирать грунт, раскапывать",
+    "partOfSpeech": "verb"
+   },
+   "flush with": {
+    "translation": "вровень с",
+    "partOfSpeech": "phrase"
+   },
+   "tilt": {
+    "translation": "крениться",
+    "partOfSpeech": "verb"
+   },
+   "amplify": {
+    "translation": "усиливать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-city-that-is-sinking-q1",
+    "question": "Why is the ground soft under Mexico City?",
+    "options": [
+     "It is sand from a desert",
+     "The city sits on the bed of a lake the Spanish drained",
+     "Volcanic ash covers it",
+     "It was built on a swamp by mistake"
+    ],
+    "answer": 1,
+    "explanation": "Clay holding water between its particles."
+   },
+   {
+    "id": "the-city-that-is-sinking-q2",
+    "question": "What actually causes the sinking now?",
+    "options": [
+     "Heavy buildings",
+     "Pumping water from the aquifer faster than rain refills it",
+     "Earthquakes",
+     "The old canals"
+    ],
+    "answer": 1,
+    "explanation": "As the water leaves, the clay compacts."
+   },
+   {
+    "id": "the-city-that-is-sinking-q3",
+    "question": "Why is uneven sinking worse than uniform sinking?",
+    "options": [
+     "It looks bad",
+     "A building that goes down as a whole survives; one that tilts does not",
+     "It costs more to measure",
+     "Pipes are level"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   },
+   {
+    "id": "the-city-that-is-sinking-q4",
+    "question": "Why can the damage not be undone?",
+    "options": [
+     "Money is short",
+     "Compacted clay does not rise again when water returns",
+     "The aquifer is gone",
+     "The lake cannot be refilled"
+    ],
+    "answer": 1,
+    "explanation": "The city can stop falling but cannot come back up."
+   }
+  ]
  }
 ]
