@@ -1,0 +1,67 @@
+/* One line, every page, the same on all of them. */
+
+.ft {
+  margin-top: 56px;
+  border-top: 1px solid var(--color-border);
+}
+
+.ft__row {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+
+.ft__brand {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+/* Dots between links rather than gaps alone: at this size a row of words with
+   only space between them reads as one long phrase. */
+.ft__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+}
+
+.ft__link {
+  position: relative;
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition: color var(--dur-2) var(--ease);
+}
+
+.ft__link:hover {
+  color: var(--color-primary);
+}
+
+.ft__link + .ft__link::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--color-border-strong);
+}
+
+@media (max-width: 560px) {
+  .ft__row {
+    justify-content: flex-start;
+    padding: 12px 16px;
+  }
+}
