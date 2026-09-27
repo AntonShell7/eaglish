@@ -183,7 +183,7 @@
  {
   "id": "why-old-books-smell",
   "level": "A2",
-  "topic": "things",
+  "topic": "how",
   "title": "Why old books smell the way they do",
   "generated": false,
   "sentences": [
@@ -718,7 +718,7 @@
  {
   "id": "what-is-under-a-city",
   "level": "C1",
-  "topic": "cities",
+  "topic": "travel",
   "title": "The city underneath the city",
   "generated": false,
   "sentences": [
@@ -903,7 +903,7 @@
  {
   "id": "the-mirror-question",
   "level": "C2",
-  "topic": "things",
+  "topic": "how",
   "title": "A mirror does not swap left and right",
   "generated": false,
   "sentences": [

@@ -247,60 +247,70 @@ export default function Dictation() {
               <div className="skeleton h-20 rounded-[var(--radius-lg)]" />
             </div>
           ) : !topic ? null : (
-            <div data-stagger className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            /* A list, not a grid of tiles. Same as reading, and for the same
+               reason: titles are the thing being scanned, and a three-column
+               grid sets each one in a narrow column where a six-word title
+               wraps to three lines. Down the page, one row each, level first. */
+            <div data-stagger className="mt-5 space-y-2">
               {ordered.length === 0 && (
                 <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
                   {t("levels.empty")}
                 </p>
               )}
-              {ordered.map((text) => (
-                <button
-                  key={text.id}
-                  type="button"
-                  className="card card--interactive card--accent flex h-full flex-col p-5 text-left"
-                  onClick={() => setOpen(text)}
-                >
-                  {/* The same badge reading uses. Two sections showing the
-                      level in two different colours is how an app starts
-                      looking assembled rather than designed. */}
-                  <span className="level self-start">{levels[text.id] ?? text.level}</span>
-                  <h3 className="page-title mt-3 text-base leading-snug">{text.title}</h3>
-                  <p className="mt-2 flex-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
-                    {i18n.language.startsWith("ru")
-                      ? text.sentences[0]?.translationRu
-                      : text.sentences[0]?.text}
-                  </p>
-                  <p className="mt-3 text-xs" style={{ color: "var(--color-text-faint)" }}>
-                    {t("dictation.sentenceCount", { count: text.sentences.length })}
-                  </p>
+              {ordered.map((text) => {
+                const done = progressOf(text.id, text.sentences.length);
+                return (
+                  <button
+                    key={text.id}
+                    type="button"
+                    className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
+                    onClick={() => setOpen(text)}
+                  >
+                    {/* The same badge reading uses. Two sections showing the
+                        level in two different colours is how an app starts
+                        looking assembled rather than designed. */}
+                    <span className="level flex-none">{levels[text.id] ?? text.level}</span>
 
-                  {/* Started but unfinished is the common state for a long
-                      dictation, and the shelf should say so rather than making
-                      every text look untouched. */}
-                  {progressOf(text.id, text.sentences.length) > 0 && (
-                    <>
-                      <span
-                        className="mt-2 block h-1 overflow-hidden rounded-full"
-                        style={{ background: "var(--color-surface-3)" }}
-                      >
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-semibold">{text.title}</span>
+                      <span className="mt-0.5 block truncate text-xs" style={{ color: "var(--color-text-muted)" }}>
+                        {t("dictation.sentenceCount", { count: text.sentences.length })} ·{" "}
+                        {i18n.language.startsWith("ru")
+                          ? text.sentences[0]?.translationRu
+                          : text.sentences[0]?.text}
+                      </span>
+
+                      {/* Started but unfinished is the common state for a long
+                          dictation, and the shelf should say so rather than
+                          making every text look untouched. */}
+                      {done > 0 && (
                         <span
-                          className="block h-full rounded-full"
-                          style={{
-                            width: `${progressOf(text.id, text.sentences.length) * 100}%`,
-                            background: "var(--color-accent)",
-                            transition: "width var(--dur-4) var(--ease)",
-                          }}
-                        />
+                          className="mt-2 block h-1 w-full max-w-xs overflow-hidden rounded-full"
+                          style={{ background: "var(--color-surface-3)" }}
+                        >
+                          <span
+                            className="block h-full rounded-full"
+                            style={{
+                              width: `${done * 100}%`,
+                              background: "var(--color-accent)",
+                              transition: "width var(--dur-4) var(--ease)",
+                            }}
+                          />
+                        </span>
+                      )}
+                    </span>
+
+                    {done > 0 && (
+                      <span
+                        className="flex-none text-xs font-bold"
+                        style={{ color: "var(--color-accent-ink)" }}
+                      >
+                        {Math.round(done * 100)}%
                       </span>
-                      <span className="mt-1.5 block text-[11px]" style={{ color: "var(--color-accent-ink)" }}>
-                        {t("dictation.resume", {
-                          percent: Math.round(progressOf(text.id, text.sentences.length) * 100),
-                        })}
-                      </span>
-                    </>
-                  )}
-                </button>
-              ))}
+                    )}
+                  </button>
+                );
+              })}
             </div>
           )}
         </>

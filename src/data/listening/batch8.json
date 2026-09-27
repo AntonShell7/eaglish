@@ -2,7 +2,7 @@
  {
   "id": "why-we-have-fingerprints",
   "level": "A1",
-  "topic": "body",
+  "topic": "health",
   "title": "Why we have fingerprints",
   "generated": false,
   "sentences": [
@@ -356,7 +356,7 @@
  {
   "id": "how-a-lock-works",
   "level": "B1",
-  "topic": "things",
+  "topic": "how",
   "title": "What is happening inside a lock",
   "generated": false,
   "sentences": [
@@ -919,7 +919,7 @@
  {
   "id": "the-wrong-side-of-town",
   "level": "C2",
-  "topic": "cities",
+  "topic": "travel",
   "title": "Why every city has a side nobody wants",
   "generated": false,
   "sentences": [
@@ -1100,7 +1100,7 @@
  {
   "id": "pain-is-not-a-measurement",
   "level": "C2",
-  "topic": "body",
+  "topic": "health",
   "title": "Pain is not a reading from the body",
   "generated": false,
   "sentences": [

@@ -889,13 +889,13 @@
     "openOnYouTube": "open on YouTube",
     "topics": {
       "animals": "Animals",
-      "body": "The body",
-      "cities": "Cities",
       "environment": "Nature",
       "food": "Food",
+      "health": "Health",
+      "how": "How things work",
       "sport": "Sport",
-      "things": "Things",
-      "work": "Work"
+      "travel": "Travel",
+      "work": "Trades"
     }
   },
   "levels": {

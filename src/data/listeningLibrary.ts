@@ -6,6 +6,7 @@ import batch7 from "./listening/batch7.json";
 import batch8 from "./listening/batch8.json";
 import batch9 from "./listening/batch9.json";
 import batch10 from "./listening/batch10.json";
+import batch11 from "./listening/batch11.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -50,6 +51,7 @@ export const listeningTexts = [
   ...batch8,
   ...batch9,
   ...batch10,
+  ...batch11,
 ] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
@@ -57,12 +59,12 @@ export const listeningCount = listeningTexts.length;
 /** The eight subjects, ordered as the shelf shows them. */
 export const listeningTopics = [
   "animals",
-  "body",
-  "cities",
   "environment",
   "food",
+  "health",
+  "how",
   "sport",
-  "things",
+  "travel",
   "work",
 ] as const;
 

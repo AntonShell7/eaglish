@@ -1,0 +1,976 @@
+[
+ {
+  "id": "the-country-with-no-rivers",
+  "level": "A1",
+  "topic": "travel",
+  "title": "A country with no rivers at all",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Most countries have rivers.",
+    "translationRu": "В большинстве стран есть реки."
+   },
+   {
+    "text": "Big ones, small ones, dry ones in summer.",
+    "translationRu": "Большие, маленькие, пересыхающие летом."
+   },
+   {
+    "text": "Saudi Arabia has none.",
+    "translationRu": "В Саудовской Аравии их нет вообще."
+   },
+   {
+    "text": "Not one river, in the whole country.",
+    "translationRu": "Ни одной реки на всю страну."
+   },
+   {
+    "text": "And the country is very large.",
+    "translationRu": "А страна очень большая."
+   },
+   {
+    "text": "Bigger than all of western Europe.",
+    "translationRu": "Больше всей Западной Европы."
+   },
+   {
+    "text": "There are valleys where water once ran.",
+    "translationRu": "Есть долины, где вода когда-то текла."
+   },
+   {
+    "text": "They are dry for most of the year.",
+    "translationRu": "Большую часть года они сухие."
+   },
+   {
+    "text": "After heavy rain they fill for a day.",
+    "translationRu": "После сильного дождя они наполняются на день."
+   },
+   {
+    "text": "Then the water is gone again.",
+    "translationRu": "Потом вода снова уходит."
+   },
+   {
+    "text": "So where does the water come from?",
+    "translationRu": "Откуда же берётся вода?"
+   },
+   {
+    "text": "Some of it comes from very deep wells.",
+    "translationRu": "Часть — из очень глубоких скважин."
+   },
+   {
+    "text": "That water is old.",
+    "translationRu": "Эта вода старая."
+   },
+   {
+    "text": "Thousands of years old.",
+    "translationRu": "Ей тысячи лет."
+   },
+   {
+    "text": "It fell as rain when the land was green.",
+    "translationRu": "Она выпала дождём, когда эта земля была зелёной."
+   },
+   {
+    "text": "It has been underground since then.",
+    "translationRu": "И с тех пор лежит под землёй."
+   },
+   {
+    "text": "When it is used, it does not come back.",
+    "translationRu": "Когда её расходуют, она не возвращается."
+   },
+   {
+    "text": "Most of the water comes from the sea.",
+    "translationRu": "Но большая часть воды идёт из моря."
+   },
+   {
+    "text": "Sea water has salt in it.",
+    "translationRu": "В морской воде есть соль."
+   },
+   {
+    "text": "You cannot drink it.",
+    "translationRu": "Её нельзя пить."
+   },
+   {
+    "text": "So they take the salt out.",
+    "translationRu": "Поэтому соль убирают."
+   },
+   {
+    "text": "Big factories on the coast do this.",
+    "translationRu": "Этим занимаются большие заводы на побережье."
+   },
+   {
+    "text": "They heat the water until it becomes steam.",
+    "translationRu": "Воду греют, пока она не станет паром."
+   },
+   {
+    "text": "The salt stays behind.",
+    "translationRu": "Соль остаётся."
+   },
+   {
+    "text": "The steam becomes clean water again.",
+    "translationRu": "Пар снова становится чистой водой."
+   },
+   {
+    "text": "This uses a lot of energy.",
+    "translationRu": "На это уходит много энергии."
+   },
+   {
+    "text": "The country has oil, so it has energy.",
+    "translationRu": "У страны есть нефть, значит есть энергия."
+   },
+   {
+    "text": "It is one of the largest such systems on Earth.",
+    "translationRu": "Это одна из крупнейших таких систем на Земле."
+   },
+   {
+    "text": "Then the water travels inland.",
+    "translationRu": "Потом вода идёт вглубь страны."
+   },
+   {
+    "text": "Through pipes, for hundreds of kilometres.",
+    "translationRu": "По трубам, на сотни километров."
+   },
+   {
+    "text": "Up hills, to cities in the desert.",
+    "translationRu": "В гору, в города посреди пустыни."
+   },
+   {
+    "text": "A city of seven million people",
+    "translationRu": "Город на семь миллионов человек"
+   },
+   {
+    "text": "drinks water that was in the sea last week.",
+    "translationRu": "пьёт воду, которая неделю назад была в море."
+   },
+   {
+    "text": "There are a few other countries like this.",
+    "translationRu": "Есть ещё несколько таких стран."
+   },
+   {
+    "text": "Some in the Middle East. A few small islands.",
+    "translationRu": "Часть на Ближнем Востоке. Несколько малых островов."
+   },
+   {
+    "text": "For them, water is not found.",
+    "translationRu": "Для них воду не находят."
+   },
+   {
+    "text": "It is made.",
+    "translationRu": "Её делают."
+   }
+  ]
+ },
+ {
+  "id": "the-island-that-grew",
+  "level": "A2",
+  "topic": "travel",
+  "title": "An island that did not exist fifty years ago",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Most islands are very old.",
+    "translationRu": "Большинство островов очень старые."
+   },
+   {
+    "text": "Millions of years old.",
+    "translationRu": "Им миллионы лет."
+   },
+   {
+    "text": "But some are new.",
+    "translationRu": "Но некоторые новые."
+   },
+   {
+    "text": "In 1963 a fisherman near Iceland",
+    "translationRu": "В 1963 году рыбак у берегов Исландии"
+   },
+   {
+    "text": "saw smoke coming out of the sea.",
+    "translationRu": "увидел дым, идущий из моря."
+   },
+   {
+    "text": "He thought a boat was on fire.",
+    "translationRu": "Он решил, что горит судно."
+   },
+   {
+    "text": "It was not a boat.",
+    "translationRu": "Это было не судно."
+   },
+   {
+    "text": "It was a volcano under the water.",
+    "translationRu": "Это был вулкан под водой."
+   },
+   {
+    "text": "Hot rock was coming up from below.",
+    "translationRu": "Снизу поднималась раскалённая порода."
+   },
+   {
+    "text": "It met the cold sea and became solid.",
+    "translationRu": "Она встречала холодное море и застывала."
+   },
+   {
+    "text": "Layer on layer, for days.",
+    "translationRu": "Слой за слоем, днями."
+   },
+   {
+    "text": "After a week there was land.",
+    "translationRu": "Через неделю появилась суша."
+   },
+   {
+    "text": "After a year it was a real island.",
+    "translationRu": "Через год это был настоящий остров."
+   },
+   {
+    "text": "The eruption lasted almost four years.",
+    "translationRu": "Извержение длилось почти четыре года."
+   },
+   {
+    "text": "Then it stopped.",
+    "translationRu": "Потом оно прекратилось."
+   },
+   {
+    "text": "Scientists asked an interesting question.",
+    "translationRu": "Учёные задали интересный вопрос."
+   },
+   {
+    "text": "How does life arrive on new land?",
+    "translationRu": "Как жизнь попадает на новую сушу?"
+   },
+   {
+    "text": "So they made a rule.",
+    "translationRu": "И они ввели правило."
+   },
+   {
+    "text": "Almost nobody can go there.",
+    "translationRu": "Попасть туда почти никому нельзя."
+   },
+   {
+    "text": "No plants brought by people.",
+    "translationRu": "Никаких растений, привезённых людьми."
+   },
+   {
+    "text": "No food, no seeds, nothing.",
+    "translationRu": "Ни еды, ни семян, ничего."
+   },
+   {
+    "text": "Then they watched, and they wrote it down.",
+    "translationRu": "И они наблюдали и записывали."
+   },
+   {
+    "text": "Bacteria came first.",
+    "translationRu": "Первыми пришли бактерии."
+   },
+   {
+    "text": "Then seeds, floating in the sea.",
+    "translationRu": "Потом семена, приплывшие по морю."
+   },
+   {
+    "text": "Then birds, resting on the rock.",
+    "translationRu": "Потом птицы, отдыхавшие на камнях."
+   },
+   {
+    "text": "Birds bring seeds inside them.",
+    "translationRu": "Птицы приносят семена внутри себя."
+   },
+   {
+    "text": "And they leave them behind.",
+    "translationRu": "И оставляют их здесь."
+   },
+   {
+    "text": "Now there are hundreds of kinds of plants.",
+    "translationRu": "Сейчас там сотни видов растений."
+   },
+   {
+    "text": "And insects, and birds that stay.",
+    "translationRu": "И насекомые, и птицы, которые остаются."
+   },
+   {
+    "text": "One year a tomato plant appeared.",
+    "translationRu": "Однажды появился куст помидора."
+   },
+   {
+    "text": "Scientists were confused for a while.",
+    "translationRu": "Учёные какое-то время недоумевали."
+   },
+   {
+    "text": "Then somebody admitted the truth.",
+    "translationRu": "Потом кто-то признался."
+   },
+   {
+    "text": "A visitor had used the toilet outside.",
+    "translationRu": "Гость сходил в туалет на улице."
+   },
+   {
+    "text": "The plant was removed.",
+    "translationRu": "Растение удалили."
+   },
+   {
+    "text": "The island is slowly getting smaller now.",
+    "translationRu": "Сейчас остров медленно уменьшается."
+   },
+   {
+    "text": "The sea takes a little every year.",
+    "translationRu": "Море каждый год отнимает понемногу."
+   },
+   {
+    "text": "In a few hundred years it may be gone.",
+    "translationRu": "Через несколько сотен лет его может не стать."
+   }
+  ]
+ },
+ {
+  "id": "the-town-under-one-roof",
+  "level": "B1",
+  "topic": "travel",
+  "title": "The whole town lives in one building",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Whittier is a small town in Alaska.",
+    "translationRu": "Уиттиер — маленький город на Аляске."
+   },
+   {
+    "text": "About two hundred people live there.",
+    "translationRu": "Живёт там около двухсот человек."
+   },
+   {
+    "text": "Almost all of them live in the same building.",
+    "translationRu": "И почти все — в одном здании."
+   },
+   {
+    "text": "Not the same street. The same building.",
+    "translationRu": "Не на одной улице. В одном здании."
+   },
+   {
+    "text": "It is fourteen floors high.",
+    "translationRu": "В нём четырнадцать этажей."
+   },
+   {
+    "text": "It was built by the army in the 1950s.",
+    "translationRu": "Его построила армия в 1950-е."
+   },
+   {
+    "text": "When the army left, the town stayed.",
+    "translationRu": "Армия ушла, а город остался."
+   },
+   {
+    "text": "Inside there is a shop.",
+    "translationRu": "Внутри есть магазин."
+   },
+   {
+    "text": "A post office. A health centre.",
+    "translationRu": "Почта. Медпункт."
+   },
+   {
+    "text": "A police station and a church.",
+    "translationRu": "Полицейский участок и церковь."
+   },
+   {
+    "text": "The school is in a separate building.",
+    "translationRu": "Школа в отдельном здании."
+   },
+   {
+    "text": "Children reach it through a tunnel.",
+    "translationRu": "Дети добираются до неё по тоннелю."
+   },
+   {
+    "text": "Which matters more than it sounds.",
+    "translationRu": "И это важнее, чем кажется."
+   },
+   {
+    "text": "The weather is the reason for all of it.",
+    "translationRu": "Причина всему — погода."
+   },
+   {
+    "text": "Winter brings enormous amounts of snow.",
+    "translationRu": "Зима приносит огромное количество снега."
+   },
+   {
+    "text": "Winds can pass a hundred kilometres an hour.",
+    "translationRu": "Ветер бывает за сто километров в час."
+   },
+   {
+    "text": "Going outside is a decision, not a habit.",
+    "translationRu": "Выйти на улицу — это решение, а не привычка."
+   },
+   {
+    "text": "Under one roof, nobody has to.",
+    "translationRu": "Под одной крышей этого можно не делать."
+   },
+   {
+    "text": "Getting to the town is stranger still.",
+    "translationRu": "Попасть в город ещё страннее."
+   },
+   {
+    "text": "There is one road in.",
+    "translationRu": "Дорога одна."
+   },
+   {
+    "text": "It goes through a tunnel in a mountain.",
+    "translationRu": "Она идёт через тоннель в горе."
+   },
+   {
+    "text": "The tunnel is one lane wide.",
+    "translationRu": "Тоннель в одну полосу."
+   },
+   {
+    "text": "And it is shared with the railway.",
+    "translationRu": "И делится с железной дорогой."
+   },
+   {
+    "text": "Cars drive on the train tracks.",
+    "translationRu": "Машины едут прямо по рельсам."
+   },
+   {
+    "text": "Traffic runs one way for half an hour.",
+    "translationRu": "Полчаса движение идёт в одну сторону."
+   },
+   {
+    "text": "Then the other way.",
+    "translationRu": "Потом в другую."
+   },
+   {
+    "text": "Then a train comes through.",
+    "translationRu": "Потом проходит поезд."
+   },
+   {
+    "text": "And at night the tunnel closes.",
+    "translationRu": "А на ночь тоннель закрывают."
+   },
+   {
+    "text": "If you miss the last opening, you stay.",
+    "translationRu": "Опоздал к последнему проезду — остаёшься."
+   },
+   {
+    "text": "People who live there describe it oddly.",
+    "translationRu": "Живущие там описывают это необычно."
+   },
+   {
+    "text": "They say everybody knows everything.",
+    "translationRu": "Говорят, все всё про всех знают."
+   },
+   {
+    "text": "Which is a small town anywhere.",
+    "translationRu": "Так в любом маленьком городе."
+   },
+   {
+    "text": "But here you also hear it through the wall.",
+    "translationRu": "Но тут это ещё и слышно через стену."
+   },
+   {
+    "text": "Some love it. Some leave.",
+    "translationRu": "Кому-то нравится. Кто-то уезжает."
+   },
+   {
+    "text": "What almost nobody says is that it is normal.",
+    "translationRu": "Чего почти никто не говорит — что это нормально."
+   }
+  ]
+ },
+ {
+  "id": "why-planes-have-a-hole",
+  "level": "B2",
+  "topic": "how",
+  "title": "The small hole in an aircraft window",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Look closely at a window on an aircraft.",
+    "translationRu": "Присмотрись к иллюминатору в самолёте."
+   },
+   {
+    "text": "Near the bottom there is a small hole.",
+    "translationRu": "Внизу есть маленькое отверстие."
+   },
+   {
+    "text": "About the width of a pin.",
+    "translationRu": "Примерно с булавку."
+   },
+   {
+    "text": "It looks like a fault.",
+    "translationRu": "Выглядит как брак."
+   },
+   {
+    "text": "It is the most deliberate part of the window.",
+    "translationRu": "А это самая продуманная часть иллюминатора."
+   },
+   {
+    "text": "The window is not one sheet.",
+    "translationRu": "Иллюминатор — не одно стекло."
+   },
+   {
+    "text": "It is three, with small gaps between them.",
+    "translationRu": "Их три, с небольшими зазорами."
+   },
+   {
+    "text": "The outer one is doing the real work.",
+    "translationRu": "Настоящую работу делает наружное."
+   },
+   {
+    "text": "At altitude the cabin is pressurised.",
+    "translationRu": "На высоте в салоне поддерживают давление."
+   },
+   {
+    "text": "Inside is close to sea level.",
+    "translationRu": "Внутри — близко к уровню моря."
+   },
+   {
+    "text": "Outside is very thin air.",
+    "translationRu": "Снаружи — очень разрежённый воздух."
+   },
+   {
+    "text": "The difference pushes outwards, hard.",
+    "translationRu": "Разница давит наружу, сильно."
+   },
+   {
+    "text": "Several tonnes across a single window.",
+    "translationRu": "Несколько тонн на один иллюминатор."
+   },
+   {
+    "text": "The hole is in the middle pane.",
+    "translationRu": "Отверстие — в среднем стекле."
+   },
+   {
+    "text": "And it does two jobs at once.",
+    "translationRu": "И оно делает сразу две работы."
+   },
+   {
+    "text": "The first is about who carries the load.",
+    "translationRu": "Первая — про то, кто несёт нагрузку."
+   },
+   {
+    "text": "The hole lets air pass into the gap.",
+    "translationRu": "Отверстие пропускает воздух в зазор."
+   },
+   {
+    "text": "So the pressure behind the middle pane",
+    "translationRu": "Значит, давление за средним стеклом"
+   },
+   {
+    "text": "matches the pressure in the cabin.",
+    "translationRu": "равно давлению в салоне."
+   },
+   {
+    "text": "Which means the middle pane carries almost nothing.",
+    "translationRu": "А значит, среднее стекло почти ничего не несёт."
+   },
+   {
+    "text": "The outer pane takes the whole load.",
+    "translationRu": "Всю нагрузку берёт наружное."
+   },
+   {
+    "text": "That sounds like a bad idea.",
+    "translationRu": "Звучит как плохая идея."
+   },
+   {
+    "text": "It is the opposite.",
+    "translationRu": "На деле наоборот."
+   },
+   {
+    "text": "If the outer pane ever failed,",
+    "translationRu": "Если наружное стекло откажет,"
+   },
+   {
+    "text": "the middle one is undamaged and fresh.",
+    "translationRu": "среднее окажется целым и нетронутым."
+   },
+   {
+    "text": "It has been resting the whole flight.",
+    "translationRu": "Оно отдыхало весь полёт."
+   },
+   {
+    "text": "It can hold the pressure on its own.",
+    "translationRu": "И удержит давление само."
+   },
+   {
+    "text": "A spare, kept deliberately unused.",
+    "translationRu": "Запас, нарочно не задействованный."
+   },
+   {
+    "text": "The second job is simpler.",
+    "translationRu": "Вторая работа проще."
+   },
+   {
+    "text": "Warm wet cabin air meets a very cold pane.",
+    "translationRu": "Тёплый влажный воздух салона встречает очень холодное стекло."
+   },
+   {
+    "text": "Water would condense in the gap.",
+    "translationRu": "В зазоре конденсировалась бы вода."
+   },
+   {
+    "text": "And freeze, and you would see nothing.",
+    "translationRu": "И замерзала бы — и ты ничего бы не видел."
+   },
+   {
+    "text": "The hole lets that moisture escape.",
+    "translationRu": "Отверстие даёт влаге уйти."
+   },
+   {
+    "text": "Which is why the view stays clear.",
+    "translationRu": "Поэтому вид остаётся чистым."
+   },
+   {
+    "text": "It is a good example of a certain kind of design.",
+    "translationRu": "Это хороший пример определённого рода конструкции."
+   },
+   {
+    "text": "The part that looks like a mistake",
+    "translationRu": "Деталь, которая выглядит ошибкой,"
+   },
+   {
+    "text": "is usually the part somebody thought hardest about.",
+    "translationRu": "обычно та, над которой думали дольше всего."
+   }
+  ]
+ },
+ {
+  "id": "the-map-that-was-wrong",
+  "level": "C1",
+  "topic": "travel",
+  "title": "The island that was on every map for a century",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "For over a hundred years",
+    "translationRu": "Больше ста лет"
+   },
+   {
+    "text": "an island appeared on maps of the Pacific.",
+    "translationRu": "на картах Тихого океана значился остров."
+   },
+   {
+    "text": "It had a name and a shape.",
+    "translationRu": "У него были имя и очертания."
+   },
+   {
+    "text": "It was in atlases and in ship charts.",
+    "translationRu": "Он был в атласах и в морских картах."
+   },
+   {
+    "text": "It was in digital maps as recently as 2012.",
+    "translationRu": "Он был в цифровых картах ещё в 2012 году."
+   },
+   {
+    "text": "In that year a research ship sailed to it.",
+    "translationRu": "В том году к нему подошло исследовательское судно."
+   },
+   {
+    "text": "Not to survey it. Just passing.",
+    "translationRu": "Не чтобы его изучить. Просто мимо."
+   },
+   {
+    "text": "The map said land. The instruments said water.",
+    "translationRu": "Карта говорила «суша». Приборы — «вода»."
+   },
+   {
+    "text": "Fourteen hundred metres of it, straight down.",
+    "translationRu": "Тысяча четыреста метров прямо вниз."
+   },
+   {
+    "text": "There had never been an island there.",
+    "translationRu": "Никакого острова там никогда не было."
+   },
+   {
+    "text": "Working out how it got onto the maps",
+    "translationRu": "Выяснение того, как он попал на карты,"
+   },
+   {
+    "text": "says a great deal about how maps are made.",
+    "translationRu": "многое говорит о том, как карты делаются."
+   },
+   {
+    "text": "Nobody surveys the whole ocean.",
+    "translationRu": "Весь океан никто не промеряет."
+   },
+   {
+    "text": "It is far too large and far too deep.",
+    "translationRu": "Он слишком велик и слишком глубок."
+   },
+   {
+    "text": "Charts are assembled from reports.",
+    "translationRu": "Карты собирают из донесений."
+   },
+   {
+    "text": "A ship passes, someone records what they saw,",
+    "translationRu": "Судно прошло, кто-то записал, что видел,"
+   },
+   {
+    "text": "and the record goes into a collection.",
+    "translationRu": "и запись попадает в свод."
+   },
+   {
+    "text": "Later charts are compiled from earlier ones.",
+    "translationRu": "Поздние карты составляют по ранним."
+   },
+   {
+    "text": "Which means an error, once entered,",
+    "translationRu": "А значит, ошибка, однажды попавшая внутрь,"
+   },
+   {
+    "text": "gets copied forward rather than tested.",
+    "translationRu": "переписывается дальше, а не проверяется."
+   },
+   {
+    "text": "Removing something is harder than adding it.",
+    "translationRu": "Убрать что-то труднее, чем добавить."
+   },
+   {
+    "text": "To add an island you need one sighting.",
+    "translationRu": "Чтобы добавить остров, нужно одно наблюдение."
+   },
+   {
+    "text": "To remove one you need to prove a negative.",
+    "translationRu": "Чтобы убрать — нужно доказать отсутствие."
+   },
+   {
+    "text": "Somebody has to go to an empty patch of ocean",
+    "translationRu": "Кто-то должен прийти в пустой участок океана"
+   },
+   {
+    "text": "and demonstrate that nothing is there.",
+    "translationRu": "и показать, что там ничего нет."
+   },
+   {
+    "text": "Nobody funds that expedition.",
+    "translationRu": "Такую экспедицию никто не финансирует."
+   },
+   {
+    "text": "There is a second reason it survived.",
+    "translationRu": "Есть и вторая причина, почему он уцелел."
+   },
+   {
+    "text": "Mapmakers have long inserted deliberate errors.",
+    "translationRu": "Картографы давно вставляют намеренные ошибки."
+   },
+   {
+    "text": "A street that does not exist. A bend that is wrong.",
+    "translationRu": "Улица, которой нет. Неверный изгиб."
+   },
+   {
+    "text": "They are called trap streets.",
+    "translationRu": "Их зовут ловушками."
+   },
+   {
+    "text": "If a rival's map contains your invented street,",
+    "translationRu": "Если на карте конкурента есть твоя выдуманная улица,"
+   },
+   {
+    "text": "they copied rather than surveyed.",
+    "translationRu": "значит он копировал, а не измерял."
+   },
+   {
+    "text": "Which is provable in court.",
+    "translationRu": "И это доказуемо в суде."
+   },
+   {
+    "text": "So an anomaly on a chart",
+    "translationRu": "Поэтому аномалия на карте"
+   },
+   {
+    "text": "was not automatically treated as an error.",
+    "translationRu": "не считалась автоматически ошибкой."
+   },
+   {
+    "text": "It might be somebody's signature.",
+    "translationRu": "Она могла быть чьей-то подписью."
+   },
+   {
+    "text": "The island was quietly deleted after 2012.",
+    "translationRu": "Остров тихо удалили после 2012 года."
+   },
+   {
+    "text": "What is worth keeping is the general shape.",
+    "translationRu": "Стоит запомнить общую форму этой истории."
+   },
+   {
+    "text": "A map is not a picture of the world.",
+    "translationRu": "Карта — не изображение мира."
+   },
+   {
+    "text": "It is a record of what people reported,",
+    "translationRu": "Это запись того, что люди сообщили,"
+   },
+   {
+    "text": "copied by people who were not there.",
+    "translationRu": "переписанная людьми, которых там не было."
+   }
+  ]
+ },
+ {
+  "id": "the-hotel-with-no-staff",
+  "level": "C2",
+  "topic": "travel",
+  "title": "Why tourism goes where it is told",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Nothing about a destination is obvious.",
+    "translationRu": "В туристическом направлении нет ничего очевидного."
+   },
+   {
+    "text": "There is no natural reason",
+    "translationRu": "Нет естественной причины,"
+   },
+   {
+    "text": "why one coast fills and another stays empty.",
+    "translationRu": "почему одно побережье заполняется, а другое пустует."
+   },
+   {
+    "text": "Both may have the same sea and the same sun.",
+    "translationRu": "У обоих может быть то же море и то же солнце."
+   },
+   {
+    "text": "What differs is a chain of decisions",
+    "translationRu": "Различается цепочка решений,"
+   },
+   {
+    "text": "that almost no traveller ever sees.",
+    "translationRu": "которую почти никто из путешественников не видит."
+   },
+   {
+    "text": "It usually starts with an airport.",
+    "translationRu": "Обычно всё начинается с аэропорта."
+   },
+   {
+    "text": "A runway long enough for a certain aircraft",
+    "translationRu": "Полоса, достаточная для определённого самолёта,"
+   },
+   {
+    "text": "makes a place reachable in one hop.",
+    "translationRu": "делает место достижимым одним перелётом."
+   },
+   {
+    "text": "One hop and two are different products.",
+    "translationRu": "Один перелёт и два — разные продукты."
+   },
+   {
+    "text": "The second is not slightly worse.",
+    "translationRu": "Второй не чуть хуже."
+   },
+   {
+    "text": "It removes most of the market.",
+    "translationRu": "Он убирает большую часть рынка."
+   },
+   {
+    "text": "Then comes capacity, which decides scale.",
+    "translationRu": "Дальше — вместимость, которая решает масштаб."
+   },
+   {
+    "text": "A region with two thousand hotel beds",
+    "translationRu": "Регион на две тысячи гостиничных мест"
+   },
+   {
+    "text": "cannot appear in a package brochure.",
+    "translationRu": "не может попасть в каталог туроператора."
+   },
+   {
+    "text": "An operator needs volume to negotiate a price.",
+    "translationRu": "Оператору нужен объём, чтобы торговаться о цене."
+   },
+   {
+    "text": "So it looks for places with ten thousand.",
+    "translationRu": "Поэтому он ищет места на десять тысяч."
+   },
+   {
+    "text": "Which means the beds must exist first.",
+    "translationRu": "А значит, места должны появиться первыми."
+   },
+   {
+    "text": "Built on a promise, before the demand.",
+    "translationRu": "Построенные под обещание, до спроса."
+   },
+   {
+    "text": "Usually with public money underwriting it.",
+    "translationRu": "Обычно под гарантии государственных денег."
+   },
+   {
+    "text": "That is the moment a coastline is decided.",
+    "translationRu": "Вот в этот момент и решается судьба побережья."
+   },
+   {
+    "text": "Not by travellers, and not by the place.",
+    "translationRu": "Не путешественниками и не самим местом."
+   },
+   {
+    "text": "By a spreadsheet, years earlier.",
+    "translationRu": "Таблицей, годами раньше."
+   },
+   {
+    "text": "Once it is built, a second logic takes over.",
+    "translationRu": "Когда всё построено, включается вторая логика."
+   },
+   {
+    "text": "The destination has to be filled every week.",
+    "translationRu": "Направление нужно заполнять каждую неделю."
+   },
+   {
+    "text": "An empty hotel costs almost what a full one does.",
+    "translationRu": "Пустой отель стоит почти столько же, сколько полный."
+   },
+   {
+    "text": "So prices drop until the beds are used.",
+    "translationRu": "Поэтому цены падают, пока места не займут."
+   },
+   {
+    "text": "Which attracts a different visitor",
+    "translationRu": "А это привлекает другого гостя,"
+   },
+   {
+    "text": "than the one the brochure described.",
+    "translationRu": "не того, кого описывал каталог."
+   },
+   {
+    "text": "The place then acquires a reputation",
+    "translationRu": "Место получает репутацию,"
+   },
+   {
+    "text": "that it did not choose and cannot easily lose.",
+    "translationRu": "которую не выбирало и от которой непросто избавиться."
+   },
+   {
+    "text": "Several Mediterranean coasts spent thirty years",
+    "translationRu": "Несколько средиземноморских побережий провели тридцать лет,"
+   },
+   {
+    "text": "trying to climb back out of that.",
+    "translationRu": "пытаясь из этого выбраться."
+   },
+   {
+    "text": "The method is always the same.",
+    "translationRu": "Метод всегда один."
+   },
+   {
+    "text": "Restrict new building. Raise standards.",
+    "translationRu": "Ограничить новую застройку. Поднять стандарты."
+   },
+   {
+    "text": "Accept fewer visitors paying more.",
+    "translationRu": "Согласиться на меньше гостей, платящих больше."
+   },
+   {
+    "text": "It works, slowly, and it is politically brutal.",
+    "translationRu": "Это работает, медленно, и политически жестоко."
+   },
+   {
+    "text": "Because the people who lose their jobs first",
+    "translationRu": "Потому что теряют работу первыми"
+   },
+   {
+    "text": "are the ones the old model employed.",
+    "translationRu": "именно те, кого нанимала старая модель."
+   },
+   {
+    "text": "And the ones who gain are not there yet.",
+    "translationRu": "А те, кто выиграет, ещё не приехали."
+   },
+   {
+    "text": "Which is the hardest trade in any policy.",
+    "translationRu": "А это самый трудный размен в любой политике."
+   },
+   {
+    "text": "Paying now, in named people,",
+    "translationRu": "Платить сейчас, конкретными людьми,"
+   },
+   {
+    "text": "for a benefit that arrives to strangers.",
+    "translationRu": "за выгоду, которая достанется незнакомцам."
+   }
+  ]
+ }
+]

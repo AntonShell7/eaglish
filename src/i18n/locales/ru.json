@@ -911,13 +911,13 @@
     "openOnYouTube": "открыть на YouTube",
     "topics": {
       "animals": "Животные",
-      "body": "Тело",
-      "cities": "Города",
       "environment": "Природа",
       "food": "Еда",
+      "health": "Здоровье",
+      "how": "Как это устроено",
       "sport": "Спорт",
-      "things": "Вещи",
-      "work": "Работа"
+      "travel": "Путешествия",
+      "work": "Профессии"
     }
   },
   "levels": {
