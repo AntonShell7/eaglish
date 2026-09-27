@@ -1,0 +1,1306 @@
+[
+ {
+  "id": "what-thunder-is",
+  "level": "A1",
+  "topic": "environment",
+  "title": "What thunder actually is",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "You see a flash of lightning.",
+    "translationRu": "Ты видишь вспышку молнии."
+   },
+   {
+    "text": "Then you wait.",
+    "translationRu": "Потом ждёшь."
+   },
+   {
+    "text": "Then you hear the thunder.",
+    "translationRu": "Потом слышишь гром."
+   },
+   {
+    "text": "Children learn to count the seconds.",
+    "translationRu": "Дети учатся считать секунды."
+   },
+   {
+    "text": "Three seconds is about one kilometre.",
+    "translationRu": "Три секунды — примерно километр."
+   },
+   {
+    "text": "This works because light is fast.",
+    "translationRu": "Это работает, потому что свет быстрый."
+   },
+   {
+    "text": "The flash arrives almost at once.",
+    "translationRu": "Вспышка приходит почти мгновенно."
+   },
+   {
+    "text": "Sound is slow, so it comes later.",
+    "translationRu": "Звук медленный, поэтому приходит позже."
+   },
+   {
+    "text": "But what is thunder?",
+    "translationRu": "Но что такое гром?"
+   },
+   {
+    "text": "Many people think the clouds hit each other.",
+    "translationRu": "Многие думают, что облака сталкиваются."
+   },
+   {
+    "text": "Clouds are water and air.",
+    "translationRu": "Облака — это вода и воздух."
+   },
+   {
+    "text": "They cannot hit anything.",
+    "translationRu": "Они ни обо что не могут удариться."
+   },
+   {
+    "text": "Thunder comes from the lightning itself.",
+    "translationRu": "Гром идёт от самой молнии."
+   },
+   {
+    "text": "Lightning is unbelievably hot.",
+    "translationRu": "Молния невероятно горячая."
+   },
+   {
+    "text": "About thirty thousand degrees.",
+    "translationRu": "Около тридцати тысяч градусов."
+   },
+   {
+    "text": "That is five times hotter than the sun.",
+    "translationRu": "Это в пять раз горячее поверхности Солнца."
+   },
+   {
+    "text": "Not the middle of the sun. The surface.",
+    "translationRu": "Не середины Солнца. Поверхности."
+   },
+   {
+    "text": "And it happens in less than a second.",
+    "translationRu": "И происходит это меньше чем за секунду."
+   },
+   {
+    "text": "Air gets very hot very fast.",
+    "translationRu": "Воздух очень быстро сильно нагревается."
+   },
+   {
+    "text": "Hot air needs more space.",
+    "translationRu": "Горячему воздуху нужно больше места."
+   },
+   {
+    "text": "So it pushes outwards, hard.",
+    "translationRu": "И он резко расширяется наружу."
+   },
+   {
+    "text": "Faster than sound can travel.",
+    "translationRu": "Быстрее, чем движется звук."
+   },
+   {
+    "text": "This makes a wave of pressure.",
+    "translationRu": "Возникает волна давления."
+   },
+   {
+    "text": "That wave is the thunder.",
+    "translationRu": "Эта волна и есть гром."
+   },
+   {
+    "text": "So thunder is not a hit.",
+    "translationRu": "Значит, гром — не удар."
+   },
+   {
+    "text": "It is air getting out of the way.",
+    "translationRu": "Это воздух, убирающийся с дороги."
+   },
+   {
+    "text": "Then the air cools in a moment.",
+    "translationRu": "Потом воздух мгновенно остывает."
+   },
+   {
+    "text": "And falls back into the empty space.",
+    "translationRu": "И обрушивается обратно в пустоту."
+   },
+   {
+    "text": "That makes the long rolling sound.",
+    "translationRu": "Отсюда долгий раскатистый звук."
+   },
+   {
+    "text": "Lightning is not a short line.",
+    "translationRu": "Молния — не короткая черта."
+   },
+   {
+    "text": "It can be many kilometres long.",
+    "translationRu": "Она может быть длиной в много километров."
+   },
+   {
+    "text": "The near part arrives first.",
+    "translationRu": "Ближняя часть приходит первой."
+   },
+   {
+    "text": "The far part arrives later.",
+    "translationRu": "Дальняя — позже."
+   },
+   {
+    "text": "So one flash gives you a long noise.",
+    "translationRu": "Поэтому одна вспышка даёт долгий шум."
+   },
+   {
+    "text": "A very close strike sounds different.",
+    "translationRu": "Совсем близкий разряд звучит иначе."
+   },
+   {
+    "text": "It is a crack, not a roll.",
+    "translationRu": "Это треск, а не раскат."
+   },
+   {
+    "text": "Because all of it arrives together.",
+    "translationRu": "Потому что всё приходит разом."
+   }
+  ]
+ },
+ {
+  "id": "why-the-sea-is-blue",
+  "level": "A2",
+  "topic": "environment",
+  "title": "The sea is blue, and not because of the sky",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "The sea is blue.",
+    "translationRu": "Море синее."
+   },
+   {
+    "text": "Almost everybody explains this the same way.",
+    "translationRu": "Почти все объясняют это одинаково."
+   },
+   {
+    "text": "It reflects the sky.",
+    "translationRu": "Оно отражает небо."
+   },
+   {
+    "text": "That is a small part of the truth.",
+    "translationRu": "Это маленькая часть правды."
+   },
+   {
+    "text": "It is not the main reason.",
+    "translationRu": "Главная причина не в этом."
+   },
+   {
+    "text": "Water itself is blue.",
+    "translationRu": "Сама вода синяя."
+   },
+   {
+    "text": "Not much, but a little.",
+    "translationRu": "Немного, но синяя."
+   },
+   {
+    "text": "A glass of water looks clear.",
+    "translationRu": "Стакан воды выглядит прозрачным."
+   },
+   {
+    "text": "There is not enough of it to see the colour.",
+    "translationRu": "Её просто мало, чтобы увидеть цвет."
+   },
+   {
+    "text": "Fill a swimming pool and look down.",
+    "translationRu": "Наполни бассейн и посмотри вниз."
+   },
+   {
+    "text": "Now you can see it.",
+    "translationRu": "Теперь видно."
+   },
+   {
+    "text": "A white pool still looks blue.",
+    "translationRu": "Белый бассейн всё равно выглядит синим."
+   },
+   {
+    "text": "Even indoors, with no sky at all.",
+    "translationRu": "Даже в помещении, где неба нет вовсе."
+   },
+   {
+    "text": "Sunlight is made of many colours.",
+    "translationRu": "Солнечный свет состоит из многих цветов."
+   },
+   {
+    "text": "Water absorbs some of them.",
+    "translationRu": "Часть из них вода поглощает."
+   },
+   {
+    "text": "Red goes first.",
+    "translationRu": "Первым уходит красный."
+   },
+   {
+    "text": "After a few metres, red is gone.",
+    "translationRu": "Через несколько метров красного нет."
+   },
+   {
+    "text": "Then orange. Then yellow.",
+    "translationRu": "Потом оранжевый. Потом жёлтый."
+   },
+   {
+    "text": "Blue travels furthest.",
+    "translationRu": "Синий проходит дальше всех."
+   },
+   {
+    "text": "So the light coming back to your eye",
+    "translationRu": "Значит, свет, возвращающийся к твоему глазу,"
+   },
+   {
+    "text": "has had the red taken out of it.",
+    "translationRu": "лишён красного."
+   },
+   {
+    "text": "What is left is blue.",
+    "translationRu": "Остаётся синий."
+   },
+   {
+    "text": "Divers know this very well.",
+    "translationRu": "Ныряльщики это хорошо знают."
+   },
+   {
+    "text": "Ten metres down, everything is blue-green.",
+    "translationRu": "На десяти метрах всё сине-зелёное."
+   },
+   {
+    "text": "Blood from a cut looks dark green.",
+    "translationRu": "Кровь из пореза выглядит тёмно-зелёной."
+   },
+   {
+    "text": "There is no red light left to reflect.",
+    "translationRu": "Отражать красный свет уже нечем."
+   },
+   {
+    "text": "Turn on a torch and the red comes back.",
+    "translationRu": "Включи фонарь — и красный возвращается."
+   },
+   {
+    "text": "This is why underwater photos need a light.",
+    "translationRu": "Поэтому для подводных снимков нужен свет."
+   },
+   {
+    "text": "Not because it is dark.",
+    "translationRu": "Не потому, что темно."
+   },
+   {
+    "text": "Because the colours are missing.",
+    "translationRu": "А потому, что цветов не хватает."
+   },
+   {
+    "text": "Seas are not all the same blue.",
+    "translationRu": "И моря не одинаково синие."
+   },
+   {
+    "text": "Some are green, some are almost brown.",
+    "translationRu": "Некоторые зелёные, некоторые почти бурые."
+   },
+   {
+    "text": "That is about what is in the water.",
+    "translationRu": "Это уже про то, что в воде."
+   },
+   {
+    "text": "Tiny plants make it green.",
+    "translationRu": "Крошечные растения делают её зелёной."
+   },
+   {
+    "text": "Sand and mud from rivers make it brown.",
+    "translationRu": "Песок и ил из рек делают её бурой."
+   },
+   {
+    "text": "The clearest water is the emptiest.",
+    "translationRu": "Самая прозрачная вода — самая пустая."
+   },
+   {
+    "text": "Beautiful, and almost nothing lives there.",
+    "translationRu": "Красиво — и почти ничего там не живёт."
+   }
+  ]
+ },
+ {
+  "id": "the-bird-that-builds-a-stage",
+  "level": "B1",
+  "topic": "animals",
+  "title": "The bird that decorates a stage",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "In Australia and New Guinea",
+    "translationRu": "В Австралии и Новой Гвинее"
+   },
+   {
+    "text": "there is a bird that builds something strange.",
+    "translationRu": "живёт птица, которая строит нечто странное."
+   },
+   {
+    "text": "Not a nest. The nest is somewhere else.",
+    "translationRu": "Не гнездо. Гнездо в другом месте."
+   },
+   {
+    "text": "This is a structure built only to be looked at.",
+    "translationRu": "Это постройка, созданная только для того, чтобы на неё смотрели."
+   },
+   {
+    "text": "It is called a bower.",
+    "translationRu": "Её называют беседкой."
+   },
+   {
+    "text": "The male spends months on it.",
+    "translationRu": "Самец тратит на неё месяцы."
+   },
+   {
+    "text": "Two walls of sticks, pushed into the ground.",
+    "translationRu": "Две стенки из веточек, воткнутых в землю."
+   },
+   {
+    "text": "An avenue between them, wide enough to walk.",
+    "translationRu": "Между ними проход, достаточный, чтобы пройти."
+   },
+   {
+    "text": "Then he decorates the ground in front.",
+    "translationRu": "Потом он украшает площадку перед ней."
+   },
+   {
+    "text": "And this is where it gets odd.",
+    "translationRu": "И вот тут становится странно."
+   },
+   {
+    "text": "Each species prefers a colour.",
+    "translationRu": "Каждый вид предпочитает свой цвет."
+   },
+   {
+    "text": "One collects only blue things.",
+    "translationRu": "Один собирает только синее."
+   },
+   {
+    "text": "Flowers, feathers, berries, beetle wings.",
+    "translationRu": "Цветы, перья, ягоды, надкрылья жуков."
+   },
+   {
+    "text": "Near towns, they collect plastic.",
+    "translationRu": "Рядом с посёлками они собирают пластик."
+   },
+   {
+    "text": "Bottle tops, pens, clothes pegs, straws.",
+    "translationRu": "Пробки, ручки, прищепки, трубочки."
+   },
+   {
+    "text": "A bower can hold hundreds of objects.",
+    "translationRu": "В беседке могут быть сотни предметов."
+   },
+   {
+    "text": "Sorted carefully by colour and by kind.",
+    "translationRu": "Аккуратно разложенных по цвету и виду."
+   },
+   {
+    "text": "They steal from each other constantly.",
+    "translationRu": "Они постоянно воруют друг у друга."
+   },
+   {
+    "text": "A male will visit a rival's bower",
+    "translationRu": "Самец приходит к беседке соперника,"
+   },
+   {
+    "text": "wreck part of it, and take the best pieces.",
+    "translationRu": "разрушает часть и забирает лучшее."
+   },
+   {
+    "text": "Then there is the part discovered recently.",
+    "translationRu": "А потом — то, что открыли недавно."
+   },
+   {
+    "text": "One species arranges stones and bones",
+    "translationRu": "Один вид раскладывает камешки и косточки"
+   },
+   {
+    "text": "along the avenue by size.",
+    "translationRu": "вдоль прохода по размеру."
+   },
+   {
+    "text": "Small ones close to the entrance.",
+    "translationRu": "Мелкие ближе ко входу."
+   },
+   {
+    "text": "Large ones further away.",
+    "translationRu": "Крупные дальше."
+   },
+   {
+    "text": "From where the female stands,",
+    "translationRu": "С того места, где стоит самка,"
+   },
+   {
+    "text": "this makes the ground look even.",
+    "translationRu": "земля из-за этого выглядит ровной."
+   },
+   {
+    "text": "Which makes the male look larger.",
+    "translationRu": "И самец кажется крупнее."
+   },
+   {
+    "text": "It is forced perspective.",
+    "translationRu": "Это принудительная перспектива."
+   },
+   {
+    "text": "The trick painters use, and film sets.",
+    "translationRu": "Приём художников и киношных декораций."
+   },
+   {
+    "text": "Researchers tested it by moving the stones.",
+    "translationRu": "Исследователи проверили это, переставив камни."
+   },
+   {
+    "text": "The males put them back within days.",
+    "translationRu": "Самцы вернули всё на место за несколько дней."
+   },
+   {
+    "text": "And the ones with the best illusion",
+    "translationRu": "А те, у кого иллюзия выходила лучше,"
+   },
+   {
+    "text": "had more success with females.",
+    "translationRu": "имели больший успех у самок."
+   },
+   {
+    "text": "So the bower is not a home.",
+    "translationRu": "Значит, беседка — не дом."
+   },
+   {
+    "text": "It is an argument, made of objects.",
+    "translationRu": "Это аргумент, составленный из предметов."
+   },
+   {
+    "text": "About how much time he can afford to waste.",
+    "translationRu": "О том, сколько времени он может позволить себе потратить."
+   }
+  ]
+ },
+ {
+  "id": "why-bread-goes-stale",
+  "level": "B1",
+  "topic": "food",
+  "title": "Stale bread is not dry bread",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Fresh bread is soft.",
+    "translationRu": "Свежий хлеб мягкий."
+   },
+   {
+    "text": "Two days later it is hard.",
+    "translationRu": "Через два дня он твёрдый."
+   },
+   {
+    "text": "The obvious explanation is drying.",
+    "translationRu": "Очевидное объяснение — высыхание."
+   },
+   {
+    "text": "Water leaves the bread, so it hardens.",
+    "translationRu": "Вода уходит, поэтому он черствеет."
+   },
+   {
+    "text": "That explanation is wrong.",
+    "translationRu": "Это объяснение неверно."
+   },
+   {
+    "text": "There is a simple way to show it.",
+    "translationRu": "Показать это просто."
+   },
+   {
+    "text": "Seal bread in a bag so nothing escapes.",
+    "translationRu": "Запечатай хлеб в пакет, чтобы ничего не уходило."
+   },
+   {
+    "text": "It still goes stale.",
+    "translationRu": "Он всё равно черствеет."
+   },
+   {
+    "text": "The water is still there.",
+    "translationRu": "Вода никуда не делась."
+   },
+   {
+    "text": "It has only moved.",
+    "translationRu": "Она лишь переместилась."
+   },
+   {
+    "text": "Bread is mostly starch.",
+    "translationRu": "Хлеб — это в основном крахмал."
+   },
+   {
+    "text": "Raw starch is packed in tight bundles.",
+    "translationRu": "Сырой крахмал уложен в плотные пучки."
+   },
+   {
+    "text": "Baking breaks the bundles apart.",
+    "translationRu": "Выпечка эти пучки разрушает."
+   },
+   {
+    "text": "Water gets in between the pieces.",
+    "translationRu": "Вода попадает между кусочками."
+   },
+   {
+    "text": "And the whole thing becomes soft.",
+    "translationRu": "И всё становится мягким."
+   },
+   {
+    "text": "Then, slowly, the starch tidies itself.",
+    "translationRu": "А потом крахмал медленно наводит порядок."
+   },
+   {
+    "text": "The loose pieces line up again.",
+    "translationRu": "Свободные кусочки снова выстраиваются."
+   },
+   {
+    "text": "They rebuild their tight structure.",
+    "translationRu": "Они отстраивают плотную структуру."
+   },
+   {
+    "text": "And they squeeze the water out as they go.",
+    "translationRu": "И по ходу выдавливают воду."
+   },
+   {
+    "text": "The water moves into the crust.",
+    "translationRu": "Вода уходит в корку."
+   },
+   {
+    "text": "Which is why stale bread has a soft crust.",
+    "translationRu": "Поэтому у чёрствого хлеба корка мягкая."
+   },
+   {
+    "text": "And a hard middle.",
+    "translationRu": "А середина твёрдая."
+   },
+   {
+    "text": "Fresh bread is the opposite.",
+    "translationRu": "У свежего наоборот."
+   },
+   {
+    "text": "So the process is not loss.",
+    "translationRu": "Значит, процесс — не потеря."
+   },
+   {
+    "text": "It is rearrangement, inside.",
+    "translationRu": "Это перестановка внутри."
+   },
+   {
+    "text": "Which has a useful consequence.",
+    "translationRu": "Отсюда полезное следствие."
+   },
+   {
+    "text": "The process can be reversed.",
+    "translationRu": "Процесс обратим."
+   },
+   {
+    "text": "Heat the bread and the bundles break again.",
+    "translationRu": "Нагрей хлеб — и пучки снова разрушатся."
+   },
+   {
+    "text": "The water goes back where it was.",
+    "translationRu": "Вода вернётся туда, где была."
+   },
+   {
+    "text": "Warm stale bread is almost fresh.",
+    "translationRu": "Разогретый чёрствый хлеб почти свежий."
+   },
+   {
+    "text": "For about an hour.",
+    "translationRu": "Примерно на час."
+   },
+   {
+    "text": "Then it stales faster than before.",
+    "translationRu": "Потом он черствеет быстрее прежнего."
+   },
+   {
+    "text": "Temperature decides the speed.",
+    "translationRu": "Скорость решает температура."
+   },
+   {
+    "text": "The starch rearranges fastest just above freezing.",
+    "translationRu": "Крахмал перестраивается быстрее всего чуть выше нуля."
+   },
+   {
+    "text": "So a fridge is the worst place for bread.",
+    "translationRu": "То есть холодильник — худшее место для хлеба."
+   },
+   {
+    "text": "It goes stale several times faster there.",
+    "translationRu": "Там он черствеет в несколько раз быстрее."
+   },
+   {
+    "text": "A freezer stops it almost completely.",
+    "translationRu": "А морозилка останавливает процесс почти полностью."
+   },
+   {
+    "text": "Too cold for the starch to move at all.",
+    "translationRu": "Слишком холодно, чтобы крахмал вообще двигался."
+   }
+  ]
+ },
+ {
+  "id": "headphones-that-cancel-sound",
+  "level": "B2",
+  "topic": "how",
+  "title": "Headphones that remove sound by adding sound",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Put on noise-cancelling headphones in a plane.",
+    "translationRu": "Надень шумоподавляющие наушники в самолёте."
+   },
+   {
+    "text": "The engine noise disappears.",
+    "translationRu": "Гул двигателей исчезает."
+   },
+   {
+    "text": "Not muffled. Gone.",
+    "translationRu": "Не приглушается. Исчезает."
+   },
+   {
+    "text": "And you have not blocked your ears.",
+    "translationRu": "И уши ты не заткнул."
+   },
+   {
+    "text": "The headphones are playing something.",
+    "translationRu": "Наушники что-то проигрывают."
+   },
+   {
+    "text": "What they are playing is the noise.",
+    "translationRu": "И проигрывают они этот самый шум."
+   },
+   {
+    "text": "Upside down.",
+    "translationRu": "Перевёрнутым."
+   },
+   {
+    "text": "Sound is a wave of pressure.",
+    "translationRu": "Звук — это волна давления."
+   },
+   {
+    "text": "Air pushed slightly together, then apart.",
+    "translationRu": "Воздух чуть сжимается, потом разрежается."
+   },
+   {
+    "text": "Over and over, hundreds of times a second.",
+    "translationRu": "Снова и снова, сотни раз в секунду."
+   },
+   {
+    "text": "Now imagine a second wave.",
+    "translationRu": "Теперь представь вторую волну."
+   },
+   {
+    "text": "Identical in every way, but flipped.",
+    "translationRu": "Во всём такую же, но перевёрнутую."
+   },
+   {
+    "text": "Where the first pushes, the second pulls.",
+    "translationRu": "Где первая давит, вторая тянет."
+   },
+   {
+    "text": "Add them together and they cancel.",
+    "translationRu": "Сложи их — и они гасятся."
+   },
+   {
+    "text": "The air does not move at all.",
+    "translationRu": "Воздух не движется вовсе."
+   },
+   {
+    "text": "Which is silence.",
+    "translationRu": "А это тишина."
+   },
+   {
+    "text": "Two loud sounds making nothing.",
+    "translationRu": "Два громких звука, дающих ничто."
+   },
+   {
+    "text": "Inside the headphone there is a microphone.",
+    "translationRu": "Внутри наушника есть микрофон."
+   },
+   {
+    "text": "Actually usually two.",
+    "translationRu": "Обычно даже два."
+   },
+   {
+    "text": "One outside, listening to the world.",
+    "translationRu": "Один снаружи, слушает мир."
+   },
+   {
+    "text": "One inside, listening to your ear.",
+    "translationRu": "Один внутри, слушает твоё ухо."
+   },
+   {
+    "text": "A chip reads the outside microphone.",
+    "translationRu": "Чип читает наружный микрофон."
+   },
+   {
+    "text": "Calculates the opposite wave.",
+    "translationRu": "Вычисляет противоположную волну."
+   },
+   {
+    "text": "And plays it, in time to meet the real one.",
+    "translationRu": "И проигрывает её так, чтобы встретить настоящую."
+   },
+   {
+    "text": "The timing has to be almost perfect.",
+    "translationRu": "Тайминг должен быть почти идеальным."
+   },
+   {
+    "text": "A fraction of a thousandth of a second late",
+    "translationRu": "Опоздание в долю тысячной секунды —"
+   },
+   {
+    "text": "and you are adding noise instead.",
+    "translationRu": "и ты уже добавляешь шум."
+   },
+   {
+    "text": "This is why it works best on engines.",
+    "translationRu": "Поэтому лучше всего это работает на двигателях."
+   },
+   {
+    "text": "Low sounds are long and repetitive.",
+    "translationRu": "Низкие звуки длинные и повторяющиеся."
+   },
+   {
+    "text": "A long wave gives the chip time to react.",
+    "translationRu": "Длинная волна даёт чипу время среагировать."
+   },
+   {
+    "text": "And a repeating one can be predicted.",
+    "translationRu": "А повторяющуюся можно предсказать."
+   },
+   {
+    "text": "Speech is neither.",
+    "translationRu": "Речь — ни то ни другое."
+   },
+   {
+    "text": "It is high, short and never repeats.",
+    "translationRu": "Она высокая, короткая и не повторяется."
+   },
+   {
+    "text": "So the announcement still gets through.",
+    "translationRu": "Поэтому объявление всё равно доходит."
+   },
+   {
+    "text": "Which annoys people and is not a fault.",
+    "translationRu": "Это раздражает людей и не является браком."
+   },
+   {
+    "text": "It is the same limit as the engine hum.",
+    "translationRu": "Это то же ограничение, что и с гулом двигателя."
+   },
+   {
+    "text": "Seen from the other end.",
+    "translationRu": "Только с другого конца."
+   }
+  ]
+ },
+ {
+  "id": "why-time-zones-bend",
+  "level": "B2",
+  "topic": "travel",
+  "title": "Why time zones are not straight lines",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Look at a map of the world's time zones.",
+    "translationRu": "Посмотри на карту часовых поясов мира."
+   },
+   {
+    "text": "They should be twenty-four neat stripes.",
+    "translationRu": "Это должны быть двадцать четыре ровные полосы."
+   },
+   {
+    "text": "Each one fifteen degrees wide.",
+    "translationRu": "Каждая шириной в пятнадцать градусов."
+   },
+   {
+    "text": "They are not.",
+    "translationRu": "Они не такие."
+   },
+   {
+    "text": "They bend around countries.",
+    "translationRu": "Они изгибаются вокруг стран."
+   },
+   {
+    "text": "They swallow whole regions.",
+    "translationRu": "Они проглатывают целые регионы."
+   },
+   {
+    "text": "In places they run almost sideways.",
+    "translationRu": "Кое-где они идут почти вбок."
+   },
+   {
+    "text": "Every bend is a decision somebody made.",
+    "translationRu": "Каждый изгиб — чьё-то решение."
+   },
+   {
+    "text": "Before railways, time was local.",
+    "translationRu": "До железных дорог время было местным."
+   },
+   {
+    "text": "Noon was when the sun was highest.",
+    "translationRu": "Полдень был, когда солнце выше всего."
+   },
+   {
+    "text": "Which happens at a different moment",
+    "translationRu": "А это происходит в разный момент"
+   },
+   {
+    "text": "in every town going east or west.",
+    "translationRu": "в каждом городе к востоку или западу."
+   },
+   {
+    "text": "Nobody cared, because nobody could travel fast.",
+    "translationRu": "Никого это не волновало: быстро не ездили."
+   },
+   {
+    "text": "A train changed that immediately.",
+    "translationRu": "Поезд изменил это мгновенно."
+   },
+   {
+    "text": "A timetable cannot use local noon.",
+    "translationRu": "Расписание не может опираться на местный полдень."
+   },
+   {
+    "text": "So railways invented standard time.",
+    "translationRu": "И железные дороги придумали стандартное время."
+   },
+   {
+    "text": "Companies first. Then countries.",
+    "translationRu": "Сначала компании. Потом страны."
+   },
+   {
+    "text": "The zones that resulted are political.",
+    "translationRu": "Получившиеся пояса — политические."
+   },
+   {
+    "text": "China is the clearest example.",
+    "translationRu": "Китай — самый ясный пример."
+   },
+   {
+    "text": "It is wide enough for five zones.",
+    "translationRu": "Он широк настолько, что вместил бы пять поясов."
+   },
+   {
+    "text": "It uses one.",
+    "translationRu": "Использует один."
+   },
+   {
+    "text": "In the far west the sun rises",
+    "translationRu": "На дальнем западе страны солнце встаёт"
+   },
+   {
+    "text": "at what the clock calls ten in the morning.",
+    "translationRu": "в то, что часы называют десятью утра."
+   },
+   {
+    "text": "People there keep an unofficial local time",
+    "translationRu": "Люди там держат неофициальное местное время"
+   },
+   {
+    "text": "alongside the official one.",
+    "translationRu": "рядом с официальным."
+   },
+   {
+    "text": "Spain is another.",
+    "translationRu": "Испания — другой случай."
+   },
+   {
+    "text": "It sits at the longitude of Britain.",
+    "translationRu": "Она лежит на долготе Британии."
+   },
+   {
+    "text": "And keeps the time of central Europe.",
+    "translationRu": "А живёт по центральноевропейскому времени."
+   },
+   {
+    "text": "The change was made in the 1940s",
+    "translationRu": "Перевод сделали в 1940-е,"
+   },
+   {
+    "text": "to match a neighbour, and never undone.",
+    "translationRu": "чтобы совпасть с соседом, и не отменили."
+   },
+   {
+    "text": "Which is why Spanish evenings run late.",
+    "translationRu": "Отсюда и поздние испанские вечера."
+   },
+   {
+    "text": "Dinner at ten is nine by the sun.",
+    "translationRu": "Ужин в десять — это девять по солнцу."
+   },
+   {
+    "text": "Some zones are not whole hours.",
+    "translationRu": "Некоторые пояса не кратны часу."
+   },
+   {
+    "text": "India is half an hour off.",
+    "translationRu": "Индия смещена на полчаса."
+   },
+   {
+    "text": "Nepal is three quarters.",
+    "translationRu": "Непал — на три четверти."
+   },
+   {
+    "text": "Which was a deliberate statement",
+    "translationRu": "Это было намеренное заявление"
+   },
+   {
+    "text": "about not being part of the neighbour.",
+    "translationRu": "о том, что они не часть соседа."
+   },
+   {
+    "text": "A time zone looks like geography.",
+    "translationRu": "Часовой пояс выглядит как география."
+   },
+   {
+    "text": "It is a list of agreements",
+    "translationRu": "А это список договорённостей,"
+   },
+   {
+    "text": "about who a place wants to share a morning with.",
+    "translationRu": "с кем место хочет делить утро."
+   }
+  ]
+ },
+ {
+  "id": "the-taste-panel",
+  "level": "C1",
+  "topic": "work",
+  "title": "The people paid to describe a flavour exactly",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Somewhere in most large food companies",
+    "translationRu": "Почти в каждой крупной пищевой компании"
+   },
+   {
+    "text": "there is a room with small booths in it.",
+    "translationRu": "есть комната с маленькими кабинками."
+   },
+   {
+    "text": "Separate, lit in a neutral colour,",
+    "translationRu": "Отдельными, освещёнными нейтральным светом,"
+   },
+   {
+    "text": "with a hatch through which samples arrive.",
+    "translationRu": "с окошком, через которое подают образцы."
+   },
+   {
+    "text": "The people who sit in them are not judges.",
+    "translationRu": "Сидящие там люди — не судьи."
+   },
+   {
+    "text": "They are instruments.",
+    "translationRu": "Они приборы."
+   },
+   {
+    "text": "A sensory panel does not say what is nice.",
+    "translationRu": "Сенсорная панель не говорит, что вкусно."
+   },
+   {
+    "text": "Liking is measured separately, on the public.",
+    "translationRu": "Симпатию измеряют отдельно, на публике."
+   },
+   {
+    "text": "A panel measures what is there.",
+    "translationRu": "Панель измеряет, что есть."
+   },
+   {
+    "text": "Bitterness, on a scale, with a number.",
+    "translationRu": "Горечь, по шкале, числом."
+   },
+   {
+    "text": "Reproducible by a different panellist",
+    "translationRu": "Воспроизводимым другим участником"
+   },
+   {
+    "text": "in a different country next year.",
+    "translationRu": "в другой стране в следующем году."
+   },
+   {
+    "text": "Getting there takes months of training.",
+    "translationRu": "На это уходят месяцы обучения."
+   },
+   {
+    "text": "Candidates are screened first.",
+    "translationRu": "Кандидатов сначала отбирают."
+   },
+   {
+    "text": "Not for a superior palate.",
+    "translationRu": "Не за выдающийся вкус."
+   },
+   {
+    "text": "Most people's senses are adequate.",
+    "translationRu": "Чувства большинства вполне годятся."
+   },
+   {
+    "text": "They are screened for consistency.",
+    "translationRu": "Их отбирают за стабильность."
+   },
+   {
+    "text": "Give somebody the same sample twice.",
+    "translationRu": "Дай человеку один и тот же образец дважды."
+   },
+   {
+    "text": "A good panellist gives the same number.",
+    "translationRu": "Хороший участник назовёт то же число."
+   },
+   {
+    "text": "A great many people do not.",
+    "translationRu": "Очень многие — нет."
+   },
+   {
+    "text": "Then comes the vocabulary.",
+    "translationRu": "Дальше идёт словарь."
+   },
+   {
+    "text": "A panel agrees on terms and on anchors.",
+    "translationRu": "Панель договаривается о терминах и опорных точках."
+   },
+   {
+    "text": "Not fruity, which means nothing shared.",
+    "translationRu": "Не «фруктовый» — в этом нет ничего общего."
+   },
+   {
+    "text": "A named compound at a named concentration.",
+    "translationRu": "Названное вещество в названной концентрации."
+   },
+   {
+    "text": "Tasted, agreed, and used as a ruler.",
+    "translationRu": "Продегустированное, согласованное и взятое линейкой."
+   },
+   {
+    "text": "Astringency is calibrated against a solution",
+    "translationRu": "Вяжущесть калибруют по раствору,"
+   },
+   {
+    "text": "everybody on the panel has tasted.",
+    "translationRu": "который пробовали все участники."
+   },
+   {
+    "text": "So a five means the same thing to all of them.",
+    "translationRu": "Чтобы пятёрка значила для всех одно и то же."
+   },
+   {
+    "text": "The discipline is in what is excluded.",
+    "translationRu": "Дисциплина — в том, что исключено."
+   },
+   {
+    "text": "Booths are separate so nobody sees a face.",
+    "translationRu": "Кабинки раздельные, чтобы никто не видел лиц."
+   },
+   {
+    "text": "Samples carry three-digit random codes.",
+    "translationRu": "Образцы помечены случайными трёхзначными кодами."
+   },
+   {
+    "text": "Never A and B, because B is second.",
+    "translationRu": "Никогда A и B, потому что B — второй."
+   },
+   {
+    "text": "Lighting is sometimes coloured",
+    "translationRu": "Свет иногда подкрашивают,"
+   },
+   {
+    "text": "to hide a difference in appearance.",
+    "translationRu": "чтобы скрыть разницу во внешнем виде."
+   },
+   {
+    "text": "Because appearance moves the answer",
+    "translationRu": "Потому что внешний вид сдвигает ответ"
+   },
+   {
+    "text": "more than almost anything else.",
+    "translationRu": "сильнее почти всего остального."
+   },
+   {
+    "text": "What the job teaches, panellists say,",
+    "translationRu": "Участники говорят, что работа учит"
+   },
+   {
+    "text": "is how unreliable an untrained answer is.",
+    "translationRu": "тому, насколько ненадёжен нетренированный ответ."
+   },
+   {
+    "text": "Not because people lie.",
+    "translationRu": "Не потому, что люди лгут."
+   },
+   {
+    "text": "Because a taste arrives already interpreted,",
+    "translationRu": "А потому, что вкус приходит уже истолкованным,"
+   },
+   {
+    "text": "and the interpretation is doing most of the work.",
+    "translationRu": "и толкование делает бóльшую часть работы."
+   }
+  ]
+ },
+ {
+  "id": "the-arrow-of-a-scar",
+  "level": "C2",
+  "topic": "health",
+  "title": "Why a wound leaves a mark at all",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Cut your skin and it closes.",
+    "translationRu": "Порежь кожу — и она закроется."
+   },
+   {
+    "text": "What grows back is not skin.",
+    "translationRu": "Но нарастёт не кожа."
+   },
+   {
+    "text": "It is a patch that does the job of skin",
+    "translationRu": "Это заплата, выполняющая работу кожи,"
+   },
+   {
+    "text": "without any of its structure.",
+    "translationRu": "но без её структуры."
+   },
+   {
+    "text": "Normal skin has fibres woven in a mesh.",
+    "translationRu": "В нормальной коже волокна сплетены в сетку."
+   },
+   {
+    "text": "Running in many directions at once.",
+    "translationRu": "Идущие сразу во многих направлениях."
+   },
+   {
+    "text": "Which is why it stretches in any direction.",
+    "translationRu": "Поэтому она тянется в любую сторону."
+   },
+   {
+    "text": "Scar tissue lays its fibres in parallel.",
+    "translationRu": "В рубце волокна лежат параллельно."
+   },
+   {
+    "text": "All in one alignment, tightly packed.",
+    "translationRu": "Все в одном направлении, плотно."
+   },
+   {
+    "text": "Strong along that line and stiff across it.",
+    "translationRu": "Прочно вдоль этой линии и жёстко поперёк."
+   },
+   {
+    "text": "It also grows nothing else.",
+    "translationRu": "И больше в нём ничего не растёт."
+   },
+   {
+    "text": "No hair, no sweat glands, no oil glands.",
+    "translationRu": "Ни волос, ни потовых желёз, ни сальных."
+   },
+   {
+    "text": "A scar cannot sweat or tan.",
+    "translationRu": "Рубец не потеет и не загорает."
+   },
+   {
+    "text": "The obvious question is why.",
+    "translationRu": "Очевидный вопрос — почему."
+   },
+   {
+    "text": "The body clearly knows how to build skin.",
+    "translationRu": "Тело явно умеет строить кожу."
+   },
+   {
+    "text": "It did it once already.",
+    "translationRu": "Один раз оно её уже построило."
+   },
+   {
+    "text": "The answer is speed.",
+    "translationRu": "Ответ — скорость."
+   },
+   {
+    "text": "An open wound is an open door.",
+    "translationRu": "Открытая рана — открытая дверь."
+   },
+   {
+    "text": "For most of human history",
+    "translationRu": "Бóльшую часть человеческой истории"
+   },
+   {
+    "text": "an infection was the likely cause of death.",
+    "translationRu": "инфекция была вероятной причиной смерти."
+   },
+   {
+    "text": "Building proper skin takes weeks.",
+    "translationRu": "Построить настоящую кожу — это недели."
+   },
+   {
+    "text": "Laying down a fast patch takes days.",
+    "translationRu": "Наложить быструю заплату — дни."
+   },
+   {
+    "text": "Evolution has no interest in the appearance",
+    "translationRu": "Эволюции не интересен внешний вид"
+   },
+   {
+    "text": "of somebody who survived.",
+    "translationRu": "того, кто выжил."
+   },
+   {
+    "text": "It closed the door. That was the whole brief.",
+    "translationRu": "Дверь закрыта. Это было всё задание."
+   },
+   {
+    "text": "The evidence for this is developmental.",
+    "translationRu": "Доказательство тут из эмбриологии."
+   },
+   {
+    "text": "A foetus in the early months",
+    "translationRu": "Плод в первые месяцы"
+   },
+   {
+    "text": "heals without scarring at all.",
+    "translationRu": "заживает вообще без рубцов."
+   },
+   {
+    "text": "Perfect skin, with hair follicles, every time.",
+    "translationRu": "Идеальная кожа, с волосяными фолликулами, каждый раз."
+   },
+   {
+    "text": "The environment is sterile, so there is no rush.",
+    "translationRu": "Среда стерильна, значит спешить некуда."
+   },
+   {
+    "text": "The capacity was never lost.",
+    "translationRu": "Способность никуда не делась."
+   },
+   {
+    "text": "It is switched off when the risk appears.",
+    "translationRu": "Её выключают, когда появляется риск."
+   },
+   {
+    "text": "Several animals keep it for life.",
+    "translationRu": "Некоторые животные сохраняют её пожизненно."
+   },
+   {
+    "text": "One salamander regrows an entire limb",
+    "translationRu": "Один вид саламандр отращивает конечность целиком"
+   },
+   {
+    "text": "with bone, nerves and pattern intact.",
+    "translationRu": "с костью, нервами и сохранённым рисунком."
+   },
+   {
+    "text": "It also has a slower, more careful response.",
+    "translationRu": "И у неё медленнее, более осторожная реакция."
+   },
+   {
+    "text": "Medicine is now trying to move the switch.",
+    "translationRu": "Медицина сейчас пытается сдвинуть этот переключатель."
+   },
+   {
+    "text": "Not to heal faster, which we can already do.",
+    "translationRu": "Не чтобы заживлять быстрее — это мы уже умеем."
+   },
+   {
+    "text": "To heal more slowly and more completely.",
+    "translationRu": "А чтобы заживлять медленнее и полнее."
+   },
+   {
+    "text": "Which is an unusual thing to ask of a body",
+    "translationRu": "Необычная просьба к телу,"
+   },
+   {
+    "text": "that spent a million years learning the opposite.",
+    "translationRu": "которое миллион лет училось обратному."
+   }
+  ]
+ }
+]
