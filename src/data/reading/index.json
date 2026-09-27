@@ -9,6 +9,28 @@
   "total": 5
  },
  {
+  "id": "environment",
+  "label": "Environment",
+  "counts": {
+   "B2": 1,
+   "A2": 1,
+   "C1": 1,
+   "A1": 2
+  },
+  "total": 5
+ },
+ {
+  "id": "science",
+  "label": "Science",
+  "counts": {
+   "C1": 2,
+   "A2": 1,
+   "A1": 1,
+   "C2": 1
+  },
+  "total": 5
+ },
+ {
   "id": "culture",
   "label": "Culture",
   "counts": {
@@ -20,16 +42,6 @@
   "total": 4
  },
  {
-  "id": "environment",
-  "label": "Environment",
-  "counts": {
-   "B2": 1,
-   "A2": 1,
-   "C1": 1
-  },
-  "total": 3
- },
- {
   "id": "health",
   "label": "Health",
   "counts": {
@@ -38,15 +50,6 @@
    "B2": 1
   },
   "total": 3
- },
- {
-  "id": "science",
-  "label": "Science",
-  "counts": {
-   "C1": 1,
-   "A2": 1
-  },
-  "total": 2
  },
  {
   "id": "travel",

@@ -324,5 +324,496 @@
     "explanation": "The same age they start understanding what others feel."
    }
   ]
+ },
+ {
+  "id": "why-the-sea-is-salty",
+  "level": "A1",
+  "topic": "science",
+  "generated": false,
+  "title": "Where the Salt in the Sea Comes From",
+  "sentences": [
+   {
+    "text": "Rain is not salty.",
+    "translationRu": "Дождь не солёный."
+   },
+   {
+    "text": "Rivers are not salty.",
+    "translationRu": "Реки не солёные."
+   },
+   {
+    "text": "But the sea is very salty.",
+    "translationRu": "А море очень солёное."
+   },
+   {
+    "text": "Why?",
+    "translationRu": "Почему?"
+   },
+   {
+    "text": "The answer starts with rain on rocks.",
+    "translationRu": "Ответ начинается с дождя на камнях."
+   },
+   {
+    "text": "Rain is a little bit acid.",
+    "translationRu": "Дождь чуть-чуть кислый."
+   },
+   {
+    "text": "It falls on stone and takes very small pieces of it away.",
+    "translationRu": "Он падает на камень и уносит очень маленькие его кусочки."
+   },
+   {
+    "text": "These pieces are minerals, and salt is one of them.",
+    "translationRu": "Эти кусочки — минералы, и соль один из них."
+   },
+   {
+    "text": "Rivers carry them to the sea.",
+    "translationRu": "Реки несут их в море."
+   },
+   {
+    "text": "You cannot taste the salt in a river because there is very little.",
+    "translationRu": "В реке соль не чувствуется на вкус, потому что её очень мало."
+   },
+   {
+    "text": "But rivers never stop.",
+    "translationRu": "Но реки не останавливаются."
+   },
+   {
+    "text": "They have been doing this for millions of years.",
+    "translationRu": "Они делают это миллионы лет."
+   },
+   {
+    "text": "Now here is the important part.",
+    "translationRu": "А вот важная часть."
+   },
+   {
+    "text": "Water leaves the sea when the sun is hot.",
+    "translationRu": "Вода уходит из моря, когда солнце горячее."
+   },
+   {
+    "text": "It goes up into the sky and becomes rain again.",
+    "translationRu": "Она поднимается в небо и снова становится дождём."
+   },
+   {
+    "text": "But the salt cannot go up.",
+    "translationRu": "А соль подняться не может."
+   },
+   {
+    "text": "The salt stays.",
+    "translationRu": "Соль остаётся."
+   },
+   {
+    "text": "Water comes and goes, and the salt only comes.",
+    "translationRu": "Вода приходит и уходит, а соль только приходит."
+   },
+   {
+    "text": "So every year the sea is a tiny bit more salty.",
+    "translationRu": "И каждый год море чуть-чуть солонее."
+   }
+  ],
+  "glossary": {
+   "salty": {
+    "translation": "солёный",
+    "partOfSpeech": "adjective"
+   },
+   "rock": {
+    "translation": "камень, порода",
+    "partOfSpeech": "noun"
+   },
+   "piece": {
+    "translation": "кусочек",
+    "partOfSpeech": "noun"
+   },
+   "mineral": {
+    "translation": "минерал",
+    "partOfSpeech": "noun"
+   },
+   "carry": {
+    "translation": "нести",
+    "partOfSpeech": "verb"
+   },
+   "taste": {
+    "translation": "чувствовать на вкус",
+    "partOfSpeech": "verb"
+   },
+   "stay": {
+    "translation": "оставаться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Where does the salt come from?",
+    "options": [
+     "From fish",
+     "From rain taking pieces of rock",
+     "From the sky",
+     "From the wind"
+    ],
+    "answer": 1,
+    "explanation": "Rain is slightly acid and takes minerals from stone."
+   },
+   {
+    "id": "q2",
+    "question": "Why can you not taste salt in a river?",
+    "options": [
+     "Rivers are cold",
+     "There is very little",
+     "Rivers move fast",
+     "Rivers have no salt at all"
+    ],
+    "answer": 1,
+    "explanation": "The text says there is very little."
+   },
+   {
+    "id": "q3",
+    "question": "Why does the sea get saltier?",
+    "options": [
+     "Water leaves but salt stays",
+     "People add salt",
+     "Fish make salt",
+     "Rain is salty"
+    ],
+    "answer": 0,
+    "explanation": "Water goes up into the sky; the salt cannot."
+   }
+  ]
+ },
+ {
+  "id": "the-armour-on-the-wrong-planes",
+  "level": "C2",
+  "topic": "science",
+  "generated": false,
+  "title": "The Armour Went on the Wrong Part of the Plane",
+  "sentences": [
+   {
+    "text": "During the Second World War the American military had a problem that sounds like an engineering question and turned out to be a thinking one.",
+    "translationRu": "Во время Второй мировой у американских военных была задача, которая звучит как инженерная, а оказалась мыслительной."
+   },
+   {
+    "text": "Bombers were being shot down in numbers nobody could sustain, and the obvious response was more armour.",
+    "translationRu": "Бомбардировщики сбивали в количествах, которых никто не мог выдержать, и очевидным ответом была броня."
+   },
+   {
+    "text": "Armour is heavy, so it could not go everywhere; the question was where.",
+    "translationRu": "Броня тяжёлая, поэтому всюду её не поставишь; вопрос был — куда именно."
+   },
+   {
+    "text": "Officers examined the aircraft that came home and mapped the bullet holes.",
+    "translationRu": "Офицеры осматривали вернувшиеся самолёты и наносили пробоины на схему."
+   },
+   {
+    "text": "The pattern was clear: damage clustered along the wings, the fuselage and the tail gunner's position, while the engines were comparatively clean.",
+    "translationRu": "Картина была ясной: повреждения скапливались на крыльях, фюзеляже и месте хвостового стрелка, а двигатели оставались сравнительно чистыми."
+   },
+   {
+    "text": "The recommendation wrote itself.",
+    "translationRu": "Рекомендация напрашивалась сама."
+   },
+   {
+    "text": "Armour the areas taking the most fire.",
+    "translationRu": "Бронировать участки, куда прилетает больше всего."
+   },
+   {
+    "text": "A statistician named Abraham Wald, working in a group of mathematicians advising the military, pointed out that this was precisely backwards.",
+    "translationRu": "Статистик Абрахам Вальд, работавший в группе математиков при военных, заметил, что вывод ровно обратный."
+   },
+   {
+    "text": "The data consisted entirely of planes that had returned.",
+    "translationRu": "Данные состояли исключительно из самолётов, которые вернулись."
+   },
+   {
+    "text": "Aircraft hit in the engines were not in the sample, for the reason that they were at the bottom of the Channel.",
+    "translationRu": "Самолётов, получивших в двигатели, в выборке не было — по той причине, что они лежали на дне Ла-Манша."
+   },
+   {
+    "text": "The clean areas on the surviving planes were not places bullets avoided.",
+    "translationRu": "Чистые участки на уцелевших машинах не были местами, которых избегали пули."
+   },
+   {
+    "text": "They were the places a plane could not be hit and come back.",
+    "translationRu": "Это были места, попадание в которые не позволяло вернуться."
+   },
+   {
+    "text": "The armour belonged on the engines.",
+    "translationRu": "Броню следовало ставить на двигатели."
+   },
+   {
+    "text": "The failure here was not arithmetic; the counting was accurate.",
+    "translationRu": "Ошибка была не в арифметике: считали верно."
+   },
+   {
+    "text": "It was a failure to notice that the sample had been assembled by the very process under investigation, which is now called survivorship bias and remains one of the most reliable ways to be wrong while looking rigorous.",
+    "translationRu": "Ошибка была в том, что не заметили: выборку собрал тот самый процесс, который изучали. Теперь это называют ошибкой выжившего, и это по-прежнему один из надёжнейших способов ошибаться, выглядя при этом строгим."
+   },
+   {
+    "text": "Once you have the shape of it you find it everywhere, generally in the form of advice.",
+    "translationRu": "Поняв её форму, находишь её повсюду — чаще всего в виде советов."
+   },
+   {
+    "text": "Successful founders are asked what they did, and the answers are collected into books.",
+    "translationRu": "У успешных основателей спрашивают, что они делали, и ответы собирают в книги."
+   },
+   {
+    "text": "The founders who did the same things and failed are not interviewed, because nobody can find them and nobody would buy the book.",
+    "translationRu": "Тех, кто делал то же самое и провалился, не интервьюируют: их не найти, и книгу никто не купит."
+   },
+   {
+    "text": "Dropping out of university looks like a strategy if you only ever meet the three people for whom it worked.",
+    "translationRu": "Бросить университет выглядит стратегией, если ты знаком только с теми тремя, у кого это сработало."
+   },
+   {
+    "text": "The uncomfortable consequence is that the most instructive information in almost any field is the part that did not survive to be collected.",
+    "translationRu": "Неудобное следствие: самое поучительное почти в любой области — это то, что не дожило до того, чтобы попасть в данные."
+   },
+   {
+    "text": "Wald's contribution was not a calculation.",
+    "translationRu": "Вклад Вальда был не в вычислении."
+   },
+   {
+    "text": "It was the discipline of asking, before anything else, who is missing from this room.",
+    "translationRu": "Он был в дисциплине спрашивать прежде всего: кого в этой комнате нет."
+   }
+  ],
+  "glossary": {
+   "sustain": {
+    "translation": "выдерживать, нести (потери)",
+    "partOfSpeech": "verb"
+   },
+   "fuselage": {
+    "translation": "фюзеляж",
+    "partOfSpeech": "noun"
+   },
+   "cluster": {
+    "translation": "скапливаться",
+    "partOfSpeech": "verb"
+   },
+   "backwards": {
+    "translation": "наоборот, задом наперёд",
+    "partOfSpeech": "adverb"
+   },
+   "sample": {
+    "translation": "выборка",
+    "partOfSpeech": "noun"
+   },
+   "rigorous": {
+    "translation": "строгий, основательный",
+    "partOfSpeech": "adjective"
+   },
+   "founder": {
+    "translation": "основатель",
+    "partOfSpeech": "noun"
+   },
+   "instructive": {
+    "translation": "поучительный",
+    "partOfSpeech": "adjective"
+   },
+   "discipline": {
+    "translation": "дисциплина, навык строгости",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why was the original recommendation wrong?",
+    "options": [
+     "The counting was inaccurate",
+     "The sample contained only planes that came back",
+     "Armour was too heavy",
+     "The war ended"
+    ],
+    "answer": 1,
+    "explanation": "Planes hit in the engines were at the bottom of the Channel."
+   },
+   {
+    "id": "q2",
+    "question": "What did the clean areas actually indicate?",
+    "options": [
+     "Bullets avoided them",
+     "A plane hit there could not return",
+     "The armour was already there",
+     "Gunners protected them"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly in the text."
+   },
+   {
+    "id": "q3",
+    "question": "How does the text apply this to advice?",
+    "options": [
+     "Advice is always wrong",
+     "The founders who failed doing the same things are never interviewed",
+     "Books are unreliable by nature",
+     "Only statistics matter"
+    ],
+    "answer": 1,
+    "explanation": "Nobody can find them and nobody would buy the book."
+   }
+  ]
+ },
+ {
+  "id": "why-time-speeds-up",
+  "level": "C1",
+  "topic": "science",
+  "generated": false,
+  "title": "Why Every Year Feels Shorter Than the Last",
+  "sentences": [
+   {
+    "text": "Almost everyone past twenty-five reports the same sensation: the years are accelerating.",
+    "translationRu": "Почти все, кому за двадцать пять, сообщают об одном и том же ощущении: годы разгоняются."
+   },
+   {
+    "text": "Childhood summers were geological in length.",
+    "translationRu": "Летние каникулы в детстве длились геологическую эпоху."
+   },
+   {
+    "text": "Recent ones seem to have happened over a long weekend.",
+    "translationRu": "Недавние словно уместились в длинные выходные."
+   },
+   {
+    "text": "The clock has not changed, so the explanation has to be in the thing measuring it.",
+    "translationRu": "Часы не изменились, значит объяснение — в том, что их измеряет."
+   },
+   {
+    "text": "One account is arithmetical and mildly depressing.",
+    "translationRu": "Одно объяснение арифметическое и слегка удручающее."
+   },
+   {
+    "text": "At five, a year is a fifth of everything you have experienced.",
+    "translationRu": "В пять лет год — это пятая часть всего пережитого."
+   },
+   {
+    "text": "At fifty it is a fiftieth, and the same interval occupies proportionally less of the whole.",
+    "translationRu": "В пятьдесят — пятидесятая, и тот же отрезок занимает пропорционально меньшую долю целого."
+   },
+   {
+    "text": "Neat, but it does not survive contact with how memory actually behaves.",
+    "translationRu": "Красиво — но не выдерживает встречи с тем, как память ведёт себя на самом деле."
+   },
+   {
+    "text": "The better explanation concerns novelty, and it is testable against your own experience.",
+    "translationRu": "Лучшее объяснение связано с новизной, и его можно проверить на себе."
+   },
+   {
+    "text": "The brain does not lay down memory evenly across time.",
+    "translationRu": "Мозг не укладывает память равномерно по времени."
+   },
+   {
+    "text": "It records what is new and compresses what is repeated, on the reasonable grounds that the second identical Tuesday contains no information worth the storage.",
+    "translationRu": "Он записывает новое и сжимает повторяющееся — на разумном основании, что второй одинаковый вторник не несёт информации, стоящей места."
+   },
+   {
+    "text": "Childhood is almost entirely novelty; you are meeting the world in its entirety for the first time, and it is stored in extraordinary density.",
+    "translationRu": "Детство — почти сплошная новизна: ты встречаешь мир целиком впервые, и он записывается с огромной плотностью."
+   },
+   {
+    "text": "Adult life, by contrast, tends towards routine, and routine is precisely what the system is designed to discard.",
+    "translationRu": "Взрослая жизнь, напротив, тяготеет к рутине, а рутина — это ровно то, что система устроена отбрасывать."
+   },
+   {
+    "text": "This explains the specific shape of the illusion.",
+    "translationRu": "Этим объясняется и точная форма иллюзии."
+   },
+   {
+    "text": "Time feels slow while you are living something new and fast in retrospect when nothing happened, which is why a difficult unfamiliar week drags and then, looking back, seems substantial.",
+    "translationRu": "Время тянется, пока проживаешь новое, и летит задним числом, когда ничего не было; поэтому трудная незнакомая неделя тянется — а в ретроспективе кажется весомой."
+   },
+   {
+    "text": "A comfortable identical week passes pleasantly and leaves almost nothing behind.",
+    "translationRu": "Комфортная одинаковая неделя проходит приятно и не оставляет почти ничего."
+   },
+   {
+    "text": "If that is right, the remedy is unglamorous and entirely within reach.",
+    "translationRu": "Если это так, лекарство негламурно и вполне доступно."
+   },
+   {
+    "text": "Novelty is not a holiday in another country; it is a different route home, an unfamiliar skill, a conversation with somebody who disagrees.",
+    "translationRu": "Новизна — не отпуск в другой стране; это другая дорога домой, незнакомое умение, разговор с тем, кто не согласен."
+   },
+   {
+    "text": "None of it slows the calendar.",
+    "translationRu": "Календарь от этого не замедлится."
+   },
+   {
+    "text": "It does, however, determine how much of the year you will still possess in December.",
+    "translationRu": "Зато это определяет, сколько года у тебя останется в декабре."
+   }
+  ],
+  "glossary": {
+   "accelerate": {
+    "translation": "разгоняться, ускоряться",
+    "partOfSpeech": "verb"
+   },
+   "interval": {
+    "translation": "промежуток",
+    "partOfSpeech": "noun"
+   },
+   "neat": {
+    "translation": "аккуратный, складный",
+    "partOfSpeech": "adjective"
+   },
+   "novelty": {
+    "translation": "новизна",
+    "partOfSpeech": "noun"
+   },
+   "compress": {
+    "translation": "сжимать",
+    "partOfSpeech": "verb"
+   },
+   "density": {
+    "translation": "плотность",
+    "partOfSpeech": "noun"
+   },
+   "discard": {
+    "translation": "отбрасывать",
+    "partOfSpeech": "verb"
+   },
+   "in retrospect": {
+    "translation": "задним числом",
+    "partOfSpeech": "phrase"
+   },
+   "drag": {
+    "translation": "тянуться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is the arithmetical explanation?",
+    "options": [
+     "Clocks slow down",
+     "A year is a smaller proportion of your life each year",
+     "Memory fails with age",
+     "Adults sleep less"
+    ],
+    "answer": 1,
+    "explanation": "A fifth at five, a fiftieth at fifty."
+   },
+   {
+    "id": "q2",
+    "question": "Why does the brain compress routine?",
+    "options": [
+     "It is tired",
+     "A repeated identical day carries no information worth storing",
+     "Routine is unpleasant",
+     "It runs out of space"
+    ],
+    "answer": 1,
+    "explanation": "Stated as the reasonable grounds for the design."
+   },
+   {
+    "id": "q3",
+    "question": "What remedy does the text suggest?",
+    "options": [
+     "Sleeping more",
+     "Novelty, including small kinds like a different route home",
+     "Checking the clock",
+     "Long holidays only"
+    ],
+    "answer": 1,
+    "explanation": "It calls the remedy unglamorous and within reach."
+   }
+  ]
  }
 ]

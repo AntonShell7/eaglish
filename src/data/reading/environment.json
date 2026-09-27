@@ -445,5 +445,323 @@
     "explanation": "Closer to an economy: negotiated and self-interested."
    }
   ]
+ },
+ {
+  "id": "the-loneliest-whale",
+  "level": "A1",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Whale Nobody Can Hear",
+  "sentences": [
+   {
+    "text": "Whales sing.",
+    "translationRu": "Киты поют."
+   },
+   {
+    "text": "They sing to find other whales in the dark water.",
+    "translationRu": "Они поют, чтобы найти других китов в тёмной воде."
+   },
+   {
+    "text": "Most big whales sing low, at about twenty hertz.",
+    "translationRu": "Большинство крупных китов поют низко — примерно на двадцати герцах."
+   },
+   {
+    "text": "Other whales hear this and answer.",
+    "translationRu": "Другие киты это слышат и отвечают."
+   },
+   {
+    "text": "In 1989 scientists in America heard something new.",
+    "translationRu": "В 1989 году учёные в Америке услышали кое-что новое."
+   },
+   {
+    "text": "One whale was singing at fifty-two hertz.",
+    "translationRu": "Один кит пел на пятидесяти двух герцах."
+   },
+   {
+    "text": "This is much higher.",
+    "translationRu": "Это гораздо выше."
+   },
+   {
+    "text": "It is the wrong song.",
+    "translationRu": "Это неправильная песня."
+   },
+   {
+    "text": "Other whales probably cannot understand it.",
+    "translationRu": "Другие киты, скорее всего, его не понимают."
+   },
+   {
+    "text": "The scientists listened for many years.",
+    "translationRu": "Учёные слушали много лет."
+   },
+   {
+    "text": "The whale moved north in summer and south in winter, like other whales.",
+    "translationRu": "Кит уходил на север летом и на юг зимой, как другие киты."
+   },
+   {
+    "text": "But it was always alone.",
+    "translationRu": "Но он всегда был один."
+   },
+   {
+    "text": "Nobody ever answered.",
+    "translationRu": "Ему никто не ответил."
+   },
+   {
+    "text": "People call it the loneliest whale in the world.",
+    "translationRu": "Его называют самым одиноким китом в мире."
+   },
+   {
+    "text": "Newspapers wrote about it and people cried.",
+    "translationRu": "О нём писали газеты, и люди плакали."
+   },
+   {
+    "text": "But scientists are careful.",
+    "translationRu": "Но учёные осторожны."
+   },
+   {
+    "text": "Maybe the whale is not sad.",
+    "translationRu": "Может быть, киту и не грустно."
+   },
+   {
+    "text": "Maybe other whales can hear it, and they only think it sounds strange.",
+    "translationRu": "Может, другие киты его слышат — просто им кажется, что он звучит странно."
+   },
+   {
+    "text": "We do not know.",
+    "translationRu": "Мы не знаем."
+   },
+   {
+    "text": "The song is still out there, somewhere in the Pacific.",
+    "translationRu": "Песня всё ещё где-то там, в Тихом океане."
+   }
+  ],
+  "glossary": {
+   "whale": {
+    "translation": "кит",
+    "partOfSpeech": "noun"
+   },
+   "sing": {
+    "translation": "петь",
+    "partOfSpeech": "verb"
+   },
+   "low": {
+    "translation": "низко",
+    "partOfSpeech": "adverb"
+   },
+   "answer": {
+    "translation": "отвечать",
+    "partOfSpeech": "verb"
+   },
+   "alone": {
+    "translation": "один",
+    "partOfSpeech": "adjective"
+   },
+   "lonely": {
+    "translation": "одинокий",
+    "partOfSpeech": "adjective"
+   },
+   "careful": {
+    "translation": "осторожный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why do whales sing?",
+    "options": [
+     "To sleep",
+     "To find other whales",
+     "To eat",
+     "To swim faster"
+    ],
+    "answer": 1,
+    "explanation": "They sing to find other whales in the dark water."
+   },
+   {
+    "id": "q2",
+    "question": "What is strange about this whale?",
+    "options": [
+     "It is very small",
+     "It sings much higher than other whales",
+     "It never moves",
+     "It sings in the day only"
+    ],
+    "answer": 1,
+    "explanation": "Fifty-two hertz instead of about twenty."
+   },
+   {
+    "id": "q3",
+    "question": "What do scientists say?",
+    "options": [
+     "The whale is definitely sad",
+     "Maybe it is not sad, we do not know",
+     "The whale is dead",
+     "It is not a whale"
+    ],
+    "answer": 1,
+    "explanation": "The text says scientists are careful about this."
+   }
+  ]
+ },
+ {
+  "id": "the-tree-that-is-older",
+  "level": "A1",
+  "topic": "environment",
+  "generated": false,
+  "title": "A Tree Older Than Writing",
+  "sentences": [
+   {
+    "text": "In the mountains of California there are very old trees.",
+    "translationRu": "В горах Калифорнии растут очень старые деревья."
+   },
+   {
+    "text": "They are not big.",
+    "translationRu": "Они не большие."
+   },
+   {
+    "text": "They are small and grey and they look almost dead.",
+    "translationRu": "Они маленькие, серые и выглядят почти мёртвыми."
+   },
+   {
+    "text": "But one of them is more than four thousand seven hundred years old.",
+    "translationRu": "Но одному из них больше четырёх тысяч семисот лет."
+   },
+   {
+    "text": "It was already old when people built the pyramids in Egypt.",
+    "translationRu": "Оно было уже старым, когда в Египте строили пирамиды."
+   },
+   {
+    "text": "It was alive before writing.",
+    "translationRu": "Оно жило ещё до письменности."
+   },
+   {
+    "text": "Why do these trees live so long?",
+    "translationRu": "Почему эти деревья живут так долго?"
+   },
+   {
+    "text": "The answer is strange.",
+    "translationRu": "Ответ странный."
+   },
+   {
+    "text": "They live in a bad place.",
+    "translationRu": "Они живут в плохом месте."
+   },
+   {
+    "text": "The ground is dry and the wind is cold.",
+    "translationRu": "Земля сухая, ветер холодный."
+   },
+   {
+    "text": "There is very little water.",
+    "translationRu": "Воды очень мало."
+   },
+   {
+    "text": "So the trees grow very, very slowly.",
+    "translationRu": "Поэтому деревья растут очень-очень медленно."
+   },
+   {
+    "text": "Slow wood is hard wood.",
+    "translationRu": "Медленная древесина — твёрдая древесина."
+   },
+   {
+    "text": "Insects cannot eat it easily.",
+    "translationRu": "Насекомым нелегко её съесть."
+   },
+   {
+    "text": "Water cannot get inside it.",
+    "translationRu": "Вода не может попасть внутрь."
+   },
+   {
+    "text": "An easy life makes a soft tree.",
+    "translationRu": "Лёгкая жизнь делает дерево мягким."
+   },
+   {
+    "text": "A hard life makes a tree that waits.",
+    "translationRu": "Трудная жизнь делает дерево, которое ждёт."
+   },
+   {
+    "text": "Scientists do not say where the oldest tree is.",
+    "translationRu": "Учёные не говорят, где растёт самое старое дерево."
+   },
+   {
+    "text": "They are afraid that people will come and touch it.",
+    "translationRu": "Они боятся, что придут люди и будут его трогать."
+   }
+  ],
+  "glossary": {
+   "grey": {
+    "translation": "серый",
+    "partOfSpeech": "adjective"
+   },
+   "alive": {
+    "translation": "живой",
+    "partOfSpeech": "adjective"
+   },
+   "writing": {
+    "translation": "письменность",
+    "partOfSpeech": "noun"
+   },
+   "ground": {
+    "translation": "земля, почва",
+    "partOfSpeech": "noun"
+   },
+   "dry": {
+    "translation": "сухой",
+    "partOfSpeech": "adjective"
+   },
+   "slowly": {
+    "translation": "медленно",
+    "partOfSpeech": "adverb"
+   },
+   "hard": {
+    "translation": "твёрдый",
+    "partOfSpeech": "adjective"
+   },
+   "insect": {
+    "translation": "насекомое",
+    "partOfSpeech": "noun"
+   },
+   "afraid": {
+    "translation": "боящийся",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What do the oldest trees look like?",
+    "options": [
+     "Big and green",
+     "Small, grey and almost dead",
+     "Tall and young",
+     "Wide and soft"
+    ],
+    "answer": 1,
+    "explanation": "The text describes them as small, grey and looking almost dead."
+   },
+   {
+    "id": "q2",
+    "question": "Why do they live so long?",
+    "options": [
+     "Good soil",
+     "They grow slowly in a hard place, so the wood is hard",
+     "People water them",
+     "They are new"
+    ],
+    "answer": 1,
+    "explanation": "Slow wood is hard wood, which insects and water cannot enter."
+   },
+   {
+    "id": "q3",
+    "question": "Why is the place secret?",
+    "options": [
+     "It is dangerous",
+     "Scientists are afraid people will touch the tree",
+     "It is private land",
+     "Nobody knows it"
+    ],
+    "answer": 1,
+    "explanation": "Stated in the last sentence."
+   }
+  ]
  }
 ]
