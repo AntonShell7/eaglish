@@ -1551,5 +1551,190 @@
     "explanation": "Users cannot observe each other and nobody can be excluded."
    }
   ]
+ },
+ {
+  "id": "why-we-tip",
+  "level": "B2",
+  "topic": "society",
+  "generated": false,
+  "title": "Tipping Makes No Sense Anywhere, Just Differently",
+  "sentences": [
+   {
+    "text": "A visitor to the United States quickly learns that leaving under fifteen per cent in a restaurant is an insult, and a visitor to Japan learns that leaving anything at all can be one.",
+    "translationRu": "Приезжий в США быстро узнаёт, что оставить в ресторане меньше пятнадцати процентов — оскорбление, а приезжий в Японию — что оставить хоть что-то может им оказаться."
+   },
+   {
+    "text": "Between those two positions sit a hundred local rules that residents follow automatically and cannot usually explain.",
+    "translationRu": "Между этими полюсами лежит сотня местных правил, которым жители следуют автоматически и обычно объяснить не могут."
+   },
+   {
+    "text": "The interesting thing about tipping is not that it varies.",
+    "translationRu": "Интересно в чаевых не то, что они разные."
+   },
+   {
+    "text": "It is that in every version, including the ones people defend most strongly, the stated reason and the actual behaviour do not match.",
+    "translationRu": "А то, что в любой версии, включая самые горячо отстаиваемые, заявленная причина и фактическое поведение не совпадают."
+   },
+   {
+    "text": "The stated reason is that a tip rewards good service.",
+    "translationRu": "Заявленная причина: чаевые вознаграждают хорошее обслуживание."
+   },
+   {
+    "text": "Studies have repeatedly found that the correlation between the quality of service and the size of the tip is real but very weak.",
+    "translationRu": "Исследования раз за разом находят, что связь между качеством обслуживания и размером чаевых реальна, но очень слаба."
+   },
+   {
+    "text": "Far larger effects come from things that have nothing to do with the work: the weather, whether the server crouched to table height, whether they wrote thank you on the bill, whether they touched the customer's arm briefly, the size of the group, and the customer's mood on arrival.",
+    "translationRu": "Гораздо сильнее влияет то, что к работе отношения не имеет: погода, присел ли официант к уровню стола, написал ли спасибо на счёте, коснулся ли на мгновение руки клиента, размер компании и настроение гостя при входе."
+   },
+   {
+    "text": "If a tip were a rating, it would be a spectacularly noisy one.",
+    "translationRu": "Если бы чаевые были оценкой, они были бы оценкой крайне шумной."
+   },
+   {
+    "text": "The American system is usually explained as culture, and it has a specific and traceable history.",
+    "translationRu": "Американскую систему обычно объясняют культурой, а у неё есть конкретная и прослеживаемая история."
+   },
+   {
+    "text": "Tipping arrived from Europe in the nineteenth century, was widely denounced as undemocratic and briefly banned in several states, and then took root in industries employing newly freed Black workers who were paid little or nothing by their employers and left to collect their wages from customers directly.",
+    "translationRu": "Чаевые пришли из Европы в XIX веке, их широко осуждали как недемократичные и ненадолго запрещали в нескольких штатах, а потом они укоренились в отраслях, нанимавших недавно освобождённых чернокожих работников, которым работодатели платили мало или ничего, оставляя им собирать заработок прямо с клиентов."
+   },
+   {
+    "text": "That arrangement was written into federal law as a lower minimum wage for tipped staff, and it is why the argument in America is not really about manners.",
+    "translationRu": "Эта схема была записана в федеральный закон как пониженный минимум для персонала на чаевых, и поэтому спор в Америке на деле не о вежливости."
+   },
+   {
+    "text": "It is about who pays the wage, the employer or the guest.",
+    "translationRu": "Он о том, кто платит зарплату: работодатель или гость."
+   },
+   {
+    "text": "The Japanese position is coherent in a different way.",
+    "translationRu": "Японская позиция последовательна иначе."
+   },
+   {
+    "text": "Good service is understood as the standard rather than an achievement, and singling it out for extra payment implies the default would have been worse, which is mildly insulting to a professional.",
+    "translationRu": "Хорошее обслуживание понимается как норма, а не достижение, и выделять его доплатой — намекать, что по умолчанию было бы хуже, что профессионалу слегка оскорбительно."
+   },
+   {
+    "text": "Price includes service because service is not optional.",
+    "translationRu": "Цена включает обслуживание, потому что обслуживание не опционально."
+   },
+   {
+    "text": "Both systems work, in the sense that people are served and staff are paid.",
+    "translationRu": "Обе системы работают в том смысле, что людей обслуживают, а персоналу платят."
+   },
+   {
+    "text": "The costs differ.",
+    "translationRu": "Различаются издержки."
+   },
+   {
+    "text": "Tipping makes income unpredictable, transfers the employer's risk to the worker, and introduces the customer's biases directly into someone's pay, which has been measured and is not flattering.",
+    "translationRu": "Чаевые делают доход непредсказуемым, переносят риск работодателя на работника и напрямую вводят предрассудки клиента в чью-то зарплату — это измеряли, и картина нелестная."
+   },
+   {
+    "text": "Including service in the price makes wages stable and removes the theatre, and restaurant owners who have tried it in tipping countries report the same two problems: the menu prices look higher than the competition's, and customers, who do the arithmetic badly, go elsewhere.",
+    "translationRu": "Включение обслуживания в цену делает зарплату стабильной и убирает театр, а рестораторы, пробовавшие это в странах с чаевыми, сообщают об одних и тех же двух проблемах: цены в меню выглядят выше, чем у конкурентов, и гости, плохо считающие, уходят в другое место."
+   },
+   {
+    "text": "Which is the honest summary.",
+    "translationRu": "Это и есть честный итог."
+   },
+   {
+    "text": "The system nobody defends survives because the alternative has to be presented on the same page as a price.",
+    "translationRu": "Система, которую никто не защищает, выживает потому, что альтернативу приходится показывать на той же странице, что и цену."
+   }
+  ],
+  "glossary": {
+   "insult": {
+    "translation": "оскорбление",
+    "partOfSpeech": "noun"
+   },
+   "correlation": {
+    "translation": "корреляция",
+    "partOfSpeech": "noun"
+   },
+   "crouch": {
+    "translation": "присесть на корточки",
+    "partOfSpeech": "verb"
+   },
+   "noisy": {
+    "translation": "шумный (о данных)",
+    "partOfSpeech": "adjective"
+   },
+   "denounce": {
+    "translation": "осуждать",
+    "partOfSpeech": "verb"
+   },
+   "take root": {
+    "translation": "укорениться",
+    "partOfSpeech": "phrase"
+   },
+   "minimum wage": {
+    "translation": "минимальная зарплата",
+    "partOfSpeech": "noun"
+   },
+   "coherent": {
+    "translation": "последовательный",
+    "partOfSpeech": "adjective"
+   },
+   "single out": {
+    "translation": "выделять",
+    "partOfSpeech": "phrase"
+   },
+   "bias": {
+    "translation": "предвзятость",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-we-tip-q1",
+    "question": "What predicts tip size better than service quality?",
+    "options": [
+     "Menu prices",
+     "Weather, posture, a note on the bill, group size, mood",
+     "Time of day only",
+     "Restaurant rating"
+    ],
+    "answer": 1,
+    "explanation": "A spectacularly noisy rating."
+   },
+   {
+    "id": "why-we-tip-q2",
+    "question": "What is the American argument really about?",
+    "options": [
+     "Manners",
+     "Who pays the wage — the employer or the guest",
+     "Tax",
+     "Service speed"
+    ],
+    "answer": 1,
+    "explanation": "A lower minimum wage for tipped staff was written into law."
+   },
+   {
+    "id": "why-we-tip-q3",
+    "question": "Why is a tip mildly insulting in the Japanese framing?",
+    "options": [
+     "It is foreign",
+     "It implies the default service would have been worse",
+     "It is untaxed",
+     "It embarrasses the guest"
+    ],
+    "answer": 1,
+    "explanation": "Service is not optional, so price includes it."
+   },
+   {
+    "id": "why-we-tip-q4",
+    "question": "Why do service-included restaurants struggle in tipping countries?",
+    "options": [
+     "Staff refuse",
+     "Menu prices look higher and customers do the arithmetic badly",
+     "It is illegal",
+     "Service worsens"
+    ],
+    "answer": 1,
+    "explanation": "The alternative has to be shown on the same page as a price."
+   }
+  ]
  }
 ]

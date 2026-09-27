@@ -1571,5 +1571,166 @@
     "explanation": "The weak side is the phone, not the box."
    }
   ]
+ },
+ {
+  "id": "the-save-icon",
+  "level": "A1",
+  "topic": "technology",
+  "generated": false,
+  "title": "The Save Button Is a Thing You Have Never Seen",
+  "sentences": [
+   {
+    "text": "Open any program on a computer and look for the save button.",
+    "translationRu": "Открой любую программу на компьютере и найди кнопку сохранения."
+   },
+   {
+    "text": "It is a small square.",
+    "translationRu": "Это маленький квадрат."
+   },
+   {
+    "text": "There is a line at the top and a white part at the bottom.",
+    "translationRu": "Сверху полоска, снизу белая часть."
+   },
+   {
+    "text": "Most young people do not know what this square is.",
+    "translationRu": "Большинство молодых не знает, что это за квадрат."
+   },
+   {
+    "text": "It is a floppy disk.",
+    "translationRu": "Это дискета."
+   },
+   {
+    "text": "A floppy disk was how people saved their work before the internet.",
+    "translationRu": "На дискетах сохраняли работу до эпохи интернета."
+   },
+   {
+    "text": "It was about nine centimetres, made of hard plastic, and it was thin.",
+    "translationRu": "Она была примерно девять сантиметров, из твёрдого пластика, и тонкая."
+   },
+   {
+    "text": "Inside there was a soft black circle.",
+    "translationRu": "Внутри был мягкий чёрный круг."
+   },
+   {
+    "text": "You put the disk into the front of the computer, and the computer wrote on it.",
+    "translationRu": "Диск вставляли в переднюю панель компьютера, и компьютер писал на него."
+   },
+   {
+    "text": "One disk held about one and a half megabytes.",
+    "translationRu": "Одна дискета вмещала около полутора мегабайт."
+   },
+   {
+    "text": "That is not very much.",
+    "translationRu": "Это совсем немного."
+   },
+   {
+    "text": "One photo from a phone today is bigger than that.",
+    "translationRu": "Одна фотография с телефона сегодня больше."
+   },
+   {
+    "text": "A big program came in a box with twenty or thirty disks in it.",
+    "translationRu": "Большая программа приходила в коробке с двадцатью-тридцатью дискетами."
+   },
+   {
+    "text": "You put them in one by one, and it took a long time.",
+    "translationRu": "Ты вставлял их одну за другой, и это занимало много времени."
+   },
+   {
+    "text": "If disk number seventeen was bad, you had a problem.",
+    "translationRu": "Если диск номер семнадцать был бит, у тебя была проблема."
+   },
+   {
+    "text": "Computers stopped using floppy disks about twenty years ago.",
+    "translationRu": "Компьютеры перестали пользоваться дискетами лет двадцать назад."
+   },
+   {
+    "text": "But the little picture stayed.",
+    "translationRu": "А картинка осталась."
+   },
+   {
+    "text": "Nobody changed it, because everybody already knows what it does.",
+    "translationRu": "Её никто не поменял, потому что все и так знают, что она делает."
+   },
+   {
+    "text": "So the button says: save my work.",
+    "translationRu": "Так что кнопка говорит: сохрани мою работу."
+   },
+   {
+    "text": "And the picture says: this is a thing from 1985.",
+    "translationRu": "А картинка говорит: это вещь из 1985 года."
+   }
+  ],
+  "glossary": {
+   "save": {
+    "translation": "сохранять",
+    "partOfSpeech": "verb"
+   },
+   "square": {
+    "translation": "квадрат",
+    "partOfSpeech": "noun"
+   },
+   "disk": {
+    "translation": "диск, дискета",
+    "partOfSpeech": "noun"
+   },
+   "plastic": {
+    "translation": "пластик",
+    "partOfSpeech": "noun"
+   },
+   "thin": {
+    "translation": "тонкий",
+    "partOfSpeech": "adjective"
+   },
+   "hold": {
+    "translation": "вмещать",
+    "partOfSpeech": "verb"
+   },
+   "box": {
+    "translation": "коробка",
+    "partOfSpeech": "noun"
+   },
+   "picture": {
+    "translation": "картинка",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-save-icon-q1",
+    "question": "What is the save icon a picture of?",
+    "options": [
+     "A window",
+     "A floppy disk",
+     "A box",
+     "A book"
+    ],
+    "answer": 1,
+    "explanation": "About nine centimetres of hard plastic."
+   },
+   {
+    "id": "the-save-icon-q2",
+    "question": "How much did one disk hold?",
+    "options": [
+     "One gigabyte",
+     "About one and a half megabytes",
+     "One photo",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "A phone photo today is bigger."
+   },
+   {
+    "id": "the-save-icon-q3",
+    "question": "Why did the picture stay?",
+    "options": [
+     "It is beautiful",
+     "Everybody already knows what it does",
+     "It is cheap to draw",
+     "Nobody noticed"
+    ],
+    "answer": 1,
+    "explanation": "Stated near the end."
+   }
+  ]
  }
 ]

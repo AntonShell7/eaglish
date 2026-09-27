@@ -1592,5 +1592,190 @@
     "explanation": "The last sentence."
    }
   ]
+ },
+ {
+  "id": "who-owns-the-marbles",
+  "level": "C1",
+  "topic": "culture",
+  "generated": false,
+  "title": "Every Great Museum Has an Argument in the Basement",
+  "sentences": [
+   {
+    "text": "The British Museum holds around half of the sculptures that once ran around the top of the Parthenon in Athens.",
+    "translationRu": "Британский музей хранит около половины скульптур, некогда опоясывавших верх Парфенона в Афинах."
+   },
+   {
+    "text": "They were removed between 1801 and 1812 by a British ambassador to the Ottoman Empire, which then ruled Greece, and sold to the British state a decade later.",
+    "translationRu": "Их вывез между 1801 и 1812 годами британский посол при Османской империи, правившей тогда Грецией, и десятью годами позже продал британскому государству."
+   },
+   {
+    "text": "Greece has asked for them back continuously since becoming independent.",
+    "translationRu": "Греция просит их вернуть непрерывно с момента обретения независимости."
+   },
+   {
+    "text": "The dispute is two centuries old and is the model for several hundred others, from Benin bronzes in Berlin to ancestral remains in cabinets across Europe.",
+    "translationRu": "Спор идёт два века и служит моделью для нескольких сотен других — от бенинских бронз в Берлине до останков предков в шкафах по всей Европе."
+   },
+   {
+    "text": "The arguments on each side are better than their partisans usually admit.",
+    "translationRu": "Аргументы обеих сторон лучше, чем обычно признают их сторонники."
+   },
+   {
+    "text": "The retention case rests on three claims.",
+    "translationRu": "Позиция удержания стоит на трёх доводах."
+   },
+   {
+    "text": "The acquisition was legal under the law of the day, since a permit of some kind was issued by the governing power.",
+    "translationRu": "Приобретение было законным по тогдашнему праву: правящая власть выдала некое разрешение."
+   },
+   {
+    "text": "The objects have been conserved and studied for two centuries at the holder's expense.",
+    "translationRu": "Предметы два века сохраняли и изучали за счёт хранителя."
+   },
+   {
+    "text": "And a museum that assembles the work of many civilisations in one place lets a visitor see relationships that a national collection cannot show, which is a real intellectual good and not merely a slogan.",
+    "translationRu": "И музей, собирающий работы многих цивилизаций в одном месте, позволяет увидеть связи, которых национальная коллекция не покажет, — это настоящее интеллектуальное благо, а не просто лозунг."
+   },
+   {
+    "text": "Each of the three has a weakness that has grown with time.",
+    "translationRu": "У каждого из трёх есть слабость, выросшая со временем."
+   },
+   {
+    "text": "The permit is disputed, survives only in an Italian translation, and was granted by an occupying power rather than by any Greek authority, which is precisely the objection.",
+    "translationRu": "Разрешение оспаривается, сохранилось только в итальянском переводе и было выдано оккупационной властью, а не греческой, — в чём и состоит возражение."
+   },
+   {
+    "text": "The conservation argument was damaged by the museum's own history, including a 1930s cleaning that scraped the surfaces with copper tools in pursuit of a whiteness the sculptures never had.",
+    "translationRu": "Довод о сохранности подорвала собственная история музея, включая чистку 1930-х, когда поверхности скребли медными инструментами в погоне за белизной, которой у скульптур никогда не было."
+   },
+   {
+    "text": "And the universal-museum argument has an awkward shape: every institution making it is in a former imperial capital, and none of them are in Lagos or Lima.",
+    "translationRu": "А у довода об универсальном музее неудобная форма: каждое учреждение, его приводящее, находится в бывшей имперской столице, и ни одно — в Лагосе или Лиме."
+   },
+   {
+    "text": "The restitution case has its own difficulty, and it is not the one usually raised.",
+    "translationRu": "У позиции реституции своя трудность, и не та, которую обычно называют."
+   },
+   {
+    "text": "The fear that returning one object empties every museum has not survived contact with evidence: where returns have happened, they have been specific, negotiated and small in number, and several have been followed by long-term loans in the opposite direction.",
+    "translationRu": "Страх, что возврат одного предмета опустошит все музеи, не выдержал встречи с фактами: там, где возвраты происходили, они были конкретными, согласованными и немногочисленными, и за некоторыми следовали долгосрочные выдачи в обратную сторону."
+   },
+   {
+    "text": "The real difficulty is deciding who the claimant is when borders, states and peoples have all moved since the object was made.",
+    "translationRu": "Настоящая трудность — определить, кто истец, когда границы, государства и народы сдвинулись с момента создания предмета."
+   },
+   {
+    "text": "A sculpture made in a kingdom that no longer exists, taken from a territory now divided between three countries, is a genuinely hard case rather than a dishonest excuse, though it is frequently used as one.",
+    "translationRu": "Скульптура, созданная в больше не существующем царстве и вывезенная с территории, ныне поделённой между тремя странами, — по-настоящему сложный случай, а не бесчестная отговорка, хотя её часто используют именно так."
+   },
+   {
+    "text": "What has actually shifted the debate is neither law nor philosophy.",
+    "translationRu": "Сдвинули дискуссию не право и не философия."
+   },
+   {
+    "text": "It is that the objects can now be seen anywhere at high resolution, and precise copies can be carved by machine to a tolerance no visitor can detect.",
+    "translationRu": "А то, что предметы теперь можно видеть где угодно в высоком разрешении, а точные копии машина вырезает с допуском, неразличимым для посетителя."
+   },
+   {
+    "text": "Once a perfect replica is available to either party, the question stops being about access to the image or the form.",
+    "translationRu": "Как только идеальная копия доступна любой стороне, вопрос перестаёт быть о доступе к изображению или форме."
+   },
+   {
+    "text": "It becomes a question about the original object, which is to say about where a thing belongs, which is the question everyone was arguing about all along and could previously avoid saying out loud.",
+    "translationRu": "Он становится вопросом о подлиннике — то есть о том, где вещи место, — вопросом, о котором все и спорили с самого начала и который прежде можно было не произносить вслух."
+   }
+  ],
+  "glossary": {
+   "sculpture": {
+    "translation": "скульптура",
+    "partOfSpeech": "noun"
+   },
+   "ambassador": {
+    "translation": "посол",
+    "partOfSpeech": "noun"
+   },
+   "dispute": {
+    "translation": "спор",
+    "partOfSpeech": "noun"
+   },
+   "partisan": {
+    "translation": "сторонник",
+    "partOfSpeech": "noun"
+   },
+   "retention": {
+    "translation": "удержание",
+    "partOfSpeech": "noun"
+   },
+   "acquisition": {
+    "translation": "приобретение",
+    "partOfSpeech": "noun"
+   },
+   "conserve": {
+    "translation": "сохранять, консервировать",
+    "partOfSpeech": "verb"
+   },
+   "scrape": {
+    "translation": "скрести",
+    "partOfSpeech": "verb"
+   },
+   "restitution": {
+    "translation": "реституция, возврат",
+    "partOfSpeech": "noun"
+   },
+   "claimant": {
+    "translation": "истец, заявитель",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "who-owns-the-marbles-q1",
+    "question": "What are the three retention claims?",
+    "options": [
+     "Age, beauty, value",
+     "Legality at the time, conservation, and the universal museum",
+     "Cost, safety, tourism",
+     "Law, treaty, purchase"
+    ],
+    "answer": 1,
+    "explanation": "Each has a weakness that has grown with time."
+   },
+   {
+    "id": "who-owns-the-marbles-q2",
+    "question": "What damaged the conservation argument?",
+    "options": [
+     "A fire",
+     "A 1930s cleaning that scraped the surfaces with copper tools",
+     "A theft",
+     "Poor lighting"
+    ],
+    "answer": 1,
+    "explanation": "In pursuit of a whiteness they never had."
+   },
+   {
+    "id": "who-owns-the-marbles-q3",
+    "question": "What is the real difficulty with restitution?",
+    "options": [
+     "Museums would empty",
+     "Deciding who the claimant is when borders and states have moved",
+     "Transport",
+     "Insurance"
+    ],
+    "answer": 1,
+    "explanation": "A genuinely hard case, though often used as an excuse."
+   },
+   {
+    "id": "who-owns-the-marbles-q4",
+    "question": "What has actually shifted the debate?",
+    "options": [
+     "New laws",
+     "Perfect replicas and high-resolution access, leaving only the original at issue",
+     "Public opinion",
+     "Government funding"
+    ],
+    "answer": 1,
+    "explanation": "The question everyone was arguing about all along."
+   }
+  ]
  }
 ]

@@ -1350,5 +1350,166 @@
     "explanation": "It will fly a longer path to get there."
    }
   ]
+ },
+ {
+  "id": "the-hotel-made-of-ice",
+  "level": "A2",
+  "topic": "travel",
+  "generated": false,
+  "title": "The Hotel That Melts Every Spring",
+  "sentences": [
+   {
+    "text": "In the north of Sweden, past the Arctic Circle, there is a hotel made of ice.",
+    "translationRu": "На севере Швеции, за Полярным кругом, есть отель изо льда."
+   },
+   {
+    "text": "Not decorated with ice.",
+    "translationRu": "Не украшенный льдом."
+   },
+   {
+    "text": "Made of it.",
+    "translationRu": "Сделанный из него."
+   },
+   {
+    "text": "The walls are ice, the beds are ice, the glasses in the bar are ice.",
+    "translationRu": "Стены — лёд, кровати — лёд, стаканы в баре — лёд."
+   },
+   {
+    "text": "Every winter, workers take ice from the river next to the hotel.",
+    "translationRu": "Каждую зиму рабочие берут лёд из реки рядом с отелем."
+   },
+   {
+    "text": "They cut it into very large blocks.",
+    "translationRu": "Они режут его на очень большие блоки."
+   },
+   {
+    "text": "Then artists come from many countries and make the rooms.",
+    "translationRu": "Потом приезжают художники из разных стран и делают номера."
+   },
+   {
+    "text": "Every room is different, and every room is new.",
+    "translationRu": "Каждый номер другой, и каждый — новый."
+   },
+   {
+    "text": "One room can be a forest, another can be an animal, another can be a wave.",
+    "translationRu": "Один номер может быть лесом, другой — животным, третий — волной."
+   },
+   {
+    "text": "Inside, the temperature is about minus five degrees.",
+    "translationRu": "Внутри около минус пяти градусов."
+   },
+   {
+    "text": "That sounds terrible, but outside it is often minus thirty.",
+    "translationRu": "Звучит ужасно, но снаружи часто минус тридцать."
+   },
+   {
+    "text": "So the ice keeps you warm, in a strange way.",
+    "translationRu": "Так что лёд, как ни странно, тебя согревает."
+   },
+   {
+    "text": "Guests sleep on a bed of ice with animal skins and a very good sleeping bag.",
+    "translationRu": "Гости спят на ледяной кровати со шкурами и очень хорошим спальником."
+   },
+   {
+    "text": "In the morning, they have a hot drink in a warm building.",
+    "translationRu": "Утром им дают горячее питьё в тёплом здании."
+   },
+   {
+    "text": "Then, in April, the sun comes back.",
+    "translationRu": "А потом, в апреле, возвращается солнце."
+   },
+   {
+    "text": "The hotel starts to melt.",
+    "translationRu": "Отель начинает таять."
+   },
+   {
+    "text": "By June it is water again, and the water goes back into the river.",
+    "translationRu": "К июню он снова вода, и вода уходит обратно в реку."
+   },
+   {
+    "text": "Nothing is left.",
+    "translationRu": "Не остаётся ничего."
+   },
+   {
+    "text": "In November the workers come back and take the same water out again.",
+    "translationRu": "В ноябре рабочие возвращаются и снова достают ту же воду."
+   },
+   {
+    "text": "The hotel has been built and lost more than thirty times.",
+    "translationRu": "Отель строили и теряли больше тридцати раз."
+   }
+  ],
+  "glossary": {
+   "ice": {
+    "translation": "лёд",
+    "partOfSpeech": "noun"
+   },
+   "decorate": {
+    "translation": "украшать",
+    "partOfSpeech": "verb"
+   },
+   "block": {
+    "translation": "блок, глыба",
+    "partOfSpeech": "noun"
+   },
+   "artist": {
+    "translation": "художник",
+    "partOfSpeech": "noun"
+   },
+   "degree": {
+    "translation": "градус",
+    "partOfSpeech": "noun"
+   },
+   "skin": {
+    "translation": "шкура",
+    "partOfSpeech": "noun"
+   },
+   "melt": {
+    "translation": "таять",
+    "partOfSpeech": "verb"
+   },
+   "river": {
+    "translation": "река",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-hotel-made-of-ice-q1",
+    "question": "Where does the ice come from?",
+    "options": [
+     "A factory",
+     "The river next to the hotel",
+     "The sea",
+     "Another country"
+    ],
+    "answer": 1,
+    "explanation": "Cut into very large blocks."
+   },
+   {
+    "id": "the-hotel-made-of-ice-q2",
+    "question": "Why is minus five not terrible?",
+    "options": [
+     "There are heaters",
+     "Outside it is often minus thirty",
+     "The rooms are small",
+     "Guests wear coats"
+    ],
+    "answer": 1,
+    "explanation": "The ice keeps you warm, in a strange way."
+   },
+   {
+    "id": "the-hotel-made-of-ice-q3",
+    "question": "What happens in June?",
+    "options": [
+     "New rooms are built",
+     "The hotel is water again and returns to the river",
+     "The hotel closes",
+     "Artists arrive"
+    ],
+    "answer": 1,
+    "explanation": "Nothing is left."
+   }
+  ]
  }
 ]
