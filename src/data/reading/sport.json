@@ -847,5 +847,190 @@
     "explanation": "Nobody made it for numbers so big."
    }
   ]
+ },
+ {
+  "id": "why-records-stopped-falling",
+  "level": "C1",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Year Swimming Had to Delete Its Own Records",
+  "sentences": [
+   {
+    "text": "At the 2009 world championships in Rome, swimmers broke forty-three world records in eight days.",
+    "translationRu": "На чемпионате мира 2009 года в Риме пловцы за восемь дней побили сорок три мировых рекорда."
+   },
+   {
+    "text": "That is not a good sign.",
+    "translationRu": "Это плохой знак."
+   },
+   {
+    "text": "A sport in which records fall at that rate is not witnessing a generation of unprecedented athletes; it is witnessing a change in equipment, and everybody in the building knew what it was.",
+    "translationRu": "Вид спорта, где рекорды падают с такой скоростью, наблюдает не поколение невиданных спортсменов, а смену инвентаря — и в зале это понимали все."
+   },
+   {
+    "text": "The suits had arrived two years earlier.",
+    "translationRu": "Костюмы появились двумя годами раньше."
+   },
+   {
+    "text": "They were made of polyurethane rather than textile, they were effectively waterproof, and they took twenty minutes and a second person to put on.",
+    "translationRu": "Они были из полиуретана, а не из ткани, практически не пропускали воду, и надевать их приходилось двадцать минут и с чужой помощью."
+   },
+   {
+    "text": "What they did was straightforward physics.",
+    "translationRu": "Работали они на простой физике."
+   },
+   {
+    "text": "They trapped air, which raised the swimmer in the water, and a body sitting higher has less of itself submerged and therefore less drag.",
+    "translationRu": "Они удерживали воздух, приподнимая пловца в воде, а тело, сидящее выше, погружено меньше и потому испытывает меньшее сопротивление."
+   },
+   {
+    "text": "They also compressed the torso into a smoother shape and held it there when the muscles tired.",
+    "translationRu": "Они ещё и сжимали корпус в более гладкую форму и удерживали её, когда мышцы уставали."
+   },
+   {
+    "text": "Estimates of the advantage ranged around one to two per cent, which sounds trivial and is enormous: in a sport decided by hundredths, one per cent is the difference between a final and a career.",
+    "translationRu": "Оценки преимущества были около одного-двух процентов — звучит ничтожно, а на деле огромно: в спорте, где решают сотые, один процент — это разница между финалом и карьерой."
+   },
+   {
+    "text": "The governing body banned them from 2010.",
+    "translationRu": "Федерация запретила их с 2010 года."
+   },
+   {
+    "text": "It did not delete the records set in them, which produced a peculiar decade.",
+    "translationRu": "Рекорды, поставленные в них, отменять не стали — и получилось своеобразное десятилетие."
+   },
+   {
+    "text": "Swimmers who were plainly the best in history were racing against numbers set by people they would have beaten, wearing something they were no longer allowed to wear.",
+    "translationRu": "Пловцы, явно лучшие в истории, соревновались с цифрами, поставленными теми, кого они бы обыграли, — в том, что носить больше нельзя."
+   },
+   {
+    "text": "Some of those marks stood for over a decade, and a few still stand.",
+    "translationRu": "Некоторые из этих отметок держались больше десяти лет, а часть стоит до сих пор."
+   },
+   {
+    "text": "The episode is usually told as a story about cheating, and it is not one.",
+    "translationRu": "Эпизод обычно рассказывают как историю о жульничестве, но это не она."
+   },
+   {
+    "text": "Nothing was against the rules at the time; the rules simply had not anticipated that the body was no longer the only variable.",
+    "translationRu": "Ничто тогда правилам не противоречило: правила просто не предвидели, что тело перестало быть единственной переменной."
+   },
+   {
+    "text": "Every sport eventually meets this, and each meets it differently.",
+    "translationRu": "С этим рано или поздно сталкивается каждый вид спорта, и каждый по-своему."
+   },
+   {
+    "text": "Athletics went through its own version with shoe technology a decade later and chose the opposite path, writing a specification for sole thickness and letting the records stand.",
+    "translationRu": "Лёгкая атлетика прошла свою версию с технологиями обуви десятью годами позже и выбрала обратный путь: прописала толщину подошвы и оставила рекорды в силе."
+   },
+   {
+    "text": "Cycling did something stranger still, at one point creating a separate category of record for anything set on modern equipment.",
+    "translationRu": "Велоспорт поступил ещё страннее, в какой-то момент создав отдельную категорию рекордов для всего, поставленного на современной технике."
+   },
+   {
+    "text": "Underneath all three is the same unanswered question, and it is not really about sport.",
+    "translationRu": "Под всеми тремя лежит один и тот же неотвеченный вопрос, и он не совсем про спорт."
+   },
+   {
+    "text": "A record is supposed to measure a person.",
+    "translationRu": "Рекорд должен измерять человека."
+   },
+   {
+    "text": "It has always measured a person plus everything they were given, and the equipment merely made the second half impossible to ignore.",
+    "translationRu": "Он всегда измерял человека плюс всё, что ему дали, а снаряжение лишь сделало вторую половину невозможной для игнорирования."
+   }
+  ],
+  "glossary": {
+   "unprecedented": {
+    "translation": "беспрецедентный",
+    "partOfSpeech": "adjective"
+   },
+   "waterproof": {
+    "translation": "водонепроницаемый",
+    "partOfSpeech": "adjective"
+   },
+   "trap": {
+    "translation": "удерживать, задерживать",
+    "partOfSpeech": "verb"
+   },
+   "submerged": {
+    "translation": "погружённый",
+    "partOfSpeech": "adjective"
+   },
+   "drag": {
+    "translation": "сопротивление среды",
+    "partOfSpeech": "noun"
+   },
+   "torso": {
+    "translation": "корпус, торс",
+    "partOfSpeech": "noun"
+   },
+   "governing body": {
+    "translation": "руководящая федерация",
+    "partOfSpeech": "noun"
+   },
+   "anticipate": {
+    "translation": "предвидеть",
+    "partOfSpeech": "verb"
+   },
+   "specification": {
+    "translation": "норматив, спецификация",
+    "partOfSpeech": "noun"
+   },
+   "sole": {
+    "translation": "подошва",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-records-stopped-falling-q1",
+    "question": "Why were forty-three records a bad sign?",
+    "options": [
+     "The pool was short",
+     "Records at that rate indicate equipment, not athletes",
+     "The timing failed",
+     "Too many swimmers"
+    ],
+    "answer": 1,
+    "explanation": "Everybody in the building knew what it was."
+   },
+   {
+    "id": "why-records-stopped-falling-q2",
+    "question": "How did the suits work?",
+    "options": [
+     "They reduced weight",
+     "They trapped air, raising the body and cutting drag, and held the torso smooth",
+     "They warmed the muscles",
+     "They improved grip"
+    ],
+    "answer": 1,
+    "explanation": "Straightforward physics."
+   },
+   {
+    "id": "why-records-stopped-falling-q3",
+    "question": "What made the following decade peculiar?",
+    "options": [
+     "Nobody swam",
+     "The suits were banned but the records were kept",
+     "Records were deleted",
+     "The sport split"
+    ],
+    "answer": 1,
+    "explanation": "Racing against numbers set in something no longer allowed."
+   },
+   {
+    "id": "why-records-stopped-falling-q4",
+    "question": "What is the underlying question?",
+    "options": [
+     "Who cheated",
+     "Whether a record measures a person or a person plus what they were given",
+     "How fast humans can swim",
+     "Which federation is right"
+    ],
+    "answer": 1,
+    "explanation": "Equipment made the second half impossible to ignore."
+   }
+  ]
  }
 ]

@@ -799,5 +799,186 @@
     "explanation": "Stated near the end."
    }
   ]
+ },
+ {
+  "id": "the-road-that-stops",
+  "level": "B1",
+  "topic": "travel",
+  "generated": false,
+  "title": "You Can Drive From Alaska to Argentina, Except for One Part",
+  "sentences": [
+   {
+    "text": "There is a road that runs almost the whole length of the Americas.",
+    "translationRu": "Есть дорога, идущая почти через весь американский континент."
+   },
+   {
+    "text": "It starts in Alaska, in the far north, and ends in the south of Argentina, close to Antarctica.",
+    "translationRu": "Она начинается на Аляске, на крайнем севере, и кончается на юге Аргентины, близко к Антарктиде."
+   },
+   {
+    "text": "It is called the Pan-American Highway, and it is about thirty thousand kilometres long.",
+    "translationRu": "Она называется Панамериканским шоссе, и её длина около тридцати тысяч километров."
+   },
+   {
+    "text": "People drive it for fun, in old cars, and it takes months.",
+    "translationRu": "Люди проезжают её ради удовольствия, на старых машинах, и это занимает месяцы."
+   },
+   {
+    "text": "But the road is not complete.",
+    "translationRu": "Но дорога не сплошная."
+   },
+   {
+    "text": "On the border between Panama and Colombia, it simply stops.",
+    "translationRu": "На границе Панамы и Колумбии она просто обрывается."
+   },
+   {
+    "text": "It starts again about a hundred kilometres later.",
+    "translationRu": "И начинается снова километров через сто."
+   },
+   {
+    "text": "Between the two ends there is no road at all.",
+    "translationRu": "Между двумя концами дороги нет вовсе."
+   },
+   {
+    "text": "This gap has a name: the Darien Gap.",
+    "translationRu": "У этого разрыва есть имя: Дарьенский пробел."
+   },
+   {
+    "text": "It is thick rainforest, mountains, rivers and swamp.",
+    "translationRu": "Это густой тропический лес, горы, реки и болота."
+   },
+   {
+    "text": "It rains almost every day, and the ground is often water.",
+    "translationRu": "Дожди идут почти каждый день, и под ногами часто вода."
+   },
+   {
+    "text": "Building a road there has been discussed since the 1920s, and every plan has failed.",
+    "translationRu": "Строительство дороги обсуждают с 1920-х, и каждый план проваливался."
+   },
+   {
+    "text": "Money is one reason, but it is not the main one.",
+    "translationRu": "Деньги — одна из причин, но не главная."
+   },
+   {
+    "text": "Engineers say the ground is so wet that a road would sink or wash away.",
+    "translationRu": "Инженеры говорят, что грунт настолько мокрый, что дорога уйдёт вниз или её смоет."
+   },
+   {
+    "text": "Scientists worry about the forest, which holds animals that live nowhere else.",
+    "translationRu": "Учёные тревожатся о лесе, где живут животные, которых больше нет нигде."
+   },
+   {
+    "text": "Farmers in the south worry about cattle disease travelling north on a new road.",
+    "translationRu": "Фермеры на юге боятся, что по новой дороге на север придут болезни скота."
+   },
+   {
+    "text": "And governments have never really wanted an easy path for the things that move through that region.",
+    "translationRu": "А правительства никогда всерьёз не хотели удобного пути для того, что через этот регион движется."
+   },
+   {
+    "text": "So the biggest road on Earth has a hole in the middle.",
+    "translationRu": "Так у самой длинной дороги на Земле посередине дыра."
+   },
+   {
+    "text": "Drivers who reach Panama put the car on a boat and collect it in Colombia a week later.",
+    "translationRu": "Водители, доехавшие до Панамы, ставят машину на судно и забирают её в Колумбии через неделю."
+   },
+   {
+    "text": "There are people who walk through the gap, but not for adventure.",
+    "translationRu": "Есть и те, кто идёт через пробел пешком, но не ради приключения."
+   },
+   {
+    "text": "For them it is the only way north, and it is one of the most dangerous walks in the world.",
+    "translationRu": "Для них это единственный путь на север — и одна из самых опасных пеших дорог в мире."
+   }
+  ],
+  "glossary": {
+   "highway": {
+    "translation": "шоссе",
+    "partOfSpeech": "noun"
+   },
+   "border": {
+    "translation": "граница",
+    "partOfSpeech": "noun"
+   },
+   "gap": {
+    "translation": "разрыв, пробел",
+    "partOfSpeech": "noun"
+   },
+   "rainforest": {
+    "translation": "тропический лес",
+    "partOfSpeech": "noun"
+   },
+   "swamp": {
+    "translation": "болото",
+    "partOfSpeech": "noun"
+   },
+   "sink": {
+    "translation": "проваливаться, тонуть",
+    "partOfSpeech": "verb"
+   },
+   "wash away": {
+    "translation": "смывать",
+    "partOfSpeech": "phrase"
+   },
+   "cattle": {
+    "translation": "скот",
+    "partOfSpeech": "noun"
+   },
+   "adventure": {
+    "translation": "приключение",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-road-that-stops-q1",
+    "question": "Where does the road stop?",
+    "options": [
+     "In Mexico",
+     "Between Panama and Colombia",
+     "In Peru",
+     "In Alaska"
+    ],
+    "answer": 1,
+    "explanation": "It starts again about a hundred kilometres later."
+   },
+   {
+    "id": "the-road-that-stops-q2",
+    "question": "What is the main engineering problem?",
+    "options": [
+     "No money",
+     "The ground is so wet a road would sink or wash away",
+     "Mountains are too high",
+     "No workers"
+    ],
+    "answer": 1,
+    "explanation": "Money is a reason but not the main one."
+   },
+   {
+    "id": "the-road-that-stops-q3",
+    "question": "What do drivers do when they reach Panama?",
+    "options": [
+     "Turn back",
+     "Put the car on a boat",
+     "Drive through the forest",
+     "Fly with the car"
+    ],
+    "answer": 1,
+    "explanation": "They collect it in Colombia a week later."
+   },
+   {
+    "id": "the-road-that-stops-q4",
+    "question": "Who walks through the gap?",
+    "options": [
+     "Tourists seeking adventure",
+     "People for whom it is the only way north",
+     "Engineers",
+     "Farmers"
+    ],
+    "answer": 1,
+    "explanation": "One of the most dangerous walks in the world."
+   }
+  ]
  }
 ]

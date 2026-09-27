@@ -859,5 +859,355 @@
     "explanation": "The closing sentence."
    }
   ]
+ },
+ {
+  "id": "the-first-computer-bug",
+  "level": "A2",
+  "topic": "technology",
+  "generated": false,
+  "title": "The First Computer Bug Was a Real Insect",
+  "sentences": [
+   {
+    "text": "When a program does not work, people say there is a bug in it.",
+    "translationRu": "Когда программа не работает, говорят, что в ней «баг»."
+   },
+   {
+    "text": "Bug is an old English word for a small insect.",
+    "translationRu": "Bug — старое английское слово для мелкого насекомого."
+   },
+   {
+    "text": "Most people think this is only a way of speaking.",
+    "translationRu": "Большинство думает, что это просто оборот речи."
+   },
+   {
+    "text": "But there is a famous story, and a photograph.",
+    "translationRu": "Но есть знаменитая история — и фотография."
+   },
+   {
+    "text": "In 1947, at Harvard University in America, there was a very big computer.",
+    "translationRu": "В 1947 году в Гарвардском университете в Америке стоял очень большой компьютер."
+   },
+   {
+    "text": "It was not like a computer today.",
+    "translationRu": "Он был не похож на нынешние."
+   },
+   {
+    "text": "It was as big as a room, and it was full of metal parts that moved.",
+    "translationRu": "Он был размером с комнату и полон движущихся металлических частей."
+   },
+   {
+    "text": "One day the machine stopped giving the right answers.",
+    "translationRu": "Однажды машина перестала давать правильные ответы."
+   },
+   {
+    "text": "The team opened it and looked inside.",
+    "translationRu": "Команда открыла её и заглянула внутрь."
+   },
+   {
+    "text": "They found a moth.",
+    "translationRu": "Они нашли мотылька."
+   },
+   {
+    "text": "The moth was dead, between two metal parts, and it was stopping them.",
+    "translationRu": "Мотылёк был мёртв, застрял между двумя металлическими частями и мешал им."
+   },
+   {
+    "text": "They took it out with a pair of tweezers.",
+    "translationRu": "Его достали пинцетом."
+   },
+   {
+    "text": "Then somebody did something strange and wonderful.",
+    "translationRu": "А потом кто-то сделал странную и прекрасную вещь."
+   },
+   {
+    "text": "They put the moth in the notebook of the machine, with tape, and wrote next to it: first actual case of bug being found.",
+    "translationRu": "Мотылька вклеили скотчем в журнал машины и подписали: первый реальный случай обнаружения «жука»."
+   },
+   {
+    "text": "The word actual is important.",
+    "translationRu": "Слово «реальный» здесь важно."
+   },
+   {
+    "text": "It shows that people already used the word bug for a problem.",
+    "translationRu": "Оно показывает, что слово bug для неполадки уже использовали."
+   },
+   {
+    "text": "The joke only works if the word is old.",
+    "translationRu": "Шутка работает, только если слово старое."
+   },
+   {
+    "text": "The notebook page still exists today in a museum in Washington.",
+    "translationRu": "Страница журнала до сих пор хранится в музее в Вашингтоне."
+   },
+   {
+    "text": "The moth is still on it.",
+    "translationRu": "И мотылёк всё ещё на ней."
+   },
+   {
+    "text": "One of the people in that room was Grace Hopper, who later became very important in computing.",
+    "translationRu": "Одной из тех, кто был в той комнате, была Грейс Хоппер, позже ставшая крайне важной фигурой в информатике."
+   },
+   {
+    "text": "She told this story for the rest of her life.",
+    "translationRu": "Она рассказывала эту историю всю оставшуюся жизнь."
+   }
+  ],
+  "glossary": {
+   "bug": {
+    "translation": "ошибка в программе; жучок",
+    "partOfSpeech": "noun"
+   },
+   "insect": {
+    "translation": "насекомое",
+    "partOfSpeech": "noun"
+   },
+   "moth": {
+    "translation": "мотылёк",
+    "partOfSpeech": "noun"
+   },
+   "metal": {
+    "translation": "металлический",
+    "partOfSpeech": "adjective"
+   },
+   "tweezers": {
+    "translation": "пинцет",
+    "partOfSpeech": "noun"
+   },
+   "tape": {
+    "translation": "скотч, лента",
+    "partOfSpeech": "noun"
+   },
+   "notebook": {
+    "translation": "журнал, тетрадь",
+    "partOfSpeech": "noun"
+   },
+   "museum": {
+    "translation": "музей",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-first-computer-bug-q1",
+    "question": "What did the team find inside the machine?",
+    "options": [
+     "A wire",
+     "A dead moth between two metal parts",
+     "Water",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "They took it out with tweezers."
+   },
+   {
+    "id": "the-first-computer-bug-q2",
+    "question": "Why is the word 'actual' important?",
+    "options": [
+     "It was a joke about size",
+     "It shows the word bug was already used for problems",
+     "It was the machine's name",
+     "It means the first ever"
+    ],
+    "answer": 1,
+    "explanation": "The joke only works if the word is old."
+   },
+   {
+    "id": "the-first-computer-bug-q3",
+    "question": "Where is the page today?",
+    "options": [
+     "Lost",
+     "In a museum in Washington",
+     "At Harvard",
+     "In a private house"
+    ],
+    "answer": 1,
+    "explanation": "The moth is still on it."
+   }
+  ]
+ },
+ {
+  "id": "the-cables-under-the-sea",
+  "level": "C2",
+  "topic": "technology",
+  "generated": false,
+  "title": "The Internet Is a Few Hundred Cables on the Seabed",
+  "sentences": [
+   {
+    "text": "The mental image most people hold of the internet involves satellites, or a cloud, or nothing in particular.",
+    "translationRu": "Образ интернета у большинства включает спутники, облако или вовсе ничего конкретного."
+   },
+   {
+    "text": "The reality is around five hundred cables lying on the floor of the ocean, and over ninety-five per cent of all intercontinental data passes through them.",
+    "translationRu": "На деле это примерно пятьсот кабелей, лежащих на дне океана, и через них проходит более девяноста пяти процентов всех межконтинентальных данных."
+   },
+   {
+    "text": "Satellites carry a rounding error by comparison, because the physics is not close.",
+    "translationRu": "Спутники на этом фоне несут погрешность округления, потому что физика тут несопоставима."
+   },
+   {
+    "text": "A signal to geostationary orbit and back travels seventy thousand kilometres and arrives about a quarter of a second late, which is fatal for anything interactive.",
+    "translationRu": "Сигнал до геостационарной орбиты и обратно проходит семьдесят тысяч километров и приходит примерно на четверть секунды позже, что убийственно для всего интерактивного."
+   },
+   {
+    "text": "Glass beats it comfortably, and glass is cheap.",
+    "translationRu": "Стекло уверенно выигрывает, и стекло дёшево."
+   },
+   {
+    "text": "The cables themselves are less impressive than the function implies.",
+    "translationRu": "Сами кабели менее внушительны, чем предполагает их роль."
+   },
+   {
+    "text": "In deep water, where nothing is likely to touch them, a transatlantic cable is roughly the thickness of a garden hose: a handful of fibres thinner than a hair, a copper conductor to power the repeaters, and a steel and plastic jacket.",
+    "translationRu": "На глубине, где их вряд ли что-то тронет, трансатлантический кабель примерно в толщину садового шланга: горстка волокон тоньше волоса, медный проводник для питания усилителей и стальная с пластиком оболочка."
+   },
+   {
+    "text": "They are armoured heavily only near shore, and near shore is where almost everything goes wrong.",
+    "translationRu": "Серьёзную броню они имеют только у берега — и у берега почти всё и случается."
+   },
+   {
+    "text": "Between one and two hundred cables are damaged every year.",
+    "translationRu": "Каждый год повреждается от ста до двухсот кабелей."
+   },
+   {
+    "text": "Sharks and earthquakes account for a small share.",
+    "translationRu": "На акул и землетрясения приходится малая доля."
+   },
+   {
+    "text": "The overwhelming majority is fishing gear dragged across the bottom and ships anchoring where they should not, which means the most consequential infrastructure humanity has built is mostly broken by accident, by people who never notice they have done it.",
+    "translationRu": "Подавляющее большинство — донные тралы и суда, бросающие якорь там, где не следует, то есть самую значимую инфраструктуру человечества в основном ломают случайно люди, которые этого даже не замечают."
+   },
+   {
+    "text": "Repair is a strange trade.",
+    "translationRu": "Ремонт — странное ремесло."
+   },
+   {
+    "text": "A few dozen specialised ships exist worldwide, most of them elderly.",
+    "translationRu": "В мире есть несколько десятков специализированных судов, в основном немолодых."
+   },
+   {
+    "text": "One sails to the estimated fault, drags a grapnel along the seabed until it catches the cable, cuts it, lifts one end to the surface, buoys it, finds the other, splices in new fibre under a microscope in a moving workshop, and lowers the join back into four kilometres of water.",
+    "translationRu": "Судно идёт к расчётной точке обрыва, тащит по дну кошку, пока та не зацепит кабель, режет его, поднимает один конец на поверхность, ставит на буй, находит второй, сваривает новое волокно под микроскопом в качающейся мастерской и опускает стык обратно в четыре километра воды."
+   },
+   {
+    "text": "It takes days to weeks, and the world does not notice, because the network reroutes around the break in milliseconds.",
+    "translationRu": "Это занимает от дней до недель, и мир не замечает, потому что сеть обходит разрыв за миллисекунды."
+   },
+   {
+    "text": "That invisibility is the whole problem.",
+    "translationRu": "Эта незаметность и есть вся проблема."
+   },
+   {
+    "text": "Redundancy is excellent across the Atlantic, where dozens of paths exist, and thin to non-existent for countries served by one or two.",
+    "translationRu": "Резервирование отлично через Атлантику, где путей десятки, и от тонкого до отсутствующего у стран, обслуживаемых одним-двумя кабелями."
+   },
+   {
+    "text": "Tonga lost effectively all connectivity in 2022 when a volcano cut its single link, and several African and island states are one anchor away from the same position.",
+    "translationRu": "Тонга в 2022 году потеряла связь почти полностью, когда вулкан перерезал её единственную линию, и несколько африканских и островных государств отделяет от того же положения один якорь."
+   },
+   {
+    "text": "The deliberate case is the one that has begun to worry governments, since a cable is unguarded by definition and cutting several at once is within the reach of a modestly equipped state.",
+    "translationRu": "Умышленный случай и начал беспокоить правительства: кабель по определению не охраняется, а перерезать несколько разом по силам государству со скромными средствами."
+   },
+   {
+    "text": "It is an odd thing to sit with.",
+    "translationRu": "С этим странно уживаться."
+   },
+   {
+    "text": "The most abstract system we have, the one we describe with weather metaphors, comes down to a few hundred glass threads on mud, maintained by an ageing fleet that almost nobody has heard of.",
+    "translationRu": "Самая абстрактная наша система, которую описывают метафорами погоды, сводится к нескольким сотням стеклянных нитей на иле, которые обслуживает стареющий флот, о существовании которого почти никто не слышал."
+   }
+  ],
+  "glossary": {
+   "seabed": {
+    "translation": "морское дно",
+    "partOfSpeech": "noun"
+   },
+   "rounding error": {
+    "translation": "погрешность округления",
+    "partOfSpeech": "noun"
+   },
+   "repeater": {
+    "translation": "усилитель, ретранслятор",
+    "partOfSpeech": "noun"
+   },
+   "jacket": {
+    "translation": "оболочка",
+    "partOfSpeech": "noun"
+   },
+   "armoured": {
+    "translation": "бронированный",
+    "partOfSpeech": "adjective"
+   },
+   "anchor": {
+    "translation": "якорь; бросать якорь",
+    "partOfSpeech": "noun"
+   },
+   "grapnel": {
+    "translation": "кошка (якорёк)",
+    "partOfSpeech": "noun"
+   },
+   "splice": {
+    "translation": "сращивать, сваривать",
+    "partOfSpeech": "verb"
+   },
+   "reroute": {
+    "translation": "перенаправлять",
+    "partOfSpeech": "verb"
+   },
+   "redundancy": {
+    "translation": "резервирование",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-cables-under-the-sea-q1",
+    "question": "Why do satellites carry so little of the traffic?",
+    "options": [
+     "They are expensive",
+     "The round trip adds about a quarter of a second, fatal for interactive use",
+     "They break often",
+     "Governments ban them"
+    ],
+    "answer": 1,
+    "explanation": "Glass beats it comfortably and is cheap."
+   },
+   {
+    "id": "the-cables-under-the-sea-q2",
+    "question": "What causes most cable damage?",
+    "options": [
+     "Sharks",
+     "Fishing gear and ships anchoring where they should not",
+     "Earthquakes",
+     "Corrosion"
+    ],
+    "answer": 1,
+    "explanation": "Broken by accident, by people who never notice."
+   },
+   {
+    "id": "the-cables-under-the-sea-q3",
+    "question": "Why does the world not notice a break?",
+    "options": [
+     "Repairs are instant",
+     "The network reroutes around it in milliseconds",
+     "Cables are duplicated inside",
+     "Traffic is stored"
+    ],
+    "answer": 1,
+    "explanation": "Repair itself takes days to weeks."
+   },
+   {
+    "id": "the-cables-under-the-sea-q4",
+    "question": "Where is the real vulnerability?",
+    "options": [
+     "The Atlantic",
+     "Countries served by only one or two cables",
+     "Deep water",
+     "Repair ships"
+    ],
+    "answer": 1,
+    "explanation": "Tonga in 2022 is the example given."
+   }
+  ]
  }
 ]
