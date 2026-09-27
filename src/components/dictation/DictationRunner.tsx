@@ -39,7 +39,7 @@ interface Props {
  */
 export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const { t } = useTranslation();
-  const { speak, stop, speaking, supported, voices, voice, chooseVoice } = useSpeech();
+  const { speak, stop, speaking, supported, prefetch, voices, voice, chooseVoice } = useSpeech();
   const { finish } = useTaskDone();
 
   // Resumes where the last session stopped: fifty fragments is twenty minutes,
@@ -78,6 +78,13 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setPlays(1);
     speak(sentence.text, slow ? 0.7 : 1);
     input.current?.focus();
+
+    // The next line is fetched while this one is being typed, which is the
+    // whole of the latency budget: by the time anyone presses Enter the audio
+    // for what follows has been sitting decoded for half a minute.
+    const upcoming = sentences[index + 1];
+    if (upcoming) prefetch(upcoming.text);
+
     return stop;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, supported]);
