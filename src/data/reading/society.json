@@ -1,115 +1,268 @@
 [
-  {
-    "id": "local-paper-decline",
-    "level": "B1-B2",
-    "topic": "society",
-    "generated": true,
-    "title": "Local Paper Decline",
-    "sentences": [
-      {
-        "text": "In many towns, the local newspaper that once arrived on every doorstep is now disappearing.",
-        "translationRu": "Во многих небольших городах местная газета, которая раньше приходила к каждому порогу, теперь исчезает."
-      },
-      {
-        "text": "Readers have turned to online feeds, because they are instant and often free.",
-        "translationRu": "Читатели переключились на онлайн‑ленты, потому что они мгновенные и часто бесплатные."
-      },
-      {
-        "text": "Advertisers follow the audience, so they spend less money on print ads, which hurts the paper's revenue.",
-        "translationRu": "Рекламодатели следуют за аудиторией, поэтому тратят меньше денег на печатную рекламу, что вредит доходам газеты."
-      },
-      {
-        "text": "Without enough income, editors are forced to cut staff, and the quality of reporting drops.",
-        "translationRu": "Без достаточного дохода редакторы вынуждены сокращать штат, и качество репортажей падает."
-      },
-      {
-        "text": "Some journalists start to work from home, using social media to share stories.",
-        "translationRu": "Некоторые журналисты начинают работать из дома, используя социальные сети для публикации историй."
-      },
-      {
-        "text": "Meanwhile, older residents miss the familiar voice that explained community events in plain language.",
-        "translationRu": "Тем временем пожилые жители скучают по привычному голосу, который объяснял события в сообществе простым языком."
-      },
-      {
-        "text": "The paper tries to survive by offering a digital edition, but many subscribers still prefer the tactile feel of paper.",
-        "translationRu": "Газета пытается выжить, предлагая цифровой выпуск, но многие подписчики всё ещё предпочитают ощутить бумагу в руках."
-      },
-      {
-        "text": "Local businesses also suffer, as they lose a cheap way to reach neighbours.",
-        "translationRu": "Местные предприятия тоже страдают, потому что теряют недорогой способ обращаться к соседям."
-      },
-      {
-        "text": "As a result, town meetings receive less coverage, and citizens become less informed about decisions that affect them.",
-        "translationRu": "В результате собрания города получают меньше освещения, и граждане становятся менее информированными о решениях, которые их касаются."
-      },
-      {
-        "text": "If communities want to keep a shared source of news, they may need to support their papers directly, for example by subscribing or volunteering.",
-        "translationRu": "Если сообщества хотят сохранить общий источник новостей, им придётся напрямую поддерживать свои газеты, например, подписываясь или становясь волонтёрами."
-      }
+ {
+  "id": "local-paper-decline",
+  "level": "B1-B2",
+  "topic": "society",
+  "generated": true,
+  "title": "Local Paper Decline",
+  "sentences": [
+   {
+    "text": "In many towns, the local newspaper that once arrived on every doorstep is now disappearing.",
+    "translationRu": "Во многих небольших городах местная газета, которая раньше приходила к каждому порогу, теперь исчезает."
+   },
+   {
+    "text": "Readers have turned to online feeds, because they are instant and often free.",
+    "translationRu": "Читатели переключились на онлайн‑ленты, потому что они мгновенные и часто бесплатные."
+   },
+   {
+    "text": "Advertisers follow the audience, so they spend less money on print ads, which hurts the paper's revenue.",
+    "translationRu": "Рекламодатели следуют за аудиторией, поэтому тратят меньше денег на печатную рекламу, что вредит доходам газеты."
+   },
+   {
+    "text": "Without enough income, editors are forced to cut staff, and the quality of reporting drops.",
+    "translationRu": "Без достаточного дохода редакторы вынуждены сокращать штат, и качество репортажей падает."
+   },
+   {
+    "text": "Some journalists start to work from home, using social media to share stories.",
+    "translationRu": "Некоторые журналисты начинают работать из дома, используя социальные сети для публикации историй."
+   },
+   {
+    "text": "Meanwhile, older residents miss the familiar voice that explained community events in plain language.",
+    "translationRu": "Тем временем пожилые жители скучают по привычному голосу, который объяснял события в сообществе простым языком."
+   },
+   {
+    "text": "The paper tries to survive by offering a digital edition, but many subscribers still prefer the tactile feel of paper.",
+    "translationRu": "Газета пытается выжить, предлагая цифровой выпуск, но многие подписчики всё ещё предпочитают ощутить бумагу в руках."
+   },
+   {
+    "text": "Local businesses also suffer, as they lose a cheap way to reach neighbours.",
+    "translationRu": "Местные предприятия тоже страдают, потому что теряют недорогой способ обращаться к соседям."
+   },
+   {
+    "text": "As a result, town meetings receive less coverage, and citizens become less informed about decisions that affect them.",
+    "translationRu": "В результате собрания города получают меньше освещения, и граждане становятся менее информированными о решениях, которые их касаются."
+   },
+   {
+    "text": "If communities want to keep a shared source of news, they may need to support their papers directly, for example by subscribing or volunteering.",
+    "translationRu": "Если сообщества хотят сохранить общий источник новостей, им придётся напрямую поддерживать свои газеты, например, подписываясь или становясь волонтёрами."
+   }
+  ],
+  "glossary": {
+   "disappear": {
+    "translation": "исчезать",
+    "partOfSpeech": "verb"
+   },
+   "advertiser": {
+    "translation": "рекламодатель",
+    "partOfSpeech": "noun"
+   },
+   "revenue": {
+    "translation": "доход",
+    "partOfSpeech": "noun"
+   },
+   "tactile": {
+    "translation": "осязаемый",
+    "partOfSpeech": "adjective"
+   },
+   "neighbour": {
+    "translation": "сосед",
+    "partOfSpeech": "noun"
+   },
+   "volunteer": {
+    "translation": "волонтёр",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why do advertisers spend less on print ads according to the text?",
+    "options": [
+     "They prefer online feeds",
+     "They follow the audience",
+     "They lack budget",
+     "They dislike newspapers"
     ],
-    "glossary": {
-      "disappear": {
-        "translation": "исчезать",
-        "partOfSpeech": "verb"
-      },
-      "advertiser": {
-        "translation": "рекламодатель",
-        "partOfSpeech": "noun"
-      },
-      "revenue": {
-        "translation": "доход",
-        "partOfSpeech": "noun"
-      },
-      "tactile": {
-        "translation": "осязаемый",
-        "partOfSpeech": "adjective"
-      },
-      "neighbour": {
-        "translation": "сосед",
-        "partOfSpeech": "noun"
-      },
-      "volunteer": {
-        "translation": "волонтёр",
-        "partOfSpeech": "noun"
-      }
-    },
-    "questions": [
-      {
-        "id": "q1",
-        "question": "Why do advertisers spend less on print ads according to the text?",
-        "options": [
-          "They prefer online feeds",
-          "They follow the audience",
-          "They lack budget",
-          "They dislike newspapers"
-        ],
-        "answer": 1,
-        "explanation": "The text says advertisers follow the audience, so they spend less on print ads."
-      },
-      {
-        "id": "q2",
-        "question": "What do older residents miss about the local newspaper?",
-        "options": [
-          "Free subscriptions",
-          "Instant updates",
-          "The familiar voice",
-          "The digital edition"
-        ],
-        "answer": 2,
-        "explanation": "The text mentions older residents miss the familiar voice that explained community events."
-      },
-      {
-        "id": "q3",
-        "question": "How can communities help keep their local papers alive?",
-        "options": [
-          "By subscribing or volunteering",
-          "By increasing ad prices",
-          "By shutting down print",
-          "By ignoring local news"
-        ],
-        "answer": 0,
-        "explanation": "The text suggests communities may need to support papers directly, for example by subscribing or volunteering."
-      }
-    ]
-  }
+    "answer": 1,
+    "explanation": "The text says advertisers follow the audience, so they spend less on print ads."
+   },
+   {
+    "id": "q2",
+    "question": "What do older residents miss about the local newspaper?",
+    "options": [
+     "Free subscriptions",
+     "Instant updates",
+     "The familiar voice",
+     "The digital edition"
+    ],
+    "answer": 2,
+    "explanation": "The text mentions older residents miss the familiar voice that explained community events."
+   },
+   {
+    "id": "q3",
+    "question": "How can communities help keep their local papers alive?",
+    "options": [
+     "By subscribing or volunteering",
+     "By increasing ad prices",
+     "By shutting down print",
+     "By ignoring local news"
+    ],
+    "answer": 0,
+    "explanation": "The text suggests communities may need to support papers directly, for example by subscribing or volunteering."
+   }
+  ]
+ },
+ {
+  "id": "the-oldest-argument",
+  "level": "B1",
+  "topic": "society",
+  "generated": false,
+  "title": "What a University Is Actually For",
+  "sentences": [
+   {
+    "text": "Universities are nearly a thousand years old, and people have been arguing about their purpose for almost as long.",
+    "translationRu": "Университетам почти тысяча лет, и почти столько же спорят о том, зачем они нужны."
+   },
+   {
+    "text": "The first ones, in Bologna and Paris, were not built by kings.",
+    "translationRu": "Первые — в Болонье и Париже — построили не короли."
+   },
+   {
+    "text": "They were guilds: groups of students who hired their own teachers and fined them for turning up late.",
+    "translationRu": "Это были гильдии: студенты сами нанимали преподавателей и штрафовали их за опоздания."
+   },
+   {
+    "text": "The word universitas simply meant a association of people, not a place with buildings.",
+    "translationRu": "Слово universitas значило просто объединение людей, а не место со зданиями."
+   },
+   {
+    "text": "Today the argument usually splits in two.",
+    "translationRu": "Сегодня спор обычно распадается надвое."
+   },
+   {
+    "text": "One side says a degree should lead to a job, and that anything else is an expensive hobby.",
+    "translationRu": "Одни говорят: диплом должен вести к работе, а всё прочее — дорогое хобби."
+   },
+   {
+    "text": "The other says a university exists to teach people how to think, and that the job will follow.",
+    "translationRu": "Другие — что университет учит думать, а работа приложится."
+   },
+   {
+    "text": "Both sides are describing something real, which is why neither can win.",
+    "translationRu": "Обе стороны описывают что-то настоящее — потому ни одна и не может победить."
+   },
+   {
+    "text": "But there is a third thing universities do that almost nobody mentions.",
+    "translationRu": "Но есть и третье, о чём почти никто не говорит."
+   },
+   {
+    "text": "They put you in a room with people who disagree with you and give you four years to work out why.",
+    "translationRu": "Они сажают тебя в одну комнату с теми, кто с тобой не согласен, и дают четыре года, чтобы понять почему."
+   },
+   {
+    "text": "Most of what graduates remember is not from lectures.",
+    "translationRu": "Большая часть того, что помнят выпускники, — не с лекций."
+   },
+   {
+    "text": "It is an argument at two in the morning with somebody who had read a book you had not.",
+    "translationRu": "Это спор в два часа ночи с человеком, который прочёл книгу, которую ты не читал."
+   },
+   {
+    "text": "This is hard to measure, so it does not appear in rankings.",
+    "translationRu": "Это трудно измерить, поэтому в рейтинги оно не попадает."
+   },
+   {
+    "text": "Rankings count research papers, staff numbers and the salaries of graduates.",
+    "translationRu": "Рейтинги считают статьи, численность штата и зарплаты выпускников."
+   },
+   {
+    "text": "They cannot count whether anyone changed their mind about anything.",
+    "translationRu": "Они не могут посчитать, передумал ли кто-нибудь хоть о чём-то."
+   },
+   {
+    "text": "Which may explain a strange fact about the best universities.",
+    "translationRu": "Возможно, этим объясняется странность лучших университетов."
+   },
+   {
+    "text": "They are rarely the ones that promise the most.",
+    "translationRu": "Они редко те, кто больше всех обещает."
+   },
+   {
+    "text": "They are the ones that make the fewest promises and simply gather interesting people in the same place.",
+    "translationRu": "Это те, кто обещает меньше всех и просто собирает интересных людей в одном месте."
+   },
+   {
+    "text": "The rest, historically, has taken care of itself.",
+    "translationRu": "Остальное исторически устраивалось само."
+   }
+  ],
+  "glossary": {
+   "guild": {
+    "translation": "гильдия, цех",
+    "partOfSpeech": "noun"
+   },
+   "fine": {
+    "translation": "штрафовать",
+    "partOfSpeech": "verb"
+   },
+   "degree": {
+    "translation": "диплом, степень",
+    "partOfSpeech": "noun"
+   },
+   "graduate": {
+    "translation": "выпускник",
+    "partOfSpeech": "noun"
+   },
+   "ranking": {
+    "translation": "рейтинг",
+    "partOfSpeech": "noun"
+   },
+   "measure": {
+    "translation": "измерить",
+    "partOfSpeech": "verb"
+   },
+   "gather": {
+    "translation": "собирать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What were the first universities?",
+    "options": [
+     "Royal schools",
+     "Guilds of students who hired their own teachers",
+     "Monasteries",
+     "Libraries"
+    ],
+    "answer": 1,
+    "explanation": "Students hired teachers and fined them for lateness."
+   },
+   {
+    "id": "q2",
+    "question": "What third purpose does the text add to the usual argument?",
+    "options": [
+     "Sport",
+     "Being put among people who disagree with you",
+     "Cheap housing",
+     "Foreign languages"
+    ],
+    "answer": 1,
+    "explanation": "Four years in a room with people who disagree."
+   },
+   {
+    "id": "q3",
+    "question": "Why does this third thing not appear in rankings?",
+    "options": [
+     "It is illegal",
+     "It cannot be measured",
+     "It is too expensive",
+     "Nobody believes in it"
+    ],
+    "answer": 1,
+    "explanation": "Rankings count papers and salaries, not changed minds."
+   }
+  ]
+ }
 ]

@@ -236,5 +236,327 @@
     "explanation": "The closing line states exactly this."
    }
   ]
+ },
+ {
+  "id": "the-crow-that-remembers",
+  "level": "A2",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Crow That Remembers Your Face",
+  "sentences": [
+   {
+    "text": "Crows are large black birds, and they live in almost every city in the world.",
+    "translationRu": "Вороны — крупные чёрные птицы, и живут они почти в каждом городе мира."
+   },
+   {
+    "text": "Most people walk past them without looking.",
+    "translationRu": "Большинство проходит мимо, не поднимая глаз."
+   },
+   {
+    "text": "The crows are looking at you.",
+    "translationRu": "А вороны смотрят на вас."
+   },
+   {
+    "text": "Scientists in America did a strange experiment.",
+    "translationRu": "Учёные в Америке поставили странный опыт."
+   },
+   {
+    "text": "They put on rubber masks and caught a few crows.",
+    "translationRu": "Они надели резиновые маски и поймали несколько ворон."
+   },
+   {
+    "text": "The birds were not hurt, and after a short time they were free again.",
+    "translationRu": "Птиц не обидели, и вскоре их отпустили."
+   },
+   {
+    "text": "But the crows remembered the mask.",
+    "translationRu": "Но вороны запомнили маску."
+   },
+   {
+    "text": "When a scientist walked through the park in that mask a week later, the crows shouted at him.",
+    "translationRu": "Когда через неделю учёный прошёл по парку в этой маске, вороны подняли на него крик."
+   },
+   {
+    "text": "A month later, they still shouted.",
+    "translationRu": "Через месяц они кричали снова."
+   },
+   {
+    "text": "Five years later, they were still shouting.",
+    "translationRu": "Через пять лет — всё ещё кричали."
+   },
+   {
+    "text": "And here is the strangest part.",
+    "translationRu": "И вот самое странное."
+   },
+   {
+    "text": "Young crows shouted too, birds that had never been caught at all.",
+    "translationRu": "Молодые вороны тоже кричали — те, кого никогда не ловили."
+   },
+   {
+    "text": "Their parents had taught them which face was dangerous.",
+    "translationRu": "Родители научили их, какое лицо опасно."
+   },
+   {
+    "text": "This is called social learning, and very few animals can do it.",
+    "translationRu": "Это называется социальным обучением, и умеют так очень немногие животные."
+   },
+   {
+    "text": "Crows also use tools.",
+    "translationRu": "Вороны ещё и пользуются орудиями."
+   },
+   {
+    "text": "They bend wire into hooks to pull food out of narrow tubes.",
+    "translationRu": "Они гнут проволоку крючком, чтобы достать еду из узких трубок."
+   },
+   {
+    "text": "Some drop nuts onto roads and wait for cars to break them open.",
+    "translationRu": "Некоторые бросают орехи на дорогу и ждут, пока машины их раздавят."
+   },
+   {
+    "text": "A few have learned to do this at traffic lights, so they can collect the nut safely when the cars stop.",
+    "translationRu": "Кое-кто научился делать это у светофора, чтобы спокойно подобрать орех, когда машины встанут."
+   },
+   {
+    "text": "So be careful in the park.",
+    "translationRu": "Так что будьте осторожны в парке."
+   },
+   {
+    "text": "If you are kind to a crow, it may remember you.",
+    "translationRu": "Если вы добры к вороне, она может вас запомнить."
+   },
+   {
+    "text": "If you are not, it will tell its friends.",
+    "translationRu": "Если нет — она расскажет подругам."
+   }
+  ],
+  "glossary": {
+   "rubber": {
+    "translation": "резиновый",
+    "partOfSpeech": "adjective"
+   },
+   "shout at": {
+    "translation": "кричать на",
+    "partOfSpeech": "phrase"
+   },
+   "bend": {
+    "translation": "гнуть",
+    "partOfSpeech": "verb"
+   },
+   "hook": {
+    "translation": "крючок",
+    "partOfSpeech": "noun"
+   },
+   "narrow": {
+    "translation": "узкий",
+    "partOfSpeech": "adjective"
+   },
+   "tool": {
+    "translation": "орудие, инструмент",
+    "partOfSpeech": "noun"
+   },
+   "collect": {
+    "translation": "подобрать, забрать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What did the scientists wear?",
+    "options": [
+     "Gloves",
+     "Rubber masks",
+     "Bright coats",
+     "Nothing special"
+    ],
+    "answer": 1,
+    "explanation": "They put on rubber masks before catching the crows."
+   },
+   {
+    "id": "q2",
+    "question": "Why did young crows shout at the mask?",
+    "options": [
+     "They were caught too",
+     "Their parents taught them it was dangerous",
+     "They disliked the colour",
+     "They were hungry"
+    ],
+    "answer": 1,
+    "explanation": "The text calls this social learning."
+   },
+   {
+    "id": "q3",
+    "question": "Why do some crows use traffic lights?",
+    "options": [
+     "They like the colours",
+     "So they can collect the nut safely when cars stop",
+     "To keep warm",
+     "To find water"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly in the text."
+   }
+  ]
+ },
+ {
+  "id": "the-forest-underground",
+  "level": "C1",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Forest Is Talking Under Your Feet",
+  "sentences": [
+   {
+    "text": "Walk into any old forest and you are standing on a network you cannot see.",
+    "translationRu": "Зайдите в любой старый лес — и вы стоите на сети, которой не видно."
+   },
+   {
+    "text": "Beneath the leaf litter, threads of fungus wind through the soil and wrap themselves around the roots of trees.",
+    "translationRu": "Под лиственной подстилкой нити грибницы вьются сквозь почву и оплетают корни деревьев."
+   },
+   {
+    "text": "A single teaspoon of forest soil can hold several kilometres of them.",
+    "translationRu": "В одной чайной ложке лесной почвы их может уместиться несколько километров."
+   },
+   {
+    "text": "The arrangement is not an invasion but a bargain, and a very old one.",
+    "translationRu": "Это не вторжение, а сделка — и очень древняя."
+   },
+   {
+    "text": "Fungi cannot photosynthesise, so they cannot make sugar.",
+    "translationRu": "Грибы не умеют фотосинтезировать, а значит не умеют делать сахар."
+   },
+   {
+    "text": "Trees can, but their roots are clumsy instruments for extracting phosphorus and nitrogen from soil.",
+    "translationRu": "Деревья умеют, но их корни — грубый инструмент для добычи фосфора и азота из почвы."
+   },
+   {
+    "text": "So they trade.",
+    "translationRu": "Поэтому они торгуют."
+   },
+   {
+    "text": "The tree hands over sugar; the fungus, whose threads are finer than any root could ever be, hands back minerals it has gathered from a far larger volume of earth.",
+    "translationRu": "Дерево отдаёт сахар; гриб, чьи нити тоньше любого корня, возвращает минералы, собранные с куда большего объёма земли."
+   },
+   {
+    "text": "Roughly ninety per cent of land plants have some version of this arrangement.",
+    "translationRu": "Примерно девяносто процентов наземных растений живут по этой схеме."
+   },
+   {
+    "text": "It is not an unusual strategy; it is the default one.",
+    "translationRu": "Это не редкая стратегия, а норма."
+   },
+   {
+    "text": "What made this genuinely startling was the discovery that the network carries more than minerals.",
+    "translationRu": "По-настоящему поразительным стало открытие, что по сети идут не только минералы."
+   },
+   {
+    "text": "Carbon has been tracked moving from one tree into another through fungal threads, sometimes between different species entirely.",
+    "translationRu": "Углерод прослеживали на пути из одного дерева в другое по грибным нитям — порой между совершенно разными видами."
+   },
+   {
+    "text": "A large old tree in full sun may effectively subsidise a seedling struggling in its shade.",
+    "translationRu": "Большое старое дерево на солнце может, по сути, подкармливать саженец, бедствующий в его тени."
+   },
+   {
+    "text": "The temptation is to describe this as generosity, and the temptation should be resisted.",
+    "translationRu": "Соблазн назвать это щедростью велик — и ему стоит сопротивляться."
+   },
+   {
+    "text": "The fungus is not a postal service run for the benefit of trees.",
+    "translationRu": "Гриб — не почтовая служба, работающая на благо деревьев."
+   },
+   {
+    "text": "It is an organism pursuing its own interests, and it may simply be in its interest to keep its hosts alive.",
+    "translationRu": "Это организм, преследующий свои интересы, и в его интересах может быть просто держать хозяев живыми."
+   },
+   {
+    "text": "There is evidence of tolls, of unequal exchange rates, of fungi favouring the trees that pay best.",
+    "translationRu": "Есть свидетельства поборов, неравных курсов обмена, предпочтения тем деревьям, что платят щедрее."
+   },
+   {
+    "text": "It resembles a market rather more than it resembles a family.",
+    "translationRu": "Это похоже скорее на рынок, чем на семью."
+   },
+   {
+    "text": "Still, the old picture of a forest as a crowd of individuals competing for light is finished.",
+    "translationRu": "И всё же старая картина леса как толпы одиночек, конкурирующих за свет, больше не работает."
+   },
+   {
+    "text": "What is down there is closer to an economy: negotiated, self-interested, and entirely dependent on everybody staying in business.",
+    "translationRu": "То, что внизу, ближе к экономике: договорной, своекорыстной и полностью зависящей от того, чтобы все остались на плаву."
+   }
+  ],
+  "glossary": {
+   "leaf litter": {
+    "translation": "лиственная подстилка",
+    "partOfSpeech": "phrase"
+   },
+   "fungus": {
+    "translation": "гриб, грибница",
+    "partOfSpeech": "noun"
+   },
+   "bargain": {
+    "translation": "сделка, уговор",
+    "partOfSpeech": "noun"
+   },
+   "clumsy": {
+    "translation": "неуклюжий, грубый",
+    "partOfSpeech": "adjective"
+   },
+   "startling": {
+    "translation": "поразительный",
+    "partOfSpeech": "adjective"
+   },
+   "subsidise": {
+    "translation": "подкармливать, субсидировать",
+    "partOfSpeech": "verb"
+   },
+   "toll": {
+    "translation": "пошлина, поборы",
+    "partOfSpeech": "noun"
+   },
+   "self-interested": {
+    "translation": "своекорыстный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What do trees and fungi exchange?",
+    "options": [
+     "Water for light",
+     "Sugar for minerals",
+     "Seeds for shelter",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "The tree hands over sugar; the fungus returns phosphorus and nitrogen."
+   },
+   {
+    "id": "q2",
+    "question": "Why does the text resist calling this generosity?",
+    "options": [
+     "It is too rare",
+     "The fungus pursues its own interests and may favour trees that pay best",
+     "Trees cannot feel",
+     "It was disproved"
+    ],
+    "answer": 1,
+    "explanation": "It speaks of tolls and unequal exchange rates."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text say the forest floor resembles?",
+    "options": [
+     "A family",
+     "A market or economy",
+     "A library",
+     "A battlefield"
+    ],
+    "answer": 1,
+    "explanation": "Closer to an economy: negotiated and self-interested."
+   }
+  ]
  }
 ]

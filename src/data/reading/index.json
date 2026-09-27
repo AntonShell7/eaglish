@@ -6,9 +6,10 @@
    "A1-A2": 7,
    "B1-B2": 7,
    "C1-C2": 7,
-   "A2": 1
+   "A2": 1,
+   "B2": 1
   },
-  "total": 22
+  "total": 23
  },
  {
   "id": "daily-life",
@@ -41,6 +42,37 @@
   "total": 15
  },
  {
+  "id": "environment",
+  "label": "Environment",
+  "counts": {
+   "B1-B2": 1,
+   "B2": 1,
+   "A2": 1,
+   "C1": 1
+  },
+  "total": 4
+ },
+ {
+  "id": "culture",
+  "label": "Culture",
+  "counts": {
+   "B1-B2": 1,
+   "C1": 1,
+   "B2": 1
+  },
+  "total": 3
+ },
+ {
+  "id": "health",
+  "label": "Health",
+  "counts": {
+   "C1-C2": 1,
+   "B1": 1,
+   "C1": 1
+  },
+  "total": 3
+ },
+ {
   "id": "business",
   "label": "Business",
   "counts": {
@@ -50,28 +82,10 @@
   "total": 2
  },
  {
-  "id": "culture",
-  "label": "Culture",
+  "id": "society",
+  "label": "Society",
   "counts": {
    "B1-B2": 1,
-   "C1": 1
-  },
-  "total": 2
- },
- {
-  "id": "environment",
-  "label": "Environment",
-  "counts": {
-   "B1-B2": 1,
-   "B2": 1
-  },
-  "total": 2
- },
- {
-  "id": "health",
-  "label": "Health",
-  "counts": {
-   "C1-C2": 1,
    "B1": 1
   },
   "total": 2
@@ -84,13 +98,5 @@
    "B1": 1
   },
   "total": 2
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1-B2": 1
-  },
-  "total": 1
  }
 ]

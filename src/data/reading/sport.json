@@ -109,70 +109,110 @@
   "level": "B1",
   "topic": "sport",
   "generated": false,
-  "title": "The Loneliest Position",
+  "title": "The Loneliest Job in Football",
   "sentences": [
    {
-    "text": "Every outfield player can hide behind a bad afternoon.",
-    "translationRu": "Любой полевой игрок может спрятаться за неудачным днём."
+    "text": "There are eleven players in a football team, and ten of them can hide.",
+    "translationRu": "В футбольной команде одиннадцать игроков, и десять из них могут спрятаться."
    },
    {
-    "text": "A midfielder misplaces twenty passes and nobody counts them.",
-    "translationRu": "Полузащитник отдаёт двадцать неточных передач, и никто их не считает."
+    "text": "The goalkeeper cannot.",
+    "translationRu": "Вратарь — нет."
    },
    {
-    "text": "The goalkeeper gets one mistake, and it is replayed until the end of the season.",
-    "translationRu": "Вратарю достаётся одна ошибка — и её крутят в повторах до конца сезона."
+    "text": "He stands alone in front of the net for ninety minutes, and everything that happens to him happens in front of forty thousand people.",
+    "translationRu": "Он девяносто минут стоит один перед сеткой, и всё, что с ним случается, случается на глазах у сорока тысяч человек."
    },
    {
-    "text": "This is why the position attracts a particular kind of person: calm to the point of being unnerving.",
-    "translationRu": "Поэтому позиция притягивает людей особого склада — спокойных до оторопи."
+    "text": "A midfielder can misplace twenty passes in an afternoon and nobody keeps count.",
+    "translationRu": "Полузащитник может за матч отдать двадцать неточных передач, и никто их не считает."
    },
    {
-    "text": "For eighty minutes a keeper may do nothing at all.",
-    "translationRu": "Восемьдесят минут вратарь может не делать ровным счётом ничего."
+    "text": "A striker can miss six chances and still be forgiven if he scores the seventh.",
+    "translationRu": "Нападающий может запороть шесть моментов — и всё простится, если забьёт седьмой."
    },
    {
-    "text": "He stamps his feet, shouts at a defence that ignores him, and watches the game unfold at the far end.",
-    "translationRu": "Он топчется на месте, кричит на защиту, которая его не слышит, и смотрит, как игра идёт на другом конце поля."
+    "text": "The goalkeeper is allowed one mistake, and it is replayed until the end of the season.",
+    "translationRu": "Вратарю позволена одна ошибка — и её крутят в повторах до конца сезона."
    },
    {
-    "text": "Then, without warning, everything he trained for arrives in half a second.",
+    "text": "This is why the job attracts a particular kind of person.",
+    "translationRu": "Поэтому эта позиция притягивает людей особого склада."
+   },
+   {
+    "text": "Coaches look for someone calm to the point of being unnerving, the sort who does not flinch when a stadium turns on him.",
+    "translationRu": "Тренеры ищут человека спокойного до оторопи — такого, который не дрогнет, когда стадион оборачивается против него."
+   },
+   {
+    "text": "For long stretches of a match a keeper does nothing at all.",
+    "translationRu": "Подолгу в течение матча вратарь не делает ровным счётом ничего."
+   },
+   {
+    "text": "He stamps his feet to stay warm.",
+    "translationRu": "Он топчется на месте, чтобы не замёрзнуть."
+   },
+   {
+    "text": "He shouts instructions at a defence that is too far away to hear him.",
+    "translationRu": "Он выкрикивает указания защите, которая слишком далеко, чтобы его услышать."
+   },
+   {
+    "text": "He watches the game unfold at the other end of the pitch like a spectator who happens to be wearing gloves.",
+    "translationRu": "Он смотрит, как игра разворачивается на другом конце поля, будто зритель, которому зачем-то выдали перчатки."
+   },
+   {
+    "text": "Then, without warning, everything he has trained for arrives in half a second.",
     "translationRu": "А потом, без предупреждения, всё, ради чего он тренировался, обрушивается за полсекунды."
    },
    {
-    "text": "Great keepers talk about reading the game rather than reacting to it.",
-    "translationRu": "Хорошие вратари говорят, что читают игру, а не реагируют на неё."
+    "text": "The best keepers describe their job as reading the game rather than reacting to it.",
+    "translationRu": "Лучшие вратари описывают свою работу как чтение игры, а не реакцию на неё."
    },
    {
-    "text": "They watch a striker's hips, not the ball, because hips cannot lie about where a shot is going.",
-    "translationRu": "Они смотрят не на мяч, а на бёдра нападающего: бёдра не соврут о направлении удара."
+    "text": "A shot travels too fast for human reflexes to be enough on their own.",
+    "translationRu": "Удар летит слишком быстро, чтобы одних человеческих рефлексов хватило."
    },
    {
-    "text": "By the time the ball is struck, the decision has already been made.",
-    "translationRu": "К моменту удара решение уже принято."
+    "text": "So they watch the striker's hips instead of the ball, because hips cannot lie about where a shot is going.",
+    "translationRu": "Поэтому они смотрят не на мяч, а на бёдра нападающего: бёдра не соврут о направлении удара."
    },
    {
-    "text": "The hardest part is not the save but what comes after conceding.",
-    "translationRu": "Труднее всего не сейв, а то, что наступает после пропущенного мяча."
+    "text": "By the time the ball is actually struck, the decision has already been made.",
+    "translationRu": "К моменту самого удара решение уже принято."
    },
    {
-    "text": "A keeper who is still angry about the first goal will let in a second.",
-    "translationRu": "Вратарь, который всё ещё злится на первый гол, пропустит и второй."
+    "text": "But the hardest part of the job is not the save.",
+    "translationRu": "Но самое трудное в этой работе — не сейв."
    },
    {
-    "text": "The job asks you to forget something everyone else in the stadium is still discussing.",
-    "translationRu": "Работа требует забыть то, что весь стадион ещё обсуждает."
+    "text": "It is what happens in the two minutes after conceding.",
+    "translationRu": "А то, что происходит в две минуты после пропущенного мяча."
    },
    {
-    "text": "That, more than the diving, is the skill.",
-    "translationRu": "Вот это, а не прыжки, и есть мастерство."
+    "text": "A keeper who is still furious about the first goal will let in a second, because anger makes you early, and being early is how you get beaten at the near post.",
+    "translationRu": "Вратарь, который всё ещё в бешенстве от первого гола, пропустит второй: злость заставляет выходить раньше времени, а именно так и ловят на ближней штанге."
+   },
+   {
+    "text": "The job asks you to forget, in ninety seconds, the one thing that everybody in the building is still talking about.",
+    "translationRu": "Работа требует забыть за полторы минуты то, что все в здании ещё обсуждают."
+   },
+   {
+    "text": "That, far more than the diving, is the skill.",
+    "translationRu": "Вот это, а вовсе не прыжки, и есть мастерство."
+   },
+   {
+    "text": "It is also the reason goalkeepers tend to have long careers.",
+    "translationRu": "И это же причина, по которой у вратарей обычно долгие карьеры."
+   },
+   {
+    "text": "Legs go at thirty-two.",
+    "translationRu": "Ноги сдают к тридцати двум."
+   },
+   {
+    "text": "Composure does not.",
+    "translationRu": "Хладнокровие — нет."
    }
   ],
   "glossary": {
-   "outfield": {
-    "translation": "полевой (игрок, кроме вратаря)",
-    "partOfSpeech": "adjective"
-   },
    "misplace": {
     "translation": "отдать неточно, потерять",
     "partOfSpeech": "verb"
@@ -180,6 +220,10 @@
    "unnerving": {
     "translation": "выбивающий из колеи",
     "partOfSpeech": "adjective"
+   },
+   "flinch": {
+    "translation": "дрогнуть, вздрогнуть",
+    "partOfSpeech": "verb"
    },
    "unfold": {
     "translation": "разворачиваться, идти своим чередом",
@@ -189,51 +233,67 @@
     "translation": "пропустить (гол)",
     "partOfSpeech": "verb"
    },
-   "striker": {
-    "translation": "нападающий",
+   "furious": {
+    "translation": "в бешенстве",
+    "partOfSpeech": "adjective"
+   },
+   "composure": {
+    "translation": "хладнокровие, самообладание",
     "partOfSpeech": "noun"
    },
-   "save": {
-    "translation": "сейв, спасение ворот",
+   "spectator": {
+    "translation": "зритель",
     "partOfSpeech": "noun"
    }
   },
   "questions": [
    {
     "id": "q1",
-    "question": "Why does the text call this the loneliest position?",
+    "question": "Why can ten players hide but not the goalkeeper?",
     "options": [
-     "Keepers train alone",
-     "One mistake is remembered while others' are not",
-     "Keepers rarely touch the ball",
-     "Fans dislike goalkeepers"
+     "They run more",
+     "Their mistakes are not counted the same way",
+     "They wear different shirts",
+     "They play closer to the crowd"
     ],
     "answer": 1,
-    "explanation": "It contrasts a midfielder's twenty unnoticed errors with the keeper's single, endlessly replayed one."
+    "explanation": "A midfielder's twenty loose passes go uncounted; the keeper's single error is replayed all season."
    },
    {
     "id": "q2",
-    "question": "What do great keepers watch instead of the ball?",
+    "question": "Why do keepers watch the hips rather than the ball?",
     "options": [
-     "The referee",
-     "The striker's eyes",
-     "The striker's hips",
-     "The crowd"
+     "The ball is too small",
+     "A shot is too fast for reflexes alone, and hips reveal direction early",
+     "The referee watches the ball",
+     "To avoid the floodlights"
     ],
-    "answer": 2,
-    "explanation": "The text says hips cannot lie about where a shot is going."
+    "answer": 1,
+    "explanation": "The text says the decision is made before the ball is struck."
    },
    {
     "id": "q3",
-    "question": "What does the text call the real skill?",
+    "question": "Why does anger after conceding lead to a second goal?",
     "options": [
-     "Diving quickly",
-     "Shouting at the defence",
-     "Forgetting a goal already conceded",
-     "Standing still"
+     "It tires the keeper",
+     "It makes him move too early, and early is how you are beaten at the near post",
+     "It distracts the defence",
+     "It makes him shout"
     ],
-    "answer": 2,
-    "explanation": "The job asks you to forget what the whole stadium is still discussing."
+    "answer": 1,
+    "explanation": "Stated almost word for word in the text."
+   },
+   {
+    "id": "q4",
+    "question": "Why do goalkeepers often have long careers?",
+    "options": [
+     "They run less",
+     "Composure lasts longer than legs",
+     "They start later",
+     "Clubs pay them more"
+    ],
+    "answer": 1,
+    "explanation": "The closing lines contrast legs going at thirty-two with composure not going."
    }
   ]
  }

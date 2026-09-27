@@ -244,5 +244,170 @@
     "explanation": "The text describes exactly this drawing."
    }
   ]
+ },
+ {
+  "id": "why-you-cannot-tickle-yourself",
+  "level": "C1",
+  "topic": "health",
+  "generated": false,
+  "title": "Why You Cannot Tickle Yourself",
+  "sentences": [
+   {
+    "text": "Try to tickle yourself and nothing happens.",
+    "translationRu": "Попробуйте пощекотать себя — и ничего не произойдёт."
+   },
+   {
+    "text": "The same fingers, the same ribs, the same pressure that would have you helpless if somebody else applied it, and the effect simply does not arrive.",
+    "translationRu": "Те же пальцы, те же рёбра, то же давление, от которого вы бы беспомощно бились, сделай это кто-то другой, — а эффекта попросту нет."
+   },
+   {
+    "text": "This is not a curiosity.",
+    "translationRu": "Это не пустяк."
+   },
+   {
+    "text": "It is a window onto one of the brain's central tricks.",
+    "translationRu": "Это окно в один из главных фокусов мозга."
+   },
+   {
+    "text": "Every time you intend to move, your brain does something clever and slightly paranoid.",
+    "translationRu": "Каждый раз, когда вы собираетесь двинуться, мозг делает кое-что умное и слегка параноидальное."
+   },
+   {
+    "text": "Alongside the command to the muscles it sends a copy of that command to the sensory areas, a kind of memo saying: this is what we are about to do, expect the following.",
+    "translationRu": "Вместе с командой мышцам он отправляет копию этой команды в сенсорные зоны — что-то вроде служебной записки: вот что мы сейчас сделаем, ожидай следующее."
+   },
+   {
+    "text": "The prediction is then subtracted from what actually arrives.",
+    "translationRu": "Предсказание затем вычитается из того, что действительно приходит."
+   },
+   {
+    "text": "Sensations you generated yourself are quietly cancelled, and only the unexpected remainder reaches your attention.",
+    "translationRu": "Ощущения, которые вы создали сами, тихо гасятся, и до внимания доходит лишь неожиданный остаток."
+   },
+   {
+    "text": "This is why you do not feel your own clothes all day, and why the room does not lurch every time your eyes flick across it.",
+    "translationRu": "Поэтому вы не чувствуете одежду весь день и поэтому комната не дёргается при каждом движении глаз."
+   },
+   {
+    "text": "Tickling lives entirely in that unexpected remainder.",
+    "translationRu": "Щекотка целиком живёт в этом неожиданном остатке."
+   },
+   {
+    "text": "Cancel the surprise and you cancel the sensation.",
+    "translationRu": "Уберите неожиданность — и ощущение исчезает."
+   },
+   {
+    "text": "Researchers built a machine to test this, a device that tickles your palm through a mechanical arm you control yourself.",
+    "translationRu": "Исследователи построили для проверки машину: она щекочет ладонь через механическую руку, которой управляешь ты сам."
+   },
+   {
+    "text": "Operated without delay, it tickles no better than your own hand.",
+    "translationRu": "Без задержки она щекочет не лучше собственной руки."
+   },
+   {
+    "text": "Introduce a lag of a fifth of a second, and it starts to work.",
+    "translationRu": "Введите задержку в пятую долю секунды — и она начинает работать."
+   },
+   {
+    "text": "The prediction no longer matches the arrival, the subtraction fails, and the brain treats the touch as something happening to you rather than something you are doing.",
+    "translationRu": "Предсказание перестаёт совпадать с приходом, вычитание не срабатывает, и мозг считает прикосновение тем, что происходит с вами, а не тем, что делаете вы."
+   },
+   {
+    "text": "The system matters far beyond tickling.",
+    "translationRu": "Этот механизм важен далеко за пределами щекотки."
+   },
+   {
+    "text": "It is how you know which movements are yours.",
+    "translationRu": "Именно так вы понимаете, какие движения — ваши."
+   },
+   {
+    "text": "There is a longstanding hypothesis that when the machinery misfires, self-generated actions and thoughts stop being tagged as self-generated, and start being experienced as coming from somewhere else.",
+    "translationRu": "Есть давняя гипотеза: когда этот механизм сбоит, собственные действия и мысли перестают помечаться как собственные и начинают переживаться как приходящие извне."
+   },
+   {
+    "text": "On that account, a symptom often described as hearing voices may be closer to a failure of subtraction than to a failure of hearing.",
+    "translationRu": "По этой версии симптом, который описывают как «голоса», ближе к сбою вычитания, чем к сбою слуха."
+   },
+   {
+    "text": "It remains a hypothesis rather than a settled fact.",
+    "translationRu": "Это по-прежнему гипотеза, а не установленный факт."
+   },
+   {
+    "text": "But it is a striking thought that the reason you cannot tickle yourself and the reason you know your thoughts are yours may turn out to be the same mechanism.",
+    "translationRu": "Но мысль поразительная: причина, по которой вы не можете себя пощекотать, и причина, по которой вы знаете, что мысли ваши, могут оказаться одним и тем же механизмом."
+   }
+  ],
+  "glossary": {
+   "tickle": {
+    "translation": "щекотать",
+    "partOfSpeech": "verb"
+   },
+   "helpless": {
+    "translation": "беспомощный",
+    "partOfSpeech": "adjective"
+   },
+   "subtract": {
+    "translation": "вычитать",
+    "partOfSpeech": "verb"
+   },
+   "remainder": {
+    "translation": "остаток",
+    "partOfSpeech": "noun"
+   },
+   "lurch": {
+    "translation": "дёргаться, шататься",
+    "partOfSpeech": "verb"
+   },
+   "lag": {
+    "translation": "задержка",
+    "partOfSpeech": "noun"
+   },
+   "misfire": {
+    "translation": "давать сбой",
+    "partOfSpeech": "verb"
+   },
+   "settled": {
+    "translation": "установленный, решённый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does the brain send alongside a movement command?",
+    "options": [
+     "Extra blood",
+     "A copy of the command predicting the sensation",
+     "A pain signal",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "A memo saying what to expect, which is then subtracted from what arrives."
+   },
+   {
+    "id": "q2",
+    "question": "What made the tickling machine work?",
+    "options": [
+     "More pressure",
+     "A delay of about a fifth of a second",
+     "A softer touch",
+     "Closing the eyes"
+    ],
+    "answer": 1,
+    "explanation": "The lag makes prediction and arrival stop matching."
+   },
+   {
+    "id": "q3",
+    "question": "How does the text describe the hypothesis about hearing voices?",
+    "options": [
+     "A proven fact",
+     "A hypothesis rather than a settled fact",
+     "A myth",
+     "A joke"
+    ],
+    "answer": 1,
+    "explanation": "The text states this explicitly before drawing the closing thought."
+   }
+  ]
  }
 ]

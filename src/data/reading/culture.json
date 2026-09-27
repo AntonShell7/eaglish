@@ -244,5 +244,158 @@
     "explanation": "The text says it was meant less literally than it sounds."
    }
   ]
+ },
+ {
+  "id": "famous-for-a-living",
+  "level": "B2",
+  "topic": "culture",
+  "generated": false,
+  "title": "Being Famous Is a Job, and a Strange One",
+  "sentences": [
+   {
+    "text": "Fame used to be a side effect of doing something.",
+    "translationRu": "Слава раньше была побочным эффектом какого-то дела."
+   },
+   {
+    "text": "You wrote a symphony, won a war or discovered a continent, and people talked about you afterwards.",
+    "translationRu": "Ты писал симфонию, выигрывал войну или открывал континент — и о тебе потом говорили."
+   },
+   {
+    "text": "For roughly a century now, fame has also been available on its own, as an occupation with no underlying trade.",
+    "translationRu": "Примерно век как слава доступна и сама по себе — как профессия без ремесла под ней."
+   },
+   {
+    "text": "The job has unusual working conditions.",
+    "translationRu": "Условия труда у неё необычные."
+   },
+   {
+    "text": "There is no weekend, because recognition does not stop at six on a Friday.",
+    "translationRu": "Выходных нет: узнаваемость не выключается в шесть вечера в пятницу."
+   },
+   {
+    "text": "There is no way to resign, because the public does not accept a letter of notice.",
+    "translationRu": "Уволиться нельзя: публика не принимает заявлений."
+   },
+   {
+    "text": "And the product is not a thing but a person, which means every criticism of the work is a criticism of the worker.",
+    "translationRu": "И продукт здесь не вещь, а человек, поэтому любая критика работы — это критика работника."
+   },
+   {
+    "text": "Psychologists who study the very famous describe something they call the acquired situational narcissism.",
+    "translationRu": "Психологи, изучающие очень известных, описывают то, что называют приобретённым ситуативным нарциссизмом."
+   },
+   {
+    "text": "The idea is unflattering but simple: treat anyone as extraordinary for long enough and they will start behaving as though they are.",
+    "translationRu": "Мысль нелестная, но простая: относитесь к человеку как к исключительному достаточно долго — и он начнёт вести себя соответственно."
+   },
+   {
+    "text": "It is not a character flaw so much as a predictable response to a distorted environment.",
+    "translationRu": "Это не столько порок характера, сколько предсказуемая реакция на искажённую среду."
+   },
+   {
+    "text": "Nobody disagrees with you.",
+    "translationRu": "С тобой никто не спорит."
+   },
+   {
+    "text": "Nobody is late for you.",
+    "translationRu": "К тебе никто не опаздывает."
+   },
+   {
+    "text": "Nobody tells you the second album is thin.",
+    "translationRu": "Никто не скажет, что второй альбом пустоват."
+   },
+   {
+    "text": "The people best placed to say so are usually paid by you, which settles the matter.",
+    "translationRu": "Те, кто мог бы сказать, обычно получают от тебя зарплату — на этом вопрос закрыт."
+   },
+   {
+    "text": "The interesting cases are the ones who survive it, and they tend to have one thing in common.",
+    "translationRu": "Интересны те, кто это переживает, и у них обычно есть одна общая черта."
+   },
+   {
+    "text": "They keep a small number of people around who knew them before, and who are constitutionally incapable of being impressed.",
+    "translationRu": "Они держат рядом несколько человек, знавших их до, — тех, кто органически не способен впечатляться."
+   },
+   {
+    "text": "An old friend who still finds you ridiculous is worth more than an agent.",
+    "translationRu": "Старый друг, которому ты по-прежнему кажешься смешным, дороже агента."
+   },
+   {
+    "text": "It is the cheapest insurance in the industry and the hardest to arrange after the fact.",
+    "translationRu": "Это самая дешёвая страховка в индустрии и самая трудная для оформления задним числом."
+   }
+  ],
+  "glossary": {
+   "side effect": {
+    "translation": "побочный эффект",
+    "partOfSpeech": "phrase"
+   },
+   "occupation": {
+    "translation": "занятие, профессия",
+    "partOfSpeech": "noun"
+   },
+   "resign": {
+    "translation": "уволиться, подать в отставку",
+    "partOfSpeech": "verb"
+   },
+   "unflattering": {
+    "translation": "нелестный",
+    "partOfSpeech": "adjective"
+   },
+   "distorted": {
+    "translation": "искажённый",
+    "partOfSpeech": "adjective"
+   },
+   "thin": {
+    "translation": "пустоватый, жидкий (о работе)",
+    "partOfSpeech": "adjective"
+   },
+   "constitutionally": {
+    "translation": "по самой своей природе",
+    "partOfSpeech": "adverb"
+   },
+   "after the fact": {
+    "translation": "задним числом",
+    "partOfSpeech": "phrase"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "How was fame different in the past?",
+    "options": [
+     "It lasted longer",
+     "It was a side effect of doing something",
+     "It was illegal",
+     "Only kings had it"
+    ],
+    "answer": 1,
+    "explanation": "You did something, and people talked about you afterwards."
+   },
+   {
+    "id": "q2",
+    "question": "What is acquired situational narcissism?",
+    "options": [
+     "A birth condition",
+     "A predictable response to being treated as extraordinary",
+     "A kind of stage fright",
+     "A legal term"
+    ],
+    "answer": 1,
+    "explanation": "The text calls it a response to a distorted environment rather than a character flaw."
+   },
+   {
+    "id": "q3",
+    "question": "What do the survivors have in common?",
+    "options": [
+     "Better agents",
+     "Old friends who are incapable of being impressed",
+     "More money",
+     "Shorter careers"
+    ],
+    "answer": 1,
+    "explanation": "An old friend who still finds you ridiculous is worth more than an agent."
+   }
+  ]
  }
 ]

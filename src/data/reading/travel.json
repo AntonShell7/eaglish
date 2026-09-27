@@ -2468,5 +2468,162 @@
     "explanation": "The water rises and the squares flood for an hour or two."
    }
   ]
+ },
+ {
+  "id": "istanbul-two-continents",
+  "level": "B2",
+  "topic": "travel",
+  "generated": false,
+  "title": "Istanbul, a City That Cannot Decide Which Continent It Is On",
+  "sentences": [
+   {
+    "text": "Istanbul is the only major city in the world that sits on two continents at once.",
+    "translationRu": "Стамбул — единственный крупный город в мире, который стоит сразу на двух континентах."
+   },
+   {
+    "text": "A strait called the Bosphorus runs through the middle of it, and Europe is on one bank while Asia is on the other.",
+    "translationRu": "Посередине его рассекает пролив Босфор: на одном берегу Европа, на другом Азия."
+   },
+   {
+    "text": "Around two million people cross between them every day, most of them without thinking about it.",
+    "translationRu": "Каждый день между ними перебираются около двух миллионов человек, и большинство об этом не задумывается."
+   },
+   {
+    "text": "A commuter buys a glass of tea on a ferry, reads half a newspaper, and changes continent before finishing it.",
+    "translationRu": "Пассажир покупает на пароме стакан чая, прочитывает полгазеты — и меняет континент, не дочитав."
+   },
+   {
+    "text": "The city has been the capital of three empires and has answered to at least three names.",
+    "translationRu": "Город был столицей трёх империй и откликался как минимум на три имени."
+   },
+   {
+    "text": "Layers of it are stacked physically on top of each other.",
+    "translationRu": "Его слои буквально лежат один на другом."
+   },
+   {
+    "text": "Dig for a car park and you are as likely to find a Byzantine harbour as bedrock, which is why building anything here takes a great deal longer than the plans suggest.",
+    "translationRu": "Копни под парковку — и византийская гавань попадётся тебе с той же вероятностью, что и скала; поэтому строить здесь всегда дольше, чем обещают чертежи."
+   },
+   {
+    "text": "One metro line was delayed for years by the discovery of thirty-seven sunken ships.",
+    "translationRu": "Одну линию метро задержали на годы тридцать семь затонувших кораблей."
+   },
+   {
+    "text": "The city shrugged and built a museum.",
+    "translationRu": "Город пожал плечами и построил музей."
+   },
+   {
+    "text": "What strikes most visitors is not the monuments but the noise, and specifically how organised it is.",
+    "translationRu": "Приезжих поражают не памятники, а шум — и именно то, насколько он упорядочен."
+   },
+   {
+    "text": "Five times a day the call to prayer goes up from hundreds of minarets, slightly out of time with one another, so it arrives in waves across the water.",
+    "translationRu": "Пять раз в день с сотен минаретов поднимается призыв к молитве, чуть вразнобой, — и он идёт волнами над водой."
+   },
+   {
+    "text": "Ferries answer with horns.",
+    "translationRu": "Паромы отвечают гудками."
+   },
+   {
+    "text": "Gulls answer the ferries.",
+    "translationRu": "Чайки отвечают паромам."
+   },
+   {
+    "text": "For about four minutes the entire city is an instrument, and then it goes back to arguing about traffic.",
+    "translationRu": "Минуты четыре весь город звучит как инструмент, а потом снова принимается ругаться из-за пробок."
+   },
+   {
+    "text": "The Asian side is quieter and residents will tell you it is the real city.",
+    "translationRu": "Азиатская сторона тише, и местные скажут вам, что настоящий город именно там."
+   },
+   {
+    "text": "The European side has the postcards and most of the crowds.",
+    "translationRu": "На европейской — открытки и почти все толпы."
+   },
+   {
+    "text": "Both sides are slightly condescending about the other, in the way that river cities always are.",
+    "translationRu": "Обе стороны слегка снисходительны друг к другу — как всегда бывает в городах, разрезанных водой."
+   },
+   {
+    "text": "The best advice anyone gives about visiting is also the cheapest.",
+    "translationRu": "Лучший совет о том, как здесь бывать, заодно и самый дешёвый."
+   },
+   {
+    "text": "Take the public ferry rather than a tour boat, sit at the back, and buy the tea.",
+    "translationRu": "Садитесь на обычный паром, а не на экскурсионный, занимайте место на корме и берите чай."
+   },
+   {
+    "text": "Twenty minutes and the price of a bus ticket will show you more of the place than a week of museums.",
+    "translationRu": "Двадцать минут и цена автобусного билета покажут вам больше, чем неделя музеев."
+   }
+  ],
+  "glossary": {
+   "strait": {
+    "translation": "пролив",
+    "partOfSpeech": "noun"
+   },
+   "commuter": {
+    "translation": "человек, ездящий на работу",
+    "partOfSpeech": "noun"
+   },
+   "bedrock": {
+    "translation": "скальное основание",
+    "partOfSpeech": "noun"
+   },
+   "shrug": {
+    "translation": "пожать плечами",
+    "partOfSpeech": "verb"
+   },
+   "minaret": {
+    "translation": "минарет",
+    "partOfSpeech": "noun"
+   },
+   "gull": {
+    "translation": "чайка",
+    "partOfSpeech": "noun"
+   },
+   "condescending": {
+    "translation": "снисходительный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What makes Istanbul unique among major cities?",
+    "options": [
+     "It has no cars",
+     "It sits on two continents",
+     "It has three rivers",
+     "It is the oldest city"
+    ],
+    "answer": 1,
+    "explanation": "The Bosphorus runs through it with Europe on one bank and Asia on the other."
+   },
+   {
+    "id": "q2",
+    "question": "Why does building take longer there than planned?",
+    "options": [
+     "Bad weather",
+     "Digging keeps uncovering archaeology",
+     "Strict laws",
+     "Lack of workers"
+    ],
+    "answer": 1,
+    "explanation": "A metro line was delayed for years by thirty-seven sunken ships."
+   },
+   {
+    "id": "q3",
+    "question": "What is the writer's advice for visitors?",
+    "options": [
+     "Book a tour boat",
+     "Take the public ferry, sit at the back, buy the tea",
+     "Visit museums for a week",
+     "Stay on the European side"
+    ],
+    "answer": 1,
+    "explanation": "Twenty minutes and a bus fare show more than a week of museums."
+   }
+  ]
  }
 ]
