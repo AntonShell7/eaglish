@@ -763,5 +763,166 @@
     "explanation": "Stated in the last sentence."
    }
   ]
+ },
+ {
+  "id": "the-bird-that-never-lands",
+  "level": "A1",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Bird That Sleeps in the Air",
+  "sentences": [
+   {
+    "text": "There is a small bird called a swift.",
+    "translationRu": "Есть маленькая птица — стриж."
+   },
+   {
+    "text": "You can see swifts in summer over cities.",
+    "translationRu": "Летом стрижей видно над городами."
+   },
+   {
+    "text": "They fly fast and they make a loud noise.",
+    "translationRu": "Они летают быстро и громко кричат."
+   },
+   {
+    "text": "Swifts do something very strange.",
+    "translationRu": "Со стрижами связана очень странная вещь."
+   },
+   {
+    "text": "A young swift leaves its nest.",
+    "translationRu": "Молодой стриж покидает гнездо."
+   },
+   {
+    "text": "Then it flies.",
+    "translationRu": "И летит."
+   },
+   {
+    "text": "It does not stop for ten months.",
+    "translationRu": "Он не останавливается десять месяцев."
+   },
+   {
+    "text": "It does not sit on a tree.",
+    "translationRu": "Он не садится на дерево."
+   },
+   {
+    "text": "It does not stand on the ground.",
+    "translationRu": "Он не стоит на земле."
+   },
+   {
+    "text": "It eats in the air.",
+    "translationRu": "Он ест в воздухе."
+   },
+   {
+    "text": "It drinks in the air.",
+    "translationRu": "Он пьёт в воздухе."
+   },
+   {
+    "text": "And it sleeps in the air too.",
+    "translationRu": "И спит он тоже в воздухе."
+   },
+   {
+    "text": "Scientists put very small computers on some swifts.",
+    "translationRu": "Учёные прикрепили к стрижам крошечные приборы."
+   },
+   {
+    "text": "The computers showed the birds high in the sky at night.",
+    "translationRu": "Приборы показали птиц высоко в небе ночью."
+   },
+   {
+    "text": "They go up, and then they come down slowly while they sleep.",
+    "translationRu": "Они поднимаются вверх, а потом медленно снижаются во сне."
+   },
+   {
+    "text": "Maybe only half of the brain sleeps.",
+    "translationRu": "Возможно, спит только половина мозга."
+   },
+   {
+    "text": "The other half keeps flying.",
+    "translationRu": "Другая половина продолжает лететь."
+   },
+   {
+    "text": "A swift lands only when it makes a nest.",
+    "translationRu": "Стриж садится, только когда вьёт гнездо."
+   },
+   {
+    "text": "Its feet are small and weak.",
+    "translationRu": "Лапки у него маленькие и слабые."
+   },
+   {
+    "text": "It does not need them.",
+    "translationRu": "Они ему не нужны."
+   }
+  ],
+  "glossary": {
+   "bird": {
+    "translation": "птица",
+    "partOfSpeech": "noun"
+   },
+   "nest": {
+    "translation": "гнездо",
+    "partOfSpeech": "noun"
+   },
+   "ground": {
+    "translation": "земля",
+    "partOfSpeech": "noun"
+   },
+   "sky": {
+    "translation": "небо",
+    "partOfSpeech": "noun"
+   },
+   "slowly": {
+    "translation": "медленно",
+    "partOfSpeech": "adverb"
+   },
+   "half": {
+    "translation": "половина",
+    "partOfSpeech": "noun"
+   },
+   "land": {
+    "translation": "садиться, приземляться",
+    "partOfSpeech": "verb"
+   },
+   "weak": {
+    "translation": "слабый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "How long does a young swift fly without stopping?",
+    "options": [
+     "Ten days",
+     "Ten weeks",
+     "Ten months",
+     "Ten years"
+    ],
+    "answer": 2,
+    "explanation": "The text says ten months."
+   },
+   {
+    "id": "q2",
+    "question": "How do swifts sleep?",
+    "options": [
+     "On trees",
+     "High in the sky, coming down slowly",
+     "On the ground",
+     "They do not sleep"
+    ],
+    "answer": 1,
+    "explanation": "Scientists saw them high in the sky at night."
+   },
+   {
+    "id": "q3",
+    "question": "Why are its feet weak?",
+    "options": [
+     "It is ill",
+     "It almost never uses them",
+     "They are broken",
+     "It is young"
+    ],
+    "answer": 1,
+    "explanation": "It lands only to make a nest."
+   }
+  ]
  }
 ]

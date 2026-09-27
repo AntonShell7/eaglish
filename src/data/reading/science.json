@@ -1137,5 +1137,166 @@
     "explanation": "Knowing the figure and seeing it are different operations."
    }
   ]
+ },
+ {
+  "id": "why-onions-make-you-cry",
+  "level": "A2",
+  "topic": "science",
+  "generated": false,
+  "title": "The Onion Is Defending Itself",
+  "sentences": [
+   {
+    "text": "Cut an onion and your eyes hurt.",
+    "translationRu": "Режешь лук — и глаза щиплет."
+   },
+   {
+    "text": "Most people think this is just what onions do.",
+    "translationRu": "Большинство считает, что лук просто такой."
+   },
+   {
+    "text": "It is more interesting than that.",
+    "translationRu": "На самом деле интереснее."
+   },
+   {
+    "text": "The onion is not being annoying.",
+    "translationRu": "Лук не вредничает."
+   },
+   {
+    "text": "It is protecting itself.",
+    "translationRu": "Он защищается."
+   },
+   {
+    "text": "An onion grows under the ground.",
+    "translationRu": "Лук растёт под землёй."
+   },
+   {
+    "text": "Animals like to dig it up and eat it.",
+    "translationRu": "Животные любят его выкапывать и есть."
+   },
+   {
+    "text": "The onion cannot run away.",
+    "translationRu": "Убежать лук не может."
+   },
+   {
+    "text": "So it keeps two chemicals inside, in different places.",
+    "translationRu": "Поэтому он держит внутри два вещества, в разных местах."
+   },
+   {
+    "text": "While the onion is whole, nothing happens.",
+    "translationRu": "Пока лук целый, ничего не происходит."
+   },
+   {
+    "text": "When you cut it, the walls break.",
+    "translationRu": "Когда ты его режешь, стенки ломаются."
+   },
+   {
+    "text": "The two chemicals meet and make a gas.",
+    "translationRu": "Два вещества встречаются и дают газ."
+   },
+   {
+    "text": "The gas goes up to your eyes.",
+    "translationRu": "Газ поднимается к глазам."
+   },
+   {
+    "text": "Your eyes make water to wash it away.",
+    "translationRu": "Глаза выделяют влагу, чтобы его смыть."
+   },
+   {
+    "text": "So you cry.",
+    "translationRu": "И ты плачешь."
+   },
+   {
+    "text": "An animal with a nose close to the ground gets much more of it than you do.",
+    "translationRu": "Животное, у которого нос у самой земли, получает этого куда больше, чем ты."
+   },
+   {
+    "text": "Usually it stops eating and goes away.",
+    "translationRu": "Обычно оно перестаёт есть и уходит."
+   },
+   {
+    "text": "There are two easy ways to help yourself.",
+    "translationRu": "Есть два простых способа себе помочь."
+   },
+   {
+    "text": "Put the onion in the fridge first, because cold slows the reaction.",
+    "translationRu": "Сначала положи лук в холодильник: холод замедляет реакцию."
+   },
+   {
+    "text": "Or use a very sharp knife, because it breaks fewer walls.",
+    "translationRu": "Или возьми очень острый нож: он ломает меньше стенок."
+   }
+  ],
+  "glossary": {
+   "cut": {
+    "translation": "резать",
+    "partOfSpeech": "verb"
+   },
+   "protect": {
+    "translation": "защищать",
+    "partOfSpeech": "verb"
+   },
+   "dig up": {
+    "translation": "выкапывать",
+    "partOfSpeech": "phrase"
+   },
+   "chemical": {
+    "translation": "вещество",
+    "partOfSpeech": "noun"
+   },
+   "whole": {
+    "translation": "целый",
+    "partOfSpeech": "adjective"
+   },
+   "gas": {
+    "translation": "газ",
+    "partOfSpeech": "noun"
+   },
+   "wash away": {
+    "translation": "смывать",
+    "partOfSpeech": "phrase"
+   },
+   "sharp": {
+    "translation": "острый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why does an onion do this?",
+    "options": [
+     "It is old",
+     "To protect itself from animals",
+     "It is wet",
+     "To grow faster"
+    ],
+    "answer": 1,
+    "explanation": "It cannot run away, so it defends itself chemically."
+   },
+   {
+    "id": "q2",
+    "question": "When do the two chemicals meet?",
+    "options": [
+     "When the onion grows",
+     "When you cut it and the walls break",
+     "In the fridge",
+     "When it is cooked"
+    ],
+    "answer": 1,
+    "explanation": "While the onion is whole, nothing happens."
+   },
+   {
+    "id": "q3",
+    "question": "Why does a cold onion help?",
+    "options": [
+     "It is harder",
+     "Cold slows the reaction",
+     "It has less gas inside",
+     "It smells less"
+    ],
+    "answer": 1,
+    "explanation": "Stated in the advice at the end."
+   }
+  ]
  }
 ]

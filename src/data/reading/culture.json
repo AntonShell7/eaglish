@@ -747,5 +747,162 @@
     "explanation": "Its films tell you what a decade fears, usually first."
    }
   ]
+ },
+ {
+  "id": "the-untranslatable",
+  "level": "C2",
+  "topic": "culture",
+  "generated": false,
+  "title": "The Words That Refuse to Cross Borders",
+  "sentences": [
+   {
+    "text": "Every language contains words that its speakers insist cannot be translated, and the claim is almost always overstated.",
+    "translationRu": "В каждом языке есть слова, о которых носители твердят, что перевести их нельзя, — и почти всегда это преувеличение."
+   },
+   {
+    "text": "Anything can be explained in another language.",
+    "translationRu": "Объяснить на другом языке можно что угодно."
+   },
+   {
+    "text": "What cannot be preserved is the ratio between what is said and what is understood.",
+    "translationRu": "Не сохраняется другое — соотношение между сказанным и понятым."
+   },
+   {
+    "text": "A word that carries a paragraph of implication in one language will require an actual paragraph in another, and a paragraph is a different kind of object.",
+    "translationRu": "Слово, несущее в одном языке целый абзац подразумеваемого, в другом потребует настоящего абзаца, — а абзац это уже другой предмет."
+   },
+   {
+    "text": "It is slower, it is deliberate, and it announces that an explanation is taking place.",
+    "translationRu": "Он медленнее, он намеренный, и он объявляет, что происходит объяснение."
+   },
+   {
+    "text": "The original announced nothing; it simply assumed you already knew.",
+    "translationRu": "Оригинал ничего не объявлял: он просто предполагал, что вы и так знаете."
+   },
+   {
+    "text": "This is why the interesting untranslatable words are rarely the exotic ones people collect.",
+    "translationRu": "Поэтому по-настоящему интересны не те экзотические непереводимости, которые все коллекционируют."
+   },
+   {
+    "text": "They are ordinary words doing quiet structural work.",
+    "translationRu": "Интересны обычные слова, выполняющие тихую опорную работу."
+   },
+   {
+    "text": "Russian has no fixed article, so a Russian sentence cannot casually mark whether a thing has been mentioned before; other means take over the job, and English translations of Russian prose routinely insert a definiteness the original left open.",
+    "translationRu": "В русском нет артикля, поэтому русское предложение не помечает мимоходом, упоминалась ли вещь раньше; работу берут на себя другие средства, и английские переводы русской прозы регулярно вставляют определённость, которую оригинал оставлял открытой."
+   },
+   {
+    "text": "English, in turn, forces a speaker to fix tense on almost every verb, which makes certain kinds of deliberate vagueness harder to achieve than in languages that do not.",
+    "translationRu": "Английский, в свою очередь, заставляет фиксировать время почти у каждого глагола, и поэтому некоторые виды намеренной размытости даются труднее, чем в языках, где это не обязательно."
+   },
+   {
+    "text": "Neither language is richer.",
+    "translationRu": "Ни один из языков не богаче."
+   },
+   {
+    "text": "Each is compulsory about different things, and what a language compels you to specify shapes what its speakers habitually notice.",
+    "translationRu": "Каждый обязывает к своему, и то, что язык принуждает уточнять, формирует то, что его носители привычно замечают."
+   },
+   {
+    "text": "Translators know this and have a professional vocabulary for losing gracefully.",
+    "translationRu": "Переводчики это знают, и у них есть профессиональный словарь для того, чтобы проигрывать красиво."
+   },
+   {
+    "text": "They speak of compensation: a joke that dies in chapter two is repaid with a joke invented in chapter five, on the grounds that the book should be as funny as the original even if no individual line is.",
+    "translationRu": "Они говорят о компенсации: шутка, погибшая во второй главе, возмещается шуткой, придуманной в пятой, потому что книга должна быть смешной, как оригинал, даже если ни одна отдельная строка не совпадает."
+   },
+   {
+    "text": "This horrifies people who have not thought about it and is obviously correct to anyone who has.",
+    "translationRu": "Непосвящённых это ужасает, а всякому, кто задумывался, очевидно правильно."
+   },
+   {
+    "text": "A literal translation is not a more faithful one; it is a translation that has decided to be faithful to the wrong thing.",
+    "translationRu": "Буквальный перевод не вернее — он просто решил быть верным не тому."
+   },
+   {
+    "text": "Which leaves the most useful practical lesson for anyone learning a language.",
+    "translationRu": "Отсюда и самый полезный практический вывод для всякого, кто учит язык."
+   },
+   {
+    "text": "The moment you stop asking what a word means and start asking what it is doing there, you have crossed from studying a language to using one.",
+    "translationRu": "В тот момент, когда перестаёшь спрашивать, что слово значит, и начинаешь спрашивать, что оно там делает, ты переходишь от изучения языка к владению им."
+   }
+  ],
+  "glossary": {
+   "overstated": {
+    "translation": "преувеличенный",
+    "partOfSpeech": "adjective"
+   },
+   "preserve": {
+    "translation": "сохранять",
+    "partOfSpeech": "verb"
+   },
+   "implication": {
+    "translation": "подразумеваемое",
+    "partOfSpeech": "noun"
+   },
+   "deliberate": {
+    "translation": "намеренный",
+    "partOfSpeech": "adjective"
+   },
+   "compulsory": {
+    "translation": "обязательный",
+    "partOfSpeech": "adjective"
+   },
+   "compel": {
+    "translation": "принуждать",
+    "partOfSpeech": "verb"
+   },
+   "gracefully": {
+    "translation": "красиво, достойно",
+    "partOfSpeech": "adverb"
+   },
+   "compensation": {
+    "translation": "компенсация",
+    "partOfSpeech": "noun"
+   },
+   "faithful": {
+    "translation": "верный, точный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does the text say cannot be preserved?",
+    "options": [
+     "The sound",
+     "The ratio between what is said and what is understood",
+     "The length",
+     "The grammar"
+    ],
+    "answer": 1,
+    "explanation": "A word carrying a paragraph of implication needs an actual paragraph."
+   },
+   {
+    "id": "q2",
+    "question": "What is 'compensation' in translation?",
+    "options": [
+     "Paying the translator",
+     "Repaying a lost joke with one invented elsewhere",
+     "Adding footnotes",
+     "Cutting difficult passages"
+    ],
+    "answer": 1,
+    "explanation": "The book should be as funny as the original."
+   },
+   {
+    "id": "q3",
+    "question": "What is the practical lesson for learners?",
+    "options": [
+     "Memorise more words",
+     "Ask what a word is doing there, not only what it means",
+     "Translate literally",
+     "Avoid idioms"
+    ],
+    "answer": 1,
+    "explanation": "The closing sentence."
+   }
+  ]
  }
 ]
