@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { openConsentSettings } from "@/lib/consent";
+import { useAuth } from "@/context/AuthContext";
+import { looksLikeAdmin } from "@/lib/admin";
 import "./footer.css";
 
 const LINKS: { key: string; to: string }[] = [
@@ -29,12 +31,19 @@ const LINKS: { key: string; to: string }[] = [
  */
 export function Footer() {
   const { t } = useTranslation();
+  const { user } = useAuth();
 
   return (
     <footer className="ft">
       <div className="ft__row">
         <span className="ft__brand">
           © {new Date().getFullYear()} {t("brand")}
+          {/* A dot for the owner. Hiding it is a courtesy to everyone else's
+              screen, not a security measure — the door itself is locked on the
+              server, and this only decides whether the handle is drawn. */}
+          {looksLikeAdmin(user?.id) && (
+            <Link to="/admin" className="ft__admin" title={t("admin.title")} aria-label={t("admin.title")} />
+          )}
         </span>
 
         <nav className="ft__links">

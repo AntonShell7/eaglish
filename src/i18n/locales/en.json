@@ -1029,5 +1029,37 @@
     "deleting": "Deleting…",
     "deleteFailed": "Deletion failed. Try again, and if it keeps happening, tell us.",
     "deleteNotSignedIn": "Your session seems to have expired. Sign in again and retry."
+  },
+  "admin": {
+    "title": "Admin",
+    "gateTitle": "Access",
+    "passcode": "Passcode",
+    "enter": "Enter",
+    "users": "Users",
+    "active7": "Active in 7 days",
+    "active30": "Active in 30 days",
+    "avgMinutes": "Minutes per person",
+    "wordsTotal": "Words saved",
+    "textOpens": "Text opens",
+    "signups": "Sign-ups by day",
+    "people": "People",
+    "popular": "Most-read texts",
+    "money": "Money",
+    "noBilling": "There is no payment system yet, so there is nothing truthful to show. Subscriptions and trials arrive with billing.",
+    "noData": "No data yet",
+    "runningOutTitle": "Running out of texts",
+    "runningOutBody": "{{count}} people have read more than two thirds of the library ({{total}} texts). Time to write more.",
+    "colWho": "Who",
+    "colVia": "Via",
+    "colMinutes": "Minutes",
+    "colDays": "Days",
+    "colWords": "Words",
+    "colTexts": "Texts",
+    "colSeen": "Seen",
+    "error": {
+      "denied": "Wrong passcode, or this account has no access.",
+      "offline": "The server did not answer. Try again.",
+      "unconfigured": "No backend configured."
+    }
   }
 }

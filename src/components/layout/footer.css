@@ -65,3 +65,21 @@
     gap: 5px 14px;
   }
 }
+
+/* The owner's way in: a small dot after the copyright, which is invisible to
+   anyone it is not drawn for and unremarkable to anyone who does see it. */
+.ft__admin {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+  vertical-align: middle;
+  transition: background var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+}
+
+.ft__admin:hover {
+  background: var(--color-primary);
+  transform: scale(1.6);
+}

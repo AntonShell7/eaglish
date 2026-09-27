@@ -1,0 +1,226 @@
+/* The owner's console.
+   Plain on purpose: a place to read numbers quickly, not a product surface.
+   Dense rows, one accent, nothing that competes with a figure. */
+
+.adm {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.adm--gate {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+}
+
+.adm__gate {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  padding: 28px 26px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.adm__gateTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.adm__error {
+  font-size: 0.8rem;
+  color: var(--color-danger);
+}
+
+.adm__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.adm__stamp {
+  font-size: 0.74rem;
+  color: var(--color-text-faint);
+}
+
+.adm__kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.adm__kpi {
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.adm__kpiN {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.adm__kpiL {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* The one thing on this page that is meant to interrupt. */
+.adm__alert {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 50%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface));
+}
+
+.adm__alertTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent-ink);
+}
+
+.adm__alertBody {
+  margin-top: 6px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.adm__alertList {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.adm__block {
+  margin-top: 30px;
+}
+
+.adm__h {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.adm__empty {
+  font-size: 0.84rem;
+  color: var(--color-text-faint);
+}
+
+.adm__bars {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adm__bars li {
+  display: grid;
+  grid-template-columns: 44px 1fr 32px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.74rem;
+}
+
+.adm__barDay {
+  color: var(--color-text-faint);
+}
+
+.adm__barTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+
+.adm__barTrack > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.adm__barN {
+  text-align: right;
+  font-weight: 700;
+}
+
+.adm__tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.adm__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.adm__table th,
+.adm__table td {
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.adm__table th {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  background: var(--color-surface-2);
+}
+
+.adm__table .num {
+  text-align: right;
+}
+
+.adm__table tbody tr + tr td {
+  border-top: 1px solid var(--color-border);
+}
+
+.adm__table tbody tr:hover td {
+  background: var(--color-surface-2);
+}
+
+.adm__list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.82rem;
+}
+
+.adm__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 7px 12px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+}

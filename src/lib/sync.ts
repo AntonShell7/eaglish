@@ -8,6 +8,7 @@ import {
   type QuizResult,
 } from "./readingHistory";
 import { getActivity, mergeRemoteActivity, type ActivityKind, type DayActivity } from "./activityStore";
+import { getTimeLog } from "./timeStore";
 import { getLearnerProfile, mergeRemoteProfile, type LearnerProfile } from "./learnerProfile";
 
 /**
@@ -155,6 +156,14 @@ export function pushQuizResult(result: QuizResult) {
     .then(({ error }) => error && warn("push quiz result", error));
 }
 
+/** Minutes recorded for one day, rounded, from the local clock. */
+function minutesOn(date: string): number {
+  const entry = getTimeLog()[date];
+  if (!entry) return 0;
+  const seconds = Object.values(entry).reduce((sum: number, n) => sum + (n ?? 0), 0);
+  return Math.round(seconds / 60);
+}
+
 export function pushActivityDay(day: DayActivity) {
   const db = client();
   if (!db) return;
@@ -171,6 +180,10 @@ export function pushActivityDay(day: DayActivity) {
         // learner could work in every day, invisible on every other device.
         listening: day.counts.listening ?? 0,
         slang: day.counts.slang ?? 0,
+        // Minutes live in their own store on the device; the activity row is
+        // already pushed daily, so they travel with it rather than needing a
+        // second table and a second write.
+        minutes: minutesOn(day.date),
       },
       { onConflict: "user_id,day" },
     )

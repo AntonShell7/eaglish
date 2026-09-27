@@ -141,3 +141,9 @@ insert into public.profiles (id)
 select u.id from auth.users u
 left join public.profiles p on p.id = u.id
 where p.id is null;
+
+-- Time is measured on the device and never left it, so the only place that
+-- could answer "how long do people actually stay" was one browser's local
+-- storage. One column fixes that, and it rides along with the activity row
+-- that is already pushed every day.
+alter table public.daily_activity add column if not exists minutes integer not null default 0;

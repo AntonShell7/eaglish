@@ -7,6 +7,7 @@ import Writing from "@/pages/Writing";
 import Vocabulary from "@/pages/Vocabulary";
 import Slang from "./pages/Slang";
 import ResetPassword from "@/pages/ResetPassword";
+import Admin from "@/pages/Admin";
 import ProgressPage from "@/pages/Progress";
 import Profile from "@/pages/Profile";
 import Login from "@/pages/Login";
@@ -43,6 +44,9 @@ export default function App() {
           <Route path="slang" element={<Slang />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="profile" element={<Profile />} />
+          {/* Behind the auth wall like everything else; the real gate is the
+              account check inside the edge function this page calls. */}
+          <Route path="admin" element={<Admin />} />
         </Route>
 
         <Route path="login" element={<Login />} />
