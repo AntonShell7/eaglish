@@ -1732,5 +1732,190 @@
     "explanation": "Stated near the end."
    }
   ]
+ },
+ {
+  "id": "why-everything-is-a-subscription",
+  "level": "C1",
+  "topic": "technology",
+  "generated": false,
+  "title": "You Stopped Buying Things and Started Renting Them",
+  "sentences": [
+   {
+    "text": "Software used to arrive in a box, once, for a price, and it was yours until you chose to replace it.",
+    "translationRu": "Софт раньше приходил в коробке, один раз, за деньги, и был твоим, пока ты сам не решишь его заменить."
+   },
+   {
+    "text": "Now almost nothing is, and the shift has moved outward from software into cars, kitchen appliances, cameras and, in at least one manufacturer's attempt, heated seats.",
+    "translationRu": "Теперь почти ничего таким не является, и сдвиг вышел за пределы софта — в машины, бытовую технику, камеры и, по крайней мере в одной попытке производителя, в подогрев сидений."
+   },
+   {
+    "text": "The usual explanation is corporate greed, which is true but not informative, since companies were equally greedy when they sold boxes.",
+    "translationRu": "Обычное объяснение — корпоративная жадность; верно, но неинформативно: компании были столь же жадны, когда продавали коробки."
+   },
+   {
+    "text": "What changed is the arithmetic, and it changed decisively.",
+    "translationRu": "Изменилась арифметика, и изменилась решительно."
+   },
+   {
+    "text": "A one-off sale produces a lump of revenue and then a problem: the customer has what they need, and you must persuade them to want a new version.",
+    "translationRu": "Разовая продажа даёт кусок выручки и затем проблему: у клиента есть то, что нужно, и его надо уговаривать хотеть новую версию."
+   },
+   {
+    "text": "That is expensive, and it forces a release cycle in which features are withheld from a finished product so that next year's box has something to advertise.",
+    "translationRu": "Это дорого и вынуждает к релизному циклу, в котором функции придерживают у готового продукта, чтобы коробке следующего года было чем рекламироваться."
+   },
+   {
+    "text": "A subscription produces a smaller number every month for an indefinite period, and financial markets value that stream at a very large multiple, because it is predictable.",
+    "translationRu": "Подписка даёт меньшую сумму каждый месяц неопределённо долго, и финансовые рынки оценивают этот поток с очень высоким мультипликатором, потому что он предсказуем."
+   },
+   {
+    "text": "A company that converts from sales to subscriptions can see its valuation rise sharply while its actual revenue falls for two or three years, and every executive in the industry has watched this happen to someone else.",
+    "translationRu": "Компания, переходящая от продаж к подписке, может видеть резкий рост капитализации при падении реальной выручки в течение двух-трёх лет, и каждый руководитель в отрасли наблюдал это у кого-то ещё."
+   },
+   {
+    "text": "The incentive is not subtle.",
+    "translationRu": "Стимул не тонкий."
+   },
+   {
+    "text": "For some products the model is honestly better, and it is worth conceding this.",
+    "translationRu": "Для части продуктов модель честно лучше, и это стоит признать."
+   },
+   {
+    "text": "Anything with a real ongoing cost — server capacity, a map that must be corrected weekly, security patches for a decade — was always being paid for by somebody, and the box price merely hid it, usually by having new buyers subsidise old users until the company stopped bothering.",
+    "translationRu": "Всё, у чего есть настоящие текущие издержки — серверные мощности, карта, которую нужно править еженедельно, патчи безопасности на десять лет, — всегда кем-то оплачивалось, и цена коробки это лишь прятала, обычно заставляя новых покупателей субсидировать старых, пока компании не надоедало."
+   },
+   {
+    "text": "Continuous payment for continuous cost is coherent.",
+    "translationRu": "Постоянная оплата постоянных издержек логична."
+   },
+   {
+    "text": "The failure is elsewhere, and it is specific.",
+    "translationRu": "Сбой в другом месте, и он конкретен."
+   },
+   {
+    "text": "It is the subscription attached to a product with no ongoing cost, where the fee buys nothing except the continued absence of a lock: the camera whose autofocus mode is enabled monthly, the car whose battery is already full-sized and is limited in software, the appliance that stops if the company's servers do.",
+    "translationRu": "Это подписка на продукт без текущих издержек, где плата покупает лишь продолжающееся отсутствие замка: камера, чей режим автофокуса включают помесячно, машина, чья батарея уже полноразмерна и ограничена программно, техника, которая встаёт, если встали серверы компании."
+   },
+   {
+    "text": "Here the recurring payment is not funding anything.",
+    "translationRu": "Здесь регулярный платёж ничего не финансирует."
+   },
+   {
+    "text": "It is rent on capability that was manufactured, shipped and paid for once.",
+    "translationRu": "Это аренда возможности, которая была произведена, отгружена и оплачена однажды."
+   },
+   {
+    "text": "The consequence that receives least attention is the loss of the ability to decline.",
+    "translationRu": "Меньше всего внимания получает следствие: утрата способности отказаться."
+   },
+   {
+    "text": "Owning an old version was, for decades, the ordinary person's veto on a change they disliked, and it applied real pressure on design, because a version that annoyed people did not get adopted.",
+    "translationRu": "Владение старой версией десятилетиями было обычным человеческим вето на неприятное изменение и реально давило на дизайн: версию, которая раздражала, просто не устанавливали."
+   },
+   {
+    "text": "Subscribed software updates itself, the previous version is switched off remotely, and the veto is gone.",
+    "translationRu": "Подписной софт обновляется сам, предыдущая версия отключается удалённо, и вето исчезло."
+   },
+   {
+    "text": "What follows is not usually a worse product.",
+    "translationRu": "Дальше обычно идёт не худший продукт."
+   },
+   {
+    "text": "It is a product that no longer needs to win an argument with you, and the difference shows up slowly, in every interface that has been rearranged for reasons the people using it were never asked about.",
+    "translationRu": "Это продукт, которому больше не нужно выигрывать спор с тобой, и разница проявляется медленно — в каждом интерфейсе, перекроенном по причинам, о которых пользователей не спрашивали."
+   }
+  ],
+  "glossary": {
+   "appliance": {
+    "translation": "бытовой прибор",
+    "partOfSpeech": "noun"
+   },
+   "greed": {
+    "translation": "жадность",
+    "partOfSpeech": "noun"
+   },
+   "one-off": {
+    "translation": "разовый",
+    "partOfSpeech": "adjective"
+   },
+   "withhold": {
+    "translation": "придерживать, не давать",
+    "partOfSpeech": "verb"
+   },
+   "valuation": {
+    "translation": "оценка стоимости компании",
+    "partOfSpeech": "noun"
+   },
+   "concede": {
+    "translation": "признать",
+    "partOfSpeech": "verb"
+   },
+   "subsidise": {
+    "translation": "субсидировать",
+    "partOfSpeech": "verb"
+   },
+   "recurring": {
+    "translation": "повторяющийся, регулярный",
+    "partOfSpeech": "adjective"
+   },
+   "veto": {
+    "translation": "вето",
+    "partOfSpeech": "noun"
+   },
+   "adopt": {
+    "translation": "принять, начать пользоваться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-everything-is-a-subscription-q1",
+    "question": "Why do markets value subscriptions so highly?",
+    "options": [
+     "They are larger",
+     "The revenue stream is predictable",
+     "They are taxed less",
+     "They need no staff"
+    ],
+    "answer": 1,
+    "explanation": "Valuation can rise while revenue falls for years."
+   },
+   {
+    "id": "why-everything-is-a-subscription-q2",
+    "question": "When is the model honestly better?",
+    "options": [
+     "Always",
+     "When the product has real ongoing costs that the box price merely hid",
+     "For hardware",
+     "For cheap products"
+    ],
+    "answer": 1,
+    "explanation": "New buyers used to subsidise old users."
+   },
+   {
+    "id": "why-everything-is-a-subscription-q3",
+    "question": "What is the specific failure?",
+    "options": [
+     "High prices",
+     "A fee that buys nothing but the continued absence of a software lock",
+     "Poor support",
+     "Slow updates"
+    ],
+    "answer": 1,
+    "explanation": "Rent on capability paid for once."
+   },
+   {
+    "id": "why-everything-is-a-subscription-q4",
+    "question": "What is lost along with ownership?",
+    "options": [
+     "Resale value",
+     "The ability to decline a change by keeping the old version",
+     "Warranty",
+     "Offline use"
+    ],
+    "answer": 1,
+    "explanation": "The product no longer needs to win an argument with you."
+   }
+  ]
  }
 ]

@@ -2002,5 +2002,166 @@
     "explanation": "The bin was never the decision point."
    }
   ]
+ },
+ {
+  "id": "why-flamingos-are-pink",
+  "level": "A2",
+  "topic": "environment",
+  "generated": false,
+  "title": "Flamingos Are Born Grey",
+  "sentences": [
+   {
+    "text": "A flamingo is a tall pink bird that stands in shallow water.",
+    "translationRu": "Фламинго — высокая розовая птица, стоящая на мелководье."
+   },
+   {
+    "text": "The pink is the first thing anybody notices.",
+    "translationRu": "Розовый цвет замечают первым."
+   },
+   {
+    "text": "But a baby flamingo is not pink.",
+    "translationRu": "Но птенец фламинго не розовый."
+   },
+   {
+    "text": "It is grey, or almost white.",
+    "translationRu": "Он серый или почти белый."
+   },
+   {
+    "text": "The colour comes later, and it comes from food.",
+    "translationRu": "Цвет приходит позже, и приходит он с едой."
+   },
+   {
+    "text": "Flamingos eat very small things from the water: tiny plants and small animals like shrimp.",
+    "translationRu": "Фламинго едят из воды очень мелкое: крошечные водоросли и мелких животных вроде рачков."
+   },
+   {
+    "text": "These contain a red and orange colour.",
+    "translationRu": "В них есть красно-оранжевый пигмент."
+   },
+   {
+    "text": "It is the same kind of colour that is in carrots and in tomatoes.",
+    "translationRu": "Того же рода, что в моркови и помидорах."
+   },
+   {
+    "text": "The bird cannot make this colour itself.",
+    "translationRu": "Сама птица такой цвет производить не умеет."
+   },
+   {
+    "text": "It takes it from the food and puts it into its feathers.",
+    "translationRu": "Она берёт его из еды и переносит в перья."
+   },
+   {
+    "text": "So a flamingo is pink because of what it eats every day.",
+    "translationRu": "Так что фламинго розовый из-за того, что он ест каждый день."
+   },
+   {
+    "text": "If a flamingo eats different food, it loses the colour.",
+    "translationRu": "Если фламинго питается иначе, цвет теряется."
+   },
+   {
+    "text": "This happened in some zoos many years ago.",
+    "translationRu": "Так и было в некоторых зоопарках много лет назад."
+   },
+   {
+    "text": "The birds were healthy, but they were white, and visitors asked why.",
+    "translationRu": "Птицы были здоровы, но белые, и посетители спрашивали почему."
+   },
+   {
+    "text": "Now zoos put the right things in the food.",
+    "translationRu": "Теперь зоопарки добавляют в корм нужное."
+   },
+   {
+    "text": "There is one more interesting part.",
+    "translationRu": "Есть и ещё кое-что интересное."
+   },
+   {
+    "text": "A parent flamingo feeds its baby with a red liquid from its own body.",
+    "translationRu": "Родитель кормит птенца красной жидкостью из собственного тела."
+   },
+   {
+    "text": "This costs the parent a lot of colour.",
+    "translationRu": "Это стоит родителю много цвета."
+   },
+   {
+    "text": "So when the baby starts to get pink, the mother and father get paler.",
+    "translationRu": "Поэтому, когда птенец начинает розоветь, мать и отец бледнеют."
+   },
+   {
+    "text": "You can see the colour moving from one bird to the other.",
+    "translationRu": "Видно, как цвет переходит от одной птицы к другой."
+   }
+  ],
+  "glossary": {
+   "shallow": {
+    "translation": "мелкий (о воде)",
+    "partOfSpeech": "adjective"
+   },
+   "grey": {
+    "translation": "серый",
+    "partOfSpeech": "adjective"
+   },
+   "shrimp": {
+    "translation": "креветка, рачок",
+    "partOfSpeech": "noun"
+   },
+   "contain": {
+    "translation": "содержать",
+    "partOfSpeech": "verb"
+   },
+   "feather": {
+    "translation": "перо",
+    "partOfSpeech": "noun"
+   },
+   "zoo": {
+    "translation": "зоопарк",
+    "partOfSpeech": "noun"
+   },
+   "visitor": {
+    "translation": "посетитель",
+    "partOfSpeech": "noun"
+   },
+   "pale": {
+    "translation": "бледный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-flamingos-are-pink-q1",
+    "question": "What colour is a baby flamingo?",
+    "options": [
+     "Pink",
+     "Grey or almost white",
+     "Red",
+     "Black"
+    ],
+    "answer": 1,
+    "explanation": "The colour comes later, from food."
+   },
+   {
+    "id": "why-flamingos-are-pink-q2",
+    "question": "Where does the pink come from?",
+    "options": [
+     "The sun",
+     "Colour in the food, moved into the feathers",
+     "The water",
+     "Its parents' genes"
+    ],
+    "answer": 1,
+    "explanation": "The bird cannot make it itself."
+   },
+   {
+    "id": "why-flamingos-are-pink-q3",
+    "question": "What happens to parents that feed a baby?",
+    "options": [
+     "They eat more",
+     "They get paler",
+     "They get brighter",
+     "Nothing changes"
+    ],
+    "answer": 1,
+    "explanation": "The colour moves from one bird to the other."
+   }
+  ]
  }
 ]

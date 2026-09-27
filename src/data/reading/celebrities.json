@@ -1821,5 +1821,190 @@
     "explanation": "Intimacy converts to revenue more efficiently than talent."
    }
   ]
+ },
+ {
+  "id": "why-swift-rerecorded",
+  "level": "B2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Taylor Swift Recorded Her Own Albums Again to Make the Old Ones Worthless",
+  "sentences": [
+   {
+    "text": "Between 2021 and 2023 Taylor Swift released new recordings of albums she had already released years earlier, note for note, and labelled them Taylor's Version.",
+    "translationRu": "Между 2021 и 2023 годами Тейлор Свифт выпустила новые записи альбомов, изданных годами раньше, нота в ноту, и пометила их Taylor's Version."
+   },
+   {
+    "text": "It looked, at first glance, like an odd nostalgia exercise.",
+    "translationRu": "На первый взгляд это выглядело странным упражнением в ностальгии."
+   },
+   {
+    "text": "It was a commercial manoeuvre, and understanding it requires knowing that two separate things are owned in any recorded song.",
+    "translationRu": "Это был коммерческий манёвр, и чтобы его понять, надо знать, что в любой записанной песне принадлежат две разные вещи."
+   },
+   {
+    "text": "There is the composition — the melody and the words, which belong to the writer — and there is the master, the specific recording, which almost always belongs to whoever paid for the studio.",
+    "translationRu": "Есть композиция — мелодия и слова, принадлежащие автору, — и есть мастер, конкретная запись, которая почти всегда принадлежит тому, кто оплатил студию."
+   },
+   {
+    "text": "For a new artist signing a first deal at fifteen, that is the record label, and the terms are rarely generous, because the artist has no leverage and the label is taking the risk.",
+    "translationRu": "Для новичка, подписывающего первый контракт в пятнадцать, это лейбл, и условия редко щедры: у артиста нет рычагов, а риск несёт лейбл."
+   },
+   {
+    "text": "Swift wrote her songs, so she kept the compositions.",
+    "translationRu": "Свифт писала свои песни, поэтому композиции остались у неё."
+   },
+   {
+    "text": "She did not own the masters of her first six albums.",
+    "translationRu": "Мастера первых шести альбомов ей не принадлежали."
+   },
+   {
+    "text": "When the label was sold in 2019, those masters went with it, to a buyer she had a public and personal dispute with, and were later sold on again.",
+    "translationRu": "Когда лейбл продали в 2019 году, мастера ушли вместе с ним к покупателю, с которым у неё был публичный и личный конфликт, а затем были перепроданы."
+   },
+   {
+    "text": "She could not buy them back on terms she would accept.",
+    "translationRu": "Выкупить их на приемлемых условиях она не смогла."
+   },
+   {
+    "text": "So she used the one asset she did hold.",
+    "translationRu": "И она использовала единственный актив, который у неё был."
+   },
+   {
+    "text": "Owning a composition means you can record it again, and her contract's restriction on doing so had expired.",
+    "translationRu": "Владение композицией означает право записать её снова, а контрактное ограничение на это уже истекло."
+   },
+   {
+    "text": "The new recordings are deliberately near-identical, which is the essential detail.",
+    "translationRu": "Новые записи нарочно почти идентичны, и это ключевая деталь."
+   },
+   {
+    "text": "A film or advertisement that wants that song now has a choice between two versions that sound the same, one of which is endorsed by the artist and one of which is not, and the licensing money follows the endorsement.",
+    "translationRu": "Фильм или реклама, желающие эту песню, теперь выбирают между двумя одинаково звучащими версиями, одну из которых артист одобряет, а другую нет, — и лицензионные деньги идут за одобрением."
+   },
+   {
+    "text": "Fans did the same on streaming, deliberately, in numbers large enough to show in the charts.",
+    "translationRu": "Слушатели поступили так же на стриминге, нарочно, в количествах, заметных в чартах."
+   },
+   {
+    "text": "The old masters did not disappear.",
+    "translationRu": "Старые мастера не исчезли."
+   },
+   {
+    "text": "Their future earnings did, which is what an asset is.",
+    "translationRu": "Исчезли их будущие доходы — а актив это и есть."
+   },
+   {
+    "text": "Two things make the episode more than a celebrity story.",
+    "translationRu": "Два обстоятельства делают эпизод больше, чем историей о звезде."
+   },
+   {
+    "text": "The tactic is available only to a writer with an enormous and unusually mobilised audience, so it is not a template for anybody else, whatever the coverage implied.",
+    "translationRu": "Тактика доступна только автору с огромной и необычно мобилизованной аудиторией, так что шаблоном для других она не является, что бы ни писали."
+   },
+   {
+    "text": "But its existence changed negotiations for everyone, because a label now has to price the possibility that an artist walks away and rebuilds the catalogue, and several major deals since have moved masters ownership to the artist after a fixed period.",
+    "translationRu": "Но само её существование изменило переговоры для всех: лейбл теперь должен закладывать в цену возможность, что артист уйдёт и пересоберёт каталог, и в нескольких крупных сделках с тех пор права на мастера переходят к артисту через оговорённый срок."
+   },
+   {
+    "text": "One person cannot usually change an industry's contracts.",
+    "translationRu": "Один человек обычно не может изменить контракты отрасли."
+   },
+   {
+    "text": "Demonstrating that the contract can be made worthless turns out to work nearly as well.",
+    "translationRu": "Показать, что контракт можно обесценить, оказалось почти так же действенно."
+   }
+  ],
+  "glossary": {
+   "release": {
+    "translation": "выпускать (релиз)",
+    "partOfSpeech": "verb"
+   },
+   "composition": {
+    "translation": "композиция (права автора)",
+    "partOfSpeech": "noun"
+   },
+   "master": {
+    "translation": "мастер-запись",
+    "partOfSpeech": "noun"
+   },
+   "label": {
+    "translation": "лейбл",
+    "partOfSpeech": "noun"
+   },
+   "leverage": {
+    "translation": "рычаг влияния",
+    "partOfSpeech": "noun"
+   },
+   "asset": {
+    "translation": "актив",
+    "partOfSpeech": "noun"
+   },
+   "expire": {
+    "translation": "истекать",
+    "partOfSpeech": "verb"
+   },
+   "endorse": {
+    "translation": "одобрять, поддерживать",
+    "partOfSpeech": "verb"
+   },
+   "licensing": {
+    "translation": "лицензирование",
+    "partOfSpeech": "noun"
+   },
+   "catalogue": {
+    "translation": "каталог (записей)",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-swift-rerecorded-q1",
+    "question": "What two things are owned in a recorded song?",
+    "options": [
+     "The lyrics and the video",
+     "The composition and the master recording",
+     "The title and the melody",
+     "The studio and the mix"
+    ],
+    "answer": 1,
+    "explanation": "The master almost always belongs to whoever paid for the studio."
+   },
+   {
+    "id": "why-swift-rerecorded-q2",
+    "question": "Why could she re-record at all?",
+    "options": [
+     "She bought the masters",
+     "She wrote the songs, so she owned the compositions, and the restriction had expired",
+     "The label agreed",
+     "A court ordered it"
+    ],
+    "answer": 1,
+    "explanation": "The one asset she did hold."
+   },
+   {
+    "id": "why-swift-rerecorded-q3",
+    "question": "Why are the new versions near-identical?",
+    "options": [
+     "It was easier",
+     "So a licensee can choose an endorsed version that sounds the same",
+     "Fans demanded it",
+     "Legal requirement"
+    ],
+    "answer": 1,
+    "explanation": "The licensing money follows the endorsement."
+   },
+   {
+    "id": "why-swift-rerecorded-q4",
+    "question": "What changed for other artists?",
+    "options": [
+     "They all re-recorded",
+     "Labels must price the risk, and some deals now transfer masters after a fixed period",
+     "Nothing",
+     "Contracts got longer"
+    ],
+    "answer": 1,
+    "explanation": "Not a template, but it moved negotiations."
+   }
+  ]
  }
 ]

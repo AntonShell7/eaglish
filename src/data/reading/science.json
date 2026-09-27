@@ -2159,5 +2159,170 @@
     "explanation": "It removes the incentive entirely."
    }
   ]
+ },
+ {
+  "id": "why-ice-floats",
+  "level": "A1",
+  "topic": "science",
+  "generated": false,
+  "title": "Ice Floats, and Almost Nothing Else Does",
+  "sentences": [
+   {
+    "text": "Put ice in a glass of water.",
+    "translationRu": "Положи лёд в стакан воды."
+   },
+   {
+    "text": "It goes to the top.",
+    "translationRu": "Он поднимается наверх."
+   },
+   {
+    "text": "This looks normal, because we see it every day.",
+    "translationRu": "Это кажется обычным, потому что мы видим это каждый день."
+   },
+   {
+    "text": "But it is very strange.",
+    "translationRu": "Но это очень странно."
+   },
+   {
+    "text": "Almost every other thing in the world is heavier when it is hard and lighter when it is liquid.",
+    "translationRu": "Почти всё остальное в мире тяжелее в твёрдом виде и легче в жидком."
+   },
+   {
+    "text": "Put a piece of hard metal into the same metal when it is hot and liquid, and the piece goes down.",
+    "translationRu": "Брось кусок твёрдого металла в тот же металл, горячий и жидкий, — кусок пойдёт вниз."
+   },
+   {
+    "text": "Water does the opposite, and the reason is the shape.",
+    "translationRu": "Вода делает наоборот, и причина — в форме."
+   },
+   {
+    "text": "Water is made of very small parts.",
+    "translationRu": "Вода состоит из очень маленьких частиц."
+   },
+   {
+    "text": "When water is warm, these parts move and sit close together.",
+    "translationRu": "Когда вода тёплая, частицы двигаются и сидят близко друг к другу."
+   },
+   {
+    "text": "When water gets cold and becomes ice, the parts stop and hold hands in a shape with holes in it.",
+    "translationRu": "Когда вода остывает и становится льдом, частицы останавливаются и берутся за руки в форме с пустотами."
+   },
+   {
+    "text": "The holes make the ice bigger, so the same water takes more space.",
+    "translationRu": "Из-за пустот лёд крупнее, и та же вода занимает больше места."
+   },
+   {
+    "text": "More space and the same weight means it floats.",
+    "translationRu": "Больше места при том же весе — значит плавает."
+   },
+   {
+    "text": "This small thing is very important for life.",
+    "translationRu": "Эта мелочь очень важна для жизни."
+   },
+   {
+    "text": "In winter, a lake makes ice on the top.",
+    "translationRu": "Зимой озеро покрывается льдом сверху."
+   },
+   {
+    "text": "The ice is like a roof.",
+    "translationRu": "Лёд — как крыша."
+   },
+   {
+    "text": "Under it, the water stays liquid, and the fish live.",
+    "translationRu": "Под ним вода остаётся жидкой, и рыбы живут."
+   },
+   {
+    "text": "Now think about the other way.",
+    "translationRu": "А теперь представь наоборот."
+   },
+   {
+    "text": "If ice went down, the lake would make ice at the bottom.",
+    "translationRu": "Если бы лёд тонул, озеро замерзало бы снизу."
+   },
+   {
+    "text": "More ice, then more ice, and in the end the whole lake would be hard.",
+    "translationRu": "Лёд, ещё лёд — и в конце всё озеро стало бы твёрдым."
+   },
+   {
+    "text": "Nothing inside would live.",
+    "translationRu": "Внутри ничто бы не выжило."
+   },
+   {
+    "text": "So the fish are alive because of the holes.",
+    "translationRu": "Так что рыбы живы благодаря пустотам."
+   }
+  ],
+  "glossary": {
+   "float": {
+    "translation": "плавать на поверхности",
+    "partOfSpeech": "verb"
+   },
+   "heavy": {
+    "translation": "тяжёлый",
+    "partOfSpeech": "adjective"
+   },
+   "liquid": {
+    "translation": "жидкий; жидкость",
+    "partOfSpeech": "adjective"
+   },
+   "shape": {
+    "translation": "форма",
+    "partOfSpeech": "noun"
+   },
+   "hole": {
+    "translation": "пустота, дырка",
+    "partOfSpeech": "noun"
+   },
+   "space": {
+    "translation": "место, пространство",
+    "partOfSpeech": "noun"
+   },
+   "lake": {
+    "translation": "озеро",
+    "partOfSpeech": "noun"
+   },
+   "roof": {
+    "translation": "крыша",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-ice-floats-q1",
+    "question": "Why does ice take more space than water?",
+    "options": [
+     "It is colder",
+     "The parts hold a shape with holes in it",
+     "It has air inside",
+     "It is bigger outside"
+    ],
+    "answer": 1,
+    "explanation": "More space and the same weight means it floats."
+   },
+   {
+    "id": "why-ice-floats-q2",
+    "question": "What does the ice on a lake do?",
+    "options": [
+     "It kills the fish",
+     "It works like a roof and keeps the water below liquid",
+     "It makes the water colder",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "Under it, the fish live."
+   },
+   {
+    "id": "why-ice-floats-q3",
+    "question": "What would happen if ice sank?",
+    "options": [
+     "Nothing",
+     "Lakes would freeze from the bottom until they were solid",
+     "Fish would swim higher",
+     "Ice would melt faster"
+    ],
+    "answer": 1,
+    "explanation": "Nothing inside would live."
+   }
+  ]
  }
 ]
