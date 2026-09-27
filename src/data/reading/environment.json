@@ -1246,5 +1246,190 @@
     "explanation": "Stated directly."
    }
   ]
+ },
+ {
+  "id": "the-ocean-is-getting-louder",
+  "level": "C2",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Ocean Used to Be Quiet",
+  "sentences": [
+   {
+    "text": "Sound behaves extraordinarily well in seawater.",
+    "translationRu": "Звук ведёт себя в морской воде исключительно хорошо."
+   },
+   {
+    "text": "It travels roughly four and a half times faster than in air, and it travels much further, because water absorbs low frequencies so poorly that a sufficiently deep note can cross an ocean basin and still be detectable at the other side.",
+    "translationRu": "Он идёт примерно в четыре с половиной раза быстрее, чем в воздухе, и намного дальше, потому что вода настолько плохо поглощает низкие частоты, что достаточно низкая нота может пересечь океанский бассейн и остаться различимой на другой стороне."
+   },
+   {
+    "text": "Whales appear to have built their entire social lives on this fact over some tens of millions of years.",
+    "translationRu": "Киты, судя по всему, десятки миллионов лет строили на этом факте всю свою социальную жизнь."
+   },
+   {
+    "text": "A fin whale's call sits near twenty hertz, at the bottom edge of human hearing, and is thought to have functioned across distances measured in hundreds of kilometres.",
+    "translationRu": "Зов финвала лежит около двадцати герц, на нижней границе человеческого слуха, и, как считают, работал на расстояниях в сотни километров."
+   },
+   {
+    "text": "Two animals that never meet can be in contact.",
+    "translationRu": "Два животных, которые никогда не встретятся, могут быть на связи."
+   },
+   {
+    "text": "Into this arrangement, over about a hundred and fifty years, humanity has introduced the propeller.",
+    "translationRu": "В эту конструкцию человечество примерно за полтораста лет внесло гребной винт."
+   },
+   {
+    "text": "A large ship's propeller produces cavitation: bubbles that form in the low-pressure water behind each blade and collapse violently a moment later.",
+    "translationRu": "Винт большого судна создаёт кавитацию — пузырьки, возникающие в области низкого давления за каждой лопастью и через мгновение яростно схлопывающиеся."
+   },
+   {
+    "text": "Each collapse is a small explosion, and a ship makes millions of them a minute, radiating a broad roar centred on exactly the low frequencies the whales were using.",
+    "translationRu": "Каждое схлопывание — маленький взрыв, и судно делает их миллионы в минуту, излучая широкий рёв с центром ровно на тех низких частотах, которыми пользовались киты."
+   },
+   {
+    "text": "Estimates of the resulting background vary, but the direction is not in dispute: ambient noise in parts of the deep ocean has risen by something on the order of ten decibels over the twentieth century, and because decibels are logarithmic, that is roughly a tenfold increase in intensity.",
+    "translationRu": "Оценки получившегося фона разнятся, но направление не оспаривается: фоновый шум в отдельных районах глубокого океана вырос за двадцатый век примерно на десять децибел, а поскольку децибелы логарифмичны, это примерно десятикратный рост интенсивности."
+   },
+   {
+    "text": "The consequence is not that whales are deafened, though the loudest human sources can do that.",
+    "translationRu": "Следствие не в том, что киты глохнут, хотя самые громкие человеческие источники способны и на это."
+   },
+   {
+    "text": "The consequence is that their world got smaller.",
+    "translationRu": "Следствие в том, что их мир стал меньше."
+   },
+   {
+    "text": "A call that could once be heard at eight hundred kilometres can now be heard at perhaps eighty, not because it is quieter but because everything else is louder, and the animals are living inside a permanent crowd at a party.",
+    "translationRu": "Зов, который раньше слышали за восемьсот километров, теперь слышен, может быть, за восемьдесят — не потому, что он тише, а потому, что громче стало всё остальное, и животные живут в постоянном гуле, как на вечеринке."
+   },
+   {
+    "text": "Then came a natural experiment nobody would have been permitted to run.",
+    "translationRu": "А потом случился естественный эксперимент, который никому бы не разрешили поставить."
+   },
+   {
+    "text": "In the spring of 2020, global shipping fell sharply, and hydrophones recorded the quietest seas in living memory.",
+    "translationRu": "Весной 2020 года мировое судоходство резко упало, и гидрофоны записали самое тихое море на человеческой памяти."
+   },
+   {
+    "text": "Researchers who had spent careers subtracting engine noise from their recordings suddenly had clean data, and what they found in whales was a measurable drop in stress hormones.",
+    "translationRu": "Исследователи, десятилетиями вычитавшие из записей шум двигателей, внезапно получили чистые данные — и обнаружили у китов измеримое снижение гормонов стресса."
+   },
+   {
+    "text": "There is something clarifying about that result.",
+    "translationRu": "В этом результате есть нечто отрезвляющее."
+   },
+   {
+    "text": "Most damage we do to the ocean is cumulative and slow to undo: a warmed sea stays warm, a dead reef takes centuries, plastic is functionally permanent.",
+    "translationRu": "Большая часть ущерба, который мы наносим океану, накопительна и медленно обратима: нагретое море остаётся тёплым, мёртвый риф восстанавливается веками, пластик практически вечен."
+   },
+   {
+    "text": "Noise is the rare exception.",
+    "translationRu": "Шум — редкое исключение."
+   },
+   {
+    "text": "It stops the moment the source stops, and the water is immediately as it was.",
+    "translationRu": "Он прекращается в тот же миг, что и источник, и вода сразу становится прежней."
+   },
+   {
+    "text": "Slower ships, quieter propeller designs and routes moved away from feeding grounds would return a large part of that ocean within a single season, at a cost that is genuinely small next to almost any other environmental measure.",
+    "translationRu": "Более медленные суда, более тихие винты и маршруты в стороне от кормовых районов вернули бы значительную часть этого океана за один сезон, и цена по-настоящему невелика на фоне почти любой другой природоохранной меры."
+   },
+   {
+    "text": "It is the cheapest restoration available anywhere, and it is not happening, which suggests the obstacle was never the price.",
+    "translationRu": "Это самое дешёвое восстановление из всех возможных — и оно не происходит, из чего следует, что дело никогда не было в цене."
+   }
+  ],
+  "glossary": {
+   "absorb": {
+    "translation": "поглощать",
+    "partOfSpeech": "verb"
+   },
+   "basin": {
+    "translation": "бассейн (океанский)",
+    "partOfSpeech": "noun"
+   },
+   "propeller": {
+    "translation": "гребной винт",
+    "partOfSpeech": "noun"
+   },
+   "cavitation": {
+    "translation": "кавитация",
+    "partOfSpeech": "noun"
+   },
+   "blade": {
+    "translation": "лопасть",
+    "partOfSpeech": "noun"
+   },
+   "ambient": {
+    "translation": "фоновый, окружающий",
+    "partOfSpeech": "adjective"
+   },
+   "logarithmic": {
+    "translation": "логарифмический",
+    "partOfSpeech": "adjective"
+   },
+   "deafen": {
+    "translation": "оглушать",
+    "partOfSpeech": "verb"
+   },
+   "hydrophone": {
+    "translation": "гидрофон",
+    "partOfSpeech": "noun"
+   },
+   "cumulative": {
+    "translation": "накопительный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-ocean-is-getting-louder-q1",
+    "question": "Why does low-frequency sound travel so far in water?",
+    "options": [
+     "Water is dense",
+     "Water absorbs low frequencies poorly",
+     "Whales amplify it",
+     "Currents carry it"
+    ],
+    "answer": 1,
+    "explanation": "A deep note can cross a basin and still be detectable."
+   },
+   {
+    "id": "the-ocean-is-getting-louder-q2",
+    "question": "What is cavitation?",
+    "options": [
+     "Engine vibration",
+     "Bubbles forming behind each blade and collapsing violently",
+     "Water hitting the hull",
+     "Sonar"
+    ],
+    "answer": 1,
+    "explanation": "Millions of small explosions a minute."
+   },
+   {
+    "id": "the-ocean-is-getting-louder-q3",
+    "question": "What is the main consequence for whales?",
+    "options": [
+     "They go deaf",
+     "Their effective range shrinks, so their world gets smaller",
+     "They stop calling",
+     "They move to rivers"
+    ],
+    "answer": 1,
+    "explanation": "Not quieter calls — louder everything else."
+   },
+   {
+    "id": "the-ocean-is-getting-louder-q4",
+    "question": "Why is noise called the rare exception?",
+    "options": [
+     "It is measured easily",
+     "It stops the moment the source stops",
+     "It affects only whales",
+     "It is natural"
+    ],
+    "answer": 1,
+    "explanation": "The cheapest restoration available, and it is not happening."
+   }
+  ]
  }
 ]

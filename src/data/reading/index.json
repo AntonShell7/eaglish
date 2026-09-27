@@ -11,6 +11,18 @@
   "total": 11
  },
  {
+  "id": "environment",
+  "label": "Environment",
+  "counts": {
+   "B2": 1,
+   "A2": 2,
+   "C1": 1,
+   "A1": 4,
+   "C2": 1
+  },
+  "total": 9
+ },
+ {
   "id": "celebrities",
   "label": "Celebrities",
   "counts": {
@@ -22,26 +34,16 @@
   "total": 8
  },
  {
-  "id": "environment",
-  "label": "Environment",
-  "counts": {
-   "B2": 1,
-   "A2": 2,
-   "C1": 1,
-   "A1": 4
-  },
-  "total": 8
- },
- {
   "id": "culture",
   "label": "Culture",
   "counts": {
    "C1": 2,
    "B2": 1,
    "A1": 1,
-   "C2": 2
+   "C2": 2,
+   "A2": 1
   },
-  "total": 6
+  "total": 7
  },
  {
   "id": "health",
@@ -53,6 +55,17 @@
    "A1": 1
   },
   "total": 6
+ },
+ {
+  "id": "society",
+  "label": "Society",
+  "counts": {
+   "B1": 2,
+   "A2": 1,
+   "C2": 1,
+   "B2": 1
+  },
+  "total": 5
  },
  {
   "id": "sport",
@@ -84,15 +97,5 @@
    "C1": 1
   },
   "total": 4
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1": 1,
-   "A2": 1,
-   "C2": 1
-  },
-  "total": 3
  }
 ]

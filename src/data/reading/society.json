@@ -485,5 +485,379 @@
     "explanation": "Your irritation is cheaper than your absence."
    }
   ]
+ },
+ {
+  "id": "why-shops-play-slow-music",
+  "level": "B1",
+  "topic": "society",
+  "generated": false,
+  "title": "The Shop Is Playing Slow Music at You on Purpose",
+  "sentences": [
+   {
+    "text": "Walk into a large supermarket and listen for a moment.",
+    "translationRu": "Зайди в большой супермаркет и на секунду прислушайся."
+   },
+   {
+    "text": "There is music, usually quiet, usually slow, usually something you half recognise and would never choose.",
+    "translationRu": "Там играет музыка — обычно тихая, обычно медленная, обычно что-то полузнакомое, чего ты сам бы не выбрал."
+   },
+   {
+    "text": "None of that is an accident.",
+    "translationRu": "Ничего из этого не случайность."
+   },
+   {
+    "text": "A study in the 1980s played the same shop different music on different days and measured how fast people walked.",
+    "translationRu": "Исследование 1980-х включало в одном магазине разную музыку в разные дни и измеряло, как быстро ходят люди."
+   },
+   {
+    "text": "With slow music, shoppers moved noticeably more slowly, stayed longer and spent more.",
+    "translationRu": "Под медленную музыку покупатели двигались заметно медленнее, задерживались дольше и тратили больше."
+   },
+   {
+    "text": "They did not report noticing the music at all.",
+    "translationRu": "При этом сообщали, что музыку вообще не замечали."
+   },
+   {
+    "text": "That combination — a real effect on behaviour with no awareness of the cause — is why the whole field exists.",
+    "translationRu": "Это сочетание — настоящее влияние на поведение при полном незнании причины — и породило целую область."
+   },
+   {
+    "text": "Almost everything else about a supermarket has been arranged on the same logic.",
+    "translationRu": "Почти всё остальное в супермаркете устроено по той же логике."
+   },
+   {
+    "text": "Fruit and flowers are near the door because colour and smell at the entrance make the rest of the shop feel fresher.",
+    "translationRu": "Фрукты и цветы стоят у входа, потому что цвет и запах на входе делают весь магазин «свежее» на ощущение."
+   },
+   {
+    "text": "Bread is baked in the afternoon partly because the smell reaches the aisles.",
+    "translationRu": "Хлеб пекут во второй половине дня отчасти потому, что запах доходит до рядов."
+   },
+   {
+    "text": "Milk is at the back, which is a long walk past everything else, and the expensive brands sit at eye level while the cheap ones are near your feet.",
+    "translationRu": "Молоко в глубине — это долгий путь мимо всего остального, а дорогие марки стоят на уровне глаз, дешёвые — у ног."
+   },
+   {
+    "text": "The floor sometimes changes from smooth to slightly rough in the aisles the shop wants you to slow down in, because a trolley that rattles makes you take your time.",
+    "translationRu": "Пол иногда меняется с гладкого на чуть шершавый в тех рядах, где тебя хотят притормозить: дребезжащая тележка заставляет идти медленнее."
+   },
+   {
+    "text": "Trolleys themselves have grown for forty years, and a bigger trolley reliably produces a bigger bill, because a half-empty one feels like a failure.",
+    "translationRu": "Сами тележки растут уже сорок лет, и бóльшая тележка надёжно даёт бóльший чек: наполовину пустая ощущается как провал."
+   },
+   {
+    "text": "It is tempting to find this sinister, and it is more interesting than that.",
+    "translationRu": "Хочется счесть это зловещим, но всё интереснее."
+   },
+   {
+    "text": "Nothing here lies to you.",
+    "translationRu": "Тебе здесь не лгут."
+   },
+   {
+    "text": "The prices are accurate, the milk is real, nobody is stopping you walking straight to it.",
+    "translationRu": "Цены честные, молоко настоящее, никто не мешает пойти прямо к нему."
+   },
+   {
+    "text": "The design simply works on the part of you that is not deciding anything, and the useful thing to understand is that this part is doing most of the shopping.",
+    "translationRu": "Просто дизайн работает с той частью тебя, которая ничего не решает, — а полезно понять, что именно она и делает большинство покупок."
+   },
+   {
+    "text": "The only defence anyone has found that actually works is a written list, followed exactly.",
+    "translationRu": "Единственная защита, которая действительно работает, — написанный список, которому следуют буквально."
+   },
+   {
+    "text": "It is a dull answer.",
+    "translationRu": "Скучный ответ."
+   },
+   {
+    "text": "It also cuts the bill by about the amount the music was adding.",
+    "translationRu": "И он срезает чек примерно на ту сумму, которую добавляла музыка."
+   }
+  ],
+  "glossary": {
+   "shopper": {
+    "translation": "покупатель",
+    "partOfSpeech": "noun"
+   },
+   "awareness": {
+    "translation": "осознание",
+    "partOfSpeech": "noun"
+   },
+   "aisle": {
+    "translation": "ряд, проход между полками",
+    "partOfSpeech": "noun"
+   },
+   "eye level": {
+    "translation": "уровень глаз",
+    "partOfSpeech": "noun"
+   },
+   "rough": {
+    "translation": "шершавый",
+    "partOfSpeech": "adjective"
+   },
+   "trolley": {
+    "translation": "тележка",
+    "partOfSpeech": "noun"
+   },
+   "rattle": {
+    "translation": "дребезжать",
+    "partOfSpeech": "verb"
+   },
+   "bill": {
+    "translation": "счёт, чек",
+    "partOfSpeech": "noun"
+   },
+   "sinister": {
+    "translation": "зловещий",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-shops-play-slow-music-q1",
+    "question": "What did the 1980s study find?",
+    "options": [
+     "People disliked slow music",
+     "Slow music made shoppers move slower and spend more, without noticing",
+     "Music had no effect",
+     "Fast music sold more"
+    ],
+    "answer": 1,
+    "explanation": "A real effect with no awareness of the cause."
+   },
+   {
+    "id": "why-shops-play-slow-music-q2",
+    "question": "Why is milk at the back?",
+    "options": [
+     "It is colder there",
+     "It makes you walk past everything else",
+     "Deliveries arrive there",
+     "Tradition"
+    ],
+    "answer": 1,
+    "explanation": "A long walk past the rest of the shop."
+   },
+   {
+    "id": "why-shops-play-slow-music-q3",
+    "question": "Why have trolleys grown?",
+    "options": [
+     "Shops are bigger",
+     "A bigger trolley produces a bigger bill",
+     "Families are larger",
+     "They are cheaper to make"
+    ],
+    "answer": 1,
+    "explanation": "A half-empty one feels like a failure."
+   },
+   {
+    "id": "why-shops-play-slow-music-q4",
+    "question": "What defence does the text recommend?",
+    "options": [
+     "Shopping quickly",
+     "A written list followed exactly",
+     "Shopping online",
+     "Wearing headphones"
+    ],
+    "answer": 1,
+    "explanation": "It cuts the bill by roughly what the music added."
+   }
+  ]
+ },
+ {
+  "id": "nobody-helps-in-a-crowd",
+  "level": "B2",
+  "topic": "society",
+  "generated": false,
+  "title": "Why Nobody Helps When Everybody Is Watching",
+  "sentences": [
+   {
+    "text": "If you collapse in a street with one other person present, your chances are good.",
+    "translationRu": "Если ты упадёшь на улице, где есть один прохожий, шансы хорошие."
+   },
+   {
+    "text": "If you collapse in a street with forty people present, they are worse.",
+    "translationRu": "Если упадёшь там, где сорок человек, шансы хуже."
+   },
+   {
+    "text": "This is one of the most reliable findings in social psychology and one of the least intuitive, and it is worth understanding properly, because the popular version of it is wrong in a way that matters.",
+    "translationRu": "Это один из самых устойчивых результатов социальной психологии и один из наименее интуитивных, и его стоит понять как следует: популярная версия ошибается там, где это важно."
+   },
+   {
+    "text": "The effect is called the bystander effect, and two separate things produce it.",
+    "translationRu": "Эффект называется эффектом свидетеля, и порождают его две разные вещи."
+   },
+   {
+    "text": "The first is diffusion of responsibility.",
+    "translationRu": "Первая — распыление ответственности."
+   },
+   {
+    "text": "With one witness, the duty to act is entirely yours; with forty, it is one-fortieth yours, and a fraction of a duty is easy to put down.",
+    "translationRu": "С одним свидетелем обязанность действовать целиком твоя; с сорока — одна сороковая, а долю обязанности легко опустить."
+   },
+   {
+    "text": "The second is subtler and stronger, and it is about information rather than morality.",
+    "translationRu": "Вторая тоньше и сильнее, и она про информацию, а не про мораль."
+   },
+   {
+    "text": "Most emergencies are ambiguous for the first few seconds.",
+    "translationRu": "Большинство чрезвычайных ситуаций первые секунды неоднозначны."
+   },
+   {
+    "text": "A man lying down may be ill or may be drunk; shouting in a flat may be an attack or an argument.",
+    "translationRu": "Лежащий мужчина может быть болен, а может быть пьян; крики в квартире могут быть нападением, а могут быть ссорой."
+   },
+   {
+    "text": "Not knowing, you do the natural thing and glance at the people around you to see how worried they are.",
+    "translationRu": "Не зная, ты делаешь естественное — смотришь на окружающих, чтобы понять, насколько они встревожены."
+   },
+   {
+    "text": "They are doing exactly the same, and they are looking at you.",
+    "translationRu": "Они делают ровно то же самое — и смотрят на тебя."
+   },
+   {
+    "text": "Everybody sees a crowd of calm faces, concludes that the situation must be fine, and the calm is entirely manufactured by the looking.",
+    "translationRu": "Каждый видит толпу спокойных лиц, заключает, что всё в порядке, — а это спокойствие целиком произведено самим переглядыванием."
+   },
+   {
+    "text": "Researchers demonstrated this with smoke.",
+    "translationRu": "Исследователи показали это с дымом."
+   },
+   {
+    "text": "Subjects filling in a questionnaire alone in a room, with smoke seeping under the door, reported it within minutes.",
+    "translationRu": "Испытуемые, заполнявшие анкету в комнате в одиночку, когда из-под двери шёл дым, сообщали об этом за считаные минуты."
+   },
+   {
+    "text": "Subjects in a room with two calm actors mostly sat in the smoke and kept writing.",
+    "translationRu": "Испытуемые в комнате с двумя невозмутимыми актёрами по большей части сидели в дыму и продолжали писать."
+   },
+   {
+    "text": "Now the correction.",
+    "translationRu": "Теперь поправка."
+   },
+   {
+    "text": "The case that made this famous, a murder in New York in 1964, was reported as thirty-eight neighbours watching and doing nothing, and that account has since been substantially dismantled: several people did call, and the reporting was considerably worse than the neighbours.",
+    "translationRu": "Случай, прославивший тему, — убийство в Нью-Йорке в 1964 году — подавали как тридцать восемь соседей, смотревших и не сделавших ничего; с тех пор этот рассказ во многом разобран: несколько человек звонили, и журналистика оказалась куда хуже соседей."
+   },
+   {
+    "text": "The underlying effect survives, because it has been shown in controlled experiments hundreds of times.",
+    "translationRu": "Сам эффект уцелел, потому что в контролируемых экспериментах его показывали сотни раз."
+   },
+   {
+    "text": "The story does not, and people who learned the story often took the wrong lesson: that cities make people cruel.",
+    "translationRu": "Рассказ — нет, и те, кто выучил рассказ, часто вынесли неверный урок: будто города делают людей жестокими."
+   },
+   {
+    "text": "They do not.",
+    "translationRu": "Не делают."
+   },
+   {
+    "text": "The crowd is not indifferent; it is uncertain, and uncertainty spreads faster than anything else in a group.",
+    "translationRu": "Толпа не равнодушна, она не уверена, а неуверенность в группе распространяется быстрее всего."
+   },
+   {
+    "text": "Which gives the practical rule, taught in every first-aid course.",
+    "translationRu": "Отсюда практическое правило, которому учат на любых курсах первой помощи."
+   },
+   {
+    "text": "Do not shout for somebody to help.",
+    "translationRu": "Не кричи «помогите кто-нибудь»."
+   },
+   {
+    "text": "Point at one person, describe them, give them one instruction, and the crowd stops being a crowd.",
+    "translationRu": "Укажи на одного человека, опиши его, дай ему одно поручение — и толпа перестаёт быть толпой."
+   }
+  ],
+  "glossary": {
+   "collapse": {
+    "translation": "падать без сознания",
+    "partOfSpeech": "verb"
+   },
+   "intuitive": {
+    "translation": "интуитивно понятный",
+    "partOfSpeech": "adjective"
+   },
+   "bystander": {
+    "translation": "случайный свидетель",
+    "partOfSpeech": "noun"
+   },
+   "diffusion": {
+    "translation": "распыление, рассеивание",
+    "partOfSpeech": "noun"
+   },
+   "witness": {
+    "translation": "свидетель",
+    "partOfSpeech": "noun"
+   },
+   "ambiguous": {
+    "translation": "неоднозначный",
+    "partOfSpeech": "adjective"
+   },
+   "glance": {
+    "translation": "бросить взгляд",
+    "partOfSpeech": "verb"
+   },
+   "seep": {
+    "translation": "просачиваться",
+    "partOfSpeech": "verb"
+   },
+   "dismantle": {
+    "translation": "разобрать, опровергнуть",
+    "partOfSpeech": "verb"
+   },
+   "indifferent": {
+    "translation": "равнодушный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "nobody-helps-in-a-crowd-q1",
+    "question": "What is diffusion of responsibility?",
+    "options": [
+     "Nobody knows first aid",
+     "With many witnesses each person holds only a fraction of the duty",
+     "People are afraid of blame",
+     "Crowds block the view"
+    ],
+    "answer": 1,
+    "explanation": "A fraction of a duty is easy to put down."
+   },
+   {
+    "id": "nobody-helps-in-a-crowd-q2",
+    "question": "Why does looking at other people make things worse?",
+    "options": [
+     "They give bad advice",
+     "Everyone sees calm faces that the looking itself produced",
+     "They leave",
+     "They are strangers"
+    ],
+    "answer": 1,
+    "explanation": "The calm is manufactured by the looking."
+   },
+   {
+    "id": "nobody-helps-in-a-crowd-q3",
+    "question": "What does the text say about the 1964 case?",
+    "options": [
+     "It proved the effect",
+     "The account has been substantially dismantled, though the effect survives",
+     "It never happened",
+     "It was in London"
+    ],
+    "answer": 1,
+    "explanation": "Several people did call."
+   },
+   {
+    "id": "nobody-helps-in-a-crowd-q4",
+    "question": "What is the practical rule?",
+    "options": [
+     "Shout louder",
+     "Point at one person and give them one instruction",
+     "Wait for police",
+     "Move the crowd back"
+    ],
+    "answer": 1,
+    "explanation": "The crowd stops being a crowd."
+   }
+  ]
  }
 ]

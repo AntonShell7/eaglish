@@ -904,5 +904,170 @@
     "explanation": "The closing sentence."
    }
   ]
+ },
+ {
+  "id": "the-song-in-your-head",
+  "level": "A2",
+  "topic": "culture",
+  "generated": false,
+  "title": "The Song You Cannot Get Out of Your Head",
+  "sentences": [
+   {
+    "text": "A song starts playing in your head.",
+    "translationRu": "В голове начинает играть песня."
+   },
+   {
+    "text": "You did not choose it.",
+    "translationRu": "Ты её не выбирал."
+   },
+   {
+    "text": "You do not even like it very much.",
+    "translationRu": "Она тебе даже не особо нравится."
+   },
+   {
+    "text": "And it stays there for hours.",
+    "translationRu": "И она сидит там часами."
+   },
+   {
+    "text": "In English this is called an earworm.",
+    "translationRu": "По-английски это называют earworm — «ушной червь»."
+   },
+   {
+    "text": "The word comes from German, and it is a good picture: something small living in your ear.",
+    "translationRu": "Слово пришло из немецкого, и картинка удачная: что-то маленькое живёт у тебя в ухе."
+   },
+   {
+    "text": "Almost everybody gets them.",
+    "translationRu": "Бывает почти у всех."
+   },
+   {
+    "text": "Scientists asked thousands of people, and more than nine out of ten said yes.",
+    "translationRu": "Учёные опросили тысячи человек, и больше девяти из десяти ответили «да»."
+   },
+   {
+    "text": "The songs that do this are usually the same kind.",
+    "translationRu": "Песни, которые так делают, обычно одного типа."
+   },
+   {
+    "text": "They are simple, they are not too slow, and they have one part that goes up and down in an easy way.",
+    "translationRu": "Они простые, не слишком медленные, и в них есть кусочек, который просто идёт вверх и вниз."
+   },
+   {
+    "text": "But there is also a small surprise in them: one note that is not where you expect it.",
+    "translationRu": "Но в них есть и маленький сюрприз: одна нота не там, где ты её ждёшь."
+   },
+   {
+    "text": "Your brain remembers the easy part and then stops at the strange part.",
+    "translationRu": "Мозг запоминает лёгкую часть и спотыкается о странную."
+   },
+   {
+    "text": "Then it goes back and tries again.",
+    "translationRu": "Потом возвращается и пробует снова."
+   },
+   {
+    "text": "That is why the song never finishes.",
+    "translationRu": "Поэтому песня никогда не кончается."
+   },
+   {
+    "text": "It is usually not the whole song in your head.",
+    "translationRu": "В голове обычно не вся песня."
+   },
+   {
+    "text": "It is about fifteen seconds of it, again and again.",
+    "translationRu": "А примерно пятнадцать секунд её — по кругу."
+   },
+   {
+    "text": "Earworms come more often when you are tired or doing something boring.",
+    "translationRu": "Ушные черви приходят чаще, когда ты устал или занят чем-то скучным."
+   },
+   {
+    "text": "A busy brain has no space for them.",
+    "translationRu": "Занятому мозгу для них нет места."
+   },
+   {
+    "text": "If you want one to go away, do not fight it.",
+    "translationRu": "Если хочешь избавиться — не борись."
+   },
+   {
+    "text": "Fighting makes it stronger.",
+    "translationRu": "Борьба делает его сильнее."
+   },
+   {
+    "text": "People say the best answer is to listen to the whole song one time, from the start to the end.",
+    "translationRu": "Говорят, лучший ответ — один раз послушать песню целиком, от начала до конца."
+   },
+   {
+    "text": "Your brain wanted to finish it, and now it can.",
+    "translationRu": "Мозг хотел её закончить — теперь может."
+   }
+  ],
+  "glossary": {
+   "choose": {
+    "translation": "выбирать",
+    "partOfSpeech": "verb"
+   },
+   "earworm": {
+    "translation": "навязчивая мелодия",
+    "partOfSpeech": "noun"
+   },
+   "note": {
+    "translation": "нота",
+    "partOfSpeech": "noun"
+   },
+   "expect": {
+    "translation": "ожидать",
+    "partOfSpeech": "verb"
+   },
+   "brain": {
+    "translation": "мозг",
+    "partOfSpeech": "noun"
+   },
+   "boring": {
+    "translation": "скучный",
+    "partOfSpeech": "adjective"
+   },
+   "fight": {
+    "translation": "бороться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-song-in-your-head-q1",
+    "question": "What kind of songs become earworms?",
+    "options": [
+     "Long and slow ones",
+     "Simple ones with one surprising note",
+     "Only new songs",
+     "Songs in English"
+    ],
+    "answer": 1,
+    "explanation": "The brain stops at the strange part and goes back."
+   },
+   {
+    "id": "the-song-in-your-head-q2",
+    "question": "When do earworms come more often?",
+    "options": [
+     "When you are busy",
+     "When you are tired or bored",
+     "In the morning only",
+     "When you sing"
+    ],
+    "answer": 1,
+    "explanation": "A busy brain has no space for them."
+   },
+   {
+    "id": "the-song-in-your-head-q3",
+    "question": "What is the suggested way to stop one?",
+    "options": [
+     "Fight it",
+     "Listen to the whole song once",
+     "Sleep",
+     "Sing another song"
+    ],
+    "answer": 1,
+    "explanation": "Your brain wanted to finish it."
+   }
+  ]
  }
 ]
