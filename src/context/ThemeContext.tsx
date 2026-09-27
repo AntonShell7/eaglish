@@ -18,7 +18,12 @@ function getSystemTheme(): ResolvedTheme {
 
 function readStoredMode(): ThemeMode {
   const stored = localStorage.getItem(STORAGE_KEY);
-  return stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
+  if (stored === "light" || stored === "dark" || stored === "system") return stored;
+  // Dark, not "whatever the system says". The app is read in the evening more
+  // than at noon, its own palette was drawn dark first, and a light default
+  // means most people's first impression is the version that was designed
+  // second. They can still pick either, and the choice sticks.
+  return "dark";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

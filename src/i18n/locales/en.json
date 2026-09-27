@@ -478,7 +478,6 @@
     }
   },
   "landing": {
-    "promise": "Read what you'd read anyway. The words you meet come back — exactly when you'd have forgotten them.",
     "start": "Get started",
     "methodEyebrow": "The method",
     "methodTitle": "A word isn't learned once. It's met enough times.",
@@ -518,10 +517,9 @@
         "p": "Navigate in Russian if it helps. The English you came for is never translated away."
       }
     },
-    "closeTitle": "One text. Five minutes. Start today.",
-    "factTexts": "88 texts",
-    "factTopics": "10 topics",
-    "factFree": "Free"
+    "closeTitle": "One text. Five minutes. Today.",
+    "heroTitle": "English that stays",
+    "heroSub": "Not word lists, not lessons on a timetable. You read, you listen, you write — and everything unfamiliar comes back on its own, exactly when you would have lost it."
   },
   "dashboard": {
     "greeting": "Welcome back",

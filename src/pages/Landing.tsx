@@ -7,75 +7,75 @@ const STEPS = ["meet", "save", "returns"] as const;
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
 
 /**
- * What a visitor sees before signing in.
+ * The front page — the only screen most people will ever judge this by.
  *
- * Its whole job is to explain the method in a few lines — words are learned by
- * meeting them repeatedly, spaced repetition makes the meetings land — and then
- * get out of the way. No app chrome, no stats, nothing that only makes sense
- * once there's an account behind it.
+ * It carries its own canvas rather than following the app's theme: near-black
+ * ground, the brand mint, gold hairlines, warm white type. A front page that
+ * changes its character with a toggle has no character, and this one is meant
+ * to look the same to everyone who is sent the link.
+ *
+ * What it no longer does is boast. There was a row of counted facts under the
+ * buttons — so many texts, so many topics, free — which is a promise that has
+ * to be kept true forever in exchange for nothing, and a glowing blur behind
+ * the mark that belonged to a different decade. Both gone. What is left is a
+ * name, a sentence, and the way in.
  */
 export default function Landing() {
   const { t } = useTranslation();
 
   return (
-    <div className="lp mx-auto max-w-5xl px-5 py-8">
+    <div className="lp">
       <section className="lp-hero">
-        <div className="lp-hero__aurora" aria-hidden />
-        <div className="lp-hero__inner">
-          <div className="crest-stage lp-hero__mark fade-up">
-            <BrandLogo />
-          </div>
+        {/* The masked variant, because it takes a colour: the plain artwork
+            can only be flipped black or white, and the mark should be mint
+            like the name under it. */}
+        <BrandLogo variant="chip" className="lp-hero__mark fade-up" />
 
-          <h1 className="lp-hero__name fade-up" style={{ animationDelay: "70ms" }}>
-            {t("brand")}
-          </h1>
+        <h1 className="lp-wordmark fade-up" style={{ animationDelay: "60ms" }}>
+          {t("brand")}
+        </h1>
 
-          <p className="lp-hero__promise fade-up" style={{ animationDelay: "140ms" }}>
-            {t("landing.promise")}
-          </p>
+        {/* A gold hairline under the name, and nothing else decorative on the
+            page. One ornament, used once, reads as confidence; the same
+            ornament three times reads as decoration. */}
+        <span className="lp-rule fade-up" style={{ animationDelay: "110ms" }} aria-hidden />
 
-          <div className="lp-hero__actions cta-pair fade-up" style={{ animationDelay: "210ms" }}>
-            <Link to="/register" className="btn btn--primary btn--lg">
-              {t("landing.start")}
-            </Link>
-            <Link to="/login" className="btn btn--ghost btn--lg">
-              {t("auth.logIn")}
-            </Link>
-          </div>
-          <p className="lp-facts fade-up" style={{ animationDelay: "300ms" }}>
-            <span>
-              <b>{t("landing.factTexts")}</b>
-            </span>
-            <span>
-              <b>{t("landing.factTopics")}</b>
-            </span>
-            <span>
-              <b>{t("landing.factFree")}</b>
-            </span>
-          </p>
+        <h2 className="lp-hero__title fade-up" style={{ animationDelay: "160ms" }}>
+          {t("landing.heroTitle")}
+        </h2>
+
+        <p className="lp-hero__sub fade-up" style={{ animationDelay: "220ms" }}>
+          {t("landing.heroSub")}
+        </p>
+
+        <div className="lp-actions fade-up" style={{ animationDelay: "280ms" }}>
+          <Link to="/register" className="lp-btn lp-btn--go">
+            {t("landing.start")}
+          </Link>
+          <Link to="/login" className="lp-btn lp-btn--quiet">
+            {t("auth.logIn")}
+          </Link>
         </div>
       </section>
 
-      {/* The method */}
       <section className="lp-section" data-reveal>
         <p className="lp-eyebrow">{t("landing.methodEyebrow")}</p>
         <h2 className="lp-title">{t("landing.methodTitle")}</h2>
         <p className="lp-lede">{t("landing.methodLede")}</p>
 
-        <div className="lp-steps" data-stagger>
+        <ol className="lp-steps" data-stagger>
           {STEPS.map((key, i) => (
-            <div key={key} className="lp-step">
-              <span className="lp-step__n">{i + 1}</span>
+            <li key={key} className="lp-step">
+              <span className="lp-step__n">{String(i + 1).padStart(2, "0")}</span>
               <p className="lp-step__h">{t(`landing.steps.${key}.h`)}</p>
               <p className="lp-step__p">{t(`landing.steps.${key}.p`)}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <p className="lp-steps__loop">{t("landing.loop")}</p>
+        <p className="lp-loop">{t("landing.loop")}</p>
       </section>
 
-      {/* Principles */}
       <section className="lp-section" data-reveal>
         <p className="lp-eyebrow">{t("landing.principlesEyebrow")}</p>
         <h2 className="lp-title">{t("landing.principlesTitle")}</h2>
@@ -92,11 +92,11 @@ export default function Landing() {
 
       <section className="lp-close" data-reveal>
         <h2 className="lp-close__h">{t("landing.closeTitle")}</h2>
-        <div className="lp-close__actions cta-pair">
-          <Link to="/register" className="btn btn--primary btn--lg">
+        <div className="lp-actions lp-actions--center">
+          <Link to="/register" className="lp-btn lp-btn--go">
             {t("landing.start")}
           </Link>
-          <Link to="/login" className="btn btn--ghost btn--lg">
+          <Link to="/login" className="lp-btn lp-btn--quiet">
             {t("auth.logIn")}
           </Link>
         </div>

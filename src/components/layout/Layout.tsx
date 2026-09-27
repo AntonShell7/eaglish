@@ -214,7 +214,9 @@ export function Layout() {
 
       <SelectionLookup />
       <ConsentSheet />
-      <FeedbackButton />
+      {/* A visitor has nothing to report yet, and a support tag floating over
+          the front page is the wrong first impression. */}
+      {user && <FeedbackButton />}
       <CommandPalette />
     </div>
   );
