@@ -1,0 +1,383 @@
+/* The progress page.
+   Mint carries the data, gold carries the reference marks — the mean line, the
+   ring around today, the rule under a heading. Keeping those two jobs separate
+   is what stops a page of charts turning into a page of decoration. */
+
+.pg-section {
+  margin-top: 46px;
+}
+
+.pg-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pg-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.pg-note {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.pg-card {
+  margin-top: 16px;
+  padding: 24px 26px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.pg-grid {
+  margin-top: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .pg-grid--split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pg-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Words by day ─────────────────────────────────────────────────────── */
+
+.wbd__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wbd__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.wbd__total {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.wbd__unit {
+  margin-left: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--color-text-faint);
+}
+
+.wbd__sub {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.wbd__plot {
+  position: relative;
+  margin-top: 26px;
+  height: 180px;
+}
+
+/* The average, in gold, with its value sitting on the line. */
+.wbd__mean {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-accent) 60%, transparent) 0 5px,
+    transparent 5px 10px
+  );
+  pointer-events: none;
+}
+
+.wbd__mean i {
+  position: absolute;
+  right: 0;
+  top: -9px;
+  padding-left: 6px;
+  background: var(--color-surface);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.wbd__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wbd__bar {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.wbd__bar > span {
+  display: block;
+  width: 100%;
+  border-radius: 3px 3px 1px 1px;
+  background: var(--color-border);
+  transition: background var(--dur-2) var(--ease);
+}
+
+/* A day with words in it gets the brand; an empty day stays a hairline, so
+   the gaps in a habit are visible instead of averaged away. */
+.wbd__bar.is-on > span {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    color-mix(in srgb, var(--color-primary) 62%, transparent) 100%
+  );
+}
+
+.wbd__bar:hover > span {
+  background: var(--color-accent);
+}
+
+.wbd__foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 0.7rem;
+  color: var(--color-text-faint);
+}
+
+/* ── Donut ────────────────────────────────────────────────────────────── */
+
+.donut {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.donut__ring {
+  position: relative;
+  width: 150px;
+  flex: none;
+}
+
+.donut__ring svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.donut__centre {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.donut__value {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.donut__caption {
+  margin-top: 4px;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.donut__legend {
+  flex: 1 1 200px;
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.donut__legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+}
+
+.donut__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex: none;
+}
+
+.donut__name {
+  flex: 1;
+  color: var(--color-text-muted);
+}
+
+.donut__pct {
+  font-weight: 700;
+}
+
+.donut__empty {
+  padding: 28px 0;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Year grid ────────────────────────────────────────────────────────── */
+
+.ygrid__scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.ygrid__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.ygrid__weeks {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+}
+
+.ygrid__week {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.ygrid__day {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  background: var(--color-surface-3);
+  transition: transform var(--dur-1) var(--ease);
+}
+
+.ygrid__day:hover {
+  transform: scale(1.35);
+}
+
+.ygrid__day--1 {
+  background: color-mix(in srgb, var(--color-primary) 32%, transparent);
+}
+
+.ygrid__day--2 {
+  background: color-mix(in srgb, var(--color-primary) 62%, transparent);
+}
+
+.ygrid__day--3 {
+  background: var(--color-primary);
+}
+
+.ygrid__day.is-today {
+  box-shadow: 0 0 0 1.5px var(--color-accent);
+}
+
+.ygrid__key {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  font-size: 0.7rem;
+  color: var(--color-text-faint);
+}
+
+.ygrid__key span:first-child {
+  margin-right: 3px;
+}
+
+.ygrid__key span:last-child {
+  margin-left: 3px;
+}
+
+/* ── Locked ───────────────────────────────────────────────────────────── */
+
+.locked {
+  padding: 20px 22px 18px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+
+.locked__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.locked__value {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+}
+
+.locked__note {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-text-faint);
+}
+
+.locked__track {
+  display: block;
+  height: 3px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+
+.locked__fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transition: width var(--dur-4) var(--ease);
+}
+
+.locked__count {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+}

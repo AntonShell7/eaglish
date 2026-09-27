@@ -1,160 +1,200 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { StatTile } from "@/components/charts/figures";
-import { Columns, type ColumnDatum } from "@/components/charts/Columns";
-import { Heatmap, type HeatmapCell } from "@/components/charts/Heatmap";
+import { WordsByDay, type DayCount } from "@/components/charts/WordsByDay";
+import { Donut, type Slice } from "@/components/charts/Donut";
+import { YearGrid } from "@/components/charts/YearGrid";
+import { LockedStat } from "@/components/charts/LockedStat";
 import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
-import { MixBar, type MixSegment } from "@/components/charts/MixBar";
-import { VocabularyReport } from "@/components/progress/VocabularyReport";
-import { IconFlame, IconTarget } from "@/components/brand/icons";
 import { getWritingHistory } from "@/lib/writingHistory";
-import { getVocabulary, getDueWords } from "@/lib/vocabularyStore";
-import { getUniqueTextsRead, getQuizTotals } from "@/lib/readingHistory";
-import {
-  getStreak,
-  getBestStreak,
-  getRecentDays,
-  getDailyGoal,
-  type ActivityKind,
-} from "@/lib/activityStore";
-import { getActivityMix } from "@/lib/gamification";
+import { getVocabulary } from "@/lib/vocabularyStore";
+import { getQuizTotals } from "@/lib/readingHistory";
+import { getActivity, getRecentDays, getDailyGoal, getStreak, getBestStreak, totalForDay } from "@/lib/activityStore";
+import { timeBySection, totalMinutes, type TimeSection } from "@/lib/timeStore";
 import "@/components/charts/charts.css";
+import "@/components/charts/progress.css";
 
-const MIX_COLORS: Record<ActivityKind, string> = {
-  reading: "var(--viz-cat-1)",
-  writing: "var(--viz-cat-2)",
-  vocabulary: "var(--viz-cat-3)",
-  quiz: "var(--viz-cat-4)",
-  listening: "var(--viz-cat-5)",
-  slang: "var(--viz-cat-6, var(--viz-cat-1))",
+/** Days of real use before a figure is allowed to speak. */
+const UNLOCK_DAYS = 7;
+
+const SECTION_COLOR: Record<TimeSection, string> = {
+  reading: "var(--color-primary)",
+  listening: "var(--color-accent)",
+  slang: "color-mix(in srgb, var(--color-primary) 55%, var(--color-accent))",
+  vocabulary: "color-mix(in srgb, var(--color-primary) 45%, transparent)",
+  writing: "color-mix(in srgb, var(--color-accent) 55%, transparent)",
+  other: "var(--color-surface-3)",
 };
 
-function weekdayLabels(locale: string, dates: string[]): string[] {
-  const fmt = new Intl.DateTimeFormat(locale, { weekday: "short" });
-  return dates.map((d) => fmt.format(new Date(d)).replace(".", ""));
+/** The last `n` days as dates, oldest first. */
+function lastDays(n: number): string[] {
+  const out: string[] = [];
+  const day = new Date();
+  day.setHours(0, 0, 0, 0);
+  for (let i = n - 1; i >= 0; i -= 1) {
+    const d = new Date(day);
+    d.setDate(day.getDate() - i);
+    out.push(
+      `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`,
+    );
+  }
+  return out;
 }
 
+/**
+ * Progress.
+ *
+ * It used to open with an estimate of the learner's whole English vocabulary —
+ * "about 6,500 words" — extrapolated from a handful of saved ones. A number
+ * that confident, built on that little, is a guess wearing a lab coat, and it
+ * sat above everything that was actually measured.
+ *
+ * What is here now is only what the app genuinely knows: words collected on
+ * each day, where the time went, and which days were worked. Everything that
+ * needs a run of days before it means anything says so, and shows how far off
+ * it is — a blank with a reason is a return visit, a blank without one is a
+ * bug.
+ */
 export default function Progress() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const [words, setWords] = useState<DayCount[]>([]);
+  const [calendar, setCalendar] = useState<{ date: string; count: number }[]>([]);
+  const [goal, setGoal] = useState(3);
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
-  const [goal, setGoal] = useState(3);
-  const [week, setWeek] = useState<ColumnDatum[]>([]);
-  const [cells, setCells] = useState<HeatmapCell[]>([]);
+  const [daysStudied, setDaysStudied] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [split, setSplit] = useState<Slice[]>([]);
   const [scores, setScores] = useState<TrendPoint[]>([]);
-  const [mix, setMix] = useState<MixSegment[]>([]);
-  const [textsRead, setTextsRead] = useState(0);
-  const [quiz, setQuiz] = useState({ correct: 0, total: 0 });
-  const [words, setWords] = useState(0);
-  const [due, setDue] = useState(0);
 
   useEffect(() => {
+    const collected = new Map<string, number>();
+    for (const word of getVocabulary()) {
+      const d = new Date(word.addedAt);
+      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      collected.set(key, (collected.get(key) ?? 0) + 1);
+    }
+    setWords(lastDays(30).map((date) => ({ date, count: collected.get(date) ?? 0 })));
+
+    setCalendar(getRecentDays(140));
+    setGoal(getDailyGoal());
     setStreak(getStreak());
     setBest(getBestStreak());
-    setGoal(getDailyGoal());
+    setDaysStudied(getActivity().filter((d) => totalForDay(d) > 0).length);
 
-    const last7 = getRecentDays(7);
-    const labels = weekdayLabels(i18n.language, last7.map((d) => d.date));
-    setWeek(last7.map((d, i) => ({ label: labels[i], value: d.count, title: d.date })));
+    setMinutes(totalMinutes(30));
+    const by = timeBySection(30);
+    setSplit(
+      (Object.keys(by) as TimeSection[]).map((key) => ({
+        key,
+        label: t(`progress.section.${key}`),
+        value: by[key],
+        color: SECTION_COLOR[key],
+      })),
+    );
 
-    setCells(getRecentDays(70));
-
-    const history = getWritingHistory();
     setScores(
-      [...history]
+      [...getWritingHistory()]
         .reverse()
         .slice(-12)
         .map((s, i) => ({ label: String(i + 1), value: s.scores.overall })),
     );
+  }, [t]);
 
-    const m = getActivityMix();
-    const mixLabel: Record<ActivityKind, string> = {
-      reading: t("nav.reading"),
-      listening: t("nav.dictation"),
-      writing: t("nav.writing"),
-      vocabulary: t("progress.mixVocabulary"),
-      quiz: t("reading.comprehension"),
-      slang: t("nav.slang"),
-    };
-    setMix(
-      (Object.keys(m) as ActivityKind[]).map((k) => ({
-        key: k,
-        label: mixLabel[k],
-        value: m[k],
-        color: MIX_COLORS[k],
-      })),
-    );
+  const unlocked = daysStudied >= UNLOCK_DAYS;
+  const quiz = useMemo(() => getQuizTotals(), []);
 
-    setTextsRead(getUniqueTextsRead());
-    setQuiz(getQuizTotals());
-    setWords(getVocabulary().length);
-    setDue(getDueWords().length);
-  }, [i18n.language, t]);
-
-  const history = getWritingHistory();
-  const avgScore = history.length
-    ? Math.round(history.reduce((s, x) => s + x.scores.overall, 0) / history.length)
-    : "—";
+  /* Words per week, from the days that actually exist rather than from a
+     nominal seven — three days of use should not be divided by seven. */
+  const perWeek = useMemo(() => {
+    const total = words.reduce((sum, d) => sum + d.count, 0);
+    return daysStudied > 0 ? ((total / Math.max(1, Math.min(30, daysStudied))) * 7).toFixed(1) : "0";
+  }, [words, daysStudied]);
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-8">
+    <div className="mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
 
-      <VocabularyReport />
+      <section className="pg-card" style={{ marginTop: 26 }}>
+        <WordsByDay days={words} unit={t("progress.wordsUnit")} />
+      </section>
 
-      <p className="eyebrow mt-12">{t("progress.effortTitle")}</p>
-
-      {/* Effort used to open with a hero figure of XP and a meter against an
-          invented daily target. Both are gone: the tiles below already say how
-          many days in a row, how many texts, how many words — in units that
-          mean something without a conversion rate. */}
-      {/* KPI row */}
-      <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatTile
-          label={t("progress.streak")}
-          value={streak}
-          hint={streak === 0 ? t("progress.streakNone") : t("progress.bestStreak", { count: best })}
-          icon={<IconFlame alive={streak > 0} />}
-        />
-        <StatTile label={t("progress.textsOpened")} value={textsRead} />
-        <StatTile
-          label={t("progress.questionsCorrect")}
-          value={quiz.total ? `${quiz.correct}/${quiz.total}` : "—"}
-          icon={<IconTarget />}
-        />
-        <StatTile label={t("progress.wordsSaved")} value={words} hint={t("progress.wordsDue") + `: ${due}`} />
-      </div>
-
-      {/* Charts */}
-      <div className="mt-5 grid gap-5 lg:grid-cols-2">
-        <Columns
-          data={week}
-          title={t("progress.weeklyTitle")}
-          subtitle={t("progress.weeklySub")}
-          unitLabel={t("progress.count").toLowerCase()}
-        />
-        <TrendLine
-          points={scores}
-          title={t("progress.scoresTitle")}
-          subtitle={t("progress.scoresSub")}
-          emptyLabel={t("progress.noSubmissions")}
-        />
-        <Heatmap cells={cells} title={t("progress.heatmapTitle")} subtitle={t("progress.heatmapSub")} scaleMax={goal} />
-        <MixBar
-          segments={mix}
-          title={t("progress.mixTitle")}
-          subtitle={t("progress.mixSub")}
-          emptyLabel={t("progress.noActivityYet")}
-        />
-      </div>
-
-      {history.length > 0 && (
-        <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-3">
-          <StatTile label={t("progress.piecesSubmitted")} value={history.length} />
-          <StatTile label={t("progress.latestScore")} value={history[0].scores.overall} />
-          <StatTile label={t("progress.averageScore")} value={avgScore} />
+      <section className="pg-section">
+        <div className="pg-head">
+          <p className="pg-eyebrow">{t("progress.timeTitle")}</p>
+          <p className="pg-note">{t("progress.lastThirty")}</p>
         </div>
+        <div className="pg-card">
+          <Donut
+            slices={split}
+            centre={String(minutes)}
+            centreLabel={t("progress.minutes")}
+            emptyLabel={t("progress.timeEmpty")}
+          />
+        </div>
+      </section>
+
+      <section className="pg-section">
+        <div className="pg-head">
+          <p className="pg-eyebrow">{t("progress.calendarTitle")}</p>
+          <p className="pg-note">
+            {t("progress.streakNow", { count: streak })} · {t("progress.bestStreak", { count: best })}
+          </p>
+        </div>
+        <div className="pg-card">
+          <YearGrid days={calendar} goal={goal} />
+        </div>
+      </section>
+
+      <section className="pg-section">
+        <div className="pg-head">
+          <p className="pg-eyebrow">{t("progress.depthTitle")}</p>
+          {!unlocked && <p className="pg-note">{t("progress.depthNote", { count: UNLOCK_DAYS })}</p>}
+        </div>
+
+        <div className="pg-grid pg-grid--three">
+          {unlocked ? (
+            <>
+              <Figure
+                label={t("progress.questionsCorrect")}
+                value={quiz.total ? `${Math.round((quiz.correct / quiz.total) * 100)}%` : "—"}
+                hint={quiz.total ? `${quiz.correct} / ${quiz.total}` : undefined}
+              />
+              <Figure label={t("progress.newPerWeek")} value={perWeek} />
+              <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
+            </>
+          ) : (
+            <>
+              <LockedStat label={t("progress.questionsCorrect")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+              <LockedStat label={t("progress.newPerWeek")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+              <LockedStat label={t("progress.daysStudied")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+            </>
+          )}
+        </div>
+      </section>
+
+      {scores.length > 1 && (
+        <section className="pg-section">
+          <div className="pg-head">
+            <p className="pg-eyebrow">{t("progress.scoresTitle")}</p>
+          </div>
+          <div className="pg-card">
+            <TrendLine points={scores} title="" subtitle="" emptyLabel={t("progress.noSubmissions")} />
+          </div>
+        </section>
       )}
+    </div>
+  );
+}
+
+/** An unlocked figure, in the same frame as the locked one it replaces. */
+function Figure({ label, value, hint }: { label: string; value: string; hint?: string }) {
+  return (
+    <div className="pg-card" style={{ marginTop: 0 }}>
+      <p className="locked__label">{label}</p>
+      <p className="wbd__total" style={{ fontSize: "2.1rem", marginTop: 10 }}>
+        {value}
+      </p>
+      {hint && <p className="locked__count tabular">{hint}</p>}
     </div>
   );
 }

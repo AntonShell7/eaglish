@@ -378,7 +378,31 @@
     "levelMeter": "Уровень {{level}}",
     "noActivityYet": "Пока ничего нет — начни с текста для чтения.",
     "mixVocabulary": "Слова и уроки",
-    "effortTitle": "Активность"
+    "effortTitle": "Активность",
+    "wordsByDayTitle": "Сохранённые слова",
+    "wordsByDaySub": "За последние {{count}} дней",
+    "wordsUnit": "слов",
+    "timeTitle": "Время на сайте",
+    "lastThirty": "за 30 дней",
+    "minutes": "минут",
+    "timeEmpty": "Пока не с чем сравнивать — время начнёт считаться с этого занятия.",
+    "section": {
+      "reading": "Чтение",
+      "listening": "Английский на слух",
+      "slang": "Сленг",
+      "vocabulary": "Словарь",
+      "writing": "Активный словарь",
+      "other": "Остальное"
+    },
+    "calendarTitle": "Календарь занятий",
+    "streakNow": "Серия: {{count}}",
+    "gridLess": "реже",
+    "gridMore": "чаще",
+    "depthTitle": "Глубина",
+    "depthNote": "Показатели откроются после {{count}} дней занятий",
+    "unlockIn": "Откроется через {{count}} дн.",
+    "newPerWeek": "Новых слов в неделю",
+    "daysStudied": "Дней занятий"
   },
   "footer": {
     "privacy": "Политика конфиденциальности",

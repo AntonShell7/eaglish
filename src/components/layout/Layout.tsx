@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/context/AuthContext";
@@ -18,6 +18,7 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { ConsentSheet } from "@/components/consent/ConsentSheet";
 import { FeedbackButton } from "@/components/FeedbackButton";
+import { sectionFor, startClock } from "@/lib/timeStore";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { useReveal } from "@/lib/useReveal";
 import { useScrolled } from "@/lib/useScrolled";
@@ -71,6 +72,16 @@ export function Layout() {
 
   // Re-scan on every navigation: the next page's sections are new nodes.
   useReveal([pathname]);
+
+  /* The clock runs for the whole signed-in session rather than per page, and
+     reads the route at each tick — so walking from reading to the vocabulary
+     splits the time correctly without restarting anything. */
+  const here = useRef(pathname);
+  here.current = pathname;
+  useEffect(() => {
+    if (!user) return;
+    return startClock(() => sectionFor(here.current));
+  }, [user]);
 
   return (
     <div className={user ? "shell" : "shell shell--guest"}>

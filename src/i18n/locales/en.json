@@ -368,7 +368,31 @@
     "levelMeter": "Level {{level}}",
     "noActivityYet": "Nothing logged yet — start with a reading text.",
     "mixVocabulary": "Words & lessons",
-    "effortTitle": "Activity"
+    "effortTitle": "Activity",
+    "wordsByDayTitle": "Words saved",
+    "wordsByDaySub": "Over the last {{count}} days",
+    "wordsUnit": "words",
+    "timeTitle": "Time here",
+    "lastThirty": "last 30 days",
+    "minutes": "minutes",
+    "timeEmpty": "Nothing to compare yet — the clock starts with this session.",
+    "section": {
+      "reading": "Reading",
+      "listening": "Listening",
+      "slang": "Slang",
+      "vocabulary": "Vocabulary",
+      "writing": "Active vocabulary",
+      "other": "Elsewhere"
+    },
+    "calendarTitle": "Days worked",
+    "streakNow": "Streak: {{count}}",
+    "gridLess": "less",
+    "gridMore": "more",
+    "depthTitle": "Depth",
+    "depthNote": "These open after {{count}} days of study",
+    "unlockIn": "Opens in {{count}} days",
+    "newPerWeek": "New words per week",
+    "daysStudied": "Days studied"
   },
   "footer": {
     "privacy": "Privacy Policy",
