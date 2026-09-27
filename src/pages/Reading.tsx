@@ -21,6 +21,7 @@ import { buildKnownModel, coverageOf, fitOf } from "@/lib/knownWords";
 import { ensureLexicon } from "@/lib/lexicon";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { normalise, tokenise } from "@/lib/lexicon";
+import "./reading.css";
 
 /*
  * The order badges appear in, not the list of what exists.
@@ -235,10 +236,15 @@ function TextList({
               key={text.id}
               type="button"
               onClick={() => onPick(text)}
-              className="card card--interactive flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left"
+              className="card card--interactive card--accent flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left"
               style={best >= 0 ? { borderColor: "var(--color-success)" } : undefined}
             >
-              <span className="min-w-0">
+              {/* The level leads, because difficulty is what a reader sorts on
+                  before the subject. Measured where the frequency list has
+                  loaded, published band until then — never absent. */}
+              <span className="level flex-none">{measured[text.id] ?? text.level}</span>
+
+              <span className="min-w-0 flex-1">
                 <span className="block text-sm font-semibold">{text.title}</span>
                 <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
                   {t("reading.minRead", { count: minutesFor(text) })} ·{" "}
@@ -247,12 +253,19 @@ function TextList({
                 </span>
 
                 <span className="mt-1.5 flex flex-wrap gap-1.5">
+                  {/* Gold rather than mint. Mint was the colour of the chip,
+                      the badge, the button and the panel on the same screen,
+                      which left it signalling nothing; here it marks the one
+                      row-level judgement worth acting on. */}
                   {fit && (
                     <span
                       className="rounded-full px-2 py-0.5 text-[10px] font-bold"
                       style={{
-                        background: fit === "ideal" ? "var(--color-primary-soft)" : "var(--color-surface-2)",
-                        color: fit === "ideal" ? "var(--color-primary)" : "var(--color-text-muted)",
+                        background:
+                          fit === "ideal"
+                            ? "color-mix(in srgb, var(--color-accent) 16%, transparent)"
+                            : "var(--color-surface-2)",
+                        color: fit === "ideal" ? "var(--color-accent-ink)" : "var(--color-text-muted)",
                       }}
                     >
                       {t(`reading.fit.${fit}`)}
@@ -305,12 +318,11 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
       <article ref={article} className="card mt-4 p-6 sm:p-12" style={{ boxShadow: "var(--shadow-2)" }}>
         <h1 className="page-title text-2xl">{text.title}</h1>
 
-        <div className="mt-2 flex flex-wrap items-center gap-3 text-xs" style={{ color: "var(--color-text-muted)" }}>
+        <div className="mt-3 flex flex-wrap items-center gap-3 text-xs" style={{ color: "var(--color-text-muted)" }}>
+          <span className="level level--lg">{text.level}</span>
           <span>{t("reading.minRead", { count: minutesFor(text) })}</span>
           <span aria-hidden>·</span>
           <span>{t("reading.words", { count: wordCount(text) })}</span>
-          <span aria-hidden>·</span>
-          <span>{text.level}</span>
         </div>
 
         <p
@@ -387,45 +399,29 @@ function PersonalTexts({
         {t("reading.personalLede")}
       </p>
 
-      <div
-        className="card mt-6 p-5"
-        style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
-      >
+      {/* The one thing on this page that does something, built to look like
+          it: black ground, gilt rim, gold type. It was a mint panel with a
+          mint button on a page where everything else was also mint, and it
+          read as a notice rather than as the control. */}
+      <div className="forge mt-6">
         {targets.length === 0 ? (
-          <p className="text-sm font-semibold" style={{ color: "var(--color-primary)" }}>
-            {t("reading.personalNoWords")}
-          </p>
+          <p className="forge__note">{t("reading.personalNoWords")}</p>
         ) : (
           <>
-            <p className="text-sm font-semibold" style={{ color: "var(--color-primary)" }}>
-              {t("reading.personalWillUse")}
-            </p>
-            <p className="mt-2 flex flex-wrap gap-1.5">
+            <p className="forge__label">{t("reading.personalWillUse")}</p>
+            <p className="forge__words">
               {targets.map((word) => (
-                <span
-                  key={word}
-                  className="rounded-full px-2.5 py-1 text-xs font-bold"
-                  style={{ background: "var(--color-surface)", color: "var(--color-primary)" }}
-                >
+                <span key={word} className="forge__word">
                   {word}
                 </span>
               ))}
             </p>
-            <button
-              type="button"
-              onClick={make}
-              disabled={busy}
-              className="btn btn--primary mt-4 disabled:opacity-60"
-            >
+            <button type="button" onClick={make} disabled={busy} className="forge__cta">
               {busy ? t("reading.personalWriting") : t("reading.personalCta")}
             </button>
           </>
         )}
-        {error && (
-          <p className="mt-3 text-xs font-semibold" style={{ color: "var(--color-danger)" }}>
-            {error}
-          </p>
-        )}
+        {error && <p className="forge__error">{error}</p>}
       </div>
 
       <div className="mt-6 space-y-2">
@@ -434,13 +430,14 @@ function PersonalTexts({
             key={text.id}
             type="button"
             onClick={() => onPick(text)}
-            className="flex w-full items-center justify-between gap-4 rounded-[var(--radius-md)] border px-4 py-3 text-left"
+            className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
           >
-            <span className="min-w-0">
+            <span className="level flex-none">{text.level}</span>
+
+            <span className="min-w-0 flex-1">
               <span className="block text-sm font-semibold">{text.title}</span>
               <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
-                {t("reading.words", { count: wordCount(text) })} · {text.level} ·{" "}
-                {targetsPresent(text).join(", ")}
+                {t("reading.words", { count: wordCount(text) })} · {targetsPresent(text).join(", ")}
               </span>
             </span>
           </button>

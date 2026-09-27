@@ -135,3 +135,21 @@ export function usesWord(text: string, entry: string): boolean {
 
   return false;
 }
+
+/**
+ * How many times `text` uses `entry`, counting inflections as the same word.
+ *
+ * `usesWord` answers "at all", which is the right question when checking a
+ * learner's sentences. Generated reading material needs the other question:
+ * a text that names its target word five times is a text visibly assembled
+ * around a list, and the only way to know is to count swim, swims, swimming,
+ * swimmer and swimmers as one.
+ *
+ * Phrases are counted by their first word, which is close enough for the one
+ * thing this is used for — deciding whether a draft overused something.
+ */
+export function countWordUses(text: string, entry: string): number {
+  const head = fold(entry).split(/[^a-z0-9']+/).filter(Boolean)[0];
+  if (!head) return 0;
+  return tokens(text).filter((token) => sameWord(token, head)).length;
+}

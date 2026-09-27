@@ -67,6 +67,13 @@
   --color-selection: #f3d9a4;
   --color-selection-ink: #1c1a17;
 
+  /* The CEFR badge: black and gold in both themes. It has to be readable at
+     10px against a white card, a tinted card and a photograph, so it carries
+     its own fill rather than inheriting one. */
+  --level-bg: #1c1a17;
+  --level-fg: #eccb84;
+  --level-rim: rgba(236, 203, 132, 0.34);
+
   /* Radii come down: 22px on a card reads as a toy at this size. The best
      product UIs sit at 8–14px, and the tighter corner is what makes a panel
      look engineered. */
@@ -94,6 +101,19 @@
   --shadow-soft-lg: var(--shadow-3);
 
   --gradient-brand: linear-gradient(135deg, #14453a 0%, #1f6353 55%, #2f8a72 100%);
+
+  /* Gold, with the ink it sits against at each end. Used for the rim that
+     traces an interactive card and for anything that should read as the
+     expensive option — deliberately not mint, which was doing every job on
+     the site and had stopped meaning anything. */
+  --gradient-gilt: linear-gradient(
+    135deg,
+    #8a5c13 0%,
+    #c08327 22%,
+    #edc878 50%,
+    #c08327 78%,
+    #8a5c13 100%
+  );
   --gradient-sheen: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.14) 0%,
@@ -168,6 +188,10 @@
   --color-on-ink: #1b1815;
 
   /* Pine lightens so it can still be read as text on a dark ground. */
+  --level-bg: #0e0d0b;
+  --level-fg: #f1d193;
+  --level-rim: rgba(241, 209, 147, 0.42);
+
   --color-primary: #7fd0b4;
   --color-primary-hover: #a3e3cd;
   --color-primary-soft: rgba(127, 208, 180, 0.14);
@@ -195,6 +219,14 @@
   --shadow-soft-lg: var(--shadow-3);
 
   --gradient-brand: linear-gradient(135deg, #123c33 0%, #1f6353 60%, #7fd0b4 100%);
+  --gradient-gilt: linear-gradient(
+    135deg,
+    #8a5c13 0%,
+    #d8a24f 24%,
+    #f6dda5 50%,
+    #d8a24f 76%,
+    #8a5c13 100%
+  );
 
   color-scheme: dark;
 }

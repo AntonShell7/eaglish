@@ -1,9 +1,10 @@
-import { askModel, AiError } from "./aiClient";
+import { askModel, AiError, type AiMessage } from "./aiClient";
 import type { ReadingText } from "@/data/readingTexts";
 import type { ReadingLevel } from "./placement";
 import type { Unavailable } from "./translate";
 import { getVocabulary } from "./vocabularyStore";
 import { normalise } from "./lexicon";
+import { countWordUses } from "./wordMatch";
 
 /**
  * Texts written around the words you are currently learning.
@@ -95,7 +96,12 @@ TOPIC: ${topic}
 LEVEL: ${LEVEL_BRIEF[level]}
 
 MUST USE THESE WORDS: ${targets.join(", ")}
-Each of them must appear at least twice, in different sentences, used naturally and correctly. Do not define them, do not draw attention to them, do not list them — they are simply part of the text. Inflect them freely (plural, past tense, and so on).
+Use each one EXACTLY TWICE across the whole text — no more. Twice is the point: once is not enough to learn from, and a third time makes the text obviously about the word list. Count them before you answer. Inflections of the same word (swim / swims / swimming / swimmer / swimmers) all count towards that total of two, so a text containing "swimmer" four times has broken this rule.
+Put the two uses far apart, in different paragraphs, doing different work. Never define them, never draw attention to them, never list them.
+
+THE TEXT MUST STAND ON ITS OWN
+This is the rule that matters most, and it is the one that is usually broken. Write a real text first — one subject, an argument or a story that goes somewhere, paragraphs that follow from each other — and let the required words fall into it where they happen to fit. A reader who has never seen the word list should not be able to guess it.
+What this forbids: sentences assembled to hold a target word, a scene that jumps from a swimmer to a park to a café because those were the words, any sentence that would be cut if the word were not required. If a word will not fit the subject naturally, build the subject around it from the start instead of bolting the word on at the end.
 
 HARD RULES
 - Never state facts about a named real person, company product or event. Write about unnamed people and general patterns.
@@ -129,22 +135,77 @@ Return JSON exactly like this:
 
 export type PersonalTextResult = { text: PersonalText } | { error: Unavailable | "rejected" };
 
+/** The English side of a draft, for counting before it is fully parsed. */
+function bodyOf(content: string): string {
+  try {
+    const raw = JSON.parse(content || "{}") as { sentences?: { text?: string }[] };
+    return (raw.sentences ?? []).map((s) => String(s?.text ?? "")).join(" ");
+  } catch {
+    return "";
+  }
+}
+
+/** The most times one target word may appear before the text reads as a list. */
+const MAX_USES = 2;
+
+/**
+ * Which targets the draft leaned on too hard.
+ *
+ * Asking for "exactly twice" in the prompt is necessary and not sufficient:
+ * models count badly, and the failure mode is always the same direction —
+ * swim, swimmer, swimming, swimmers, swimmer again, five underlines in a
+ * paragraph and a text that is visibly about its own word list. So the draft
+ * is counted here, and a text that overshoots is sent back once with the
+ * actual numbers rather than shipped.
+ */
+function overused(body: string, targets: string[]): { word: string; used: number }[] {
+  return targets
+    .map((word) => ({ word, used: countWordUses(body, word) }))
+    .filter(({ used }) => used > MAX_USES);
+}
+
 /** Generates, validates and stores a text. Anything malformed is rejected. */
 export async function generatePersonalText(options: PersonalTextOptions): Promise<PersonalTextResult> {
+  const messages: AiMessage[] = [
+    {
+      role: "system",
+      content: "You write graded reading material for an English-learning app, and you answer with JSON only.",
+    },
+    { role: "user", content: buildPrompt(options) },
+  ];
+
   let content: string;
   try {
     content = await askModel({
       temperature: 0.9,
       max_completion_tokens: 5500,
       response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content: "You write graded reading material for an English-learning app, and you answer with JSON only.",
-        },
-        { role: "user", content: buildPrompt(options) },
-      ],
+      messages,
     });
+
+    const excess = overused(bodyOf(content), options.targets);
+    if (excess.length > 0) {
+      messages.push(
+        { role: "assistant", content },
+        {
+          role: "user",
+          content: [
+            "You used some of the required words too often. Counting every inflected form as the same word:",
+            ...excess.map(({ word, used }) => `- "${word}" appears ${used} times; it must appear exactly ${MAX_USES}.`),
+            "",
+            "Rewrite the whole text. Do not simply delete the extra sentences, which would leave holes —",
+            "rewrite the passages so they still say something and the subject still holds together,",
+            "then check the counts again before answering. Same JSON shape, nothing else.",
+          ].join("\n"),
+        },
+      );
+      content = await askModel({
+        temperature: 0.7,
+        max_completion_tokens: 5500,
+        response_format: { type: "json_object" },
+        messages,
+      });
+    }
   } catch (err) {
     return { error: err instanceof AiError ? err.reason : "failed" };
   }
