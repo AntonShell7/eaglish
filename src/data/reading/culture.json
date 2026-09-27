@@ -1069,5 +1069,178 @@
     "explanation": "Your brain wanted to finish it."
    }
   ]
+ },
+ {
+  "id": "orange-and-teal",
+  "level": "C1",
+  "topic": "culture",
+  "generated": false,
+  "title": "Why Every Big Film Looks Orange and Blue",
+  "sentences": [
+   {
+    "text": "Pull up the posters for a dozen action films of the last twenty years and a colour scheme emerges immediately: warm orange faces against a cold blue-green background.",
+    "translationRu": "Открой постеры дюжины боевиков последних двадцати лет — и цветовая схема проступит сразу: тёплые оранжевые лица на холодном сине-зелёном фоне."
+   },
+   {
+    "text": "It is so consistent that it has a name in the trade, orange and teal, and once you have seen it you cannot watch a modern blockbuster without noticing.",
+    "translationRu": "Она настолько устойчива, что получила в индустрии имя — orange and teal, — и, заметив её однажды, смотреть современный блокбастер, не замечая, уже нельзя."
+   },
+   {
+    "text": "The reasons are partly optical and partly industrial, and the industrial ones are the reason it became universal.",
+    "translationRu": "Причины отчасти оптические, отчасти производственные, и именно вторые сделали приём всеобщим."
+   },
+   {
+    "text": "Begin with the eye.",
+    "translationRu": "Начнём с глаза."
+   },
+   {
+    "text": "Orange and blue sit opposite one another on the colour wheel, so placing them together produces the strongest available separation between a subject and what is behind them.",
+    "translationRu": "Оранжевый и синий лежат напротив друг друга на цветовом круге, поэтому их соседство даёт самое сильное из доступных разделение объекта и фона."
+   },
+   {
+    "text": "Human skin, of every tone, falls somewhere in the orange part of that wheel.",
+    "translationRu": "Человеческая кожа любого оттенка попадает куда-то в оранжевую часть этого круга."
+   },
+   {
+    "text": "Push the shadows and midtones of everything else towards blue and the actor detaches from the frame without anyone needing to light them separately.",
+    "translationRu": "Сдвинь тени и полутона всего остального к синему — и актёр отделяется от кадра без отдельной подсветки."
+   },
+   {
+    "text": "A good cinematographer has always done a version of this with lamps and filters.",
+    "translationRu": "Хороший оператор всегда делал нечто подобное лампами и фильтрами."
+   },
+   {
+    "text": "What changed was where it happens.",
+    "translationRu": "Изменилось то, где это происходит."
+   },
+   {
+    "text": "Until the early 2000s, colour was fixed chemically, in a laboratory, on the whole negative at once, which made per-scene decisions expensive and per-shot decisions close to impossible.",
+    "translationRu": "До начала 2000-х цвет правился химически, в лаборатории, сразу на всём негативе, из-за чего решения по сцене были дороги, а по отдельному кадру — почти невозможны."
+   },
+   {
+    "text": "Digital intermediate finishing removed that limit.",
+    "translationRu": "Цифровой интермедиат снял это ограничение."
+   },
+   {
+    "text": "Once the entire film exists as data, a colourist can isolate skin tones in a single frame and move everything else in the opposite direction, at any point, for any shot, in an afternoon.",
+    "translationRu": "Как только весь фильм существует в виде данных, колорист может выделить оттенки кожи в отдельном кадре и увести всё остальное в противоположную сторону — в любой момент, для любого плана, за полдня."
+   },
+   {
+    "text": "A technique that had been a craft became a slider.",
+    "translationRu": "Приём, бывший ремеслом, стал ползунком."
+   },
+   {
+    "text": "And a slider that reliably makes footage look more expensive will be pulled, because the people asking for it are not choosing between orange-and-teal and something better; they are choosing between orange-and-teal and a scene that was shot in a hurry under whatever light was available on the day.",
+    "translationRu": "А ползунок, надёжно делающий материал «дороже», будут тянуть — потому что те, кто просит, выбирают не между orange and teal и чем-то лучшим, а между ним и сценой, снятой наспех при том свете, какой был в тот день."
+   },
+   {
+    "text": "The grade rescues the footage, and the rescue is visible in every frame.",
+    "translationRu": "Цветокоррекция спасает материал, и спасение видно в каждом кадре."
+   },
+   {
+    "text": "The cost is the flattening that follows any universal solution.",
+    "translationRu": "Цена — уплощение, которое следует за любым универсальным решением."
+   },
+   {
+    "text": "Colour used to carry meaning in a film because it varied: a director who spent a reel in green was saying something by the time you reached the red one.",
+    "translationRu": "Раньше цвет нёс смысл, потому что менялся: режиссёр, выдержавший часть в зелёном, что-то сообщал к моменту, когда ты доходил до красного."
+   },
+   {
+    "text": "When every studio picture arrives in the same two hues, the language stops working, and the films that now look distinctive are frequently just the ones that left the slider alone.",
+    "translationRu": "Когда все студийные картины приходят в одних и тех же двух тонах, язык перестаёт работать, и отличительными сегодня часто выглядят просто те фильмы, где ползунок не трогали."
+   }
+  ],
+  "glossary": {
+   "scheme": {
+    "translation": "схема",
+    "partOfSpeech": "noun"
+   },
+   "teal": {
+    "translation": "сине-зелёный",
+    "partOfSpeech": "noun"
+   },
+   "colour wheel": {
+    "translation": "цветовой круг",
+    "partOfSpeech": "noun"
+   },
+   "midtone": {
+    "translation": "полутон",
+    "partOfSpeech": "noun"
+   },
+   "detach": {
+    "translation": "отделяться",
+    "partOfSpeech": "verb"
+   },
+   "cinematographer": {
+    "translation": "оператор-постановщик",
+    "partOfSpeech": "noun"
+   },
+   "negative": {
+    "translation": "негатив",
+    "partOfSpeech": "noun"
+   },
+   "colourist": {
+    "translation": "колорист",
+    "partOfSpeech": "noun"
+   },
+   "grade": {
+    "translation": "цветокоррекция",
+    "partOfSpeech": "noun"
+   },
+   "hue": {
+    "translation": "оттенок",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "orange-and-teal-q1",
+    "question": "Why does the pairing work optically?",
+    "options": [
+     "Blue is calming",
+     "Orange and blue are opposite, giving maximum separation, and skin sits in the orange part",
+     "Cameras prefer it",
+     "It hides mistakes"
+    ],
+    "answer": 1,
+    "explanation": "The actor detaches without separate lighting."
+   },
+   {
+    "id": "orange-and-teal-q2",
+    "question": "What technical change made it universal?",
+    "options": [
+     "Better cameras",
+     "Digital intermediate finishing, which made per-shot colour cheap",
+     "New film stock",
+     "Cheaper filters"
+    ],
+    "answer": 1,
+    "explanation": "A craft became a slider."
+   },
+   {
+    "id": "orange-and-teal-q3",
+    "question": "Why is the slider pulled so often?",
+    "options": [
+     "Directors like it",
+     "It makes hurried footage look expensive",
+     "Audiences demand it",
+     "Studios mandate it by contract"
+    ],
+    "answer": 1,
+    "explanation": "The comparison is not with something better."
+   },
+   {
+    "id": "orange-and-teal-q4",
+    "question": "What is the cost?",
+    "options": [
+     "Longer post-production",
+     "Colour stops carrying meaning because it no longer varies",
+     "Higher budgets",
+     "Worse sound"
+    ],
+    "answer": 1,
+    "explanation": "Distinctive films are often the ones that left it alone."
+   }
+  ]
  }
 ]

@@ -1294,5 +1294,182 @@
     "explanation": "The story is about the fact that he kept turning up."
    }
   ]
+ },
+ {
+  "id": "mrbeast-arithmetic",
+  "level": "B2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "MrBeast Is Not a YouTuber, He Is a Factory",
+  "sentences": [
+   {
+    "text": "Jimmy Donaldson, who works as MrBeast, makes videos in which he gives away large amounts of money.",
+    "translationRu": "Джимми Дональдсон, работающий под именем MrBeast, снимает видео, в которых раздаёт большие суммы."
+   },
+   {
+    "text": "A hundred people compete in a room for a prize; a man stays in a circle for a week; a stranger is handed a house.",
+    "translationRu": "Сто человек соревнуются в комнате за приз; мужчина неделю стоит в круге; незнакомцу отдают дом."
+   },
+   {
+    "text": "The obvious question is how anyone can afford this, and the answer explains most of modern online video.",
+    "translationRu": "Очевидный вопрос — как это можно себе позволить, и ответ объясняет почти всё современное онлайн-видео."
+   },
+   {
+    "text": "He is not spending a fortune to be generous.",
+    "translationRu": "Он не тратит состояние из щедрости."
+   },
+   {
+    "text": "He is buying attention at what turns out to be a very good price.",
+    "translationRu": "Он покупает внимание — и по очень удачной цене."
+   },
+   {
+    "text": "A video that costs several million dollars to make and is watched two hundred million times has cost a couple of cents per viewer, which is far less than a television advertiser pays for a person who is not even looking.",
+    "translationRu": "Видео, стоившее в производстве несколько миллионов и просмотренное двести миллионов раз, обходится в пару центов на зрителя — намного меньше, чем телереклама платит за человека, который даже не смотрит."
+   },
+   {
+    "text": "The advertising revenue on that scale is substantial on its own, but it was never the plan.",
+    "translationRu": "Рекламная выручка при таких масштабах и сама по себе велика, но планом она не была."
+   },
+   {
+    "text": "The videos are a marketing budget for businesses he owns: a chocolate brand, a burger operation, a snack line.",
+    "translationRu": "Ролики — это маркетинговый бюджет для его собственных бизнесов: шоколадной марки, бургерной сети, линейки снеков."
+   },
+   {
+    "text": "The audience is not the product being sold to advertisers; the audience is the customer, and the spectacle is the shop window.",
+    "translationRu": "Аудитория тут не товар для рекламодателей — аудитория и есть покупатель, а зрелище — витрина."
+   },
+   {
+    "text": "The production side is stranger than the money.",
+    "translationRu": "Производственная часть страннее денег."
+   },
+   {
+    "text": "He has spoken openly about testing thumbnails and titles before a video exists, sometimes dozens of versions, and shaping the content to fit whichever one people click.",
+    "translationRu": "Он открыто рассказывал, что тестирует превью и заголовки ещё до того, как видео существует, иногда десятками вариантов, и подгоняет содержание под то, на что кликают."
+   },
+   {
+    "text": "Videos are re-edited after release if the graph showing when viewers leave has a dip in the wrong place.",
+    "translationRu": "Ролики перемонтируют после выхода, если на графике ухода зрителей проседание оказалось не там."
+   },
+   {
+    "text": "Staff have described a working culture organised entirely around retention, the percentage of people still watching at each second.",
+    "translationRu": "Сотрудники описывали рабочую культуру, целиком выстроенную вокруг удержания — доли зрителей, остающихся на каждой секунде."
+   },
+   {
+    "text": "That is not how films are made.",
+    "translationRu": "Так фильмы не делают."
+   },
+   {
+    "text": "It is how factories are run, and he has said as much.",
+    "translationRu": "Так управляют заводом — и он сам это говорил."
+   },
+   {
+    "text": "Two things are worth holding at once about all this.",
+    "translationRu": "Держать в голове стоит сразу две вещи."
+   },
+   {
+    "text": "The charity is real: people do keep the money, the wells get dug, the surgeries happen, and the criticism that filming generosity cheapens it has never explained what the alternative achieves for the person receiving it.",
+    "translationRu": "Благотворительность настоящая: деньги остаются у людей, колодцы копают, операции делают, и критика, что съёмка обесценивает щедрость, так и не объяснила, что альтернатива даёт получателю."
+   },
+   {
+    "text": "And the format is a machine that measures a human being's attention to the second and adjusts itself until fewer of them leave.",
+    "translationRu": "И при этом формат — машина, которая измеряет человеческое внимание посекундно и подстраивается, пока уходить не станут реже."
+   },
+   {
+    "text": "Both of those are true, and the second one is the part that will outlast him, because every other channel is now copying the method rather than the kindness.",
+    "translationRu": "И то и другое верно, и переживёт его именно второе: остальные каналы копируют метод, а не доброту."
+   }
+  ],
+  "glossary": {
+   "give away": {
+    "translation": "раздавать",
+    "partOfSpeech": "phrase"
+   },
+   "afford": {
+    "translation": "позволить себе",
+    "partOfSpeech": "verb"
+   },
+   "revenue": {
+    "translation": "выручка",
+    "partOfSpeech": "noun"
+   },
+   "spectacle": {
+    "translation": "зрелище",
+    "partOfSpeech": "noun"
+   },
+   "shop window": {
+    "translation": "витрина",
+    "partOfSpeech": "noun"
+   },
+   "thumbnail": {
+    "translation": "превью, миниатюра",
+    "partOfSpeech": "noun"
+   },
+   "dip": {
+    "translation": "провал, проседание",
+    "partOfSpeech": "noun"
+   },
+   "retention": {
+    "translation": "удержание (аудитории)",
+    "partOfSpeech": "noun"
+   },
+   "well": {
+    "translation": "колодец",
+    "partOfSpeech": "noun"
+   },
+   "outlast": {
+    "translation": "пережить, продержаться дольше",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "mrbeast-arithmetic-q1",
+    "question": "Why can he afford the giveaways?",
+    "options": [
+     "He is subsidised",
+     "Cost per viewer is a couple of cents, cheaper than television advertising",
+     "The prizes are fake",
+     "Sponsors pay everything"
+    ],
+    "answer": 1,
+    "explanation": "He is buying attention at a very good price."
+   },
+   {
+    "id": "mrbeast-arithmetic-q2",
+    "question": "What are the videos really a budget for?",
+    "options": [
+     "Charity",
+     "Businesses he owns",
+     "YouTube itself",
+     "Other creators"
+    ],
+    "answer": 1,
+    "explanation": "The audience is the customer; the spectacle is the shop window."
+   },
+   {
+    "id": "mrbeast-arithmetic-q3",
+    "question": "What is tested before a video exists?",
+    "options": [
+     "The script",
+     "Thumbnails and titles",
+     "The prize",
+     "The location"
+    ],
+    "answer": 1,
+    "explanation": "The content is shaped to fit whichever one people click."
+   },
+   {
+    "id": "mrbeast-arithmetic-q4",
+    "question": "What does the text say will outlast him?",
+    "options": [
+     "The charity",
+     "The method — a machine optimised for retention",
+     "The brands",
+     "The prizes"
+    ],
+    "answer": 1,
+    "explanation": "Other channels copy the method rather than the kindness."
+   }
+  ]
  }
 ]

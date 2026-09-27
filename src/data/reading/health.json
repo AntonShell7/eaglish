@@ -936,5 +936,367 @@
     "explanation": "Often the loudest sound of the day."
    }
   ]
+ },
+ {
+  "id": "why-we-blink",
+  "level": "A1",
+  "topic": "health",
+  "generated": false,
+  "title": "Why We Blink So Much",
+  "sentences": [
+   {
+    "text": "You blink all the time.",
+    "translationRu": "Ты моргаешь постоянно."
+   },
+   {
+    "text": "You are doing it now.",
+    "translationRu": "Прямо сейчас тоже."
+   },
+   {
+    "text": "A person blinks about fifteen times in one minute.",
+    "translationRu": "Человек моргает около пятнадцати раз в минуту."
+   },
+   {
+    "text": "That is a lot.",
+    "translationRu": "Это много."
+   },
+   {
+    "text": "The first reason is easy.",
+    "translationRu": "Первая причина простая."
+   },
+   {
+    "text": "Your eye must stay wet.",
+    "translationRu": "Глаз должен оставаться влажным."
+   },
+   {
+    "text": "When you blink, you put a little water on it, like a window in the rain.",
+    "translationRu": "Когда ты моргаешь, на него попадает немного влаги, как на окно под дождём."
+   },
+   {
+    "text": "A dry eye hurts and cannot see well.",
+    "translationRu": "Сухой глаз болит и плохо видит."
+   },
+   {
+    "text": "But there is a problem with this reason.",
+    "translationRu": "Но с этой причиной есть проблема."
+   },
+   {
+    "text": "Your eye does not need fifteen times.",
+    "translationRu": "Глазу не нужно пятнадцать раз."
+   },
+   {
+    "text": "Three or four times would be enough.",
+    "translationRu": "Хватило бы трёх-четырёх."
+   },
+   {
+    "text": "So why do we do it so often?",
+    "translationRu": "Так почему мы моргаем так часто?"
+   },
+   {
+    "text": "Scientists think the brain likes the small break.",
+    "translationRu": "Учёные думают, что мозгу нравится эта короткая пауза."
+   },
+   {
+    "text": "A blink is very short.",
+    "translationRu": "Моргание очень короткое."
+   },
+   {
+    "text": "It is about one third of a second.",
+    "translationRu": "Примерно треть секунды."
+   },
+   {
+    "text": "In that moment, the brain rests a little.",
+    "translationRu": "В этот момент мозг немного отдыхает."
+   },
+   {
+    "text": "There is another interesting thing.",
+    "translationRu": "Есть и ещё кое-что интересное."
+   },
+   {
+    "text": "We do not blink at any time.",
+    "translationRu": "Мы моргаем не в любой момент."
+   },
+   {
+    "text": "When you read, you blink at the end of a line.",
+    "translationRu": "Когда читаешь — моргаешь в конце строки."
+   },
+   {
+    "text": "When you watch a film, you blink when nothing important happens.",
+    "translationRu": "Когда смотришь фильм — моргаешь, когда ничего важного не происходит."
+   },
+   {
+    "text": "People in a cinema often blink at the same second.",
+    "translationRu": "Люди в кинотеатре часто моргают в одну и ту же секунду."
+   },
+   {
+    "text": "Your eyes are closed for about half an hour every day, and you never notice it.",
+    "translationRu": "Твои глаза закрыты около получаса каждый день, и ты этого не замечаешь."
+   }
+  ],
+  "glossary": {
+   "blink": {
+    "translation": "моргать",
+    "partOfSpeech": "verb"
+   },
+   "wet": {
+    "translation": "влажный",
+    "partOfSpeech": "adjective"
+   },
+   "dry": {
+    "translation": "сухой",
+    "partOfSpeech": "adjective"
+   },
+   "hurt": {
+    "translation": "болеть",
+    "partOfSpeech": "verb"
+   },
+   "enough": {
+    "translation": "достаточно",
+    "partOfSpeech": "adverb"
+   },
+   "brain": {
+    "translation": "мозг",
+    "partOfSpeech": "noun"
+   },
+   "rest": {
+    "translation": "отдыхать",
+    "partOfSpeech": "verb"
+   },
+   "notice": {
+    "translation": "замечать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-we-blink-q1",
+    "question": "How often does a person blink?",
+    "options": [
+     "Three times a minute",
+     "About fifteen times a minute",
+     "Once a minute",
+     "Fifty times a minute"
+    ],
+    "answer": 1,
+    "explanation": "Three or four would be enough to keep the eye wet."
+   },
+   {
+    "id": "why-we-blink-q2",
+    "question": "What do scientists think the extra blinks are for?",
+    "options": [
+     "Cleaning",
+     "A small rest for the brain",
+     "Seeing better",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "A blink is about one third of a second."
+   },
+   {
+    "id": "why-we-blink-q3",
+    "question": "When do people blink while reading?",
+    "options": [
+     "In the middle of a word",
+     "At the end of a line",
+     "Never",
+     "Every second"
+    ],
+    "answer": 1,
+    "explanation": "We do not blink at any time."
+   }
+  ]
+ },
+ {
+  "id": "the-first-night-effect",
+  "level": "C2",
+  "topic": "health",
+  "generated": false,
+  "title": "Half Your Brain Stays Awake in an Unfamiliar Room",
+  "sentences": [
+   {
+    "text": "Almost everyone sleeps badly on the first night somewhere new.",
+    "translationRu": "Почти все плохо спят первую ночь на новом месте."
+   },
+   {
+    "text": "A hotel, a friend's sofa, a hospital ward, and in each case the second night is noticeably better in a room that has not changed.",
+    "translationRu": "Отель, диван у друга, больничная палата — и во всех случаях вторая ночь заметно лучше в комнате, которая не изменилась."
+   },
+   {
+    "text": "Sleep laboratories have known about this for so long that they simply discard the first night's data, calling it the first-night effect and treating it as noise.",
+    "translationRu": "Лаборатории сна знают об этом так давно, что попросту выбрасывают данные первой ночи, называя это эффектом первой ночи и считая шумом."
+   },
+   {
+    "text": "It is not noise, and what it actually is turns out to be considerably more interesting.",
+    "translationRu": "Это не шум, а то, чем оно является на деле, куда любопытнее."
+   },
+   {
+    "text": "Careful imaging showed that during deep sleep on that first night, the two hemispheres of the brain are not doing the same thing.",
+    "translationRu": "Аккуратная визуализация показала, что в глубоком сне первой ночи два полушария мозга занимаются разным."
+   },
+   {
+    "text": "One shows the slow, large waves characteristic of proper sleep.",
+    "translationRu": "Одно показывает медленные крупные волны, характерные для настоящего сна."
+   },
+   {
+    "text": "The other is running shallower, and it responds to sounds that the sleeping hemisphere ignores completely.",
+    "translationRu": "Второе идёт мельче и откликается на звуки, которые спящее полушарие полностью игнорирует."
+   },
+   {
+    "text": "Play an irregular beep into the ear connected to the alert side and the sleeper is far more likely to wake.",
+    "translationRu": "Подай нерегулярный сигнал в ухо, связанное с бодрствующей стороной, — и спящий проснётся гораздо вероятнее."
+   },
+   {
+    "text": "Play it into the other and very little happens.",
+    "translationRu": "Подай в другое — почти ничего не произойдёт."
+   },
+   {
+    "text": "Half the brain is standing watch.",
+    "translationRu": "Половина мозга стоит на часах."
+   },
+   {
+    "text": "This is not a human invention.",
+    "translationRu": "Это не человеческое изобретение."
+   },
+   {
+    "text": "Dolphins and some birds sleep one hemisphere at a time as a matter of routine, which is how a dolphin continues to surface for air while asleep and how a duck at the edge of a row keeps the outward-facing eye open all night while the ducks in the middle sleep with both closed.",
+    "translationRu": "Дельфины и некоторые птицы спят полушариями по очереди в обычном порядке — так дельфин продолжает всплывать за воздухом во сне, а утка с краю ряда всю ночь держит открытым обращённый наружу глаз, тогда как утки в середине спят с обоими закрытыми."
+   },
+   {
+    "text": "Humans appear to retain a weak, partial version of the same capacity and to deploy it exactly when the environment is unverified.",
+    "translationRu": "У людей, похоже, сохранилась слабая частичная версия той же способности, и включается она ровно там, где среда не проверена."
+   },
+   {
+    "text": "The economics make sense.",
+    "translationRu": "Экономика тут понятна."
+   },
+   {
+    "text": "Deep sleep is enormously valuable and enormously dangerous, since an unconscious animal is a meal.",
+    "translationRu": "Глубокий сон огромно ценен и огромно опасен: животное без сознания — это еда."
+   },
+   {
+    "text": "A creature that could not sleep in a strange place would be exhausted; one that slept completely in a strange place would occasionally be eaten.",
+    "translationRu": "Существо, не способное спать в незнакомом месте, было бы измотано; спящее там полностью — иногда съедено."
+   },
+   {
+    "text": "The compromise on offer is a bad night rather than no night, paid once, and cancelled as soon as the room has proved harmless.",
+    "translationRu": "Компромисс — плохая ночь вместо никакой, оплаченная единожды и отменённая, как только комната доказала свою безобидность."
+   },
+   {
+    "text": "Two details make the account convincing rather than merely neat.",
+    "translationRu": "Две детали делают объяснение убедительным, а не просто складным."
+   },
+   {
+    "text": "The effect is weaker in people who travel constantly, whose brains have apparently learned that unfamiliar rooms are not in fact dangerous.",
+    "translationRu": "Эффект слабее у тех, кто постоянно в разъездах: их мозг, по-видимому, усвоил, что незнакомые комнаты на деле не опасны."
+   },
+   {
+    "text": "And it is stronger in anxious sleepers, in whom the threshold for calling an environment unverified is set lower.",
+    "translationRu": "И он сильнее у тревожных: у них порог, за которым среда считается непроверенной, ниже."
+   },
+   {
+    "text": "Which reframes the hotel night usefully.",
+    "translationRu": "Это полезно переосмысляет гостиничную ночь."
+   },
+   {
+    "text": "You are not sleeping badly.",
+    "translationRu": "Ты не плохо спишь."
+   },
+   {
+    "text": "You are being guarded, by a system that has no way of knowing the door is locked.",
+    "translationRu": "Тебя охраняют — системой, у которой нет способа узнать, что дверь заперта."
+   }
+  ],
+  "glossary": {
+   "ward": {
+    "translation": "палата",
+    "partOfSpeech": "noun"
+   },
+   "discard": {
+    "translation": "отбрасывать",
+    "partOfSpeech": "verb"
+   },
+   "hemisphere": {
+    "translation": "полушарие",
+    "partOfSpeech": "noun"
+   },
+   "shallow": {
+    "translation": "неглубокий",
+    "partOfSpeech": "adjective"
+   },
+   "alert": {
+    "translation": "бодрствующий, настороженный",
+    "partOfSpeech": "adjective"
+   },
+   "stand watch": {
+    "translation": "стоять на страже",
+    "partOfSpeech": "phrase"
+   },
+   "surface": {
+    "translation": "всплывать",
+    "partOfSpeech": "verb"
+   },
+   "deploy": {
+    "translation": "задействовать",
+    "partOfSpeech": "verb"
+   },
+   "threshold": {
+    "translation": "порог",
+    "partOfSpeech": "noun"
+   },
+   "reframe": {
+    "translation": "переосмыслить",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-first-night-effect-q1",
+    "question": "What did imaging show on the first night?",
+    "options": [
+     "Both hemispheres sleep deeply",
+     "One hemisphere sleeps deeply while the other stays shallower and responsive",
+     "The brain does not sleep",
+     "Sleep is shorter"
+    ],
+    "answer": 1,
+    "explanation": "A beep into one ear wakes the sleeper; into the other, little happens."
+   },
+   {
+    "id": "the-first-night-effect-q2",
+    "question": "What animals do this routinely?",
+    "options": [
+     "Cats and dogs",
+     "Dolphins and some birds",
+     "Horses",
+     "Fish"
+    ],
+    "answer": 1,
+    "explanation": "A duck at the edge of a row keeps the outward eye open."
+   },
+   {
+    "id": "the-first-night-effect-q3",
+    "question": "Why is the compromise described as sensible?",
+    "options": [
+     "Sleep is unnecessary",
+     "A bad night is cheaper than no night or being eaten",
+     "It saves energy",
+     "It is habit"
+    ],
+    "answer": 1,
+    "explanation": "Cancelled as soon as the room proves harmless."
+   },
+   {
+    "id": "the-first-night-effect-q4",
+    "question": "Who shows a weaker effect?",
+    "options": [
+     "Anxious sleepers",
+     "Constant travellers",
+     "Children",
+     "Older people"
+    ],
+    "answer": 1,
+    "explanation": "Their brains have learned unfamiliar rooms are not dangerous."
+   }
+  ]
  }
 ]
