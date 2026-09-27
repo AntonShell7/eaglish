@@ -1,5 +1,16 @@
 [
  {
+  "id": "science",
+  "label": "Science",
+  "counts": {
+   "C1": 2,
+   "A2": 2,
+   "A1": 1,
+   "C2": 2
+  },
+  "total": 7
+ },
+ {
   "id": "celebrities",
   "label": "Celebrities",
   "counts": {
@@ -16,17 +27,6 @@
    "A2": 1,
    "C1": 1,
    "A1": 2
-  },
-  "total": 5
- },
- {
-  "id": "science",
-  "label": "Science",
-  "counts": {
-   "C1": 2,
-   "A2": 1,
-   "A1": 1,
-   "C2": 1
   },
   "total": 5
  },
@@ -52,6 +52,15 @@
   "total": 3
  },
  {
+  "id": "society",
+  "label": "Society",
+  "counts": {
+   "B1": 1,
+   "A2": 1
+  },
+  "total": 2
+ },
+ {
   "id": "travel",
   "label": "Travel",
   "counts": {
@@ -59,14 +68,6 @@
    "B2": 1
   },
   "total": 2
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1": 1
-  },
-  "total": 1
  },
  {
   "id": "sport",

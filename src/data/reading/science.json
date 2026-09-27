@@ -815,5 +815,327 @@
     "explanation": "It calls the remedy unglamorous and within reach."
    }
   ]
+ },
+ {
+  "id": "every-banana-is-a-clone",
+  "level": "A2",
+  "topic": "science",
+  "generated": false,
+  "title": "Every Banana You Have Eaten Is the Same Banana",
+  "sentences": [
+   {
+    "text": "Look at a banana in a shop.",
+    "translationRu": "Посмотрите на банан в магазине."
+   },
+   {
+    "text": "Now look at another one.",
+    "translationRu": "Теперь на другой."
+   },
+   {
+    "text": "They are the same size, the same shape and the same taste.",
+    "translationRu": "Они одного размера, одной формы и одного вкуса."
+   },
+   {
+    "text": "This is not luck.",
+    "translationRu": "Это не везение."
+   },
+   {
+    "text": "Almost every banana sold in the world is one variety, called Cavendish.",
+    "translationRu": "Почти каждый банан в мире — один сорт, называется Кавендиш."
+   },
+   {
+    "text": "And here is the strange part.",
+    "translationRu": "И вот что странно."
+   },
+   {
+    "text": "These bananas have no seeds.",
+    "translationRu": "У этих бананов нет семян."
+   },
+   {
+    "text": "They cannot make children in the normal way.",
+    "translationRu": "Обычным способом детей они дать не могут."
+   },
+   {
+    "text": "Farmers cut a piece of one plant and grow a new plant from it.",
+    "translationRu": "Фермеры отрезают кусок от растения и выращивают из него новое."
+   },
+   {
+    "text": "So every Cavendish banana is a copy.",
+    "translationRu": "Значит каждый банан Кавендиш — копия."
+   },
+   {
+    "text": "They are all one plant, cut again and again.",
+    "translationRu": "Это всё одно растение, разрезанное снова и снова."
+   },
+   {
+    "text": "This is good for shops.",
+    "translationRu": "Магазинам это удобно."
+   },
+   {
+    "text": "Every banana is the same, so nothing is a surprise.",
+    "translationRu": "Все бананы одинаковые, никаких сюрпризов."
+   },
+   {
+    "text": "But it is dangerous.",
+    "translationRu": "Но это опасно."
+   },
+   {
+    "text": "If one plant gets a disease, all of them can get it.",
+    "translationRu": "Если одно растение заболеет, заболеть могут все."
+   },
+   {
+    "text": "This has happened before.",
+    "translationRu": "Такое уже бывало."
+   },
+   {
+    "text": "Before the Cavendish there was another banana called Gros Michel.",
+    "translationRu": "До Кавендиша был другой банан — Гро-Мишель."
+   },
+   {
+    "text": "Old people said it tasted better.",
+    "translationRu": "Пожилые говорили, что он был вкуснее."
+   },
+   {
+    "text": "In the 1950s a disease killed it almost everywhere.",
+    "translationRu": "В 1950-х болезнь уничтожила его почти повсюду."
+   },
+   {
+    "text": "Now a new disease is moving through banana farms again.",
+    "translationRu": "Сейчас по банановым плантациям снова идёт новая болезнь."
+   },
+   {
+    "text": "Scientists are looking for the next banana.",
+    "translationRu": "Учёные ищут следующий банан."
+   }
+  ],
+  "glossary": {
+   "variety": {
+    "translation": "сорт",
+    "partOfSpeech": "noun"
+   },
+   "seed": {
+    "translation": "семя",
+    "partOfSpeech": "noun"
+   },
+   "farmer": {
+    "translation": "фермер",
+    "partOfSpeech": "noun"
+   },
+   "copy": {
+    "translation": "копия",
+    "partOfSpeech": "noun"
+   },
+   "disease": {
+    "translation": "болезнь",
+    "partOfSpeech": "noun"
+   },
+   "dangerous": {
+    "translation": "опасный",
+    "partOfSpeech": "adjective"
+   },
+   "taste": {
+    "translation": "быть на вкус",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why do all bananas look the same?",
+    "options": [
+     "Shops choose them",
+     "They are copies of one plant",
+     "They grow together",
+     "They are painted"
+    ],
+    "answer": 1,
+    "explanation": "Farmers cut a piece and grow a new plant from it."
+   },
+   {
+    "id": "q2",
+    "question": "Why is this dangerous?",
+    "options": [
+     "Bananas are heavy",
+     "One disease can kill all of them",
+     "They are expensive",
+     "They have no taste"
+    ],
+    "answer": 1,
+    "explanation": "If one plant gets a disease, all of them can."
+   },
+   {
+    "id": "q3",
+    "question": "What happened to the Gros Michel?",
+    "options": [
+     "It became more popular",
+     "A disease killed it in the 1950s",
+     "It grew too big",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "The text says a disease killed it almost everywhere."
+   }
+  ]
+ },
+ {
+  "id": "the-overview-effect",
+  "level": "C2",
+  "topic": "science",
+  "generated": false,
+  "title": "What Astronauts See That Changes Them",
+  "sentences": [
+   {
+    "text": "Something happens to a significant proportion of people who see the Earth from outside it, and it is consistent enough to have acquired a name.",
+    "translationRu": "С немалой долей тех, кто видел Землю снаружи, что-то происходит — и происходит достаточно устойчиво, чтобы обрести название."
+   },
+   {
+    "text": "The overview effect was coined in the late 1980s to describe a shift in perspective reported by astronauts with striking regularity across nationalities, decades and political systems.",
+    "translationRu": "Термин «эффект обзора» появился в конце 1980-х для сдвига восприятия, о котором астронавты сообщали с поразительной регулярностью — вне зависимости от национальности, десятилетия и политического строя."
+   },
+   {
+    "text": "The descriptions converge on a few elements.",
+    "translationRu": "Описания сходятся на нескольких элементах."
+   },
+   {
+    "text": "The planet is unexpectedly beautiful and unexpectedly small.",
+    "translationRu": "Планета неожиданно красива и неожиданно мала."
+   },
+   {
+    "text": "The atmosphere, which from below appears limitless, is visible as an astonishingly thin blue line, and the thinness is what people fixate on.",
+    "translationRu": "Атмосфера, снизу кажущаяся бескрайней, видна как ошеломляюще тонкая синяя полоса — и именно на тонкости люди застревают."
+   },
+   {
+    "text": "And there are no borders, a fact everyone knows in the abstract and nobody has seen.",
+    "translationRu": "И нет границ — факт, который все знают отвлечённо и никто не видел."
+   },
+   {
+    "text": "What makes the phenomenon interesting is not the sentiment, which is easy to dismiss as the predictable response to an extraordinary view.",
+    "translationRu": "Интересно тут не умиление, которое легко списать на предсказуемую реакцию на исключительный вид."
+   },
+   {
+    "text": "It is that the change appears to persist, and that people who were not remotely sentimental before departure report it as forcefully as anybody.",
+    "translationRu": "Интересно, что перемена, судя по всему, не проходит, и что люди, вовсе не склонные к сантиментам до вылета, сообщают о ней не менее настойчиво."
+   },
+   {
+    "text": "Test pilots are selected precisely for their resistance to being overwhelmed.",
+    "translationRu": "Лётчиков-испытателей отбирают именно за устойчивость к потрясениям."
+   },
+   {
+    "text": "Several of them came back and could not talk about it without stopping.",
+    "translationRu": "Несколько из них вернулись и не могли говорить об этом, не останавливаясь."
+   },
+   {
+    "text": "One plausible reading is that the effect has less to do with beauty than with scale being suddenly resolved.",
+    "translationRu": "Одно правдоподобное прочтение: дело не столько в красоте, сколько во внезапно разрешённом масштабе."
+   },
+   {
+    "text": "A human being cannot perceive the planet; we perceive a horizon and infer the rest, and inference does not move anybody.",
+    "translationRu": "Человек не может воспринять планету: мы воспринимаем горизонт и достраиваем остальное, а вывод никого не трогает."
+   },
+   {
+    "text": "Seeing the whole object at once collapses an abstraction into a perception, and perceptions have consequences that arguments do not.",
+    "translationRu": "Увидеть весь объект разом — значит свернуть отвлечённость в восприятие, а у восприятия есть последствия, которых нет у доводов."
+   },
+   {
+    "text": "This has an uncomfortable implication for anybody who works by explanation.",
+    "translationRu": "Отсюда неудобное следствие для всякого, кто работает объяснением."
+   },
+   {
+    "text": "The information was never the missing part.",
+    "translationRu": "Недоставало никогда не информации."
+   },
+   {
+    "text": "Every one of those astronauts already knew the atmosphere was thin, in the sense of being able to state the figure.",
+    "translationRu": "Каждый из этих астронавтов и так знал, что атмосфера тонка, — в том смысле, что мог назвать цифру."
+   },
+   {
+    "text": "Knowing the figure and seeing it turn out to be almost entirely different operations, performed by different parts of a person, and only one of them changes behaviour.",
+    "translationRu": "Знать цифру и увидеть — оказывается, почти разные операции, выполняемые разными частями человека, и поведение меняет только одна."
+   },
+   {
+    "text": "Which is why the proposal occasionally made in seriousness — that world leaders should be sent up and brought back — is less absurd than it sounds.",
+    "translationRu": "Поэтому предложение, которое иногда всерьёз выдвигают, — отправлять мировых лидеров наверх и возвращать — менее абсурдно, чем звучит."
+   },
+   {
+    "text": "It is merely impractical.",
+    "translationRu": "Оно просто непрактично."
+   }
+  ],
+  "glossary": {
+   "coin": {
+    "translation": "ввести (термин)",
+    "partOfSpeech": "verb"
+   },
+   "converge": {
+    "translation": "сходиться",
+    "partOfSpeech": "verb"
+   },
+   "limitless": {
+    "translation": "бескрайний",
+    "partOfSpeech": "adjective"
+   },
+   "fixate on": {
+    "translation": "зацикливаться на",
+    "partOfSpeech": "phrase"
+   },
+   "dismiss": {
+    "translation": "отмахнуться, списать",
+    "partOfSpeech": "verb"
+   },
+   "persist": {
+    "translation": "сохраняться, не проходить",
+    "partOfSpeech": "verb"
+   },
+   "overwhelmed": {
+    "translation": "потрясённый, подавленный",
+    "partOfSpeech": "adjective"
+   },
+   "infer": {
+    "translation": "выводить, достраивать",
+    "partOfSpeech": "verb"
+   },
+   "implication": {
+    "translation": "следствие",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What do the descriptions converge on?",
+    "options": [
+     "Cold and silence",
+     "Beauty, smallness, a thin atmosphere and no borders",
+     "Fear of height",
+     "Technical detail"
+    ],
+    "answer": 1,
+    "explanation": "The text lists these few elements."
+   },
+   {
+    "id": "q2",
+    "question": "Why is it notable that test pilots report it?",
+    "options": [
+     "They travel most",
+     "They are selected for resistance to being overwhelmed",
+     "They write books",
+     "They fly lowest"
+    ],
+    "answer": 1,
+    "explanation": "Several came back unable to talk about it without stopping."
+   },
+   {
+    "id": "q3",
+    "question": "What is the uncomfortable implication?",
+    "options": [
+     "Space travel is unsafe",
+     "Information was never the missing part",
+     "Astronauts are unreliable",
+     "Beauty is subjective"
+    ],
+    "answer": 1,
+    "explanation": "Knowing the figure and seeing it are different operations."
+   }
+  ]
  }
 ]

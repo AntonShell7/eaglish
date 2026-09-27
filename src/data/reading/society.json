@@ -151,5 +151,158 @@
     "explanation": "Rankings count papers and salaries, not changed minds."
    }
   ]
+ },
+ {
+  "id": "the-shortest-war",
+  "level": "A2",
+  "topic": "society",
+  "generated": false,
+  "title": "The War That Lasted Less Than an Hour",
+  "sentences": [
+   {
+    "text": "Most wars last years.",
+    "translationRu": "Большинство войн длятся годами."
+   },
+   {
+    "text": "Some last months.",
+    "translationRu": "Некоторые — месяцы."
+   },
+   {
+    "text": "One war lasted about thirty-eight minutes.",
+    "translationRu": "Одна война продлилась около тридцати восьми минут."
+   },
+   {
+    "text": "It happened in 1896 in Zanzibar, an island in Africa.",
+    "translationRu": "Это случилось в 1896 году на Занзибаре, острове в Африке."
+   },
+   {
+    "text": "The old ruler died.",
+    "translationRu": "Старый правитель умер."
+   },
+   {
+    "text": "A new ruler took his place.",
+    "translationRu": "Его место занял новый."
+   },
+   {
+    "text": "But Britain wanted a different man there.",
+    "translationRu": "Но Британия хотела видеть там другого человека."
+   },
+   {
+    "text": "Britain had ships near the island.",
+    "translationRu": "У Британии рядом с островом стояли корабли."
+   },
+   {
+    "text": "The new ruler had a small palace and about three thousand men.",
+    "translationRu": "У нового правителя был небольшой дворец и около трёх тысяч человек."
+   },
+   {
+    "text": "Britain sent a message: leave, or we will start at nine o'clock.",
+    "translationRu": "Британия послала сообщение: уходи, или мы начнём в девять."
+   },
+   {
+    "text": "He did not leave.",
+    "translationRu": "Он не ушёл."
+   },
+   {
+    "text": "At nine o'clock the ships began.",
+    "translationRu": "В девять корабли начали."
+   },
+   {
+    "text": "The palace was made of wood.",
+    "translationRu": "Дворец был деревянный."
+   },
+   {
+    "text": "It fell very quickly.",
+    "translationRu": "Он рухнул очень быстро."
+   },
+   {
+    "text": "By about twenty to ten it was finished.",
+    "translationRu": "Примерно без двадцати десять всё закончилось."
+   },
+   {
+    "text": "The ruler escaped and lived for many more years.",
+    "translationRu": "Правитель бежал и прожил ещё много лет."
+   },
+   {
+    "text": "History books call it the shortest war in the world.",
+    "translationRu": "Учебники называют её самой короткой войной в мире."
+   },
+   {
+    "text": "But short does not mean small.",
+    "translationRu": "Но короткая не значит маленькая."
+   },
+   {
+    "text": "About five hundred people died in those thirty-eight minutes.",
+    "translationRu": "За эти тридцать восемь минут погибло около пятисот человек."
+   }
+  ],
+  "glossary": {
+   "ruler": {
+    "translation": "правитель",
+    "partOfSpeech": "noun"
+   },
+   "palace": {
+    "translation": "дворец",
+    "partOfSpeech": "noun"
+   },
+   "ship": {
+    "translation": "корабль",
+    "partOfSpeech": "noun"
+   },
+   "message": {
+    "translation": "сообщение",
+    "partOfSpeech": "noun"
+   },
+   "wood": {
+    "translation": "дерево (материал)",
+    "partOfSpeech": "noun"
+   },
+   "escape": {
+    "translation": "сбежать",
+    "partOfSpeech": "verb"
+   },
+   "history": {
+    "translation": "история",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "How long did the war last?",
+    "options": [
+     "Thirty-eight days",
+     "About thirty-eight minutes",
+     "One year",
+     "Three hours"
+    ],
+    "answer": 1,
+    "explanation": "The text says about thirty-eight minutes."
+   },
+   {
+    "id": "q2",
+    "question": "Why did the palace fall quickly?",
+    "options": [
+     "It was very old",
+     "It was made of wood",
+     "It was empty",
+     "It was small"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly."
+   },
+   {
+    "id": "q3",
+    "question": "What does the last line say?",
+    "options": [
+     "Nobody died",
+     "About five hundred people died",
+     "The ruler died",
+     "It was a game"
+    ],
+    "answer": 1,
+    "explanation": "Short does not mean small."
+   }
+  ]
  }
 ]
