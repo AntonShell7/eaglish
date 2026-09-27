@@ -1475,5 +1475,170 @@
     "explanation": "The closing paragraph."
    }
   ]
+ },
+ {
+  "id": "why-we-get-goosebumps",
+  "level": "A2",
+  "topic": "health",
+  "generated": false,
+  "title": "Goosebumps Are for a Coat You Do Not Have",
+  "sentences": [
+   {
+    "text": "You go outside and it is cold.",
+    "translationRu": "Ты выходишь на улицу, и там холодно."
+   },
+   {
+    "text": "Small bumps appear on your arms.",
+    "translationRu": "На руках появляются маленькие пупырышки."
+   },
+   {
+    "text": "The hairs stand up.",
+    "translationRu": "Волоски встают дыбом."
+   },
+   {
+    "text": "In English this is called goosebumps, because your skin looks like the skin of a bird with no feathers.",
+    "translationRu": "По-английски это называют goosebumps — «гусиная кожа»: кожа похожа на птичью без перьев."
+   },
+   {
+    "text": "It also happens when you hear beautiful music, or when you are afraid.",
+    "translationRu": "То же бывает от красивой музыки или от страха."
+   },
+   {
+    "text": "Why does the body do this?",
+    "translationRu": "Зачем тело это делает?"
+   },
+   {
+    "text": "The answer is that it is not really for you.",
+    "translationRu": "Ответ в том, что это не совсем для тебя."
+   },
+   {
+    "text": "It is for an animal with a lot of hair.",
+    "translationRu": "Это для животного с густой шерстью."
+   },
+   {
+    "text": "Under each hair there is a very small muscle.",
+    "translationRu": "Под каждым волоском есть очень маленькая мышца."
+   },
+   {
+    "text": "When you are cold, the muscle pulls, and the hair stands up.",
+    "translationRu": "Когда холодно, мышца тянет, и волосок встаёт."
+   },
+   {
+    "text": "In an animal with thick fur, this makes a thicker layer of air near the skin.",
+    "translationRu": "У животного с густым мехом это создаёт более толстый слой воздуха у кожи."
+   },
+   {
+    "text": "Air is a good coat.",
+    "translationRu": "Воздух — хорошая шуба."
+   },
+   {
+    "text": "The animal gets warmer.",
+    "translationRu": "Животному становится теплее."
+   },
+   {
+    "text": "There is a second use.",
+    "translationRu": "Есть и второе применение."
+   },
+   {
+    "text": "When a cat meets a dog, its hair stands up and the cat looks bigger.",
+    "translationRu": "Когда кошка встречает собаку, шерсть встаёт дыбом, и кошка кажется больше."
+   },
+   {
+    "text": "That is why you also get goosebumps when you are frightened.",
+    "translationRu": "Поэтому мурашки бывают и от испуга."
+   },
+   {
+    "text": "The problem is that we lost our fur a long time ago.",
+    "translationRu": "Проблема в том, что шерсть мы потеряли давно."
+   },
+   {
+    "text": "So the muscles still work, but they have almost nothing to lift.",
+    "translationRu": "Мышцы работают до сих пор, но поднимать им почти нечего."
+   },
+   {
+    "text": "You do not get warmer and you do not look bigger.",
+    "translationRu": "Ты не согреваешься и больше не кажешься."
+   },
+   {
+    "text": "You just get small bumps on your arm.",
+    "translationRu": "Просто появляются пупырышки на руке."
+   },
+   {
+    "text": "It is an old machine that nobody turned off.",
+    "translationRu": "Это старая машина, которую никто не выключил."
+   }
+  ],
+  "glossary": {
+   "bump": {
+    "translation": "пупырышек, бугорок",
+    "partOfSpeech": "noun"
+   },
+   "hair": {
+    "translation": "волос, шерсть",
+    "partOfSpeech": "noun"
+   },
+   "feather": {
+    "translation": "перо",
+    "partOfSpeech": "noun"
+   },
+   "afraid": {
+    "translation": "напуганный",
+    "partOfSpeech": "adjective"
+   },
+   "muscle": {
+    "translation": "мышца",
+    "partOfSpeech": "noun"
+   },
+   "pull": {
+    "translation": "тянуть",
+    "partOfSpeech": "verb"
+   },
+   "fur": {
+    "translation": "мех, шерсть",
+    "partOfSpeech": "noun"
+   },
+   "layer": {
+    "translation": "слой",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-we-get-goosebumps-q1",
+    "question": "How do goosebumps keep an animal warm?",
+    "options": [
+     "The skin gets thicker",
+     "Raised fur traps a thicker layer of air",
+     "Blood moves faster",
+     "The muscles make heat"
+    ],
+    "answer": 1,
+    "explanation": "Air is a good coat."
+   },
+   {
+    "id": "why-we-get-goosebumps-q2",
+    "question": "Why do frightened animals raise their hair?",
+    "options": [
+     "To run faster",
+     "To look bigger",
+     "To hide",
+     "To keep warm"
+    ],
+    "answer": 1,
+    "explanation": "Like a cat meeting a dog."
+   },
+   {
+    "id": "why-we-get-goosebumps-q3",
+    "question": "Why does it not work for people?",
+    "options": [
+     "We are too warm",
+     "We lost our fur, so there is nothing to lift",
+     "Our muscles are gone",
+     "We wear clothes"
+    ],
+    "answer": 1,
+    "explanation": "An old machine nobody turned off."
+   }
+  ]
  }
 ]

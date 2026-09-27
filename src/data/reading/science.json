@@ -1954,5 +1954,210 @@
     "explanation": "None of it is available as a scene."
    }
   ]
+ },
+ {
+  "id": "the-replication-problem",
+  "level": "C2",
+  "topic": "science",
+  "generated": false,
+  "title": "A Lot of Published Science Does Not Happen Twice",
+  "sentences": [
+   {
+    "text": "In 2015 a consortium of researchers repeated one hundred psychology experiments that had been published in leading journals.",
+    "translationRu": "В 2015 году консорциум исследователей повторил сто психологических экспериментов, опубликованных в ведущих журналах."
+   },
+   {
+    "text": "Around a third produced a statistically significant result the second time.",
+    "translationRu": "Примерно треть дала статистически значимый результат во второй раз."
+   },
+   {
+    "text": "Similar exercises in cancer biology and economics returned figures that were better but not comfortable.",
+    "translationRu": "Похожие работы в онкобиологии и экономике дали цифры лучше, но не утешительные."
+   },
+   {
+    "text": "The finding was named the replication crisis, and the most useful thing to understand about it is that it required no fraud at all.",
+    "translationRu": "Явление назвали кризисом воспроизводимости, и полезнее всего понять, что для него не требовалось никакого мошенничества."
+   },
+   {
+    "text": "Deliberate fabrication exists and is rare.",
+    "translationRu": "Умышленная фальсификация существует и редка."
+   },
+   {
+    "text": "The crisis was produced by ordinary people following the incentives in front of them.",
+    "translationRu": "Кризис произвели обычные люди, следовавшие стоявшим перед ними стимулам."
+   },
+   {
+    "text": "Consider what a career is made of.",
+    "translationRu": "Подумай, из чего складывается карьера."
+   },
+   {
+    "text": "Publications, in journals that overwhelmingly print positive findings, because an experiment showing that two things are unrelated is difficult to publish and duller to read.",
+    "translationRu": "Из публикаций в журналах, которые подавляюще печатают положительные результаты, потому что эксперимент, показавший отсутствие связи, труднее опубликовать и скучнее читать."
+   },
+   {
+    "text": "Now add the standard threshold.",
+    "translationRu": "Добавь стандартный порог."
+   },
+   {
+    "text": "A result is conventionally reportable when the probability of seeing it by chance, assuming nothing is going on, falls under five per cent.",
+    "translationRu": "Результат принято считать пригодным к публикации, когда вероятность получить его случайно, при отсутствии эффекта, меньше пяти процентов."
+   },
+   {
+    "text": "That threshold is arbitrary, was chosen for convenience in the 1920s, and behaves badly under pressure.",
+    "translationRu": "Порог произволен, выбран для удобства в 1920-е и плохо ведёт себя под давлением."
+   },
+   {
+    "text": "If twenty independent teams test a hypothesis that is false, one will, on average, clear the bar.",
+    "translationRu": "Если двадцать независимых групп проверяют ложную гипотезу, одна в среднем возьмёт планку."
+   },
+   {
+    "text": "Nineteen file the result in a drawer, because nobody prints it.",
+    "translationRu": "Девятнадцать положат результат в стол, потому что его никто не печатает."
+   },
+   {
+    "text": "The twentieth publishes, and the literature now contains one confident paper and no trace of the nineteen.",
+    "translationRu": "Двадцатая публикуется, и в литературе есть одна уверенная статья и ни следа от девятнадцати."
+   },
+   {
+    "text": "Nobody lied.",
+    "translationRu": "Никто не солгал."
+   },
+   {
+    "text": "The filter did the damage.",
+    "translationRu": "Ущерб нанёс фильтр."
+   },
+   {
+    "text": "Then there is the analysis itself, where the same honest intention does more harm.",
+    "translationRu": "Есть ещё сам анализ, где то же честное намерение вредит сильнее."
+   },
+   {
+    "text": "A dataset can be examined in dozens of defensible ways: which outliers to drop, which covariates to include, where to cut an age range, whether to look at the subgroup where the effect appeared.",
+    "translationRu": "Данные можно рассмотреть десятками защитимых способов: какие выбросы отбросить, какие ковариаты включить, где резать возрастной диапазон, смотреть ли на подгруппу, где эффект проявился."
+   },
+   {
+    "text": "Each choice is arguable in isolation, and a researcher who makes them while watching the result is running twenty tests and reporting one, without ever intending to.",
+    "translationRu": "Каждый выбор по отдельности обоснован, и исследователь, делающий их, глядя на результат, проводит двадцать проверок и сообщает одну — совершенно того не желая."
+   },
+   {
+    "text": "The remedies now spreading are unglamorous and appear to work.",
+    "translationRu": "Распространяющиеся сейчас средства неэффектны и, похоже, работают."
+   },
+   {
+    "text": "Preregistration commits a team publicly to its hypothesis and analysis before the data exist, which converts an exploration into a test.",
+    "translationRu": "Предрегистрация публично фиксирует гипотезу и план анализа до появления данных, превращая разведку в проверку."
+   },
+   {
+    "text": "Registered reports go further: a journal accepts the paper on the strength of the design, before the result is known, which removes the incentive entirely.",
+    "translationRu": "Зарегистрированные отчёты идут дальше: журнал принимает статью по качеству дизайна, до того как результат известен, что снимает стимул полностью."
+   },
+   {
+    "text": "Where these have been used, the share of positive findings drops towards what you would expect if researchers were sometimes wrong, which is the point.",
+    "translationRu": "Там, где это применяют, доля положительных результатов падает к тому, чего и ждёшь, если исследователи иногда ошибаются, — в этом и суть."
+   },
+   {
+    "text": "It is worth resisting the conclusion that science is broken.",
+    "translationRu": "Стоит сопротивляться выводу, что наука сломана."
+   },
+   {
+    "text": "A field that publicly measured its own error rate and changed its procedures in response is doing the thing it claims to do.",
+    "translationRu": "Область, публично измерившая собственную частоту ошибок и в ответ изменившая процедуры, делает ровно то, что декларирует."
+   },
+   {
+    "text": "Very few institutions of any kind have ever managed it.",
+    "translationRu": "Мало каким институтам вообще это удавалось."
+   }
+  ],
+  "glossary": {
+   "consortium": {
+    "translation": "консорциум",
+    "partOfSpeech": "noun"
+   },
+   "significant": {
+    "translation": "значимый (статистически)",
+    "partOfSpeech": "adjective"
+   },
+   "fraud": {
+    "translation": "мошенничество",
+    "partOfSpeech": "noun"
+   },
+   "fabrication": {
+    "translation": "фальсификация",
+    "partOfSpeech": "noun"
+   },
+   "incentive": {
+    "translation": "стимул",
+    "partOfSpeech": "noun"
+   },
+   "threshold": {
+    "translation": "порог",
+    "partOfSpeech": "noun"
+   },
+   "arbitrary": {
+    "translation": "произвольный",
+    "partOfSpeech": "adjective"
+   },
+   "outlier": {
+    "translation": "выброс (в данных)",
+    "partOfSpeech": "noun"
+   },
+   "covariate": {
+    "translation": "ковариата",
+    "partOfSpeech": "noun"
+   },
+   "preregistration": {
+    "translation": "предрегистрация",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-replication-problem-q1",
+    "question": "What did the 2015 replication project find?",
+    "options": [
+     "All results held",
+     "About a third replicated",
+     "Fraud in most papers",
+     "No difference"
+    ],
+    "answer": 1,
+    "explanation": "Cancer biology and economics were better but not comfortable."
+   },
+   {
+    "id": "the-replication-problem-q2",
+    "question": "Why does the five per cent threshold behave badly?",
+    "options": [
+     "It is too strict",
+     "One of twenty teams testing a false hypothesis will clear it, and only that one publishes",
+     "It is illegal",
+     "Nobody uses it"
+    ],
+    "answer": 1,
+    "explanation": "The filter did the damage."
+   },
+   {
+    "id": "the-replication-problem-q3",
+    "question": "What is the analysis problem?",
+    "options": [
+     "Bad maths",
+     "Dozens of defensible choices made while watching the result amount to many tests reported as one",
+     "Small samples",
+     "Poor software"
+    ],
+    "answer": 1,
+    "explanation": "Without ever intending to."
+   },
+   {
+    "id": "the-replication-problem-q4",
+    "question": "What do registered reports change?",
+    "options": [
+     "Sample sizes",
+     "A journal accepts the paper on design before the result is known",
+     "Peer review speed",
+     "Data sharing"
+    ],
+    "answer": 1,
+    "explanation": "It removes the incentive entirely."
+   }
+  ]
  }
 ]

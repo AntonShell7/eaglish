@@ -1173,5 +1173,182 @@
     "explanation": "They are resisted because they cost identifiable people money today."
    }
   ]
+ },
+ {
+  "id": "why-planes-fly-north",
+  "level": "B2",
+  "topic": "travel",
+  "generated": false,
+  "title": "Your Flight to Asia Goes Over the Arctic Because the Map Is Lying",
+  "sentences": [
+   {
+    "text": "Look at the moving map on a long flight from Europe to east Asia and the route often looks perverse.",
+    "translationRu": "Посмотри на карту в полёте из Европы в Восточную Азию — маршрут часто выглядит извращением."
+   },
+   {
+    "text": "The aircraft climbs far to the north, crosses somewhere near the pole, and comes down again, when the destination is plainly to the east.",
+    "translationRu": "Самолёт уходит далеко на север, пересекает что-то около полюса и снова спускается, хотя пункт назначения явно на востоке."
+   },
+   {
+    "text": "Passengers assume it is weather, or airspace politics, and occasionally it is.",
+    "translationRu": "Пассажиры думают про погоду или политику воздушного пространства, и иногда так и есть."
+   },
+   {
+    "text": "Usually it is simply that the map on the screen is wrong, in the specific and unavoidable way that all flat maps are wrong.",
+    "translationRu": "Обычно дело просто в том, что карта на экране неверна — конкретным и неизбежным образом, каким неверны все плоские карты."
+   },
+   {
+    "text": "The Earth is very close to a sphere, and the shortest path between two points on a sphere is an arc of a great circle: a circle whose centre is the centre of the Earth.",
+    "translationRu": "Земля почти шар, а кратчайший путь между двумя точками на шаре — дуга большого круга: окружности, центр которой совпадает с центром Земли."
+   },
+   {
+    "text": "Take a globe and a piece of string, pin one end to London and the other to Tokyo, pull it tight, and the string will run up over the Arctic.",
+    "translationRu": "Возьми глобус и нитку, прижми один конец к Лондону, другой к Токио, натяни — и нитка пойдёт вверх через Арктику."
+   },
+   {
+    "text": "That is the real route.",
+    "translationRu": "Это и есть настоящий маршрут."
+   },
+   {
+    "text": "The straight line on the screen is the distortion, not the curve.",
+    "translationRu": "Прямая на экране — это искажение, а не кривая."
+   },
+   {
+    "text": "The reason the distortion feels so natural is that most people learned geography from the Mercator projection, which was designed in the sixteenth century for sailing and does one thing beautifully: a compass bearing drawn as a straight line on it really is a constant compass bearing.",
+    "translationRu": "Искажение кажется естественным потому, что географию большинство учило по проекции Меркатора, созданной в XVI веке для мореплавания и великолепно делающей одно: прямая, проведённая на ней, действительно соответствует постоянному компасному курсу."
+   },
+   {
+    "text": "That was worth almost any price to a navigator with a compass and no satellites.",
+    "translationRu": "Для навигатора с компасом и без спутников это стоило почти любой цены."
+   },
+   {
+    "text": "The price was area.",
+    "translationRu": "Ценой была площадь."
+   },
+   {
+    "text": "Mercator stretches everything away from the equator, which is why Greenland appears roughly the size of Africa on a classroom wall and is in reality about fourteen times smaller.",
+    "translationRu": "Меркатор растягивает всё по мере удаления от экватора, поэтому Гренландия на школьной стене выглядит примерно с Африку, а на деле меньше примерно в четырнадцать раз."
+   },
+   {
+    "text": "Fly a great circle and you are cutting across those stretched northern latitudes, where the map has added distance that does not exist.",
+    "translationRu": "Летя по большому кругу, ты срезаешь по этим растянутым северным широтам, где карта добавила расстояние, которого нет."
+   },
+   {
+    "text": "Two practical things bend the theory a little.",
+    "translationRu": "Две практические вещи слегка изгибают теорию."
+   },
+   {
+    "text": "Jet streams are fast, narrow rivers of air, usually flowing west to east, and an aircraft will happily fly a longer path to sit inside one, which is why the return leg of a long flight is frequently an hour shorter than the outbound.",
+    "translationRu": "Струйные течения — быстрые узкие воздушные реки, обычно с запада на восток, и самолёт охотно летит длиннее, чтобы попасть внутрь такой, поэтому обратный участок дальнего рейса часто на час короче."
+   },
+   {
+    "text": "And polar routes carry their own constraints: fewer airports to divert to, cold-weather fuel requirements, and rules about how far a twin-engined aircraft may be from a runway, which shape the exact line drawn.",
+    "translationRu": "У полярных маршрутов свои ограничения: меньше аэродромов для ухода, требования к топливу на морозе и правила, насколько далеко двухдвигательный самолёт может быть от полосы, — они и рисуют точную линию."
+   },
+   {
+    "text": "None of that changes the underlying fact.",
+    "translationRu": "Ничто из этого не меняет исходного факта."
+   },
+   {
+    "text": "The pilots are flying straight.",
+    "translationRu": "Пилоты летят прямо."
+   },
+   {
+    "text": "The picture you are watching is the thing that is curved.",
+    "translationRu": "Искривлена картинка, на которую ты смотришь."
+   }
+  ],
+  "glossary": {
+   "perverse": {
+    "translation": "противоестественный, вопреки логике",
+    "partOfSpeech": "adjective"
+   },
+   "airspace": {
+    "translation": "воздушное пространство",
+    "partOfSpeech": "noun"
+   },
+   "sphere": {
+    "translation": "шар, сфера",
+    "partOfSpeech": "noun"
+   },
+   "arc": {
+    "translation": "дуга",
+    "partOfSpeech": "noun"
+   },
+   "great circle": {
+    "translation": "большой круг",
+    "partOfSpeech": "noun"
+   },
+   "distortion": {
+    "translation": "искажение",
+    "partOfSpeech": "noun"
+   },
+   "projection": {
+    "translation": "проекция",
+    "partOfSpeech": "noun"
+   },
+   "bearing": {
+    "translation": "курс, пеленг",
+    "partOfSpeech": "noun"
+   },
+   "latitude": {
+    "translation": "широта",
+    "partOfSpeech": "noun"
+   },
+   "divert": {
+    "translation": "уходить на запасной аэродром",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-planes-fly-north-q1",
+    "question": "What is a great circle?",
+    "options": [
+     "A circle around the equator",
+     "A circle whose centre is the centre of the Earth",
+     "A flight corridor",
+     "A weather system"
+    ],
+    "answer": 1,
+    "explanation": "The string on a globe runs over the Arctic."
+   },
+   {
+    "id": "why-planes-fly-north-q2",
+    "question": "What does the Mercator projection do well?",
+    "options": [
+     "Show true area",
+     "Make a straight line a constant compass bearing",
+     "Show distance",
+     "Show the poles"
+    ],
+    "answer": 1,
+    "explanation": "Worth almost any price to a navigator with a compass."
+   },
+   {
+    "id": "why-planes-fly-north-q3",
+    "question": "Why does Greenland look wrong?",
+    "options": [
+     "It is cloudy",
+     "Mercator stretches everything away from the equator",
+     "It is mapped from the air",
+     "It is actually that size"
+    ],
+    "answer": 1,
+    "explanation": "About fourteen times smaller than Africa."
+   },
+   {
+    "id": "why-planes-fly-north-q4",
+    "question": "Why is a return leg often shorter?",
+    "options": [
+     "Less fuel",
+     "The aircraft sits inside a west-to-east jet stream",
+     "Lighter load",
+     "Different route rules"
+    ],
+    "answer": 1,
+    "explanation": "It will fly a longer path to get there."
+   }
+  ]
  }
 ]
