@@ -1431,5 +1431,194 @@
     "explanation": "The cheapest restoration available, and it is not happening."
    }
   ]
+ },
+ {
+  "id": "the-bird-that-copies-everything",
+  "level": "B1",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Bird That Can Imitate a Chainsaw",
+  "sentences": [
+   {
+    "text": "In the forests of eastern Australia there is a brown bird about the size of a chicken called the lyrebird.",
+    "translationRu": "В лесах востока Австралии живёт бурая птица размером с курицу — птица-лира."
+   },
+   {
+    "text": "It looks unremarkable until it opens its mouth.",
+    "translationRu": "Она выглядит неприметно, пока не откроет клюв."
+   },
+   {
+    "text": "The male lyrebird is probably the best imitator of sound in the animal world.",
+    "translationRu": "Самец птицы-лиры, вероятно, лучший подражатель звуков в животном мире."
+   },
+   {
+    "text": "He can reproduce the calls of twenty other bird species in a row, accurately enough that those species answer him.",
+    "translationRu": "Он подряд воспроизводит крики двадцати других видов птиц — так точно, что те откликаются."
+   },
+   {
+    "text": "That alone would be impressive.",
+    "translationRu": "Одного этого хватило бы."
+   },
+   {
+    "text": "What made him famous is everything else he copies.",
+    "translationRu": "Знаменитым его сделало всё остальное, что он копирует."
+   },
+   {
+    "text": "Recordings exist of lyrebirds producing camera shutters, car alarms, dogs, crying babies and, in the most repeated example, a chainsaw.",
+    "translationRu": "Существуют записи, где птицы-лиры выдают затвор фотоаппарата, автосигнализацию, собак, детский плач и — самый пересказываемый пример — бензопилу."
+   },
+   {
+    "text": "Not an approximation of a chainsaw.",
+    "translationRu": "Не что-то похожее на бензопилу."
+   },
+   {
+    "text": "The starting cough, the engine finding its speed, the cut.",
+    "translationRu": "Кашель при запуске, набор оборотов двигателем, рез."
+   },
+   {
+    "text": "It is worth being careful with these stories, because some of the most-shared recordings come from birds raised in captivity or living near people, and wild lyrebirds mostly copy other birds.",
+    "translationRu": "С этими историями стоит быть осторожным: часть самых популярных записей сделана с птиц, выросших в неволе или живущих рядом с людьми, а дикие птицы-лиры чаще копируют других птиц."
+   },
+   {
+    "text": "A chainsaw is unusual.",
+    "translationRu": "Бензопила — редкость."
+   },
+   {
+    "text": "The mechanism, though, is real and is what makes the bird interesting.",
+    "translationRu": "А вот механизм настоящий, и именно он делает птицу любопытной."
+   },
+   {
+    "text": "Birds do not have our vocal cords.",
+    "translationRu": "У птиц нет наших голосовых связок."
+   },
+   {
+    "text": "They have a syrinx, an organ at the point where the windpipe divides into the two lungs, and because it has two branches, a bird can in principle produce two independent sounds at once.",
+    "translationRu": "У них есть сиринкс — орган в месте, где трахея расходится к двум лёгким, и, поскольку у него две ветви, птица в принципе способна издавать два независимых звука одновременно."
+   },
+   {
+    "text": "The lyrebird's syrinx has fewer muscles than most songbirds', which sounds like a disadvantage and appears to be the opposite: fewer constraints, more flexibility.",
+    "translationRu": "У сиринкса птицы-лиры меньше мышц, чем у большинства певчих, — звучит как недостаток, а оказывается наоборот: меньше ограничений, больше гибкости."
+   },
+   {
+    "text": "The purpose of all this is not art.",
+    "translationRu": "Цель у всего этого не художественная."
+   },
+   {
+    "text": "The male sings on a small mound he has built and clears, for hours, during the breeding season, and the female listens.",
+    "translationRu": "Самец поёт на маленьком холмике, который сам построил и расчистил, часами, в брачный сезон, а самка слушает."
+   },
+   {
+    "text": "A long and varied performance is thought to demonstrate age, memory and the survival that comes with both, since a bird that has heard many things has lived through many seasons.",
+    "translationRu": "Считается, что долгое и разнообразное выступление показывает возраст, память и сопутствующую им выживаемость: птица, слышавшая многое, пережила много сезонов."
+   },
+   {
+    "text": "There is also something quietly unsettling in it.",
+    "translationRu": "Есть тут и кое-что тихо тревожное."
+   },
+   {
+    "text": "A lyrebird learns from other lyrebirds as well as from the world, so a sound can survive in the population long after its source has gone.",
+    "translationRu": "Птица-лира учится и у других птиц-лир, и у мира, поэтому звук может жить в популяции долго после исчезновения источника."
+   },
+   {
+    "text": "There are reports of birds still producing calls of species that no longer live in that forest.",
+    "translationRu": "Есть сообщения о птицах, до сих пор издающих крики видов, которых в том лесу больше нет."
+   },
+   {
+    "text": "The recording outlived the thing recorded.",
+    "translationRu": "Запись пережила записанное."
+   }
+  ],
+  "glossary": {
+   "unremarkable": {
+    "translation": "ничем не примечательный",
+    "partOfSpeech": "adjective"
+   },
+   "imitator": {
+    "translation": "подражатель",
+    "partOfSpeech": "noun"
+   },
+   "reproduce": {
+    "translation": "воспроизводить",
+    "partOfSpeech": "verb"
+   },
+   "shutter": {
+    "translation": "затвор (фотоаппарата)",
+    "partOfSpeech": "noun"
+   },
+   "chainsaw": {
+    "translation": "бензопила",
+    "partOfSpeech": "noun"
+   },
+   "captivity": {
+    "translation": "неволя",
+    "partOfSpeech": "noun"
+   },
+   "windpipe": {
+    "translation": "трахея",
+    "partOfSpeech": "noun"
+   },
+   "constraint": {
+    "translation": "ограничение",
+    "partOfSpeech": "noun"
+   },
+   "mound": {
+    "translation": "холмик",
+    "partOfSpeech": "noun"
+   },
+   "unsettling": {
+    "translation": "тревожный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-bird-that-copies-everything-q1",
+    "question": "What caution does the text give about the famous recordings?",
+    "options": [
+     "They are fake",
+     "Many come from captive or human-adjacent birds; wild ones mostly copy birds",
+     "They are slowed down",
+     "They are of females"
+    ],
+    "answer": 1,
+    "explanation": "A chainsaw is unusual."
+   },
+   {
+    "id": "the-bird-that-copies-everything-q2",
+    "question": "What is the syrinx?",
+    "options": [
+     "A throat muscle",
+     "An organ where the windpipe divides, with two branches",
+     "A type of feather",
+     "A lung"
+    ],
+    "answer": 1,
+    "explanation": "A bird can in principle produce two sounds at once."
+   },
+   {
+    "id": "the-bird-that-copies-everything-q3",
+    "question": "Why is a varied performance attractive to a female?",
+    "options": [
+     "It is loud",
+     "It suggests age, memory and survival",
+     "It is rare",
+     "It scares rivals"
+    ],
+    "answer": 1,
+    "explanation": "A bird that has heard many things has lived many seasons."
+   },
+   {
+    "id": "the-bird-that-copies-everything-q4",
+    "question": "What is the unsettling detail at the end?",
+    "options": [
+     "The birds are dying out",
+     "Calls of species no longer in the forest survive in the population",
+     "They imitate humans",
+     "They forget songs"
+    ],
+    "answer": 1,
+    "explanation": "The recording outlived the thing recorded."
+   }
+  ]
  }
 ]

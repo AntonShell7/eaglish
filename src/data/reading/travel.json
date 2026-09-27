@@ -980,5 +980,198 @@
     "explanation": "One of the most dangerous walks in the world."
    }
   ]
+ },
+ {
+  "id": "tourism-eats-itself",
+  "level": "C2",
+  "topic": "travel",
+  "generated": false,
+  "title": "Tourism Destroys the Thing It Came to See",
+  "sentences": [
+   {
+    "text": "A place becomes known for being unspoiled.",
+    "translationRu": "Место становится известным тем, что оно нетронуто."
+   },
+   {
+    "text": "People go to see it unspoiled.",
+    "translationRu": "Люди едут посмотреть на его нетронутость."
+   },
+   {
+    "text": "The going spoils it.",
+    "translationRu": "Поездки её портят."
+   },
+   {
+    "text": "This is not an accident of bad management, and it is not solved by better visitors; it is a structural property of the thing being sold, and it repeats identically in places that have nothing else in common.",
+    "translationRu": "Это не случайность плохого управления и не лечится «более сознательными» туристами: это структурное свойство самого продаваемого, и оно одинаково повторяется в местах, у которых больше нет ничего общего."
+   },
+   {
+    "text": "The mechanism is worth stating precisely, because the vague version leads to the wrong remedies.",
+    "translationRu": "Механизм стоит сформулировать точно: расплывчатая версия ведёт к неверным лекарствам."
+   },
+   {
+    "text": "What a visitor buys is not access to a landscape or a building, both of which can absorb crowds.",
+    "translationRu": "Турист покупает не доступ к пейзажу или зданию — и то и другое толпу выдерживает."
+   },
+   {
+    "text": "What they are buying is a relationship between a place and the people who live there: a bar where locals drink, a market that exists because somebody needs vegetables, a street whose rhythm is set by school times and work.",
+    "translationRu": "Он покупает отношение между местом и живущими там: бар, где пьют местные, рынок, существующий потому, что кому-то нужны овощи, улицу, чей ритм задан школой и работой."
+   },
+   {
+    "text": "That relationship is what is meant by atmosphere, and it is produced entirely by people who are not performing it.",
+    "translationRu": "Именно это имеют в виду под атмосферой, и производят её целиком люди, которые её не изображают."
+   },
+   {
+    "text": "Now introduce money.",
+    "translationRu": "Теперь добавь деньги."
+   },
+   {
+    "text": "A flat let to visitors earns several times what it earns from a tenant, so flats convert, so residents leave, so rents rise for those who remain, so more leave.",
+    "translationRu": "Квартира, сдаваемая туристам, приносит в разы больше, чем от жильца, поэтому квартиры переоборудуют, поэтому жители уезжают, поэтому аренда растёт для оставшихся, поэтому уезжает ещё больше."
+   },
+   {
+    "text": "The vegetable market becomes a market selling small bottles of oil to people who are leaving in two days.",
+    "translationRu": "Овощной рынок становится рынком маленьких бутылочек масла для тех, кто уезжает через два дня."
+   },
+   {
+    "text": "The bar where locals drank now has a menu in four languages and no locals, and it is not worse at its job; it is doing a different job.",
+    "translationRu": "Бар, где пили местные, теперь имеет меню на четырёх языках и не имеет местных, и он не хуже справляется — он справляется с другой работой."
+   },
+   {
+    "text": "At the end of the process the visitor arrives and finds a place whose entire economy is visitors, which is precisely the thing nobody travels to see.",
+    "translationRu": "В конце процесса турист приезжает и находит место, чья экономика целиком состоит из туристов, — ровно то, ради чего никто не ездит."
+   },
+   {
+    "text": "Venice is the textbook case, having lost more than half its resident population since the 1950s, but the pattern runs everywhere at different speeds.",
+    "translationRu": "Венеция — хрестоматийный случай: с 1950-х она потеряла больше половины постоянного населения, но та же схема идёт повсюду, с разной скоростью."
+   },
+   {
+    "text": "What makes it genuinely hard, rather than merely sad, is that every individual decision in the chain is reasonable.",
+    "translationRu": "По-настоящему трудным, а не просто печальным, это делает то, что каждое отдельное решение в цепочке разумно."
+   },
+   {
+    "text": "The owner who converts a flat is not a villain; they are taking three times the income for less trouble.",
+    "translationRu": "Владелец, переделывающий квартиру, не злодей: он получает втрое больше дохода с меньшими хлопотами."
+   },
+   {
+    "text": "The visitor is not a vandal; they saved for a year and read about the place in good faith.",
+    "translationRu": "Турист не вандал: он копил год и читал об этом месте искренне."
+   },
+   {
+    "text": "The city that welcomes them is not foolish; tourism is often the only industry available once the others have gone, and refusing it means refusing the wages too.",
+    "translationRu": "Город, их принимающий, не глуп: туризм часто единственная оставшаяся отрасль, и отказ от него — отказ и от зарплат."
+   },
+   {
+    "text": "The damage is done by the sum, and sums have no author to appeal to.",
+    "translationRu": "Ущерб наносит сумма, а у суммы нет автора, к которому можно апеллировать."
+   },
+   {
+    "text": "Which is why the measures that work are all unpopular and all blunt: caps on beds rather than on people, limits on short-term letting, taxes high enough to change behaviour rather than to raise revenue.",
+    "translationRu": "Поэтому работающие меры все непопулярны и все грубы: лимиты на койко-места, а не на людей, ограничения краткосрочной аренды, налоги, достаточно высокие, чтобы менять поведение, а не пополнять бюджет."
+   },
+   {
+    "text": "They are resisted locally because they cost identifiable people money today to preserve something diffuse tomorrow, which is the hardest trade any politics has to make.",
+    "translationRu": "Им сопротивляются на местах, потому что они стоят конкретным людям денег сегодня ради сохранения чего-то размытого завтра, а это самый трудный обмен, какой бывает в политике."
+   },
+   {
+    "text": "The alternative is not preservation.",
+    "translationRu": "Альтернатива — не сохранение."
+   },
+   {
+    "text": "It is a very beautiful place where nobody lives.",
+    "translationRu": "Это очень красивое место, где никто не живёт."
+   }
+  ],
+  "glossary": {
+   "unspoiled": {
+    "translation": "нетронутый",
+    "partOfSpeech": "adjective"
+   },
+   "structural": {
+    "translation": "структурный",
+    "partOfSpeech": "adjective"
+   },
+   "remedy": {
+    "translation": "средство, лекарство",
+    "partOfSpeech": "noun"
+   },
+   "absorb": {
+    "translation": "поглощать, выдерживать",
+    "partOfSpeech": "verb"
+   },
+   "tenant": {
+    "translation": "арендатор, жилец",
+    "partOfSpeech": "noun"
+   },
+   "convert": {
+    "translation": "переоборудовать",
+    "partOfSpeech": "verb"
+   },
+   "textbook case": {
+    "translation": "хрестоматийный случай",
+    "partOfSpeech": "phrase"
+   },
+   "villain": {
+    "translation": "злодей",
+    "partOfSpeech": "noun"
+   },
+   "blunt": {
+    "translation": "грубый, тупой (о мере)",
+    "partOfSpeech": "adjective"
+   },
+   "diffuse": {
+    "translation": "размытый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "tourism-eats-itself-q1",
+    "question": "What does the text say a visitor is actually buying?",
+    "options": [
+     "A view",
+     "The relationship between a place and the people who live there",
+     "Cheap accommodation",
+     "A photograph"
+    ],
+    "answer": 1,
+    "explanation": "Atmosphere is produced by people who are not performing it."
+   },
+   {
+    "id": "tourism-eats-itself-q2",
+    "question": "Why does the bar with a four-language menu not count as worse?",
+    "options": [
+     "It is cleaner",
+     "It is doing a different job",
+     "Prices are fair",
+     "Locals return later"
+    ],
+    "answer": 1,
+    "explanation": "The job changed, not the quality."
+   },
+   {
+    "id": "tourism-eats-itself-q3",
+    "question": "Why is the problem described as hard rather than sad?",
+    "options": [
+     "No data exists",
+     "Every individual decision in the chain is reasonable",
+     "Nobody cares",
+     "Laws forbid action"
+    ],
+    "answer": 1,
+    "explanation": "Sums have no author to appeal to."
+   },
+   {
+    "id": "tourism-eats-itself-q4",
+    "question": "What kind of measures does the text say work?",
+    "options": [
+     "Advertising campaigns",
+     "Blunt ones: bed caps, letting limits, behaviour-changing taxes",
+     "Visitor education",
+     "Higher hotel standards"
+    ],
+    "answer": 1,
+    "explanation": "They are resisted because they cost identifiable people money today."
+   }
+  ]
  }
 ]

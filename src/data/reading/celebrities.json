@@ -1471,5 +1471,170 @@
     "explanation": "Other channels copy the method rather than the kindness."
    }
   ]
+ },
+ {
+  "id": "messi-was-too-small",
+  "level": "A1",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "Messi Was Too Small to Play",
+  "sentences": [
+   {
+    "text": "Lionel Messi is one of the best football players in history.",
+    "translationRu": "Лионель Месси — один из лучших футболистов в истории."
+   },
+   {
+    "text": "But when he was a boy, there was a problem.",
+    "translationRu": "Но когда он был мальчишкой, была проблема."
+   },
+   {
+    "text": "He was very small.",
+    "translationRu": "Он был очень маленький."
+   },
+   {
+    "text": "He was much smaller than the other boys in his team.",
+    "translationRu": "Намного меньше остальных мальчиков в команде."
+   },
+   {
+    "text": "Doctors said his body did not make enough of one special thing.",
+    "translationRu": "Врачи сказали, что его тело вырабатывает мало одного особого вещества."
+   },
+   {
+    "text": "It is called growth hormone.",
+    "translationRu": "Оно называется гормон роста."
+   },
+   {
+    "text": "Without it, a child does not grow well.",
+    "translationRu": "Без него ребёнок плохо растёт."
+   },
+   {
+    "text": "There was a medicine for this.",
+    "translationRu": "Лекарство от этого было."
+   },
+   {
+    "text": "But it was very expensive.",
+    "translationRu": "Но очень дорогое."
+   },
+   {
+    "text": "Every day, his family had to put a needle in his leg.",
+    "translationRu": "Каждый день его семья должна была делать укол в ногу."
+   },
+   {
+    "text": "He did it himself, one leg one night and the other leg the next night.",
+    "translationRu": "Он делал это сам: одну ночь в одну ногу, следующую — в другую."
+   },
+   {
+    "text": "He was eleven years old.",
+    "translationRu": "Ему было одиннадцать."
+   },
+   {
+    "text": "His family in Argentina could not pay for many years of this.",
+    "translationRu": "Его семья в Аргентине не могла оплачивать это годами."
+   },
+   {
+    "text": "So they looked for a club that could.",
+    "translationRu": "И они стали искать клуб, который сможет."
+   },
+   {
+    "text": "Barcelona in Spain asked him to come and play for them.",
+    "translationRu": "«Барселона» в Испании позвала его играть за них."
+   },
+   {
+    "text": "The story says that a man at the club wrote the agreement on a paper napkin, because there was no other paper.",
+    "translationRu": "Рассказывают, что человек из клуба написал соглашение на бумажной салфетке, потому что другой бумаги не было."
+   },
+   {
+    "text": "The napkin still exists.",
+    "translationRu": "Салфетка существует до сих пор."
+   },
+   {
+    "text": "Messi moved to another country when he was thirteen.",
+    "translationRu": "Месси переехал в другую страну в тринадцать лет."
+   },
+   {
+    "text": "He did not speak to anyone for a long time, because he was shy and far from home.",
+    "translationRu": "Он долго ни с кем не говорил: был застенчивым и далеко от дома."
+   },
+   {
+    "text": "Today he is about 1.70 metres tall.",
+    "translationRu": "Сегодня его рост около 1,70 метра."
+   },
+   {
+    "text": "That is small for a footballer, and it never stopped him.",
+    "translationRu": "Для футболиста это немного — и это ему никогда не мешало."
+   }
+  ],
+  "glossary": {
+   "player": {
+    "translation": "игрок",
+    "partOfSpeech": "noun"
+   },
+   "grow": {
+    "translation": "расти",
+    "partOfSpeech": "verb"
+   },
+   "medicine": {
+    "translation": "лекарство",
+    "partOfSpeech": "noun"
+   },
+   "expensive": {
+    "translation": "дорогой",
+    "partOfSpeech": "adjective"
+   },
+   "needle": {
+    "translation": "игла",
+    "partOfSpeech": "noun"
+   },
+   "club": {
+    "translation": "клуб",
+    "partOfSpeech": "noun"
+   },
+   "napkin": {
+    "translation": "салфетка",
+    "partOfSpeech": "noun"
+   },
+   "shy": {
+    "translation": "застенчивый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "messi-was-too-small-q1",
+    "question": "What was the problem when Messi was a boy?",
+    "options": [
+     "He was slow",
+     "His body made too little growth hormone",
+     "He did not like football",
+     "He was ill often"
+    ],
+    "answer": 1,
+    "explanation": "Without it, a child does not grow well."
+   },
+   {
+    "id": "messi-was-too-small-q2",
+    "question": "Why did his family look for a club?",
+    "options": [
+     "To win titles",
+     "They could not pay for the medicine for many years",
+     "To move to Europe",
+     "He wanted friends"
+    ],
+    "answer": 1,
+    "explanation": "Barcelona asked him to come."
+   },
+   {
+    "id": "messi-was-too-small-q3",
+    "question": "What was the agreement written on?",
+    "options": [
+     "A contract",
+     "A paper napkin",
+     "A letter",
+     "A newspaper"
+    ],
+    "answer": 1,
+    "explanation": "The napkin still exists."
+   }
+  ]
  }
 ]
