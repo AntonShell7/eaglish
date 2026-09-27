@@ -4,6 +4,7 @@ import batch3 from "./listening/batch3.json";
 import batch4 from "./listening/batch4.json";
 import batch5 from "./listening/batch5.json";
 import batch6 from "./listening/batch6.json";
+import batch7 from "./listening/batch7.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -30,6 +31,6 @@ import type { ReadingText } from "./readingTexts";
  * time — each one is an hour of writing rather than a generator run — and a
  * single growing file would turn every addition into a diff nobody can read.
  */
-export const listeningTexts = [...batch1, ...batch2, ...batch3, ...batch4, ...batch5, ...batch6] as ReadingText[];
+export const listeningTexts = [...batch1, ...batch2, ...batch3, ...batch4, ...batch5, ...batch6, ...batch7] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;

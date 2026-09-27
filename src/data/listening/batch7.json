@@ -1,0 +1,1092 @@
+[
+ {
+  "id": "why-bubbles-are-round",
+  "level": "A1",
+  "topic": "things",
+  "title": "Why bubbles are always round",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Blow a soap bubble.",
+    "translationRu": "Выдуй мыльный пузырь."
+   },
+   {
+    "text": "It is round.",
+    "translationRu": "Он круглый."
+   },
+   {
+    "text": "Blow another one.",
+    "translationRu": "Выдуй второй."
+   },
+   {
+    "text": "Also round.",
+    "translationRu": "Тоже круглый."
+   },
+   {
+    "text": "Use a square ring to blow it.",
+    "translationRu": "Возьми квадратную рамку."
+   },
+   {
+    "text": "Still round.",
+    "translationRu": "Всё равно круглый."
+   },
+   {
+    "text": "Use a star. Use a triangle.",
+    "translationRu": "Возьми звезду. Возьми треугольник."
+   },
+   {
+    "text": "The bubble does not care.",
+    "translationRu": "Пузырю всё равно."
+   },
+   {
+    "text": "It comes out as a ball every time.",
+    "translationRu": "Он каждый раз выходит шариком."
+   },
+   {
+    "text": "Why can it not be a cube?",
+    "translationRu": "Почему он не может быть кубом?"
+   },
+   {
+    "text": "The answer is about being lazy.",
+    "translationRu": "Ответ — про лень."
+   },
+   {
+    "text": "A bubble is a thin skin of water.",
+    "translationRu": "Пузырь — это тонкая плёнка воды."
+   },
+   {
+    "text": "With soap in it, and air inside.",
+    "translationRu": "С мылом внутри и воздухом внутри неё."
+   },
+   {
+    "text": "The skin is pulling on itself.",
+    "translationRu": "Плёнка тянет сама себя."
+   },
+   {
+    "text": "Water always does this.",
+    "translationRu": "Вода всегда так делает."
+   },
+   {
+    "text": "Every part pulls every other part.",
+    "translationRu": "Каждая часть тянет все остальные."
+   },
+   {
+    "text": "So the skin wants to be small.",
+    "translationRu": "Поэтому плёнка хочет быть маленькой."
+   },
+   {
+    "text": "As small as it possibly can be.",
+    "translationRu": "Настолько маленькой, насколько возможно."
+   },
+   {
+    "text": "But the air inside will not move out.",
+    "translationRu": "Но воздух внутри уходить не собирается."
+   },
+   {
+    "text": "The amount of air stays the same.",
+    "translationRu": "Количество воздуха остаётся тем же."
+   },
+   {
+    "text": "So there is a question to answer.",
+    "translationRu": "Значит, надо ответить на вопрос."
+   },
+   {
+    "text": "What shape holds this much air",
+    "translationRu": "Какая форма держит столько воздуха"
+   },
+   {
+    "text": "with the smallest possible skin?",
+    "translationRu": "при самой маленькой возможной плёнке?"
+   },
+   {
+    "text": "The answer is a ball.",
+    "translationRu": "Ответ — шар."
+   },
+   {
+    "text": "It is always a ball.",
+    "translationRu": "Всегда шар."
+   },
+   {
+    "text": "A cube holding the same air",
+    "translationRu": "Куб с тем же воздухом"
+   },
+   {
+    "text": "needs more skin to do it.",
+    "translationRu": "требует больше плёнки."
+   },
+   {
+    "text": "So does a star, and a box, and a tube.",
+    "translationRu": "И звезда, и коробка, и труба тоже."
+   },
+   {
+    "text": "The bubble is not choosing.",
+    "translationRu": "Пузырь не выбирает."
+   },
+   {
+    "text": "It simply cannot stay in another shape.",
+    "translationRu": "Он просто не может удержать другую форму."
+   },
+   {
+    "text": "Now look at two bubbles together.",
+    "translationRu": "Теперь посмотри на два пузыря вместе."
+   },
+   {
+    "text": "The wall between them is flat.",
+    "translationRu": "Стенка между ними плоская."
+   },
+   {
+    "text": "If they are the same size.",
+    "translationRu": "Если они одинакового размера."
+   },
+   {
+    "text": "If one is bigger, the wall bends.",
+    "translationRu": "Если один больше, стенка изгибается."
+   },
+   {
+    "text": "It bends into the bigger one.",
+    "translationRu": "Она выгибается в сторону большего."
+   },
+   {
+    "text": "Small bubbles push harder than big ones.",
+    "translationRu": "Маленькие пузыри давят сильнее больших."
+   },
+   {
+    "text": "Which surprises most people.",
+    "translationRu": "Что удивляет большинство."
+   },
+   {
+    "text": "And the same rule works far from soap.",
+    "translationRu": "И то же правило работает далеко за пределами мыла."
+   },
+   {
+    "text": "Rain drops. Planets. Drops of oil in water.",
+    "translationRu": "Капли дождя. Планеты. Капли масла в воде."
+   },
+   {
+    "text": "They are all answering the same question.",
+    "translationRu": "Все они отвечают на один и тот же вопрос."
+   },
+   {
+    "text": "How do I hold this, with the least?",
+    "translationRu": "Как удержать это, потратив меньше всего?"
+   }
+  ]
+ },
+ {
+  "id": "why-traffic-lights-are-red",
+  "level": "A2",
+  "topic": "cities",
+  "title": "Why traffic lights are red, yellow and green",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Every country uses the same three colours.",
+    "translationRu": "Все страны используют одни и те же три цвета."
+   },
+   {
+    "text": "Red, yellow, green.",
+    "translationRu": "Красный, жёлтый, зелёный."
+   },
+   {
+    "text": "In every city in the world.",
+    "translationRu": "В каждом городе мира."
+   },
+   {
+    "text": "That is unusual.",
+    "translationRu": "Это необычно."
+   },
+   {
+    "text": "Countries agree on almost nothing.",
+    "translationRu": "Страны не сходятся почти ни в чём."
+   },
+   {
+    "text": "They drive on different sides.",
+    "translationRu": "Ездят по разным сторонам."
+   },
+   {
+    "text": "They use different plugs.",
+    "translationRu": "У них разные розетки."
+   },
+   {
+    "text": "But the lights are the same.",
+    "translationRu": "А светофоры одинаковые."
+   },
+   {
+    "text": "The story starts with trains.",
+    "translationRu": "История начинается с поездов."
+   },
+   {
+    "text": "Long before cars existed.",
+    "translationRu": "Задолго до появления машин."
+   },
+   {
+    "text": "Railways needed a way to say stop.",
+    "translationRu": "Железным дорогам нужен был способ сказать «стоп»."
+   },
+   {
+    "text": "They chose red.",
+    "translationRu": "Выбрали красный."
+   },
+   {
+    "text": "Red was already a danger colour.",
+    "translationRu": "Красный уже был цветом опасности."
+   },
+   {
+    "text": "Blood is red. Fire is red.",
+    "translationRu": "Кровь красная. Огонь красный."
+   },
+   {
+    "text": "People understood it without being taught.",
+    "translationRu": "Люди понимали это без обучения."
+   },
+   {
+    "text": "There is also a physical reason.",
+    "translationRu": "Есть и физическая причина."
+   },
+   {
+    "text": "Red light travels well through fog and rain.",
+    "translationRu": "Красный свет хорошо проходит сквозь туман и дождь."
+   },
+   {
+    "text": "Better than blue or violet.",
+    "translationRu": "Лучше, чем синий или фиолетовый."
+   },
+   {
+    "text": "So you can see it from far away.",
+    "translationRu": "Поэтому его видно издалека."
+   },
+   {
+    "text": "Which is exactly what a stop signal needs.",
+    "translationRu": "А стоп-сигналу именно это и нужно."
+   },
+   {
+    "text": "At first, green meant be careful.",
+    "translationRu": "Сначала зелёный означал «осторожно»."
+   },
+   {
+    "text": "And white meant go.",
+    "translationRu": "А белый — «можно ехать»."
+   },
+   {
+    "text": "That was a bad idea.",
+    "translationRu": "Это была плохая идея."
+   },
+   {
+    "text": "One night a red lens fell out of a lamp.",
+    "translationRu": "Однажды ночью из фонаря выпало красное стекло."
+   },
+   {
+    "text": "The lamp showed white instead.",
+    "translationRu": "Фонарь стал белым."
+   },
+   {
+    "text": "A driver saw white and went.",
+    "translationRu": "Машинист увидел белый и поехал."
+   },
+   {
+    "text": "There was a crash.",
+    "translationRu": "Произошла авария."
+   },
+   {
+    "text": "After that, white was removed.",
+    "translationRu": "После этого белый убрали."
+   },
+   {
+    "text": "Green became go.",
+    "translationRu": "Зелёный стал «ехать»."
+   },
+   {
+    "text": "Yellow was added later, for the middle.",
+    "translationRu": "Жёлтый добавили позже, для промежутка."
+   },
+   {
+    "text": "It had to be a colour nothing else used.",
+    "translationRu": "Нужен был цвет, который больше нигде не использовался."
+   },
+   {
+    "text": "And one you can see in sunlight.",
+    "translationRu": "И который видно на солнце."
+   },
+   {
+    "text": "The first traffic light for cars",
+    "translationRu": "Первый светофор для машин"
+   },
+   {
+    "text": "was built in London in 1868.",
+    "translationRu": "построили в Лондоне в 1868 году."
+   },
+   {
+    "text": "It was worked by hand, with gas inside.",
+    "translationRu": "Им управляли вручную, внутри был газ."
+   },
+   {
+    "text": "It exploded a few weeks later.",
+    "translationRu": "Через несколько недель он взорвался."
+   },
+   {
+    "text": "The policeman using it was hurt.",
+    "translationRu": "Полицейский, который им управлял, пострадал."
+   },
+   {
+    "text": "London waited fifty years to try again.",
+    "translationRu": "Лондон ждал пятьдесят лет, прежде чем попробовать снова."
+   },
+   {
+    "text": "One more thing about the order.",
+    "translationRu": "И ещё кое-что про порядок."
+   },
+   {
+    "text": "Red is always at the top.",
+    "translationRu": "Красный всегда сверху."
+   },
+   {
+    "text": "This is for people who cannot see colour.",
+    "translationRu": "Это ради тех, кто не различает цвета."
+   },
+   {
+    "text": "They read the position, not the colour.",
+    "translationRu": "Они читают положение, а не цвет."
+   }
+  ]
+ },
+ {
+  "id": "bolt-and-the-steps",
+  "level": "B1",
+  "topic": "sport",
+  "title": "The sprinter who took fewer steps than everyone else",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "A hundred metres is a strange distance.",
+    "translationRu": "Сто метров — странная дистанция."
+   },
+   {
+    "text": "It lasts under ten seconds.",
+    "translationRu": "Она длится меньше десяти секунд."
+   },
+   {
+    "text": "And it has been studied to exhaustion.",
+    "translationRu": "И изучена до изнеможения."
+   },
+   {
+    "text": "Every part of it is measured.",
+    "translationRu": "Измерена каждая её часть."
+   },
+   {
+    "text": "Reaction time at the gun.",
+    "translationRu": "Время реакции на выстрел."
+   },
+   {
+    "text": "The angle of the body leaving the blocks.",
+    "translationRu": "Угол корпуса при выходе из колодок."
+   },
+   {
+    "text": "The moment of top speed.",
+    "translationRu": "Момент максимальной скорости."
+   },
+   {
+    "text": "The slowing down that always follows.",
+    "translationRu": "И неизбежное последующее замедление."
+   },
+   {
+    "text": "Speed is two numbers multiplied.",
+    "translationRu": "Скорость — это два числа, перемноженные."
+   },
+   {
+    "text": "How long each step is.",
+    "translationRu": "Длина каждого шага."
+   },
+   {
+    "text": "And how many steps you take per second.",
+    "translationRu": "И сколько шагов ты делаешь в секунду."
+   },
+   {
+    "text": "Raise either one and you go faster.",
+    "translationRu": "Подними любое — поедешь быстрее."
+   },
+   {
+    "text": "The problem is that they fight each other.",
+    "translationRu": "Проблема в том, что они борются друг с другом."
+   },
+   {
+    "text": "Longer steps take longer to complete.",
+    "translationRu": "Длинные шаги занимают больше времени."
+   },
+   {
+    "text": "Faster steps tend to be shorter.",
+    "translationRu": "Быстрые шаги обычно короче."
+   },
+   {
+    "text": "Most sprinters find a balance in the middle.",
+    "translationRu": "Большинство спринтеров находят баланс посередине."
+   },
+   {
+    "text": "They run the hundred in about forty-five steps.",
+    "translationRu": "Сотню они бегут примерно за сорок пять шагов."
+   },
+   {
+    "text": "Usain Bolt ran it in forty-one.",
+    "translationRu": "Усэйн Болт пробежал её за сорок один."
+   },
+   {
+    "text": "Sometimes fewer.",
+    "translationRu": "Иногда меньше."
+   },
+   {
+    "text": "He is about one metre ninety-five.",
+    "translationRu": "Его рост около метра девяноста пяти."
+   },
+   {
+    "text": "Which is very tall for a sprinter.",
+    "translationRu": "Для спринтера это очень много."
+   },
+   {
+    "text": "For a long time coaches thought that was bad.",
+    "translationRu": "Долгое время тренеры считали это недостатком."
+   },
+   {
+    "text": "Tall people get out of the blocks slowly.",
+    "translationRu": "Высокие медленно выходят из колодок."
+   },
+   {
+    "text": "Long legs take longer to fold and push.",
+    "translationRu": "Длинным ногам нужно больше времени, чтобы согнуться и оттолкнуться."
+   },
+   {
+    "text": "And Bolt did start slowly.",
+    "translationRu": "И Болт действительно стартовал медленно."
+   },
+   {
+    "text": "At thirty metres he was often behind.",
+    "translationRu": "На тридцати метрах он часто отставал."
+   },
+   {
+    "text": "What he did was hold the speed.",
+    "translationRu": "Но он удерживал скорость."
+   },
+   {
+    "text": "Everybody slows down at the end.",
+    "translationRu": "К концу замедляются все."
+   },
+   {
+    "text": "The race is partly about slowing least.",
+    "translationRu": "Гонка отчасти про то, кто замедлится меньше."
+   },
+   {
+    "text": "His steps were long enough",
+    "translationRu": "Его шаги были достаточно длинными,"
+   },
+   {
+    "text": "that he needed fewer of them to finish.",
+    "translationRu": "чтобы закончить дистанцию меньшим их числом."
+   },
+   {
+    "text": "Fewer steps means less pushing.",
+    "translationRu": "Меньше шагов — меньше отталкиваний."
+   },
+   {
+    "text": "Less pushing means less tiring.",
+    "translationRu": "Меньше отталкиваний — меньше усталости."
+   },
+   {
+    "text": "There was also something less measurable.",
+    "translationRu": "Было и кое-что менее измеримое."
+   },
+   {
+    "text": "He had a childhood back problem.",
+    "translationRu": "У него с детства была проблема со спиной."
+   },
+   {
+    "text": "It made one side slightly different.",
+    "translationRu": "Из-за неё одна сторона немного отличалась."
+   },
+   {
+    "text": "Coaches usually try to correct that.",
+    "translationRu": "Обычно тренеры это исправляют."
+   },
+   {
+    "text": "His did not try very hard.",
+    "translationRu": "Его тренер особенно не старался."
+   },
+   {
+    "text": "The lesson people take is about talent.",
+    "translationRu": "Урок, который отсюда выносят, — про талант."
+   },
+   {
+    "text": "The better lesson is about categories.",
+    "translationRu": "Лучший урок — про категории."
+   },
+   {
+    "text": "He was the wrong shape for the event.",
+    "translationRu": "Он был не той формы для своей дисциплины."
+   },
+   {
+    "text": "Until the event changed shape around him.",
+    "translationRu": "Пока дисциплина не изменила форму вокруг него."
+   }
+  ]
+ },
+ {
+  "id": "the-people-who-watch-the-sky",
+  "level": "B2",
+  "topic": "work",
+  "title": "The job where nothing interesting is the goal",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "At any moment there are thousands of aircraft",
+    "translationRu": "В любой момент в воздухе находятся тысячи самолётов,"
+   },
+   {
+    "text": "in the air, all moving fast, in three dimensions.",
+    "translationRu": "все движутся быстро, в трёх измерениях."
+   },
+   {
+    "text": "None of them can stop.",
+    "translationRu": "Ни один не может остановиться."
+   },
+   {
+    "text": "None of them can reverse.",
+    "translationRu": "Ни один не может сдать назад."
+   },
+   {
+    "text": "All of them are burning fuel while deciding.",
+    "translationRu": "И все жгут топливо, пока решение принимается."
+   },
+   {
+    "text": "Somebody has to keep them apart.",
+    "translationRu": "Кто-то должен держать их врозь."
+   },
+   {
+    "text": "The rules sound almost too simple.",
+    "translationRu": "Правила звучат почти слишком просто."
+   },
+   {
+    "text": "Aircraft must stay a set distance apart.",
+    "translationRu": "Самолёты должны держать заданную дистанцию."
+   },
+   {
+    "text": "Usually a few miles sideways.",
+    "translationRu": "Обычно несколько миль по горизонтали."
+   },
+   {
+    "text": "Or a thousand feet vertically.",
+    "translationRu": "Или тысячу футов по вертикали."
+   },
+   {
+    "text": "Break either number and it is an incident.",
+    "translationRu": "Нарушь любое из чисел — и это инцидент."
+   },
+   {
+    "text": "Reports are filed. Careers are examined.",
+    "translationRu": "Пишутся отчёты. Разбираются карьеры."
+   },
+   {
+    "text": "The difficulty is not the rule.",
+    "translationRu": "Трудность не в правиле."
+   },
+   {
+    "text": "It is that everything is in motion",
+    "translationRu": "А в том, что всё движется,"
+   },
+   {
+    "text": "and the answer has to be given now.",
+    "translationRu": "а ответ нужен сейчас."
+   },
+   {
+    "text": "A controller is holding a moving picture",
+    "translationRu": "Диспетчер держит движущуюся картинку"
+   },
+   {
+    "text": "of their whole sector in their head.",
+    "translationRu": "всего своего сектора в голове."
+   },
+   {
+    "text": "Not the screen in front of them.",
+    "translationRu": "Не экран перед собой."
+   },
+   {
+    "text": "The screen shows where things are.",
+    "translationRu": "Экран показывает, где всё сейчас."
+   },
+   {
+    "text": "The head holds where they will be",
+    "translationRu": "В голове — где всё будет"
+   },
+   {
+    "text": "in four minutes, if nothing changes.",
+    "translationRu": "через четыре минуты, если ничего не изменится."
+   },
+   {
+    "text": "And a second version where something does.",
+    "translationRu": "И вторая версия, где что-то меняется."
+   },
+   {
+    "text": "This is why the shifts are short.",
+    "translationRu": "Поэтому смены короткие."
+   },
+   {
+    "text": "Typically under two hours at a position.",
+    "translationRu": "Обычно меньше двух часов на позиции."
+   },
+   {
+    "text": "Then a mandatory break.",
+    "translationRu": "Потом обязательный перерыв."
+   },
+   {
+    "text": "Not because the work is physically hard.",
+    "translationRu": "Не потому, что работа физически тяжела."
+   },
+   {
+    "text": "Because holding that picture degrades.",
+    "translationRu": "А потому, что эта картинка деградирует."
+   },
+   {
+    "text": "And the person holding it cannot tell.",
+    "translationRu": "И тот, кто её держит, этого не замечает."
+   },
+   {
+    "text": "That last part is the important one.",
+    "translationRu": "Последнее и есть самое важное."
+   },
+   {
+    "text": "Fatigue does not announce itself.",
+    "translationRu": "Усталость о себе не объявляет."
+   },
+   {
+    "text": "So the break is enforced by a clock.",
+    "translationRu": "Поэтому перерыв обеспечивают часами."
+   },
+   {
+    "text": "Rather than by how anyone feels.",
+    "translationRu": "А не самочувствием."
+   },
+   {
+    "text": "The language is deliberately unnatural.",
+    "translationRu": "Язык нарочно неестественный."
+   },
+   {
+    "text": "Fixed phrases, fixed order, numbers read out.",
+    "translationRu": "Фиксированные фразы, фиксированный порядок, цифры вслух."
+   },
+   {
+    "text": "Pilots read the instruction back.",
+    "translationRu": "Пилоты повторяют команду обратно."
+   },
+   {
+    "text": "Which sounds like wasted time.",
+    "translationRu": "Что звучит как пустая трата времени."
+   },
+   {
+    "text": "It is the single most effective safety device",
+    "translationRu": "Это самое эффективное средство безопасности"
+   },
+   {
+    "text": "in the whole system.",
+    "translationRu": "во всей системе."
+   },
+   {
+    "text": "Most errors are caught in that echo.",
+    "translationRu": "Большинство ошибок ловится именно в этом эхе."
+   },
+   {
+    "text": "The job has an odd shape as a career.",
+    "translationRu": "Как карьера эта работа странной формы."
+   },
+   {
+    "text": "You are judged entirely by absence.",
+    "translationRu": "Тебя оценивают исключительно по отсутствию."
+   },
+   {
+    "text": "A perfect day produces no evidence.",
+    "translationRu": "Идеальный день не оставляет доказательств."
+   },
+   {
+    "text": "Nothing happened, and nobody knows",
+    "translationRu": "Ничего не случилось — и никто не знает,"
+   },
+   {
+    "text": "how close it came to happening.",
+    "translationRu": "насколько близко оно было."
+   }
+  ]
+ },
+ {
+  "id": "miyazaki-by-hand",
+  "level": "C1",
+  "topic": "work",
+  "title": "The studio that kept drawing when it stopped making sense",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Animation moved to computers decades ago.",
+    "translationRu": "Анимация перешла на компьютеры десятилетия назад."
+   },
+   {
+    "text": "The reasons were entirely practical.",
+    "translationRu": "Причины были чисто практическими."
+   },
+   {
+    "text": "A hand-drawn film needs every frame drawn.",
+    "translationRu": "В рисованном фильме нужно нарисовать каждый кадр."
+   },
+   {
+    "text": "Twenty-four of them for one second.",
+    "translationRu": "Двадцать четыре на одну секунду."
+   },
+   {
+    "text": "A hundred thousand for a feature.",
+    "translationRu": "Сто тысяч на полный метр."
+   },
+   {
+    "text": "Each one coloured, checked and photographed.",
+    "translationRu": "Каждый раскрашен, проверен и снят."
+   },
+   {
+    "text": "A mistake means redrawing, not undoing.",
+    "translationRu": "Ошибка означает перерисовать, а не отменить."
+   },
+   {
+    "text": "Studio Ghibli kept doing it anyway.",
+    "translationRu": "Studio Ghibli всё равно продолжала."
+   },
+   {
+    "text": "Long after it stopped being the cheap option.",
+    "translationRu": "Долго после того, как это перестало быть дешёвым вариантом."
+   },
+   {
+    "text": "Or the fast one, or the normal one.",
+    "translationRu": "И быстрым, и обычным."
+   },
+   {
+    "text": "Hayao Miyazaki has drawn obsessively",
+    "translationRu": "Хаяо Миядзаки рисовал одержимо"
+   },
+   {
+    "text": "through films he also wrote and directed.",
+    "translationRu": "в фильмах, которые сам же писал и ставил."
+   },
+   {
+    "text": "Which is not how the job is usually divided.",
+    "translationRu": "А работу обычно делят не так."
+   },
+   {
+    "text": "The argument for it is not nostalgia.",
+    "translationRu": "Аргумент в пользу этого — не ностальгия."
+   },
+   {
+    "text": "It is about what a drawing can carry.",
+    "translationRu": "А то, что может унести рисунок."
+   },
+   {
+    "text": "A computer model is consistent by nature.",
+    "translationRu": "Компьютерная модель по природе своей последовательна."
+   },
+   {
+    "text": "The same face, from any angle, correctly.",
+    "translationRu": "То же лицо, с любого угла, корректно."
+   },
+   {
+    "text": "Consistency is exactly what it is for.",
+    "translationRu": "Именно для последовательности она и нужна."
+   },
+   {
+    "text": "A drawing is inconsistent by nature.",
+    "translationRu": "Рисунок по природе непоследователен."
+   },
+   {
+    "text": "And an animator uses that.",
+    "translationRu": "И аниматор этим пользуется."
+   },
+   {
+    "text": "A face can be wrong on purpose",
+    "translationRu": "Лицо может быть нарочно неправильным"
+   },
+   {
+    "text": "for three frames, to sell a reaction.",
+    "translationRu": "три кадра, чтобы продать реакцию."
+   },
+   {
+    "text": "Nobody sees it. Everybody feels it.",
+    "translationRu": "Никто этого не видит. Все это чувствуют."
+   },
+   {
+    "text": "There is a second thing, harder to argue.",
+    "translationRu": "Есть и второе, о чём труднее спорить."
+   },
+   {
+    "text": "Ghibli films spend time on nothing.",
+    "translationRu": "Фильмы Ghibli тратят время ни на что."
+   },
+   {
+    "text": "A character sits. Wind moves grass.",
+    "translationRu": "Персонаж сидит. Ветер шевелит траву."
+   },
+   {
+    "text": "Somebody cooks, in real time, silently.",
+    "translationRu": "Кто-то готовит, в реальном времени, молча."
+   },
+   {
+    "text": "Miyazaki has a word for these pauses.",
+    "translationRu": "У Миядзаки для этих пауз есть слово."
+   },
+   {
+    "text": "He has described them as the space",
+    "translationRu": "Он описывал их как пространство"
+   },
+   {
+    "text": "between one breath and the next.",
+    "translationRu": "между одним вдохом и следующим."
+   },
+   {
+    "text": "Western studios cut such moments.",
+    "translationRu": "Западные студии такие моменты режут."
+   },
+   {
+    "text": "They test badly and cost the same as action.",
+    "translationRu": "Они плохо тестируются и стоят как экшен."
+   },
+   {
+    "text": "But a film with no empty moments",
+    "translationRu": "Но фильм без пустых моментов"
+   },
+   {
+    "text": "gives the loud ones nothing to stand on.",
+    "translationRu": "не даёт громким на что опереться."
+   },
+   {
+    "text": "The studio has never been a comfortable place.",
+    "translationRu": "Студия никогда не была уютным местом."
+   },
+   {
+    "text": "The hours are notorious.",
+    "translationRu": "О её часах ходят легенды."
+   },
+   {
+    "text": "Miyazaki has retired several times.",
+    "translationRu": "Миядзаки уходил на пенсию несколько раз."
+   },
+   {
+    "text": "And come back each time.",
+    "translationRu": "И каждый раз возвращался."
+   },
+   {
+    "text": "He has been openly pessimistic about his own field.",
+    "translationRu": "Он открыто пессимистичен насчёт собственной индустрии."
+   },
+   {
+    "text": "And unusually blunt about automated tools.",
+    "translationRu": "И необычно резок про автоматические инструменты."
+   },
+   {
+    "text": "None of which is the interesting part.",
+    "translationRu": "Но не это интересно."
+   },
+   {
+    "text": "The interesting part is the bet.",
+    "translationRu": "Интересна ставка."
+   },
+   {
+    "text": "That a slower method makes a different film.",
+    "translationRu": "Что более медленный метод даёт другой фильм."
+   },
+   {
+    "text": "Not a better-looking one. A different one.",
+    "translationRu": "Не более красивый. Другой."
+   },
+   {
+    "text": "And that audiences can tell",
+    "translationRu": "И что зрители это различают,"
+   },
+   {
+    "text": "without being able to say what they noticed.",
+    "translationRu": "не умея сказать, что именно заметили."
+   }
+  ]
+ },
+ {
+  "id": "the-sky-is-disappearing",
+  "level": "C2",
+  "topic": "environment",
+  "title": "Most people alive have never seen the Milky Way",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "The band of light across the night sky",
+    "translationRu": "Полоса света поперёк ночного неба —"
+   },
+   {
+    "text": "is the galaxy we are inside, seen edge on.",
+    "translationRu": "это галактика, внутри которой мы находимся, с ребра."
+   },
+   {
+    "text": "For every human generation but the last few",
+    "translationRu": "Для всех человеческих поколений, кроме нескольких последних,"
+   },
+   {
+    "text": "it was simply what the sky looked like.",
+    "translationRu": "это было просто то, как выглядит небо."
+   },
+   {
+    "text": "It appears in the mythology of every culture.",
+    "translationRu": "Оно есть в мифологии каждой культуры."
+   },
+   {
+    "text": "Because every culture could see it.",
+    "translationRu": "Потому что видела его каждая."
+   },
+   {
+    "text": "Today roughly a third of humanity cannot.",
+    "translationRu": "Сегодня примерно треть человечества не может."
+   },
+   {
+    "text": "In Europe and North America the figure is far higher.",
+    "translationRu": "В Европе и Северной Америке доля куда выше."
+   },
+   {
+    "text": "The cause is not pollution in the usual sense.",
+    "translationRu": "Причина — не загрязнение в обычном смысле."
+   },
+   {
+    "text": "Nothing is being added to the air.",
+    "translationRu": "В воздух ничего не добавляют."
+   },
+   {
+    "text": "Light is simply going where it was not aimed.",
+    "translationRu": "Просто свет уходит туда, куда не был направлен."
+   },
+   {
+    "text": "A lamp that lights a car park",
+    "translationRu": "Фонарь, освещающий парковку,"
+   },
+   {
+    "text": "also throws light sideways and upward.",
+    "translationRu": "светит ещё и вбок, и вверх."
+   },
+   {
+    "text": "That light hits dust and water in the air.",
+    "translationRu": "Этот свет попадает на пыль и воду в воздухе."
+   },
+   {
+    "text": "And scatters into a dome over the city.",
+    "translationRu": "И рассеивается в купол над городом."
+   },
+   {
+    "text": "Which is brighter than the faintest stars.",
+    "translationRu": "Купол ярче самых слабых звёзд."
+   },
+   {
+    "text": "So the stars are not hidden by cloud.",
+    "translationRu": "То есть звёзды скрыты не облаками."
+   },
+   {
+    "text": "They are outshone.",
+    "translationRu": "Их пересветили."
+   },
+   {
+    "text": "The astronomy is the smallest part of the loss.",
+    "translationRu": "Астрономия — наименьшая часть потери."
+   },
+   {
+    "text": "Almost everything alive reads the day-night cycle.",
+    "translationRu": "Почти всё живое читает цикл дня и ночи."
+   },
+   {
+    "text": "It is the oldest signal on the planet.",
+    "translationRu": "Это старейший сигнал на планете."
+   },
+   {
+    "text": "Older than eyes, older than land.",
+    "translationRu": "Старше глаз, старше суши."
+   },
+   {
+    "text": "Insects navigate by keeping a light at a fixed angle.",
+    "translationRu": "Насекомые ориентируются, держа свет под постоянным углом."
+   },
+   {
+    "text": "That works with the moon, which does not move much.",
+    "translationRu": "С луной это работает — она почти не смещается."
+   },
+   {
+    "text": "It fails with a street lamp, which is close.",
+    "translationRu": "С уличным фонарём — нет, он близко."
+   },
+   {
+    "text": "Holding the angle around a close light",
+    "translationRu": "Удержание угла вокруг близкого источника"
+   },
+   {
+    "text": "produces a spiral into the bulb.",
+    "translationRu": "даёт спираль прямо в лампу."
+   },
+   {
+    "text": "Which is what you are watching on a summer night.",
+    "translationRu": "Это и есть то, что ты видишь летним вечером."
+   },
+   {
+    "text": "Not attraction. A navigation system failing.",
+    "translationRu": "Не влечение. Сбой навигации."
+   },
+   {
+    "text": "Birds migrating at night are drawn off course.",
+    "translationRu": "Птиц, мигрирующих ночью, сносит с курса."
+   },
+   {
+    "text": "Turtles hatching on a beach go inland.",
+    "translationRu": "Вылупившиеся на пляже черепахи уходят вглубь суши."
+   },
+   {
+    "text": "Because for a hundred million years",
+    "translationRu": "Потому что сто миллионов лет"
+   },
+   {
+    "text": "the brightest thing was the sea.",
+    "translationRu": "самым ярким было море."
+   },
+   {
+    "text": "What makes this unusual among environmental problems",
+    "translationRu": "Среди экологических проблем эта необычна тем,"
+   },
+   {
+    "text": "is how easily it reverses.",
+    "translationRu": "как легко она обращается вспять."
+   },
+   {
+    "text": "It leaves no residue.",
+    "translationRu": "Она не оставляет остатка."
+   },
+   {
+    "text": "Nothing accumulates anywhere.",
+    "translationRu": "Ничего нигде не накапливается."
+   },
+   {
+    "text": "Switch off a light and the damage stops",
+    "translationRu": "Выключи свет — и ущерб прекращается"
+   },
+   {
+    "text": "at the speed of light, which is the joke.",
+    "translationRu": "со скоростью света, в чём и шутка."
+   },
+   {
+    "text": "Cities that shield their lamps and aim them down",
+    "translationRu": "Города, которые экранируют фонари и направляют их вниз,"
+   },
+   {
+    "text": "get their sky back within a year.",
+    "translationRu": "получают своё небо обратно за год."
+   },
+   {
+    "text": "They also use less electricity",
+    "translationRu": "И при этом тратят меньше электричества,"
+   },
+   {
+    "text": "because the light is going where it was paid for.",
+    "translationRu": "потому что свет идёт туда, за что заплачено."
+   },
+   {
+    "text": "There are not many problems shaped like that.",
+    "translationRu": "Проблем такой формы немного."
+   }
+  ]
+ }
+]
