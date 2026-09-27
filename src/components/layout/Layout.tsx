@@ -166,15 +166,14 @@ export function Layout() {
             </span>
           ) : (
             <div className="topline__guest">
-              <LanguageToggle />
-              <ThemeToggle compact />
-              <span className="topline__sep" aria-hidden />
-              <NavLink to="/login" className="guest-btn guest-btn--quiet">
-                {t("auth.logIn")}
-              </NavLink>
               <NavLink to="/register" className="guest-btn guest-btn--go">
                 {t("landing.start")}
               </NavLink>
+              <NavLink to="/login" className="guest-btn guest-btn--quiet">
+                {t("auth.logIn")}
+              </NavLink>
+              <span className="topline__sep" aria-hidden />
+              <LanguageToggle />
             </div>
           )}
         </header>

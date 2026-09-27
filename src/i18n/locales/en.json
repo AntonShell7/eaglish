@@ -518,8 +518,12 @@
       }
     },
     "closeTitle": "One text. Five minutes. Today.",
-    "heroTitle": "Words stay when you meet them in time",
-    "heroSub": "Not word lists, not lessons on a timetable. You read, you listen, you write — and everything unfamiliar comes back on its own, exactly when you would have lost it."
+    "heroTitle": "More words. Less effort.",
+    "heroSub": "Reading, listening, slang and your vocabulary in one place. An unfamiliar word goes straight from the text into your collection and comes back exactly when your brain is ready to lose it. Your range grows, your speech loosens — and all you did was show up.",
+    "indexReading": "Reading",
+    "indexListening": "Listening",
+    "indexSlang": "Slang",
+    "indexVocabulary": "Vocabulary"
   },
   "dashboard": {
     "greeting": "Welcome back",

@@ -56,6 +56,14 @@ export default function Landing() {
             {t("auth.logIn")}
           </Link>
         </div>
+
+        {/* What is inside, before a single scroll. */}
+        <ul className="lp-index fade-up" style={{ animationDelay: "340ms" }}>
+          <li>{t("landing.indexReading")}</li>
+          <li>{t("landing.indexListening")}</li>
+          <li>{t("landing.indexSlang")}</li>
+          <li>{t("landing.indexVocabulary")}</li>
+        </ul>
       </section>
 
       <section className="lp-section" data-reveal>
@@ -100,6 +108,14 @@ export default function Landing() {
             {t("auth.logIn")}
           </Link>
         </div>
+
+        {/* What is inside, before a single scroll. */}
+        <ul className="lp-index fade-up" style={{ animationDelay: "340ms" }}>
+          <li>{t("landing.indexReading")}</li>
+          <li>{t("landing.indexListening")}</li>
+          <li>{t("landing.indexSlang")}</li>
+          <li>{t("landing.indexVocabulary")}</li>
+        </ul>
       </section>
     </div>
   );

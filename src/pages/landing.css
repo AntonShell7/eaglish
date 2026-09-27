@@ -53,27 +53,71 @@
 
 /* The name, in the book face the reading itself is set in. A product about
    reading should say its own name in the type it reads in. */
-/* A didone for the name: the extreme thick-to-thin of this class of face is
-   where "expensive" comes from in print, and it only works at display size on
-   a quiet ground — which is exactly what this page is. The reading faces stay
-   where they belong, inside the texts. */
+/* The book face the texts themselves are set in. A fashionable display serif
+   made the name look borrowed from another brand; this one is the product's
+   own voice, and a name should sound like the thing it names. */
 .lp-wordmark {
   margin: 28px 0 0;
-  font-family: "Bodoni Moda", var(--font-display);
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(3.1rem, 9.5vw, 5.8rem);
-  font-optical-sizing: auto;
+  font-size: clamp(3.1rem, 9.5vw, 5.6rem);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.042em;
   color: var(--mint);
 }
 
 .lp-rule {
+  position: relative;
   display: block;
-  width: 64px;
+  width: 168px;
   height: 1px;
-  margin: 30px 0 0;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 32px 0 0;
+  background: linear-gradient(90deg, transparent, rgba(224, 171, 92, 0.75), transparent);
+}
+
+/* A lozenge on the centre of the rule: the oldest trick in book typography
+   for making a plain line look considered. Drawn from a square, so it costs
+   nothing and stays crisp at any size. */
+.lp-rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--gold);
+}
+
+/* The sections, set as gold small caps — the line that tells a visitor what is
+   actually inside before they scroll a pixel. */
+.lp-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 18px;
+  margin: 34px 0 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(224, 171, 92, 0.85);
+}
+
+.lp-index li {
+  position: relative;
+  list-style: none;
+}
+
+.lp-index li + li::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  transform: translateY(-50%) rotate(45deg);
+  background: rgba(224, 171, 92, 0.55);
 }
 
 .lp-hero__title {
