@@ -1511,5 +1511,186 @@
     "explanation": "Nothing is left."
    }
   ]
+ },
+ {
+  "id": "the-capital-that-is-moving",
+  "level": "B1",
+  "topic": "travel",
+  "generated": false,
+  "title": "Indonesia Is Building a New Capital Because the Old One Is Drowning",
+  "sentences": [
+   {
+    "text": "Jakarta is the capital of Indonesia and home to about ten million people, with thirty million more in the area around it.",
+    "translationRu": "Джакарта — столица Индонезии, в ней живёт около десяти миллионов человек, и ещё тридцать миллионов — вокруг."
+   },
+   {
+    "text": "It is also sinking faster than almost any other large city on Earth.",
+    "translationRu": "И она опускается быстрее почти любого другого крупного города на Земле."
+   },
+   {
+    "text": "Parts of north Jakarta have dropped by more than two metres in twenty-five years.",
+    "translationRu": "Отдельные районы на севере Джакарты за двадцать пять лет ушли вниз больше чем на два метра."
+   },
+   {
+    "text": "Around forty per cent of the city now sits below sea level, behind walls.",
+    "translationRu": "Около сорока процентов города теперь лежит ниже уровня моря, за стенами."
+   },
+   {
+    "text": "The reason is the same as in several other sinking cities.",
+    "translationRu": "Причина та же, что и в ряде других тонущих городов."
+   },
+   {
+    "text": "The piped water supply never reached everybody, so households and businesses drill their own wells and pump water out of the ground.",
+    "translationRu": "Водопровод так и не дошёл до всех, поэтому дома и предприятия бурят свои скважины и качают воду из-под земли."
+   },
+   {
+    "text": "The ground beneath is soft, and when the water leaves, it compresses.",
+    "translationRu": "Грунт внизу мягкий, и когда вода уходит, он сжимается."
+   },
+   {
+    "text": "Add a coastline, thirteen rivers running through the city, heavy rain and a rising sea, and the arithmetic stops working.",
+    "translationRu": "Добавь побережье, тринадцать рек, текущих через город, сильные дожди и поднимающееся море — и арифметика перестаёт сходиться."
+   },
+   {
+    "text": "In 2019 the government announced that the capital would move.",
+    "translationRu": "В 2019 году правительство объявило, что столица переедет."
+   },
+   {
+    "text": "The new city is called Nusantara, and it is being built in forest on the island of Borneo, about twelve hundred kilometres away.",
+    "translationRu": "Новый город называется Нусантара, и его строят в лесу на острове Борнео, примерно в тысяче двухстах километрах."
+   },
+   {
+    "text": "Moving a capital is not a new idea.",
+    "translationRu": "Перенос столицы — не новая идея."
+   },
+   {
+    "text": "Brazil built Brasilia, Nigeria built Abuja, Myanmar built Naypyidaw, Kazakhstan moved north.",
+    "translationRu": "Бразилия построила Бразилиа, Нигерия — Абуджу, Мьянма — Нейпьидо, Казахстан переехал на север."
+   },
+   {
+    "text": "The results have been mixed, and the pattern in the failures is consistent: the government arrives, and everybody else stays where the work is.",
+    "translationRu": "Результаты разные, и закономерность у неудач одна: правительство приезжает, а все остальные остаются там, где работа."
+   },
+   {
+    "text": "A capital can be built.",
+    "translationRu": "Столицу построить можно."
+   },
+   {
+    "text": "A city is harder, because a city is the accident of millions of people deciding independently to be in the same place.",
+    "translationRu": "Город — труднее: город есть случайность миллионов людей, независимо решивших быть в одном месте."
+   },
+   {
+    "text": "The project has also been criticised for what it does not solve.",
+    "translationRu": "Проект критикуют и за то, чего он не решает."
+   },
+   {
+    "text": "Jakarta will still be there, with its thirty million neighbours, still sinking, and moving the ministries does not raise a single street.",
+    "translationRu": "Джакарта останется на месте с тридцатью миллионами соседей, всё так же опускаясь, и переезд министерств не поднимет ни одной улицы."
+   },
+   {
+    "text": "Environmental groups have raised the obvious objection about building a city in a rainforest that is home to orangutans.",
+    "translationRu": "Экологи высказали очевидное возражение о строительстве города в дождевом лесу, где живут орангутаны."
+   },
+   {
+    "text": "Supporters answer that Java holds more than half the country's population on seven per cent of its land, and that moving the centre of gravity is a long-overdue correction.",
+    "translationRu": "Сторонники отвечают, что на Яве живёт больше половины населения страны на семи процентах её территории и что смещение центра тяжести — давно назревшая поправка."
+   },
+   {
+    "text": "Both things are true.",
+    "translationRu": "Верно и то и другое."
+   },
+   {
+    "text": "The building continues, and Jakarta continues to go down.",
+    "translationRu": "Стройка продолжается, а Джакарта продолжает опускаться."
+   }
+  ],
+  "glossary": {
+   "sink": {
+    "translation": "тонуть, опускаться",
+    "partOfSpeech": "verb"
+   },
+   "sea level": {
+    "translation": "уровень моря",
+    "partOfSpeech": "noun"
+   },
+   "piped water": {
+    "translation": "водопроводная вода",
+    "partOfSpeech": "noun"
+   },
+   "drill": {
+    "translation": "бурить",
+    "partOfSpeech": "verb"
+   },
+   "well": {
+    "translation": "скважина, колодец",
+    "partOfSpeech": "noun"
+   },
+   "compress": {
+    "translation": "сжиматься",
+    "partOfSpeech": "verb"
+   },
+   "coastline": {
+    "translation": "береговая линия",
+    "partOfSpeech": "noun"
+   },
+   "ministry": {
+    "translation": "министерство",
+    "partOfSpeech": "noun"
+   },
+   "centre of gravity": {
+    "translation": "центр тяжести",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-capital-that-is-moving-q1",
+    "question": "Why is Jakarta sinking?",
+    "options": [
+     "Earthquakes",
+     "Households pump groundwater and the soft ground compresses",
+     "Heavy buildings",
+     "The rivers"
+    ],
+    "answer": 1,
+    "explanation": "The piped supply never reached everybody."
+   },
+   {
+    "id": "the-capital-that-is-moving-q2",
+    "question": "What pattern appears in failed capital moves?",
+    "options": [
+     "The buildings collapse",
+     "The government arrives and everybody else stays where the work is",
+     "Costs rise",
+     "Nobody moves at all"
+    ],
+    "answer": 1,
+    "explanation": "A capital can be built; a city is harder."
+   },
+   {
+    "id": "the-capital-that-is-moving-q3",
+    "question": "What does the move not solve?",
+    "options": [
+     "Traffic",
+     "Jakarta and its thirty million neighbours are still there and still sinking",
+     "Flooding in Borneo",
+     "Population growth"
+    ],
+    "answer": 1,
+    "explanation": "Moving the ministries does not raise a street."
+   },
+   {
+    "id": "the-capital-that-is-moving-q4",
+    "question": "What do supporters argue?",
+    "options": [
+     "Borneo is empty",
+     "Java holds over half the population on seven per cent of the land",
+     "It is cheaper",
+     "The forest is not valuable"
+    ],
+    "answer": 1,
+    "explanation": "A long-overdue correction."
+   }
+  ]
  }
 ]

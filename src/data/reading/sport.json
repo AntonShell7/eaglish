@@ -1579,5 +1579,170 @@
     "explanation": "The research is emphatic that this is not cheating."
    }
   ]
+ },
+ {
+  "id": "the-slowest-swimmer",
+  "level": "A2",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Slowest Swimmer at the Olympic Games",
+  "sentences": [
+   {
+    "text": "At the Olympic Games in Sydney in 2000, a swimmer from Equatorial Guinea stood behind the blocks.",
+    "translationRu": "На Олимпийских играх в Сиднее в 2000 году за тумбочкой стоял пловец из Экваториальной Гвинеи."
+   },
+   {
+    "text": "His name was Eric Moussambani.",
+    "translationRu": "Его звали Эрик Мусамбани."
+   },
+   {
+    "text": "He was twenty-two years old.",
+    "translationRu": "Ему было двадцать два."
+   },
+   {
+    "text": "He had learned to swim eight months before.",
+    "translationRu": "Плавать он научился восемь месяцев назад."
+   },
+   {
+    "text": "There was no Olympic pool in his country.",
+    "translationRu": "Олимпийского бассейна в его стране не было."
+   },
+   {
+    "text": "He trained in a hotel pool that was twenty metres long, and only in the early morning, before the guests came.",
+    "translationRu": "Он тренировался в гостиничном бассейне длиной двадцать метров и только ранним утром, до появления гостей."
+   },
+   {
+    "text": "He had never swum one hundred metres in his life.",
+    "translationRu": "Он никогда в жизни не проплывал сто метров."
+   },
+   {
+    "text": "He was in the Games because of a special rule for small countries.",
+    "translationRu": "На Играх он оказался по особому правилу для малых стран."
+   },
+   {
+    "text": "In his race there were three swimmers.",
+    "translationRu": "В его заплыве было трое пловцов."
+   },
+   {
+    "text": "The other two started too early and were out.",
+    "translationRu": "Двое других фальстартовали и выбыли."
+   },
+   {
+    "text": "So Eric swam alone, in front of seventeen thousand people.",
+    "translationRu": "И Эрик поплыл один, перед семнадцатью тысячами зрителей."
+   },
+   {
+    "text": "The first fifty metres were slow but fine.",
+    "translationRu": "Первые пятьдесят метров были медленными, но нормальными."
+   },
+   {
+    "text": "The second fifty were very hard.",
+    "translationRu": "Вторые пятьдесят — очень тяжёлыми."
+   },
+   {
+    "text": "He was almost stopping.",
+    "translationRu": "Он почти останавливался."
+   },
+   {
+    "text": "His head went under, then up again.",
+    "translationRu": "Голова уходила под воду и снова появлялась."
+   },
+   {
+    "text": "The crowd stood up and started shouting his name.",
+    "translationRu": "Трибуны встали и начали кричать его имя."
+   },
+   {
+    "text": "His time was one minute and fifty-two seconds.",
+    "translationRu": "Его время — одна минута пятьдесят две секунды."
+   },
+   {
+    "text": "That is about twice the time of the winner.",
+    "translationRu": "Это примерно вдвое больше времени победителя."
+   },
+   {
+    "text": "It was the slowest hundred metres in Olympic history.",
+    "translationRu": "Это была самая медленная сотня в истории Олимпиад."
+   },
+   {
+    "text": "He did not win anything, and everybody remembers him.",
+    "translationRu": "Он ничего не выиграл, и его помнят все."
+   },
+   {
+    "text": "Later he became a swimming coach in his own country.",
+    "translationRu": "Позже он стал тренером по плаванию у себя на родине."
+   }
+  ],
+  "glossary": {
+   "swimmer": {
+    "translation": "пловец",
+    "partOfSpeech": "noun"
+   },
+   "pool": {
+    "translation": "бассейн",
+    "partOfSpeech": "noun"
+   },
+   "train": {
+    "translation": "тренироваться",
+    "partOfSpeech": "verb"
+   },
+   "guest": {
+    "translation": "гость",
+    "partOfSpeech": "noun"
+   },
+   "race": {
+    "translation": "заплыв, гонка",
+    "partOfSpeech": "noun"
+   },
+   "alone": {
+    "translation": "один",
+    "partOfSpeech": "adverb"
+   },
+   "crowd": {
+    "translation": "толпа, трибуны",
+    "partOfSpeech": "noun"
+   },
+   "shout": {
+    "translation": "кричать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-slowest-swimmer-q1",
+    "question": "Where did Eric train?",
+    "options": [
+     "In the sea",
+     "In a twenty-metre hotel pool, early in the morning",
+     "In an Olympic pool",
+     "He did not train"
+    ],
+    "answer": 1,
+    "explanation": "Before the guests came."
+   },
+   {
+    "id": "the-slowest-swimmer-q2",
+    "question": "Why did he swim alone?",
+    "options": [
+     "He asked to",
+     "The other two started too early and were out",
+     "Nobody entered",
+     "He was in a special race"
+    ],
+    "answer": 1,
+    "explanation": "In front of seventeen thousand people."
+   },
+   {
+    "id": "the-slowest-swimmer-q3",
+    "question": "What happened to his time?",
+    "options": [
+     "He set a record",
+     "It was the slowest hundred metres in Olympic history",
+     "It was average",
+     "He did not finish"
+    ],
+    "answer": 1,
+    "explanation": "About twice the winner's time."
+   }
+  ]
  }
 ]

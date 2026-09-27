@@ -1640,5 +1640,182 @@
     "explanation": "An old machine nobody turned off."
    }
   ]
+ },
+ {
+  "id": "eight-glasses-of-water",
+  "level": "B1",
+  "topic": "health",
+  "generated": false,
+  "title": "Nobody Knows Where Eight Glasses of Water Came From",
+  "sentences": [
+   {
+    "text": "Almost everyone has heard that a person should drink eight glasses of water a day.",
+    "translationRu": "Почти каждый слышал, что человеку надо выпивать восемь стаканов воды в день."
+   },
+   {
+    "text": "It appears on bottles, in magazines, in apps that make your phone buzz.",
+    "translationRu": "Это пишут на бутылках, в журналах, в приложениях, от которых жужжит телефон."
+   },
+   {
+    "text": "It is one of the most repeated pieces of health advice in the world, and nobody has ever been able to find the study behind it.",
+    "translationRu": "Это один из самых повторяемых советов о здоровье в мире, и исследование, стоящее за ним, никто так и не нашёл."
+   },
+   {
+    "text": "Researchers who went looking traced it to an American nutrition report from 1945.",
+    "translationRu": "Исследователи, взявшиеся искать, дошли до американского отчёта о питании 1945 года."
+   },
+   {
+    "text": "The report suggested about two and a half litres a day for an adult, which is roughly eight glasses.",
+    "translationRu": "В отчёте рекомендовалось примерно два с половиной литра в день для взрослого — примерно восемь стаканов."
+   },
+   {
+    "text": "But the very next sentence, which almost nobody quotes, says that most of this quantity is contained in prepared foods.",
+    "translationRu": "Но следующая же фраза, которую почти никто не цитирует, говорит, что большая часть этого количества содержится в приготовленной пище."
+   },
+   {
+    "text": "The number was never about water you drink from a glass.",
+    "translationRu": "Цифра никогда не была про воду из стакана."
+   },
+   {
+    "text": "It was about total water, from everything.",
+    "translationRu": "Она была про воду вообще, из всего."
+   },
+   {
+    "text": "That matters because almost everything contains water.",
+    "translationRu": "Это важно, потому что вода есть почти во всём."
+   },
+   {
+    "text": "Fruit and vegetables are mostly water; soup is nearly all water; bread and rice carry a surprising amount; and tea and coffee count, despite the widespread belief that they dry you out.",
+    "translationRu": "Фрукты и овощи — в основном вода; суп — почти целиком вода; в хлебе и рисе её на удивление много; чай и кофе тоже считаются, вопреки распространённой вере, что они обезвоживают."
+   },
+   {
+    "text": "Caffeine does make you produce a little more urine, but far less than the volume of liquid the cup delivered, so a cup of coffee leaves you better hydrated than not drinking it.",
+    "translationRu": "Кофеин действительно немного увеличивает выработку мочи, но куда меньше, чем объём жидкости в чашке, так что после кофе ты гидратирован лучше, чем без него."
+   },
+   {
+    "text": "The body also has a system for this that is considerably older than nutrition science.",
+    "translationRu": "У тела к тому же есть для этого система заметно старше науки о питании."
+   },
+   {
+    "text": "Thirst is triggered by sensors that measure the concentration of your blood, and they respond to a change of around one to two per cent, long before anything goes wrong.",
+    "translationRu": "Жажду запускают датчики, измеряющие концентрацию крови, и реагируют они на изменение примерно в один-два процента, задолго до того, как что-то пойдёт не так."
+   },
+   {
+    "text": "For a healthy adult with access to drinks, that system is accurate, and the advice to drink before you feel thirsty is, for most people, solving a problem they do not have.",
+    "translationRu": "Для здорового взрослого с доступом к питью эта система точна, и совет пить до появления жажды у большинства решает несуществующую проблему."
+   },
+   {
+    "text": "There are real exceptions and they are worth knowing: older people lose thirst sensitivity, some medical conditions and medicines change the rules, heat and hard exercise raise the requirement sharply, and athletes in long events have to plan.",
+    "translationRu": "Настоящие исключения есть, и их стоит знать: у пожилых чувствительность к жажде снижается, некоторые болезни и лекарства меняют правила, жара и тяжёлая нагрузка резко повышают потребность, а спортсменам на длинных дистанциях приходится планировать."
+   },
+   {
+    "text": "Drinking far too much is also possible and is genuinely dangerous, because it dilutes the salt in the blood.",
+    "translationRu": "Пить сильно больше нужного тоже можно, и это по-настоящему опасно: разбавляется соль в крови."
+   },
+   {
+    "text": "People have died doing it at marathons and in water-drinking competitions.",
+    "translationRu": "Люди умирали от этого на марафонах и в конкурсах по питью воды."
+   },
+   {
+    "text": "The sensible summary is short.",
+    "translationRu": "Разумный вывод короток."
+   },
+   {
+    "text": "Drink when you are thirsty, drink more when it is hot or you are working hard, and notice that the eight-glass rule is not a finding at all.",
+    "translationRu": "Пей, когда хочется, пей больше в жару и при нагрузке и заметь, что правило восьми стаканов — вовсе не научный результат."
+   },
+   {
+    "text": "It is half a sentence from 1945 that lost its second half on the way here.",
+    "translationRu": "Это половина фразы из 1945 года, потерявшая по дороге вторую половину."
+   }
+  ],
+  "glossary": {
+   "buzz": {
+    "translation": "жужжать",
+    "partOfSpeech": "verb"
+   },
+   "trace": {
+    "translation": "проследить (до источника)",
+    "partOfSpeech": "verb"
+   },
+   "quantity": {
+    "translation": "количество",
+    "partOfSpeech": "noun"
+   },
+   "quote": {
+    "translation": "цитировать",
+    "partOfSpeech": "verb"
+   },
+   "urine": {
+    "translation": "моча",
+    "partOfSpeech": "noun"
+   },
+   "hydrated": {
+    "translation": "гидратированный",
+    "partOfSpeech": "adjective"
+   },
+   "thirst": {
+    "translation": "жажда",
+    "partOfSpeech": "noun"
+   },
+   "trigger": {
+    "translation": "запускать",
+    "partOfSpeech": "verb"
+   },
+   "dilute": {
+    "translation": "разбавлять",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "eight-glasses-of-water-q1",
+    "question": "What did the 1945 report actually say?",
+    "options": [
+     "Drink eight glasses",
+     "About 2.5 litres total, most of it contained in prepared foods",
+     "Drink only water",
+     "Nothing about water"
+    ],
+    "answer": 1,
+    "explanation": "The second sentence is rarely quoted."
+   },
+   {
+    "id": "eight-glasses-of-water-q2",
+    "question": "Does coffee dehydrate you?",
+    "options": [
+     "Yes, badly",
+     "No — the extra urine is far less than the liquid the cup delivered",
+     "Only in heat",
+     "Only for athletes"
+    ],
+    "answer": 1,
+    "explanation": "You end up better hydrated than without it."
+   },
+   {
+    "id": "eight-glasses-of-water-q3",
+    "question": "How sensitive is thirst?",
+    "options": [
+     "It comes too late",
+     "It responds to a one to two per cent change in blood concentration",
+     "It is unreliable",
+     "It depends on age only"
+    ],
+    "answer": 1,
+    "explanation": "Long before anything goes wrong."
+   },
+   {
+    "id": "eight-glasses-of-water-q4",
+    "question": "Why can drinking far too much be dangerous?",
+    "options": [
+     "It fills the stomach",
+     "It dilutes the salt in the blood",
+     "It causes thirst",
+     "It damages the kidneys immediately"
+    ],
+    "answer": 1,
+    "explanation": "People have died at marathons."
+   }
+  ]
  }
 ]

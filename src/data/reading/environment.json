@@ -1809,5 +1809,198 @@
     "explanation": "The case for wolves does not need the river."
    }
   ]
+ },
+ {
+  "id": "recycling-plastic-mostly-fails",
+  "level": "C2",
+  "topic": "environment",
+  "generated": false,
+  "title": "Recycling Plastic Was Always Going to Fail, and the Industry Knew",
+  "sentences": [
+   {
+    "text": "Put a plastic bottle in the correct bin and it is reasonable to assume it becomes another bottle.",
+    "translationRu": "Кинь пластиковую бутылку в нужный бак — и разумно предположить, что она станет другой бутылкой."
+   },
+   {
+    "text": "Across the world, something under ten per cent of all plastic ever produced has been recycled, and a substantial share of that was recycled once, into something of lower quality, and then thrown away.",
+    "translationRu": "По миру переработано меньше десяти процентов всего когда-либо произведённого пластика, и немалая доля из этого переработана однажды, во что-то худшего качества, и потом выброшена."
+   },
+   {
+    "text": "This is not a failure of public willingness, which has been remarkable, or of sorting technology, which has improved enormously.",
+    "translationRu": "Это не провал общественной готовности, которая была замечательной, и не сортировочных технологий, которые сильно улучшились."
+   },
+   {
+    "text": "It is a set of properties of the material itself, and they were understood from the beginning.",
+    "translationRu": "Это набор свойств самого материала, и они были ясны с самого начала."
+   },
+   {
+    "text": "Start with the chemistry.",
+    "translationRu": "Начнём с химии."
+   },
+   {
+    "text": "Glass and metal are elemental or near enough: melt them, and you have the same substance, indefinitely.",
+    "translationRu": "Стекло и металл элементарны или почти: расплавь — и получишь то же вещество, сколь угодно долго."
+   },
+   {
+    "text": "A plastic is a polymer, a long chain of repeated units, and its useful properties come from the length of that chain.",
+    "translationRu": "Пластик — полимер, длинная цепь повторяющихся звеньев, и его полезные свойства идут от длины цепи."
+   },
+   {
+    "text": "Heating it to reprocess it breaks chains.",
+    "translationRu": "Нагрев для переработки цепи рвёт."
+   },
+   {
+    "text": "What comes out is measurably weaker than what went in, which is why recycled plastic descends a ladder — bottle to fibre to filler to landfill — rather than going round a circle.",
+    "translationRu": "На выходе материал измеримо слабее входного, поэтому переработанный пластик спускается по лестнице — бутылка, волокно, наполнитель, свалка, — а не ходит по кругу."
+   },
+   {
+    "text": "Recycling buys one or two extra uses.",
+    "translationRu": "Переработка покупает одно-два дополнительных применения."
+   },
+   {
+    "text": "It does not close a loop, and calling it circular was always a category error.",
+    "translationRu": "Она не замыкает цикл, и называть её циклической всегда было ошибкой категории."
+   },
+   {
+    "text": "Then sorting.",
+    "translationRu": "Дальше сортировка."
+   },
+   {
+    "text": "There are seven main families of consumer plastic and thousands of formulations, and mixing them produces a material worse than either parent, so the streams must be separated with great precision.",
+    "translationRu": "Есть семь основных семейств бытового пластика и тысячи рецептур, а их смешение даёт материал хуже любого из исходных, так что потоки надо разделять очень точно."
+   },
+   {
+    "text": "A yoghurt pot with a different lid, a bottle with a sleeve, food residue, a black tray that the optical sorter cannot see: each of these contaminates a bale, and a contaminated bale is worth less than nothing, because someone must pay to dispose of it.",
+    "translationRu": "Баночка йогурта с другой крышкой, бутылка в плёнке, остатки еды, чёрный лоток, невидимый оптическому сортировщику, — каждое загрязняет кипу, а загрязнённая кипа стоит меньше нуля: кто-то должен заплатить за её утилизацию."
+   },
+   {
+    "text": "And then the economics, which decide everything.",
+    "translationRu": "И наконец экономика, которая решает всё."
+   },
+   {
+    "text": "Virgin plastic is made from oil or gas at enormous scale by an industry with spare capacity, and it is consistently cheaper, cleaner and more predictable than the recycled alternative.",
+    "translationRu": "Первичный пластик делают из нефти или газа в колоссальных масштабах отрасли с избытком мощностей, и он стабильно дешевле, чище и предсказуемее переработанного."
+   },
+   {
+    "text": "No amount of goodwill overcomes a permanent price gap in a commodity market.",
+    "translationRu": "Никакое доброжелательство не перебивает постоянного разрыва в цене на сырьевом рынке."
+   },
+   {
+    "text": "The uncomfortable part is the documentary record.",
+    "translationRu": "Неудобная часть — документальная."
+   },
+   {
+    "text": "Internal industry material from the 1970s onwards, surfaced by journalists and cited in litigation, shows executives told plainly that recycling plastic was unlikely ever to be economic at scale.",
+    "translationRu": "Внутренние отраслевые материалы с 1970-х, поднятые журналистами и приобщённые к искам, показывают, что руководителям прямо говорили: переработка пластика вряд ли когда-либо станет экономичной в масштабе."
+   },
+   {
+    "text": "The promotion of recycling continued anyway, and it worked in the only way that mattered: it moved the question from whether so much disposable plastic should be produced to whether the public was sorting it correctly.",
+    "translationRu": "Продвижение переработки всё равно продолжалось и сработало единственным важным образом: вопрос сместился с того, надо ли производить столько одноразового пластика, на то, правильно ли публика его сортирует."
+   },
+   {
+    "text": "That is the most successful piece of framing in modern environmental politics, and it is worth admiring in the way one admires a good lock.",
+    "translationRu": "Это самый успешный приём переформулировки в современной экологической политике, и восхищаться им стоит примерно как хорошим замком."
+   },
+   {
+    "text": "None of this argues for putting plastic in the wrong bin.",
+    "translationRu": "Ничто из этого не призывает кидать пластик не в тот бак."
+   },
+   {
+    "text": "It argues that the bin was never the decision point, and that the choices which actually move the number are made upstream, by people who are not sorting anything.",
+    "translationRu": "Это говорит, что бак никогда не был точкой решения и что решения, реально меняющие цифру, принимаются выше по течению — людьми, которые ничего не сортируют."
+   }
+  ],
+  "glossary": {
+   "bin": {
+    "translation": "бак, урна",
+    "partOfSpeech": "noun"
+   },
+   "polymer": {
+    "translation": "полимер",
+    "partOfSpeech": "noun"
+   },
+   "chain": {
+    "translation": "цепь",
+    "partOfSpeech": "noun"
+   },
+   "reprocess": {
+    "translation": "перерабатывать повторно",
+    "partOfSpeech": "verb"
+   },
+   "landfill": {
+    "translation": "свалка, полигон",
+    "partOfSpeech": "noun"
+   },
+   "formulation": {
+    "translation": "рецептура",
+    "partOfSpeech": "noun"
+   },
+   "contaminate": {
+    "translation": "загрязнять",
+    "partOfSpeech": "verb"
+   },
+   "bale": {
+    "translation": "кипа",
+    "partOfSpeech": "noun"
+   },
+   "virgin": {
+    "translation": "первичный (материал)",
+    "partOfSpeech": "adjective"
+   },
+   "upstream": {
+    "translation": "выше по цепочке",
+    "partOfSpeech": "adverb"
+   }
+  },
+  "questions": [
+   {
+    "id": "recycling-plastic-mostly-fails-q1",
+    "question": "Why does plastic degrade when recycled?",
+    "options": [
+     "It absorbs water",
+     "Heating breaks the polymer chains its properties depend on",
+     "It oxidises",
+     "Sorting damages it"
+    ],
+    "answer": 1,
+    "explanation": "Bottle to fibre to filler to landfill."
+   },
+   {
+    "id": "recycling-plastic-mostly-fails-q2",
+    "question": "Why is a contaminated bale worth less than nothing?",
+    "options": [
+     "It is heavy",
+     "Someone must pay to dispose of it",
+     "It is illegal",
+     "It cannot be moved"
+    ],
+    "answer": 1,
+    "explanation": "A different lid or a black tray is enough."
+   },
+   {
+    "id": "recycling-plastic-mostly-fails-q3",
+    "question": "What does the economics section say?",
+    "options": [
+     "Recycling is profitable",
+     "Virgin plastic is consistently cheaper, cleaner and more predictable",
+     "Prices are equal",
+     "Subsidies solve it"
+    ],
+    "answer": 1,
+    "explanation": "Goodwill does not overcome a permanent price gap."
+   },
+   {
+    "id": "recycling-plastic-mostly-fails-q4",
+    "question": "What did promoting recycling achieve?",
+    "options": [
+     "Higher recycling rates",
+     "It moved the question from how much is produced to whether the public sorts correctly",
+     "Better sorting technology",
+     "Lower costs"
+    ],
+    "answer": 1,
+    "explanation": "The bin was never the decision point."
+   }
+  ]
  }
 ]
