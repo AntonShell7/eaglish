@@ -396,13 +396,17 @@
     },
     "calendarTitle": "Календарь занятий",
     "streakNow": "Серия: {{count}}",
-    "gridLess": "реже",
-    "gridMore": "чаще",
     "depthTitle": "Глубина",
     "depthNote": "Показатели откроются после {{count}} дней занятий",
     "unlockIn": "Откроется через {{count}} дн.",
     "newPerWeek": "Новых слов в неделю",
-    "daysStudied": "Дней занятий"
+    "daysStudied": "Дней занятий",
+    "peak": "пик {{count}}",
+    "bandNone": "нет занятий",
+    "bandLow": "до {{to}} мин",
+    "bandMid": "{{from}}–{{to}} мин",
+    "bandHigh": "от {{from}} мин",
+    "minutesShort": "{{count}} мин"
   },
   "footer": {
     "privacy": "Политика конфиденциальности",

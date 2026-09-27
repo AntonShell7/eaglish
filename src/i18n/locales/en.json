@@ -386,13 +386,17 @@
     },
     "calendarTitle": "Days worked",
     "streakNow": "Streak: {{count}}",
-    "gridLess": "less",
-    "gridMore": "more",
     "depthTitle": "Depth",
     "depthNote": "These open after {{count}} days of study",
     "unlockIn": "Opens in {{count}} days",
     "newPerWeek": "New words per week",
-    "daysStudied": "Days studied"
+    "daysStudied": "Days studied",
+    "peak": "peak {{count}}",
+    "bandNone": "no study",
+    "bandLow": "under {{to}} min",
+    "bandMid": "{{from}}–{{to}} min",
+    "bandHigh": "{{from}}+ min",
+    "minutesShort": "{{count}} min"
   },
   "footer": {
     "privacy": "Privacy Policy",

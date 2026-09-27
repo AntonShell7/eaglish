@@ -1,10 +1,15 @@
 /* The progress page.
-   Mint carries the data, gold carries the reference marks — the mean line, the
-   ring around today, the rule under a heading. Keeping those two jobs separate
-   is what stops a page of charts turning into a page of decoration. */
+   Mint does the work, black does the holding, and gold appears three times on
+   the whole page — the mean line, today's ring, and nothing else. The first
+   version wore gold on every heading, which is how gold stops reading as gold
+   and starts reading as brown. */
+
+.pg {
+  --pg-gold: #f2c572;
+}
 
 .pg-section {
-  margin-top: 46px;
+  margin-top: 34px;
 }
 
 .pg-head {
@@ -13,38 +18,41 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
+  margin-bottom: 12px;
 }
 
+/* Headings are quiet type, not gold. */
 .pg-eyebrow {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .pg-note {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text-faint);
 }
 
 .pg-card {
-  margin-top: 16px;
-  padding: 24px 26px 20px;
+  padding: 22px 24px 18px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
 }
 
 .pg-grid {
-  margin-top: 16px;
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
-@media (min-width: 900px) {
-  .pg-grid--split {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 880px) {
+  /* The ring and the three figures share a row: separately they were two
+     near-empty bands of card stretched across a wide screen. */
+  .pg-grid--aside {
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 1.1fr);
+    align-items: stretch;
   }
 
   .pg-grid--three {
@@ -54,7 +62,7 @@
 
 /* ── Words by day ─────────────────────────────────────────────────────── */
 
-.wbd__head {
+.dl__head {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -62,7 +70,7 @@
   gap: 10px;
 }
 
-.wbd__eyebrow {
+.dl__eyebrow {
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -70,108 +78,77 @@
   color: var(--color-text-faint);
 }
 
-.wbd__total {
-  margin-top: 6px;
+.dl__total {
+  margin-top: 4px;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-size: clamp(2.2rem, 5.5vw, 3rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
 
-.wbd__unit {
-  margin-left: 10px;
+.dl__unit {
+  margin-left: 9px;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0;
   color: var(--color-text-faint);
 }
 
-.wbd__sub {
-  font-size: 0.82rem;
+.dl__sub {
+  font-size: 0.78rem;
   color: var(--color-text-muted);
 }
 
-.wbd__plot {
+/* The plot runs to both edges of the card: a chart inset from its own frame
+   is what made the last one look like it had been dropped in by accident. */
+.dl__plot {
   position: relative;
-  margin-top: 26px;
-  height: 180px;
+  margin: 22px -24px 0;
+  height: 200px;
 }
 
-/* The average, in gold, with its value sitting on the line. */
-.wbd__mean {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: repeating-linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--color-accent) 60%, transparent) 0 5px,
-    transparent 5px 10px
-  );
-  pointer-events: none;
-}
-
-.wbd__mean i {
-  position: absolute;
-  right: 0;
-  top: -9px;
-  padding-left: 6px;
-  background: var(--color-surface);
-  font-size: 0.68rem;
-  font-style: normal;
-  font-weight: 700;
-  color: var(--color-accent);
-}
-
-.wbd__bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.wbd__bar {
-  flex: 1 1 0;
-  min-width: 0;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-}
-
-.wbd__bar > span {
+.dl__plot svg {
   display: block;
   width: 100%;
-  border-radius: 3px 3px 1px 1px;
-  background: var(--color-border);
-  transition: background var(--dur-2) var(--ease);
+  height: 100%;
 }
 
-/* A day with words in it gets the brand; an empty day stays a hairline, so
-   the gaps in a habit are visible instead of averaged away. */
-.wbd__bar.is-on > span {
-  background: linear-gradient(
-    180deg,
-    var(--color-primary) 0%,
-    color-mix(in srgb, var(--color-primary) 62%, transparent) 100%
-  );
+.dl__dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+  transition:
+    transform var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease);
 }
 
-.wbd__bar:hover > span {
-  background: var(--color-accent);
+.dl__dot.is-on {
+  background: var(--color-primary);
 }
 
-.wbd__foot {
+.dl__dot:hover {
+  transform: scale(2.2);
+  background: var(--pg-gold);
+}
+
+.dl__foot {
   display: flex;
   justify-content: space-between;
-  margin-top: 12px;
+  align-items: baseline;
+  margin-top: 10px;
   font-size: 0.7rem;
   color: var(--color-text-faint);
+}
+
+.dl__peak {
+  font-weight: 700;
+  color: var(--color-text-muted);
 }
 
 /* ── Donut ────────────────────────────────────────────────────────────── */
@@ -180,12 +157,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
 }
 
 .donut__ring {
   position: relative;
-  width: 150px;
+  width: 128px;
   flex: none;
 }
 
@@ -205,24 +182,24 @@
 
 .donut__value {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
 .donut__caption {
-  margin-top: 4px;
-  font-size: 0.66rem;
+  margin-top: 3px;
+  font-size: 0.62rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-faint);
 }
 
 .donut__legend {
-  flex: 1 1 200px;
+  flex: 1 1 180px;
   display: grid;
-  gap: 10px;
+  gap: 9px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -231,13 +208,13 @@
 .donut__legend li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.86rem;
+  gap: 9px;
+  font-size: 0.84rem;
 }
 
 .donut__dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 2px;
   flex: none;
 }
@@ -252,17 +229,41 @@
 }
 
 .donut__empty {
-  padding: 28px 0;
+  padding: 24px 0;
   font-size: 0.86rem;
   color: var(--color-text-muted);
 }
 
-/* ── Year grid ────────────────────────────────────────────────────────── */
+/* ── Calendar ─────────────────────────────────────────────────────────── */
+
+.ygrid__body {
+  display: flex;
+  gap: 10px;
+}
+
+.ygrid__days {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: none;
+}
+
+.ygrid__days li {
+  display: flex;
+  align-items: center;
+  height: 14px;
+  font-size: 0.62rem;
+  line-height: 1;
+  color: var(--color-text-faint);
+}
 
 .ygrid__scroll {
   overflow-x: auto;
   scrollbar-width: none;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
 }
 
 .ygrid__scroll::-webkit-scrollbar {
@@ -281,79 +282,108 @@
   gap: 4px;
 }
 
-.ygrid__day {
-  width: 13px;
-  height: 13px;
+.ygrid__cell {
+  width: 14px;
+  height: 14px;
   border-radius: 3px;
   background: var(--color-surface-3);
   transition: transform var(--dur-1) var(--ease);
 }
 
-.ygrid__day:hover {
-  transform: scale(1.35);
+.ygrid__cell:hover {
+  transform: scale(1.3);
 }
 
-.ygrid__day--1 {
-  background: color-mix(in srgb, var(--color-primary) 32%, transparent);
+.ygrid__cell--pad {
+  background: transparent;
 }
 
-.ygrid__day--2 {
-  background: color-mix(in srgb, var(--color-primary) 62%, transparent);
+.ygrid__cell--1 {
+  background: color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
-.ygrid__day--3 {
+.ygrid__cell--2 {
+  background: color-mix(in srgb, var(--color-primary) 60%, transparent);
+}
+
+.ygrid__cell--3 {
   background: var(--color-primary);
 }
 
-.ygrid__day.is-today {
-  box-shadow: 0 0 0 1.5px var(--color-accent);
+/* The one place gold is allowed to point at something. */
+.ygrid__cell.is-today {
+  box-shadow: 0 0 0 1.5px var(--pg-gold);
 }
 
 .ygrid__key {
   display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 14px;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
   font-size: 0.7rem;
   color: var(--color-text-faint);
 }
 
-.ygrid__key span:first-child {
-  margin-right: 3px;
+.ygrid__key li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.ygrid__key span:last-child {
-  margin-left: 3px;
+.ygrid__key .ygrid__cell:hover {
+  transform: none;
 }
 
-/* ── Locked ───────────────────────────────────────────────────────────── */
+/* ── Figures, locked and open ─────────────────────────────────────────── */
 
-.locked {
-  padding: 20px 22px 18px;
-  border: 1px dashed var(--color-border-strong);
+.fig {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface-2);
+  background: var(--color-surface);
 }
 
-.locked__label {
-  font-size: 0.8rem;
+.fig__label {
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--color-text-muted);
 }
 
-.locked__value {
+.fig__value {
   margin-top: 8px;
   font-family: var(--font-display);
   font-size: 1.9rem;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.fig__hint {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--color-text-faint);
+}
+
+.locked {
+  border-style: dashed;
+  background: var(--color-surface-2);
+}
+
+.locked .fig__value {
+  color: var(--color-text-faint);
+  letter-spacing: 0.08em;
 }
 
 .locked__note {
   margin-top: 10px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   line-height: 1.5;
   color: var(--color-text-faint);
 }
@@ -361,7 +391,7 @@
 .locked__track {
   display: block;
   height: 3px;
-  margin-top: 14px;
+  margin-top: 12px;
   border-radius: 999px;
   background: var(--color-surface-3);
   overflow: hidden;
@@ -371,13 +401,6 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: var(--color-accent);
+  background: var(--color-primary);
   transition: width var(--dur-4) var(--ease);
-}
-
-.locked__count {
-  margin-top: 8px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--color-text-faint);
 }

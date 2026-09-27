@@ -95,6 +95,24 @@ export function totalMinutes(days = 30): number {
   return Math.round(seconds / 60);
 }
 
+/** Minutes spent on each of the last `days` days, oldest first. */
+export function minutesByDay(days = 140): { date: string; minutes: number }[] {
+  const log = getTimeLog();
+  const out: { date: string; minutes: number }[] = [];
+  const cursor = new Date();
+  cursor.setHours(0, 0, 0, 0);
+
+  for (let i = days - 1; i >= 0; i -= 1) {
+    const d = new Date(cursor);
+    d.setDate(cursor.getDate() - i);
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    const entry = log[key] ?? {};
+    const seconds = Object.values(entry).reduce((sum: number, n) => sum + (n ?? 0), 0);
+    out.push({ date: key, minutes: Math.round(seconds / 60) });
+  }
+  return out;
+}
+
 /**
  * Starts counting, and returns the stopper.
  *

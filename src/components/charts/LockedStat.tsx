@@ -26,22 +26,20 @@ export function LockedStat({
   const pct = Math.min(100, Math.round((daysDone / daysNeeded) * 100));
 
   return (
-    <div className="locked">
-      <p className="locked__label">{label}</p>
+    <div className="fig locked">
+      <p className="fig__label">{label}</p>
 
-      <p className="locked__value" aria-hidden>
+      <p className="fig__value" aria-hidden>
         ——
       </p>
 
-      <p className="locked__note">{t("progress.unlockIn", { count: Math.max(0, daysNeeded - daysDone) })}</p>
+      <p className="locked__note">
+        {t("progress.unlockIn", { count: Math.max(0, daysNeeded - daysDone) })} · {daysDone}/{daysNeeded}
+      </p>
 
       <span className="locked__track">
         <span className="locked__fill" style={{ width: `${pct}%` }} />
       </span>
-
-      <p className="locked__count tabular">
-        {daysDone} / {daysNeeded}
-      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { WordsByDay, type DayCount } from "@/components/charts/WordsByDay";
+import { DayLine, type DayCount } from "@/components/charts/DayLine";
 import { Donut, type Slice } from "@/components/charts/Donut";
 import { YearGrid } from "@/components/charts/YearGrid";
 import { LockedStat } from "@/components/charts/LockedStat";
@@ -8,8 +8,8 @@ import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
 import { getWritingHistory } from "@/lib/writingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getQuizTotals } from "@/lib/readingHistory";
-import { getActivity, getRecentDays, getDailyGoal, getStreak, getBestStreak, totalForDay } from "@/lib/activityStore";
-import { timeBySection, totalMinutes, type TimeSection } from "@/lib/timeStore";
+import { getActivity, getStreak, getBestStreak, totalForDay } from "@/lib/activityStore";
+import { minutesByDay, timeBySection, totalMinutes, type TimeSection } from "@/lib/timeStore";
 import "@/components/charts/charts.css";
 import "@/components/charts/progress.css";
 
@@ -57,8 +57,7 @@ function lastDays(n: number): string[] {
 export default function Progress() {
   const { t } = useTranslation();
   const [words, setWords] = useState<DayCount[]>([]);
-  const [calendar, setCalendar] = useState<{ date: string; count: number }[]>([]);
-  const [goal, setGoal] = useState(3);
+  const [calendar, setCalendar] = useState<{ date: string; minutes: number }[]>([]);
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [daysStudied, setDaysStudied] = useState(0);
@@ -75,8 +74,7 @@ export default function Progress() {
     }
     setWords(lastDays(30).map((date) => ({ date, count: collected.get(date) ?? 0 })));
 
-    setCalendar(getRecentDays(140));
-    setGoal(getDailyGoal());
+    setCalendar(minutesByDay(140));
     setStreak(getStreak());
     setBest(getBestStreak());
     setDaysStudied(getActivity().filter((d) => totalForDay(d) > 0).length);
@@ -111,11 +109,11 @@ export default function Progress() {
   }, [words, daysStudied]);
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8">
+    <div className="pg mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
 
-      <section className="pg-card" style={{ marginTop: 26 }}>
-        <WordsByDay days={words} unit={t("progress.wordsUnit")} />
+      <section className="pg-card" style={{ marginTop: 24 }}>
+        <DayLine days={words} unit={t("progress.wordsUnit")} />
       </section>
 
       <section className="pg-section">
@@ -123,13 +121,36 @@ export default function Progress() {
           <p className="pg-eyebrow">{t("progress.timeTitle")}</p>
           <p className="pg-note">{t("progress.lastThirty")}</p>
         </div>
-        <div className="pg-card">
-          <Donut
-            slices={split}
-            centre={String(minutes)}
-            centreLabel={t("progress.minutes")}
-            emptyLabel={t("progress.timeEmpty")}
-          />
+
+        <div className="pg-grid pg-grid--aside">
+          <div className="pg-card">
+            <Donut
+              slices={split}
+              centre={String(minutes)}
+              centreLabel={t("progress.minutes")}
+              emptyLabel={t("progress.timeEmpty")}
+            />
+          </div>
+
+          <div className="pg-grid">
+            {unlocked ? (
+              <>
+                <Figure
+                  label={t("progress.questionsCorrect")}
+                  value={quiz.total ? `${Math.round((quiz.correct / quiz.total) * 100)}%` : "—"}
+                  hint={quiz.total ? `${quiz.correct} / ${quiz.total}` : undefined}
+                />
+                <Figure label={t("progress.newPerWeek")} value={perWeek} />
+                <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
+              </>
+            ) : (
+              <>
+                <LockedStat label={t("progress.questionsCorrect")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+                <LockedStat label={t("progress.newPerWeek")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+                <LockedStat label={t("progress.daysStudied")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
+              </>
+            )}
+          </div>
         </div>
       </section>
 
@@ -141,34 +162,7 @@ export default function Progress() {
           </p>
         </div>
         <div className="pg-card">
-          <YearGrid days={calendar} goal={goal} />
-        </div>
-      </section>
-
-      <section className="pg-section">
-        <div className="pg-head">
-          <p className="pg-eyebrow">{t("progress.depthTitle")}</p>
-          {!unlocked && <p className="pg-note">{t("progress.depthNote", { count: UNLOCK_DAYS })}</p>}
-        </div>
-
-        <div className="pg-grid pg-grid--three">
-          {unlocked ? (
-            <>
-              <Figure
-                label={t("progress.questionsCorrect")}
-                value={quiz.total ? `${Math.round((quiz.correct / quiz.total) * 100)}%` : "—"}
-                hint={quiz.total ? `${quiz.correct} / ${quiz.total}` : undefined}
-              />
-              <Figure label={t("progress.newPerWeek")} value={perWeek} />
-              <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
-            </>
-          ) : (
-            <>
-              <LockedStat label={t("progress.questionsCorrect")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-              <LockedStat label={t("progress.newPerWeek")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-              <LockedStat label={t("progress.daysStudied")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-            </>
-          )}
+          <YearGrid days={calendar} />
         </div>
       </section>
 
@@ -189,12 +183,10 @@ export default function Progress() {
 /** An unlocked figure, in the same frame as the locked one it replaces. */
 function Figure({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <div className="pg-card" style={{ marginTop: 0 }}>
-      <p className="locked__label">{label}</p>
-      <p className="wbd__total" style={{ fontSize: "2.1rem", marginTop: 10 }}>
-        {value}
-      </p>
-      {hint && <p className="locked__count tabular">{hint}</p>}
+    <div className="fig">
+      <p className="fig__label">{label}</p>
+      <p className="fig__value tabular">{value}</p>
+      {hint && <p className="fig__hint tabular">{hint}</p>}
     </div>
   );
 }
