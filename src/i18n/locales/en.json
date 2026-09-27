@@ -155,7 +155,8 @@
     "workoutLede": "{{count}} of your words appeared in this text. Produce them now, while the context is still fresh.",
     "workoutDone": "Done — {{count}} words practised in context.",
     "markPrompt": "Read it through? Mark it — finishing is what counts as a task.",
-    "markedNote": "Counted for today. The comprehension questions are below."
+    "markedNote": "Counted for today. The comprehension questions are below.",
+    "workoutLeft": "{{done}} of {{total}} done"
   },
   "writing": {
     "grammar": "Grammar",
@@ -492,7 +493,6 @@
     "lookUp": "Look up",
     "inVocabulary": "In vocabulary",
     "fromSelection": "Selected text",
-    "savedHint": "Words you've saved are underlined — meeting them again is how they stick.",
     "noKey": "No translation — a Groq API key hasn't been set up yet.",
     "failed": "Translation failed. Check your connection and try again.",
     "alreadyKnow": "I know this",

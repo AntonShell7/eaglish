@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup";
 import { getVocabulary } from "@/lib/vocabularyStore";
+import { usesWord } from "@/lib/wordMatch";
 
 function splitTokens(sentence: string) {
   return sentence.split(/(\s+)/);
@@ -11,20 +11,38 @@ function splitTokens(sentence: string) {
 const normalise = (token: string) => token.toLowerCase().replace(/[^a-z']/g, "");
 
 export function ReadingTextView({ text }: { text: ReadingText }) {
-  const { t } = useTranslation();
   const [request, setRequest] = useState<LookupRequest | null>(null);
-  const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
+  const [saved, setSaved] = useState<string[]>([]);
 
   // Re-read after the popup closes so a word just saved is underlined at once.
   useEffect(() => {
     if (request) return;
-    setSavedWords(new Set(getVocabulary().map((w) => w.word.toLowerCase())));
+    setSaved(getVocabulary().map((w) => w.word));
   }, [request, text.id]);
 
-  const anySaved = useMemo(
-    () => text.sentences.some((s) => splitTokens(s.text).some((tok) => savedWords.has(normalise(tok)))),
-    [text, savedWords],
-  );
+  /*
+   * Which tokens in this text are words the learner has saved.
+   *
+   * Comparing the surface form against the stored headword only worked when
+   * the two happened to be identical. Save a word from "he concedes" and the
+   * vocabulary keeps "concede", so every later sentence containing "concedes"
+   * went unmarked — which looked like saving had silently failed. Matching
+   * goes through the same inflection-aware comparison the rest of the app
+   * uses, and the answer is computed once per token rather than per render.
+   */
+  const marked = useMemo(() => {
+    const map = new Map<string, boolean>();
+    if (saved.length === 0) return map;
+
+    for (const sentence of text.sentences) {
+      for (const token of splitTokens(sentence.text)) {
+        const key = normalise(token);
+        if (!key || map.has(key)) continue;
+        map.set(key, saved.some((word) => usesWord(key, word)));
+      }
+    }
+    return map;
+  }, [text, saved]);
 
   return (
     <div>
@@ -36,7 +54,7 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
               // highlight stripe at every gap between words.
               if (/^\s+$/.test(token)) return token;
 
-              const known = savedWords.has(normalise(token));
+              const known = marked.get(normalise(token)) ?? false;
               return (
                 // A span, not a button: browsers treat buttons as controls
                 // rather than text, so drag-selecting across them produces no
@@ -81,12 +99,6 @@ export function ReadingTextView({ text }: { text: ReadingText }) {
           </span>
         ))}
       </div>
-
-      {anySaved && (
-        <p className="mt-4 text-xs" style={{ color: "var(--color-text-muted)" }}>
-          {t("lookup.savedHint")}
-        </p>
-      )}
 
       {request && <LookupPopup request={request} onClose={() => setRequest(null)} />}
     </div>
