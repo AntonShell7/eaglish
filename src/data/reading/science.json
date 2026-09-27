@@ -2324,5 +2324,170 @@
     "explanation": "Nothing inside would live."
    }
   ]
+ },
+ {
+  "id": "the-same-side-of-the-moon",
+  "level": "A2",
+  "topic": "science",
+  "generated": false,
+  "title": "We Always See the Same Side of the Moon",
+  "sentences": [
+   {
+    "text": "Look at the Moon tonight, and then look at it next year.",
+    "translationRu": "Посмотри на Луну сегодня, а потом посмотри через год."
+   },
+   {
+    "text": "You will see the same face.",
+    "translationRu": "Ты увидишь то же лицо."
+   },
+   {
+    "text": "The same dark areas, in the same places.",
+    "translationRu": "Те же тёмные пятна, на тех же местах."
+   },
+   {
+    "text": "Everybody on Earth, in every country, in all of history, has seen this one side.",
+    "translationRu": "Все на Земле, в любой стране, за всю историю видели одну эту сторону."
+   },
+   {
+    "text": "The other side was a mystery until 1959, when a spacecraft went around and sent back pictures.",
+    "translationRu": "Другая сторона оставалась тайной до 1959 года, когда аппарат облетел её и прислал снимки."
+   },
+   {
+    "text": "Many people think the Moon does not turn.",
+    "translationRu": "Многие думают, что Луна не вращается."
+   },
+   {
+    "text": "That is wrong.",
+    "translationRu": "Это неверно."
+   },
+   {
+    "text": "The Moon turns, but it turns very slowly.",
+    "translationRu": "Луна вращается, просто очень медленно."
+   },
+   {
+    "text": "It takes about twenty-seven days to turn one time.",
+    "translationRu": "Один оборот занимает около двадцати семи дней."
+   },
+   {
+    "text": "And it takes about twenty-seven days to go around the Earth.",
+    "translationRu": "И примерно двадцать семь дней — оборот вокруг Земли."
+   },
+   {
+    "text": "The two numbers are the same, and that is why we see one face.",
+    "translationRu": "Эти два числа совпадают — поэтому мы и видим одно лицо."
+   },
+   {
+    "text": "You can try this with a friend.",
+    "translationRu": "Можно попробовать с другом."
+   },
+   {
+    "text": "Walk in a circle around them and always look at their eyes.",
+    "translationRu": "Обойди его по кругу, всё время глядя ему в глаза."
+   },
+   {
+    "text": "People outside the circle will see your back, then your side, then your face.",
+    "translationRu": "Люди снаружи круга увидят твою спину, потом бок, потом лицо."
+   },
+   {
+    "text": "You turned.",
+    "translationRu": "Ты повернулся."
+   },
+   {
+    "text": "But your friend in the middle only saw your face.",
+    "translationRu": "А друг в середине видел только лицо."
+   },
+   {
+    "text": "Why do the two numbers match?",
+    "translationRu": "Почему числа совпадают?"
+   },
+   {
+    "text": "The Earth pulls on the Moon, and it pulls on the near part a little more than the far part.",
+    "translationRu": "Земля тянет Луну, причём ближнюю часть чуть сильнее дальней."
+   },
+   {
+    "text": "Over millions of years, this slowed the turning down.",
+    "translationRu": "За миллионы лет это замедлило вращение."
+   },
+   {
+    "text": "It stopped when the two numbers became equal.",
+    "translationRu": "Оно остановилось, когда числа сравнялись."
+   },
+   {
+    "text": "The same thing has happened to many moons around other planets.",
+    "translationRu": "То же случилось со многими спутниками других планет."
+   }
+  ],
+  "glossary": {
+   "moon": {
+    "translation": "луна",
+    "partOfSpeech": "noun"
+   },
+   "face": {
+    "translation": "лицо, сторона",
+    "partOfSpeech": "noun"
+   },
+   "dark": {
+    "translation": "тёмный",
+    "partOfSpeech": "adjective"
+   },
+   "mystery": {
+    "translation": "тайна",
+    "partOfSpeech": "noun"
+   },
+   "spacecraft": {
+    "translation": "космический аппарат",
+    "partOfSpeech": "noun"
+   },
+   "turn": {
+    "translation": "вращаться, поворачиваться",
+    "partOfSpeech": "verb"
+   },
+   "circle": {
+    "translation": "круг",
+    "partOfSpeech": "noun"
+   },
+   "pull": {
+    "translation": "тянуть",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-same-side-of-the-moon-q1",
+    "question": "Does the Moon turn?",
+    "options": [
+     "No",
+     "Yes, once about every twenty-seven days",
+     "Only in winter",
+     "Twice a year"
+    ],
+    "answer": 1,
+    "explanation": "The same time it takes to go around the Earth."
+   },
+   {
+    "id": "the-same-side-of-the-moon-q2",
+    "question": "What does the friend in the middle see?",
+    "options": [
+     "Your back",
+     "Only your face",
+     "Your side",
+     "Nothing"
+    ],
+    "answer": 1,
+    "explanation": "People outside the circle see you turn."
+   },
+   {
+    "id": "the-same-side-of-the-moon-q3",
+    "question": "Why do the two numbers match?",
+    "options": [
+     "By accident",
+     "Earth's pull slowed the turning until they were equal",
+     "The Moon chose it",
+     "Nobody knows"
+    ],
+    "answer": 1,
+    "explanation": "The same has happened to many moons."
+   }
+  ]
  }
 ]

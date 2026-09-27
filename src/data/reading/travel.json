@@ -1857,5 +1857,186 @@
     "explanation": "Both things learned to live in the same place."
    }
   ]
+ },
+ {
+  "id": "why-tickets-cost-that",
+  "level": "B2",
+  "topic": "travel",
+  "generated": false,
+  "title": "The Person Next to You Paid a Third of What You Did",
+  "sentences": [
+   {
+    "text": "Two passengers in adjacent seats on the same flight, going to the same place on the same day, will frequently have paid prices that differ by a factor of three or more.",
+    "translationRu": "Два пассажира в соседних креслах одного рейса, летящие в одно место в один день, нередко заплатили суммы, отличающиеся втрое и больше."
+   },
+   {
+    "text": "Neither was cheated.",
+    "translationRu": "Никого не обманули."
+   },
+   {
+    "text": "The airline was doing the thing it exists to do, which is not flying aeroplanes but filling them at the highest price each individual will tolerate.",
+    "translationRu": "Авиакомпания делала то, ради чего существует: не летать, а заполнять салон по максимальной цене, которую вытерпит каждый конкретный человек."
+   },
+   {
+    "text": "The underlying economics are unusual and explain almost everything that seems irrational about ticket prices.",
+    "translationRu": "Лежащая в основе экономика необычна и объясняет почти всё, что кажется в ценах иррациональным."
+   },
+   {
+    "text": "A flight is a perishable product with an absolutely fixed supply.",
+    "translationRu": "Рейс — скоропортящийся товар с абсолютно фиксированным предложением."
+   },
+   {
+    "text": "There are one hundred and eighty seats, there will never be one hundred and eighty-one, and the moment the door closes, every empty seat is worth zero for ever.",
+    "translationRu": "Мест сто восемьдесят, сто восемьдесят первого не будет никогда, и в момент закрытия двери каждое пустое кресло навсегда стоит ноль."
+   },
+   {
+    "text": "Meanwhile the cost of carrying one more passenger who is already at the airport is a few kilograms of fuel and a meal.",
+    "translationRu": "При этом стоимость провоза ещё одного пассажира, уже стоящего в аэропорту, — несколько килограммов топлива и питание."
+   },
+   {
+    "text": "Almost the entire cost of the flight is incurred whether the seat is sold or not.",
+    "translationRu": "Почти вся себестоимость рейса возникает независимо от того, продано кресло или нет."
+   },
+   {
+    "text": "Put those two facts together and you get an industry with a desperate incentive to sell the last seats at any price above nearly nothing, and an equally desperate need to stop everybody discovering that.",
+    "translationRu": "Сложи эти два факта — и получишь отрасль с отчаянным стимулом продать последние кресла по любой цене выше почти нуля и столь же отчаянной нуждой не дать всем это обнаружить."
+   },
+   {
+    "text": "The solution is to separate customers by what they are willing to pay, without asking them, using their own behaviour as the signal.",
+    "translationRu": "Решение — разделить клиентов по готовности платить, не спрашивая их, используя как сигнал их же поведение."
+   },
+   {
+    "text": "A business traveller books late, needs a specific day, wants flexibility and is spending someone else's money.",
+    "translationRu": "Деловой пассажир бронирует поздно, ему нужен конкретный день, нужна гибкость, и тратит он чужие деньги."
+   },
+   {
+    "text": "A tourist books early, can shift by a day, and is spending their own.",
+    "translationRu": "Турист бронирует заранее, может сдвинуться на день и тратит свои."
+   },
+   {
+    "text": "Every rule that looks arbitrary is a filter separating the two.",
+    "translationRu": "Каждое правило, выглядящее произвольным, — это фильтр, разделяющий этих двоих."
+   },
+   {
+    "text": "The Saturday-night stay requirement, now largely gone, worked because business travellers want to be home at the weekend.",
+    "translationRu": "Требование ночевать с субботы на воскресенье, теперь почти исчезнувшее, работало потому, что деловые люди хотят домой на выходные."
+   },
+   {
+    "text": "Non-refundable fares are cheaper because certainty is worth paying for, and the people who need it are the ones with money.",
+    "translationRu": "Невозвратные тарифы дешевле, потому что за определённость платят, а нуждаются в ней те, у кого есть деньги."
+   },
+   {
+    "text": "Fees for a seat, a bag and a printed pass unbundle the product so the advertised number can be low, which is the only number most people compare.",
+    "translationRu": "Платы за место, багаж и печать посадочного разбирают продукт на части, чтобы рекламное число было низким, — а большинство сравнивает только его."
+   },
+   {
+    "text": "On top of that sits software adjusting each fare class continuously against how full the flight already is, how fast it is filling compared with the same flight last year, and what the competition is charging this hour.",
+    "translationRu": "Сверху сидит софт, непрерывно подстраивающий каждый класс тарифа под текущую загрузку, скорость продаж в сравнении с тем же рейсом год назад и цены конкурентов в этот час."
+   },
+   {
+    "text": "Two persistent beliefs are worth discarding.",
+    "translationRu": "Два устойчивых убеждения стоит выбросить."
+   },
+   {
+    "text": "Prices do not reliably rise because you searched twice; the repeated reports of this have not survived controlled testing, and the more likely explanation is that fares genuinely move several times a day.",
+    "translationRu": "Цены не растут надёжно оттого, что ты искал дважды: многочисленные сообщения об этом не выдержали контролируемой проверки, и более вероятное объяснение — тарифы реально меняются по нескольку раз в день."
+   },
+   {
+    "text": "And there is no universal best day to book, because the optimal moment depends on the route, the season and how business-heavy the flight is, which is precisely what the software is modelling and you are not.",
+    "translationRu": "И нет универсального лучшего дня для покупки: оптимальный момент зависит от маршрута, сезона и доли деловых пассажиров — ровно того, что моделирует софт и не моделируешь ты."
+   }
+  ],
+  "glossary": {
+   "adjacent": {
+    "translation": "соседний",
+    "partOfSpeech": "adjective"
+   },
+   "tolerate": {
+    "translation": "терпеть, выносить",
+    "partOfSpeech": "verb"
+   },
+   "perishable": {
+    "translation": "скоропортящийся",
+    "partOfSpeech": "adjective"
+   },
+   "supply": {
+    "translation": "предложение",
+    "partOfSpeech": "noun"
+   },
+   "incur": {
+    "translation": "нести (издержки)",
+    "partOfSpeech": "verb"
+   },
+   "incentive": {
+    "translation": "стимул",
+    "partOfSpeech": "noun"
+   },
+   "flexibility": {
+    "translation": "гибкость",
+    "partOfSpeech": "noun"
+   },
+   "non-refundable": {
+    "translation": "невозвратный",
+    "partOfSpeech": "adjective"
+   },
+   "unbundle": {
+    "translation": "разделять на части",
+    "partOfSpeech": "verb"
+   },
+   "fare class": {
+    "translation": "класс тарифа",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-tickets-cost-that-q1",
+    "question": "Why is an empty seat so costly?",
+    "options": [
+     "Fuel is wasted",
+     "Almost all the cost is incurred anyway and the seat is worth zero once the door closes",
+     "Staff are paid per seat",
+     "Taxes"
+    ],
+    "answer": 1,
+    "explanation": "A perishable product with fixed supply."
+   },
+   {
+    "id": "why-tickets-cost-that-q2",
+    "question": "What do the odd fare rules actually do?",
+    "options": [
+     "Reduce fraud",
+     "Filter business travellers from tourists by their own behaviour",
+     "Simplify booking",
+     "Meet regulations"
+    ],
+    "answer": 1,
+    "explanation": "Nobody is asked what they would pay."
+   },
+   {
+    "id": "why-tickets-cost-that-q3",
+    "question": "Why are bags and seats charged separately?",
+    "options": [
+     "They cost extra",
+     "To keep the advertised number low, since that is what people compare",
+     "Legal requirement",
+     "To reduce weight"
+    ],
+    "answer": 1,
+    "explanation": "Unbundling the product."
+   },
+   {
+    "id": "why-tickets-cost-that-q4",
+    "question": "What does the text say about searching twice?",
+    "options": [
+     "It raises prices",
+     "Controlled testing has not supported it; fares move several times a day anyway",
+     "It lowers prices",
+     "It is untested"
+    ],
+    "answer": 1,
+    "explanation": "And there is no universal best day to book."
+   }
+  ]
  }
 ]

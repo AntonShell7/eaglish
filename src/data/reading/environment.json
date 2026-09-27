@@ -2163,5 +2163,186 @@
     "explanation": "The colour moves from one bird to the other."
    }
   ]
+ },
+ {
+  "id": "why-cities-are-hotter",
+  "level": "B1",
+  "topic": "environment",
+  "generated": false,
+  "title": "A City Can Be Ten Degrees Hotter Than the Field Next to It",
+  "sentences": [
+   {
+    "text": "On a summer night, the centre of a large city can be several degrees warmer than the countryside a few kilometres away.",
+    "translationRu": "Летней ночью центр крупного города может быть на несколько градусов теплее, чем сельская местность в нескольких километрах."
+   },
+   {
+    "text": "In extreme cases the difference reaches ten degrees or more.",
+    "translationRu": "В крайних случаях разница достигает десяти градусов и больше."
+   },
+   {
+    "text": "The effect has a name, the urban heat island, and it is not caused by air conditioning or by traffic, although both add a little.",
+    "translationRu": "У эффекта есть имя — городской остров тепла, — и вызван он не кондиционерами и не транспортом, хотя и они добавляют немного."
+   },
+   {
+    "text": "It is mostly caused by what a city is made of and what shape it is.",
+    "translationRu": "Вызван он в основном тем, из чего город сделан и какой он формы."
+   },
+   {
+    "text": "Start with the materials.",
+    "translationRu": "Начнём с материалов."
+   },
+   {
+    "text": "Asphalt, brick and concrete absorb sunlight all day and store an enormous amount of heat, far more than soil or grass.",
+    "translationRu": "Асфальт, кирпич и бетон весь день поглощают солнце и запасают огромное количество тепла — куда больше, чем почва или трава."
+   },
+   {
+    "text": "They release it slowly through the night, which is why the difference is usually biggest at three in the morning rather than at midday.",
+    "translationRu": "Ночью они медленно его отдают — поэтому разница обычно максимальна в три часа ночи, а не в полдень."
+   },
+   {
+    "text": "Dark surfaces make this worse, because a dark roof reflects very little and a pale one reflects a lot.",
+    "translationRu": "Тёмные поверхности ухудшают дело: тёмная крыша отражает мало, светлая — много."
+   },
+   {
+    "text": "Then the shape.",
+    "translationRu": "Теперь форма."
+   },
+   {
+    "text": "A street between two tall buildings is a trap for heat: sunlight bounces from wall to wall and is absorbed a little more each time instead of escaping upwards.",
+    "translationRu": "Улица между двумя высокими домами — ловушка для тепла: свет отражается от стены к стене и каждый раз поглощается чуть сильнее, вместо того чтобы уйти вверх."
+   },
+   {
+    "text": "The same walls block the wind that would otherwise carry warm air away.",
+    "translationRu": "Те же стены преграждают ветер, который иначе унёс бы тёплый воздух."
+   },
+   {
+    "text": "And then there is the missing water.",
+    "translationRu": "И наконец отсутствующая вода."
+   },
+   {
+    "text": "This part is the least obvious and possibly the most important.",
+    "translationRu": "Эта часть наименее очевидна и, возможно, важнее всего."
+   },
+   {
+    "text": "A tree does not only give shade.",
+    "translationRu": "Дерево даёт не только тень."
+   },
+   {
+    "text": "It moves water from the ground into the air through its leaves, and turning water into vapour uses a large amount of energy, which is taken from the surrounding air as heat.",
+    "translationRu": "Оно переносит воду из земли в воздух через листья, а превращение воды в пар требует много энергии, которую забирают у окружающего воздуха в виде тепла."
+   },
+   {
+    "text": "A park full of trees is running an enormous, silent cooling system.",
+    "translationRu": "Парк с деревьями — это огромная бесшумная система охлаждения."
+   },
+   {
+    "text": "A city drains rain into pipes as fast as it falls, so there is no water left to evaporate, and the cooling simply does not happen.",
+    "translationRu": "Город сбрасывает дождь в трубы с той же скоростью, с какой он падает, так что испаряться нечему, и охлаждение попросту не происходит."
+   },
+   {
+    "text": "This matters more each decade, because heat kills more people in Europe than any other kind of weather, and it kills them at night, in flats that never cool down.",
+    "translationRu": "С каждым десятилетием это важнее: жара убивает в Европе больше людей, чем любая другая погода, и убивает ночью, в квартирах, которые не остывают."
+   },
+   {
+    "text": "The fixes are known and undramatic: pale roofs, more trees, smaller paved areas, and letting rain soak into the ground instead of sending it straight to a pipe.",
+    "translationRu": "Средства известны и недраматичны: светлые крыши, больше деревьев, меньше асфальта и дождь, впитывающийся в землю, а не уходящий сразу в трубу."
+   },
+   {
+    "text": "None of them require new technology.",
+    "translationRu": "Ни одно не требует новых технологий."
+   },
+   {
+    "text": "All of them require deciding that shade is infrastructure.",
+    "translationRu": "Все требуют признать, что тень — это инфраструктура."
+   }
+  ],
+  "glossary": {
+   "countryside": {
+    "translation": "сельская местность",
+    "partOfSpeech": "noun"
+   },
+   "absorb": {
+    "translation": "поглощать",
+    "partOfSpeech": "verb"
+   },
+   "release": {
+    "translation": "отдавать, выделять",
+    "partOfSpeech": "verb"
+   },
+   "reflect": {
+    "translation": "отражать",
+    "partOfSpeech": "verb"
+   },
+   "bounce": {
+    "translation": "отскакивать, отражаться",
+    "partOfSpeech": "verb"
+   },
+   "shade": {
+    "translation": "тень",
+    "partOfSpeech": "noun"
+   },
+   "vapour": {
+    "translation": "пар",
+    "partOfSpeech": "noun"
+   },
+   "evaporate": {
+    "translation": "испаряться",
+    "partOfSpeech": "verb"
+   },
+   "paved": {
+    "translation": "замощённый",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-cities-are-hotter-q1",
+    "question": "Why is the difference biggest at night?",
+    "options": [
+     "Traffic stops",
+     "City materials release stored heat slowly through the night",
+     "The wind drops",
+     "Air conditioning runs"
+    ],
+    "answer": 1,
+    "explanation": "Rather than at midday."
+   },
+   {
+    "id": "why-cities-are-hotter-q2",
+    "question": "Why is a street between tall buildings hot?",
+    "options": [
+     "Cars",
+     "Light bounces between walls and is absorbed each time, and the wind is blocked",
+     "The buildings are heated",
+     "People walk there"
+    ],
+    "answer": 1,
+    "explanation": "Instead of escaping upwards."
+   },
+   {
+    "id": "why-cities-are-hotter-q3",
+    "question": "How do trees cool a city besides shade?",
+    "options": [
+     "They block wind",
+     "Evaporating water from their leaves takes heat from the air",
+     "They are cold",
+     "They absorb light"
+    ],
+    "answer": 1,
+    "explanation": "A park is a silent cooling system."
+   },
+   {
+    "id": "why-cities-are-hotter-q4",
+    "question": "What do the fixes require?",
+    "options": [
+     "New technology",
+     "Deciding that shade is infrastructure",
+     "More money than exists",
+     "Cooler summers"
+    ],
+    "answer": 1,
+    "explanation": "Pale roofs, trees, less paving, rain soaking in."
+   }
+  ]
  }
 ]

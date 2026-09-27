@@ -4,12 +4,12 @@
   "label": "Science",
   "counts": {
    "C1": 3,
-   "A2": 3,
+   "A2": 4,
    "A1": 2,
    "C2": 5,
    "B2": 1
   },
-  "total": 14
+  "total": 15
  },
  {
   "id": "celebrities",
@@ -18,24 +18,11 @@
    "B1": 3,
    "B2": 5,
    "A2": 1,
-   "C1": 1,
+   "C1": 2,
    "A1": 2,
    "C2": 1
   },
-  "total": 13
- },
- {
-  "id": "culture",
-  "label": "Culture",
-  "counts": {
-   "C1": 4,
-   "B2": 2,
-   "A1": 2,
-   "C2": 3,
-   "A2": 1,
-   "B1": 1
-  },
-  "total": 13
+  "total": 14
  },
  {
   "id": "environment",
@@ -46,6 +33,19 @@
    "C1": 2,
    "A1": 4,
    "C2": 2,
+   "B1": 2
+  },
+  "total": 14
+ },
+ {
+  "id": "culture",
+  "label": "Culture",
+  "counts": {
+   "C1": 4,
+   "B2": 2,
+   "A1": 2,
+   "C2": 3,
+   "A2": 1,
    "B1": 1
   },
   "total": 13
@@ -77,6 +77,19 @@
   "total": 12
  },
  {
+  "id": "travel",
+  "label": "Travel",
+  "counts": {
+   "A2": 4,
+   "B2": 3,
+   "A1": 1,
+   "C1": 1,
+   "B1": 2,
+   "C2": 1
+  },
+  "total": 12
+ },
+ {
   "id": "society",
   "label": "Society",
   "counts": {
@@ -98,19 +111,6 @@
    "B2": 2,
    "A1": 2,
    "C1": 1,
-   "C2": 1
-  },
-  "total": 11
- },
- {
-  "id": "travel",
-  "label": "Travel",
-  "counts": {
-   "A2": 4,
-   "B2": 2,
-   "A1": 1,
-   "C1": 1,
-   "B1": 2,
    "C2": 1
   },
   "total": 11
