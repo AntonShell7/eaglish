@@ -1209,5 +1209,194 @@
     "explanation": "Tonga in 2022 is the example given."
    }
   ]
+ },
+ {
+  "id": "why-passwords-survive",
+  "level": "C1",
+  "topic": "technology",
+  "generated": false,
+  "title": "Everyone Agrees Passwords Are Terrible and Nothing Replaces Them",
+  "sentences": [
+   {
+    "text": "The password is roughly sixty years old, everyone in security regards it as a failure, and you used several today.",
+    "translationRu": "Паролю примерно шестьдесят лет, все в безопасности считают его провалом, и сегодня ты использовал несколько."
+   },
+   {
+    "text": "Understanding why it has survived every replacement is more useful than another list of rules about special characters.",
+    "translationRu": "Понять, почему он пережил все замены, полезнее очередного списка правил про спецсимволы."
+   },
+   {
+    "text": "The core defect is that a password is a shared secret.",
+    "translationRu": "Коренной изъян в том, что пароль — это общий секрет."
+   },
+   {
+    "text": "You know it and the service knows something derived from it, which means there are at least two copies, and the one you do not control is stored on a machine you cannot inspect, alongside millions of others, in a file that is stolen with impressive regularity.",
+    "translationRu": "Ты его знаешь, и сервис знает нечто из него выведенное; значит копий минимум две, и та, которой ты не управляешь, лежит на машине, которую ты не можешь проверить, рядом с миллионами других, в файле, который крадут с впечатляющей регулярностью."
+   },
+   {
+    "text": "Everything else follows from that.",
+    "translationRu": "Всё остальное следует отсюда."
+   },
+   {
+    "text": "Reuse turns one breach into many, which is why a leaked password from a forum you forgot about in 2011 is a live threat to your email.",
+    "translationRu": "Повторное использование превращает одну утечку во множество, поэтому утёкший пароль с форума, забытого в 2011-м, — живая угроза твоей почте."
+   },
+   {
+    "text": "The advice given for decades made this worse rather than better.",
+    "translationRu": "Советы, которые давали десятилетиями, делали хуже, а не лучше."
+   },
+   {
+    "text": "Mandatory complexity and forced ninety-day rotation produced predictable human behaviour: a word, a capital at the front, a digit and an exclamation mark at the end, incremented each quarter.",
+    "translationRu": "Обязательная сложность и принудительная смена раз в девяносто дней породили предсказуемое человеческое поведение: слово, заглавная спереди, цифра и восклицательный знак в конце, инкремент раз в квартал."
+   },
+   {
+    "text": "Attackers know this pattern better than the people enforcing it, and the standards bodies have quietly withdrawn both recommendations.",
+    "translationRu": "Атакующие знают эту схему лучше тех, кто её насаждает, и институты стандартизации обе рекомендации тихо отозвали."
+   },
+   {
+    "text": "Length now matters more than decoration, and rotation is advised only after evidence of compromise.",
+    "translationRu": "Длина теперь важнее украшений, а смена рекомендуется только при признаках компрометации."
+   },
+   {
+    "text": "So why is it still here.",
+    "translationRu": "Так почему он всё ещё здесь."
+   },
+   {
+    "text": "Because a password has a set of properties that no replacement has matched all at once.",
+    "translationRu": "Потому что у пароля есть набор свойств, которые ни одна замена не собрала разом."
+   },
+   {
+    "text": "It costs nothing to issue, it works on any device including one you have borrowed, it can be recovered when lost, it can be given to a colleague or a family member in an emergency, it requires no hardware, and it can be changed instantly when something goes wrong.",
+    "translationRu": "Он ничего не стоит при выдаче, работает на любом устройстве, включая чужое, восстанавливается при потере, может быть передан коллеге или родственнику в экстренной ситуации, не требует железа и мгновенно меняется, когда что-то пошло не так."
+   },
+   {
+    "text": "Biometrics fail the last two badly: a fingerprint cannot be revoked, and a face is not a secret, since it is on the front of your head in public.",
+    "translationRu": "Биометрия проваливает два последних пункта: отпечаток нельзя отозвать, а лицо — не секрет, оно у тебя спереди на голове и на виду."
+   },
+   {
+    "text": "Hardware keys are genuinely strong and are lost, left at home and dropped in sinks.",
+    "translationRu": "Аппаратные ключи по-настоящему надёжны — и их теряют, забывают дома и роняют в раковину."
+   },
+   {
+    "text": "The current best answer, passkeys, finally fixes the shared-secret problem, because the service stores only a public key and the private half never leaves your device.",
+    "translationRu": "Нынешний лучший ответ — passkeys — наконец решает проблему общего секрета: сервис хранит только открытый ключ, а закрытая половина не покидает твоё устройство."
+   },
+   {
+    "text": "A stolen database of public keys is worth nothing, and there is no password to phish.",
+    "translationRu": "Украденная база открытых ключей не стоит ничего, и фишить нечего."
+   },
+   {
+    "text": "The remaining obstacle is not cryptography but the thing security engineers are worst at: recovery.",
+    "translationRu": "Оставшееся препятствие — не криптография, а то, в чём инженеры безопасности слабее всего: восстановление."
+   },
+   {
+    "text": "Every scheme eventually faces a person who has lost the device holding the key and needs to be let back in, and any process generous enough to help them is a process an attacker can walk through.",
+    "translationRu": "Любая схема рано или поздно встречает человека, потерявшего устройство с ключом и нуждающегося в возврате доступа, а процедура, достаточно щедрая, чтобы помочь ему, — это процедура, через которую пройдёт и атакующий."
+   },
+   {
+    "text": "That is why your bank still emails you a code.",
+    "translationRu": "Поэтому банк до сих пор присылает тебе код на почту."
+   },
+   {
+    "text": "The password is not surviving because it is good.",
+    "translationRu": "Пароль выживает не потому, что он хорош."
+   },
+   {
+    "text": "It is surviving because losing things is the normal human condition, and it is the only credential designed around that fact.",
+    "translationRu": "Он выживает потому, что терять вещи — нормальное человеческое состояние, и это единственный тип доступа, спроектированный вокруг этого факта."
+   }
+  ],
+  "glossary": {
+   "shared secret": {
+    "translation": "общий секрет",
+    "partOfSpeech": "noun"
+   },
+   "derive": {
+    "translation": "выводить, получать",
+    "partOfSpeech": "verb"
+   },
+   "breach": {
+    "translation": "утечка, взлом",
+    "partOfSpeech": "noun"
+   },
+   "rotation": {
+    "translation": "смена (пароля)",
+    "partOfSpeech": "noun"
+   },
+   "increment": {
+    "translation": "наращивать на единицу",
+    "partOfSpeech": "verb"
+   },
+   "enforce": {
+    "translation": "насаждать, требовать",
+    "partOfSpeech": "verb"
+   },
+   "revoke": {
+    "translation": "отозвать",
+    "partOfSpeech": "verb"
+   },
+   "phish": {
+    "translation": "выманивать (фишинг)",
+    "partOfSpeech": "verb"
+   },
+   "credential": {
+    "translation": "учётные данные, доступ",
+    "partOfSpeech": "noun"
+   },
+   "recovery": {
+    "translation": "восстановление доступа",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-passwords-survive-q1",
+    "question": "What is the core defect of a password?",
+    "options": [
+     "It is short",
+     "It is a shared secret, so a copy exists on a machine you cannot inspect",
+     "It is typed",
+     "It expires"
+    ],
+    "answer": 1,
+    "explanation": "Reuse turns one breach into many."
+   },
+   {
+    "id": "why-passwords-survive-q2",
+    "question": "Why was forced rotation withdrawn?",
+    "options": [
+     "It was expensive",
+     "It produced predictable patterns attackers know well",
+     "Users complained",
+     "It broke systems"
+    ],
+    "answer": 1,
+    "explanation": "Length matters more than decoration."
+   },
+   {
+    "id": "why-passwords-survive-q3",
+    "question": "Why do biometrics fail the comparison?",
+    "options": [
+     "They are slow",
+     "A fingerprint cannot be revoked and a face is not a secret",
+     "They need internet",
+     "They are inaccurate"
+    ],
+    "answer": 1,
+    "explanation": "Two of the six properties."
+   },
+   {
+    "id": "why-passwords-survive-q4",
+    "question": "What is the remaining obstacle to passkeys?",
+    "options": [
+     "Cryptography",
+     "Recovery when the device holding the key is lost",
+     "Cost",
+     "Device support"
+    ],
+    "answer": 1,
+    "explanation": "A process generous enough to help is one an attacker can walk through."
+   }
+  ]
  }
 ]

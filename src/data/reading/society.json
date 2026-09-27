@@ -1205,5 +1205,170 @@
     "explanation": "The books came to be asked."
    }
   ]
+ },
+ {
+  "id": "the-man-who-sold-the-tower",
+  "level": "A1",
+  "topic": "society",
+  "generated": false,
+  "title": "The Man Who Sold the Eiffel Tower",
+  "sentences": [
+   {
+    "text": "The Eiffel Tower in Paris is not for sale.",
+    "translationRu": "Эйфелева башня в Париже не продаётся."
+   },
+   {
+    "text": "It belongs to the city.",
+    "translationRu": "Она принадлежит городу."
+   },
+   {
+    "text": "But in 1925 a man sold it.",
+    "translationRu": "Но в 1925 году один человек её продал."
+   },
+   {
+    "text": "His name was Victor Lustig.",
+    "translationRu": "Его звали Виктор Люстиг."
+   },
+   {
+    "text": "He was not a businessman.",
+    "translationRu": "Он не был бизнесменом."
+   },
+   {
+    "text": "He was a very good liar.",
+    "translationRu": "Он был очень хорошим лжецом."
+   },
+   {
+    "text": "One day he read something in a newspaper.",
+    "translationRu": "Однажды он прочитал кое-что в газете."
+   },
+   {
+    "text": "The article said the tower was old and the city had no money to keep it.",
+    "translationRu": "В статье говорилось, что башня старая и у города нет денег её содержать."
+   },
+   {
+    "text": "Lustig had an idea.",
+    "translationRu": "У Люстига появилась идея."
+   },
+   {
+    "text": "He made false papers from the government.",
+    "translationRu": "Он сделал поддельные правительственные бумаги."
+   },
+   {
+    "text": "Then he invited six businessmen to an expensive hotel.",
+    "translationRu": "Потом он пригласил шестерых предпринимателей в дорогой отель."
+   },
+   {
+    "text": "He told them a secret.",
+    "translationRu": "И сообщил им секрет."
+   },
+   {
+    "text": "The city was going to take the tower down, he said, and sell all the metal.",
+    "translationRu": "Город собирается снести башню, сказал он, и продать весь металл."
+   },
+   {
+    "text": "Seven thousand tonnes of metal.",
+    "translationRu": "Семь тысяч тонн металла."
+   },
+   {
+    "text": "The men had to keep it quiet, because people would be angry.",
+    "translationRu": "Мужчины должны были молчать, потому что люди бы разозлились."
+   },
+   {
+    "text": "One of them paid.",
+    "translationRu": "Один из них заплатил."
+   },
+   {
+    "text": "Lustig took the money and went to Austria the same day.",
+    "translationRu": "Люстиг взял деньги и в тот же день уехал в Австрию."
+   },
+   {
+    "text": "He waited for the police to come.",
+    "translationRu": "Он ждал полиции."
+   },
+   {
+    "text": "They never came.",
+    "translationRu": "Она не пришла."
+   },
+   {
+    "text": "The businessman was too embarrassed to tell anyone.",
+    "translationRu": "Предпринимателю было слишком стыдно кому-то рассказать."
+   },
+   {
+    "text": "So Lustig went back to Paris a month later and did it again.",
+    "translationRu": "И Люстиг вернулся в Париж через месяц и сделал это снова."
+   }
+  ],
+  "glossary": {
+   "belong to": {
+    "translation": "принадлежать",
+    "partOfSpeech": "phrase"
+   },
+   "liar": {
+    "translation": "лжец",
+    "partOfSpeech": "noun"
+   },
+   "article": {
+    "translation": "статья",
+    "partOfSpeech": "noun"
+   },
+   "false": {
+    "translation": "поддельный",
+    "partOfSpeech": "adjective"
+   },
+   "invite": {
+    "translation": "приглашать",
+    "partOfSpeech": "verb"
+   },
+   "secret": {
+    "translation": "секрет",
+    "partOfSpeech": "noun"
+   },
+   "metal": {
+    "translation": "металл",
+    "partOfSpeech": "noun"
+   },
+   "embarrassed": {
+    "translation": "пристыженный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-man-who-sold-the-tower-q1",
+    "question": "What gave Lustig the idea?",
+    "options": [
+     "A friend",
+     "A newspaper article about the tower being old",
+     "A visit to the tower",
+     "A government letter"
+    ],
+    "answer": 1,
+    "explanation": "The city had no money to keep it."
+   },
+   {
+    "id": "the-man-who-sold-the-tower-q2",
+    "question": "Why did the buyer not go to the police?",
+    "options": [
+     "He did not know",
+     "He was too embarrassed",
+     "He was abroad",
+     "He liked Lustig"
+    ],
+    "answer": 1,
+    "explanation": "Lustig waited and nobody came."
+   },
+   {
+    "id": "the-man-who-sold-the-tower-q3",
+    "question": "What did Lustig do a month later?",
+    "options": [
+     "He gave the money back",
+     "He came back and did it again",
+     "He went to prison",
+     "He bought the tower"
+    ],
+    "answer": 1,
+    "explanation": "The last sentence."
+   }
+  ]
  }
 ]

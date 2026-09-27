@@ -1197,5 +1197,186 @@
     "explanation": "A man with a ladder did it after every goal."
    }
   ]
+ },
+ {
+  "id": "eight-thousand-calories",
+  "level": "B1",
+  "topic": "sport",
+  "generated": false,
+  "title": "Eating Eight Thousand Calories a Day and Still Losing Weight",
+  "sentences": [
+   {
+    "text": "The Tour de France lasts three weeks and covers about three and a half thousand kilometres, much of it uphill.",
+    "translationRu": "«Тур де Франс» длится три недели и покрывает около трёх с половиной тысяч километров, во многом в гору."
+   },
+   {
+    "text": "A rider burns something between five and eight thousand calories on a hard mountain day.",
+    "translationRu": "В тяжёлый горный день гонщик сжигает от пяти до восьми тысяч калорий."
+   },
+   {
+    "text": "An ordinary adult needs about two and a half thousand.",
+    "translationRu": "Обычному взрослому нужно около двух с половиной тысяч."
+   },
+   {
+    "text": "The interesting problem in professional cycling is therefore not training.",
+    "translationRu": "Так что интересная задача в профессиональном велоспорте — не тренировки."
+   },
+   {
+    "text": "It is eating.",
+    "translationRu": "А еда."
+   },
+   {
+    "text": "Eight thousand calories is a physically difficult amount of food to get into a human being in a day, especially one who is exhausted, hot, and travelling at forty kilometres an hour for five hours of it.",
+    "translationRu": "Восемь тысяч калорий — физически трудный объём еды для человека за день, особенно измотанного, перегретого и пять часов из этого дня едущего по сорок километров в час."
+   },
+   {
+    "text": "Appetite also disappears during hard exercise, which is exactly the wrong response.",
+    "translationRu": "Аппетит вдобавок пропадает при тяжёлой нагрузке — ровно неверная реакция."
+   },
+   {
+    "text": "So the eating is engineered.",
+    "translationRu": "Поэтому питание конструируют."
+   },
+   {
+    "text": "Breakfast is three hours before the start and is enormous: rice, pasta, eggs, bread, sometimes over a thousand calories of rice alone.",
+    "translationRu": "Завтрак за три часа до старта и он огромен: рис, паста, яйца, хлеб, иногда больше тысячи калорий одного риса."
+   },
+   {
+    "text": "On the bike, riders take something roughly every twenty minutes whether they want it or not, mostly gels, drinks and small rice cakes, aiming at ninety or even a hundred and twenty grams of carbohydrate an hour.",
+    "translationRu": "На велосипеде гонщик что-то ест примерно каждые двадцать минут, хочет он того или нет: в основном гели, напитки и маленькие рисовые пирожки, целясь в девяносто или даже сто двадцать граммов углеводов в час."
+   },
+   {
+    "text": "That last number is recent and is a genuine change in the sport.",
+    "translationRu": "Последняя цифра появилась недавно и представляет настоящую перемену в спорте."
+   },
+   {
+    "text": "For years the accepted ceiling was about sixty grams an hour, because that is roughly the limit of one intestinal transport route.",
+    "translationRu": "Годами принятым потолком было около шестидесяти граммов в час: примерно столько пропускает один кишечный транспортный путь."
+   },
+   {
+    "text": "Then it was worked out that mixing two kinds of sugar uses two routes at once, and the ceiling moved.",
+    "translationRu": "Потом выяснили, что смесь двух видов сахара задействует два пути сразу, и потолок сдвинулся."
+   },
+   {
+    "text": "Riders now train their stomachs deliberately, in the off-season, the way they train their legs.",
+    "translationRu": "Теперь гонщики нарочно тренируют желудок в межсезонье, как тренируют ноги."
+   },
+   {
+    "text": "After the stage there is a window of an hour or two when muscle takes in fuel fastest, so recovery drinks are handed over before the rider is off the bike, and dinner follows within ninety minutes.",
+    "translationRu": "После этапа есть окно в час-два, когда мышцы принимают топливо быстрее всего, поэтому восстановительные напитки дают ещё до того, как гонщик слез с велосипеда, а ужин следует в течение полутора часов."
+   },
+   {
+    "text": "Even with all of this, most riders finish the three weeks lighter than they started.",
+    "translationRu": "Даже со всем этим большинство финиширует легче, чем стартовало."
+   },
+   {
+    "text": "They simply cannot eat fast enough.",
+    "translationRu": "Они просто не успевают есть."
+   },
+   {
+    "text": "There is something clarifying in that for anyone who thinks of food as the enemy of fitness.",
+    "translationRu": "В этом есть нечто отрезвляющее для тех, кто считает еду врагом формы."
+   },
+   {
+    "text": "At the top of an endurance sport, eating is not the thing you control.",
+    "translationRu": "На вершине видов на выносливость еда — не то, что ты ограничиваешь."
+   },
+   {
+    "text": "It is the thing you train.",
+    "translationRu": "Это то, что ты тренируешь."
+   }
+  ],
+  "glossary": {
+   "burn": {
+    "translation": "сжигать",
+    "partOfSpeech": "verb"
+   },
+   "uphill": {
+    "translation": "в гору",
+    "partOfSpeech": "adverb"
+   },
+   "exhausted": {
+    "translation": "измотанный",
+    "partOfSpeech": "adjective"
+   },
+   "appetite": {
+    "translation": "аппетит",
+    "partOfSpeech": "noun"
+   },
+   "gel": {
+    "translation": "гель (спортивный)",
+    "partOfSpeech": "noun"
+   },
+   "carbohydrate": {
+    "translation": "углевод",
+    "partOfSpeech": "noun"
+   },
+   "ceiling": {
+    "translation": "потолок, предел",
+    "partOfSpeech": "noun"
+   },
+   "intestinal": {
+    "translation": "кишечный",
+    "partOfSpeech": "adjective"
+   },
+   "stage": {
+    "translation": "этап",
+    "partOfSpeech": "noun"
+   },
+   "endurance": {
+    "translation": "выносливость",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "eight-thousand-calories-q1",
+    "question": "Why is eating described as the hard problem?",
+    "options": [
+     "Food is expensive",
+     "Eight thousand calories is physically hard to consume, and appetite drops during effort",
+     "Riders dislike the food",
+     "There is no time"
+    ],
+    "answer": 1,
+    "explanation": "Exactly the wrong response."
+   },
+   {
+    "id": "eight-thousand-calories-q2",
+    "question": "How did the hourly carbohydrate ceiling move?",
+    "options": [
+     "Bigger stomachs",
+     "Mixing two kinds of sugar uses two intestinal routes at once",
+     "Better gels",
+     "Slower racing"
+    ],
+    "answer": 1,
+    "explanation": "The old limit was about sixty grams."
+   },
+   {
+    "id": "eight-thousand-calories-q3",
+    "question": "What happens right after a stage?",
+    "options": [
+     "Riders rest",
+     "Recovery drinks before they are off the bike, dinner within ninety minutes",
+     "They weigh in",
+     "They stretch"
+    ],
+    "answer": 1,
+    "explanation": "A window when muscle takes in fuel fastest."
+   },
+   {
+    "id": "eight-thousand-calories-q4",
+    "question": "What is the closing point?",
+    "options": [
+     "Eat less",
+     "At the top of endurance sport, eating is trained rather than controlled",
+     "Calories do not matter",
+     "Weight loss is the goal"
+    ],
+    "answer": 1,
+    "explanation": "Most riders finish lighter anyway."
+   }
+  ]
  }
 ]
