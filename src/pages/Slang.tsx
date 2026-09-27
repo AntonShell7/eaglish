@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
-import { LevelFilter } from "@/components/LevelFilter";
 import { DialogueRunner } from "@/components/slang/DialogueRunner";
 import { LessonRunner } from "@/components/everyday/LessonRunner";
 import { slangDialogues, slangShelf, type Dialogue, type SlangTopic } from "@/data/slangDialogues";
@@ -9,8 +8,23 @@ import { everydayLessons, type Lesson } from "@/data/everydayLessons";
 import { getSlangResults } from "@/lib/slangProgress";
 import { getLessonResults, type LessonResult } from "@/lib/lessonProgress";
 import { rankLessons } from "@/lib/learnerProfile";
-import type { Cefr } from "@/lib/textLevel";
 import "@/components/slang/slang.css";
+
+/*
+ * No CEFR level in this section, and that is deliberate.
+ *
+ * Reading and dictation are filed by level because comprehension tracks it
+ * closely: a C1 text is genuinely harder to read than an A2 one. Colloquial
+ * English does not behave that way. Someone who reads C1 academic prose can be
+ * lost in a pub, and someone at A1 who spends their evenings on Discord can be
+ * fluent in exactly this register and nowhere else. Filing it by level would
+ * sort it along an axis it does not vary on, and would tell an A1 learner that
+ * "alright, mate" is above them, which is false.
+ *
+ * So the shelf is subjects, and inside a subject the only label is which of
+ * the two formats a row is. The levels stay in the data — the runners still
+ * use them — they just stop being a thing anyone browses by.
+ */
 
 /**
  * One shelf, not two.
@@ -46,7 +60,6 @@ export default function Slang() {
   const { t, i18n } = useTranslation();
   const ru = i18n.language.startsWith("ru");
   const [topic, setTopic] = useState<SlangTopic | null>(null);
-  const [level, setLevel] = useState<Cefr | null>(null);
   const [open, setOpen] = useState<Dialogue | null>(null);
   const [openLesson, setOpenLesson] = useState<string | null>(null);
   const [lessonResults, setLessonResults] = useState<Record<string, LessonResult>>({});
@@ -93,22 +106,10 @@ export default function Slang() {
     [items, topic],
   );
 
-  const counts = useMemo(() => {
-    const out: Partial<Record<Cefr, number>> = {};
-    for (const item of inTopic) {
-      const key = item.level.split(/[–-]/)[0].trim() as Cefr;
-      out[key] = (out[key] ?? 0) + 1;
-    }
-    return out;
-  }, [inTopic]);
-
-  const shown = useMemo(
-    () =>
-      level
-        ? inTopic.filter((item) => item.level.split(/[–-]/)[0].trim() === level)
-        : inTopic,
-    [inTopic, level],
-  );
+  /* Dialogues before lessons: meeting an expression in use and then taking it
+     apart is the order that works, and the reverse is a vocabulary list with a
+     story attached. */
+  const shown = inTopic;
 
   /* Every hook above this line, every early return below it. Opening a lesson
      returned before two of the memos had run, and React counts hooks — so the
@@ -153,19 +154,6 @@ export default function Slang() {
               <p className="mt-2 flex-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
                 {t("slangModule.itemCount", { count: entry.total })}
               </p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {(["A1", "A2", "B1", "B2", "C1", "C2"] as const)
-                  .filter((lv) => entry.counts[lv])
-                  .map((lv) => (
-                    <span
-                      key={lv}
-                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
-                      style={{ background: "var(--color-surface-2)", color: "var(--color-text-muted)" }}
-                    >
-                      {lv} · {entry.counts[lv]}
-                    </span>
-                  ))}
-              </div>
             </button>
           ))}
         </div>
@@ -176,16 +164,12 @@ export default function Slang() {
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <button
               type="button"
-              onClick={() => {
-                setTopic(null);
-                setLevel(null);
-              }}
+              onClick={() => setTopic(null)}
               className="text-sm font-semibold"
               style={{ color: "var(--color-text-muted)" }}
             >
               ← {t("slangModule.allTopics")}
             </button>
-            <LevelFilter value={level} counts={counts} onChange={setLevel} />
           </div>
 
           {/* A list, not a grid of tiles — titles are what is being scanned. */}
@@ -207,7 +191,11 @@ export default function Slang() {
                     item.kind === "dialogue" ? setOpen(item.dialogue) : setOpenLesson(item.id)
                   }
                 >
-                  <span className="level flex-none">{item.level}</span>
+                  {/* The format, where the other two shelves put the level.
+                      A row still needs an anchor on the left, and this is the
+                      one distinction that changes what happens when you open
+                      it: a dialogue is read through, a lesson is worked. */}
+                  <span className="level flex-none">{t(`slangModule.kind.${item.kind}`)}</span>
 
                   <span className="min-w-0 flex-1">
                     <span className="block text-sm font-semibold">
@@ -228,18 +216,6 @@ export default function Slang() {
                           ? item.lesson.goalRu
                           : item.lesson.goal}
                     </span>
-                  </span>
-
-                  {/* Which of the two this is. The formats teach differently and
-                      a learner should be able to tell before opening one. */}
-                  <span
-                    className="hidden flex-none rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline-flex"
-                    style={{
-                      background: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
-                      color: "var(--color-accent-ink)",
-                    }}
-                  >
-                    {t(`slangModule.kind.${item.kind}`)}
                   </span>
 
                   {done && (

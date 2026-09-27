@@ -990,7 +990,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "Conversations where people talk the way they actually talk — from a greeting outside a pub to the idioms that fill books and newspapers and translate word for word into nothing.",
+    "intro": "How people actually speak to each other — from a greeting outside a pub to the turns of phrase that live in books and refuse to translate word by word. No CEFR level here: colloquial English does not follow grammar, it is learned separately.",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",
@@ -1022,13 +1022,13 @@
     "topics": {
       "natives": "Talking to natives",
       "study": "School and university",
-      "texting": "Texting and calls",
+      "texting": "Texting",
       "idioms": "Idioms",
-      "literary": "Elegant English",
-      "pushback": "Pushing back",
-      "city": "Life in a city",
+      "literary": "Elegant, literary English",
+      "pushback": "Refusing and disagreeing politely",
+      "city": "Everyday life in a city",
       "work": "Work",
-      "feelings": "Feelings"
+      "feelings": "Feelings and emotions"
     },
     "allTopics": "All subjects",
     "itemCount_one": "{{count}} item",
