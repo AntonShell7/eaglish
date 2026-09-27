@@ -6,9 +6,20 @@
    "C1": 2,
    "A2": 3,
    "A1": 1,
-   "C2": 2
+   "C2": 3
   },
-  "total": 8
+  "total": 9
+ },
+ {
+  "id": "environment",
+  "label": "Environment",
+  "counts": {
+   "B2": 1,
+   "A2": 2,
+   "C1": 1,
+   "A1": 3
+  },
+  "total": 7
  },
  {
   "id": "celebrities",
@@ -31,25 +42,14 @@
   "total": 6
  },
  {
-  "id": "environment",
-  "label": "Environment",
-  "counts": {
-   "B2": 1,
-   "A2": 1,
-   "C1": 1,
-   "A1": 3
-  },
-  "total": 6
- },
- {
   "id": "health",
   "label": "Health",
   "counts": {
    "B1": 1,
    "C1": 1,
-   "B2": 1
+   "B2": 2
   },
-  "total": 3
+  "total": 4
  },
  {
   "id": "society",

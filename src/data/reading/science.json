@@ -1298,5 +1298,154 @@
     "explanation": "Stated in the advice at the end."
    }
   ]
+ },
+ {
+  "id": "the-placebo-is-getting-stronger",
+  "level": "C2",
+  "topic": "science",
+  "generated": false,
+  "title": "The Placebo Effect Is Getting Stronger, and Nobody Ordered That",
+  "sentences": [
+   {
+    "text": "A placebo is a treatment with no active ingredient, given so that a trial has something to compare a real drug against.",
+    "translationRu": "Плацебо — лечение без действующего вещества, которое дают, чтобы испытанию было с чем сравнить настоящий препарат."
+   },
+   {
+    "text": "It is supposed to be the flat line at the bottom of the graph.",
+    "translationRu": "Предполагается, что это ровная линия внизу графика."
+   },
+   {
+    "text": "It is not behaving like one.",
+    "translationRu": "Ведёт она себя иначе."
+   },
+   {
+    "text": "Analyses of pain trials conducted over several decades have found that the placebo response has been climbing, and climbing faster in some countries than others.",
+    "translationRu": "Анализы испытаний обезболивающих за несколько десятилетий показали: реакция на плацебо растёт — и в одних странах быстрее, чем в других."
+   },
+   {
+    "text": "The consequence is commercially brutal.",
+    "translationRu": "Коммерчески следствие жестокое."
+   },
+   {
+    "text": "A drug does not have to work less well to fail a trial; it only has to stop beating the sugar pill by a large enough margin, and several compounds that would have been approved thirty years ago now do not clear the bar.",
+    "translationRu": "Препарату не нужно работать хуже, чтобы провалить испытание: достаточно перестать обыгрывать пустышку с нужным отрывом, и ряд соединений, которые тридцать лет назад одобрили бы, планку теперь не берут."
+   },
+   {
+    "text": "The explanations under discussion are unsettling in different ways.",
+    "translationRu": "Обсуждаемые объяснения тревожны каждое по-своему."
+   },
+   {
+    "text": "One is that trials have grown longer, larger and considerably more attentive: participants now receive regular contact with sympathetic staff, careful monitoring and the sustained impression that someone competent is paying attention to them.",
+    "translationRu": "Первое: испытания стали дольше, больше и куда внимательнее — участники регулярно общаются с доброжелательным персоналом, их тщательно наблюдают, и у них держится ощущение, что компетентный человек ими занят."
+   },
+   {
+    "text": "That is not nothing.",
+    "translationRu": "И это не пустяк."
+   },
+   {
+    "text": "It may in fact be a substantial part of what medicine has always delivered, now accidentally isolated and measured.",
+    "translationRu": "Возможно, это и есть существенная доля того, что медицина всегда давала, — теперь случайно выделенная и измеренная."
+   },
+   {
+    "text": "A second explanation concerns expectation, which is the machinery a placebo actually runs on.",
+    "translationRu": "Второе объяснение — про ожидание, механизм, на котором плацебо и работает."
+   },
+   {
+    "text": "Where pharmaceutical advertising is permitted, people arrive at a trial already primed to believe a tablet will help, and the effect appears to be larger in precisely those countries.",
+    "translationRu": "Там, где разрешена реклама лекарств, люди приходят на испытание уже настроенными верить в таблетку, — и эффект оказывается сильнее именно в этих странах."
+   },
+   {
+    "text": "Belief, it turns out, is a dose-dependent variable that nobody is administering deliberately.",
+    "translationRu": "Вера, как выясняется, — переменная с дозозависимостью, которую никто намеренно не вводит."
+   },
+   {
+    "text": "None of this means the drugs are fake or that pain is imagined.",
+    "translationRu": "Ничто из этого не значит, что лекарства — обман, а боль воображаема."
+   },
+   {
+    "text": "Placebo responses are measurable in the body: they involve the release of the brain's own opioids, and they can be blocked by drugs that block those opioids, which is a very inconvenient finding for anybody wanting to file the whole thing under imagination.",
+    "translationRu": "Реакция на плацебо измерима в теле: она связана с выбросом собственных опиоидов мозга и блокируется веществами, которые эти опиоиды блокируют, — крайне неудобный факт для всякого, кто хотел бы списать всё на воображение."
+   },
+   {
+    "text": "The honest summary is that the comparison at the heart of modern medicine turns out to rest on a baseline that moves, that moves for social reasons, and that nobody has worked out how to hold still.",
+    "translationRu": "Честный итог: сравнение, лежащее в основе современной медицины, опирается на базовую линию, которая сдвигается — сдвигается по социальным причинам — и которую никто не научился удерживать на месте."
+   }
+  ],
+  "glossary": {
+   "ingredient": {
+    "translation": "составляющая, ингредиент",
+    "partOfSpeech": "noun"
+   },
+   "trial": {
+    "translation": "испытание, исследование",
+    "partOfSpeech": "noun"
+   },
+   "brutal": {
+    "translation": "жестокий",
+    "partOfSpeech": "adjective"
+   },
+   "margin": {
+    "translation": "отрыв, запас",
+    "partOfSpeech": "noun"
+   },
+   "clear the bar": {
+    "translation": "взять планку",
+    "partOfSpeech": "phrase"
+   },
+   "unsettling": {
+    "translation": "тревожный",
+    "partOfSpeech": "adjective"
+   },
+   "sustained": {
+    "translation": "устойчивый, непрерывный",
+    "partOfSpeech": "adjective"
+   },
+   "primed": {
+    "translation": "настроенный, подготовленный",
+    "partOfSpeech": "adjective"
+   },
+   "baseline": {
+    "translation": "базовая линия, точка отсчёта",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why is a rising placebo response commercially serious?",
+    "options": [
+     "Placebos cost more",
+     "A drug can fail without working less well",
+     "Trials become illegal",
+     "Patients refuse them"
+    ],
+    "answer": 1,
+    "explanation": "It only has to stop beating the sugar pill by a large enough margin."
+   },
+   {
+    "id": "q2",
+    "question": "What does the first explanation point to?",
+    "options": [
+     "Weaker drugs",
+     "Trials now involve sustained attentive contact with staff",
+     "Smaller samples",
+     "Better statistics"
+    ],
+    "answer": 1,
+    "explanation": "Possibly a substantial part of what medicine always delivered, now isolated."
+   },
+   {
+    "id": "q3",
+    "question": "Why is the opioid finding inconvenient?",
+    "options": [
+     "It proves placebos are useless",
+     "It shows the response is measurable in the body, not imagined",
+     "It bans the drugs",
+     "It doubles the cost"
+    ],
+    "answer": 1,
+    "explanation": "Blocking those opioids blocks the placebo response."
+   }
+  ]
  }
 ]

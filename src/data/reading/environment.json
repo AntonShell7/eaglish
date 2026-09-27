@@ -924,5 +924,170 @@
     "explanation": "It lands only to make a nest."
    }
   ]
+ },
+ {
+  "id": "bees-give-directions",
+  "level": "A2",
+  "topic": "environment",
+  "generated": false,
+  "title": "Bees Tell Each Other Where the Flowers Are",
+  "sentences": [
+   {
+    "text": "A bee finds a good field of flowers.",
+    "translationRu": "Пчела находит хорошее поле цветов."
+   },
+   {
+    "text": "It flies home to tell the others.",
+    "translationRu": "Она летит домой рассказать остальным."
+   },
+   {
+    "text": "But bees cannot speak.",
+    "translationRu": "Но пчёлы не умеют говорить."
+   },
+   {
+    "text": "So the bee dances.",
+    "translationRu": "Поэтому пчела танцует."
+   },
+   {
+    "text": "Inside the hive it is dark.",
+    "translationRu": "Внутри улья темно."
+   },
+   {
+    "text": "The other bees cannot see the dance.",
+    "translationRu": "Другие пчёлы танца не видят."
+   },
+   {
+    "text": "They feel it with their bodies.",
+    "translationRu": "Они чувствуют его телом."
+   },
+   {
+    "text": "The dance has a shape like the number eight.",
+    "translationRu": "Танец имеет форму восьмёрки."
+   },
+   {
+    "text": "In the middle the bee walks in a straight line and shakes.",
+    "translationRu": "В середине пчела идёт по прямой и трясётся."
+   },
+   {
+    "text": "That straight line is the direction.",
+    "translationRu": "Эта прямая — направление."
+   },
+   {
+    "text": "But direction from what?",
+    "translationRu": "Но направление от чего?"
+   },
+   {
+    "text": "From the sun.",
+    "translationRu": "От солнца."
+   },
+   {
+    "text": "The angle of the line shows the angle to the sun.",
+    "translationRu": "Угол линии показывает угол к солнцу."
+   },
+   {
+    "text": "And the time?",
+    "translationRu": "А время?"
+   },
+   {
+    "text": "The longer the bee shakes, the further the flowers are.",
+    "translationRu": "Чем дольше пчела трясётся, тем дальше цветы."
+   },
+   {
+    "text": "A short dance means near.",
+    "translationRu": "Короткий танец — близко."
+   },
+   {
+    "text": "A long dance means far.",
+    "translationRu": "Долгий танец — далеко."
+   },
+   {
+    "text": "A scientist called Karl von Frisch understood this and won a Nobel Prize.",
+    "translationRu": "Учёный Карл фон Фриш это понял и получил Нобелевскую премию."
+   },
+   {
+    "text": "For a long time other scientists did not believe him.",
+    "translationRu": "Долгое время другие учёные ему не верили."
+   },
+   {
+    "text": "It sounded too clever for an insect.",
+    "translationRu": "Это казалось слишком умным для насекомого."
+   }
+  ],
+  "glossary": {
+   "hive": {
+    "translation": "улей",
+    "partOfSpeech": "noun"
+   },
+   "dance": {
+    "translation": "танцевать; танец",
+    "partOfSpeech": "verb"
+   },
+   "dark": {
+    "translation": "тёмный",
+    "partOfSpeech": "adjective"
+   },
+   "shape": {
+    "translation": "форма",
+    "partOfSpeech": "noun"
+   },
+   "straight": {
+    "translation": "прямой",
+    "partOfSpeech": "adjective"
+   },
+   "shake": {
+    "translation": "трястись",
+    "partOfSpeech": "verb"
+   },
+   "direction": {
+    "translation": "направление",
+    "partOfSpeech": "noun"
+   },
+   "angle": {
+    "translation": "угол",
+    "partOfSpeech": "noun"
+   },
+   "insect": {
+    "translation": "насекомое",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why does the bee dance?",
+    "options": [
+     "To rest",
+     "To tell others where flowers are",
+     "To get warm",
+     "To find the queen"
+    ],
+    "answer": 1,
+    "explanation": "Bees cannot speak, so the bee dances."
+   },
+   {
+    "id": "q2",
+    "question": "What shows the direction?",
+    "options": [
+     "The speed",
+     "The angle of the straight line, against the sun",
+     "The sound",
+     "The smell"
+    ],
+    "answer": 1,
+    "explanation": "The angle of the line shows the angle to the sun."
+   },
+   {
+    "id": "q3",
+    "question": "What does a long dance mean?",
+    "options": [
+     "The flowers are near",
+     "The flowers are far",
+     "There is danger",
+     "It is late"
+    ],
+    "answer": 1,
+    "explanation": "The longer the shaking, the further the flowers."
+   }
+  ]
  }
 ]

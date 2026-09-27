@@ -449,5 +449,154 @@
     "explanation": "Described as more honest than a birthday."
    }
   ]
+ },
+ {
+  "id": "why-mosquitoes-choose-you",
+  "level": "B2",
+  "topic": "health",
+  "generated": false,
+  "title": "Why Mosquitoes Pick You and Ignore Your Friend",
+  "sentences": [
+   {
+    "text": "Everyone knows somebody who gets bitten twenty times while the person beside them walks away untouched.",
+    "translationRu": "У каждого есть знакомый, которого кусают двадцать раз, пока сосед уходит нетронутым."
+   },
+   {
+    "text": "This is not imagination, and it is not about sweet blood, which is a folk explanation with nothing behind it.",
+    "translationRu": "Это не выдумка — и дело не в «сладкой крови», народном объяснении, за которым ничего нет."
+   },
+   {
+    "text": "A mosquito hunting you is running three systems at once, and they switch on at different distances.",
+    "translationRu": "Комар, идущий на вас, задействует три системы сразу, и включаются они на разных расстояниях."
+   },
+   {
+    "text": "From a long way off, it follows carbon dioxide.",
+    "translationRu": "Издалека он идёт на углекислый газ."
+   },
+   {
+    "text": "Every exhalation leaves a plume, and a mosquito can pick one up from tens of metres.",
+    "translationRu": "Каждый выдох оставляет шлейф, и комар ловит его с десятков метров."
+   },
+   {
+    "text": "Larger people exhale more, which is the unglamorous reason adults are bitten more than children.",
+    "translationRu": "Крупные люди выдыхают больше — вот негламурная причина, по которой взрослых кусают чаще детей."
+   },
+   {
+    "text": "Closer in, it switches to heat and to the chemistry of your skin, and this is where the real differences live.",
+    "translationRu": "Ближе он переключается на тепло и на химию кожи — и вот здесь и живут настоящие различия."
+   },
+   {
+    "text": "Human skin carries a population of bacteria, and those bacteria produce a smell that is as individual as a fingerprint.",
+    "translationRu": "На коже живёт своя популяция бактерий, и они производят запах столь же индивидуальный, как отпечаток пальца."
+   },
+   {
+    "text": "Some combinations are considerably more attractive to mosquitoes than others, and studies have found the preference to be stable: the same people remain popular year after year.",
+    "translationRu": "Одни сочетания привлекают комаров заметно сильнее других, и исследования показывают, что предпочтение устойчиво: одни и те же люди остаются популярными год за годом."
+   },
+   {
+    "text": "Blood group appears to play some part, though the evidence is messier than the internet suggests.",
+    "translationRu": "Группа крови, по-видимому, тоже играет роль, хотя данные тут запутаннее, чем уверяет интернет."
+   },
+   {
+    "text": "Drinking beer has been shown to increase attractiveness to mosquitoes, and nobody has satisfactorily explained why.",
+    "translationRu": "Показано, что пиво повышает привлекательность для комаров, и почему — толком никто не объяснил."
+   },
+   {
+    "text": "At the last metre the mosquito uses vision, which is why dark clothing helps it and why standing still helps you.",
+    "translationRu": "На последнем метре комар пользуется зрением — поэтому тёмная одежда ему в помощь, а вам в помощь неподвижность."
+   },
+   {
+    "text": "Almost none of this can be changed, which is the part people find annoying.",
+    "translationRu": "Почти ничего из этого не изменить — и это людей раздражает больше всего."
+   },
+   {
+    "text": "You cannot meaningfully alter your skin bacteria, and you certainly cannot stop exhaling.",
+    "translationRu": "Кожные бактерии осмысленно не поменяешь, а дышать точно не перестанешь."
+   },
+   {
+    "text": "What works is duller: cover the skin, use a repellent that actually blocks the receptors rather than one that smells pleasant, and remember that mosquitoes are weak fliers.",
+    "translationRu": "Работает скучное: закрыть кожу, использовать средство, которое действительно блокирует рецепторы, а не просто приятно пахнет, и помнить, что комары — слабые летуны."
+   },
+   {
+    "text": "A fan on a terrace is more effective than most of what is sold in bottles.",
+    "translationRu": "Вентилятор на террасе действеннее почти всего, что продают в бутылочках."
+   }
+  ],
+  "glossary": {
+   "bite": {
+    "translation": "кусать",
+    "partOfSpeech": "verb"
+   },
+   "untouched": {
+    "translation": "нетронутый",
+    "partOfSpeech": "adjective"
+   },
+   "folk": {
+    "translation": "народный",
+    "partOfSpeech": "adjective"
+   },
+   "exhalation": {
+    "translation": "выдох",
+    "partOfSpeech": "noun"
+   },
+   "plume": {
+    "translation": "шлейф",
+    "partOfSpeech": "noun"
+   },
+   "unglamorous": {
+    "translation": "негламурный, скучный",
+    "partOfSpeech": "adjective"
+   },
+   "stable": {
+    "translation": "устойчивый",
+    "partOfSpeech": "adjective"
+   },
+   "messy": {
+    "translation": "запутанный",
+    "partOfSpeech": "adjective"
+   },
+   "repellent": {
+    "translation": "средство от насекомых",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does a mosquito follow from far away?",
+    "options": [
+     "Heat",
+     "Carbon dioxide from your breath",
+     "Colour",
+     "Sound"
+    ],
+    "answer": 1,
+    "explanation": "A plume from every exhalation, detectable from tens of metres."
+   },
+   {
+    "id": "q2",
+    "question": "Where do the real individual differences live?",
+    "options": [
+     "In blood sweetness",
+     "In skin bacteria and the smell they produce",
+     "In clothing",
+     "In age alone"
+    ],
+    "answer": 1,
+    "explanation": "As individual as a fingerprint, and stable year after year."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text recommend on a terrace?",
+    "options": [
+     "A scented candle",
+     "A fan",
+     "Loud music",
+     "Bright light"
+    ],
+    "answer": 1,
+    "explanation": "Mosquitoes are weak fliers."
+   }
+  ]
  }
 ]
