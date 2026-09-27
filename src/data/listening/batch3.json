@@ -1,0 +1,778 @@
+[
+ {
+  "id": "what-is-inside-a-pencil",
+  "level": "A1",
+  "topic": "things",
+  "title": "What is inside a pencil",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Look at a pencil.",
+    "translationRu": "Посмотри на карандаш."
+   },
+   {
+    "text": "It is a thin piece of wood.",
+    "translationRu": "Это тонкая деревянная палочка."
+   },
+   {
+    "text": "Inside it there is a grey stick.",
+    "translationRu": "Внутри неё — серый стержень."
+   },
+   {
+    "text": "Most people call this lead.",
+    "translationRu": "Многие называют это грифелем из свинца."
+   },
+   {
+    "text": "But there is no lead in a pencil.",
+    "translationRu": "Но свинца в карандаше нет."
+   },
+   {
+    "text": "There never was.",
+    "translationRu": "И никогда не было."
+   },
+   {
+    "text": "The grey part is graphite.",
+    "translationRu": "Серая часть — это графит."
+   },
+   {
+    "text": "Graphite is a kind of carbon.",
+    "translationRu": "Графит — это разновидность углерода."
+   },
+   {
+    "text": "It comes out of the ground.",
+    "translationRu": "Его добывают из земли."
+   },
+   {
+    "text": "It is soft and it is black.",
+    "translationRu": "Он мягкий и чёрный."
+   },
+   {
+    "text": "Diamonds are carbon too.",
+    "translationRu": "Алмазы — тоже углерод."
+   },
+   {
+    "text": "The same thing, in a different shape.",
+    "translationRu": "То же вещество, только другой формы."
+   },
+   {
+    "text": "One is the hardest thing we know.",
+    "translationRu": "Одно — самое твёрдое, что мы знаем."
+   },
+   {
+    "text": "The other one draws a line.",
+    "translationRu": "Другое просто рисует линию."
+   },
+   {
+    "text": "Graphite is made of flat sheets.",
+    "translationRu": "Графит состоит из плоских слоёв."
+   },
+   {
+    "text": "The sheets slide over each other.",
+    "translationRu": "Слои скользят друг по другу."
+   },
+   {
+    "text": "When you write, some sheets come off.",
+    "translationRu": "Когда ты пишешь, часть слоёв остаётся на бумаге."
+   },
+   {
+    "text": "They stay on the paper.",
+    "translationRu": "Они прилипают к ней."
+   },
+   {
+    "text": "That is your line.",
+    "translationRu": "Это и есть твоя линия."
+   },
+   {
+    "text": "So a pencil does not put ink on paper.",
+    "translationRu": "То есть карандаш не наносит чернила."
+   },
+   {
+    "text": "It leaves small pieces of itself.",
+    "translationRu": "Он оставляет маленькие кусочки себя."
+   },
+   {
+    "text": "The graphite is not pure.",
+    "translationRu": "Графит в карандаше не чистый."
+   },
+   {
+    "text": "It is mixed with clay.",
+    "translationRu": "Его смешивают с глиной."
+   },
+   {
+    "text": "More clay makes a harder pencil.",
+    "translationRu": "Больше глины — твёрже карандаш."
+   },
+   {
+    "text": "A hard pencil draws a light line.",
+    "translationRu": "Твёрдый карандаш даёт светлую линию."
+   },
+   {
+    "text": "Less clay makes a soft pencil.",
+    "translationRu": "Меньше глины — карандаш мягче."
+   },
+   {
+    "text": "A soft pencil draws a dark line.",
+    "translationRu": "Мягкий карандаш даёт тёмную линию."
+   },
+   {
+    "text": "That is what the letters mean.",
+    "translationRu": "Вот что означают буквы на карандаше."
+   },
+   {
+    "text": "H is for hard.",
+    "translationRu": "H — это hard, твёрдый."
+   },
+   {
+    "text": "B is for black.",
+    "translationRu": "B — это black, чёрный."
+   },
+   {
+    "text": "HB is in the middle.",
+    "translationRu": "HB — это середина."
+   },
+   {
+    "text": "Now think about the wood.",
+    "translationRu": "Теперь подумай про дерево."
+   },
+   {
+    "text": "The wood is not there to look nice.",
+    "translationRu": "Дерево нужно не для красоты."
+   },
+   {
+    "text": "Graphite breaks very easily.",
+    "translationRu": "Графит очень легко ломается."
+   },
+   {
+    "text": "Hold a thin stick of it and press.",
+    "translationRu": "Возьми тонкий стержень и нажми."
+   },
+   {
+    "text": "It will break in your hand.",
+    "translationRu": "Он сломается прямо в руке."
+   },
+   {
+    "text": "The wood holds it together.",
+    "translationRu": "Дерево держит его целым."
+   },
+   {
+    "text": "It also keeps your fingers clean.",
+    "translationRu": "И заодно не пачкает пальцы."
+   },
+   {
+    "text": "One pencil can draw a long line.",
+    "translationRu": "Одним карандашом можно провести длинную линию."
+   },
+   {
+    "text": "People say about fifty kilometres.",
+    "translationRu": "Говорят, около пятидесяти километров."
+   },
+   {
+    "text": "Nobody has really tried it.",
+    "translationRu": "По-настоящему никто не проверял."
+   },
+   {
+    "text": "But it can write under water.",
+    "translationRu": "Зато он пишет под водой."
+   },
+   {
+    "text": "It can write in very cold places.",
+    "translationRu": "И в сильный мороз."
+   },
+   {
+    "text": "It can write in space.",
+    "translationRu": "И в космосе."
+   },
+   {
+    "text": "A pen cannot do any of that.",
+    "translationRu": "Ручка так не умеет."
+   },
+   {
+    "text": "So the pencil is still here.",
+    "translationRu": "Поэтому карандаш всё ещё с нами."
+   },
+   {
+    "text": "It has not changed in two hundred years.",
+    "translationRu": "За двести лет он почти не изменился."
+   }
+  ]
+ },
+ {
+  "id": "why-cities-have-squares",
+  "level": "B1",
+  "topic": "cities",
+  "title": "Why cities have squares",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Almost every old city has a square.",
+    "translationRu": "Почти в каждом старом городе есть площадь."
+   },
+   {
+    "text": "An open space with nothing built on it.",
+    "translationRu": "Открытое место, где ничего не построено."
+   },
+   {
+    "text": "In the middle of expensive land.",
+    "translationRu": "Посреди дорогой земли."
+   },
+   {
+    "text": "That is strange when you think about it.",
+    "translationRu": "Если задуматься, это странно."
+   },
+   {
+    "text": "Land in a city centre costs a fortune.",
+    "translationRu": "Земля в центре города стоит целое состояние."
+   },
+   {
+    "text": "Leaving it empty looks like waste.",
+    "translationRu": "Оставить её пустой выглядит расточительством."
+   },
+   {
+    "text": "But squares are older than city planning.",
+    "translationRu": "Но площади старше градостроительства."
+   },
+   {
+    "text": "They were not designed.",
+    "translationRu": "Их никто не проектировал."
+   },
+   {
+    "text": "They were left over.",
+    "translationRu": "Они просто остались."
+   },
+   {
+    "text": "A market needs somewhere to stand.",
+    "translationRu": "Рынку нужно где-то стоять."
+   },
+   {
+    "text": "Carts need somewhere to turn around.",
+    "translationRu": "Телегам нужно где-то развернуться."
+   },
+   {
+    "text": "Animals need somewhere to be counted.",
+    "translationRu": "Скот нужно где-то пересчитать."
+   },
+   {
+    "text": "So the space stayed open by use.",
+    "translationRu": "Так место и осталось открытым — от пользования."
+   },
+   {
+    "text": "Then buildings grew around the edges.",
+    "translationRu": "Потом по краям выросли здания."
+   },
+   {
+    "text": "The church took one side.",
+    "translationRu": "Церковь заняла одну сторону."
+   },
+   {
+    "text": "The town hall took another.",
+    "translationRu": "Ратуша — другую."
+   },
+   {
+    "text": "Merchants built along the rest.",
+    "translationRu": "По остальным сторонам строились купцы."
+   },
+   {
+    "text": "Everything important faced the same hole.",
+    "translationRu": "Всё важное смотрело в одну и ту же пустоту."
+   },
+   {
+    "text": "That is not an accident either.",
+    "translationRu": "И это тоже не случайность."
+   },
+   {
+    "text": "A square is where a city can see itself.",
+    "translationRu": "Площадь — это место, где город видит сам себя."
+   },
+   {
+    "text": "Announcements were made there.",
+    "translationRu": "Там объявляли новости."
+   },
+   {
+    "text": "Punishments happened there.",
+    "translationRu": "Там наказывали."
+   },
+   {
+    "text": "Markets, festivals, executions, elections.",
+    "translationRu": "Рынки, праздники, казни, выборы."
+   },
+   {
+    "text": "All of it in the same rectangle.",
+    "translationRu": "Всё это в одном прямоугольнике."
+   },
+   {
+    "text": "The word forum means exactly this.",
+    "translationRu": "Слово «форум» означает именно это."
+   },
+   {
+    "text": "A place where a crowd becomes a public.",
+    "translationRu": "Место, где толпа становится обществом."
+   },
+   {
+    "text": "Which is why squares are political.",
+    "translationRu": "Поэтому площади политические."
+   },
+   {
+    "text": "A crowd in a street is a queue.",
+    "translationRu": "Толпа на улице — это очередь."
+   },
+   {
+    "text": "A crowd in a square is a statement.",
+    "translationRu": "Толпа на площади — это высказывание."
+   },
+   {
+    "text": "Governments have always known this.",
+    "translationRu": "Власти всегда это знали."
+   },
+   {
+    "text": "Some cities widened their squares.",
+    "translationRu": "Одни города расширяли свои площади."
+   },
+   {
+    "text": "Others narrowed them on purpose.",
+    "translationRu": "Другие нарочно сужали."
+   },
+   {
+    "text": "Some planted trees in the middle.",
+    "translationRu": "Кто-то сажал деревья посередине."
+   },
+   {
+    "text": "Trees look generous.",
+    "translationRu": "Деревья выглядят щедро."
+   },
+   {
+    "text": "They also break up a crowd.",
+    "translationRu": "И заодно разбивают толпу."
+   },
+   {
+    "text": "Modern cities build fewer squares.",
+    "translationRu": "Современные города строят меньше площадей."
+   },
+   {
+    "text": "Land is priced by the square metre now.",
+    "translationRu": "Землю теперь считают по квадратным метрам."
+   },
+   {
+    "text": "An empty metre earns nothing.",
+    "translationRu": "Пустой метр не приносит ничего."
+   },
+   {
+    "text": "So new districts get roads and blocks.",
+    "translationRu": "Поэтому в новых районах дороги и кварталы."
+   },
+   {
+    "text": "And people meet in shopping centres.",
+    "translationRu": "А люди встречаются в торговых центрах."
+   },
+   {
+    "text": "Which are private, and have opening hours.",
+    "translationRu": "Частных и с режимом работы."
+   },
+   {
+    "text": "And where standing still is discouraged.",
+    "translationRu": "И где стоять просто так не приветствуется."
+   },
+   {
+    "text": "That is the quiet difference.",
+    "translationRu": "В этом и вся тихая разница."
+   },
+   {
+    "text": "A square belongs to nobody.",
+    "translationRu": "Площадь не принадлежит никому."
+   },
+   {
+    "text": "A shopping centre belongs to someone.",
+    "translationRu": "Торговый центр принадлежит кому-то."
+   },
+   {
+    "text": "You can sit in a square for an hour.",
+    "translationRu": "На площади можно сидеть час."
+   },
+   {
+    "text": "Nobody will ask why.",
+    "translationRu": "И никто не спросит зачем."
+   }
+  ]
+ },
+ {
+  "id": "bread-in-every-country",
+  "level": "C1",
+  "topic": "food",
+  "title": "Why bread tastes different in every country",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Bread is four things.",
+    "translationRu": "Хлеб — это четыре вещи."
+   },
+   {
+    "text": "Flour, water, salt, and something to raise it.",
+    "translationRu": "Мука, вода, соль и то, что его поднимает."
+   },
+   {
+    "text": "That is the entire list.",
+    "translationRu": "Весь список."
+   },
+   {
+    "text": "And yet bread in one country",
+    "translationRu": "И при этом хлеб в одной стране"
+   },
+   {
+    "text": "is not remotely the bread in another.",
+    "translationRu": "совершенно не похож на хлеб в другой."
+   },
+   {
+    "text": "The differences come from the margins.",
+    "translationRu": "Различия прячутся по краям."
+   },
+   {
+    "text": "Start with the flour.",
+    "translationRu": "Начнём с муки."
+   },
+   {
+    "text": "Wheat varies enormously by climate.",
+    "translationRu": "Пшеница сильно меняется в зависимости от климата."
+   },
+   {
+    "text": "Hot dry summers produce hard wheat.",
+    "translationRu": "Жаркое сухое лето даёт твёрдую пшеницу."
+   },
+   {
+    "text": "Hard wheat carries more protein.",
+    "translationRu": "В твёрдой пшенице больше белка."
+   },
+   {
+    "text": "More protein means more gluten.",
+    "translationRu": "Больше белка — больше клейковины."
+   },
+   {
+    "text": "Gluten is what holds gas in the dough.",
+    "translationRu": "Клейковина удерживает газ в тесте."
+   },
+   {
+    "text": "So that flour rises tall and chewy.",
+    "translationRu": "Поэтому такая мука даёт высокий упругий хлеб."
+   },
+   {
+    "text": "Cool wet climates produce soft wheat.",
+    "translationRu": "Прохладный влажный климат даёт мягкую пшеницу."
+   },
+   {
+    "text": "Less protein, less structure.",
+    "translationRu": "Меньше белка, меньше каркаса."
+   },
+   {
+    "text": "That flour makes a flatter, tenderer loaf.",
+    "translationRu": "Такая мука даёт более плоский и нежный хлеб."
+   },
+   {
+    "text": "Neither is better.",
+    "translationRu": "Ни одна не лучше."
+   },
+   {
+    "text": "Each country learned to bake what grew there.",
+    "translationRu": "Каждая страна научилась печь из того, что росло."
+   },
+   {
+    "text": "Then the water, which nobody thinks about.",
+    "translationRu": "Дальше вода, о которой никто не думает."
+   },
+   {
+    "text": "Hard water is full of minerals.",
+    "translationRu": "Жёсткая вода полна минералов."
+   },
+   {
+    "text": "Minerals tighten gluten.",
+    "translationRu": "Минералы стягивают клейковину."
+   },
+   {
+    "text": "Soft water leaves the dough slack.",
+    "translationRu": "Мягкая делает тесто вялым."
+   },
+   {
+    "text": "Bakers who move cities complain about this.",
+    "translationRu": "Пекари, переезжающие в другой город, на это жалуются."
+   },
+   {
+    "text": "The same recipe stops working.",
+    "translationRu": "Тот же рецепт перестаёт работать."
+   },
+   {
+    "text": "Then time, which matters most.",
+    "translationRu": "И наконец время — оно важнее всего."
+   },
+   {
+    "text": "Yeast makes gas, and gas makes holes.",
+    "translationRu": "Дрожжи дают газ, газ даёт дырки."
+   },
+   {
+    "text": "But yeast also makes acids.",
+    "translationRu": "Но дрожжи дают и кислоты."
+   },
+   {
+    "text": "Acids are where flavour lives.",
+    "translationRu": "В кислотах живёт вкус."
+   },
+   {
+    "text": "Gas arrives in an hour.",
+    "translationRu": "Газ приходит за час."
+   },
+   {
+    "text": "Flavour takes considerably longer.",
+    "translationRu": "Вкус — заметно дольше."
+   },
+   {
+    "text": "Industrial bread is finished in two hours.",
+    "translationRu": "Промышленный хлеб готов за два часа."
+   },
+   {
+    "text": "It has risen and it has almost no taste.",
+    "translationRu": "Он поднялся — и почти не имеет вкуса."
+   },
+   {
+    "text": "Which is why it is sold sliced and soft.",
+    "translationRu": "Поэтому его продают нарезанным и мягким."
+   },
+   {
+    "text": "Those are the only qualities it has.",
+    "translationRu": "Других достоинств у него нет."
+   },
+   {
+    "text": "Sourdough takes a day, sometimes three.",
+    "translationRu": "Хлеб на закваске делают день, иногда три."
+   },
+   {
+    "text": "It uses wild yeast from the air.",
+    "translationRu": "Он берёт дикие дрожжи из воздуха."
+   },
+   {
+    "text": "And bacteria that live alongside it.",
+    "translationRu": "И бактерии, которые живут рядом."
+   },
+   {
+    "text": "Those bacteria differ from place to place.",
+    "translationRu": "Эти бактерии в разных местах разные."
+   },
+   {
+    "text": "So a starter carries a location in it.",
+    "translationRu": "Поэтому закваска несёт в себе место."
+   },
+   {
+    "text": "Bakers talk about this almost mystically.",
+    "translationRu": "Пекари говорят об этом почти мистически."
+   },
+   {
+    "text": "The science is duller and more interesting.",
+    "translationRu": "Наука тут скучнее и любопытнее."
+   },
+   {
+    "text": "It is a small ecosystem you keep alive.",
+    "translationRu": "Это маленькая экосистема, которую ты поддерживаешь живой."
+   },
+   {
+    "text": "And feed, and occasionally kill.",
+    "translationRu": "Кормишь и иногда убиваешь."
+   },
+   {
+    "text": "So four ingredients become a hundred breads.",
+    "translationRu": "Так четыре ингредиента дают сотню хлебов."
+   },
+   {
+    "text": "None of the variation is in the list.",
+    "translationRu": "И ни одно различие не записано в списке."
+   },
+   {
+    "text": "All of it is in the conditions.",
+    "translationRu": "Всё оно — в условиях."
+   }
+  ]
+ },
+ {
+  "id": "the-work-that-disappears",
+  "level": "C2",
+  "topic": "work",
+  "title": "The work that disappears when it is done well",
+  "generated": false,
+  "sentences": [
+   {
+    "text": "Some jobs are visible only when they fail.",
+    "translationRu": "Некоторые работы заметны, только когда они провалены."
+   },
+   {
+    "text": "Nobody notices clean water.",
+    "translationRu": "Никто не замечает чистую воду."
+   },
+   {
+    "text": "Everybody notices dirty water.",
+    "translationRu": "Грязную замечают все."
+   },
+   {
+    "text": "Nobody notices a bridge that holds.",
+    "translationRu": "Никто не замечает мост, который стоит."
+   },
+   {
+    "text": "The whole country notices one that does not.",
+    "translationRu": "Тот, который не стоит, замечает вся страна."
+   },
+   {
+    "text": "This is the structural problem of maintenance.",
+    "translationRu": "В этом структурная беда обслуживания."
+   },
+   {
+    "text": "Its success is indistinguishable from nothing.",
+    "translationRu": "Его успех неотличим от бездействия."
+   },
+   {
+    "text": "The consequences run deeper than gratitude.",
+    "translationRu": "Последствия глубже, чем вопрос благодарности."
+   },
+   {
+    "text": "Budgets are argued for in public.",
+    "translationRu": "Бюджеты защищают публично."
+   },
+   {
+    "text": "A new hospital can be opened.",
+    "translationRu": "Новую больницу можно открыть."
+   },
+   {
+    "text": "Somebody can cut a ribbon in front of it.",
+    "translationRu": "Перед ней можно перерезать ленточку."
+   },
+   {
+    "text": "Repairing the roof of an old one cannot.",
+    "translationRu": "Починку крыши у старой — нельзя."
+   },
+   {
+    "text": "So the new building gets funded.",
+    "translationRu": "Поэтому новое здание получает финансирование."
+   },
+   {
+    "text": "And the old roof waits.",
+    "translationRu": "А старая крыша ждёт."
+   },
+   {
+    "text": "It waits until it becomes an emergency.",
+    "translationRu": "Ждёт, пока не станет аварией."
+   },
+   {
+    "text": "At which point it costs several times more.",
+    "translationRu": "И тогда обходится в несколько раз дороже."
+   },
+   {
+    "text": "This pattern repeats across every institution.",
+    "translationRu": "Эта схема повторяется в любом учреждении."
+   },
+   {
+    "text": "Software has its own version of it.",
+    "translationRu": "У софта своя версия того же."
+   },
+   {
+    "text": "A new feature is demonstrable.",
+    "translationRu": "Новую функцию можно показать."
+   },
+   {
+    "text": "Fixing the thing underneath it is not.",
+    "translationRu": "Починку того, что под ней, показать нельзя."
+   },
+   {
+    "text": "So the underneath accumulates damage.",
+    "translationRu": "Поэтому «под ней» копит повреждения."
+   },
+   {
+    "text": "Until a small change costs three weeks.",
+    "translationRu": "Пока мелкая правка не начинает стоить трёх недель."
+   },
+   {
+    "text": "Engineers have a phrase for the debt.",
+    "translationRu": "У инженеров для этого долга есть название."
+   },
+   {
+    "text": "Managers rarely have a budget line for it.",
+    "translationRu": "У руководителей для него редко есть статья расходов."
+   },
+   {
+    "text": "The people who do this work know the trap.",
+    "translationRu": "Люди, которые этим занимаются, ловушку знают."
+   },
+   {
+    "text": "Do the job perfectly and you look unnecessary.",
+    "translationRu": "Сделай работу идеально — и покажешься лишним."
+   },
+   {
+    "text": "Do it badly and you look incompetent.",
+    "translationRu": "Сделай плохо — покажешься некомпетентным."
+   },
+   {
+    "text": "There is no version where you look good.",
+    "translationRu": "Варианта, в котором ты выглядишь хорошо, нет."
+   },
+   {
+    "text": "The incentive is quietly perverse.",
+    "translationRu": "Стимул тихо вывернут наизнанку."
+   },
+   {
+    "text": "A visible rescue is rewarded.",
+    "translationRu": "Заметное спасение награждают."
+   },
+   {
+    "text": "A crisis that never happened is not.",
+    "translationRu": "Кризис, которого не случилось, — нет."
+   },
+   {
+    "text": "So systems drift towards heroism.",
+    "translationRu": "И системы дрейфуют в сторону героизма."
+   },
+   {
+    "text": "And away from the boring work that prevents it.",
+    "translationRu": "И прочь от скучной работы, которая его предотвращает."
+   },
+   {
+    "text": "Some organisations have tried to fix this.",
+    "translationRu": "Некоторые организации пытались это исправить."
+   },
+   {
+    "text": "The methods are unglamorous and they work.",
+    "translationRu": "Методы неэффектны и работают."
+   },
+   {
+    "text": "Book maintenance as ordinary scheduled time.",
+    "translationRu": "Заносить обслуживание в расписание как обычную работу."
+   },
+   {
+    "text": "Not as something done when there is slack.",
+    "translationRu": "А не как то, что делают, когда есть окно."
+   },
+   {
+    "text": "Measure what did not break.",
+    "translationRu": "Измерять то, что не сломалось."
+   },
+   {
+    "text": "Which is harder than counting repairs.",
+    "translationRu": "Это труднее, чем считать ремонты."
+   },
+   {
+    "text": "And treat a quiet year as a result.",
+    "translationRu": "И считать спокойный год результатом."
+   },
+   {
+    "text": "Rather than as an absence of results.",
+    "translationRu": "А не отсутствием результатов."
+   },
+   {
+    "text": "None of that is a management insight.",
+    "translationRu": "Ничего из этого не управленческое откровение."
+   },
+   {
+    "text": "It is just refusing an obvious illusion.",
+    "translationRu": "Это просто отказ от очевидной иллюзии."
+   },
+   {
+    "text": "The illusion that nothing happening",
+    "translationRu": "От иллюзии, что «ничего не происходит»"
+   },
+   {
+    "text": "means that nothing is being done.",
+    "translationRu": "означает, что ничего и не делается."
+   }
+  ]
+ }
+]
