@@ -1378,5 +1378,206 @@
     "explanation": "Most riders finish lighter anyway."
    }
   ]
+ },
+ {
+  "id": "home-advantage-empty-stadium",
+  "level": "C2",
+  "topic": "sport",
+  "generated": false,
+  "title": "Empty Stadiums Told Us What Home Advantage Actually Is",
+  "sentences": [
+   {
+    "text": "Home teams win more often than away teams, in every league, in every sport, at every level, and they have done so for as long as records exist.",
+    "translationRu": "Хозяева выигрывают чаще гостей — в любой лиге, любом виде спорта, на любом уровне, и так с тех пор, как ведутся записи."
+   },
+   {
+    "text": "In football the effect has historically been worth several percentage points of win probability, which over a season is the difference between competing for a title and not.",
+    "translationRu": "В футболе эффект исторически стоил несколько процентных пунктов вероятности победы, а за сезон это разница между борьбой за титул и её отсутствием."
+   },
+   {
+    "text": "The explanations offered have always been plural and largely untested: familiarity with the pitch, absence of travel, the support of the crowd, territorial instinct, hormonal responses with a plausible evolutionary story attached.",
+    "translationRu": "Объяснений всегда предлагали много, и почти не проверяли: знакомство с полем, отсутствие переезда, поддержка трибун, территориальный инстинкт, гормональные реакции с правдоподобной эволюционной историей."
+   },
+   {
+    "text": "Separating them was impossible, because no competition had ever removed one variable while holding the others fixed.",
+    "translationRu": "Разделить их было невозможно: ни одно соревнование не убирало одну переменную, удерживая остальные."
+   },
+   {
+    "text": "Then, in 2020, football played most of a season in empty stadiums.",
+    "translationRu": "А потом, в 2020 году, футбол отыграл большую часть сезона на пустых стадионах."
+   },
+   {
+    "text": "The pitch was the same, the travel was the same, the dressing rooms were the same.",
+    "translationRu": "Поле было то же, переезды те же, раздевалки те же."
+   },
+   {
+    "text": "Only the crowd was gone, across dozens of leagues, for thousands of matches.",
+    "translationRu": "Исчезла только публика — в десятках лиг, на тысячах матчей."
+   },
+   {
+    "text": "It is the best natural experiment sport has ever been handed, and nobody wanted it.",
+    "translationRu": "Это лучший естественный эксперимент, который спорту когда-либо доставался, и никто его не хотел."
+   },
+   {
+    "text": "Home advantage fell.",
+    "translationRu": "Преимущество своего поля упало."
+   },
+   {
+    "text": "Not to zero, which is itself informative, but measurably: analyses across major European leagues found the home win rate dropping by several points and the points-per-game gap narrowing sharply.",
+    "translationRu": "Не до нуля, что само по себе показательно, но измеримо: анализы по крупным европейским лигам нашли падение доли домашних побед на несколько пунктов и резкое сужение разрыва в очках за игру."
+   },
+   {
+    "text": "The residue that remained is presumably travel and familiarity.",
+    "translationRu": "Остаток, по-видимому, — это переезды и знакомство с полем."
+   },
+   {
+    "text": "What is far more interesting is where the change showed up.",
+    "translationRu": "Гораздо интереснее, где именно проявилось изменение."
+   },
+   {
+    "text": "Player performance metrics barely moved.",
+    "translationRu": "Показатели игроков почти не сдвинулись."
+   },
+   {
+    "text": "Shots, passing accuracy, distance covered: broadly unchanged.",
+    "translationRu": "Удары, точность передач, преодолённая дистанция — в целом без изменений."
+   },
+   {
+    "text": "The variables that moved were the referee's.",
+    "translationRu": "Сдвинулись переменные судьи."
+   },
+   {
+    "text": "Home teams had been receiving fewer yellow cards than away teams for decades, and in empty stadiums that gap narrowed substantially.",
+    "translationRu": "Хозяева десятилетиями получали меньше жёлтых карточек, чем гости, и на пустых стадионах этот разрыв существенно сократился."
+   },
+   {
+    "text": "Added time, which had long been observed to run longer when the home side was behind, became more even.",
+    "translationRu": "Добавленное время, которое давно замечали более длинным, когда хозяева проигрывают, стало ровнее."
+   },
+   {
+    "text": "Marginal fouls went the other way more often.",
+    "translationRu": "Спорные фолы чаще стали свистеть в другую сторону."
+   },
+   {
+    "text": "This does not mean referees were cheating, and the research is emphatic on the point.",
+    "translationRu": "Это не значит, что судьи жульничали, и исследования на этом настаивают."
+   },
+   {
+    "text": "It means that a human being making a split-second judgement under sixty thousand people screaming one interpretation of what just happened is subject to exactly the social pressure that every psychology experiment of the last eighty years would predict, and that the pressure operates below awareness.",
+    "translationRu": "Это значит, что человек, принимающий решение за долю секунды, когда шестьдесят тысяч кричат одну интерпретацию произошедшего, подвержен ровно тому социальному давлению, которое предсказал бы любой психологический эксперимент последних восьмидесяти лет, и что давление работает ниже осознания."
+   },
+   {
+    "text": "The crowd was never intimidating the opposition.",
+    "translationRu": "Публика никогда не запугивала соперника."
+   },
+   {
+    "text": "It was informing the official.",
+    "translationRu": "Она информировала арбитра."
+   },
+   {
+    "text": "Which leaves a genuinely awkward question that the sport has not really wanted to answer.",
+    "translationRu": "И остаётся по-настоящему неудобный вопрос, на который спорт отвечать не рвался."
+   },
+   {
+    "text": "A large part of one of the oldest regularities in competition turns out to have been a measurement error introduced by the audience, and technologies that remove the referee's discretion do not merely change decisions.",
+    "translationRu": "Значительная часть одной из старейших закономерностей в спорте оказалась ошибкой измерения, внесённой зрителями, и технологии, убирающие судейское усмотрение, не просто меняют решения."
+   },
+   {
+    "text": "They quietly delete something people had spent a century calling atmosphere.",
+    "translationRu": "Они тихо стирают то, что сто лет называли атмосферой."
+   }
+  ],
+  "glossary": {
+   "away team": {
+    "translation": "команда гостей",
+    "partOfSpeech": "noun"
+   },
+   "plural": {
+    "translation": "множественный",
+    "partOfSpeech": "adjective"
+   },
+   "pitch": {
+    "translation": "поле",
+    "partOfSpeech": "noun"
+   },
+   "natural experiment": {
+    "translation": "естественный эксперимент",
+    "partOfSpeech": "noun"
+   },
+   "residue": {
+    "translation": "остаток",
+    "partOfSpeech": "noun"
+   },
+   "metric": {
+    "translation": "показатель",
+    "partOfSpeech": "noun"
+   },
+   "added time": {
+    "translation": "добавленное время",
+    "partOfSpeech": "noun"
+   },
+   "marginal": {
+    "translation": "спорный, пограничный",
+    "partOfSpeech": "adjective"
+   },
+   "split-second": {
+    "translation": "мгновенный",
+    "partOfSpeech": "adjective"
+   },
+   "discretion": {
+    "translation": "усмотрение",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "home-advantage-empty-stadium-q1",
+    "question": "Why was 2020 such a good experiment?",
+    "options": [
+     "New rules",
+     "Only the crowd was removed, across thousands of matches",
+     "Teams changed",
+     "Fewer games"
+    ],
+    "answer": 1,
+    "explanation": "Pitch, travel and dressing rooms were unchanged."
+   },
+   {
+    "id": "home-advantage-empty-stadium-q2",
+    "question": "What did player metrics do?",
+    "options": [
+     "Fell sharply",
+     "Barely moved",
+     "Improved",
+     "Became unmeasurable"
+    ],
+    "answer": 1,
+    "explanation": "Shots, passing and distance were broadly unchanged."
+   },
+   {
+    "id": "home-advantage-empty-stadium-q3",
+    "question": "What moved instead?",
+    "options": [
+     "Attendance",
+     "Referee variables: cards, added time, marginal fouls",
+     "Transfer fees",
+     "Kick-off times"
+    ],
+    "answer": 1,
+    "explanation": "The gap in yellow cards narrowed substantially."
+   },
+   {
+    "id": "home-advantage-empty-stadium-q4",
+    "question": "What is the conclusion about the crowd?",
+    "options": [
+     "It intimidated opponents",
+     "It was informing the official, below his awareness",
+     "It had no effect",
+     "It helped home players run further"
+    ],
+    "answer": 1,
+    "explanation": "The research is emphatic that this is not cheating."
+   }
+  ]
  }
 ]

@@ -1427,5 +1427,170 @@
     "explanation": "A gain in realism, a loss for anyone without them."
    }
   ]
+ },
+ {
+  "id": "the-painting-that-was-stolen",
+  "level": "A1",
+  "topic": "culture",
+  "generated": false,
+  "title": "The Mona Lisa Became Famous Because Someone Took It",
+  "sentences": [
+   {
+    "text": "The Mona Lisa is the most famous painting in the world.",
+    "translationRu": "«Мона Лиза» — самая знаменитая картина в мире."
+   },
+   {
+    "text": "It is in the Louvre museum in Paris.",
+    "translationRu": "Она в музее Лувр в Париже."
+   },
+   {
+    "text": "Every day thousands of people stand in front of it with their phones.",
+    "translationRu": "Каждый день тысячи людей стоят перед ней с телефонами."
+   },
+   {
+    "text": "But it was not always like this.",
+    "translationRu": "Но так было не всегда."
+   },
+   {
+    "text": "In 1910 it was only one painting of many.",
+    "translationRu": "В 1910 году это была всего одна картина из многих."
+   },
+   {
+    "text": "People who studied art knew it.",
+    "translationRu": "Её знали те, кто изучал искусство."
+   },
+   {
+    "text": "Normal people did not.",
+    "translationRu": "Обычные люди — нет."
+   },
+   {
+    "text": "Then, in 1911, it disappeared.",
+    "translationRu": "А потом, в 1911-м, она исчезла."
+   },
+   {
+    "text": "A man took it off the wall and walked out with it under his coat.",
+    "translationRu": "Человек снял её со стены и вышел, спрятав под пальто."
+   },
+   {
+    "text": "His name was Vincenzo Peruggia.",
+    "translationRu": "Его звали Винченцо Перуджа."
+   },
+   {
+    "text": "He worked in the museum, so nobody looked at him.",
+    "translationRu": "Он работал в музее, поэтому на него никто не смотрел."
+   },
+   {
+    "text": "The Louvre did not see the painting was gone for more than a day.",
+    "translationRu": "В Лувре больше суток не замечали, что картина пропала."
+   },
+   {
+    "text": "The story was in every newspaper in the world.",
+    "translationRu": "Историю напечатали все газеты мира."
+   },
+   {
+    "text": "People came to the museum to look at the empty wall.",
+    "translationRu": "Люди приходили в музей посмотреть на пустую стену."
+   },
+   {
+    "text": "For two years, nobody knew where the painting was.",
+    "translationRu": "Два года никто не знал, где картина."
+   },
+   {
+    "text": "It was in Peruggia's small flat, in a box.",
+    "translationRu": "Она лежала в маленькой квартире Перуджи, в ящике."
+   },
+   {
+    "text": "He was Italian, and he said the painting must go back to Italy.",
+    "translationRu": "Он был итальянцем и говорил, что картина должна вернуться в Италию."
+   },
+   {
+    "text": "In 1913 he tried to sell it in Florence, and the police took him.",
+    "translationRu": "В 1913 году он попытался продать её во Флоренции, и его взяла полиция."
+   },
+   {
+    "text": "The painting went back to Paris.",
+    "translationRu": "Картина вернулась в Париж."
+   },
+   {
+    "text": "Now everybody knew her face.",
+    "translationRu": "Теперь её лицо знали все."
+   },
+   {
+    "text": "She is famous because for two years she was not there.",
+    "translationRu": "Она знаменита, потому что два года её не было."
+   }
+  ],
+  "glossary": {
+   "painting": {
+    "translation": "картина",
+    "partOfSpeech": "noun"
+   },
+   "museum": {
+    "translation": "музей",
+    "partOfSpeech": "noun"
+   },
+   "disappear": {
+    "translation": "исчезнуть",
+    "partOfSpeech": "verb"
+   },
+   "wall": {
+    "translation": "стена",
+    "partOfSpeech": "noun"
+   },
+   "coat": {
+    "translation": "пальто",
+    "partOfSpeech": "noun"
+   },
+   "empty": {
+    "translation": "пустой",
+    "partOfSpeech": "adjective"
+   },
+   "flat": {
+    "translation": "квартира",
+    "partOfSpeech": "noun"
+   },
+   "police": {
+    "translation": "полиция",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-painting-that-was-stolen-q1",
+    "question": "Who took the painting?",
+    "options": [
+     "A visitor",
+     "A man who worked in the museum",
+     "A police officer",
+     "An artist"
+    ],
+    "answer": 1,
+    "explanation": "Nobody looked at him."
+   },
+   {
+    "id": "the-painting-that-was-stolen-q2",
+    "question": "What did people come to see after the theft?",
+    "options": [
+     "A copy",
+     "The empty wall",
+     "The thief",
+     "Another painting"
+    ],
+    "answer": 1,
+    "explanation": "The story was in every newspaper."
+   },
+   {
+    "id": "the-painting-that-was-stolen-q3",
+    "question": "Why is the painting so famous today, according to the text?",
+    "options": [
+     "It is very old",
+     "Because for two years it was missing",
+     "It is very big",
+     "The artist was famous"
+    ],
+    "answer": 1,
+    "explanation": "The last sentence."
+   }
+  ]
  }
 ]

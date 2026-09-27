@@ -1398,5 +1398,178 @@
     "explanation": "A process generous enough to help is one an attacker can walk through."
    }
   ]
+ },
+ {
+  "id": "why-wifi-is-slow",
+  "level": "B1",
+  "topic": "technology",
+  "generated": false,
+  "title": "Why the Wi-Fi Dies in One Particular Room",
+  "sentences": [
+   {
+    "text": "Almost every home has one room where the internet stops working properly.",
+    "translationRu": "Почти в каждом доме есть комната, где интернет перестаёт нормально работать."
+   },
+   {
+    "text": "It is usually the kitchen, the bathroom or a back bedroom, and the reason is physical rather than technical.",
+    "translationRu": "Обычно это кухня, ванная или дальняя спальня, и причина физическая, а не техническая."
+   },
+   {
+    "text": "Wi-Fi is radio, and radio is absorbed by water.",
+    "translationRu": "Wi-Fi — это радио, а радио поглощается водой."
+   },
+   {
+    "text": "Almost everything that blocks a signal in a house is either wet or metal.",
+    "translationRu": "Почти всё, что глушит сигнал в доме, либо влажное, либо металлическое."
+   },
+   {
+    "text": "A brick wall is damp inside; a fish tank is a solid block of water; a mirror has a metal backing; a fridge is a metal box full of water, and so, for that matter, is a person.",
+    "translationRu": "Кирпичная стена внутри сырая; аквариум — сплошной блок воды; у зеркала металлическая подложка; холодильник — металлический ящик, полный воды, — как, впрочем, и человек."
+   },
+   {
+    "text": "A room that is quiet at midday can be unusable when six people are standing in it.",
+    "translationRu": "Комната, тихая в полдень, может стать непригодной, когда в ней стоят шесть человек."
+   },
+   {
+    "text": "The second half of the problem is that your router is probably broadcasting on two different bands, and they behave in opposite ways.",
+    "translationRu": "Вторая половина проблемы в том, что твой роутер, скорее всего, вещает на двух диапазонах, и ведут они себя противоположно."
+   },
+   {
+    "text": "The 2.4 gigahertz band travels well and passes through walls, but it is narrow and crowded.",
+    "translationRu": "Диапазон 2,4 гигагерца хорошо идёт и проходит сквозь стены, но он узкий и переполненный."
+   },
+   {
+    "text": "Your neighbours are on it, and so are microwave ovens, older cordless phones, baby monitors and a great deal of cheap electronics.",
+    "translationRu": "На нём сидят соседи, микроволновки, старые радиотелефоны, радионяни и уйма дешёвой электроники."
+   },
+   {
+    "text": "A microwave oven in particular works at almost exactly that frequency, because that frequency is good at exciting water molecules, which is the same reason it struggles to cross a wet wall.",
+    "translationRu": "Микроволновка, в частности, работает почти точно на этой частоте: частота хорошо раскачивает молекулы воды — по той же причине сигнал плохо проходит сквозь сырую стену."
+   },
+   {
+    "text": "The 5 gigahertz band is much faster and much emptier, and it is stopped by almost anything solid.",
+    "translationRu": "Диапазон 5 гигагерц намного быстрее и свободнее — и его останавливает почти любое препятствие."
+   },
+   {
+    "text": "It is excellent in the same room and poor two rooms away.",
+    "translationRu": "Он превосходен в той же комнате и плох через две."
+   },
+   {
+    "text": "Most modern routers give both the same network name and let the device choose, and devices choose badly.",
+    "translationRu": "Большинство современных роутеров дают обоим одно имя сети и позволяют устройству выбирать — а устройства выбирают плохо."
+   },
+   {
+    "text": "A phone that connected to the fast band in the living room will cling to it in the garden, at one bar, rather than switch.",
+    "translationRu": "Телефон, подключившийся к быстрому диапазону в гостиной, будет цепляться за него и в саду, на одном делении, вместо того чтобы переключиться."
+   },
+   {
+    "text": "The fixes follow directly and none of them involve paying for a faster connection.",
+    "translationRu": "Исправления следуют напрямую, и ни одно не требует платить за более быстрый тариф."
+   },
+   {
+    "text": "Put the router high, in the open, in the middle of the home rather than in the hallway cupboard where the cable happens to arrive.",
+    "translationRu": "Поставь роутер высоко, открыто, в середине жилья, а не в шкафу в прихожей, куда случайно приходит кабель."
+   },
+   {
+    "text": "Keep it away from the kitchen and the fish tank.",
+    "translationRu": "Держи его подальше от кухни и аквариума."
+   },
+   {
+    "text": "If one room is hopeless, the answer is another access point in that room, not a stronger router, because the weak side of the conversation is the phone, not the box.",
+    "translationRu": "Если комната безнадёжна, ответ — вторая точка доступа в ней, а не более мощный роутер: слабая сторона разговора — телефон, а не коробка."
+   },
+   {
+    "text": "Almost everyone buys the bigger box first.",
+    "translationRu": "Почти все сначала покупают коробку побольше."
+   }
+  ],
+  "glossary": {
+   "absorb": {
+    "translation": "поглощать",
+    "partOfSpeech": "verb"
+   },
+   "damp": {
+    "translation": "сырой",
+    "partOfSpeech": "adjective"
+   },
+   "backing": {
+    "translation": "подложка",
+    "partOfSpeech": "noun"
+   },
+   "router": {
+    "translation": "роутер",
+    "partOfSpeech": "noun"
+   },
+   "band": {
+    "translation": "диапазон",
+    "partOfSpeech": "noun"
+   },
+   "crowded": {
+    "translation": "переполненный",
+    "partOfSpeech": "adjective"
+   },
+   "frequency": {
+    "translation": "частота",
+    "partOfSpeech": "noun"
+   },
+   "cling to": {
+    "translation": "цепляться за",
+    "partOfSpeech": "phrase"
+   },
+   "access point": {
+    "translation": "точка доступа",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-wifi-is-slow-q1",
+    "question": "What blocks Wi-Fi in a house?",
+    "options": [
+     "Wood and glass",
+     "Things that are wet or metal",
+     "Light",
+     "Heat"
+    ],
+    "answer": 1,
+    "explanation": "A person is a metal-free but very wet obstacle too."
+   },
+   {
+    "id": "why-wifi-is-slow-q2",
+    "question": "What is the trade-off between the two bands?",
+    "options": [
+     "Price",
+     "2.4 travels well but is crowded; 5 is fast but stopped by obstacles",
+     "Security",
+     "Age of the router"
+    ],
+    "answer": 1,
+    "explanation": "Excellent in the same room, poor two rooms away."
+   },
+   {
+    "id": "why-wifi-is-slow-q3",
+    "question": "Why does a phone keep a bad connection?",
+    "options": [
+     "It is broken",
+     "It clings to the band it first joined rather than switching",
+     "The router forces it",
+     "To save battery"
+    ],
+    "answer": 1,
+    "explanation": "At one bar, in the garden."
+   },
+   {
+    "id": "why-wifi-is-slow-q4",
+    "question": "What is the right fix for a hopeless room?",
+    "options": [
+     "A stronger router",
+     "Another access point in that room",
+     "A longer cable",
+     "A faster plan"
+    ],
+    "answer": 1,
+    "explanation": "The weak side is the phone, not the box."
+   }
+  ]
  }
 ]

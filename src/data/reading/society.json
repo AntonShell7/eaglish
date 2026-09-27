@@ -1370,5 +1370,186 @@
     "explanation": "The last sentence."
    }
   ]
+ },
+ {
+  "id": "ostrom-and-the-commons",
+  "level": "C1",
+  "topic": "society",
+  "generated": false,
+  "title": "The Famous Tragedy That Field Research Kept Failing to Find",
+  "sentences": [
+   {
+    "text": "In 1968 a short essay set out a problem that has been taught ever since.",
+    "translationRu": "В 1968 году короткое эссе сформулировало задачу, которую с тех пор и преподают."
+   },
+   {
+    "text": "Imagine a pasture open to all.",
+    "translationRu": "Представь пастбище, открытое для всех."
+   },
+   {
+    "text": "Each herder gains the full benefit of adding one more animal, while the cost of the extra grazing is shared by everybody.",
+    "translationRu": "Каждый пастух получает всю выгоду от ещё одного животного, а издержки стравливания делятся на всех."
+   },
+   {
+    "text": "The rational move for every individual is therefore to add animals, and the collective result is a ruined pasture.",
+    "translationRu": "Рациональный ход для каждого — добавлять животных, а коллективный итог — уничтоженное пастбище."
+   },
+   {
+    "text": "The author called it the tragedy of the commons, and the conclusion drawn from it was stark: shared resources must be either privatised or placed under state control, because the people using them cannot restrain themselves.",
+    "translationRu": "Автор назвал это трагедией общин, и вывод делали жёсткий: общие ресурсы надо либо приватизировать, либо отдать под контроль государства, поскольку сами пользователи себя ограничить не могут."
+   },
+   {
+    "text": "The argument is elegant, and a political economist named Elinor Ostrom spent her career noticing that it did not describe the world.",
+    "translationRu": "Аргумент изящен, и политэконом Элинор Остром всю карьеру замечала, что мир он не описывает."
+   },
+   {
+    "text": "She and her collaborators assembled hundreds of field cases: Swiss alpine pastures managed in common since the thirteenth century, Japanese village forests, Spanish irrigation systems running for five hundred years, inshore fisheries in Turkey and Maine.",
+    "translationRu": "Она с коллегами собрала сотни полевых случаев: швейцарские альпийские пастбища в общем управлении с XIII века, японские деревенские леса, испанские оросительные системы, работающие пятьсот лет, прибрежные промыслы в Турции и Мэне."
+   },
+   {
+    "text": "These were commons that had not collapsed, some of them older than the states that theoretically should have been rescuing them.",
+    "translationRu": "Это были общины, которые не рухнули, — часть из них старше государств, которые теоретически должны были их спасать."
+   },
+   {
+    "text": "The interesting work was in identifying what the survivors had in common, and it turned out to be a short list of unglamorous institutional features.",
+    "translationRu": "Интересная работа была в том, чтобы понять, что общего у выживших, и это оказался короткий список неэффектных институциональных черт."
+   },
+   {
+    "text": "Boundaries were clear, so it was known who had a right to the resource and who did not.",
+    "translationRu": "Границы чёткие: известно, у кого есть право на ресурс, а у кого нет."
+   },
+   {
+    "text": "Rules matched local conditions rather than being imported wholesale.",
+    "translationRu": "Правила подогнаны под местные условия, а не импортированы целиком."
+   },
+   {
+    "text": "The people bound by the rules could change them, which is what makes them worth obeying.",
+    "translationRu": "Те, кого правила связывают, могут их менять, — потому им и стоит подчиняться."
+   },
+   {
+    "text": "Monitoring was done by the users themselves, or by people accountable to them, and this matters more than it sounds: a herder watching a neighbour is cheap, continuous and informed in a way an inspector from the capital is not.",
+    "translationRu": "Контроль вели сами пользователи или подотчётные им люди, и это важнее, чем кажется: пастух, наблюдающий за соседом, обходится дёшево, смотрит постоянно и разбирается — в отличие от инспектора из столицы."
+   },
+   {
+    "text": "Punishment was graduated, starting with something small and social rather than with expulsion.",
+    "translationRu": "Наказания градуированы: начинаются с малого и социального, а не с изгнания."
+   },
+   {
+    "text": "And there were cheap local ways to resolve a dispute, because a system where the only remedy is a court is a system where most violations are simply endured.",
+    "translationRu": "И были дешёвые местные способы разрешать споры, потому что система, где единственное средство — суд, — это система, где большинство нарушений просто терпят."
+   },
+   {
+    "text": "Ostrom received the Nobel prize in economics in 2009, the first woman to do so, largely for demonstrating that the theoretical tragedy is a special case rather than a law.",
+    "translationRu": "Остром получила Нобелевскую премию по экономике в 2009 году, первой из женщин, во многом за то, что показала: теоретическая трагедия — частный случай, а не закон."
+   },
+   {
+    "text": "It describes what happens when people who share a resource cannot communicate, cannot make binding agreements and cannot observe each other, which is a fair description of a few situations and a poor description of a village.",
+    "translationRu": "Она описывает, что бывает, когда делящие ресурс не могут общаться, не могут заключать обязывающие соглашения и не видят друг друга, — неплохое описание некоторых ситуаций и плохое описание деревни."
+   },
+   {
+    "text": "The finding cuts both ways, and Ostrom was careful about this.",
+    "translationRu": "Вывод режет в обе стороны, и Остром была здесь аккуратна."
+   },
+   {
+    "text": "Local self-governance works under identifiable conditions, not by virtue of being local, and it scales badly: the conditions on her list are very hard to satisfy for a resource shared by the entire planet, where the users cannot observe each other and no group can exclude anyone.",
+    "translationRu": "Местное самоуправление работает при определяемых условиях, а не в силу самой местности, и плохо масштабируется: условия из её списка крайне трудно выполнить для ресурса, общего для всей планеты, где пользователи не видят друг друга и никто никого не может исключить."
+   },
+   {
+    "text": "Which is, unfortunately, the commons everybody is currently arguing about.",
+    "translationRu": "А это, к сожалению, ровно та община, о которой сейчас все и спорят."
+   }
+  ],
+  "glossary": {
+   "pasture": {
+    "translation": "пастбище",
+    "partOfSpeech": "noun"
+   },
+   "herder": {
+    "translation": "пастух",
+    "partOfSpeech": "noun"
+   },
+   "graze": {
+    "translation": "пасти, стравливать",
+    "partOfSpeech": "verb"
+   },
+   "stark": {
+    "translation": "резкий, суровый",
+    "partOfSpeech": "adjective"
+   },
+   "privatise": {
+    "translation": "приватизировать",
+    "partOfSpeech": "noun"
+   },
+   "restrain": {
+    "translation": "сдерживать",
+    "partOfSpeech": "verb"
+   },
+   "irrigation": {
+    "translation": "орошение",
+    "partOfSpeech": "noun"
+   },
+   "boundary": {
+    "translation": "граница",
+    "partOfSpeech": "noun"
+   },
+   "accountable": {
+    "translation": "подотчётный",
+    "partOfSpeech": "adjective"
+   },
+   "graduated": {
+    "translation": "ступенчатый, градуированный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "ostrom-and-the-commons-q1",
+    "question": "What conclusion was drawn from the 1968 essay?",
+    "options": [
+     "Commons work well",
+     "Shared resources must be privatised or run by the state",
+     "Herders should cooperate",
+     "Pastures should close"
+    ],
+    "answer": 1,
+    "explanation": "Because users cannot restrain themselves."
+   },
+   {
+    "id": "ostrom-and-the-commons-q2",
+    "question": "What did Ostrom's field cases show?",
+    "options": [
+     "Every commons collapsed",
+     "Hundreds of commons had survived for centuries",
+     "Only Swiss cases worked",
+     "States always rescued them"
+    ],
+    "answer": 1,
+    "explanation": "Some older than the states that should have saved them."
+   },
+   {
+    "id": "ostrom-and-the-commons-q3",
+    "question": "Why is user monitoring emphasised?",
+    "options": [
+     "It is legally required",
+     "It is cheap, continuous and informed, unlike a distant inspector",
+     "It is traditional",
+     "It avoids courts"
+    ],
+    "answer": 1,
+    "explanation": "A herder watching a neighbour."
+   },
+   {
+    "id": "ostrom-and-the-commons-q4",
+    "question": "What limit does the text place on the finding?",
+    "options": [
+     "It applies everywhere",
+     "The conditions scale badly to a planet-wide commons",
+     "It only applies to water",
+     "It is unproven"
+    ],
+    "answer": 1,
+    "explanation": "Users cannot observe each other and nobody can be excluded."
+   }
+  ]
  }
 ]
