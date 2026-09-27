@@ -1132,8 +1132,12 @@
     "placeholder": "A word or a phrase, either way",
     "hint": "Type Russian to get English. Type English to get Russian.",
     "failed": "Could not translate that. Try again.",
-    "keep": "Save to vocabulary",
+    "keep": "Save",
     "source": "Translator",
-    "shortcut": "Translator — Cmd+K"
+    "shortcut": "Translator — Cmd+K",
+    "example": "Example",
+    "synonyms": "Synonyms",
+    "saved": "Saved",
+    "another": "Another"
   }
 }
