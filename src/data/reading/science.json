@@ -1,0 +1,328 @@
+[
+ {
+  "id": "why-tattoos-stay",
+  "level": "C1",
+  "topic": "science",
+  "generated": false,
+  "title": "A Tattoo Is a Wound Your Body Never Stops Losing",
+  "sentences": [
+   {
+    "text": "Skin replaces itself constantly.",
+    "translationRu": "Кожа обновляется постоянно."
+   },
+   {
+    "text": "The outer layer you are wearing today will be gone within about a month, shed in flakes too small to notice.",
+    "translationRu": "Наружный слой, который на тебе сегодня, исчезнет примерно за месяц, слущившись чешуйками, которых не заметишь."
+   },
+   {
+    "text": "Given that, a tattoo should fade like a drawing on a hand.",
+    "translationRu": "При таком раскладе татуировка должна была бы сходить, как рисунок на ладони."
+   },
+   {
+    "text": "It does not, and the reason is considerably stranger than the usual explanation about ink going deep.",
+    "translationRu": "Она не сходит, и причина куда любопытнее обычного объяснения про «краска идёт глубоко»."
+   },
+   {
+    "text": "Depth is part of it.",
+    "translationRu": "Глубина — лишь часть дела."
+   },
+   {
+    "text": "The needle deposits pigment below the replacing layer, into the dermis, which is comparatively stable.",
+    "translationRu": "Игла закладывает пигмент ниже обновляющегося слоя, в дерму, которая сравнительно стабильна."
+   },
+   {
+    "text": "But pigment sitting loose in tissue would still be carried away, and this is where the interesting part begins.",
+    "translationRu": "Но пигмент, лежащий в ткани свободно, всё равно унесло бы, — и вот тут начинается интересное."
+   },
+   {
+    "text": "Your immune system does not recognise tattoo ink as ink.",
+    "translationRu": "Иммунная система не опознаёт тату-краску как краску."
+   },
+   {
+    "text": "It recognises a wound full of foreign particles, and it responds as it would to any invasion: cells called macrophages arrive and swallow the intruder.",
+    "translationRu": "Она видит рану, полную инородных частиц, и реагирует как на любое вторжение: приходят клетки-макрофаги и заглатывают чужака."
+   },
+   {
+    "text": "Their usual next step is to carry the debris away and dispose of it.",
+    "translationRu": "Обычно следующий шаг — унести мусор и от него избавиться."
+   },
+   {
+    "text": "With tattoo pigment they largely fail.",
+    "translationRu": "С тату-пигментом это в основном не удаётся."
+   },
+   {
+    "text": "The particles are too large to be digested and too large to be transported out, so the macrophage simply sits there holding them, for as long as it lives.",
+    "translationRu": "Частицы слишком велики, чтобы их переварить, и слишком велики, чтобы вынести, — и макрофаг просто сидит с ними, покуда жив."
+   },
+   {
+    "text": "When it eventually dies, it releases its cargo into the tissue, and a neighbouring macrophage picks the pigment up.",
+    "translationRu": "Когда он в конце концов умирает, то выпускает груз в ткань, а соседний макрофаг подбирает пигмент."
+   },
+   {
+    "text": "This has been observed directly in mice, and it reframes the whole thing.",
+    "translationRu": "Это наблюдали напрямую у мышей, и это переворачивает всю картину."
+   },
+   {
+    "text": "A tattoo is not a stain sitting passively in your skin.",
+    "translationRu": "Татуировка — не пятно, пассивно лежащее в коже."
+   },
+   {
+    "text": "It is an object being continuously handed from one cell to the next, a relay that has been running since the day you got it.",
+    "translationRu": "Это предмет, который непрерывно передают из клетки в клетку, — эстафета, идущая со дня, когда ты её сделал."
+   },
+   {
+    "text": "The blurring of old tattoos is the relay dropping the baton slightly each time.",
+    "translationRu": "Расплывание старых татуировок — это эстафета, чуть роняющая палочку на каждой передаче."
+   },
+   {
+    "text": "It also explains why removal is such hard work.",
+    "translationRu": "Этим же объясняется, почему сведение — такой труд."
+   },
+   {
+    "text": "A laser cannot lift pigment out; it can only shatter the particles into fragments small enough for the macrophages to finally carry away, which is why it takes many sessions and why it hurts.",
+    "translationRu": "Лазер не может вынуть пигмент — он лишь дробит частицы на обломки, достаточно мелкие, чтобы макрофаги наконец их унесли; отсюда и множество сеансов, и боль."
+   },
+   {
+    "text": "You are not erasing a drawing.",
+    "translationRu": "Ты не стираешь рисунок."
+   },
+   {
+    "text": "You are asking your immune system to finish a job it gave up on years ago.",
+    "translationRu": "Ты просишь иммунную систему доделать работу, которую она бросила годы назад."
+   }
+  ],
+  "glossary": {
+   "shed": {
+    "translation": "сбрасывать, слущивать",
+    "partOfSpeech": "verb"
+   },
+   "flake": {
+    "translation": "чешуйка",
+    "partOfSpeech": "noun"
+   },
+   "fade": {
+    "translation": "выцветать, сходить",
+    "partOfSpeech": "verb"
+   },
+   "deposit": {
+    "translation": "закладывать, откладывать",
+    "partOfSpeech": "verb"
+   },
+   "swallow": {
+    "translation": "заглатывать",
+    "partOfSpeech": "verb"
+   },
+   "intruder": {
+    "translation": "чужак, вторгшийся",
+    "partOfSpeech": "noun"
+   },
+   "debris": {
+    "translation": "обломки, мусор",
+    "partOfSpeech": "noun"
+   },
+   "relay": {
+    "translation": "эстафета",
+    "partOfSpeech": "noun"
+   },
+   "shatter": {
+    "translation": "дробить, разбивать вдребезги",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why does depth alone not explain a tattoo staying?",
+    "options": [
+     "Ink is waterproof",
+     "Loose pigment in tissue would still be carried away",
+     "Skin never replaces itself",
+     "The dermis also sheds"
+    ],
+    "answer": 1,
+    "explanation": "The text says depth is only part of it before turning to the immune system."
+   },
+   {
+    "id": "q2",
+    "question": "What do macrophages do with tattoo pigment?",
+    "options": [
+     "Digest it quickly",
+     "Hold it, then pass it to a neighbour when they die",
+     "Push it to the surface",
+     "Turn it into skin"
+    ],
+    "answer": 1,
+    "explanation": "The relay is handed on from cell to cell."
+   },
+   {
+    "id": "q3",
+    "question": "What does a removal laser actually do?",
+    "options": [
+     "Lifts the pigment out",
+     "Shatters particles small enough for macrophages to remove",
+     "Bleaches the skin",
+     "Burns the dermis away"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly in the closing section."
+   }
+  ]
+ },
+ {
+  "id": "why-we-yawn",
+  "level": "A2",
+  "topic": "science",
+  "generated": false,
+  "title": "Why Reading This Will Make You Yawn",
+  "sentences": [
+   {
+    "text": "You will probably yawn before the end of this text.",
+    "translationRu": "Ты, скорее всего, зевнёшь ещё до конца этого текста."
+   },
+   {
+    "text": "Not because it is boring.",
+    "translationRu": "Не потому что скучно."
+   },
+   {
+    "text": "Because yawning is catching.",
+    "translationRu": "А потому что зевота заразна."
+   },
+   {
+    "text": "If you see someone yawn, you often yawn too.",
+    "translationRu": "Увидишь, как кто-то зевает, — и сам зеваешь."
+   },
+   {
+    "text": "If you hear it, the same thing happens.",
+    "translationRu": "Услышишь — то же самое."
+   },
+   {
+    "text": "Even reading the word can be enough.",
+    "translationRu": "Даже прочитать это слово бывает достаточно."
+   },
+   {
+    "text": "Scientists are still arguing about why we yawn at all.",
+    "translationRu": "Учёные до сих пор спорят, зачем мы вообще зеваем."
+   },
+   {
+    "text": "For a long time people said it brings more oxygen to the body.",
+    "translationRu": "Долго считалось, что так в тело попадает больше кислорода."
+   },
+   {
+    "text": "Tests did not support this, so the idea is mostly gone now.",
+    "translationRu": "Проверки этого не подтвердили, и идея почти ушла."
+   },
+   {
+    "text": "A newer idea is that a yawn cools the brain a little.",
+    "translationRu": "Более новая мысль — что зевок немного охлаждает мозг."
+   },
+   {
+    "text": "A warm brain works badly, and a big breath of cooler air may help.",
+    "translationRu": "Тёплый мозг работает плохо, а большой вдох прохладного воздуха может помочь."
+   },
+   {
+    "text": "But the catching part is the strangest thing.",
+    "translationRu": "Но самое странное — именно заразность."
+   },
+   {
+    "text": "Babies do not catch yawns.",
+    "translationRu": "Младенцы зевоту не подхватывают."
+   },
+   {
+    "text": "Children start doing it at about four or five years old.",
+    "translationRu": "Дети начинают лет в четыре-пять."
+   },
+   {
+    "text": "That is the same age when they start understanding what other people feel.",
+    "translationRu": "Это тот же возраст, когда они начинают понимать чувства других."
+   },
+   {
+    "text": "So some scientists think catching a yawn is a small sign of that ability.",
+    "translationRu": "Поэтому часть учёных считает заразную зевоту маленьким признаком этой способности."
+   },
+   {
+    "text": "Dogs catch yawns from humans they live with.",
+    "translationRu": "Собаки подхватывают зевоту у людей, с которыми живут."
+   },
+   {
+    "text": "They do it more with their owner than with a stranger.",
+    "translationRu": "У хозяина — чаще, чем у постороннего."
+   },
+   {
+    "text": "Did you yawn yet?",
+    "translationRu": "Ну что, зевнул уже?"
+   }
+  ],
+  "glossary": {
+   "yawn": {
+    "translation": "зевать; зевок",
+    "partOfSpeech": "verb"
+   },
+   "catching": {
+    "translation": "заразный",
+    "partOfSpeech": "adjective"
+   },
+   "oxygen": {
+    "translation": "кислород",
+    "partOfSpeech": "noun"
+   },
+   "support": {
+    "translation": "подтверждать",
+    "partOfSpeech": "verb"
+   },
+   "cool": {
+    "translation": "охлаждать",
+    "partOfSpeech": "verb"
+   },
+   "breath": {
+    "translation": "вдох, дыхание",
+    "partOfSpeech": "noun"
+   },
+   "owner": {
+    "translation": "хозяин",
+    "partOfSpeech": "noun"
+   },
+   "stranger": {
+    "translation": "посторонний, незнакомец",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why might you yawn while reading?",
+    "options": [
+     "The text is boring",
+     "Yawning is catching, even from words",
+     "You need oxygen",
+     "The room is cold"
+    ],
+    "answer": 1,
+    "explanation": "The text says even reading the word can be enough."
+   },
+   {
+    "id": "q2",
+    "question": "What happened to the oxygen explanation?",
+    "options": [
+     "It was proved",
+     "Tests did not support it",
+     "Nobody tested it",
+     "It is new"
+    ],
+    "answer": 1,
+    "explanation": "So the idea is mostly gone now."
+   },
+   {
+    "id": "q3",
+    "question": "At what age do children start catching yawns?",
+    "options": [
+     "At birth",
+     "About four or five",
+     "About ten",
+     "Never"
+    ],
+    "answer": 1,
+    "explanation": "The same age they start understanding what others feel."
+   }
+  ]
+ }
+]

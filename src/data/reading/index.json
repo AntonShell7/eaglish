@@ -4,9 +4,9 @@
   "label": "Celebrities",
   "counts": {
    "B1": 2,
-   "B2": 2
+   "B2": 3
   },
-  "total": 4
+  "total": 5
  },
  {
   "id": "culture",
@@ -34,7 +34,17 @@
   "label": "Health",
   "counts": {
    "B1": 1,
-   "C1": 1
+   "C1": 1,
+   "B2": 1
+  },
+  "total": 3
+ },
+ {
+  "id": "science",
+  "label": "Science",
+  "counts": {
+   "C1": 1,
+   "A2": 1
   },
   "total": 2
  },
@@ -58,6 +68,14 @@
  {
   "id": "sport",
   "label": "Sport",
+  "counts": {
+   "B1": 1
+  },
+  "total": 1
+ },
+ {
+  "id": "technology",
+  "label": "Technology",
   "counts": {
    "B1": 1
   },

@@ -1,0 +1,167 @@
+[
+ {
+  "id": "designed-to-be-hard-to-close",
+  "level": "B1",
+  "topic": "technology",
+  "generated": false,
+  "title": "Your Feed Was Designed by People Who Studied Slot Machines",
+  "sentences": [
+   {
+    "text": "Open any social app and scroll for a minute.",
+    "translationRu": "Открой любое приложение и полистай минуту."
+   },
+   {
+    "text": "Now try to describe what you saw.",
+    "translationRu": "А теперь попробуй описать, что ты видел."
+   },
+   {
+    "text": "Most people cannot, and that is not an accident.",
+    "translationRu": "Большинство не может — и это не случайность."
+   },
+   {
+    "text": "The people who design feeds borrowed a mechanism from gambling, and they have never really hidden it.",
+    "translationRu": "Те, кто проектирует ленты, позаимствовали механизм из азартных игр и, в общем, этого не скрывали."
+   },
+   {
+    "text": "A slot machine does not pay out every time, and it does not pay out never.",
+    "translationRu": "Игровой автомат не выдаёт выигрыш каждый раз — и не выдаёт никогда."
+   },
+   {
+    "text": "It pays out unpredictably, and this turns out to be the single most powerful way to make an animal repeat an action.",
+    "translationRu": "Он выдаёт непредсказуемо, и это оказывается самым мощным способом заставить животное повторять действие."
+   },
+   {
+    "text": "Psychologists found this in the 1950s with pigeons and levers, long before anyone had a phone.",
+    "translationRu": "Психологи обнаружили это в 1950-х на голубях и рычагах, задолго до всяких телефонов."
+   },
+   {
+    "text": "A predictable reward makes you bored.",
+    "translationRu": "Предсказуемая награда вызывает скуку."
+   },
+   {
+    "text": "An unpredictable one makes you press again.",
+    "translationRu": "Непредсказуемая заставляет нажать снова."
+   },
+   {
+    "text": "Your feed works exactly this way.",
+    "translationRu": "Твоя лента работает ровно так же."
+   },
+   {
+    "text": "Most posts are forgettable, some are fine, and every so often something genuinely good appears.",
+    "translationRu": "Большинство постов забываются, часть нормальна, и время от времени попадается что-то правда хорошее."
+   },
+   {
+    "text": "You cannot tell which scroll will produce it, so you keep scrolling.",
+    "translationRu": "Ты не знаешь, какой именно свайп его принесёт, — и продолжаешь."
+   },
+   {
+    "text": "The pull-to-refresh gesture is a slot machine lever, and that comparison was made by the engineer who invented it.",
+    "translationRu": "Жест «потяни, чтобы обновить» — это рычаг автомата, и сравнение это привёл инженер, который его придумал."
+   },
+   {
+    "text": "None of this means you are weak.",
+    "translationRu": "Из этого не следует, что ты слабый."
+   },
+   {
+    "text": "It means a few thousand very clever people were paid a great deal of money to make something difficult to put down, and they succeeded.",
+    "translationRu": "Это значит, что несколько тысяч очень умных людей получили большие деньги за то, чтобы сделать вещь, которую трудно отложить, — и справились."
+   },
+   {
+    "text": "Knowing the mechanism helps less than people hope, because it was never aimed at your reasoning.",
+    "translationRu": "Знание механизма помогает меньше, чем надеются: он никогда и не целился в твой разум."
+   },
+   {
+    "text": "What does help is boring and practical.",
+    "translationRu": "Помогает скучное и практичное."
+   },
+   {
+    "text": "Turn off the notifications that create the itch in the first place.",
+    "translationRu": "Выключи уведомления, которые и создают зуд."
+   },
+   {
+    "text": "Take the app off the home screen so opening it requires a decision rather than a reflex.",
+    "translationRu": "Убери приложение с главного экрана, чтобы открытие требовало решения, а не рефлекса."
+   },
+   {
+    "text": "Decide before you open it what you came for, because the feed will happily choose for you.",
+    "translationRu": "Решай до того, как открыл, зачем ты пришёл, — иначе лента с удовольствием решит за тебя."
+   }
+  ],
+  "glossary": {
+   "feed": {
+    "translation": "лента",
+    "partOfSpeech": "noun"
+   },
+   "gambling": {
+    "translation": "азартные игры",
+    "partOfSpeech": "noun"
+   },
+   "pay out": {
+    "translation": "выдавать выигрыш",
+    "partOfSpeech": "phrase"
+   },
+   "unpredictably": {
+    "translation": "непредсказуемо",
+    "partOfSpeech": "adverb"
+   },
+   "lever": {
+    "translation": "рычаг",
+    "partOfSpeech": "noun"
+   },
+   "forgettable": {
+    "translation": "незапоминающийся",
+    "partOfSpeech": "adjective"
+   },
+   "put down": {
+    "translation": "отложить, выпустить из рук",
+    "partOfSpeech": "phrase"
+   },
+   "itch": {
+    "translation": "зуд",
+    "partOfSpeech": "noun"
+   },
+   "reflex": {
+    "translation": "рефлекс",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What makes an unpredictable reward powerful?",
+    "options": [
+     "It is bigger",
+     "It makes you repeat the action",
+     "It is cheaper",
+     "It arrives faster"
+    ],
+    "answer": 1,
+    "explanation": "A predictable reward bores you; an unpredictable one makes you press again."
+   },
+   {
+    "id": "q2",
+    "question": "Where was this effect first found?",
+    "options": [
+     "In social apps",
+     "With pigeons and levers in the 1950s",
+     "In casinos in 2010",
+     "In schools"
+    ],
+    "answer": 1,
+    "explanation": "Long before anyone had a phone."
+   },
+   {
+    "id": "q3",
+    "question": "Why does knowing the mechanism help less than people hope?",
+    "options": [
+     "It is too complicated",
+     "It was never aimed at your reasoning",
+     "It is a secret",
+     "It changes weekly"
+    ],
+    "answer": 1,
+    "explanation": "Stated directly before the practical advice."
+   }
+  ]
+ }
+]

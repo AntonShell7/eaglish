@@ -137,7 +137,7 @@
       "health": "Здоровье и тело",
       "environment": "Экология",
       "society": "Общество",
-      "celebrities": "Известные люди"
+      "celebrities": "Celebrities"
     },
     "knownShare": "знакомо {{percent}}%",
     "fit": {

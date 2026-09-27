@@ -280,5 +280,174 @@
     "explanation": "The text states this explicitly before drawing the closing thought."
    }
   ]
+ },
+ {
+  "id": "why-you-cannot-sleep-early",
+  "level": "B2",
+  "topic": "health",
+  "generated": false,
+  "title": "Your Body Clock Is Not Lazy, It Has Moved",
+  "sentences": [
+   {
+    "text": "If you are somewhere between fifteen and twenty-five, you have almost certainly been told you should go to bed earlier.",
+    "translationRu": "Если тебе где-то между пятнадцатью и двадцатью пятью, тебе почти наверняка говорили, что надо ложиться раньше."
+   },
+   {
+    "text": "You have probably also noticed that you cannot.",
+    "translationRu": "И ты, вероятно, замечал, что не можешь."
+   },
+   {
+    "text": "Lying in the dark at eleven, wide awake, is not a failure of willpower.",
+    "translationRu": "Лежать в темноте в одиннадцать с абсолютно ясной головой — не провал силы воли."
+   },
+   {
+    "text": "It is chemistry, and it is on a schedule that is not yours to set.",
+    "translationRu": "Это химия, и расписание у неё не твоё."
+   },
+   {
+    "text": "Every human body runs an internal clock, roughly twenty-four hours long, which decides when a hormone called melatonin is released.",
+    "translationRu": "У каждого человека внутри идут часы примерно на двадцать четыре часа, и они решают, когда выделяется гормон мелатонин."
+   },
+   {
+    "text": "Melatonin is the signal for sleep, not the cause of it: it does not knock you out, it tells the body that night has begun.",
+    "translationRu": "Мелатонин — сигнал ко сну, а не его причина: он не вырубает тебя, он сообщает телу, что началась ночь."
+   },
+   {
+    "text": "In adolescence that release shifts later, typically by one to three hours, and it stays shifted for years.",
+    "translationRu": "В подростковом возрасте этот выброс сдвигается позже, обычно на один-три часа, и остаётся сдвинутым годами."
+   },
+   {
+    "text": "The effect is well documented across countries and cultures, which rules out the obvious explanation that teenagers are simply on their phones.",
+    "translationRu": "Эффект хорошо задокументирован в разных странах и культурах — что снимает очевидное объяснение, будто подростки просто сидят в телефоне."
+   },
+   {
+    "text": "Phones make it worse.",
+    "translationRu": "Телефоны делают хуже."
+   },
+   {
+    "text": "They did not cause it.",
+    "translationRu": "Но не они причина."
+   },
+   {
+    "text": "The shift starts to reverse somewhere in the mid-twenties, which is roughly when people begin saying things like I used to be able to stay up all night.",
+    "translationRu": "Сдвиг начинает откатываться где-то к середине двадцатых — примерно тогда люди и начинают говорить «я раньше мог не спать всю ночь»."
+   },
+   {
+    "text": "Researchers have used the timing of this reversal as a rough biological marker of the end of adolescence, which is a considerably more honest definition than a birthday.",
+    "translationRu": "Исследователи используют момент этого отката как грубый биологический признак конца подросткового возраста — определение куда более честное, чем день рождения."
+   },
+   {
+    "text": "Here is the part that stings.",
+    "translationRu": "А вот часть, которая царапает."
+   },
+   {
+    "text": "School and university timetables were built for the reversed clock, not the shifted one, and they have never been adjusted.",
+    "translationRu": "Школьные и университетские расписания построены под откатившиеся часы, а не под сдвинутые, и их так и не поправили."
+   },
+   {
+    "text": "A sixteen-year-old sitting an exam at nine in the morning is doing it at the biological equivalent of six.",
+    "translationRu": "Шестнадцатилетний, сдающий экзамен в девять утра, делает это в биологическом эквиваленте шести."
+   },
+   {
+    "text": "Where schools have pushed start times back by an hour, attendance and grades have generally improved, and the studies are not especially controversial.",
+    "translationRu": "Там, где школы сдвигали начало на час позже, посещаемость и оценки в целом росли, и исследования эти не особенно спорны."
+   },
+   {
+    "text": "Almost nobody does it, because timetables are entangled with bus routes, parents' working hours and a century of habit.",
+    "translationRu": "Почти никто так не делает: расписания сцеплены с автобусами, рабочим днём родителей и столетней привычкой."
+   },
+   {
+    "text": "None of this means you can do whatever you like.",
+    "translationRu": "Из этого не следует, что можно делать что вздумается."
+   },
+   {
+    "text": "The clock is shifted, not abolished, and it still responds to light.",
+    "translationRu": "Часы сдвинуты, а не отменены, и на свет они по-прежнему реагируют."
+   },
+   {
+    "text": "Bright daylight in the morning pulls it earlier; bright screens at midnight push it later.",
+    "translationRu": "Яркий дневной свет утром тянет их раньше, яркие экраны в полночь — позже."
+   },
+   {
+    "text": "But it is worth knowing that the thing you have been scolded for is largely a fact about your species, not a flaw in your character.",
+    "translationRu": "Но стоит знать: то, за что тебя отчитывают, по большей части факт о твоём виде, а не изъян характера."
+   }
+  ],
+  "glossary": {
+   "willpower": {
+    "translation": "сила воли",
+    "partOfSpeech": "noun"
+   },
+   "release": {
+    "translation": "выброс, выделение",
+    "partOfSpeech": "noun"
+   },
+   "knock out": {
+    "translation": "вырубить",
+    "partOfSpeech": "phrase"
+   },
+   "adolescence": {
+    "translation": "подростковый возраст",
+    "partOfSpeech": "noun"
+   },
+   "rule out": {
+    "translation": "исключить (объяснение)",
+    "partOfSpeech": "phrase"
+   },
+   "reverse": {
+    "translation": "откатываться, поворачивать вспять",
+    "partOfSpeech": "verb"
+   },
+   "sting": {
+    "translation": "царапать, задевать",
+    "partOfSpeech": "verb"
+   },
+   "entangled": {
+    "translation": "сцепленный, запутанный",
+    "partOfSpeech": "adjective"
+   },
+   "scold": {
+    "translation": "отчитывать, ругать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does melatonin actually do?",
+    "options": [
+     "It makes you fall asleep instantly",
+     "It signals that night has begun",
+     "It wakes you up",
+     "It replaces caffeine"
+    ],
+    "answer": 1,
+    "explanation": "The text calls it a signal for sleep, not the cause of it."
+   },
+   {
+    "id": "q2",
+    "question": "Why does the text rule out phones as the cause?",
+    "options": [
+     "Phones are new",
+     "The shift is documented across countries and cultures",
+     "Teenagers do not use phones",
+     "Melatonin ignores light"
+    ],
+    "answer": 1,
+    "explanation": "Phones make it worse but did not cause it."
+   },
+   {
+    "id": "q3",
+    "question": "What have researchers used the reversal as?",
+    "options": [
+     "A test for illness",
+     "A rough biological marker of the end of adolescence",
+     "A way to measure intelligence",
+     "A school entry requirement"
+    ],
+    "answer": 1,
+    "explanation": "Described as more honest than a birthday."
+   }
+  ]
  }
 ]

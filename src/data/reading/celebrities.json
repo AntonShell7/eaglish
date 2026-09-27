@@ -634,5 +634,162 @@
     "explanation": "Both took leverage and used it."
    }
   ]
+ },
+ {
+  "id": "the-climber-without-fear",
+  "level": "B2",
+  "topic": "celebrities",
+  "generated": false,
+  "title": "The Climber Whose Brain Refused to Panic",
+  "sentences": [
+   {
+    "text": "In 2017 an American climber called Alex Honnold climbed a nine-hundred-metre rock face in Yosemite with no rope of any kind.",
+    "translationRu": "В 2017 году американский скалолаз Алекс Хоннольд поднялся по девятисотметровой стене в Йосемити вообще без верёвки."
+   },
+   {
+    "text": "One slip at any point above the first few metres would have been fatal.",
+    "translationRu": "Один срыв на любой высоте выше первых метров означал бы смерть."
+   },
+   {
+    "text": "It took him just under four hours, and he has described parts of it as enjoyable.",
+    "translationRu": "Это заняло у него чуть меньше четырёх часов, и часть пути он называл приятной."
+   },
+   {
+    "text": "That last detail is what sent scientists looking.",
+    "translationRu": "Именно последняя деталь и отправила учёных искать."
+   },
+   {
+    "text": "Researchers put him in a brain scanner and showed him images that reliably frighten people.",
+    "translationRu": "Исследователи поместили его в томограф и показали изображения, которые надёжно пугают людей."
+   },
+   {
+    "text": "They were watching the amygdala, a small structure that fires when a threat appears and is, in most of us, extremely easy to provoke.",
+    "translationRu": "Они следили за миндалевидным телом — маленькой структурой, которая срабатывает при угрозе и у большинства из нас заводится с полуоборота."
+   },
+   {
+    "text": "In Honnold's brain it barely responded.",
+    "translationRu": "У Хоннольда она почти не откликнулась."
+   },
+   {
+    "text": "The finding was widely reported as proof that he feels no fear, which is not what it showed and not what he says.",
+    "translationRu": "Это подали как доказательство, что он не чувствует страха, — но показано было не это, и говорит он не это."
+   },
+   {
+    "text": "His own account is less magical and rather more useful.",
+    "translationRu": "Его собственная версия менее волшебна и куда полезнее."
+   },
+   {
+    "text": "He describes years of deliberately enlarging the zone in which he is comfortable, climbing the same route roped dozens of times until every movement is known rather than judged.",
+    "translationRu": "Он описывает годы намеренного расширения зоны, в которой ему спокойно: один и тот же маршрут с верёвкой десятки раз, пока каждое движение не становится известным, а не оцениваемым."
+   },
+   {
+    "text": "By the time he removed the rope, he was not being brave.",
+    "translationRu": "К моменту, когда он снял верёвку, он не был храбрым."
+   },
+   {
+    "text": "He was performing a sequence he had already performed, alone, under conditions he had spent two years removing surprises from.",
+    "translationRu": "Он исполнял последовательность, которую уже исполнял, в одиночку, в условиях, из которых два года убирал неожиданности."
+   },
+   {
+    "text": "Whether the quiet amygdala came first or was shaped by the practice is, honestly, unresolved.",
+    "translationRu": "Что было первым — тихая миндалина или её перестроила практика — честно говоря, не решено."
+   },
+   {
+    "text": "Brains change with what you repeatedly do to them.",
+    "translationRu": "Мозг меняется от того, что с ним регулярно делают."
+   },
+   {
+    "text": "It is also possible he started unusual and found the one activity that rewarded it.",
+    "translationRu": "Возможно и то, что он изначально был необычен и нашёл то единственное занятие, где это вознаграждается."
+   },
+   {
+    "text": "What is not in dispute is the boring middle of the story.",
+    "translationRu": "Не оспаривается только скучная середина истории."
+   },
+   {
+    "text": "Several thousand hours of preparation stand behind four hours of film, and nobody watches the preparation.",
+    "translationRu": "За четырьмя часами фильма стоят тысячи часов подготовки, и на подготовку никто не смотрит."
+   },
+   {
+    "text": "That is true of rather more careers than climbing.",
+    "translationRu": "И это верно куда для большего числа занятий, чем скалолазание."
+   }
+  ],
+  "glossary": {
+   "slip": {
+    "translation": "срыв, соскальзывание",
+    "partOfSpeech": "noun"
+   },
+   "fatal": {
+    "translation": "смертельный",
+    "partOfSpeech": "adjective"
+   },
+   "scanner": {
+    "translation": "томограф, сканер",
+    "partOfSpeech": "noun"
+   },
+   "fire": {
+    "translation": "срабатывать (о нейронах)",
+    "partOfSpeech": "verb"
+   },
+   "provoke": {
+    "translation": "провоцировать, заводить",
+    "partOfSpeech": "verb"
+   },
+   "deliberately": {
+    "translation": "намеренно",
+    "partOfSpeech": "adverb"
+   },
+   "roped": {
+    "translation": "со страховкой, на верёвке",
+    "partOfSpeech": "adjective"
+   },
+   "unresolved": {
+    "translation": "нерешённый",
+    "partOfSpeech": "adjective"
+   },
+   "in dispute": {
+    "translation": "оспариваемый",
+    "partOfSpeech": "phrase"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What did the brain scan show?",
+    "options": [
+     "He has no amygdala",
+     "His amygdala barely responded to frightening images",
+     "He panics easily",
+     "Nothing measurable"
+    ],
+    "answer": 1,
+    "explanation": "The text corrects the popular reading of this finding."
+   },
+   {
+    "id": "q2",
+    "question": "How does Honnold explain it himself?",
+    "options": [
+     "He was born fearless",
+     "Years of removing surprises by climbing the route roped",
+     "Luck",
+     "Special equipment"
+    ],
+    "answer": 1,
+    "explanation": "Every movement known rather than judged."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text say is not in dispute?",
+    "options": [
+     "The cause of his calm",
+     "The thousands of hours of preparation behind four hours of film",
+     "That fear is useless",
+     "That anyone could do it"
+    ],
+    "answer": 1,
+    "explanation": "Called the boring middle of the story."
+   }
+  ]
  }
 ]
