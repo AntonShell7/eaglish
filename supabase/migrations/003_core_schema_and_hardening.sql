@@ -147,3 +147,8 @@ where p.id is null;
 -- storage. One column fixes that, and it rides along with the activity row
 -- that is already pushed every day.
 alter table public.daily_activity add column if not exists minutes integer not null default 0;
+
+-- Total minutes answer "how long", never "on what". One json column carries
+-- the split without five more columns needing a migration every time a
+-- section is added or renamed.
+alter table public.daily_activity add column if not exists minutes_by_section jsonb;

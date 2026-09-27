@@ -1043,7 +1043,6 @@
     "textOpens": "Text opens",
     "signups": "Sign-ups by day",
     "people": "People",
-    "popular": "Most-read texts",
     "money": "Money",
     "noBilling": "There is no payment system yet, so there is nothing truthful to show. Subscriptions and trials arrive with billing.",
     "noData": "No data yet",
@@ -1060,6 +1059,25 @@
       "denied": "Wrong passcode, or this account has no access.",
       "offline": "The server did not answer. Try again.",
       "unconfigured": "No backend configured."
-    }
+    },
+    "tab": {
+      "overview": "Overview",
+      "people": "People",
+      "texts": "Texts"
+    },
+    "whereTime": "Where time goes",
+    "searchPeople": "Search by email",
+    "pin": "Pin",
+    "backToPeople": "Back to the list",
+    "since": "since",
+    "recentDays": "Recent days",
+    "theirWords": "Words saved",
+    "theirTexts": "Texts read",
+    "textsTitle": "Texts",
+    "textsSub": "{{shown}} of {{total}} texts in the library have been opened.",
+    "colText": "Text",
+    "colOpens": "Opens",
+    "colReaders": "Readers",
+    "quizLine": "Correct answers across everyone: {{correct}} of {{total}}."
   }
 }

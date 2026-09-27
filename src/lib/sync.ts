@@ -164,6 +164,18 @@ function minutesOn(date: string): number {
   return Math.round(seconds / 60);
 }
 
+/** The same day split by section, so "how long" can also answer "on what". */
+function minutesBySectionOn(date: string): Record<string, number> | null {
+  const entry = getTimeLog()[date];
+  if (!entry) return null;
+  const out: Record<string, number> = {};
+  for (const [section, seconds] of Object.entries(entry)) {
+    const minutes = Math.round((seconds ?? 0) / 60);
+    if (minutes > 0) out[section] = minutes;
+  }
+  return Object.keys(out).length > 0 ? out : null;
+}
+
 export function pushActivityDay(day: DayActivity) {
   const db = client();
   if (!db) return;
@@ -184,6 +196,7 @@ export function pushActivityDay(day: DayActivity) {
         // already pushed daily, so they travel with it rather than needing a
         // second table and a second write.
         minutes: minutesOn(day.date),
+        minutes_by_section: minutesBySectionOn(day.date),
       },
       { onConflict: "user_id,day" },
     )

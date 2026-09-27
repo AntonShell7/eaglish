@@ -224,3 +224,118 @@
   background: var(--color-surface-2);
   color: var(--color-text-muted);
 }
+
+/* ── Tabs ─────────────────────────────────────────────────────────────── */
+
+/* Three rooms instead of one scroll. The first version stacked every figure
+   in a single feed, which turned finding anything into remembering how far
+   down it lived. */
+.adm__tabs {
+  display: flex;
+  gap: 4px;
+  margin: 22px 0 6px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.adm__tab {
+  position: relative;
+  padding: 10px 14px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition: color var(--dur-2) var(--ease);
+}
+
+.adm__tab:hover {
+  color: var(--color-text-muted);
+}
+
+.adm__tab.is-on {
+  color: var(--color-text);
+}
+
+.adm__tab.is-on::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-primary);
+}
+
+/* Two columns where the screen allows, so related panels sit side by side
+   rather than one under the other down a long page. */
+.adm__cols {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 860px) {
+  .adm__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.adm__search {
+  max-width: 320px;
+  margin-bottom: 14px;
+}
+
+/* ── Pinning ──────────────────────────────────────────────────────────── */
+
+.adm__pinCell {
+  width: 34px;
+  padding-right: 0 !important;
+}
+
+.adm__pin {
+  border: 0;
+  background: none;
+  padding: 2px;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--color-border-strong);
+  cursor: pointer;
+  transition: color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease);
+}
+
+.adm__pin:hover {
+  transform: scale(1.2);
+  color: var(--color-text-muted);
+}
+
+.adm__pin.is-on {
+  color: var(--color-accent);
+}
+
+.adm__table tr.is-pinned td {
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+}
+
+.adm__link {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.adm__link:hover {
+  text-decoration: underline;
+}
+
+.adm__personName {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
