@@ -1,115 +1,248 @@
 [
-  {
-    "id": "old-songs-find-new-fans",
-    "level": "B1-B2",
-    "topic": "culture",
-    "generated": true,
-    "title": "Old Songs Find New Fans",
-    "sentences": [
-      {
-        "text": "Some old songs suddenly appear on streaming playlists again.",
-        "translationRu": "Некоторые старые песни вдруг появляются в потоковых плейлистах снова."
-      },
-      {
-        "text": "This happens because younger listeners often discover them through movies or TV shows.",
-        "translationRu": "Это происходит потому, что молодые слушатели часто находят их через фильмы или телешоу."
-      },
-      {
-        "text": "When a track is used in a popular scene, it instantly becomes a talking point.",
-        "translationRu": "Когда трек используется в популярной сцене, он сразу же становится темой обсуждения."
-      },
-      {
-        "text": "People then start sharing the clip on social media, and the algorithm picks it up.",
-        "translationRu": "Люди начинают делиться клипом в соцсетях, и алгоритм подхватывает его."
-      },
-      {
-        "text": "The repeated plays push the song higher on the charts, even if it was released decades ago.",
-        "translationRu": "Повторные прослушивания поднимают песню в чартах, даже если она вышла десятилетия назад."
-      },
-      {
-        "text": "Artists also benefit, because the renewed interest can lead to new concert tickets selling out.",
-        "translationRu": "Исполнители тоже выигрывают, потому что возросший интерес может привести к распродаже билетов на новые концерты."
-      },
-      {
-        "text": "Moreover, the nostalgic feeling makes older listeners want to reminisce, while newcomers enjoy the fresh vibe.",
-        "translationRu": "Кроме того, ностальгическое чувство заставляет старых слушателей вспоминать прошлое, а новички наслаждаются свежей атмосферой."
-      },
-      {
-        "text": "Record labels sometimes re‑release the track with a modern remix, which adds another reason to stream it.",
-        "translationRu": "Рекорд-лейблы иногда переиздают трек с современным ремиксом, что дает еще одну причину его прослушать."
-      },
-      {
-        "text": "All these factors combine to give a forgotten tune a second life.",
-        "translationRu": "Все эти факторы вместе дают забытой мелодии вторую жизнь."
-      },
-      {
-        "text": "In the end, music proves that a good melody can cross generations without losing its charm.",
-        "translationRu": "В конечном итоге музыка доказывает, что хорошая мелодия может преодолеть поколения, не теряя своего очарования."
-      }
+ {
+  "id": "old-songs-find-new-fans",
+  "level": "B1-B2",
+  "topic": "culture",
+  "generated": true,
+  "title": "Old Songs Find New Fans",
+  "sentences": [
+   {
+    "text": "Some old songs suddenly appear on streaming playlists again.",
+    "translationRu": "Некоторые старые песни вдруг появляются в потоковых плейлистах снова."
+   },
+   {
+    "text": "This happens because younger listeners often discover them through movies or TV shows.",
+    "translationRu": "Это происходит потому, что молодые слушатели часто находят их через фильмы или телешоу."
+   },
+   {
+    "text": "When a track is used in a popular scene, it instantly becomes a talking point.",
+    "translationRu": "Когда трек используется в популярной сцене, он сразу же становится темой обсуждения."
+   },
+   {
+    "text": "People then start sharing the clip on social media, and the algorithm picks it up.",
+    "translationRu": "Люди начинают делиться клипом в соцсетях, и алгоритм подхватывает его."
+   },
+   {
+    "text": "The repeated plays push the song higher on the charts, even if it was released decades ago.",
+    "translationRu": "Повторные прослушивания поднимают песню в чартах, даже если она вышла десятилетия назад."
+   },
+   {
+    "text": "Artists also benefit, because the renewed interest can lead to new concert tickets selling out.",
+    "translationRu": "Исполнители тоже выигрывают, потому что возросший интерес может привести к распродаже билетов на новые концерты."
+   },
+   {
+    "text": "Moreover, the nostalgic feeling makes older listeners want to reminisce, while newcomers enjoy the fresh vibe.",
+    "translationRu": "Кроме того, ностальгическое чувство заставляет старых слушателей вспоминать прошлое, а новички наслаждаются свежей атмосферой."
+   },
+   {
+    "text": "Record labels sometimes re‑release the track with a modern remix, which adds another reason to stream it.",
+    "translationRu": "Рекорд-лейблы иногда переиздают трек с современным ремиксом, что дает еще одну причину его прослушать."
+   },
+   {
+    "text": "All these factors combine to give a forgotten tune a second life.",
+    "translationRu": "Все эти факторы вместе дают забытой мелодии вторую жизнь."
+   },
+   {
+    "text": "In the end, music proves that a good melody can cross generations without losing its charm.",
+    "translationRu": "В конечном итоге музыка доказывает, что хорошая мелодия может преодолеть поколения, не теряя своего очарования."
+   }
+  ],
+  "glossary": {
+   "algorithm": {
+    "translation": "алгоритм",
+    "partOfSpeech": "noun"
+   },
+   "remix": {
+    "translation": "ремикс",
+    "partOfSpeech": "noun"
+   },
+   "nostalgic": {
+    "translation": "ностальгический",
+    "partOfSpeech": "adjective"
+   },
+   "re‑release": {
+    "translation": "переиздать",
+    "partOfSpeech": "verb"
+   },
+   "chart": {
+    "translation": "чарт",
+    "partOfSpeech": "noun"
+   },
+   "streaming": {
+    "translation": "стриминг",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why do old songs become popular again according to the text?",
+    "options": [
+     "Because they are cheaper to license",
+     "Because they are used in popular movies or TV shows",
+     "Because older people demand them",
+     "Because streaming services remove newer songs"
     ],
-    "glossary": {
-      "algorithm": {
-        "translation": "алгоритм",
-        "partOfSpeech": "noun"
-      },
-      "remix": {
-        "translation": "ремикс",
-        "partOfSpeech": "noun"
-      },
-      "nostalgic": {
-        "translation": "ностальгический",
-        "partOfSpeech": "adjective"
-      },
-      "re‑release": {
-        "translation": "переиздать",
-        "partOfSpeech": "verb"
-      },
-      "chart": {
-        "translation": "чарт",
-        "partOfSpeech": "noun"
-      },
-      "streaming": {
-        "translation": "стриминг",
-        "partOfSpeech": "noun"
-      }
-    },
-    "questions": [
-      {
-        "id": "q1",
-        "question": "Why do old songs become popular again according to the text?",
-        "options": [
-          "Because they are cheaper to license",
-          "Because they are used in popular movies or TV shows",
-          "Because older people demand them",
-          "Because streaming services remove newer songs"
-        ],
-        "answer": 1,
-        "explanation": "The text says younger listeners discover old songs through movies or TV shows, which triggers their comeback."
-      },
-      {
-        "id": "q2",
-        "question": "What do record labels sometimes do to help a song's revival?",
-        "options": [
-          "They re‑release the track with a modern remix",
-          "They ban the song from playlists",
-          "They stop promoting it on social media",
-          "They force the artist to retire"
-        ],
-        "answer": 0,
-        "explanation": "The passage states that record labels may re‑release a track with a modern remix, giving another reason to stream it."
-      },
-      {
-        "id": "q3",
-        "question": "According to the text, what does the nostalgic feeling cause?",
-        "options": [
-          "It encourages people to travel",
-          "It leads to buying concert tickets",
-          "It makes listeners want to reminisce",
-          "It causes people to forget the song"
-        ],
-        "answer": 2,
-        "explanation": "The text explains that the nostalgic feeling makes older listeners want to reminisce while newcomers enjoy the fresh vibe."
-      }
-    ]
-  }
+    "answer": 1,
+    "explanation": "The text says younger listeners discover old songs through movies or TV shows, which triggers their comeback."
+   },
+   {
+    "id": "q2",
+    "question": "What do record labels sometimes do to help a song's revival?",
+    "options": [
+     "They re‑release the track with a modern remix",
+     "They ban the song from playlists",
+     "They stop promoting it on social media",
+     "They force the artist to retire"
+    ],
+    "answer": 0,
+    "explanation": "The passage states that record labels may re‑release a track with a modern remix, giving another reason to stream it."
+   },
+   {
+    "id": "q3",
+    "question": "According to the text, what does the nostalgic feeling cause?",
+    "options": [
+     "It encourages people to travel",
+     "It leads to buying concert tickets",
+     "It makes listeners want to reminisce",
+     "It causes people to forget the song"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that the nostalgic feeling makes older listeners want to reminisce while newcomers enjoy the fresh vibe."
+   }
+  ]
+ },
+ {
+  "id": "duende",
+  "level": "C1",
+  "topic": "culture",
+  "generated": false,
+  "title": "Duende",
+  "sentences": [
+   {
+    "text": "Spanish has a word for something other languages can only gesture at.",
+    "translationRu": "В испанском есть слово для того, на что другие языки могут лишь указать жестом."
+   },
+   {
+    "text": "Duende is not talent, and it is emphatically not charm.",
+    "translationRu": "Дуэнде — это не талант и уж точно не обаяние."
+   },
+   {
+    "text": "It is the quality a performance acquires when the performer stops trying to be admired.",
+    "translationRu": "Это свойство, которое появляется у выступления, когда исполнитель перестаёт добиваться восхищения."
+   },
+   {
+    "text": "A flamenco singer with duende often sounds, to an untrained ear, as though something has gone wrong.",
+    "translationRu": "Певец фламенко с дуэнде неподготовленному уху часто кажется сорвавшимся."
+   },
+   {
+    "text": "The voice cracks, the tempo lurches, the face contorts.",
+    "translationRu": "Голос ломается, темп проваливается, лицо искажается."
+   },
+   {
+    "text": "Audiences who understand do not applaud politely at such moments; they shout.",
+    "translationRu": "Понимающая публика в такие моменты не хлопает вежливо — она кричит."
+   },
+   {
+    "text": "The idea is usually traced to the poet Federico Garcia Lorca, who argued that duende arrives only where death is somewhere in the room.",
+    "translationRu": "Идею обычно возводят к поэту Федерико Гарсиа Лорке, который утверждал, что дуэнде приходит лишь туда, где рядом присутствует смерть."
+   },
+   {
+    "text": "He meant it less literally than it sounds: the risk of failing publicly, of being seen without defences.",
+    "translationRu": "Он имел в виду не буквальную смерть, а риск провалиться на людях, оказаться увиденным без защиты."
+   },
+   {
+    "text": "A technically flawless performance almost never has it, because flawlessness requires control, and duende requires its surrender.",
+    "translationRu": "У технически безупречного выступления его почти никогда нет: безупречность требует контроля, а дуэнде — отказа от него."
+   },
+   {
+    "text": "This is an uncomfortable idea in a culture that measures art in competitions.",
+    "translationRu": "Для культуры, которая меряет искусство конкурсами, это неудобная мысль."
+   },
+   {
+    "text": "It suggests the best thing an artist can do is stop protecting themselves.",
+    "translationRu": "Она предполагает, что лучшее, что может сделать художник, — перестать себя оберегать."
+   },
+   {
+    "text": "Most never manage it, and the ones who do cannot summon it on request.",
+    "translationRu": "Большинству это не удаётся, а тем, кому удаётся, не удаётся вызвать это по заказу."
+   },
+   {
+    "text": "You cannot rehearse being undefended.",
+    "translationRu": "Нельзя отрепетировать беззащитность."
+   }
+  ],
+  "glossary": {
+   "gesture at": {
+    "translation": "обозначить намёком",
+    "partOfSpeech": "phrase"
+   },
+   "emphatically": {
+    "translation": "решительно, категорически",
+    "partOfSpeech": "adverb"
+   },
+   "lurch": {
+    "translation": "дёрнуться, провалиться (о ритме)",
+    "partOfSpeech": "verb"
+   },
+   "contort": {
+    "translation": "искажаться, кривиться",
+    "partOfSpeech": "verb"
+   },
+   "flawless": {
+    "translation": "безупречный",
+    "partOfSpeech": "adjective"
+   },
+   "surrender": {
+    "translation": "отказ, сдача",
+    "partOfSpeech": "noun"
+   },
+   "summon": {
+    "translation": "вызвать, призвать",
+    "partOfSpeech": "verb"
+   },
+   "undefended": {
+    "translation": "беззащитный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does the text say duende is not?",
+    "options": [
+     "A kind of music",
+     "Talent or charm",
+     "A Spanish city",
+     "A dance step"
+    ],
+    "answer": 1,
+    "explanation": "The opening states it is not talent and emphatically not charm."
+   },
+   {
+    "id": "q2",
+    "question": "Why does a flawless performance rarely have it?",
+    "options": [
+     "It is too quiet",
+     "Flawlessness needs control; duende needs control surrendered",
+     "Judges dislike perfection",
+     "It is rehearsed"
+    ],
+    "answer": 1,
+    "explanation": "The text sets control and its surrender against each other directly."
+   },
+   {
+    "id": "q3",
+    "question": "How was the presence of death meant?",
+    "options": [
+     "Literally",
+     "As the risk of failing publicly and being seen undefended",
+     "As old age",
+     "As the end of a show"
+    ],
+    "answer": 1,
+    "explanation": "The text says it was meant less literally than it sounds."
+   }
+  ]
+ }
 ]

@@ -39,7 +39,11 @@ function curatedFor(topicId: string): ReadingText[] {
 }
 
 /** Topic cards, with the curated texts counted in. */
-export const readingTopics: ReadingTopic[] = (topicIndex as ReadingTopic[]).map((topic) => {
+/* Through `unknown`: the index now mixes band labels with exact levels, so
+   TypeScript infers a union of literal shapes from the JSON that no longer
+   lines up with `Record<string, number>` — which is what `counts` has always
+   been and still is. */
+export const readingTopics: ReadingTopic[] = (topicIndex as unknown as ReadingTopic[]).map((topic) => {
   const extra = curatedFor(topic.id);
   const counts = { ...topic.counts };
   for (const text of extra) counts[text.level] = (counts[text.level] ?? 0) + 1;

@@ -1,107 +1,240 @@
 [
-  {
-    "id": "weekly-swim-training",
-    "level": "A1-A2",
-    "topic": "sport",
-    "generated": true,
-    "title": "Weekly Swim Training",
-    "sentences": [
-      {
-        "text": "A swimmer goes to the pool every morning.",
-        "translationRu": "Пловец каждый утро ходит в бассейн."
-      },
-      {
-        "text": "He swims for thirty minutes and then rests.",
-        "translationRu": "Он плавает тридцать минут, а затем отдыхает."
-      },
-      {
-        "text": "On Tuesday he practices his breathing technique.",
-        "translationRu": "Во вторник он отрабатывает технику дыхания."
-      },
-      {
-        "text": "He does ten laps of freestyle.",
-        "translationRu": "Он делает десять кругов вольным стилем."
-      },
-      {
-        "text": "After the session he showers and eats a snack.",
-        "translationRu": "После тренировки он принимает душ и съедает перекус."
-      },
-      {
-        "text": "Wednesday is a rest day and he walks in the park.",
-        "translationRu": "Среда — день отдыха, и он гуляет в парке."
-      },
-      {
-        "text": "He watches videos about swimming and copies the tips.",
-        "translationRu": "Он смотрит видео о плавании и копирует советы."
-      },
-      {
-        "text": "At the end of the week he feels stronger and ready for the next race.",
-        "translationRu": "В конце недели он чувствует себя сильнее и готов к следующему соревнованию."
-      }
+ {
+  "id": "weekly-swim-training",
+  "level": "A1-A2",
+  "topic": "sport",
+  "generated": true,
+  "title": "Weekly Swim Training",
+  "sentences": [
+   {
+    "text": "A swimmer goes to the pool every morning.",
+    "translationRu": "Пловец каждый утро ходит в бассейн."
+   },
+   {
+    "text": "He swims for thirty minutes and then rests.",
+    "translationRu": "Он плавает тридцать минут, а затем отдыхает."
+   },
+   {
+    "text": "On Tuesday he practices his breathing technique.",
+    "translationRu": "Во вторник он отрабатывает технику дыхания."
+   },
+   {
+    "text": "He does ten laps of freestyle.",
+    "translationRu": "Он делает десять кругов вольным стилем."
+   },
+   {
+    "text": "After the session he showers and eats a snack.",
+    "translationRu": "После тренировки он принимает душ и съедает перекус."
+   },
+   {
+    "text": "Wednesday is a rest day and he walks in the park.",
+    "translationRu": "Среда — день отдыха, и он гуляет в парке."
+   },
+   {
+    "text": "He watches videos about swimming and copies the tips.",
+    "translationRu": "Он смотрит видео о плавании и копирует советы."
+   },
+   {
+    "text": "At the end of the week he feels stronger and ready for the next race.",
+    "translationRu": "В конце недели он чувствует себя сильнее и готов к следующему соревнованию."
+   }
+  ],
+  "glossary": {
+   "swimmer": {
+    "translation": "пловец",
+    "partOfSpeech": "noun"
+   },
+   "breathing": {
+    "translation": "дыхание",
+    "partOfSpeech": "noun"
+   },
+   "freestyle": {
+    "translation": "вольный стиль",
+    "partOfSpeech": "noun"
+   },
+   "session": {
+    "translation": "тренировка",
+    "partOfSpeech": "noun"
+   },
+   "practice": {
+    "translation": "отработка",
+    "partOfSpeech": "noun"
+   },
+   "race": {
+    "translation": "соревнование",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Which day does the swimmer rest?",
+    "options": [
+     "Monday",
+     "Tuesday",
+     "Wednesday",
+     "Thursday"
     ],
-    "glossary": {
-      "swimmer": {
-        "translation": "пловец",
-        "partOfSpeech": "noun"
-      },
-      "breathing": {
-        "translation": "дыхание",
-        "partOfSpeech": "noun"
-      },
-      "freestyle": {
-        "translation": "вольный стиль",
-        "partOfSpeech": "noun"
-      },
-      "session": {
-        "translation": "тренировка",
-        "partOfSpeech": "noun"
-      },
-      "practice": {
-        "translation": "отработка",
-        "partOfSpeech": "noun"
-      },
-      "race": {
-        "translation": "соревнование",
-        "partOfSpeech": "noun"
-      }
-    },
-    "questions": [
-      {
-        "id": "q1",
-        "question": "Which day does the swimmer rest?",
-        "options": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday"
-        ],
-        "answer": 2,
-        "explanation": "The text says Wednesday is a rest day."
-      },
-      {
-        "id": "q2",
-        "question": "How many laps does he do in a session?",
-        "options": [
-          "five",
-          "ten",
-          "fifteen",
-          "twenty"
-        ],
-        "answer": 1,
-        "explanation": "The sentence states he does ten laps of freestyle."
-      },
-      {
-        "id": "q3",
-        "question": "What does he feel at the end of the week?",
-        "options": [
-          "stronger",
-          "tired",
-          "hungry",
-          "sad"
-        ],
-        "answer": 0,
-        "explanation": "The last sentence says he feels stronger."
-      }
-    ]
-  }
+    "answer": 2,
+    "explanation": "The text says Wednesday is a rest day."
+   },
+   {
+    "id": "q2",
+    "question": "How many laps does he do in a session?",
+    "options": [
+     "five",
+     "ten",
+     "fifteen",
+     "twenty"
+    ],
+    "answer": 1,
+    "explanation": "The sentence states he does ten laps of freestyle."
+   },
+   {
+    "id": "q3",
+    "question": "What does he feel at the end of the week?",
+    "options": [
+     "stronger",
+     "tired",
+     "hungry",
+     "sad"
+    ],
+    "answer": 0,
+    "explanation": "The last sentence says he feels stronger."
+   }
+  ]
+ },
+ {
+  "id": "the-loneliest-position",
+  "level": "B1",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Loneliest Position",
+  "sentences": [
+   {
+    "text": "Every outfield player can hide behind a bad afternoon.",
+    "translationRu": "Любой полевой игрок может спрятаться за неудачным днём."
+   },
+   {
+    "text": "A midfielder misplaces twenty passes and nobody counts them.",
+    "translationRu": "Полузащитник отдаёт двадцать неточных передач, и никто их не считает."
+   },
+   {
+    "text": "The goalkeeper gets one mistake, and it is replayed until the end of the season.",
+    "translationRu": "Вратарю достаётся одна ошибка — и её крутят в повторах до конца сезона."
+   },
+   {
+    "text": "This is why the position attracts a particular kind of person: calm to the point of being unnerving.",
+    "translationRu": "Поэтому позиция притягивает людей особого склада — спокойных до оторопи."
+   },
+   {
+    "text": "For eighty minutes a keeper may do nothing at all.",
+    "translationRu": "Восемьдесят минут вратарь может не делать ровным счётом ничего."
+   },
+   {
+    "text": "He stamps his feet, shouts at a defence that ignores him, and watches the game unfold at the far end.",
+    "translationRu": "Он топчется на месте, кричит на защиту, которая его не слышит, и смотрит, как игра идёт на другом конце поля."
+   },
+   {
+    "text": "Then, without warning, everything he trained for arrives in half a second.",
+    "translationRu": "А потом, без предупреждения, всё, ради чего он тренировался, обрушивается за полсекунды."
+   },
+   {
+    "text": "Great keepers talk about reading the game rather than reacting to it.",
+    "translationRu": "Хорошие вратари говорят, что читают игру, а не реагируют на неё."
+   },
+   {
+    "text": "They watch a striker's hips, not the ball, because hips cannot lie about where a shot is going.",
+    "translationRu": "Они смотрят не на мяч, а на бёдра нападающего: бёдра не соврут о направлении удара."
+   },
+   {
+    "text": "By the time the ball is struck, the decision has already been made.",
+    "translationRu": "К моменту удара решение уже принято."
+   },
+   {
+    "text": "The hardest part is not the save but what comes after conceding.",
+    "translationRu": "Труднее всего не сейв, а то, что наступает после пропущенного мяча."
+   },
+   {
+    "text": "A keeper who is still angry about the first goal will let in a second.",
+    "translationRu": "Вратарь, который всё ещё злится на первый гол, пропустит и второй."
+   },
+   {
+    "text": "The job asks you to forget something everyone else in the stadium is still discussing.",
+    "translationRu": "Работа требует забыть то, что весь стадион ещё обсуждает."
+   },
+   {
+    "text": "That, more than the diving, is the skill.",
+    "translationRu": "Вот это, а не прыжки, и есть мастерство."
+   }
+  ],
+  "glossary": {
+   "outfield": {
+    "translation": "полевой (игрок, кроме вратаря)",
+    "partOfSpeech": "adjective"
+   },
+   "misplace": {
+    "translation": "отдать неточно, потерять",
+    "partOfSpeech": "verb"
+   },
+   "unnerving": {
+    "translation": "выбивающий из колеи",
+    "partOfSpeech": "adjective"
+   },
+   "unfold": {
+    "translation": "разворачиваться, идти своим чередом",
+    "partOfSpeech": "verb"
+   },
+   "concede": {
+    "translation": "пропустить (гол)",
+    "partOfSpeech": "verb"
+   },
+   "striker": {
+    "translation": "нападающий",
+    "partOfSpeech": "noun"
+   },
+   "save": {
+    "translation": "сейв, спасение ворот",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Why does the text call this the loneliest position?",
+    "options": [
+     "Keepers train alone",
+     "One mistake is remembered while others' are not",
+     "Keepers rarely touch the ball",
+     "Fans dislike goalkeepers"
+    ],
+    "answer": 1,
+    "explanation": "It contrasts a midfielder's twenty unnoticed errors with the keeper's single, endlessly replayed one."
+   },
+   {
+    "id": "q2",
+    "question": "What do great keepers watch instead of the ball?",
+    "options": [
+     "The referee",
+     "The striker's eyes",
+     "The striker's hips",
+     "The crowd"
+    ],
+    "answer": 2,
+    "explanation": "The text says hips cannot lie about where a shot is going."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text call the real skill?",
+    "options": [
+     "Diving quickly",
+     "Shouting at the defence",
+     "Forgetting a goal already conceded",
+     "Standing still"
+    ],
+    "answer": 2,
+    "explanation": "The job asks you to forget what the whole stadium is still discussing."
+   }
+  ]
+ }
 ]

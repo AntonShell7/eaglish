@@ -22,7 +22,25 @@ import { ensureLexicon } from "@/lib/lexicon";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { normalise, tokenise } from "@/lib/lexicon";
 
-const LEVELS: ReadingText["level"][] = ["A1-A2", "B1-B2", "C1-C2"];
+/*
+ * The order badges appear in, not the list of what exists.
+ *
+ * Texts used to carry only the three bands, so a hard-coded triple was the
+ * whole truth. New texts are written at one exact level, and a topic holding
+ * both must show both — a card that silently omits its C1 texts is worse than
+ * one with no badges at all.
+ */
+const LEVEL_ORDER = ["A1", "A1-A2", "A2", "B1", "B1-B2", "B2", "C1", "C1-C2", "C2"];
+
+function badgeLevels(counts: Record<string, number>): string[] {
+  return Object.keys(counts)
+    .filter((level) => (counts[level] ?? 0) > 0)
+    .sort((a, b) => {
+      const ia = LEVEL_ORDER.indexOf(a);
+      const ib = LEVEL_ORDER.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+}
 const WORDS_PER_MINUTE = 130;
 
 function minutesFor(text: ReadingText) {
@@ -94,7 +112,7 @@ function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPer
               </p>
 
               <div className="mt-4 flex flex-wrap gap-1.5">
-                {LEVELS.filter((level) => (topic.counts[level] ?? 0) > 0).map((level) => (
+                {badgeLevels(topic.counts).map((level) => (
                   <span
                     key={level}
                     className="rounded-full px-2 py-0.5 text-[10px] font-bold"

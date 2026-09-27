@@ -1,115 +1,240 @@
 [
-  {
-    "id": "reusable-packaging-experiment",
-    "level": "B1-B2",
-    "topic": "environment",
-    "generated": true,
-    "title": "Reusable Packaging Experiment",
-    "sentences": [
-      {
-        "text": "A small café by the sea switched from plastic to reusable containers.",
-        "translationRu": "Небольшое кафе у моря заменило пластиковую упаковку на многоразовую."
-      },
-      {
-        "text": "At first the staff felt uneasy, but the new boxes proved sturdier.",
-        "translationRu": "Сначала персонал чувствовал себя неуверенно, но новые коробки оказались более прочными."
-      },
-      {
-        "text": "Customers got a small discount when they returned the containers for washing.",
-        "translationRu": "Клиентам предоставлялась небольшая скидка за возврат контейнеров на мойку."
-      },
-      {
-        "text": "The washing station runs on solar power, so extra energy costs stay low.",
-        "translationRu": "Станция мойки работает на солнечной энергии, поэтому дополнительные расходы на энергию остаются низкими."
-      },
-      {
-        "text": "During the first month the team noted how often the containers were returned.",
-        "translationRu": "В течение первого месяца команда отмечала, как часто возвращаются контейнеры."
-      },
-      {
-        "text": "Most people remembered, yet a few forgot and left theirs behind.",
-        "translationRu": "Большинство людей помнили об этом, однако некоторые забывали и оставляли свои контейнеры."
-      },
-      {
-        "text": "To avoid loss, the café added a reminder sign and sent friendly texts.",
-        "translationRu": "Чтобы избежать потерь, в кафе поставили напоминание и отправляли дружелюбные сообщения."
-      },
-      {
-        "text": "Neighbouring shops watched the trial and began planning similar schemes.",
-        "translationRu": "Соседние магазины наблюдали за экспериментом и начали планировать похожие схемы."
-      },
-      {
-        "text": "Although the start‑up cost was high, savings appeared after just a few weeks.",
-        "translationRu": "Хотя первоначальные затраты были высокими, экономия появилась уже через несколько недель."
-      },
-      {
-        "text": "The trial showed that simple changes can cut waste without hurting profit.",
-        "translationRu": "Пилотный проект показал, что простые изменения могут сократить отходы, не нанося вреда прибыли."
-      }
+ {
+  "id": "reusable-packaging-experiment",
+  "level": "B1-B2",
+  "topic": "environment",
+  "generated": true,
+  "title": "Reusable Packaging Experiment",
+  "sentences": [
+   {
+    "text": "A small café by the sea switched from plastic to reusable containers.",
+    "translationRu": "Небольшое кафе у моря заменило пластиковую упаковку на многоразовую."
+   },
+   {
+    "text": "At first the staff felt uneasy, but the new boxes proved sturdier.",
+    "translationRu": "Сначала персонал чувствовал себя неуверенно, но новые коробки оказались более прочными."
+   },
+   {
+    "text": "Customers got a small discount when they returned the containers for washing.",
+    "translationRu": "Клиентам предоставлялась небольшая скидка за возврат контейнеров на мойку."
+   },
+   {
+    "text": "The washing station runs on solar power, so extra energy costs stay low.",
+    "translationRu": "Станция мойки работает на солнечной энергии, поэтому дополнительные расходы на энергию остаются низкими."
+   },
+   {
+    "text": "During the first month the team noted how often the containers were returned.",
+    "translationRu": "В течение первого месяца команда отмечала, как часто возвращаются контейнеры."
+   },
+   {
+    "text": "Most people remembered, yet a few forgot and left theirs behind.",
+    "translationRu": "Большинство людей помнили об этом, однако некоторые забывали и оставляли свои контейнеры."
+   },
+   {
+    "text": "To avoid loss, the café added a reminder sign and sent friendly texts.",
+    "translationRu": "Чтобы избежать потерь, в кафе поставили напоминание и отправляли дружелюбные сообщения."
+   },
+   {
+    "text": "Neighbouring shops watched the trial and began planning similar schemes.",
+    "translationRu": "Соседние магазины наблюдали за экспериментом и начали планировать похожие схемы."
+   },
+   {
+    "text": "Although the start‑up cost was high, savings appeared after just a few weeks.",
+    "translationRu": "Хотя первоначальные затраты были высокими, экономия появилась уже через несколько недель."
+   },
+   {
+    "text": "The trial showed that simple changes can cut waste without hurting profit.",
+    "translationRu": "Пилотный проект показал, что простые изменения могут сократить отходы, не нанося вреда прибыли."
+   }
+  ],
+  "glossary": {
+   "solar": {
+    "translation": "солнечный",
+    "partOfSpeech": "adjective"
+   },
+   "discount": {
+    "translation": "скидка",
+    "partOfSpeech": "noun"
+   },
+   "reminder": {
+    "translation": "напоминание",
+    "partOfSpeech": "noun"
+   },
+   "profit": {
+    "translation": "прибыль",
+    "partOfSpeech": "noun"
+   },
+   "neighbour": {
+    "translation": "соседний",
+    "partOfSpeech": "adjective"
+   },
+   "trial": {
+    "translation": "испытание",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What incentive did the café offer to customers who returned containers?",
+    "options": [
+     "Free coffee",
+     "A small discount",
+     "Extra loyalty points",
+     "A free dessert"
     ],
-    "glossary": {
-      "solar": {
-        "translation": "солнечный",
-        "partOfSpeech": "adjective"
-      },
-      "discount": {
-        "translation": "скидка",
-        "partOfSpeech": "noun"
-      },
-      "reminder": {
-        "translation": "напоминание",
-        "partOfSpeech": "noun"
-      },
-      "profit": {
-        "translation": "прибыль",
-        "partOfSpeech": "noun"
-      },
-      "neighbour": {
-        "translation": "соседний",
-        "partOfSpeech": "adjective"
-      },
-      "trial": {
-        "translation": "испытание",
-        "partOfSpeech": "noun"
-      }
-    },
-    "questions": [
-      {
-        "id": "q1",
-        "question": "What incentive did the café offer to customers who returned containers?",
-        "options": [
-          "Free coffee",
-          "A small discount",
-          "Extra loyalty points",
-          "A free dessert"
-        ],
-        "answer": 1,
-        "explanation": "The text says customers got a small discount when they returned the containers."
-      },
-      {
-        "id": "q2",
-        "question": "How was the washing station powered?",
-        "options": [
-          "A diesel generator",
-          "A hand‑pump system",
-          "Solar power",
-          "A battery pack"
-        ],
-        "answer": 2,
-        "explanation": "Sentence four states the washing station runs on solar power."
-      },
-      {
-        "id": "q3",
-        "question": "What result did the café observe after the first few weeks?",
-        "options": [
-          "A rise in staff turnover",
-          "More plastic waste",
-          "Customers stopped visiting",
-          "Savings on packaging costs"
-        ],
-        "answer": 3,
-        "explanation": "The ninth sentence mentions that savings appeared after just a few weeks."
-      }
-    ]
-  }
+    "answer": 1,
+    "explanation": "The text says customers got a small discount when they returned the containers."
+   },
+   {
+    "id": "q2",
+    "question": "How was the washing station powered?",
+    "options": [
+     "A diesel generator",
+     "A hand‑pump system",
+     "Solar power",
+     "A battery pack"
+    ],
+    "answer": 2,
+    "explanation": "Sentence four states the washing station runs on solar power."
+   },
+   {
+    "id": "q3",
+    "question": "What result did the café observe after the first few weeks?",
+    "options": [
+     "A rise in staff turnover",
+     "More plastic waste",
+     "Customers stopped visiting",
+     "Savings on packaging costs"
+    ],
+    "answer": 3,
+    "explanation": "The ninth sentence mentions that savings appeared after just a few weeks."
+   }
+  ]
+ },
+ {
+  "id": "the-octopus-problem",
+  "level": "B2",
+  "topic": "environment",
+  "generated": false,
+  "title": "The Octopus Problem",
+  "sentences": [
+   {
+    "text": "An octopus has around five hundred million neurons, roughly the same as a dog.",
+    "translationRu": "У осьминога около пятисот миллионов нейронов — примерно как у собаки."
+   },
+   {
+    "text": "Two thirds of them are not in its head.",
+    "translationRu": "Две трети из них находятся не в голове."
+   },
+   {
+    "text": "They are distributed along the arms, which means each arm can taste, decide and act with a striking degree of independence.",
+    "translationRu": "Они распределены по щупальцам, и каждое умеет пробовать на вкус, решать и действовать с поразительной самостоятельностью."
+   },
+   {
+    "text": "Sever the nerve to the brain and a severed arm will still reach for food and pass it towards where a mouth used to be.",
+    "translationRu": "Перережьте нерв, ведущий к мозгу, и отделённое щупальце всё равно потянется за едой и передаст её туда, где раньше был рот."
+   },
+   {
+    "text": "This raises a question biologists find genuinely awkward.",
+    "translationRu": "Это ставит вопрос, который биологов по-настоящему смущает."
+   },
+   {
+    "text": "Is an octopus one animal making decisions, or nine intelligences negotiating?",
+    "translationRu": "Осьминог — это одно существо, принимающее решения, или девять разумов, ведущих переговоры?"
+   },
+   {
+    "text": "Our intuitions about minds were built by watching vertebrates, creatures with a single command centre behind the eyes.",
+    "translationRu": "Наши представления о разуме выросли из наблюдения за позвоночными — существами с единым командным центром за глазами."
+   },
+   {
+    "text": "The octopus is the closest thing on this planet to meeting an alien.",
+    "translationRu": "Осьминог — самое близкое к встрече с инопланетянином, что есть на этой планете."
+   },
+   {
+    "text": "Our last common ancestor was a flattish worm some six hundred million years ago.",
+    "translationRu": "Наш последний общий предок был плоским червём около шестисот миллионов лет назад."
+   },
+   {
+    "text": "Everything intelligent about an octopus evolved separately, from scratch.",
+    "translationRu": "Всё разумное в осьминоге развилось отдельно, с нуля."
+   },
+   {
+    "text": "Which is why the question is not really about octopuses.",
+    "translationRu": "Именно поэтому вопрос на самом деле не про осьминогов."
+   },
+   {
+    "text": "It is about whether the shape a mind takes in us is the only shape available.",
+    "translationRu": "Он о том, единственная ли это форма, которую может принять разум."
+   }
+  ],
+  "glossary": {
+   "distributed": {
+    "translation": "распределённый",
+    "partOfSpeech": "adjective"
+   },
+   "striking": {
+    "translation": "поразительный",
+    "partOfSpeech": "adjective"
+   },
+   "sever": {
+    "translation": "перерезать, отсечь",
+    "partOfSpeech": "verb"
+   },
+   "awkward": {
+    "translation": "неудобный, щекотливый",
+    "partOfSpeech": "adjective"
+   },
+   "vertebrate": {
+    "translation": "позвоночное",
+    "partOfSpeech": "noun"
+   },
+   "ancestor": {
+    "translation": "предок",
+    "partOfSpeech": "noun"
+   },
+   "from scratch": {
+    "translation": "с нуля",
+    "partOfSpeech": "phrase"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Where are most of an octopus's neurons?",
+    "options": [
+     "In the head",
+     "In the arms",
+     "Around the eyes",
+     "In the skin"
+    ],
+    "answer": 1,
+    "explanation": "Two thirds are distributed along the arms."
+   },
+   {
+    "id": "q2",
+    "question": "Why is the octopus close to meeting an alien?",
+    "options": [
+     "It lives deep",
+     "Its intelligence evolved separately from ours",
+     "It has blue blood",
+     "It changes colour"
+    ],
+    "answer": 1,
+    "explanation": "Our last common ancestor was a worm; its intelligence arose from scratch."
+   },
+   {
+    "id": "q3",
+    "question": "What larger question does this raise?",
+    "options": [
+     "Whether octopuses feel pain",
+     "Whether our shape of mind is the only one possible",
+     "How to keep them in tanks",
+     "Why dogs are clever"
+    ],
+    "answer": 1,
+    "explanation": "The closing line states exactly this."
+   }
+  ]
+ }
 ]

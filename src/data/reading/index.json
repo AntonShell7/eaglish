@@ -1,102 +1,96 @@
 [
-  {
-    "id": "daily-life",
-    "label": "Daily life",
-    "counts": {
-      "A1-A2": 7,
-      "B1-B2": 7,
-      "C1-C2": 7
-    },
-    "total": 21
+ {
+  "id": "travel",
+  "label": "Travel",
+  "counts": {
+   "A1-A2": 7,
+   "B1-B2": 7,
+   "C1-C2": 7,
+   "A2": 1
   },
-  {
-    "id": "travel",
-    "label": "Travel",
-    "counts": {
-      "A1-A2": 7,
-      "B1-B2": 7,
-      "C1-C2": 7
-    },
-    "total": 21
+  "total": 22
+ },
+ {
+  "id": "daily-life",
+  "label": "Daily life",
+  "counts": {
+   "A1-A2": 7,
+   "B1-B2": 7,
+   "C1-C2": 7
   },
-  {
-    "id": "technology",
-    "label": "Technology",
-    "counts": {
-      "A1-A2": 7,
-      "B1-B2": 7,
-      "C1-C2": 4
-    },
-    "total": 18
+  "total": 21
+ },
+ {
+  "id": "technology",
+  "label": "Technology",
+  "counts": {
+   "A1-A2": 7,
+   "B1-B2": 7,
+   "C1-C2": 4
   },
-  {
-    "id": "science",
-    "label": "Science",
-    "counts": {
-      "A1-A2": 7,
-      "B1-B2": 4,
-      "C1-C2": 4
-    },
-    "total": 15
+  "total": 18
+ },
+ {
+  "id": "science",
+  "label": "Science",
+  "counts": {
+   "C1-C2": 4,
+   "A1-A2": 7,
+   "B1-B2": 4
   },
-  {
-    "id": "sport",
-    "label": "Sport",
-    "counts": {
-      "A1-A2": 1,
-      "B1-B2": 0,
-      "C1-C2": 0
-    },
-    "total": 1
+  "total": 15
+ },
+ {
+  "id": "business",
+  "label": "Business",
+  "counts": {
+   "A1-A2": 1,
+   "B1-B2": 1
   },
-  {
-    "id": "culture",
-    "label": "Fame and culture",
-    "counts": {
-      "A1-A2": 0,
-      "B1-B2": 1,
-      "C1-C2": 0
-    },
-    "total": 1
+  "total": 2
+ },
+ {
+  "id": "culture",
+  "label": "Culture",
+  "counts": {
+   "B1-B2": 1,
+   "C1": 1
   },
-  {
-    "id": "business",
-    "label": "Work and business",
-    "counts": {
-      "A1-A2": 1,
-      "B1-B2": 1,
-      "C1-C2": 0
-    },
-    "total": 2
+  "total": 2
+ },
+ {
+  "id": "environment",
+  "label": "Environment",
+  "counts": {
+   "B1-B2": 1,
+   "B2": 1
   },
-  {
-    "id": "health",
-    "label": "Health and the body",
-    "counts": {
-      "A1-A2": 0,
-      "B1-B2": 0,
-      "C1-C2": 1
-    },
-    "total": 1
+  "total": 2
+ },
+ {
+  "id": "health",
+  "label": "Health",
+  "counts": {
+   "C1-C2": 1,
+   "B1": 1
   },
-  {
-    "id": "environment",
-    "label": "Environment",
-    "counts": {
-      "A1-A2": 0,
-      "B1-B2": 1,
-      "C1-C2": 0
-    },
-    "total": 1
+  "total": 2
+ },
+ {
+  "id": "sport",
+  "label": "Sport",
+  "counts": {
+   "A1-A2": 1,
+   "B1": 1
   },
-  {
-    "id": "society",
-    "label": "Society",
-    "counts": {
-      "A1-A2": 0,
-      "B1-B2": 1,
-      "C1-C2": 0
-    },
-    "total": 1
-  }
+  "total": 2
+ },
+ {
+  "id": "society",
+  "label": "Society",
+  "counts": {
+   "B1-B2": 1
+  },
+  "total": 1
+ }
 ]
