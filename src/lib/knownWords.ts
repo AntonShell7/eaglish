@@ -147,18 +147,22 @@ export function coverageOf(sentences: string[], model = buildKnownModel()): Cove
   };
 }
 
-/** How the reading list labels a text once coverage is known. */
-export type Fit = "easy" | "ideal" | "stretch" | "hard";
-
-/**
- * Calibrated against the library rather than against the textbook 95/98 figures,
- * because our measure runs low (see coverageOf). Measured across all 88 texts for
- * a B1–B2 reader, the medians are 96% on A1–A2 material, 92% on their own level
- * and 78% a level above — so these cuts put each of those where it belongs.
+/*
+ * There used to be a fitOf() here, turning coverage into one of four labels —
+ * "easy", "right level", "a stretch", "too hard" — shown as a chip on every
+ * row of the shelf. It has been removed rather than retuned, and the reason is
+ * worth keeping.
+ *
+ * The cuts were calibrated against the old generated library of 88 texts,
+ * where coverage ranged widely. The hand-written library does not: measured
+ * across a whole topic, every text lands between 83% and 94%, because all of
+ * them are written in deliberately controlled vocabulary. Two of the four
+ * labels became unreachable, and the boundary between the surviving two fell
+ * at 88% — which corresponds to nothing. An A1 text and a B2 text both came
+ * out as "your level" while an A2, a C1 and a C2 all came out as "a stretch".
+ *
+ * The chip was wrong on most rows, and it was wrong in the most damaging
+ * direction: it looked authoritative. Coverage is still shown, as the actual
+ * percentage, next to the actual CEFR level. Two honest numbers beat one
+ * confident label built out of them.
  */
-export function fitOf(coverage: number): Fit {
-  if (coverage >= 0.955) return "easy";
-  if (coverage >= 0.88) return "ideal";
-  if (coverage >= 0.72) return "stretch";
-  return "hard";
-}

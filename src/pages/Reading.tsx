@@ -17,7 +17,7 @@ import {
 } from "@/lib/personalText";
 import { logReadingOpen, getQuizResults, type QuizResult } from "@/lib/readingHistory";
 import { getLearnerProfile } from "@/lib/learnerProfile";
-import { buildKnownModel, coverageOf, fitOf } from "@/lib/knownWords";
+import { buildKnownModel, coverageOf } from "@/lib/knownWords";
 import { ensureLexicon } from "@/lib/lexicon";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { normalise, tokenise } from "@/lib/lexicon";
@@ -230,7 +230,6 @@ function TextList({
       <div data-stagger className="mt-6 space-y-2">
         {visible.map(({ text, coverage, recycled }) => {
           const best = quiz.filter((r) => r.textId === text.id).reduce((max, r) => Math.max(max, r.correct), -1);
-          const fit = coverage ? fitOf(coverage.known) : null;
           return (
             <button
               key={text.id}
@@ -252,34 +251,20 @@ function TextList({
                   {coverage && ` · ${t("reading.knownShare", { percent: Math.round(coverage.known * 100) })}`}
                 </span>
 
-                <span className="mt-1.5 flex flex-wrap gap-1.5">
-                  {/* Gold rather than mint. Mint was the colour of the chip,
-                      the badge, the button and the panel on the same screen,
-                      which left it signalling nothing; here it marks the one
-                      row-level judgement worth acting on. */}
-                  {fit && (
-                    <span
-                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
-                      style={{
-                        background:
-                          fit === "ideal"
-                            ? "color-mix(in srgb, var(--color-accent) 16%, transparent)"
-                            : "var(--color-surface-2)",
-                        color: fit === "ideal" ? "var(--color-accent-ink)" : "var(--color-text-muted)",
-                      }}
-                    >
-                      {t(`reading.fit.${fit}`)}
-                    </span>
-                  )}
-                  {recycled > 0 && (
-                    <span
-                      className="rounded-full px-2 py-0.5 text-[10px] font-bold"
-                      style={{ background: "var(--color-primary-soft)", color: "var(--color-primary)" }}
-                    >
-                      {t("reading.recycled", { count: recycled })}
-                    </span>
-                  )}
-                </span>
+                {/* Only rendered when there is something to say. The wrapper
+                    used to sit on every row carrying its own top margin, which
+                    is most of why the shelf felt crowded. */}
+                {recycled > 0 && (
+                  <span
+                    className="mt-1.5 inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold"
+                    style={{
+                      background: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
+                      color: "var(--color-accent-ink)",
+                    }}
+                  >
+                    {t("reading.recycled", { count: recycled })}
+                  </span>
+                )}
               </span>
 
               {best >= 0 && (

@@ -139,16 +139,22 @@
  * was: a straight line across a rounded box stops short of both top corners and
  * has nothing to do with the shape underneath it. The fix is to draw a
  * gradient-filled border rather than a bar — a full-bleed gradient clipped to a
- * 1.5px ring by two masks, one covering the whole box and one covering
+ * hairline ring by two masks, one covering the whole box and one covering
  * everything inside the padding, subtracted from each other. What survives is
  * exactly the outline, corners included.
+ *
+ * Kept deliberately quiet. The first version was 1.5px at full opacity with a
+ * strong halo, which is fine on a page of nine large tiles and far too loud on
+ * a shelf of fourteen stacked rows — the rim became the thing you looked at
+ * instead of the title. One pixel at two-thirds opacity still reads as "this
+ * one" without competing with the text inside it.
  */
 .card--accent::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1.5px;
+  padding: 1px;
   background: var(--gradient-gilt);
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -165,27 +171,27 @@
 
 .card--accent:hover::after,
 .card--accent:focus-visible::after {
-  opacity: 1;
+  opacity: 0.62;
 }
 
 /* The rim alone is thin at a distance. A warm halo underneath gives the lift
    somewhere to land, and keeps the hover legible on a dark page where a
    shadow does almost nothing. */
 .card--accent:hover {
-  border-color: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  border-color: color-mix(in srgb, var(--color-accent) 18%, var(--color-border));
   box-shadow:
-    var(--shadow-3),
-    0 10px 34px -16px color-mix(in srgb, var(--color-accent) 48%, transparent);
+    var(--shadow-2),
+    0 8px 26px -18px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
 /* Restated for the dark theme, which sets its own hover shadow at a higher
    specificity and would otherwise swallow the halo — the one place it does
    the most work, since a neutral shadow on a near-black page is invisible. */
 :root[data-theme="dark"] .card--accent:hover {
-  border-color: color-mix(in srgb, var(--color-accent) 34%, var(--color-border-strong));
+  border-color: color-mix(in srgb, var(--color-accent) 20%, var(--color-border-strong));
   box-shadow:
     var(--shadow-2),
-    0 12px 40px -18px color-mix(in srgb, var(--color-accent) 42%, transparent);
+    0 10px 30px -20px color-mix(in srgb, var(--color-accent) 26%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
