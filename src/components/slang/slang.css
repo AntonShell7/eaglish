@@ -87,17 +87,63 @@
 
 /* ── The expression panel ───────────────────────────────────────────────── */
 
+/*
+ * Reading and looking up, side by side.
+ *
+ * The conversation holds a measured column; the panel takes the rest. Below
+ * 1024px there is no rest, so the panel becomes a sheet and the conversation
+ * is padded by its height — which is the fix, because the old sheet simply
+ * covered whatever was underneath it.
+ */
+.sl-read {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 1024px) {
+  .sl-read {
+    grid-template-columns: minmax(0, 62ch) minmax(300px, 1fr);
+    align-items: start;
+  }
+}
+
+.sl-read__aside {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .sl-read__aside {
+    position: sticky;
+    /* Clear of the app header, so the panel never slides under it. */
+    top: 84px;
+  }
+}
+
 .sl-panel {
-  position: sticky;
-  bottom: 16px;
-  margin-top: 24px;
   padding: 20px 22px;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-2);
-  max-width: 62ch;
   animation: sl-rise var(--dur-2) var(--ease);
+}
+
+/* Narrow: a sheet, but one that admits how much room it is taking. */
+@media (max-width: 1023px) {
+  .sl-panel {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 40;
+    max-height: 52vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-4);
+  }
+
+  .sl-read.is-open .sl-read__main {
+    padding-bottom: 54vh;
+  }
 }
 
 @keyframes sl-rise {

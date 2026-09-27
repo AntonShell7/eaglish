@@ -149,8 +149,24 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
       </header>
 
       {stage === "read" && (
-        <>
-          <div className="sl-dialogue">
+        /*
+         * Two columns, and the reason is the panel.
+         *
+         * It used to stick to the bottom of the viewport, which meant that
+         * looking a phrase up hid the rest of the conversation behind it — so
+         * every lookup cost a close as well as an open, and reading a dialogue
+         * with six marked expressions meant twelve taps of pure overhead.
+         *
+         * On a wide screen the conversation keeps the left column and the panel
+         * owns the right, sticky at the top: tapping a second expression swaps
+         * what is in it and nothing moves. On a narrow one there is no second
+         * column to give it, so it stays a sheet — but the conversation is
+         * padded by its height and the tapped line is scrolled clear of it,
+         * which is the part that was actually missing.
+         */
+        <div className={opened ? "sl-read is-open" : "sl-read"}>
+          <div className="sl-read__main">
+            <div className="sl-dialogue">
             {dialogue.lines.map((line, i) => (
               <p key={i} className={line.who === 0 ? "sl-line sl-line--a" : "sl-line sl-line--b"}>
                 <span className="sl-line__who">{dialogue.cast[line.who]}</span>
@@ -161,7 +177,17 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
                         key={j}
                         type="button"
                         className={open === piece.ref ? "sl-mark is-open" : "sl-mark"}
-                        onClick={() => setOpen(open === piece.ref ? null : piece.ref!)}
+                        onClick={(event) => {
+                          const next = open === piece.ref ? null : piece.ref!;
+                          setOpen(next);
+                          // Only where the panel is a sheet over the text.
+                          if (next && window.matchMedia("(max-width: 1023px)").matches) {
+                            const mark = event.currentTarget;
+                            requestAnimationFrame(() =>
+                              mark.scrollIntoView({ block: "center", behavior: "smooth" }),
+                            );
+                          }
+                        }}
                       >
                         {piece.text}
                       </button>
@@ -172,14 +198,27 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
                 </span>
               </p>
             ))}
+            </div>
+
+            <p className="sl-hint">{t("slangModule.tapHint")}</p>
+
+            <button type="button" className="btn btn--primary mt-6" onClick={() => setStage("checks")}>
+              {t("slangModule.toChecks")}
+            </button>
           </div>
 
-          <p className="sl-hint">{t("slangModule.tapHint")}</p>
-
-          <button type="button" className="btn btn--primary mt-6" onClick={() => setStage("checks")}>
-            {t("slangModule.toChecks")}
-          </button>
-        </>
+          {/* The column exists whether or not anything is open, so the
+              conversation does not jump sideways on the first tap. */}
+          <div className="sl-read__aside">
+            {opened && (
+              <ExpressionPanel
+                key={opened.phrase}
+                expression={opened}
+                onClose={() => setOpen(null)}
+              />
+            )}
+          </div>
+        </div>
       )}
 
       {(stage === "checks" || stage === "done") && (
@@ -243,8 +282,6 @@ export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExi
           )}
         </div>
       )}
-
-      {opened && <ExpressionPanel expression={opened} onClose={() => setOpen(null)} />}
     </div>
   );
 }

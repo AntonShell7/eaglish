@@ -14,6 +14,7 @@ import {
 } from "@/components/brand/icons";
 import { StatsStrip } from "./StatsStrip";
 import { Footer } from "./Footer";
+import { Translator } from "@/components/translator/Translator";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { ConsentSheet } from "@/components/consent/ConsentSheet";
@@ -200,6 +201,12 @@ export function Layout() {
         </main>
 
         <Footer />
+
+        {/* Present on every page of the signed-in app. The moment a learner
+            needs a word is the moment they are halfway through writing a
+            sentence, and leaving for a translator is how that sentence gets
+            abandoned. */}
+        <Translator />
       </div>
 
       {user && (

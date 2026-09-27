@@ -1126,5 +1126,14 @@
       "unavailable": "Checking is unavailable right now. The text still counts.",
       "unreadable": "Could not read the answer. Try again."
     }
+  },
+  "translator": {
+    "open": "Translator",
+    "placeholder": "A word or a phrase, either way",
+    "hint": "Type Russian to get English. Type English to get Russian.",
+    "failed": "Could not translate that. Try again.",
+    "keep": "Save to vocabulary",
+    "source": "Translator",
+    "shortcut": "Translator — Cmd+K"
   }
 }
