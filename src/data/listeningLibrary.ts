@@ -13,6 +13,7 @@ import batch14 from "./listening/batch14.json";
 import batch15 from "./listening/batch15.json";
 import batch16 from "./listening/batch16.json";
 import batch17 from "./listening/batch17.json";
+import batch18 from "./listening/batch18.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -64,6 +65,7 @@ export const listeningTexts = [
   ...batch15,
   ...batch16,
   ...batch17,
+  ...batch18,
 ] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
