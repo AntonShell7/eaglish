@@ -37,18 +37,34 @@
   font-weight: 800;
 }
 
+/* It stays a glyph on every screen now. Spelled out, it was a permanent
+   banner asking people to find fault with a page they had not finished
+   reading — and on the way down it collided with the footer links, which is
+   how a helpful control turns into an obstacle. */
 @media (min-width: 768px) {
   .fb-launch {
-    width: auto;
-    height: auto;
-    padding: 9px 16px;
-    font-size: 0.78rem;
-    opacity: 1;
+    opacity: 0.6;
   }
 
-  .fb-launch::before {
-    content: none;
+  .fb-launch:hover {
+    opacity: 1;
   }
+}
+
+/* Out of the way once the footer arrives: nothing floating should sit on top
+   of the links somebody has just scrolled to. */
+.fb-launch.is-parked {
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  pointer-events: none;
+}
+
+.fb-launch {
+  transition:
+    opacity var(--dur-2) var(--ease),
+    transform var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
 }
 
 @media (min-width: 1024px) {

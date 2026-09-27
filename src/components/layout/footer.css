@@ -22,13 +22,17 @@
   white-space: nowrap;
 }
 
-/* Dots between links rather than gaps alone: at this size a row of words with
-   only space between them reads as one long phrase. */
+/* Two rows, filled column by column: reading sits above listening, slang above
+   vocabulary. One long row of nine links was compact and unreadable — the eye
+   has nothing to group by, so it reads left to right as a sentence. Two rows
+   turn the same nine into four short pairs. */
 .ft__links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  justify-content: end;
   align-items: center;
-  gap: 4px 14px;
+  gap: 5px 18px;
 }
 
 .ft__link {
@@ -47,21 +51,17 @@
   color: var(--color-primary);
 }
 
-.ft__link + .ft__link::before {
-  content: "";
-  position: absolute;
-  left: -8px;
-  top: 50%;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  background: var(--color-border-strong);
-}
+/* With the links in columns the dots would fall between unrelated pairs, so
+   the grid does the separating instead. */
 
-@media (max-width: 560px) {
+@media (max-width: 720px) {
   .ft__row {
     justify-content: flex-start;
-    padding: 12px 16px;
+    padding: 14px 16px;
+  }
+
+  .ft__links {
+    justify-content: start;
+    gap: 5px 14px;
   }
 }

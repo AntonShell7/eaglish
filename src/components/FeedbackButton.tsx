@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
@@ -25,6 +25,26 @@ export function FeedbackButton() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+  /* Parked once the footer is on screen. A floating control that sits on top
+     of the links somebody has just scrolled to has stopped being helpful. */
+  const [parked, setParked] = useState(false);
+  const launcher = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    /* By class, not by tag. `querySelector("footer")` picks the first <footer>
+       in the document, and the charts use one for their own axis labels — so
+       the button was hiding from a row of dates inside a card and showing
+       itself over the real footer, which is exactly backwards. */
+    const footer = document.querySelector(".ft");
+    if (!footer || !("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setParked(entry.isIntersecting),
+      { threshold: 0 },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   const send = async () => {
     const text = message.trim();
@@ -59,7 +79,8 @@ export function FeedbackButton() {
     <>
       <button
         type="button"
-        className="fb-launch"
+        ref={launcher}
+        className={parked ? "fb-launch is-parked" : "fb-launch"}
         onClick={() => setOpen(true)}
         aria-label={t("feedback.launch")}
         title={t("feedback.launch")}
