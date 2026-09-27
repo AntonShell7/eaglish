@@ -1,5 +1,3 @@
-import batch1 from "./listening/batch1.json";
-import batch2 from "./listening/batch2.json";
 import batch3 from "./listening/batch3.json";
 import batch4 from "./listening/batch4.json";
 import batch5 from "./listening/batch5.json";
@@ -7,32 +5,78 @@ import batch6 from "./listening/batch6.json";
 import batch7 from "./listening/batch7.json";
 import batch8 from "./listening/batch8.json";
 import batch9 from "./listening/batch9.json";
+import batch10 from "./listening/batch10.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
- * The listening library.
+ * The dictation library.
  *
- * Separate from the reading shelf, because these are a different kind of text.
- * A reading piece is sixty words and exists to put a few unknown words in front
- * of someone. A listening piece is five hundred, because dictation is worth
- * fifteen or twenty minutes and a short text ends before the ear has settled
- * into the voice.
+ * Separate from the reading shelf, because these are a different kind of text
+ * and the difference is measurable rather than a matter of taste. A reading
+ * piece is written for the eye: its sentences can run long, because a reader
+ * can go back. A dictation fragment has to be held in the head while it is
+ * typed, which puts a hard ceiling on its length.
+ *
+ * Measured across both libraries, reading sentences run to a median of 67
+ * characters and a maximum of 324, with a fifth of them over 120. These run to
+ * a median of 35 and a maximum of 56, with none over 98. That is the whole
+ * reason the two shelves are not one shelf.
+ *
+ * The first seven texts written here have been removed rather than kept. They
+ * predated the rule and showed it: a median of 45 and a maximum of 98, one of
+ * them only 25 fragments long. They were replaced rather than tightened,
+ * because a text written to a different constraint reads as one.
  *
  * They are written rather than collected. Public-domain books are the wrong
- * register — nineteenth-century prose is nobody's spoken English — and anything
- * under a share-alike licence would tie a commercial product to that licence.
- * Writing them also buys the two things dictation specifically needs: control
- * of the level, and sentences that can be held in the head long enough to be
- * typed.
+ * register — nineteenth-century prose is nobody's spoken English — and
+ * anything under a share-alike licence would tie a commercial product to that
+ * licence. Writing them also buys the two things dictation specifically needs:
+ * control of the level, and fragments short enough to be typed from memory.
  *
- * Each item in `sentences` is one fragment: at most a sentence, and a long
- * sentence split where it naturally breathes.
+ * Eight texts at each of the six levels, six in each of eight topics, and no
+ * subject repeated from the 120 reading texts — checked, not assumed.
  */
 /*
  * One file per batch, merged here. Written material arrives a few pieces at a
  * time — each one is an hour of writing rather than a generator run — and a
  * single growing file would turn every addition into a diff nobody can read.
  */
-export const listeningTexts = [...batch1, ...batch2, ...batch3, ...batch4, ...batch5, ...batch6, ...batch7, ...batch8, ...batch9] as ReadingText[];
+export const listeningTexts = [
+  ...batch3,
+  ...batch4,
+  ...batch5,
+  ...batch6,
+  ...batch7,
+  ...batch8,
+  ...batch9,
+  ...batch10,
+] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
+
+/** The eight subjects, ordered as the shelf shows them. */
+export const listeningTopics = [
+  "animals",
+  "body",
+  "cities",
+  "environment",
+  "food",
+  "sport",
+  "things",
+  "work",
+] as const;
+
+export type ListeningTopic = (typeof listeningTopics)[number];
+
+/** How many texts each subject holds, and at which levels. */
+export function listeningShelf() {
+  const out = new Map<string, { total: number; counts: Record<string, number> }>();
+  for (const topic of listeningTopics) out.set(topic, { total: 0, counts: {} });
+  for (const text of listeningTexts) {
+    const entry = out.get(text.topic);
+    if (!entry) continue;
+    entry.total += 1;
+    entry.counts[text.level] = (entry.counts[text.level] ?? 0) + 1;
+  }
+  return [...out.entries()].map(([id, value]) => ({ id, ...value }));
+}

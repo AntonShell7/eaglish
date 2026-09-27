@@ -137,7 +137,7 @@
       "health": "Здоровье",
       "environment": "Экология",
       "society": "Общество",
-      "celebrities": "Celebrities"
+      "celebrities": "Знаменитости"
     },
     "knownShare": "знакомо {{percent}}%",
     "recycled_one": "Недавно изученных слов: {{count}}",
@@ -908,7 +908,17 @@
       "video": "Своё видео"
     },
     "resume": "начато · {{percent}}%",
-    "openOnYouTube": "открыть на YouTube"
+    "openOnYouTube": "открыть на YouTube",
+    "topics": {
+      "animals": "Животные",
+      "body": "Тело",
+      "cities": "Города",
+      "environment": "Природа",
+      "food": "Еда",
+      "sport": "Спорт",
+      "things": "Вещи",
+      "work": "Работа"
+    }
   },
   "levels": {
     "label": "Уровень",

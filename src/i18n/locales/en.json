@@ -836,7 +836,7 @@
   },
   "dictation": {
     "intro": "Listen to a sentence and write it down. The words you miss go straight into your vocabulary, together with the sentence you met them in. Nothing to copy out by hand.",
-    "allTopics": "All topics",
+    "allTopics": "All subjects",
     "sentenceCount_one": "{{count}} sentence",
     "sentenceCount_other": "{{count}} sentences",
     "listenLabel": "Listen and write",
@@ -886,7 +886,17 @@
       "video": "Your own video"
     },
     "resume": "started · {{percent}}%",
-    "openOnYouTube": "open on YouTube"
+    "openOnYouTube": "open on YouTube",
+    "topics": {
+      "animals": "Animals",
+      "body": "The body",
+      "cities": "Cities",
+      "environment": "Nature",
+      "food": "Food",
+      "sport": "Sport",
+      "things": "Things",
+      "work": "Work"
+    }
   },
   "levels": {
     "label": "Level",
