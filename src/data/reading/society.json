@@ -1937,5 +1937,359 @@
     "explanation": "A permanent feature of aggregating preferences."
    }
   ]
+ },
+ {
+  "id": "the-country-with-no-army",
+  "level": "A1",
+  "topic": "society",
+  "generated": false,
+  "title": "The Country That Closed Its Army",
+  "sentences": [
+   {
+    "text": "Almost every country in the world has an army.",
+    "translationRu": "Почти у каждой страны в мире есть армия."
+   },
+   {
+    "text": "Costa Rica does not.",
+    "translationRu": "У Коста-Рики её нет."
+   },
+   {
+    "text": "Costa Rica is a small country in Central America.",
+    "translationRu": "Коста-Рика — небольшая страна в Центральной Америке."
+   },
+   {
+    "text": "It has about five million people.",
+    "translationRu": "В ней около пяти миллионов человек."
+   },
+   {
+    "text": "In 1948 there was a short war inside the country.",
+    "translationRu": "В 1948 году внутри страны была короткая война."
+   },
+   {
+    "text": "Many people died in a few weeks.",
+    "translationRu": "За несколько недель погибло много людей."
+   },
+   {
+    "text": "When it ended, the new leader did something strange.",
+    "translationRu": "Когда она кончилась, новый лидер сделал странную вещь."
+   },
+   {
+    "text": "His name was Jose Figueres.",
+    "translationRu": "Его звали Хосе Фигерес."
+   },
+   {
+    "text": "He took a big hammer and broke a wall of the main army building.",
+    "translationRu": "Он взял большой молот и разбил стену главного военного здания."
+   },
+   {
+    "text": "Then he said the country would have no army.",
+    "translationRu": "И сказал, что армии у страны не будет."
+   },
+   {
+    "text": "The building became a museum.",
+    "translationRu": "Здание стало музеем."
+   },
+   {
+    "text": "It is still a museum today.",
+    "translationRu": "Оно и сегодня музей."
+   },
+   {
+    "text": "The money for the army went to schools and hospitals.",
+    "translationRu": "Деньги на армию пошли в школы и больницы."
+   },
+   {
+    "text": "That was more than seventy-five years ago.",
+    "translationRu": "Это было больше семидесяти пяти лет назад."
+   },
+   {
+    "text": "Costa Rica still has no army.",
+    "translationRu": "Армии у Коста-Рики по-прежнему нет."
+   },
+   {
+    "text": "It has police, of course.",
+    "translationRu": "Полиция, конечно, есть."
+   },
+   {
+    "text": "But there are no tanks and no soldiers.",
+    "translationRu": "Но нет ни танков, ни солдат."
+   },
+   {
+    "text": "Today the country has one of the best school systems in the region.",
+    "translationRu": "Сегодня у страны одна из лучших школьных систем в регионе."
+   },
+   {
+    "text": "People live a long time there.",
+    "translationRu": "Люди там живут долго."
+   },
+   {
+    "text": "Other countries ask how this works.",
+    "translationRu": "Другие страны спрашивают, как это работает."
+   },
+   {
+    "text": "The answer is not simple, but the first part is easy: they stopped paying for one thing and started paying for another.",
+    "translationRu": "Ответ непростой, но первая часть проста: они перестали платить за одно и начали платить за другое."
+   }
+  ],
+  "glossary": {
+   "army": {
+    "translation": "армия",
+    "partOfSpeech": "noun"
+   },
+   "war": {
+    "translation": "война",
+    "partOfSpeech": "noun"
+   },
+   "leader": {
+    "translation": "лидер",
+    "partOfSpeech": "noun"
+   },
+   "hammer": {
+    "translation": "молот",
+    "partOfSpeech": "noun"
+   },
+   "museum": {
+    "translation": "музей",
+    "partOfSpeech": "noun"
+   },
+   "hospital": {
+    "translation": "больница",
+    "partOfSpeech": "noun"
+   },
+   "soldier": {
+    "translation": "солдат",
+    "partOfSpeech": "noun"
+   },
+   "system": {
+    "translation": "система",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-country-with-no-army-q1",
+    "question": "What happened in 1948?",
+    "options": [
+     "A new country started",
+     "A short war inside the country",
+     "An election only",
+     "An earthquake"
+    ],
+    "answer": 1,
+    "explanation": "Many people died in a few weeks."
+   },
+   {
+    "id": "the-country-with-no-army-q2",
+    "question": "What did the leader do with the army building?",
+    "options": [
+     "He closed it",
+     "He broke a wall and it became a museum",
+     "He sold it",
+     "He made it a school"
+    ],
+    "answer": 1,
+    "explanation": "It is still a museum today."
+   },
+   {
+    "id": "the-country-with-no-army-q3",
+    "question": "Where did the army money go?",
+    "options": [
+     "To the police",
+     "To schools and hospitals",
+     "To roads",
+     "Nowhere"
+    ],
+    "answer": 1,
+    "explanation": "They stopped paying for one thing and started paying for another."
+   }
+  ]
+ },
+ {
+  "id": "the-jam-with-no-cause",
+  "level": "C1",
+  "topic": "society",
+  "generated": false,
+  "title": "The Traffic Jam With Nothing at the Front of It",
+  "sentences": [
+   {
+    "text": "You crawl for twenty minutes, reach the front, and there is nothing there.",
+    "translationRu": "Ты ползёшь двадцать минут, доезжаешь до начала — и там ничего."
+   },
+   {
+    "text": "No crash, no roadworks, no lane closed.",
+    "translationRu": "Ни аварии, ни ремонта, ни закрытой полосы."
+   },
+   {
+    "text": "The road simply opens and everyone accelerates away, and the jam you just spent twenty minutes in is still sitting behind you, swallowing other people.",
+    "translationRu": "Дорога просто открывается, все разгоняются, а пробка, в которой ты провёл двадцать минут, всё ещё позади и поглощает других."
+   },
+   {
+    "text": "These are called phantom jams, and they are not a failure of the road.",
+    "translationRu": "Их называют фантомными пробками, и это не изъян дороги."
+   },
+   {
+    "text": "They are a property of what happens when you put enough cars on one, and they can be produced on demand.",
+    "translationRu": "Это свойство того, что происходит при достаточном числе машин на ней, и их можно воспроизвести по заказу."
+   },
+   {
+    "text": "Japanese researchers did exactly that, putting twenty-two drivers on a circular track and asking them to hold a steady thirty kilometres an hour.",
+    "translationRu": "Японские исследователи так и сделали: посадили двадцать двух водителей на кольцевую трассу и попросили держать ровные тридцать километров в час."
+   },
+   {
+    "text": "For a short while it works.",
+    "translationRu": "Недолго это работает."
+   },
+   {
+    "text": "Then somebody drifts slightly close to the car in front and touches the brake.",
+    "translationRu": "Потом кто-то чуть приближается к передней машине и касается тормоза."
+   },
+   {
+    "text": "The driver behind, having a human reaction time, brakes slightly harder.",
+    "translationRu": "Водитель сзади, имея человеческое время реакции, тормозит чуть сильнее."
+   },
+   {
+    "text": "The one behind them harder again.",
+    "translationRu": "Следующий — ещё сильнее."
+   },
+   {
+    "text": "Within a few cars somebody has stopped completely, and a wave of stopped traffic forms and begins travelling backwards around the ring at a steady speed while every individual car continues forwards.",
+    "translationRu": "Через несколько машин кто-то полностью останавливается, образуется волна стоящего транспорта и начинает двигаться назад по кольцу с постоянной скоростью, хотя каждая машина едет вперёд."
+   },
+   {
+    "text": "Nobody did anything wrong.",
+    "translationRu": "Никто не сделал ничего неправильного."
+   },
+   {
+    "text": "The system amplified a fluctuation, which is what systems above a certain density do.",
+    "translationRu": "Система усилила флуктуацию — так делают системы выше определённой плотности."
+   },
+   {
+    "text": "The key quantity is not the number of cars but how much space is left between them, because that space is the only thing absorbing the variation.",
+    "translationRu": "Ключевая величина — не число машин, а оставшееся между ними пространство: только оно и гасит колебания."
+   },
+   {
+    "text": "Below a critical density, a small braking event dissipates.",
+    "translationRu": "Ниже критической плотности мелкое торможение рассеивается."
+   },
+   {
+    "text": "Above it, the same event grows, and the transition between those two states is sharp rather than gradual, which is why a road that flowed perfectly yesterday is solid today with two per cent more traffic on it.",
+    "translationRu": "Выше — то же событие растёт, и переход между этими состояниями резкий, а не плавный; поэтому дорога, вчера ехавшая идеально, сегодня стоит при двух процентах лишнего трафика."
+   },
+   {
+    "text": "This explains why several interventions that feel wrong are effective.",
+    "translationRu": "Это объясняет, почему несколько контринтуитивных мер работают."
+   },
+   {
+    "text": "Variable speed limits that slow everyone to eighty before a busy stretch increase total throughput, because a slower uniform flow carries more vehicles per hour than a faster one that keeps collapsing.",
+    "translationRu": "Переменные ограничения, сбрасывающие всех до восьмидесяти перед загруженным участком, увеличивают пропускную способность: медленный равномерный поток везёт больше машин в час, чем быстрый, который постоянно схлопывается."
+   },
+   {
+    "text": "Metering lights that make drivers wait to join a motorway protect the density on it.",
+    "translationRu": "Светофоры на въезде, заставляющие ждать перед выездом на автомагистраль, защищают плотность на ней."
+   },
+   {
+    "text": "And a single driver can dissolve a wave by leaving a large gap and refusing to brake, absorbing the fluctuation personally, which works and is almost impossible to do while the people behind are furious with you.",
+    "translationRu": "А один водитель может рассеять волну, оставив большой зазор и не тормозя, поглотив колебание собой; это работает и почти невыполнимо, пока сзади на тебя злятся."
+   },
+   {
+    "text": "The broader point applies well beyond roads.",
+    "translationRu": "Более широкий вывод выходит далеко за пределы дорог."
+   },
+   {
+    "text": "Any system run near its maximum capacity converts small disturbances into large ones, and the slack that looks like waste on a spreadsheet is the thing that was absorbing them.",
+    "translationRu": "Любая система, работающая у предела мощности, превращает мелкие возмущения в крупные, а запас, выглядящий в таблице как потери, — это именно то, что их гасило."
+   }
+  ],
+  "glossary": {
+   "crawl": {
+    "translation": "ползти",
+    "partOfSpeech": "verb"
+   },
+   "roadworks": {
+    "translation": "дорожные работы",
+    "partOfSpeech": "noun"
+   },
+   "accelerate": {
+    "translation": "разгоняться",
+    "partOfSpeech": "verb"
+   },
+   "phantom": {
+    "translation": "фантомный",
+    "partOfSpeech": "adjective"
+   },
+   "drift": {
+    "translation": "сместиться, снестись",
+    "partOfSpeech": "verb"
+   },
+   "amplify": {
+    "translation": "усиливать",
+    "partOfSpeech": "verb"
+   },
+   "density": {
+    "translation": "плотность",
+    "partOfSpeech": "noun"
+   },
+   "dissipate": {
+    "translation": "рассеиваться",
+    "partOfSpeech": "verb"
+   },
+   "throughput": {
+    "translation": "пропускная способность",
+    "partOfSpeech": "noun"
+   },
+   "slack": {
+    "translation": "запас, люфт",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-jam-with-no-cause-q1",
+    "question": "What starts a phantom jam?",
+    "options": [
+     "An accident",
+     "One small braking event amplified by reaction times",
+     "Roadworks",
+     "Bad weather"
+    ],
+    "answer": 1,
+    "explanation": "Nobody did anything wrong."
+   },
+   {
+    "id": "the-jam-with-no-cause-q2",
+    "question": "What is the key quantity?",
+    "options": [
+     "Number of cars",
+     "The space left between them, which absorbs variation",
+     "Speed limit",
+     "Lane width"
+    ],
+    "answer": 1,
+    "explanation": "The transition at critical density is sharp."
+   },
+   {
+    "id": "the-jam-with-no-cause-q3",
+    "question": "Why do lower variable speed limits increase throughput?",
+    "options": [
+     "Fewer cars enter",
+     "A slower uniform flow carries more vehicles than a faster collapsing one",
+     "Drivers pay attention",
+     "Police enforce them"
+    ],
+    "answer": 1,
+    "explanation": "Metering lights work on the same principle."
+   },
+   {
+    "id": "the-jam-with-no-cause-q4",
+    "question": "What is the general lesson?",
+    "options": [
+     "Drive slowly",
+     "Systems near maximum capacity amplify small disturbances, and slack is what absorbed them",
+     "Roads need widening",
+     "Reaction times must improve"
+    ],
+    "answer": 1,
+    "explanation": "The slack that looks like waste on a spreadsheet."
+   }
+  ]
  }
 ]

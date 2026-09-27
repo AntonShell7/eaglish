@@ -1982,5 +1982,186 @@
     "explanation": "It runs in families."
    }
   ]
+ },
+ {
+  "id": "the-antibiotics-problem",
+  "level": "B2",
+  "topic": "health",
+  "generated": false,
+  "title": "We Are Running Out of Antibiotics and Nobody Wants to Make More",
+  "sentences": [
+   {
+    "text": "Antibiotics are among the few medicines that reliably turn a fatal illness into an inconvenient one.",
+    "translationRu": "Антибиотики — одни из немногих лекарств, надёжно превращающих смертельную болезнь в неудобство."
+   },
+   {
+    "text": "Before them, a scratch from a garden thorn could kill a healthy adult, and it sometimes did.",
+    "translationRu": "До них царапина от садового шипа могла убить здорового взрослого — и иногда убивала."
+   },
+   {
+    "text": "They also make almost all of modern medicine possible, which is the part people forget.",
+    "translationRu": "Они же делают возможной почти всю современную медицину, о чём обычно забывают."
+   },
+   {
+    "text": "Surgery, childbirth in a hospital, chemotherapy and transplants all depend on being able to control an infection afterwards, and without that guarantee each becomes a gamble.",
+    "translationRu": "Хирургия, роды в больнице, химиотерапия и трансплантации зависят от возможности потом справиться с инфекцией, а без этой гарантии каждая процедура становится ставкой."
+   },
+   {
+    "text": "Resistance is not a surprise and was predicted from the beginning.",
+    "translationRu": "Устойчивость — не сюрприз, её предсказывали с самого начала."
+   },
+   {
+    "text": "Alexander Fleming warned about it in his Nobel speech in 1945.",
+    "translationRu": "Александр Флеминг предупреждал о ней в нобелевской речи 1945 года."
+   },
+   {
+    "text": "Bacteria reproduce in twenty minutes, in enormous numbers, and any population large enough will contain a few individuals that survive a drug by accident.",
+    "translationRu": "Бактерии размножаются за двадцать минут и в огромных количествах, и в достаточно большой популяции всегда найдутся единицы, случайно пережившие препарат."
+   },
+   {
+    "text": "Kill the rest and you have handed those few an empty world.",
+    "translationRu": "Убей остальных — и ты отдал этим немногим пустой мир."
+   },
+   {
+    "text": "This is evolution operating on a timescale you can watch in a dish.",
+    "translationRu": "Это эволюция в масштабе, который можно наблюдать в чашке."
+   },
+   {
+    "text": "It is made faster by everything people do wrong: courses stopped early, antibiotics prescribed for viral infections they cannot touch, and above all the enormous quantities used in agriculture to make animals grow faster in crowded conditions.",
+    "translationRu": "Её ускоряет всё, что люди делают не так: прерванные курсы, антибиотики, выписанные против вирусов, на которые они не действуют, и прежде всего колоссальные объёмы в сельском хозяйстве — для быстрого роста животных в тесноте."
+   },
+   {
+    "text": "The obvious answer is to develop new ones, and here the problem stops being biological and becomes economic.",
+    "translationRu": "Очевидный ответ — разрабатывать новые, и тут проблема перестаёт быть биологической и становится экономической."
+   },
+   {
+    "text": "Consider what a new antibiotic is worth to the company that develops it.",
+    "translationRu": "Посмотри, чего новый антибиотик стоит для разработавшей его компании."
+   },
+   {
+    "text": "It costs as much to bring to market as any other drug, well over a billion dollars across a decade.",
+    "translationRu": "Вывод на рынок обходится не дешевле любого другого препарата — заметно больше миллиарда долларов за десятилетие."
+   },
+   {
+    "text": "It is then taken by a patient for one week rather than for life, which is the opposite of the business model that funds everything else.",
+    "translationRu": "Затем пациент принимает его неделю, а не пожизненно, — противоположность бизнес-модели, кормящей всё остальное."
+   },
+   {
+    "text": "And if it works against resistant bacteria, the correct medical policy is to use it as little as possible and keep it in reserve, which means the better the drug, the less of it will be sold.",
+    "translationRu": "А если он работает против устойчивых бактерий, правильная медицинская политика — применять его как можно реже и держать в резерве, то есть чем лучше препарат, тем меньше его продадут."
+   },
+   {
+    "text": "No other product has that shape.",
+    "translationRu": "Ни у какого другого продукта нет такой формы."
+   },
+   {
+    "text": "The result is that most large companies left the field, several small ones that succeeded in developing a new antibiotic went bankrupt shortly afterwards, and the pipeline is thin in a way that alarms everyone who looks at it.",
+    "translationRu": "В итоге большинство крупных компаний ушли из области, несколько небольших, сумевших разработать новый антибиотик, вскоре обанкротились, а портфель разработок так тонок, что тревожит всякого, кто в него заглянет."
+   },
+   {
+    "text": "Proposals to fix it all involve breaking the link between sales and revenue: paying a fixed sum for the existence of a drug rather than for each dose, in the way a country pays for a fire service it hopes never to need.",
+    "translationRu": "Все предложения по исправлению разрывают связь между продажами и выручкой: платить фиксированную сумму за само существование препарата, а не за дозу, — как страна платит за пожарную службу, которая, надеется она, не понадобится."
+   },
+   {
+    "text": "Several governments are trialling versions of this.",
+    "translationRu": "Несколько правительств тестируют варианты этого."
+   },
+   {
+    "text": "It is the right shape of answer, and it is being tried slowly, against a process that is not slow at all.",
+    "translationRu": "Это верная по форме мера, и внедряют её медленно — против процесса, который совсем не медленный."
+   }
+  ],
+  "glossary": {
+   "fatal": {
+    "translation": "смертельный",
+    "partOfSpeech": "adjective"
+   },
+   "inconvenient": {
+    "translation": "неудобный",
+    "partOfSpeech": "adjective"
+   },
+   "thorn": {
+    "translation": "шип",
+    "partOfSpeech": "noun"
+   },
+   "transplant": {
+    "translation": "трансплантация",
+    "partOfSpeech": "noun"
+   },
+   "resistance": {
+    "translation": "устойчивость",
+    "partOfSpeech": "noun"
+   },
+   "prescribe": {
+    "translation": "выписывать (лекарство)",
+    "partOfSpeech": "verb"
+   },
+   "reserve": {
+    "translation": "резерв",
+    "partOfSpeech": "noun"
+   },
+   "bankrupt": {
+    "translation": "банкрот",
+    "partOfSpeech": "adjective"
+   },
+   "pipeline": {
+    "translation": "портфель разработок",
+    "partOfSpeech": "noun"
+   },
+   "dose": {
+    "translation": "доза",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-antibiotics-problem-q1",
+    "question": "What else depends on antibiotics?",
+    "options": [
+     "Only infections",
+     "Surgery, hospital childbirth, chemotherapy and transplants",
+     "Vaccines",
+     "Diagnostics"
+    ],
+    "answer": 1,
+    "explanation": "Without the guarantee, each becomes a gamble."
+   },
+   {
+    "id": "the-antibiotics-problem-q2",
+    "question": "Why is resistance inevitable?",
+    "options": [
+     "Drugs are weak",
+     "Huge fast-reproducing populations contain survivors, and killing the rest gives them an empty world",
+     "Doctors err",
+     "Bacteria learn"
+    ],
+    "answer": 1,
+    "explanation": "Evolution you can watch in a dish."
+   },
+   {
+    "id": "the-antibiotics-problem-q3",
+    "question": "Why is a good new antibiotic bad business?",
+    "options": [
+     "It is cheap to make",
+     "It is taken for a week and should be held in reserve, so the better it is the less sells",
+     "Patents are short",
+     "Regulators block it"
+    ],
+    "answer": 1,
+    "explanation": "No other product has that shape."
+   },
+   {
+    "id": "the-antibiotics-problem-q4",
+    "question": "What do the proposed fixes do?",
+    "options": [
+     "Raise prices",
+     "Pay a fixed sum for the drug's existence rather than per dose",
+     "Ban agricultural use",
+     "Shorten trials"
+    ],
+    "answer": 1,
+    "explanation": "Like paying for a fire service."
+   }
+  ]
  }
 ]

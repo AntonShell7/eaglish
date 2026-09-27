@@ -1933,5 +1933,347 @@
     "explanation": "Rehearsing the walk is what appears to help."
    }
   ]
+ },
+ {
+  "id": "why-the-marathon-is-42-195",
+  "level": "A2",
+  "topic": "sport",
+  "generated": false,
+  "title": "The Marathon Has a Strange Length Because of a Palace",
+  "sentences": [
+   {
+    "text": "A marathon is 42.195 kilometres.",
+    "translationRu": "Марафон — это 42,195 километра."
+   },
+   {
+    "text": "That is a very strange number.",
+    "translationRu": "Очень странное число."
+   },
+   {
+    "text": "Forty kilometres would be easier to remember.",
+    "translationRu": "Сорок километров было бы легче запомнить."
+   },
+   {
+    "text": "So why this one?",
+    "translationRu": "Так почему такое?"
+   },
+   {
+    "text": "The first modern Olympic marathons were about forty kilometres.",
+    "translationRu": "Первые современные олимпийские марафоны были около сорока километров."
+   },
+   {
+    "text": "The exact length changed from one Games to the next.",
+    "translationRu": "Точная длина менялась от Игр к Играм."
+   },
+   {
+    "text": "Nobody thought it was important.",
+    "translationRu": "Никто не считал это важным."
+   },
+   {
+    "text": "Then came London in 1908.",
+    "translationRu": "Потом был Лондон 1908 года."
+   },
+   {
+    "text": "The race was going to start in the town of Windsor and finish in the stadium.",
+    "translationRu": "Гонка должна была стартовать в городе Виндзор и финишировать на стадионе."
+   },
+   {
+    "text": "But the organisers wanted the children of the royal family to see the start.",
+    "translationRu": "Но организаторы хотели, чтобы старт увидели дети королевской семьи."
+   },
+   {
+    "text": "So they moved the start to the grass in front of Windsor Castle.",
+    "translationRu": "И перенесли старт на лужайку перед Виндзорским замком."
+   },
+   {
+    "text": "They also wanted the finish to be in front of the royal box in the stadium.",
+    "translationRu": "А финиш они хотели сделать перед королевской ложей на стадионе."
+   },
+   {
+    "text": "So they added a little more at the end.",
+    "translationRu": "И добавили немного в конце."
+   },
+   {
+    "text": "The total was 42.195 kilometres.",
+    "translationRu": "Итог — 42,195 километра."
+   },
+   {
+    "text": "For some years after that, the length changed again.",
+    "translationRu": "Ещё несколько лет длина снова менялась."
+   },
+   {
+    "text": "But in 1921 the sport decided to make one official number.",
+    "translationRu": "Но в 1921 году в спорте решили утвердить одно официальное число."
+   },
+   {
+    "text": "They chose the London one.",
+    "translationRu": "Выбрали лондонское."
+   },
+   {
+    "text": "Nobody is completely sure why.",
+    "translationRu": "Почему — точно никто не знает."
+   },
+   {
+    "text": "So every runner in the world now runs the distance between a castle window and a seat for a king.",
+    "translationRu": "Так что каждый бегун в мире теперь бежит расстояние от окна замка до кресла для короля."
+   }
+  ],
+  "glossary": {
+   "length": {
+    "translation": "длина",
+    "partOfSpeech": "noun"
+   },
+   "exact": {
+    "translation": "точный",
+    "partOfSpeech": "adjective"
+   },
+   "organiser": {
+    "translation": "организатор",
+    "partOfSpeech": "noun"
+   },
+   "royal": {
+    "translation": "королевский",
+    "partOfSpeech": "adjective"
+   },
+   "grass": {
+    "translation": "трава, лужайка",
+    "partOfSpeech": "noun"
+   },
+   "castle": {
+    "translation": "замок",
+    "partOfSpeech": "noun"
+   },
+   "box": {
+    "translation": "ложа",
+    "partOfSpeech": "noun"
+   },
+   "official": {
+    "translation": "официальный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "why-the-marathon-is-42-195-q1",
+    "question": "How long were early Olympic marathons?",
+    "options": [
+     "Exactly 42.195 km",
+     "About forty kilometres, and it changed each time",
+     "Fifty kilometres",
+     "Thirty kilometres"
+    ],
+    "answer": 1,
+    "explanation": "Nobody thought it was important."
+   },
+   {
+    "id": "why-the-marathon-is-42-195-q2",
+    "question": "Why was the start moved?",
+    "options": [
+     "Bad weather",
+     "So the royal children could see it",
+     "The road was closed",
+     "It was too far"
+    ],
+    "answer": 1,
+    "explanation": "To the grass in front of Windsor Castle."
+   },
+   {
+    "id": "why-the-marathon-is-42-195-q3",
+    "question": "When did the number become official?",
+    "options": [
+     "1908",
+     "1921",
+     "1896",
+     "1950"
+    ],
+    "answer": 1,
+    "explanation": "They chose the London distance."
+   }
+  ]
+ },
+ {
+  "id": "born-in-the-wrong-month",
+  "level": "C2",
+  "topic": "sport",
+  "generated": false,
+  "title": "Elite Squads Are Full of Children Born in January",
+  "sentences": [
+   {
+    "text": "Take the birth dates of the players in almost any elite youth academy in almost any sport and sort them by month.",
+    "translationRu": "Возьми даты рождения игроков практически любой элитной юношеской академии почти в любом спорте и разложи по месяцам."
+   },
+   {
+    "text": "The distribution will not be flat.",
+    "translationRu": "Распределение не будет равномерным."
+   },
+   {
+    "text": "In systems that group children by calendar year, players born in the first three months are routinely overrepresented by a factor of two or three against those born in the last three, and in some cohorts the difference is larger still.",
+    "translationRu": "В системах, где детей делят по календарному году, рождённых в первые три месяца стабильно вдвое-втрое больше, чем рождённых в последние три, а в некоторых наборах разрыв ещё шире."
+   },
+   {
+    "text": "This is the relative age effect, it has been documented since the 1980s, and it has proved close to impossible to remove.",
+    "translationRu": "Это эффект относительного возраста; его документируют с 1980-х, и убрать его оказалось почти невозможно."
+   },
+   {
+    "text": "The mechanism is entirely mundane.",
+    "translationRu": "Механизм совершенно бытовой."
+   },
+   {
+    "text": "Among nine-year-olds, a child born in January is up to eleven months older than a teammate born in December.",
+    "translationRu": "Среди девятилетних ребёнок, рождённый в январе, до одиннадцати месяцев старше товарища, рождённого в декабре."
+   },
+   {
+    "text": "Eleven months at that age is a large fraction of a life and shows up as height, weight, coordination and confidence.",
+    "translationRu": "Одиннадцать месяцев в этом возрасте — заметная доля жизни, и проявляется она ростом, весом, координацией и уверенностью."
+   },
+   {
+    "text": "The older child looks better, because they are.",
+    "translationRu": "Старший ребёнок выглядит лучше — потому что он и есть лучше."
+   },
+   {
+    "text": "A scout watching a match cannot see a birth certificate, and even when they can, the pressure is to win this season's fixtures.",
+    "translationRu": "Скаут на матче свидетельства о рождении не видит, а когда видит, давление всё равно — выиграть матчи этого сезона."
+   },
+   {
+    "text": "Then the effect compounds, which is the part that matters.",
+    "translationRu": "И дальше эффект накапливается, и вот это важно."
+   },
+   {
+    "text": "The selected child receives better coaching, more competitive matches, more attention and more hours, and two years later they genuinely are better, by a margin that has nothing to do with the month they were born in and everything to do with the resources that followed the first judgement.",
+    "translationRu": "Отобранный ребёнок получает лучших тренеров, более соревновательные матчи, больше внимания и больше часов, и через два года он действительно лучше — с отрывом, который не имеет отношения к месяцу рождения и целиком связан с ресурсами, пришедшими за первым решением."
+   },
+   {
+    "text": "The initial signal was noise, and the system converted it into a real difference.",
+    "translationRu": "Исходный сигнал был шумом, а система превратила его в настоящее различие."
+   },
+   {
+    "text": "There is a tail to the story that complicates it usefully.",
+    "translationRu": "У истории есть хвост, который её полезно усложняет."
+   },
+   {
+    "text": "Among those born late in the year who survive the filter anyway, professional outcomes are sometimes better than for their early-born peers, and the proposed explanation is that a child who spent years competing against bigger opponents had to develop technique, anticipation and decision-making rather than relying on size.",
+    "translationRu": "Среди рождённых в конце года, всё же прошедших сквозь фильтр, профессиональные исходы порой лучше, чем у их рождённых в начале ровесников, и предполагаемое объяснение таково: ребёнок, годами игравший против более крупных, был вынужден развивать технику, предвидение и принятие решений, а не полагаться на габариты."
+   },
+   {
+    "text": "The disadvantage trained something the advantage did not require.",
+    "translationRu": "Недостаток натренировал то, чего преимущество не требовало."
+   },
+   {
+    "text": "Which points at the real failure, and it is not fairness.",
+    "translationRu": "Это указывает на настоящий провал, и он не в справедливости."
+   },
+   {
+    "text": "A selection system that filters on current performance at age nine is not identifying talent.",
+    "translationRu": "Система отбора, фильтрующая по текущему результату в девять лет, талант не выявляет."
+   },
+   {
+    "text": "It is identifying maturity, and then spending its entire development budget on that measurement, while discarding a large number of children who would have been better at twenty-two.",
+    "translationRu": "Она выявляет зрелость, а затем тратит весь бюджет развития на это измерение, отсеивая множество детей, которые были бы лучше в двадцать два."
+   },
+   {
+    "text": "The remedies are known and awkward: grouping by biological maturity rather than birth year, rotating the cut-off date between seasons, delaying selection entirely, or simply publishing each academy's birth-month distribution so that the number is visible to the people making the decisions.",
+    "translationRu": "Средства известны и неудобны: группировать по биологической зрелости, а не по году рождения, сдвигать отсечную дату между сезонами, откладывать отбор вовсе или просто публиковать распределение по месяцам рождения в каждой академии, чтобы цифра была видна принимающим решения."
+   },
+   {
+    "text": "Where the last of these has been tried, the skew has narrowed, which suggests nobody was choosing on birth month deliberately.",
+    "translationRu": "Там, где пробовали последнее, перекос сокращался, а значит по месяцу рождения никто не выбирал нарочно."
+   },
+   {
+    "text": "They were choosing on something they could see, and it happened to be a proxy for age.",
+    "translationRu": "Выбирали по тому, что было видно, — а оно оказалось прокси для возраста."
+   }
+  ],
+  "glossary": {
+   "academy": {
+    "translation": "академия (спортшкола)",
+    "partOfSpeech": "noun"
+   },
+   "overrepresented": {
+    "translation": "перепредставленный",
+    "partOfSpeech": "adjective"
+   },
+   "cohort": {
+    "translation": "когорта, набор",
+    "partOfSpeech": "noun"
+   },
+   "mundane": {
+    "translation": "обыденный",
+    "partOfSpeech": "adjective"
+   },
+   "scout": {
+    "translation": "скаут, селекционер",
+    "partOfSpeech": "noun"
+   },
+   "compound": {
+    "translation": "накапливаться, нарастать",
+    "partOfSpeech": "verb"
+   },
+   "margin": {
+    "translation": "отрыв, разница",
+    "partOfSpeech": "noun"
+   },
+   "anticipation": {
+    "translation": "предвидение",
+    "partOfSpeech": "noun"
+   },
+   "maturity": {
+    "translation": "зрелость",
+    "partOfSpeech": "noun"
+   },
+   "proxy": {
+    "translation": "замещающий показатель",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "born-in-the-wrong-month-q1",
+    "question": "What causes the initial skew?",
+    "options": [
+     "Genetics",
+     "Up to eleven months of extra development at age nine",
+     "Coaching styles",
+     "Parental income"
+    ],
+    "answer": 1,
+    "explanation": "The older child looks better because they are."
+   },
+   {
+    "id": "born-in-the-wrong-month-q2",
+    "question": "Why does it compound?",
+    "options": [
+     "Children move clubs",
+     "Selection brings coaching, matches and hours, which create a real difference",
+     "Rules change",
+     "Late-born children quit"
+    ],
+    "answer": 1,
+    "explanation": "The system converted noise into a real difference."
+   },
+   {
+    "id": "born-in-the-wrong-month-q3",
+    "question": "What is sometimes true of late-born players who survive?",
+    "options": [
+     "They retire early",
+     "Their professional outcomes are sometimes better, having had to develop technique",
+     "They play different positions",
+     "Nothing differs"
+    ],
+    "answer": 1,
+    "explanation": "The disadvantage trained something the advantage did not require."
+   },
+   {
+    "id": "born-in-the-wrong-month-q4",
+    "question": "What does the text say the system is actually measuring?",
+    "options": [
+     "Talent",
+     "Maturity",
+     "Motivation",
+     "Coaching quality"
+    ],
+    "answer": 1,
+    "explanation": "Then spending the whole development budget on that measurement."
+   }
+  ]
  }
 ]

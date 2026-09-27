@@ -2102,5 +2102,182 @@
     "explanation": "The worst output is right about the surrounding nine facts."
    }
   ]
+ },
+ {
+  "id": "the-at-sign",
+  "level": "B1",
+  "topic": "technology",
+  "generated": false,
+  "title": "One Man Chose the @ Sign Because Nobody Was Using It",
+  "sentences": [
+   {
+    "text": "Every email address in the world contains the same symbol.",
+    "translationRu": "В каждом адресе электронной почты в мире есть один и тот же символ."
+   },
+   {
+    "text": "A name, then @, then a place.",
+    "translationRu": "Имя, потом @, потом место."
+   },
+   {
+    "text": "Billions of people type it every day, and it was chosen in about a minute by one engineer in 1971.",
+    "translationRu": "Миллиарды людей печатают его каждый день, а выбрал его примерно за минуту один инженер в 1971 году."
+   },
+   {
+    "text": "His name was Ray Tomlinson, and he was working on an early computer network with a few dozen machines on it.",
+    "translationRu": "Его звали Рэй Томлинсон, и он работал над ранней компьютерной сетью из нескольких десятков машин."
+   },
+   {
+    "text": "Messages already existed, but only inside one computer: you could leave a note for another person who used the same machine.",
+    "translationRu": "Сообщения уже существовали, но только внутри одной машины: можно было оставить записку другому пользователю того же компьютера."
+   },
+   {
+    "text": "Tomlinson wanted to send a message to a person on a different machine, which meant the address needed two parts.",
+    "translationRu": "Томлинсон хотел отправить сообщение человеку на другой машине, а значит адресу нужны были две части."
+   },
+   {
+    "text": "Who, and where.",
+    "translationRu": "Кто и где."
+   },
+   {
+    "text": "He needed a character to separate them, and the requirement was oddly strict.",
+    "translationRu": "Ему нужен был разделяющий символ, и требование оказалось на удивление строгим."
+   },
+   {
+    "text": "It had to exist on the keyboards of the time, and it had to be a character that could never appear in a person's name, because otherwise the computer would not know where the name ended.",
+    "translationRu": "Он должен был быть на тогдашних клавиатурах и не мог встречаться в имени человека, иначе компьютер не понял бы, где имя кончается."
+   },
+   {
+    "text": "He looked at the keyboard in front of him.",
+    "translationRu": "Он посмотрел на клавиатуру перед собой."
+   },
+   {
+    "text": "Most symbols were already doing a job in the operating system.",
+    "translationRu": "Большинство символов уже выполняли работу в операционной системе."
+   },
+   {
+    "text": "The @ was not.",
+    "translationRu": "А @ — нет."
+   },
+   {
+    "text": "It was an old commercial symbol, used by traders to mean at a rate of: twelve boxes @ two pounds.",
+    "translationRu": "Это был старый торговый знак, означавший «по цене»: двенадцать ящиков @ два фунта."
+   },
+   {
+    "text": "It had sat on typewriter keyboards for decades doing almost nothing.",
+    "translationRu": "Он десятилетиями сидел на клавиатурах пишущих машинок, почти ничего не делая."
+   },
+   {
+    "text": "It also happened to read correctly in English: this person at that place.",
+    "translationRu": "И он удачно читался по-английски: такой-то человек в таком-то месте."
+   },
+   {
+    "text": "Tomlinson said later that the whole decision was not memorable, and that he did not keep a copy of the first message because it was not interesting.",
+    "translationRu": "Позже Томлинсон говорил, что решение не запомнилось и что копию первого письма он не сохранил, потому что оно было неинтересным."
+   },
+   {
+    "text": "He thought he was solving a small local problem.",
+    "translationRu": "Он думал, что решает маленькую локальную задачу."
+   },
+   {
+    "text": "Other languages had to find names for the symbol afterwards, and most of them chose an animal.",
+    "translationRu": "Другим языкам пришлось потом придумывать символу имя, и большинство выбрало животное."
+   },
+   {
+    "text": "It is a monkey tail in Dutch, an elephant trunk in Swedish, a little snail in Italian, a worm in Hungarian, and in Russian it is a dog.",
+    "translationRu": "В нидерландском это обезьяний хвост, в шведском — хобот, в итальянском — улитка, в венгерском — червяк, а в русском — собака."
+   },
+   {
+    "text": "The English-speaking world, which chose it, just calls it at.",
+    "translationRu": "Англоязычный мир, который его и выбрал, зовёт его просто «at»."
+   }
+  ],
+  "glossary": {
+   "symbol": {
+    "translation": "символ",
+    "partOfSpeech": "noun"
+   },
+   "engineer": {
+    "translation": "инженер",
+    "partOfSpeech": "noun"
+   },
+   "network": {
+    "translation": "сеть",
+    "partOfSpeech": "noun"
+   },
+   "character": {
+    "translation": "знак, символ",
+    "partOfSpeech": "noun"
+   },
+   "strict": {
+    "translation": "строгий",
+    "partOfSpeech": "adjective"
+   },
+   "trader": {
+    "translation": "торговец",
+    "partOfSpeech": "noun"
+   },
+   "rate": {
+    "translation": "ставка, цена",
+    "partOfSpeech": "noun"
+   },
+   "trunk": {
+    "translation": "хобот",
+    "partOfSpeech": "noun"
+   },
+   "snail": {
+    "translation": "улитка",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "the-at-sign-q1",
+    "question": "Why did the address need two parts?",
+    "options": [
+     "For security",
+     "The message was going to a person on a different machine",
+     "To be shorter",
+     "For the network name"
+    ],
+    "answer": 1,
+    "explanation": "Who, and where."
+   },
+   {
+    "id": "the-at-sign-q2",
+    "question": "Why could the separator not be a common character?",
+    "options": [
+     "It looked bad",
+     "It must never appear in a person's name",
+     "Keyboards lacked it",
+     "It was reserved by law"
+    ],
+    "answer": 1,
+    "explanation": "Otherwise the computer would not know where the name ended."
+   },
+   {
+    "id": "the-at-sign-q3",
+    "question": "What did @ mean before email?",
+    "options": [
+     "Nothing",
+     "At a rate of, in commercial writing",
+     "And",
+     "About"
+    ],
+    "answer": 1,
+    "explanation": "Twelve boxes @ two pounds."
+   },
+   {
+    "id": "the-at-sign-q4",
+    "question": "What do other languages call it?",
+    "options": [
+     "The same thing",
+     "Mostly animals — a monkey tail, a trunk, a snail, a dog",
+     "A number",
+     "A cross"
+    ],
+    "answer": 1,
+    "explanation": "English just calls it at."
+   }
+  ]
  }
 ]

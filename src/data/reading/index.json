@@ -56,25 +56,51 @@
   "counts": {
    "B1": 3,
    "C1": 2,
-   "B2": 2,
+   "B2": 3,
    "A1": 3,
    "C2": 1,
    "A2": 1
   },
-  "total": 12
+  "total": 13
+ },
+ {
+  "id": "society",
+  "label": "Society",
+  "counts": {
+   "B1": 2,
+   "A2": 2,
+   "C2": 2,
+   "B2": 2,
+   "C1": 3,
+   "A1": 2
+  },
+  "total": 13
+ },
+ {
+  "id": "sport",
+  "label": "Sport",
+  "counts": {
+   "B1": 3,
+   "A2": 3,
+   "B2": 2,
+   "A1": 2,
+   "C1": 1,
+   "C2": 2
+  },
+  "total": 13
  },
  {
   "id": "technology",
   "label": "Technology",
   "counts": {
-   "B1": 3,
+   "B1": 4,
    "A1": 2,
    "C2": 3,
    "B2": 1,
    "A2": 1,
    "C1": 2
   },
-  "total": 12
+  "total": 13
  },
  {
   "id": "travel",
@@ -88,31 +114,5 @@
    "C2": 1
   },
   "total": 12
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1": 2,
-   "A2": 2,
-   "C2": 2,
-   "B2": 2,
-   "C1": 2,
-   "A1": 1
-  },
-  "total": 11
- },
- {
-  "id": "sport",
-  "label": "Sport",
-  "counts": {
-   "B1": 3,
-   "A2": 2,
-   "B2": 2,
-   "A1": 2,
-   "C1": 1,
-   "C2": 1
-  },
-  "total": 11
  }
 ]
