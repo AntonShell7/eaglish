@@ -16,7 +16,7 @@
  */
 export const CONTACT_EMAIL = "eaglish@yandex.ru";
 
-export const LAST_UPDATED = "2026-08-18";
+export const LAST_UPDATED = "2026-09-28";
 
 export interface LegalSection {
   id: string;
@@ -81,6 +81,15 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "Аналитики и рекламных cookie у нас нет. Всё, что мы пишем в браузер, — это твоя сессия входа, тема, язык, согласие и копия прогресса. Полный список показан в окне согласия — его можно открыть в любой момент ссылкой в подвале сайта.",
           "Если аналитика когда-нибудь появится, она будет выключена по умолчанию и включится только твоим переключателем.",
+        ],
+      },
+      {
+        id: "who-sees",
+        h: "Кто внутри сервиса видит твои данные",
+        p: [
+          "У Eaglish есть служебная страница, к которой имеет доступ только владелец сервиса. На ней видно: список аккаунтов с адресами почты, дата регистрации и последнего входа, выбранный уровень, сколько слов сохранено и сколько повторений сделано. По отдельному аккаунту можно открыть и сам список сохранённых слов с переводами и датами.",
+          "Это нужно, чтобы понимать, работает ли обучение, и чинить то, что сломалось. Мы не читаем эти данные ради любопытства и не передаём их наружу — ограничения из раздела «Кому передаются данные» действуют и здесь.",
+          "Чего там нет: твоего пароля — он хранится только в виде необратимого хеша у Supabase, и его не видит никто, включая нас.",
         ],
       },
       {
@@ -158,6 +167,15 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "There are no analytics or advertising cookies. What we write to your browser is your sign-in session, theme, language, consent record and a copy of your progress. The full list is shown in the consent panel, which you can reopen any time from the footer.",
           "If analytics is ever added, it will be off by default and will only run once you switch it on.",
+        ],
+      },
+      {
+        id: "who-sees",
+        h: "Who inside the service can see your data",
+        p: [
+          "Eaglish has an internal page that only the owner of the service can open. It shows a list of accounts with their email addresses, sign-up and last sign-in dates, the chosen level, how many words are saved and how many reviews have been done. For an individual account it can also show the saved words themselves, with translations and dates.",
+          "This exists so we can tell whether the teaching works and fix what breaks. We do not read it out of curiosity and we do not pass it on — the limits in the sharing section above apply here too.",
+          "What it does not show: your password. That is held only as an irreversible hash at Supabase, and nobody sees it, including us.",
         ],
       },
       {
