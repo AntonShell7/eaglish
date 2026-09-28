@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkDictation, worthLearning, type DictationResult } from "@/lib/dictation";
 import type { VideoExercise } from "@/lib/videoDictation";
@@ -7,6 +7,9 @@ import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
 import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
+import { useInputMode } from "@/lib/inputMode";
+import { PenToggle } from "@/components/ui/PenToggle";
+import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
 import "./dictation.css";
 
 /**
@@ -28,6 +31,12 @@ export function VideoDictation({ exercise, onExit }: { exercise: VideoExercise; 
 
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
+  /* The same arrangement as the written library: nothing reads handwriting, so
+     in pen mode the answer is revealed and the learner marks their own page. */
+  const [mode] = useInputMode();
+  const pad = useRef<HandwritingPadHandle | null>(null);
+  const [inked, setInked] = useState(false);
+  const pen = mode === "pen";
   const [result, setResult] = useState<DictationResult | null>(null);
   const [plays, setPlays] = useState(0);
   const [scores, setScores] = useState<number[]>([]);
@@ -40,6 +49,8 @@ export function VideoDictation({ exercise, onExit }: { exercise: VideoExercise; 
   useEffect(() => {
     if (!segment || !ready) return;
     setTyped("");
+    setInked(false);
+    pad.current?.clear();
     setResult(null);
     setPlays(1);
     playSegment(segment.start, segment.end);
@@ -166,10 +177,20 @@ export function VideoDictation({ exercise, onExit }: { exercise: VideoExercise; 
               {t("dictation.play")}
             </button>
             <span className="dict__plays tabular">{t("dictation.playCount", { count: plays })}</span>
+            <PenToggle className="dict__pen" />
           </div>
 
           {!result ? (
             <>
+              {pen ? (
+                <HandwritingPad
+                  rows={3}
+                  padRef={(handle) => {
+                    pad.current = handle;
+                  }}
+                  onFirstStroke={() => setInked(true)}
+                />
+              ) : (
               <textarea
                 value={typed}
                 onChange={(e) => setTyped(e.target.value)}
@@ -187,20 +208,37 @@ export function VideoDictation({ exercise, onExit }: { exercise: VideoExercise; 
                 autoCapitalize="off"
                 spellCheck={false}
               />
+              )}
               <div className="dict__actions">
-                <button type="button" className="btn btn--primary" onClick={check} disabled={!typed.trim()}>
-                  {t("dictation.check")}
-                </button>
-                <button
-                  type="button"
-                  className="btn btn--quiet"
-                  onClick={() => {
-                    setTyped(segment.text);
-                    setResult(checkDictation(segment.text, segment.text));
-                  }}
-                >
-                  {t("dictation.reveal")}
-                </button>
+                {pen ? (
+                  <button
+                    type="button"
+                    className="btn btn--primary"
+                    disabled={!inked}
+                    onClick={() => {
+                      setTyped(segment.text);
+                      setResult(checkDictation(segment.text, segment.text));
+                    }}
+                  >
+                    {t("input.reveal")}
+                  </button>
+                ) : (
+                  <>
+                    <button type="button" className="btn btn--primary" onClick={check} disabled={!typed.trim()}>
+                      {t("dictation.check")}
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn--quiet"
+                      onClick={() => {
+                        setTyped(segment.text);
+                        setResult(checkDictation(segment.text, segment.text));
+                      }}
+                    >
+                      {t("dictation.reveal")}
+                    </button>
+                  </>
+                )}
               </div>
             </>
           ) : (

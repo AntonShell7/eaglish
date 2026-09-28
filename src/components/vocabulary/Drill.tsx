@@ -5,6 +5,7 @@ import { ReviewCard } from "@/components/vocabulary/ReviewCard";
 import { FlashCard } from "@/components/vocabulary/FlashCard";
 import { WriteCard } from "@/components/vocabulary/WriteCard";
 import type { VocabularyWord } from "@/lib/vocabularyStore";
+import { getInputMode, setInputMode, useInputMode } from "@/lib/inputMode";
 
 /**
  * A run through a set of words.
@@ -25,10 +26,23 @@ export type Style = "typed" | "cards" | "write";
 
 const STYLES: Style[] = ["typed", "cards", "write"];
 
+/**
+ * The remembered style, with the pen having the last word.
+ *
+ * This drill had three styles before there was a global pen switch, and one of
+ * them *is* the pen. Leaving the two settings independent would let the app
+ * say "handwriting is on" while showing a text field, so they are the same
+ * setting seen from two sides: turning the switch on selects the written card,
+ * and picking the written card turns the switch on.
+ */
 function remembered(): Style {
+  if (getInputMode() === "pen") return "write";
   try {
     const saved = localStorage.getItem("reviewStyle");
-    return STYLES.includes(saved as Style) ? (saved as Style) : "typed";
+    const style = STYLES.includes(saved as Style) ? (saved as Style) : "typed";
+    // A style saved as "write" from before the switch existed still means the
+    // learner wants to write.
+    return style === "write" ? "typed" : style;
   } catch {
     return "typed";
   }
@@ -60,6 +74,15 @@ export function Drill({
   const [done, setDone] = useState(0);
   const [style, setStyle] = useState<Style>(remembered);
   const { ref: styleRef, style: styleStyle } = useSegmented(style);
+  const [mode] = useInputMode();
+
+  // Flip the switch anywhere else in the app and this segment follows.
+  useEffect(() => {
+    setStyle((current) => {
+      if (mode === "pen") return "write";
+      return current === "write" ? remembered() : current;
+    });
+  }, [mode]);
 
   // A different set starts from the top.
   useEffect(() => {
@@ -69,6 +92,7 @@ export function Drill({
 
   const chooseStyle = (next: Style) => {
     setStyle(next);
+    setInputMode(next === "write" ? "pen" : "keyboard");
     try {
       localStorage.setItem("reviewStyle", next);
     } catch {

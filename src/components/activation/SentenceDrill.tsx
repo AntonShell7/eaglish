@@ -11,6 +11,9 @@ import {
 } from "@/lib/activation";
 import { reviewWord, type VocabularyWord } from "@/lib/vocabularyStore";
 import { usesWord } from "@/lib/wordMatch";
+import { useInputMode } from "@/lib/inputMode";
+import { PenToggle } from "@/components/ui/PenToggle";
+import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
 import "./activation.css";
 
 /**
@@ -41,6 +44,13 @@ export function SentenceDrill({
   const [hintLevel, setHintLevel] = useState(0);
   const [hintBusy, setHintBusy] = useState(false);
   const input = useRef<HTMLTextAreaElement>(null);
+  const pad = useRef<HandwritingPadHandle | null>(null);
+  const [mode] = useInputMode();
+  const pen = mode === "pen";
+  /* Written by hand and compared against the model sentence rather than sent
+     for marking: nothing on the server reads handwriting yet, so the only
+     honest check is one the learner makes with the answer in front of them. */
+  const [inked, setInked] = useState(false);
   /* What this learner already wrote with this word. The exercise is to say
      something new, not to reproduce a sentence that once worked. */
   const written = useMemo(() => sentencesFor(word.word), [word.word, verdictKey]);
@@ -50,8 +60,10 @@ export function SentenceDrill({
     setVerdict(null);
     setHint(null);
     setHintLevel(0);
-    input.current?.focus();
-  }, [word.id]);
+    setInked(false);
+    pad.current?.clear();
+    if (!pen) input.current?.focus();
+  }, [word.id, pen]);
 
   const askForHint = async () => {
     // The first press reveals the Russian sentence, the second the model one.
@@ -122,7 +134,10 @@ export function SentenceDrill({
   return (
     <div className="drill">
       <div className="drill__card">
-        <p className="eyebrow">{t("activation.useThis")}</p>
+        <div className="drill__head">
+          <p className="eyebrow">{t("activation.useThis")}</p>
+          <PenToggle />
+        </div>
 
         <p className="drill__word">{word.word}</p>
         <p className="drill__translation">{word.translation}</p>
@@ -146,6 +161,11 @@ export function SentenceDrill({
 
       {!verdict ? (
         <>
+          {pen ? (
+            <div className="drill__pad">
+              <HandwritingPad rows={3} padRef={(handle) => (pad.current = handle)} onFirstStroke={() => setInked(true)} />
+            </div>
+          ) : (
           <textarea
             ref={input}
             className="field drill__input"
@@ -163,8 +183,9 @@ export function SentenceDrill({
             autoCorrect="off"
             spellCheck={false}
           />
+          )}
 
-          {!containsWord && <p className="drill__warn">{t("activation.maybeMissing", { word: word.word })}</p>}
+          {!pen && !containsWord && <p className="drill__warn">{t("activation.maybeMissing", { word: word.word })}</p>}
 
           {hint && hintLevel >= 1 && hint.toTranslate && (
             <div className="drill__hint">
@@ -181,11 +202,44 @@ export function SentenceDrill({
           )}
 
           <div className="drill__actions">
-            <button type="button" className="btn btn--primary" onClick={submit} disabled={!sentence.trim() || busy}>
-              {busy ? t("activation.checking") : t("activation.check")}
-            </button>
+            {pen ? (
+              /* The model sentence is the answer key. It is one call, the same
+                 one the hint button makes, so revealing it costs nothing extra
+                 and the learner marks their own page against it. */
+              <button
+                type="button"
+                className="btn btn--primary"
+                onClick={hint?.model ? () => setHintLevel(2) : askForHint}
+                disabled={!inked || hintBusy}
+              >
+                {hintBusy ? t("activation.thinking") : t("input.reveal")}
+              </button>
+            ) : (
+              <button type="button" className="btn btn--primary" onClick={submit} disabled={!sentence.trim() || busy}>
+                {busy ? t("activation.checking") : t("activation.check")}
+              </button>
+            )}
 
-            {hintLevel < 2 && (
+            {pen && hint?.model && hintLevel >= 2 && (
+              <>
+                <button
+                  type="button"
+                  className="btn btn--ghost"
+                  onClick={() => {
+                    markActivated(word.word, hint.model ?? "");
+                    reviewWord(word.id, 2);
+                    onDone(true);
+                  }}
+                >
+                  {t("input.gotIt")}
+                </button>
+                <button type="button" className="btn btn--quiet" onClick={() => onDone(false)}>
+                  {t("input.missedIt")}
+                </button>
+              </>
+            )}
+
+            {!pen && hintLevel < 2 && (
               <button type="button" className="btn btn--ghost" onClick={askForHint} disabled={hintBusy}>
                 {hintBusy
                   ? t("activation.thinking")

@@ -321,3 +321,18 @@
   font-size: 0.78rem;
   color: var(--color-accent-ink);
 }
+
+/* The pen, and the switch that chooses it.
+   The switch sits on the word's own card rather than above the field: it is a
+   property of how you are about to answer, and it reads as that only when it
+   is next to the question. */
+.drill__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.drill__pad {
+  margin-top: 4px;
+}
