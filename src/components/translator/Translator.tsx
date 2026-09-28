@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { explainInEnglish, lookupWord, translateToEnglish } from "@/lib/translate";
+import { translatorEntry, type TranslatorEntry } from "@/lib/translate";
 import { addVocabularyWord } from "@/lib/vocabularyStore";
 import { aiConfigured } from "@/lib/aiClient";
 import "./translator.css";
@@ -8,35 +8,19 @@ import "./translator.css";
 /**
  * The translator that is always there.
  *
- * Every exercise in this app that asks a learner to *produce* English — write
- * a sentence with a new word, answer a dictation, reply in a lesson — has the
- * same failure: they know what they want to say and they are missing one word.
- * At that moment they leave. They open a translator in another tab or on their
- * phone, and a good share of them do not come back to the sentence they were
- * halfway through.
+ * Every exercise in this app that asks a learner to produce English has the
+ * same failure: they know what they want to say and are missing one word. At
+ * that moment they leave — another tab, or their phone — and a good share do
+ * not come back to the sentence they were halfway through. So the lookup lives
+ * in the corner of every page instead.
  *
- * So the lookup lives in the corner of every page instead.
- *
- * It answers with four things rather than one, because a bare translation is
- * what sends people back out again: the word, what it means in Russian, what
- * it means in English, and a sentence using it. The example is the part that
- * decides whether the word can actually be used — "выкрутиться" translating to
- * "wriggle out of" is not enough to write a sentence with, and seeing it in
- * one is.
- *
- * There is no history. A list of everything looked up this session is a list
- * nobody reads, and the word worth keeping has a button for that.
+ * It shows every sense a word has, not the first one. That is the whole
+ * difference between this and the popup in a reading text: a reader tapping a
+ * word has a sentence around it and wants one answer, while somebody typing
+ * here has no context and usually does not know the word has more than one
+ * meaning. "date" is дата, and it is also свидание and финик, and a learner
+ * given only the first writes about a calendar when they meant dinner.
  */
-
-interface Result {
-  /** The English word, whichever direction it arrived from. */
-  word: string;
-  ru: string;
-  /** English definition. Absent when the model would only be guessing. */
-  definition?: string;
-  example?: string;
-  synonyms?: string[];
-}
 
 export function Translator() {
   const { t } = useTranslation();
@@ -44,7 +28,7 @@ export function Translator() {
   const [text, setText] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
-  const [result, setResult] = useState<Result | null>(null);
+  const [entry, setEntry] = useState<TranslatorEntry | null>(null);
   const [saved, setSaved] = useState(false);
   const field = useRef<HTMLInputElement>(null);
 
@@ -56,20 +40,16 @@ export function Translator() {
 
   const toggle = useCallback(() => setOpen((was) => !was), []);
 
-  /*
-   * Escape closes it, and the shortcut opens it from anywhere.
-   *
-   * The whole point is not breaking a sentence in progress, so reaching the
-   * translator must not cost a trip to the corner of the screen with a mouse.
-   */
+  /* Escape closes it, and the shortcut opens it from anywhere — the point is
+     not breaking a sentence in progress, so reaching it must not cost a trip
+     to the corner of the screen with a mouse. */
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" && open) {
         setOpen(false);
         return;
       }
-      const modifier = event.metaKey || event.ctrlKey;
-      if (modifier && event.key.toLowerCase() === "k") {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
         event.preventDefault();
         toggle();
       }
@@ -88,59 +68,28 @@ export function Translator() {
     setError(false);
     setSaved(false);
 
-    // Cyrillic anywhere means they are reaching for the English word.
-    const fromRussian = /[Ѐ-ӿ]/.test(phrase);
-
-    if (fromRussian) {
-      // This one direction already returns the whole set, so it is one call.
-      const found = await translateToEnglish(phrase);
-      setBusy(false);
-      if (found.unavailable || !found.english) {
-        setError(true);
-        return;
-      }
-      setResult({
-        word: found.english,
-        ru: phrase,
-        definition: found.note || undefined,
-        example: found.example || undefined,
-      });
-      return;
-    }
-
-    /* Going the other way takes two, and they are independent, so they go
-       together rather than one after the other — a lookup that takes twice as
-       long as it needs to is one people stop using. */
-    const [translated, explained] = await Promise.all([
-      lookupWord(phrase),
-      explainInEnglish(phrase),
-    ]);
+    const found = await translatorEntry(phrase);
     setBusy(false);
 
-    if (translated.unavailable && explained.unavailable) {
+    if (found.unavailable || !found.primary) {
       setError(true);
+      setEntry(null);
       return;
     }
-
-    setResult({
-      word: phrase,
-      ru: translated.unavailable ? "" : translated.translation,
-      definition: explained.unavailable ? undefined : explained.definition,
-      example: explained.unavailable ? undefined : explained.example,
-      synonyms: explained.synonyms?.length ? explained.synonyms : undefined,
-    });
+    setEntry(found);
   };
 
   /* A word looked up mid-sentence is a word being learned, so it can go
-     straight onto a card without leaving the page either. */
+     straight onto a card without leaving the page. The first sense goes on the
+     back — the others are here to prevent a mistake, not to be memorised. */
   const keep = () => {
-    if (!result || !result.ru) return;
-    addVocabularyWord(result.word, result.ru, t("translator.source"), result.definition);
+    if (!entry) return;
+    addVocabularyWord(entry.english, entry.russian, t("translator.source"), entry.definition);
     setSaved(true);
   };
 
   const reset = () => {
-    setResult(null);
+    setEntry(null);
     setError(false);
     setText("");
     field.current?.focus();
@@ -195,36 +144,36 @@ export function Translator() {
           spellCheck={false}
         />
         <button type="submit" className="tr__go" disabled={busy || !text.trim()}>
-          {busy ? "…" : "→"}
+          {busy ? <span className="tr__spin" aria-hidden /> : "→"}
         </button>
       </form>
 
       {error && <p className="tr__error">{t("translator.failed")}</p>}
 
-      {!result && !error && !busy && <p className="tr__hint">{t("translator.hint")}</p>}
-
-      {result && (
+      {entry && (
         <article className="tr__card">
-          <p className="tr__word">{result.word}</p>
+          <p className="tr__word">
+            {entry.source}
+            {entry.partOfSpeech && <span className="tr__pos">{entry.partOfSpeech}</span>}
+          </p>
 
-          {/* The Russian first: it is what they came for and it is the fastest
-              thing to read. Everything under it is the part that makes the word
-              usable rather than merely recognised. */}
-          {result.ru && <p className="tr__ru">{result.ru}</p>}
+          {/* Every sense, in order. The first is the answer; the rest are here
+              so that nobody confidently uses the wrong one. */}
+          <ol className="tr__senses">
+            <li className="tr__sense is-primary">{entry.primary}</li>
+            {entry.alternatives.map((sense) => (
+              <li key={sense} className="tr__sense">
+                {sense}
+              </li>
+            ))}
+          </ol>
 
-          {result.definition && <p className="tr__def">{result.definition}</p>}
+          {entry.definition && <p className="tr__def">{entry.definition}</p>}
 
-          {result.example && (
+          {entry.example && (
             <p className="tr__example">
-              <span className="tr__exampleLabel">{t("translator.example")}</span>
-              {result.example}
-            </p>
-          )}
-
-          {result.synonyms && (
-            <p className="tr__synonyms">
-              <span className="tr__exampleLabel">{t("translator.synonyms")}</span>
-              {result.synonyms.join(", ")}
+              <span className="tr__label">{t("translator.example")}</span>
+              {entry.example}
             </p>
           )}
 
@@ -233,7 +182,7 @@ export function Translator() {
               type="button"
               className={saved ? "tr__save is-saved" : "tr__save"}
               onClick={keep}
-              disabled={saved || !result.ru}
+              disabled={saved}
             >
               {saved ? t("translator.saved") : t("translator.keep")}
             </button>

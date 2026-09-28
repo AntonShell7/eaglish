@@ -234,11 +234,55 @@
   line-height: 1.3;
 }
 
-.tr__ru {
-  margin-top: 3px;
-  font-size: 0.95rem;
-  color: var(--color-accent-ink);
-  font-weight: 600;
+.tr__pos {
+  margin-left: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  vertical-align: middle;
+}
+
+/*
+ * Every sense the word has, numbered.
+ *
+ * The first is the answer and the rest are insurance: "date" is дата, and a
+ * learner who never sees свидание writes about a calendar when they meant
+ * dinner. So the primary is set in the brand colour and the others sit under
+ * it in the muted one — present, clearly secondary, impossible to miss.
+ */
+.tr__senses {
+  margin-top: 6px;
+  display: grid;
+  gap: 3px;
+  counter-reset: sense;
+  list-style: none;
+}
+
+.tr__sense {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  counter-increment: sense;
+}
+
+.tr__sense::before {
+  content: counter(sense);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: var(--color-text-faint);
+}
+
+.tr__sense.is-primary {
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--color-primary);
 }
 
 .tr__def {
@@ -259,14 +303,7 @@
   line-height: 1.55;
 }
 
-.tr__synonyms {
-  margin-top: 8px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-.tr__exampleLabel {
+.tr__label {
   display: block;
   margin-bottom: 3px;
   font-size: 0.62rem;
@@ -287,17 +324,16 @@
   height: 34px;
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--gradient-gilt);
-  color: #1b1408;
+  background: var(--color-ink);
+  color: var(--color-on-ink);
   font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  transition: filter var(--dur-1) var(--ease);
+  transition: background var(--dur-1) var(--ease);
 }
 
 .tr__save:hover:not(:disabled) {
-  filter: brightness(1.06);
+  background: var(--color-ink-hover);
 }
 
 .tr__save:disabled {
@@ -330,4 +366,30 @@
 .tr__again:hover {
   border-color: var(--color-border-strong);
   color: var(--color-text);
+}
+
+/* A turning ring rather than an ellipsis: three dots in a small square button
+   read as a dead control, and the one thing this has to communicate while it
+   waits is that it is not dead. */
+.tr__spin {
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: 0 auto;
+  border: 2px solid color-mix(in srgb, var(--color-on-ink) 30%, transparent);
+  border-top-color: var(--color-on-ink);
+  border-radius: 50%;
+  animation: tr-spin 0.7s linear infinite;
+}
+
+@keyframes tr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tr__spin {
+    animation-duration: 2s;
+  }
 }

@@ -233,3 +233,105 @@ Explain the meaning it carries in that sentence, not every meaning it can have. 
     return { word, definition: "", example: "", unavailable: reasonOf(err) };
   }
 }
+
+/**
+ * Everything the corner translator needs, in one request.
+ *
+ * Separate from lookupWord because it answers a different question. A reader
+ * tapping a word in a text wants *this* word in *this* sentence, and a second
+ * sense would be noise. Somebody typing into the translator has no sentence
+ * and usually no idea the word has more than one meaning — which is exactly
+ * where the damage happens. "date" is дата, and it is also свидание and финик,
+ * and a learner given only the first writes a sentence about a calendar when
+ * they meant dinner.
+ *
+ * So: up to three equivalents, the commonest first, plus a definition and a
+ * sentence. Both directions return the same shape, because the card that shows
+ * it should not have to know which way the learner was going.
+ */
+export interface TranslatorEntry {
+  /** Exactly what was typed. */
+  source: string;
+  /** The commonest equivalent in the other language. */
+  primary: string;
+  /** Up to two further senses, distinct rather than near-synonyms. */
+  alternatives: string[];
+  /** Which side is English, so a saved card gets its two halves the right way. */
+  english: string;
+  russian: string;
+  partOfSpeech?: string;
+  /** In English: the coursebook move, kept short. */
+  definition?: string;
+  /** One natural sentence using it. */
+  example?: string;
+  unavailable?: Unavailable;
+}
+
+export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
+  const source = raw.trim();
+  const fromRussian = /[Ѐ-ӿ]/.test(source);
+  const empty: TranslatorEntry = {
+    source,
+    primary: "",
+    alternatives: [],
+    english: "",
+    russian: "",
+  };
+
+  const brief = fromRussian
+    ? "The learner typed Russian and wants the English. Give the commonest English equivalent, then up to two further ones that mean something genuinely different."
+    : "The learner typed English and wants the Russian. Give the commonest Russian equivalent, then up to two further senses that mean something genuinely different — not synonyms of the first.";
+
+  try {
+    const content = await groq({
+      temperature: 0.2,
+      max_completion_tokens: 700,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content: [
+            "You are a bilingual dictionary for a Russian speaker learning English.",
+            brief,
+            "Only list a further sense when the word really has one: most words have a single meaning, and inventing a second is worse than giving one.",
+            "definition: a short English definition of the commonest sense, under fifteen words.",
+            "example: one natural English sentence using the word in that sense.",
+            "partOfSpeech: in English, lowercase.",
+            'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string}',
+          ].join(" "),
+        },
+        { role: "user", content: source },
+      ],
+    });
+
+    const parsed = JSON.parse(content || "{}") as {
+      primary?: string;
+      alternatives?: unknown;
+      definition?: string;
+      example?: string;
+      partOfSpeech?: string;
+    };
+
+    if (!parsed.primary) return { ...empty, unavailable: "failed" };
+
+    const alternatives = (Array.isArray(parsed.alternatives) ? parsed.alternatives : [])
+      .map((item) => String(item).trim())
+      .filter((item) => item && item.toLowerCase() !== String(parsed.primary).toLowerCase())
+      .slice(0, 2);
+
+    return {
+      source,
+      primary: parsed.primary,
+      alternatives,
+      english: fromRussian ? parsed.primary : source,
+      russian: fromRussian ? source : parsed.primary,
+      partOfSpeech: parsed.partOfSpeech,
+      definition: parsed.definition,
+      example: parsed.example,
+    };
+  } catch (err) {
+    const failure = reasonOf(err);
+    if (failure === "failed") console.error("[translate] translator entry failed", err);
+    return { ...empty, unavailable: failure };
+  }
+}
