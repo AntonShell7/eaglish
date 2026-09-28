@@ -262,7 +262,8 @@
     },
     "arrange": {
       "strength": "by strength",
-      "date": "by date"
+      "date": "by date",
+      "folder": "by set"
     },
     "doorDue": "You may have forgotten these",
     "doorDueBody": "Time to revisit words learned earlier — the app worked out when, so you don't have to.",
@@ -317,7 +318,10 @@
     "runDone": "Run finished",
     "runDoneBody": "{{count}} still in the queue. Carry on, or come back later.",
     "carryOn": "Carry on ({{count}})",
-    "enoughForToday": "That's enough for today"
+    "enoughForToday": "That's enough for today",
+    "mainFolder": "All words",
+    "rename": "Rename",
+    "renameFolder": "Set name"
   },
   "progress": {
     "title": "Your progress",
@@ -569,7 +573,9 @@
     "wordsHeld": "held firmly",
     "wordsCollected_one": "word collected",
     "wordsCollected_other": "words collected",
-    "wordsCollected": "words collected"
+    "wordsCollected": "words collected",
+    "dueSubTimed": "About {{minutes}} min. The order is already chosen: whatever is closest to being lost comes first.",
+    "dueSubCapped": "About {{minutes}} min. {{total}} are due in all — today takes the ones nearest to being forgotten, the rest keep."
   },
   "tasks": {
     "readingDone": "Text finished",

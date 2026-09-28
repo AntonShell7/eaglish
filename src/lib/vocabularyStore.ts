@@ -36,7 +36,29 @@ export interface VocabularyWord {
    */
   stability?: number;
   difficulty?: number;
+  /**
+   * Which set this word belongs to.
+   *
+   * Absent means the shared one, and most words stay there: a word tapped
+   * while reading has no set in mind, and asking where to file it at that
+   * moment would turn a one-tap save into a decision. A folder is created
+   * only when a batch arrives at once, because a batch *is* a set — a lesson,
+   * a chapter, a list somebody pasted — and losing that grouping loses the
+   * only thing that made those twenty words belong together.
+   */
+  folder?: string;
 }
+
+/** The shared set. Not a folder name — the absence of one. */
+export const MAIN_FOLDER = "main";
+
+/**
+ * Where the line between "a couple of words" and "a set" falls.
+ *
+ * Three is a couple. Four saved in one action is somebody working through a
+ * list, and a list is worth keeping together.
+ */
+export const BATCH_SIZE = 4;
 
 /**
  * The memory state of a word, reconstructing it for anything saved under the
@@ -122,6 +144,7 @@ export function addVocabularyWord(
   translation: string,
   sourceText?: string,
   sentence?: string,
+  folder?: string,
 ): VocabularyWord {
   const words = readAll();
   const existing = words.find((w) => w.word.toLowerCase() === word.toLowerCase());
@@ -141,6 +164,7 @@ export function addVocabularyWord(
     translation,
     sourceText,
     sentence,
+    folder,
     addedAt: Date.now(),
     interval: 0,
     easeFactor: 2.5,
@@ -271,4 +295,113 @@ export function mergeRemoteVocabulary(remote: VocabularyWord[]) {
     if (!seen || w.reviewCount > seen.reviewCount) byWord.set(key, w);
   }
   writeAll([...byWord.values()]);
+}
+
+/* ── Folders ──────────────────────────────────────────────────────────── */
+
+export interface Folder {
+  /** The stored name. `MAIN_FOLDER` for the shared set. */
+  name: string;
+  words: VocabularyWord[];
+  /** How many of this set are due right now. */
+  due: number;
+}
+
+/**
+ * Every set, the shared one first.
+ *
+ * Built from the words rather than kept as its own list: a folder with nothing
+ * in it is not a set, it is a leftover, and a name that outlives its words is
+ * a row the learner has to tidy up by hand.
+ */
+export function getFolders(now = Date.now()): Folder[] {
+  const byName = new Map<string, VocabularyWord[]>();
+  for (const word of getVocabulary()) {
+    const key = word.folder?.trim() || MAIN_FOLDER;
+    const list = byName.get(key);
+    if (list) list.push(word);
+    else byName.set(key, [word]);
+  }
+
+  const folders = [...byName].map(([name, words]) => ({
+    name,
+    words,
+    due: words.filter((w) => w.dueAt <= now).length,
+  }));
+
+  // The shared set leads; the rest by their newest word, so the folder you
+  // just made is the one at the top.
+  return folders.sort((a, b) => {
+    if (a.name === MAIN_FOLDER) return -1;
+    if (b.name === MAIN_FOLDER) return 1;
+    return (b.words[0]?.addedAt ?? 0) - (a.words[0]?.addedAt ?? 0);
+  });
+}
+
+/**
+ * Save several words at once, filing them as a set when there are enough.
+ *
+ * This is the whole difference between the shared pile and a folder, and it is
+ * decided here rather than asked: a learner adding twenty words from a lesson
+ * should not have to name anything, and a learner tapping two words while
+ * reading should not be shown a folder picker.
+ */
+export function addVocabularyBatch(
+  entries: { word: string; translation: string; sourceText?: string; sentence?: string }[],
+  folderName?: string,
+): VocabularyWord[] {
+  const fresh = entries.filter((e) => !isWordSaved(e.word));
+  const folder = fresh.length >= BATCH_SIZE ? folderName?.trim() || defaultFolderName() : undefined;
+  return entries.map((e) => addVocabularyWord(e.word, e.translation, e.sourceText, e.sentence, folder));
+}
+
+/**
+ * A name for a set the learner did not name.
+ *
+ * The date, because that is the one thing they will recognise about it later,
+ * and numbered when a day produced more than one so the second set does not
+ * silently join the first.
+ */
+function defaultFolderName(now = new Date()): string {
+  const base = now.toLocaleDateString(undefined, { day: "numeric", month: "long" });
+  const taken = new Set(getFolders().map((f) => f.name));
+  if (!taken.has(base)) return base;
+  for (let n = 2; n < 100; n += 1) {
+    const tried = `${base} (${n})`;
+    if (!taken.has(tried)) return tried;
+  }
+  return `${base} (${Date.now()})`;
+}
+
+/** Rename a set. Merges into the target when the name is already taken. */
+export function renameFolder(from: string, to: string) {
+  const name = to.trim();
+  if (!name || name === from) return;
+  const words = readAll();
+  for (const word of words) {
+    if ((word.folder?.trim() || MAIN_FOLDER) === from) {
+      word.folder = name === MAIN_FOLDER ? undefined : name;
+      pushVocabularyWord(word);
+    }
+  }
+  writeAll(words);
+}
+
+/**
+ * Empty a folder without losing its words — they go back to the shared set.
+ *
+ * Deleting the words instead would make an ordinary tidying action destroy
+ * weeks of review history, and nothing in the interface would warn that the
+ * schedule was what was being thrown away.
+ */
+export function dissolveFolder(name: string) {
+  if (name === MAIN_FOLDER) return;
+  const words = readAll();
+  for (const word of words) {
+    if (word.folder?.trim() === name) {
+      word.folder = undefined;
+      pushVocabularyWord(word);
+    }
+  }
+  writeAll(words);
 }

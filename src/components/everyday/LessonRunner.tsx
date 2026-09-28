@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Exercise, Lesson, Phrase, Register } from "@/data/everydayLessons";
-import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
+import { addVocabularyBatch, addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { saveLessonResult } from "@/lib/lessonProgress";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 
@@ -429,7 +429,7 @@ export function LessonRunner({
   onExit: () => void;
   onNextLesson?: () => void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { finish } = useTaskDone();
   const [stage, setStage] = useState<Stage>("study");
   const [matchScore, setMatchScore] = useState(0);
@@ -453,8 +453,14 @@ export function LessonRunner({
     setStage("study");
   };
 
+  /* A whole lesson at once is a set, not a handful, so it gets its own folder
+     named after the lesson. The learner is not asked where to put it — they
+     pressed "save all", not "file these". */
   const saveEverything = () => {
-    lesson.phrases.forEach((p) => addVocabularyWord(p.phrase, p.ru, t("nav.slang")));
+    addVocabularyBatch(
+      lesson.phrases.map((p) => ({ word: p.phrase, translation: p.ru, sourceText: t("nav.slang") })),
+      lesson.titleRu && i18n.language.startsWith("ru") ? lesson.titleRu : lesson.title,
+    );
     setSavedAll(true);
   };
 

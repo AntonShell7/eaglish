@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Drill } from "@/components/vocabulary/Drill";
 import { getDueWords, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
+import { planSession } from "@/lib/session";
 
 /**
  * The review queue, served in runs rather than as one list.
@@ -12,12 +13,16 @@ import { getDueWords, wordStrength, type VocabularyWord } from "@/lib/vocabulary
  * the session has no end they can see, so the only way out is to give up
  * halfway, which feels like failing.
  *
- * So the run is finite and the order has a point to it. Words that are still
- * shaky come first, because those are the ones genuinely at risk of being
- * lost; words the intervals say are held are a formality, and a formality can
- * wait until tomorrow. When the shaky ones are done the session says so
- * plainly — you have reviewed everything you might have forgotten — and
- * continuing becomes an offer rather than an obligation.
+ * So the run is finite and the order has a point to it. The planner decides
+ * what goes in it and in what order — worst recall first, stubborn words
+ * rationed rather than front-loaded, a cap that can be finished — and this
+ * component only runs what it is handed. When the shaky ones are done the
+ * session says so plainly, and continuing becomes an offer rather than an
+ * obligation.
+ *
+ * Nothing here is a question. That is the point: the work of deciding what to
+ * study is the work people are worst at and least willing to do, and an app
+ * that asks it at the door is an app that gets closed at the door.
  */
 
 /** Cards in one run. Long enough to be worth starting, short enough to finish. */
@@ -30,10 +35,9 @@ function atRisk(words: VocabularyWord[]): VocabularyWord[] {
   return words.filter((word) => wordStrength(word) < HELD);
 }
 
-/** The shaky ones first, and only if there are none does the run take the rest. */
-function nextRun(words: VocabularyWord[]): VocabularyWord[] {
-  const shaky = atRisk(words);
-  return (shaky.length > 0 ? shaky : words).slice(0, RUN);
+/** Whatever the planner says is next, capped to a run this screen can finish. */
+function nextRun(): VocabularyWord[] {
+  return planSession().review.slice(0, RUN);
 }
 
 export function DueSession({
@@ -45,7 +49,7 @@ export function DueSession({
   onLeave: () => void;
 }) {
   const { t } = useTranslation();
-  const [run, setRun] = useState<VocabularyWord[]>(() => nextRun(getDueWords()));
+  const [run, setRun] = useState<VocabularyWord[]>(nextRun);
   const [resting, setResting] = useState(false);
   const [reviewed, setReviewed] = useState(0);
 
@@ -56,7 +60,7 @@ export function DueSession({
   };
 
   const carryOn = () => {
-    setRun(nextRun(getDueWords()));
+    setRun(nextRun());
     setResting(false);
   };
 

@@ -13,11 +13,24 @@ export function useCountUp(target: number, duration = 700): number {
   const frame = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || target === 0) {
+    /* A hidden tab gets no animation frames at all, so the count never runs
+       and the number sits at zero until something else re-renders it. Anyone
+       who opens the app in a background tab and switches to it a second later
+       sees "0 words due" over a full queue — which is not a slow animation,
+       it is wrong information. */
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      document.hidden ||
+      target === 0
+    ) {
       setValue(target);
       return;
     }
 
+    /* And the tab can be hidden *during* the count. The timer keeps running
+       where frames do not, so this is the floor: by the time the animation
+       should have finished, the real number is on screen either way. */
+    const settle = window.setTimeout(() => setValue(target), duration + 120);
     const start = performance.now();
     const tick = (now: number) => {
       const progress = Math.min(1, (now - start) / duration);
@@ -29,6 +42,7 @@ export function useCountUp(target: number, duration = 700): number {
 
     frame.current = requestAnimationFrame(tick);
     return () => {
+      window.clearTimeout(settle);
       if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, [target, duration]);

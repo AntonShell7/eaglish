@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
 import { IconBook, IconPen, IconQuotes, IconBookmark, IconHeadphones } from "@/components/brand/icons";
-import { getDueWords, getVocabulary } from "@/lib/vocabularyStore";
+import { getVocabulary } from "@/lib/vocabularyStore";
+import { planSession, type SessionPlan } from "@/lib/session";
 import { getStreak } from "@/lib/activityStore";
 import { masteredCount } from "@/lib/insights";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
@@ -36,14 +37,24 @@ const FEATURES = [
  */
 export default function Dashboard() {
   const { t } = useTranslation();
-  const [due, setDue] = useState(0);
+  /*
+   * What today is, decided rather than counted.
+   *
+   * This used to show the raw due total, and a raw due total is a wall: after
+   * a few months of collecting, an ordinary Tuesday says "ninety-one words",
+   * and ninety-one is a number people close the app over. The planner already
+   * knows which twenty of those ninety-one are the ones actually slipping, so
+   * this shows the session, and says how long it takes.
+   */
+  const [plan, setPlan] = useState<SessionPlan | null>(null);
+  const due = plan?.review.length ?? 0;
   const [streak, setStreak] = useState(0);
   const [words, setWords] = useState(0);
   const [held, setHeld] = useState(0);
   const [profile, setProfile] = useState<LearnerProfile | null>(null);
 
   useEffect(() => {
-    setDue(getDueWords().length);
+    setPlan(planSession());
     setStreak(getStreak());
     setWords(getVocabulary().length);
     setHeld(masteredCount());
@@ -93,7 +104,11 @@ export default function Dashboard() {
             </h2>
 
             <p className="mt-2 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {due > 0 ? t("dashboard.dueSub") : t("dashboard.nextStepSub")}
+              {due > 0
+                ? plan && plan.dueTotal > plan.review.length
+                  ? t("dashboard.dueSubCapped", { minutes: plan.minutes, total: plan.dueTotal })
+                  : t("dashboard.dueSubTimed", { minutes: plan?.minutes ?? 1 })
+                : t("dashboard.nextStepSub")}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">

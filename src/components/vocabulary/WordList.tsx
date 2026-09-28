@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { removeVocabularyWord, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
+import { MAIN_FOLDER, removeVocabularyWord, renameFolder, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
 import "./word-list.css";
 
 type Group = "shaky" | "settling" | "held";
-type Arrange = "strength" | "date";
+type Arrange = "strength" | "folder" | "date";
 
 /**
  * The collection, arranged so it can be acted on.
@@ -47,13 +47,13 @@ export function WordList({
 }) {
   const { t, i18n } = useTranslation();
   /*
-   * Two ways to arrange the same shelf.
+   * Three ways to arrange the same shelf.
    *
-   * By how firmly a word is held, which answers "what should I work on"; or by
-   * the day it was collected, which answers "what did I get from that article
-   * last Tuesday". The second is the folder people actually build by hand in
-   * other apps, and here it needs no building — every word already knows when
-   * it arrived.
+   * By how firmly a word is held, which answers "what should I work on". By
+   * set, which answers "where is the list I added on Tuesday" — these are the
+   * folders, and most words are in the shared one because most words arrive
+   * one tap at a time while reading. By the day it was collected, which needs
+   * no building at all: every word already knows when it arrived.
    */
   const [arrange, setArrange] = useState<Arrange>("strength");
   /*
@@ -93,6 +93,23 @@ export function WordList({
       out.set(key, list);
     }
     return [...out.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+  }, [words]);
+
+  /* The sets, built from the words themselves. A folder with nothing left in
+     it is not a set, it is a leftover, so there is no list of names to tidy. */
+  const byFolder = useMemo(() => {
+    const out = new Map<string, VocabularyWord[]>();
+    for (const word of words) {
+      const key = word.folder?.trim() || MAIN_FOLDER;
+      const list = out.get(key) ?? [];
+      list.push(word);
+      out.set(key, list);
+    }
+    return [...out.entries()].sort((a, b) => {
+      if (a[0] === MAIN_FOLDER) return -1;
+      if (b[0] === MAIN_FOLDER) return 1;
+      return (b[1][0]?.addedAt ?? 0) - (a[1][0]?.addedAt ?? 0);
+    });
   }, [words]);
 
   const dateFormat = useMemo(
@@ -195,7 +212,7 @@ export function WordList({
   return (
     <div className="wl">
       <div className="wl__arrange">
-        {(["strength", "date"] as Arrange[]).map((option) => (
+        {(["strength", "folder", "date"] as Arrange[]).map((option) => (
           <button
             key={option}
             type="button"
@@ -206,6 +223,55 @@ export function WordList({
           </button>
         ))}
       </div>
+
+      {arrange === "folder" &&
+        byFolder.map(([name, list]) => {
+          const label = name === MAIN_FOLDER ? t("vocabulary.mainFolder") : name;
+          const isOpen = openDays?.has(`f:${name}`) ?? name === MAIN_FOLDER;
+
+          return (
+            <section
+              key={`f:${name}`}
+              className={isOpen ? "wl__group wl__group--date is-open" : "wl__group wl__group--date"}
+            >
+              <div className="wl__headRow">
+                <button type="button" className="wl__head" onClick={() => toggleDay(`f:${name}`)} aria-expanded={isOpen}>
+                  <span className="wl__chevron" aria-hidden>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                      strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <span className="wl__title">{label}</span>
+                  <span className="wl__count tabular">{list.length}</span>
+                </button>
+
+                {/* A set you made can be renamed in place. The shared one
+                    cannot: it is not a name, it is the absence of one. */}
+                {name !== MAIN_FOLDER && (
+                  <button
+                    type="button"
+                    className="wl__drill"
+                    onClick={() => {
+                      const next = window.prompt(t("vocabulary.renameFolder"), name);
+                      if (next) {
+                        renameFolder(name, next);
+                        onChanged();
+                      }
+                    }}
+                  >
+                    {t("vocabulary.rename")}
+                  </button>
+                )}
+
+                <button type="button" className="wl__drill wl__drill--loud" onClick={() => onDrill(list, label)}>
+                  {t("vocabulary.practiseFolder")}
+                </button>
+              </div>
+              {isOpen && rows(list, `f:${name}`)}
+            </section>
+          );
+        })}
 
       {arrange === "date" && byDate.length > 1 && (
         <button type="button" className="wl__toggleAll" onClick={toggleAll}>
