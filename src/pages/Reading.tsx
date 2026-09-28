@@ -444,9 +444,10 @@ function PersonalTexts({
       </p>
 
       {/* The one thing on this page that does something, built to look like
-          it: black ground, gilt rim, gold type. It was a mint panel with a
-          mint button on a page where everything else was also mint, and it
-          read as a notice rather than as the control. */}
+          it. The black ground does the separating — it was a mint panel on a
+          page where everything else was mint, and it read as a notice rather
+          than as the control. The button stays mint, because that is what
+          "press this" means everywhere else. */}
       <div className="forge mt-6">
         {targets.length === 0 ? (
           <p className="forge__note">{t("reading.personalNoWords")}</p>
