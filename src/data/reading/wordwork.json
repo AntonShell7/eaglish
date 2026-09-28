@@ -3246,5 +3246,1745 @@
         "explanation": "The closing image is of an excellent instrument whose error bars are not shown on the dial."
       }
     ]
+  },
+  {
+    "id": "the-job-i-was-bad-at",
+    "level": "B1",
+    "topic": "wordwork",
+    "title": "The Job I Was Bad At",
+    "sentences": [
+      {
+        "text": "For eight months I worked in a call centre and I was one of the worst employees there.",
+        "translationRu": "Восемь месяцев я работал в колл-центре и был одним из худших сотрудников."
+      },
+      {
+        "text": "This is not modesty. There was a board on the wall with everybody's numbers on it.",
+        "translationRu": "Это не скромность. На стене висела доска с цифрами всех."
+      },
+      {
+        "text": "My name was near the bottom every single week.",
+        "translationRu": "Моё имя каждую неделю было почти в самом низу."
+      },
+      {
+        "text": "The work was selling insurance to people who had not asked to be called.",
+        "translationRu": "Работа заключалась в продаже страховок людям, которые не просили им звонить."
+      },
+      {
+        "text": "I understood the product perfectly and I could not sell it.",
+        "translationRu": "Я прекрасно понимал продукт и не мог его продать."
+      },
+      {
+        "text": "My supervisor listened to my calls and told me what the problem was in one sentence.",
+        "translationRu": "Начальник слушал мои звонки и одной фразой объяснил, в чём проблема."
+      },
+      {
+        "text": "\"You're giving them room to say no.\"",
+        "translationRu": "«Ты оставляешь им место, чтобы сказать нет»."
+      },
+      {
+        "text": "He was completely right, and I could not make myself stop.",
+        "translationRu": "Он был совершенно прав, и я не мог заставить себя перестать."
+      },
+      {
+        "text": "Every time a customer hesitated, I would pause and let them think.",
+        "translationRu": "Каждый раз, когда клиент колебался, я делал паузу и давал ему подумать."
+      },
+      {
+        "text": "The good sellers filled that silence with another question.",
+        "translationRu": "Хорошие продавцы заполняли эту паузу новым вопросом."
+      },
+      {
+        "text": "They were not lying and they were not cruel. They simply did not stop.",
+        "translationRu": "Они не врали и не были жестоки. Они просто не останавливались."
+      },
+      {
+        "text": "I used to think they were better at persuading. That was wrong.",
+        "translationRu": "Раньше я думал, что они лучше убеждают. Это было неверно."
+      },
+      {
+        "text": "They were better at tolerating the discomfort of somebody wanting to get off the phone.",
+        "translationRu": "Они лучше переносили дискомфорт от того, что человек хочет положить трубку."
+      },
+      {
+        "text": "That is a real skill and it is not the skill I assumed the job needed.",
+        "translationRu": "Это настоящий навык, и не тот, который я приписывал этой работе."
+      },
+      {
+        "text": "I left in March, and for about a year I described this as a failure.",
+        "translationRu": "Я ушёл в марте и примерно год описывал это как провал."
+      },
+      {
+        "text": "Then I got a job supporting customers who had already bought something and had a problem.",
+        "translationRu": "Потом я устроился в поддержку клиентов, которые уже что-то купили и столкнулись с проблемой."
+      },
+      {
+        "text": "The same instinct that ruined me at selling made me unusually good at this.",
+        "translationRu": "Тот же инстинкт, который губил меня в продажах, сделал меня необычайно хорошим здесь."
+      },
+      {
+        "text": "Letting a frustrated person finish their sentence is the entire job.",
+        "translationRu": "Дать раздражённому человеку договорить — вот и вся работа."
+      },
+      {
+        "text": "Nobody trained me to do it. I had been doing it wrong somewhere else.",
+        "translationRu": "Никто меня этому не учил. Я просто делал это не в том месте."
+      },
+      {
+        "text": "I am suspicious now when somebody says they are bad at something.",
+        "translationRu": "Теперь я настораживаюсь, когда кто-то говорит, что он в чём-то плох."
+      },
+      {
+        "text": "Sometimes it is true and sometimes the description is missing a word.",
+        "translationRu": "Иногда это правда, а иногда в описании не хватает слова."
+      },
+      {
+        "text": "I was not bad at talking to strangers. I was bad at pressuring them.",
+        "translationRu": "Я не был плох в разговоре с незнакомцами. Я был плох в том, чтобы на них давить."
+      },
+      {
+        "text": "Those two things looked identical from the outside and on the board on the wall.",
+        "translationRu": "Со стороны и на доске на стене эти две вещи выглядели одинаково."
+      },
+      {
+        "text": "I am not going to pretend the call centre was secretly good for me.",
+        "translationRu": "Я не стану делать вид, что колл-центр был мне тайно полезен."
+      },
+      {
+        "text": "It was eight unpleasant months and I would not do it again.",
+        "translationRu": "Это были восемь неприятных месяцев, и я бы не стал повторять."
+      },
+      {
+        "text": "But it did tell me something accurate about myself, in the rudest possible way.",
+        "translationRu": "Но он сказал мне обо мне кое-что точное — самым грубым способом из возможных."
+      }
+    ],
+    "glossary": {
+      "modesty": {
+        "translation": "скромность",
+        "partOfSpeech": "noun"
+      },
+      "employee": {
+        "translation": "сотрудник",
+        "partOfSpeech": "noun"
+      },
+      "insurance": {
+        "translation": "страховка",
+        "partOfSpeech": "noun"
+      },
+      "supervisor": {
+        "translation": "руководитель, начальник",
+        "partOfSpeech": "noun"
+      },
+      "hesitate": {
+        "translation": "колебаться, медлить",
+        "partOfSpeech": "verb"
+      },
+      "pause": {
+        "translation": "делать паузу",
+        "partOfSpeech": "verb"
+      },
+      "cruel": {
+        "translation": "жестокий",
+        "partOfSpeech": "adjective"
+      },
+      "persuade": {
+        "translation": "убеждать",
+        "partOfSpeech": "verb"
+      },
+      "tolerate": {
+        "translation": "переносить, терпеть",
+        "partOfSpeech": "verb"
+      },
+      "discomfort": {
+        "translation": "дискомфорт, неловкость",
+        "partOfSpeech": "noun"
+      },
+      "assume": {
+        "translation": "предполагать, считать",
+        "partOfSpeech": "verb"
+      },
+      "instinct": {
+        "translation": "инстинкт, чутьё",
+        "partOfSpeech": "noun"
+      },
+      "ruin": {
+        "translation": "губить, портить",
+        "partOfSpeech": "verb"
+      },
+      "frustrated": {
+        "translation": "раздражённый, отчаявшийся",
+        "partOfSpeech": "adjective"
+      },
+      "suspicious": {
+        "translation": "настороженный, недоверчивый",
+        "partOfSpeech": "adjective"
+      },
+      "pressure": {
+        "translation": "давить на, оказывать давление",
+        "partOfSpeech": "verb"
+      },
+      "identical": {
+        "translation": "одинаковый, идентичный",
+        "partOfSpeech": "adjective"
+      },
+      "unpleasant": {
+        "translation": "неприятный",
+        "partOfSpeech": "adjective"
+      },
+      "accurate": {
+        "translation": "точный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: They were better at ___ the discomfort of somebody wanting to get off the phone.",
+        "options": [
+          "persuading",
+          "tolerating",
+          "assuming",
+          "hesitating"
+        ],
+        "answer": 1,
+        "explanation": "Tolerate = переносить. The whole point is that they endured an unpleasant feeling rather than argued better."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: I was not bad at talking to strangers. I was bad at ___ them.",
+        "options": [
+          "persuading",
+          "tolerating",
+          "pressuring",
+          "assuming"
+        ],
+        "answer": 2,
+        "explanation": "Pressure = давить. The narrator separates conversation, which he could do, from pushing, which he could not."
+      },
+      {
+        "id": "q3",
+        "question": "What did the narrator wrongly assume about the good sellers?",
+        "options": [
+          "That they were lying to customers",
+          "That they were better at persuading",
+          "That they had been trained better",
+          "That they understood the product better"
+        ],
+        "answer": 1,
+        "explanation": "He says \"I used to think they were better at persuading. That was wrong.\""
+      },
+      {
+        "id": "q4",
+        "question": "Does the narrator conclude the call centre was good for him?",
+        "options": [
+          "Yes — it taught him a valuable sales skill",
+          "No — but it told him something accurate about himself",
+          "Yes — he would do it again",
+          "No — it taught him nothing at all"
+        ],
+        "answer": 1,
+        "explanation": "He refuses to pretend it was secretly good, then allows that it was accurate in the rudest possible way."
+      }
+    ]
+  },
+  {
+    "id": "what-a-map-leaves-out",
+    "level": "B2",
+    "topic": "wordwork",
+    "title": "What a Map Leaves Out",
+    "sentences": [
+      {
+        "text": "Every map is a lie, and a useful map is a lie told deliberately.",
+        "translationRu": "Всякая карта — ложь, а полезная карта — ложь намеренная."
+      },
+      {
+        "text": "This is not a complaint. A map that included everything would be the size of the territory and would tell you nothing.",
+        "translationRu": "Это не жалоба. Карта, включающая всё, была бы размером с местность и не сказала бы ничего."
+      },
+      {
+        "text": "The skill in cartography is not accuracy but selection: deciding what to discard.",
+        "translationRu": "Мастерство в картографии — не точность, а отбор: решение, что отбросить."
+      },
+      {
+        "text": "The most famous example is the London Underground diagram, drawn by Harry Beck in 1931.",
+        "translationRu": "Самый известный пример — схема лондонского метро, начерченная Гарри Беком в 1931 году."
+      },
+      {
+        "text": "Beck abandoned geography entirely.",
+        "translationRu": "Бек полностью отказался от географии."
+      },
+      {
+        "text": "Distances on his diagram bear no relation to distances underground, and the stations are spaced for legibility rather than truth.",
+        "translationRu": "Расстояния на его схеме не соотносятся с расстояниями под землёй, а станции расставлены ради разборчивости, а не правды."
+      },
+      {
+        "text": "His employers rejected it at first, on the reasonable grounds that it was inaccurate.",
+        "translationRu": "Работодатели сначала её отвергли — на разумном основании, что она неточна."
+      },
+      {
+        "text": "They were right about the facts and wrong about the purpose.",
+        "translationRu": "Насчёт фактов они были правы, насчёт назначения — нет."
+      },
+      {
+        "text": "A passenger underground does not need to know where they are; they need to know where to change.",
+        "translationRu": "Пассажиру под землёй не нужно знать, где он находится; ему нужно знать, где пересесть."
+      },
+      {
+        "text": "Every version of the map since has been copied worldwide, which is a strong argument settled by use rather than debate.",
+        "translationRu": "Все последующие версии карты копировались по всему миру — сильный довод, решённый практикой, а не спором."
+      },
+      {
+        "text": "The cost of the simplification only appears above ground.",
+        "translationRu": "Цена упрощения проявляется лишь на поверхности."
+      },
+      {
+        "text": "Tourists routinely take three trains between stations that are a four-minute walk apart, because the diagram shows them as far removed.",
+        "translationRu": "Туристы регулярно едут тремя поездами между станциями, до которых четыре минуты пешком, потому что схема показывает их далёкими."
+      },
+      {
+        "text": "Londoners learn this and stop trusting the diagram for short distances, which is the correct adjustment.",
+        "translationRu": "Лондонцы это узнают и перестают доверять схеме на коротких дистанциях — и это верная поправка."
+      },
+      {
+        "text": "The distortion is not a flaw in the design; it is the price of the design working at all.",
+        "translationRu": "Искажение — не дефект замысла, а цена того, что замысел вообще работает."
+      },
+      {
+        "text": "Something similar governs almost every diagram anybody hands you.",
+        "translationRu": "Нечто похожее управляет почти любой схемой, которую тебе дают."
+      },
+      {
+        "text": "An organisational chart shows reporting lines and conceals influence, which is a different quantity and often more important.",
+        "translationRu": "Оргсхема показывает линии подчинения и скрывает влияние — величину иную и часто более важную."
+      },
+      {
+        "text": "A recipe shows quantities and conceals technique, which is why two people following it produce different food.",
+        "translationRu": "Рецепт показывает количества и скрывает технику — поэтому двое, следуя ему, получают разную еду."
+      },
+      {
+        "text": "A CV shows a sequence of roles and conceals why each one ended.",
+        "translationRu": "Резюме показывает последовательность должностей и скрывает, почему каждая закончилась."
+      },
+      {
+        "text": "In every case the omission is not sinister; a document that included it would be unusable.",
+        "translationRu": "В каждом случае пропуск не злонамерен: документ, включающий это, был бы непригоден."
+      },
+      {
+        "text": "The mistake is not in the map but in forgetting which question it was drawn to answer.",
+        "translationRu": "Ошибка не в карте, а в том, что забыли, на какой вопрос она была начерчена отвечать."
+      },
+      {
+        "text": "People do this constantly and confidently.",
+        "translationRu": "Люди делают это постоянно и уверенно."
+      },
+      {
+        "text": "They read a summary designed for one purpose and draw conclusions it cannot support.",
+        "translationRu": "Они читают сводку, сделанную для одной цели, и делают выводы, которых она не выдерживает."
+      },
+      {
+        "text": "A useful habit, when handed any representation of anything, is to ask what it deliberately left out.",
+        "translationRu": "Полезная привычка, получая любое изображение чего-либо, — спросить, что оно намеренно опустило."
+      },
+      {
+        "text": "The answer is usually printed nowhere and is usually guessable in about fifteen seconds.",
+        "translationRu": "Ответ обычно нигде не напечатан и обычно угадывается секунд за пятнадцать."
+      },
+      {
+        "text": "Beck himself was paid five guineas for the original drawing and spent decades fighting over credit for it.",
+        "translationRu": "Самому Беку заплатили пять гиней за первоначальный чертёж, и он десятилетиями боролся за признание авторства."
+      },
+      {
+        "text": "That detail appears on no version of the map, and it is not an omission anyone should be surprised by.",
+        "translationRu": "Эта деталь не появляется ни на одной версии карты, и такому пропуску никто не должен удивляться."
+      }
+    ],
+    "glossary": {
+      "deliberately": {
+        "translation": "намеренно",
+        "partOfSpeech": "adverb"
+      },
+      "territory": {
+        "translation": "местность, территория",
+        "partOfSpeech": "noun"
+      },
+      "cartography": {
+        "translation": "картография",
+        "partOfSpeech": "noun"
+      },
+      "selection": {
+        "translation": "отбор",
+        "partOfSpeech": "noun"
+      },
+      "discard": {
+        "translation": "отбрасывать, отказываться от",
+        "partOfSpeech": "verb"
+      },
+      "abandon": {
+        "translation": "отказаться от, бросить",
+        "partOfSpeech": "verb"
+      },
+      "bear no relation to": {
+        "translation": "не иметь отношения к",
+        "partOfSpeech": "phrase"
+      },
+      "legibility": {
+        "translation": "разборчивость, читаемость",
+        "partOfSpeech": "noun"
+      },
+      "reject": {
+        "translation": "отвергать",
+        "partOfSpeech": "verb"
+      },
+      "grounds": {
+        "translation": "основание, довод",
+        "partOfSpeech": "noun"
+      },
+      "inaccurate": {
+        "translation": "неточный",
+        "partOfSpeech": "adjective"
+      },
+      "purpose": {
+        "translation": "назначение, цель",
+        "partOfSpeech": "noun"
+      },
+      "simplification": {
+        "translation": "упрощение",
+        "partOfSpeech": "noun"
+      },
+      "routinely": {
+        "translation": "регулярно, как правило",
+        "partOfSpeech": "adverb"
+      },
+      "adjustment": {
+        "translation": "поправка, корректировка",
+        "partOfSpeech": "noun"
+      },
+      "distortion": {
+        "translation": "искажение",
+        "partOfSpeech": "noun"
+      },
+      "govern": {
+        "translation": "управлять, определять",
+        "partOfSpeech": "verb"
+      },
+      "conceal": {
+        "translation": "скрывать",
+        "partOfSpeech": "verb"
+      },
+      "quantity": {
+        "translation": "величина, количество",
+        "partOfSpeech": "noun"
+      },
+      "omission": {
+        "translation": "пропуск, умолчание",
+        "partOfSpeech": "noun"
+      },
+      "sinister": {
+        "translation": "зловещий, злонамеренный",
+        "partOfSpeech": "adjective"
+      },
+      "representation": {
+        "translation": "изображение, представление",
+        "partOfSpeech": "noun"
+      },
+      "credit": {
+        "translation": "признание авторства",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: The skill in cartography is not accuracy but selection: deciding what to ___.",
+        "options": [
+          "conceal",
+          "discard",
+          "govern",
+          "reject"
+        ],
+        "answer": 1,
+        "explanation": "Discard = отбрасывать. Selection is about what you leave out of the map altogether."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: An organisational chart shows reporting lines and ___ influence.",
+        "options": [
+          "governs",
+          "discards",
+          "conceals",
+          "rejects"
+        ],
+        "answer": 2,
+        "explanation": "Conceal = скрывать. The pattern repeats: a recipe conceals technique, a CV conceals why each role ended."
+      },
+      {
+        "id": "q3",
+        "question": "Why were Beck's employers \"right about the facts and wrong about the purpose\"?",
+        "options": [
+          "The diagram was drawn in the wrong colours",
+          "The diagram was genuinely inaccurate, but a passenger needs to know where to change, not where they are",
+          "The diagram was too expensive to print",
+          "Beck had copied an earlier design"
+        ],
+        "answer": 1,
+        "explanation": "The text concedes the inaccuracy and then states what the passenger actually needs."
+      },
+      {
+        "id": "q4",
+        "question": "What habit does the author recommend?",
+        "options": [
+          "Checking a second map before travelling",
+          "Asking what any representation deliberately left out",
+          "Refusing to trust diagrams at all",
+          "Learning the real geography of every city"
+        ],
+        "answer": 1,
+        "explanation": "The text calls this a useful habit and notes the answer is usually guessable in fifteen seconds."
+      }
+    ]
+  },
+  {
+    "id": "the-weekend-i-fixed-a-bike",
+    "level": "A2",
+    "topic": "wordwork",
+    "title": "The Weekend I Fixed a Bike",
+    "sentences": [
+      {
+        "text": "My bicycle stopped working in April.",
+        "translationRu": "Мой велосипед перестал работать в апреле."
+      },
+      {
+        "text": "The chain came off and the back brake did not stop anything.",
+        "translationRu": "Цепь слетела, а задний тормоз ничего не останавливал."
+      },
+      {
+        "text": "I left it in the hall for six weeks.",
+        "translationRu": "Я оставил его в коридоре на шесть недель."
+      },
+      {
+        "text": "Every day I walked past it and felt slightly guilty.",
+        "translationRu": "Каждый день я проходил мимо и чувствовал лёгкую вину."
+      },
+      {
+        "text": "I thought the repair shop would be expensive.",
+        "translationRu": "Я думал, что мастерская обойдётся дорого."
+      },
+      {
+        "text": "I never called them, so I do not know if that was true.",
+        "translationRu": "Я так и не позвонил, поэтому не знаю, правда ли это."
+      },
+      {
+        "text": "One Saturday it rained and I had nothing to do.",
+        "translationRu": "В одну субботу шёл дождь, и мне было нечем заняться."
+      },
+      {
+        "text": "I watched a video and turned the bike upside down on the kitchen floor.",
+        "translationRu": "Я посмотрел видео и перевернул велосипед вверх ногами на кухонном полу."
+      },
+      {
+        "text": "The chain took eleven minutes.",
+        "translationRu": "На цепь ушло одиннадцать минут."
+      },
+      {
+        "text": "Six weeks of guilt for eleven minutes of work.",
+        "translationRu": "Шесть недель вины за одиннадцать минут работы."
+      },
+      {
+        "text": "The brake was harder and I got it wrong twice.",
+        "translationRu": "С тормозом было сложнее, и я дважды сделал неправильно."
+      },
+      {
+        "text": "The cable must be tight but not too tight.",
+        "translationRu": "Трос должен быть натянут, но не слишком."
+      },
+      {
+        "text": "Nobody in the video said how tight, because you cannot say it in words.",
+        "translationRu": "Никто в видео не сказал, насколько натянут, потому что словами это не сказать."
+      },
+      {
+        "text": "You have to feel it with your fingers.",
+        "translationRu": "Это надо почувствовать пальцами."
+      },
+      {
+        "text": "By four o'clock the bike worked and my hands were black.",
+        "translationRu": "К четырём часам велосипед работал, а руки у меня были чёрные."
+      },
+      {
+        "text": "I rode it around the block twice for no reason.",
+        "translationRu": "Я без всякой причины дважды объехал квартал."
+      },
+      {
+        "text": "The strange part came afterwards.",
+        "translationRu": "Странное началось потом."
+      },
+      {
+        "text": "Now I look at other broken things differently.",
+        "translationRu": "Теперь я иначе смотрю на другие сломанные вещи."
+      },
+      {
+        "text": "A tap, a chair, a laptop that runs slowly.",
+        "translationRu": "Кран, стул, медленно работающий ноутбук."
+      },
+      {
+        "text": "Before, these were problems for other people.",
+        "translationRu": "Раньше это были проблемы для других людей."
+      },
+      {
+        "text": "Now they are questions with an answer somewhere.",
+        "translationRu": "Теперь это вопросы, у которых где-то есть ответ."
+      },
+      {
+        "text": "I am not good at fixing things. I have fixed one bicycle.",
+        "translationRu": "Я не мастер чинить вещи. Я починил один велосипед."
+      },
+      {
+        "text": "But the door in my head is open now, and it was closed before.",
+        "translationRu": "Но дверь у меня в голове теперь открыта, а раньше была закрыта."
+      }
+    ],
+    "glossary": {
+      "chain": {
+        "translation": "цепь",
+        "partOfSpeech": "noun"
+      },
+      "come off": {
+        "translation": "слетать, отваливаться",
+        "partOfSpeech": "phrasal verb"
+      },
+      "brake": {
+        "translation": "тормоз",
+        "partOfSpeech": "noun"
+      },
+      "hall": {
+        "translation": "коридор, прихожая",
+        "partOfSpeech": "noun"
+      },
+      "walk past": {
+        "translation": "проходить мимо",
+        "partOfSpeech": "phrasal verb"
+      },
+      "guilty": {
+        "translation": "виноватый",
+        "partOfSpeech": "adjective"
+      },
+      "repair shop": {
+        "translation": "мастерская",
+        "partOfSpeech": "noun"
+      },
+      "expensive": {
+        "translation": "дорогой",
+        "partOfSpeech": "adjective"
+      },
+      "upside down": {
+        "translation": "вверх ногами",
+        "partOfSpeech": "phrase"
+      },
+      "cable": {
+        "translation": "трос, тросик",
+        "partOfSpeech": "noun"
+      },
+      "tight": {
+        "translation": "натянутый, тугой",
+        "partOfSpeech": "adjective"
+      },
+      "feel": {
+        "translation": "чувствовать, ощущать",
+        "partOfSpeech": "verb"
+      },
+      "block": {
+        "translation": "квартал",
+        "partOfSpeech": "noun"
+      },
+      "tap": {
+        "translation": "кран",
+        "partOfSpeech": "noun"
+      },
+      "broken": {
+        "translation": "сломанный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: The chain ___ ___ and the back brake did not stop anything.",
+        "options": [
+          "came off",
+          "walked past",
+          "felt tight",
+          "turned over"
+        ],
+        "answer": 0,
+        "explanation": "Come off = слетать. It is the normal phrase for a bicycle chain leaving its gears."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: The cable must be ___ but not too ___.",
+        "options": [
+          "broken",
+          "guilty",
+          "tight",
+          "expensive"
+        ],
+        "answer": 2,
+        "explanation": "Tight = натянутый. The whole difficulty was finding the right tension."
+      },
+      {
+        "id": "q3",
+        "question": "Why could the video not explain how tight the cable should be?",
+        "options": [
+          "The video was in another language",
+          "You have to feel it with your fingers — it cannot be said in words",
+          "The narrator did not watch the whole video",
+          "Every bicycle is different"
+        ],
+        "answer": 1,
+        "explanation": "The text says nobody said how tight, because you cannot say it in words."
+      },
+      {
+        "id": "q4",
+        "question": "What does the narrator say actually changed?",
+        "options": [
+          "He became good at fixing things",
+          "He stopped using the repair shop",
+          "He now sees broken things as questions with an answer somewhere",
+          "He bought a new bicycle"
+        ],
+        "answer": 2,
+        "explanation": "He insists he has fixed one bicycle, and says the door in his head is open now."
+      }
+    ]
+  },
+  {
+    "id": "the-word-for-almost",
+    "level": "C1",
+    "topic": "wordwork",
+    "title": "The Word for Almost",
+    "sentences": [
+      {
+        "text": "English is unusually rich in ways of saying that something nearly happened and did not.",
+        "translationRu": "Английский необычайно богат способами сказать, что нечто чуть не случилось — и не случилось."
+      },
+      {
+        "text": "Nearly, almost, barely, hardly, scarcely, just about, on the verge of, within an inch of.",
+        "translationRu": "Nearly, almost, barely, hardly, scarcely, just about, on the verge of, within an inch of."
+      },
+      {
+        "text": "Learners typically acquire two of these and use them for all eight jobs, which is understandable and costs them precision.",
+        "translationRu": "Учащиеся обычно усваивают два из них и используют для всех восьми задач — это понятно и стоит им точности."
+      },
+      {
+        "text": "The distinctions are not decorative, and a few of them are load-bearing.",
+        "translationRu": "Различия не декоративны, а некоторые из них несущие."
+      },
+      {
+        "text": "Take the pair that causes the most trouble: \"almost\" and \"barely\".",
+        "translationRu": "Возьмём пару, доставляющую больше всего хлопот: «almost» и «barely»."
+      },
+      {
+        "text": "\"He almost finished\" means he did not finish.",
+        "translationRu": "«He almost finished» значит, что он не закончил."
+      },
+      {
+        "text": "\"He barely finished\" means he did.",
+        "translationRu": "«He barely finished» значит, что закончил."
+      },
+      {
+        "text": "They describe the same narrow gap from opposite sides of it, and a learner who swaps them has reversed the outcome.",
+        "translationRu": "Они описывают один и тот же узкий зазор с противоположных сторон, и учащийся, их перепутавший, перевернул исход."
+      },
+      {
+        "text": "No amount of context repairs this, because both sentences are perfectly plausible.",
+        "translationRu": "Никакой контекст этого не исправит: оба предложения совершенно правдоподобны."
+      },
+      {
+        "text": "\"Hardly\" behaves like \"barely\" in this respect but carries a faint tone of complaint that \"barely\" does not.",
+        "translationRu": "«Hardly» ведёт себя в этом отношении как «barely», но несёт лёгкий оттенок недовольства, которого у «barely» нет."
+      },
+      {
+        "text": "\"I hardly slept\" invites sympathy; \"I barely slept\" merely reports.",
+        "translationRu": "«I hardly slept» приглашает к сочувствию; «I barely slept» просто сообщает."
+      },
+      {
+        "text": "Native speakers cannot usually articulate this and observe it without exception.",
+        "translationRu": "Носители обычно не могут это сформулировать и соблюдают это без исключений."
+      },
+      {
+        "text": "That combination — unstatable and universally obeyed — is the signature of the part of a language that resists teaching.",
+        "translationRu": "Это сочетание — несформулируемое и всеми соблюдаемое — признак той части языка, которая сопротивляется преподаванию."
+      },
+      {
+        "text": "It is also where fluency actually lives, which is inconvenient for anyone writing a textbook.",
+        "translationRu": "И именно там на самом деле живёт беглость — что неудобно для всякого, кто пишет учебник."
+      },
+      {
+        "text": "There is a further trap in the grammar rather than the meaning.",
+        "translationRu": "Есть ещё одна ловушка — в грамматике, а не в значении."
+      },
+      {
+        "text": "\"Hardly\", \"scarcely\" and \"barely\" are negative adverbs, so they do not take a second negative.",
+        "translationRu": "«Hardly», «scarcely» и «barely» — отрицательные наречия, поэтому второго отрицания не берут."
+      },
+      {
+        "text": "\"I hardly didn't sleep\" is not a stronger statement; it is not a statement at all.",
+        "translationRu": "«I hardly didn't sleep» — не более сильное утверждение, а вообще не утверждение."
+      },
+      {
+        "text": "And when one of them opens a sentence, the subject and verb invert: \"Hardly had he sat down when the phone rang.\"",
+        "translationRu": "А когда одно из них открывает предложение, подлежащее и глагол меняются местами: «Hardly had he sat down when the phone rang»."
+      },
+      {
+        "text": "That construction is formal and very much alive in written English, where it does real work.",
+        "translationRu": "Эта конструкция формальна и вполне жива в письменном английском, где делает настоящую работу."
+      },
+      {
+        "text": "It compresses two clauses into one and puts the near-miss at the front, where the emphasis belongs.",
+        "translationRu": "Она сжимает два предложения в одно и выносит «едва не» вперёд, где и должен быть акцент."
+      },
+      {
+        "text": "Why a language should develop eight tools for one narrow job is worth a moment's thought.",
+        "translationRu": "Почему язык развивает восемь инструментов для одной узкой задачи — стоит секунды размышления."
+      },
+      {
+        "text": "The answer is probably that the job is not narrow at all.",
+        "translationRu": "Ответ, вероятно, в том, что задача вовсе не узкая."
+      },
+      {
+        "text": "Nearly happening is the ordinary condition of most human plans.",
+        "translationRu": "«Чуть не случилось» — обычное состояние большинства человеческих планов."
+      },
+      {
+        "text": "We spend far more of our lives approaching outcomes than arriving at them, and a language reflects what its speakers spend their time doing.",
+        "translationRu": "Мы куда больше времени приближаемся к исходам, чем достигаем их, и язык отражает то, на что его носители тратят время."
+      },
+      {
+        "text": "A vocabulary this detailed is not a quirk. It is an inventory of a very common disappointment.",
+        "translationRu": "Такой подробный словарь — не причуда. Это опись очень распространённого разочарования."
+      }
+    ],
+    "glossary": {
+      "acquire": {
+        "translation": "усваивать, приобретать",
+        "partOfSpeech": "verb"
+      },
+      "precision": {
+        "translation": "точность",
+        "partOfSpeech": "noun"
+      },
+      "distinction": {
+        "translation": "различие",
+        "partOfSpeech": "noun"
+      },
+      "decorative": {
+        "translation": "декоративный",
+        "partOfSpeech": "adjective"
+      },
+      "load-bearing": {
+        "translation": "несущий",
+        "partOfSpeech": "adjective"
+      },
+      "narrow": {
+        "translation": "узкий",
+        "partOfSpeech": "adjective"
+      },
+      "gap": {
+        "translation": "зазор, разрыв",
+        "partOfSpeech": "noun"
+      },
+      "swap": {
+        "translation": "менять местами, путать",
+        "partOfSpeech": "verb"
+      },
+      "reverse": {
+        "translation": "перевернуть, обратить",
+        "partOfSpeech": "verb"
+      },
+      "plausible": {
+        "translation": "правдоподобный",
+        "partOfSpeech": "adjective"
+      },
+      "faint": {
+        "translation": "слабый, едва заметный",
+        "partOfSpeech": "adjective"
+      },
+      "sympathy": {
+        "translation": "сочувствие",
+        "partOfSpeech": "noun"
+      },
+      "articulate": {
+        "translation": "внятно сформулировать",
+        "partOfSpeech": "verb"
+      },
+      "signature": {
+        "translation": "отличительный признак",
+        "partOfSpeech": "noun"
+      },
+      "resist": {
+        "translation": "сопротивляться",
+        "partOfSpeech": "verb"
+      },
+      "fluency": {
+        "translation": "беглость",
+        "partOfSpeech": "noun"
+      },
+      "adverb": {
+        "translation": "наречие",
+        "partOfSpeech": "noun"
+      },
+      "invert": {
+        "translation": "менять порядок на обратный",
+        "partOfSpeech": "verb"
+      },
+      "construction": {
+        "translation": "конструкция",
+        "partOfSpeech": "noun"
+      },
+      "compress": {
+        "translation": "сжимать",
+        "partOfSpeech": "verb"
+      },
+      "clause": {
+        "translation": "предложение (в составе сложного)",
+        "partOfSpeech": "noun"
+      },
+      "emphasis": {
+        "translation": "акцент, ударение по смыслу",
+        "partOfSpeech": "noun"
+      },
+      "quirk": {
+        "translation": "причуда, странность",
+        "partOfSpeech": "noun"
+      },
+      "inventory": {
+        "translation": "опись, перечень",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "\"He ___ finished\" means that he did finish, with very little to spare.",
+        "options": [
+          "almost",
+          "barely",
+          "nearly",
+          "just about not"
+        ],
+        "answer": 1,
+        "explanation": "Barely means the thing happened, only just. Almost and nearly both mean it did not happen."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: The distinctions are not decorative, and a few of them are ___.",
+        "options": [
+          "plausible",
+          "faint",
+          "load-bearing",
+          "narrow"
+        ],
+        "answer": 2,
+        "explanation": "Load-bearing = несущий. The metaphor says these differences hold up the meaning rather than ornament it."
+      },
+      {
+        "id": "q3",
+        "question": "What happens when \"hardly\" opens a sentence?",
+        "options": [
+          "It requires a second negative",
+          "The subject and verb invert",
+          "The sentence becomes informal",
+          "The verb must be in the present tense"
+        ],
+        "answer": 1,
+        "explanation": "The text gives the example \"Hardly had he sat down when the phone rang.\""
+      },
+      {
+        "id": "q4",
+        "question": "Why does the author think English has so many words for \"almost\"?",
+        "options": [
+          "Because English borrowed them from several languages",
+          "Because grammarians invented them deliberately",
+          "Because we spend more of our lives approaching outcomes than arriving at them",
+          "Because the words each belong to a different dialect"
+        ],
+        "answer": 2,
+        "explanation": "The closing argument is that the job is not narrow, and calls the vocabulary an inventory of a common disappointment."
+      }
+    ]
+  },
+  {
+    "id": "nobody-reads-the-terms",
+    "level": "B2",
+    "topic": "wordwork",
+    "title": "Nobody Reads the Terms",
+    "sentences": [
+      {
+        "text": "A study in 2016 invented a fake social network and asked students to join it.",
+        "translationRu": "В 2016 году исследование придумало фальшивую соцсеть и предложило студентам в неё вступить."
+      },
+      {
+        "text": "The terms of service, which nobody was forced to open, contained two clauses the researchers had inserted for fun.",
+        "translationRu": "В пользовательском соглашении, открывать которое никого не заставляли, было два пункта, вставленных исследователями ради шутки."
+      },
+      {
+        "text": "One required users to hand over their future first-born child.",
+        "translationRu": "Один требовал отдать будущего первенца."
+      },
+      {
+        "text": "The other gave the company permission to share all data with employers and government agencies.",
+        "translationRu": "Другой давал компании право передавать все данные работодателям и госорганам."
+      },
+      {
+        "text": "Ninety-eight per cent of participants accepted both.",
+        "translationRu": "Девяносто восемь процентов участников приняли оба."
+      },
+      {
+        "text": "The result is usually reported as a joke about how careless people are.",
+        "translationRu": "Результат обычно подают как шутку о человеческой беспечности."
+      },
+      {
+        "text": "That reading is comfortable and it misses the more interesting finding underneath.",
+        "translationRu": "Такое прочтение удобно и упускает более интересный вывод, лежащий под ним."
+      },
+      {
+        "text": "The average time a participant spent on the terms was under a minute.",
+        "translationRu": "В среднем участник тратил на соглашение меньше минуты."
+      },
+      {
+        "text": "Reading them properly would have taken around half an hour.",
+        "translationRu": "Прочитать его как следует заняло бы примерно полчаса."
+      },
+      {
+        "text": "Researchers have calculated that reading every agreement an ordinary person accepts in a year would consume several working weeks.",
+        "translationRu": "Подсчитано, что чтение всех соглашений, которые обычный человек принимает за год, отняло бы несколько рабочих недель."
+      },
+      {
+        "text": "Nobody has several working weeks, so nobody reads, and everybody knows nobody reads.",
+        "translationRu": "Ни у кого нет нескольких рабочих недель, поэтому никто не читает, и все знают, что никто не читает."
+      },
+      {
+        "text": "That last part is what makes the arrangement strange rather than merely sloppy.",
+        "translationRu": "Именно последнее делает эту систему странной, а не просто небрежной."
+      },
+      {
+        "text": "A contract is supposed to record an agreement between two informed parties.",
+        "translationRu": "Договор должен фиксировать согласие двух осведомлённых сторон."
+      },
+      {
+        "text": "Here one party writes it, the other cannot realistically read it, and both proceed as though consent has occurred.",
+        "translationRu": "Здесь одна сторона его пишет, другая реально не может его прочесть, и обе действуют так, будто согласие состоялось."
+      },
+      {
+        "text": "Lawyers call this a fiction, and they do not use the word as an insult.",
+        "translationRu": "Юристы называют это фикцией и употребляют слово не как оскорбление."
+      },
+      {
+        "text": "A legal fiction is a thing everybody agrees to pretend because the alternative is worse.",
+        "translationRu": "Юридическая фикция — то, что все договорились считать так, потому что альтернатива хуже."
+      },
+      {
+        "text": "Some jurisdictions have responded by regulating what a contract may contain rather than how it is presented.",
+        "translationRu": "Некоторые юрисдикции ответили тем, что регулируют содержание договора, а не форму его подачи."
+      },
+      {
+        "text": "If a clause is sufficiently unreasonable, it is void whether or not it was agreed to.",
+        "translationRu": "Если пункт достаточно неразумен, он недействителен независимо от того, согласились с ним или нет."
+      },
+      {
+        "text": "This is a quiet admission that consent in this setting does not mean what the word normally means.",
+        "translationRu": "Это тихое признание, что согласие в такой обстановке значит не то, что обычно значит это слово."
+      },
+      {
+        "text": "It also shifts the burden from the reader to the drafter, which is where it can actually be carried.",
+        "translationRu": "Это ещё и переносит бремя с читателя на составителя — туда, где его действительно можно нести."
+      },
+      {
+        "text": "The version of this that affects daily life is not dramatic.",
+        "translationRu": "Версия, которая касается повседневной жизни, не драматична."
+      },
+      {
+        "text": "No company is coming for anybody's first-born.",
+        "translationRu": "Ни одна компания не придёт за чьим-то первенцем."
+      },
+      {
+        "text": "What the clauses actually do is more boring and more durable: they decide which country's courts hear a dispute, whether you can join a class action, how long the company keeps your data after you leave.",
+        "translationRu": "Что эти пункты делают на самом деле — скучнее и долговечнее: они решают, суды какой страны рассматривают спор, можешь ли ты присоединиться к коллективному иску, сколько компания хранит твои данные после твоего ухода."
+      },
+      {
+        "text": "Those provisions matter precisely once, years later, at the worst possible moment.",
+        "translationRu": "Эти положения важны ровно один раз, годы спустя, в наихудший возможный момент."
+      },
+      {
+        "text": "The practical advice is not \"read the terms\", which is advice nobody follows and which does not scale.",
+        "translationRu": "Практический совет — не «читайте соглашение»: ему никто не следует, и он не масштабируется."
+      },
+      {
+        "text": "It is narrower: before you put anything irreplaceable into a service, find out how you get it out.",
+        "translationRu": "Он уже: прежде чем класть в сервис что-то незаменимое, узнай, как это оттуда забрать."
+      },
+      {
+        "text": "That single question takes ninety seconds and covers most of what the half hour would have told you.",
+        "translationRu": "Этот единственный вопрос занимает девяносто секунд и покрывает большую часть того, что сказали бы вам те полчаса."
+      }
+    ],
+    "glossary": {
+      "terms of service": {
+        "translation": "пользовательское соглашение",
+        "partOfSpeech": "phrase"
+      },
+      "clause": {
+        "translation": "пункт, условие договора",
+        "partOfSpeech": "noun"
+      },
+      "insert": {
+        "translation": "вставлять",
+        "partOfSpeech": "verb"
+      },
+      "hand over": {
+        "translation": "передавать, отдавать",
+        "partOfSpeech": "phrasal verb"
+      },
+      "first-born": {
+        "translation": "первенец",
+        "partOfSpeech": "noun"
+      },
+      "agency": {
+        "translation": "ведомство, орган",
+        "partOfSpeech": "noun"
+      },
+      "participant": {
+        "translation": "участник",
+        "partOfSpeech": "noun"
+      },
+      "careless": {
+        "translation": "беспечный",
+        "partOfSpeech": "adjective"
+      },
+      "consume": {
+        "translation": "отнимать, поглощать",
+        "partOfSpeech": "verb"
+      },
+      "sloppy": {
+        "translation": "небрежный",
+        "partOfSpeech": "adjective"
+      },
+      "informed": {
+        "translation": "осведомлённый",
+        "partOfSpeech": "adjective"
+      },
+      "party": {
+        "translation": "сторона (договора)",
+        "partOfSpeech": "noun"
+      },
+      "proceed": {
+        "translation": "действовать дальше",
+        "partOfSpeech": "verb"
+      },
+      "consent": {
+        "translation": "согласие",
+        "partOfSpeech": "noun"
+      },
+      "fiction": {
+        "translation": "фикция, условность",
+        "partOfSpeech": "noun"
+      },
+      "jurisdiction": {
+        "translation": "юрисдикция",
+        "partOfSpeech": "noun"
+      },
+      "unreasonable": {
+        "translation": "неразумный, несправедливый",
+        "partOfSpeech": "adjective"
+      },
+      "void": {
+        "translation": "недействительный",
+        "partOfSpeech": "adjective"
+      },
+      "burden": {
+        "translation": "бремя",
+        "partOfSpeech": "noun"
+      },
+      "drafter": {
+        "translation": "составитель (документа)",
+        "partOfSpeech": "noun"
+      },
+      "durable": {
+        "translation": "долговечный",
+        "partOfSpeech": "adjective"
+      },
+      "dispute": {
+        "translation": "спор",
+        "partOfSpeech": "noun"
+      },
+      "class action": {
+        "translation": "коллективный иск",
+        "partOfSpeech": "noun"
+      },
+      "provision": {
+        "translation": "положение (договора)",
+        "partOfSpeech": "noun"
+      },
+      "irreplaceable": {
+        "translation": "незаменимый",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: If a clause is sufficiently unreasonable, it is ___ whether or not it was agreed to.",
+        "options": [
+          "informed",
+          "void",
+          "durable",
+          "sloppy"
+        ],
+        "answer": 1,
+        "explanation": "Void = недействительный. A void clause has no legal force even after signature."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: It shifts the ___ from the reader to the drafter.",
+        "options": [
+          "consent",
+          "provision",
+          "burden",
+          "dispute"
+        ],
+        "answer": 2,
+        "explanation": "Burden = бремя. The text says this is where it can actually be carried."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the author say the arrangement is \"strange rather than merely sloppy\"?",
+        "options": [
+          "The clauses were inserted as a joke",
+          "Everybody knows nobody reads, and both sides proceed as though consent occurred",
+          "The students were not paid for the study",
+          "The terms were written in legal language"
+        ],
+        "answer": 1,
+        "explanation": "The text says that last part is what makes it strange, and calls the result a legal fiction."
+      },
+      {
+        "id": "q4",
+        "question": "What practical advice does the author give instead of \"read the terms\"?",
+        "options": [
+          "Use a service in your own country",
+          "Never accept a class-action waiver",
+          "Before putting anything irreplaceable into a service, find out how you get it out",
+          "Have a lawyer check every agreement"
+        ],
+        "answer": 2,
+        "explanation": "The text calls this narrower advice and says it takes ninety seconds."
+      }
+    ]
+  },
+  {
+    "id": "a-small-town-with-a-big-airport",
+    "level": "B1",
+    "topic": "wordwork",
+    "title": "A Small Town With a Big Airport",
+    "sentences": [
+      {
+        "text": "There is a town in central Spain with four thousand residents and an international airport.",
+        "translationRu": "В центральной Испании есть городок с четырьмя тысячами жителей и международным аэропортом."
+      },
+      {
+        "text": "The airport cost over a billion euros and has handled almost no passengers.",
+        "translationRu": "Аэропорт стоил больше миллиарда евро и почти не принимал пассажиров."
+      },
+      {
+        "text": "It opened in 2008, closed in 2012, and was eventually sold for a fraction of what it cost.",
+        "translationRu": "Он открылся в 2008-м, закрылся в 2012-м и в итоге был продан за долю своей стоимости."
+      },
+      {
+        "text": "Everyone who tells this story enjoys it, and most of them tell it wrong.",
+        "translationRu": "Всем, кто рассказывает эту историю, она нравится, и большинство рассказывает её неверно."
+      },
+      {
+        "text": "The popular version is that somebody was either corrupt or stupid.",
+        "translationRu": "Популярная версия: кто-то был либо коррупционером, либо дураком."
+      },
+      {
+        "text": "Corruption was certainly involved and it does not explain the scale.",
+        "translationRu": "Коррупция, безусловно, присутствовала, и масштаб она не объясняет."
+      },
+      {
+        "text": "Stupidity does not explain it either, because the projections were produced by serious firms.",
+        "translationRu": "Глупость тоже не объясняет: прогнозы делали серьёзные фирмы."
+      },
+      {
+        "text": "What explains it is a chain of reasonable steps that nobody could stop once it had started.",
+        "translationRu": "Объясняет её цепочка разумных шагов, которую никто не мог остановить, когда она запустилась."
+      },
+      {
+        "text": "Regional funds were available and had to be spent within a deadline or returned.",
+        "translationRu": "Региональные фонды были доступны и должны были быть освоены в срок или возвращены."
+      },
+      {
+        "text": "A large infrastructure project is the fastest way to spend a large amount of money.",
+        "translationRu": "Крупный инфраструктурный проект — быстрейший способ потратить крупную сумму."
+      },
+      {
+        "text": "Every official who approved a stage was improving their own region's position, which is what they were elected to do.",
+        "translationRu": "Каждый чиновник, одобрявший этап, улучшал положение своего региона — то, для чего его и выбрали."
+      },
+      {
+        "text": "Nobody was asked whether four thousand people need an airport, because that was never the question on anybody's desk.",
+        "translationRu": "Никого не спрашивали, нужен ли аэропорт четырём тысячам человек, потому что такого вопроса ни у кого на столе не было."
+      },
+      {
+        "text": "The questions on the desks were narrower: approve this stage, release this payment, sign this permit.",
+        "translationRu": "Вопросы на столах были уже: одобрить этап, выделить платёж, подписать разрешение."
+      },
+      {
+        "text": "Each answer was defensible and the sum of them was absurd.",
+        "translationRu": "Каждый ответ был защитим, а их сумма — абсурдна."
+      },
+      {
+        "text": "This pattern has a name in the literature and it appears wherever decisions are split into stages.",
+        "translationRu": "У этого узора есть название в литературе, и он возникает везде, где решения разбиты на этапы."
+      },
+      {
+        "text": "The splitting is not a mistake; it is how large projects are controlled.",
+        "translationRu": "Разбиение — не ошибка: так контролируются большие проекты."
+      },
+      {
+        "text": "But it has a side effect, which is that no single person ever holds the whole decision.",
+        "translationRu": "Но у него есть побочный эффект: ни один человек никогда не держит в руках решение целиком."
+      },
+      {
+        "text": "Holding the whole decision is uncomfortable, so this side effect is quietly popular.",
+        "translationRu": "Держать решение целиком неуютно, поэтому побочный эффект тихо всем нравится."
+      },
+      {
+        "text": "The airport now belongs to a private group and handles a small number of flights.",
+        "translationRu": "Теперь аэропорт принадлежит частной группе и обслуживает небольшое число рейсов."
+      },
+      {
+        "text": "Film crews rent the empty terminal, which is apparently a good business.",
+        "translationRu": "Съёмочные группы арендуют пустой терминал — по-видимому, хороший бизнес."
+      },
+      {
+        "text": "The runway is excellent, because nobody has used it.",
+        "translationRu": "Полоса отличная, потому что ею никто не пользовался."
+      },
+      {
+        "text": "Residents I have read interviews with are less angry about it than outsiders are.",
+        "translationRu": "Жители, чьи интервью я читал, злятся из-за него меньше, чем посторонние."
+      },
+      {
+        "text": "They point out that the region also got roads, and the roads are genuinely useful.",
+        "translationRu": "Они указывают, что регион получил и дороги, а дороги действительно полезны."
+      },
+      {
+        "text": "That is not a defence of the airport and it is a reminder that the story is not as clean as it enjoys being.",
+        "translationRu": "Это не оправдание аэропорта, а напоминание, что история не так чиста, как ей нравится быть."
+      }
+    ],
+    "glossary": {
+      "resident": {
+        "translation": "житель",
+        "partOfSpeech": "noun"
+      },
+      "handle": {
+        "translation": "обслуживать, пропускать",
+        "partOfSpeech": "verb"
+      },
+      "fraction": {
+        "translation": "доля, малая часть",
+        "partOfSpeech": "noun"
+      },
+      "corrupt": {
+        "translation": "коррумпированный",
+        "partOfSpeech": "adjective"
+      },
+      "scale": {
+        "translation": "масштаб",
+        "partOfSpeech": "noun"
+      },
+      "projection": {
+        "translation": "прогноз",
+        "partOfSpeech": "noun"
+      },
+      "firm": {
+        "translation": "фирма",
+        "partOfSpeech": "noun"
+      },
+      "funds": {
+        "translation": "средства, фонды",
+        "partOfSpeech": "noun"
+      },
+      "deadline": {
+        "translation": "срок",
+        "partOfSpeech": "noun"
+      },
+      "infrastructure": {
+        "translation": "инфраструктура",
+        "partOfSpeech": "noun"
+      },
+      "official": {
+        "translation": "чиновник",
+        "partOfSpeech": "noun"
+      },
+      "approve": {
+        "translation": "одобрять",
+        "partOfSpeech": "verb"
+      },
+      "release": {
+        "translation": "выделять, разблокировать (средства)",
+        "partOfSpeech": "verb"
+      },
+      "permit": {
+        "translation": "разрешение",
+        "partOfSpeech": "noun"
+      },
+      "defensible": {
+        "translation": "защитимый, оправданный",
+        "partOfSpeech": "adjective"
+      },
+      "absurd": {
+        "translation": "абсурдный",
+        "partOfSpeech": "adjective"
+      },
+      "split": {
+        "translation": "разбивать, делить",
+        "partOfSpeech": "verb"
+      },
+      "side effect": {
+        "translation": "побочный эффект",
+        "partOfSpeech": "noun"
+      },
+      "terminal": {
+        "translation": "терминал",
+        "partOfSpeech": "noun"
+      },
+      "runway": {
+        "translation": "взлётно-посадочная полоса",
+        "partOfSpeech": "noun"
+      },
+      "outsider": {
+        "translation": "посторонний",
+        "partOfSpeech": "noun"
+      },
+      "defence": {
+        "translation": "оправдание, защита",
+        "partOfSpeech": "noun"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: Each answer was ___ and the sum of them was absurd.",
+        "options": [
+          "corrupt",
+          "defensible",
+          "narrow",
+          "absurd"
+        ],
+        "answer": 1,
+        "explanation": "Defensible = защитимый. The contrast is between each step being justifiable and the total being not."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: The funds had to be spent within a ___ or returned.",
+        "options": [
+          "permit",
+          "fraction",
+          "deadline",
+          "projection"
+        ],
+        "answer": 2,
+        "explanation": "Deadline = срок. The time limit is what made a large fast project attractive."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the author reject \"somebody was stupid\" as an explanation?",
+        "options": [
+          "Because the projections were produced by serious firms",
+          "Because no money was ever wasted",
+          "Because the airport is now profitable",
+          "Because the town is larger than reported"
+        ],
+        "answer": 0,
+        "explanation": "The text says stupidity does not explain it, and gives exactly this reason."
+      },
+      {
+        "id": "q4",
+        "question": "What is the \"side effect\" of splitting a decision into stages?",
+        "options": [
+          "Projects take longer to finish",
+          "No single person ever holds the whole decision",
+          "Costs are always underestimated",
+          "Officials cannot be held responsible in court"
+        ],
+        "answer": 1,
+        "explanation": "The text names this and adds that holding the whole decision is uncomfortable, so the effect is quietly popular."
+      }
+    ]
+  },
+  {
+    "id": "the-sound-of-a-language-you-half-know",
+    "level": "C2",
+    "topic": "wordwork",
+    "title": "The Sound of a Language You Half Know",
+    "sentences": [
+      {
+        "text": "There is a threshold in learning a language that arrives abruptly and is almost never described.",
+        "translationRu": "В изучении языка есть порог, который наступает внезапно и почти никогда не описывается."
+      },
+      {
+        "text": "Before it, speech in the target language is noise with familiar shapes embedded in it.",
+        "translationRu": "До него речь на изучаемом языке — шум с вкраплениями знакомых очертаний."
+      },
+      {
+        "text": "After it, the same speech is a sequence of words, some of which you do not know.",
+        "translationRu": "После него та же речь — последовательность слов, часть которых ты не знаешь."
+      },
+      {
+        "text": "The quantity of vocabulary has barely changed across the transition; what has changed is segmentation.",
+        "translationRu": "Объём словаря при этом переходе почти не меняется; меняется сегментация."
+      },
+      {
+        "text": "You have begun to hear where one word stops and the next begins, and that is a separate achievement from knowing any of them.",
+        "translationRu": "Ты начал слышать, где кончается одно слово и начинается следующее, а это достижение, отдельное от знания самих слов."
+      },
+      {
+        "text": "Nobody warns learners about this, so the period before the threshold is routinely misdiagnosed as a failure of vocabulary.",
+        "translationRu": "Учащихся об этом не предупреждают, поэтому период до порога регулярно принимают за нехватку словаря."
+      },
+      {
+        "text": "The learner concludes they need more words, studies more words, and does not improve at listening, which is demoralising and entirely predictable.",
+        "translationRu": "Учащийся заключает, что нужно больше слов, учит больше слов, и на слух понимать не начинает — это деморализует и совершенно предсказуемо."
+      },
+      {
+        "text": "The deficit was never lexical. It was acoustic.",
+        "translationRu": "Дефицит никогда не был лексическим. Он был акустическим."
+      },
+      {
+        "text": "Speech contains almost no reliable pauses between words; the gaps we perceive are mostly inferred.",
+        "translationRu": "В речи почти нет надёжных пауз между словами; промежутки, которые мы воспринимаем, в основном достраиваются."
+      },
+      {
+        "text": "In your own language this inference is instantaneous and invisible, which is why the difficulty seems fictional until you meet it.",
+        "translationRu": "В родном языке этот вывод мгновенен и невидим — поэтому трудность кажется выдуманной, пока с ней не столкнёшься."
+      },
+      {
+        "text": "The way past the threshold is not more study but more exposure, and specifically exposure to speech that is too fast.",
+        "translationRu": "Путь за порог — не больше учёбы, а больше погружения, и именно в речь, которая слишком быстра."
+      },
+      {
+        "text": "Slowed material is comfortable, feels productive, and trains the wrong thing: it removes the very compression the ear has to learn to undo.",
+        "translationRu": "Замедленный материал удобен, ощущается продуктивным и тренирует не то: он убирает ту самую компрессию, которую ухо должно научиться разворачивать."
+      },
+      {
+        "text": "Native speech is full of reductions that no textbook transcribes, because transcribing them would look like mockery.",
+        "translationRu": "Живая речь полна редукций, которых не транскрибирует ни один учебник, потому что их транскрипция выглядела бы как насмешка."
+      },
+      {
+        "text": "\"What do you want to do\" is not four words spoken quickly; it is a single collapsed form with a shape of its own.",
+        "translationRu": "«What do you want to do» — не четыре быстро произнесённых слова, а единая схлопнутая форма со своим очертанием."
+      },
+      {
+        "text": "A learner waiting to hear the written version will wait indefinitely, because the written version is not what anybody says.",
+        "translationRu": "Учащийся, ждущий услышать письменный вариант, будет ждать бесконечно: письменного варианта никто не произносит."
+      },
+      {
+        "text": "This has an uncomfortable implication for how listening is usually taught.",
+        "translationRu": "Отсюда следует неудобный вывод о том, как обычно учат аудированию."
+      },
+      {
+        "text": "Classroom audio is recorded by professionals instructed to enunciate, and enunciation is precisely the thing absent from real conversation.",
+        "translationRu": "Учебные записи делают профессионалы с указанием артикулировать, а артикуляция — ровно то, чего в настоящем разговоре нет."
+      },
+      {
+        "text": "A student can score perfectly on such material for three years and be unable to follow two colleagues discussing lunch.",
+        "translationRu": "Студент может три года получать высший балл на таком материале и не понимать двух коллег, обсуждающих обед."
+      },
+      {
+        "text": "The material was not easy; it was a different task wearing the same name.",
+        "translationRu": "Материал был не лёгким — это была другая задача под тем же названием."
+      },
+      {
+        "text": "What actually works is unglamorous and moderately unpleasant.",
+        "translationRu": "Работает же вещь непарадная и умеренно неприятная."
+      },
+      {
+        "text": "Listen to something genuinely too fast, repeatedly, without a transcript, until the wall becomes a surface with features on it.",
+        "translationRu": "Слушай нечто действительно слишком быстрое, многократно, без расшифровки, пока стена не станет поверхностью с деталями."
+      },
+      {
+        "text": "The first fifteen hours produce no measurable progress and a good deal of irritation.",
+        "translationRu": "Первые пятнадцать часов не дают измеримого прогресса и дают изрядное раздражение."
+      },
+      {
+        "text": "Then, usually without warning, a sentence separates into words and stays separated.",
+        "translationRu": "Потом, обычно без предупреждения, предложение распадается на слова и остаётся распавшимся."
+      },
+      {
+        "text": "The gain is not incremental and does not reverse, which is unusual among language skills and suggests something structural is being rebuilt rather than accumulated.",
+        "translationRu": "Прирост не постепенный и не откатывается, что необычно среди языковых навыков и наводит на мысль, что перестраивается нечто структурное, а не накапливается."
+      },
+      {
+        "text": "Learners who reach this point almost always say the same thing, which is that everyone suddenly started speaking more slowly.",
+        "translationRu": "Дошедшие до этой точки почти всегда говорят одно и то же: все вдруг начали говорить медленнее."
+      },
+      {
+        "text": "Nobody did. The listener stopped spending the sentence on the sentence.",
+        "translationRu": "Никто не начал. Слушающий перестал тратить предложение на само предложение."
+      }
+    ],
+    "glossary": {
+      "threshold": {
+        "translation": "порог",
+        "partOfSpeech": "noun"
+      },
+      "abruptly": {
+        "translation": "внезапно, резко",
+        "partOfSpeech": "adverb"
+      },
+      "embedded": {
+        "translation": "вкраплённый, встроенный",
+        "partOfSpeech": "adjective"
+      },
+      "transition": {
+        "translation": "переход",
+        "partOfSpeech": "noun"
+      },
+      "segmentation": {
+        "translation": "сегментация, членение",
+        "partOfSpeech": "noun"
+      },
+      "misdiagnose": {
+        "translation": "поставить неверный диагноз",
+        "partOfSpeech": "verb"
+      },
+      "demoralising": {
+        "translation": "деморализующий",
+        "partOfSpeech": "adjective"
+      },
+      "deficit": {
+        "translation": "нехватка, дефицит",
+        "partOfSpeech": "noun"
+      },
+      "lexical": {
+        "translation": "лексический",
+        "partOfSpeech": "adjective"
+      },
+      "acoustic": {
+        "translation": "акустический",
+        "partOfSpeech": "adjective"
+      },
+      "perceive": {
+        "translation": "воспринимать",
+        "partOfSpeech": "verb"
+      },
+      "infer": {
+        "translation": "выводить, достраивать",
+        "partOfSpeech": "verb"
+      },
+      "instantaneous": {
+        "translation": "мгновенный",
+        "partOfSpeech": "adjective"
+      },
+      "exposure": {
+        "translation": "погружение, соприкосновение с материалом",
+        "partOfSpeech": "noun"
+      },
+      "compression": {
+        "translation": "сжатие, компрессия",
+        "partOfSpeech": "noun"
+      },
+      "reduction": {
+        "translation": "редукция, ослабление звука",
+        "partOfSpeech": "noun"
+      },
+      "transcribe": {
+        "translation": "транскрибировать, записывать",
+        "partOfSpeech": "verb"
+      },
+      "mockery": {
+        "translation": "насмешка",
+        "partOfSpeech": "noun"
+      },
+      "collapsed": {
+        "translation": "схлопнутый, стянутый",
+        "partOfSpeech": "adjective"
+      },
+      "implication": {
+        "translation": "следствие, подтекст",
+        "partOfSpeech": "noun"
+      },
+      "enunciate": {
+        "translation": "чётко артикулировать",
+        "partOfSpeech": "verb"
+      },
+      "unglamorous": {
+        "translation": "непарадный, невыигрышный",
+        "partOfSpeech": "adjective"
+      },
+      "transcript": {
+        "translation": "расшифровка, текст записи",
+        "partOfSpeech": "noun"
+      },
+      "incremental": {
+        "translation": "постепенный, пошаговый",
+        "partOfSpeech": "adjective"
+      },
+      "structural": {
+        "translation": "структурный",
+        "partOfSpeech": "adjective"
+      }
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Complete: The deficit was never ___. It was acoustic.",
+        "options": [
+          "incremental",
+          "lexical",
+          "structural",
+          "collapsed"
+        ],
+        "answer": 1,
+        "explanation": "Lexical = лексический, to do with vocabulary. The text's whole argument is that the problem is hearing, not words."
+      },
+      {
+        "id": "q2",
+        "question": "Complete: The gaps we perceive between words are mostly ___.",
+        "options": [
+          "transcribed",
+          "enunciated",
+          "inferred",
+          "embedded"
+        ],
+        "answer": 2,
+        "explanation": "Infer = достраивать вывод. Speech contains almost no reliable pauses; the ear supplies them."
+      },
+      {
+        "id": "q3",
+        "question": "Why does the author say slowed material trains the wrong thing?",
+        "options": [
+          "It uses vocabulary that is too simple",
+          "It removes the compression the ear has to learn to undo",
+          "It is recorded by non-native speakers",
+          "It is too short to build a habit"
+        ],
+        "answer": 1,
+        "explanation": "The text states this and then gives the example of \"What do you want to do\" as a collapsed form."
+      },
+      {
+        "id": "q4",
+        "question": "What do learners say when they cross the threshold?",
+        "options": [
+          "That their vocabulary suddenly doubled",
+          "That everyone suddenly started speaking more slowly",
+          "That subtitles became unnecessary",
+          "That their accent improved"
+        ],
+        "answer": 1,
+        "explanation": "The text reports this and corrects it: nobody slowed down, the listener stopped spending the sentence on the sentence."
+      }
+    ]
   }
 ]
