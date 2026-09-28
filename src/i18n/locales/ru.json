@@ -137,7 +137,8 @@
       "health": "Здоровье",
       "environment": "Экология",
       "society": "Общество",
-      "celebrities": "Знаменитости"
+      "celebrities": "Знаменитости",
+      "wordwork": "Словарь в действии"
     },
     "knownShare": "знакомо {{percent}}%",
     "recycled_one": "Недавно изученных слов: {{count}}",

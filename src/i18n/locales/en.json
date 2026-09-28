@@ -133,7 +133,8 @@
       "health": "Health",
       "environment": "Environment",
       "society": "Society",
-      "celebrities": "Celebrities"
+      "celebrities": "Celebrities",
+      "wordwork": "Vocabulary in use"
     },
     "knownShare": "{{percent}}% known",
     "recycled_one": "Recently learned: {{count}}",
