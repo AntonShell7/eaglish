@@ -1140,5 +1140,14 @@
     "saved": "Saved",
     "another": "Another",
     "go": "Translate"
+  },
+  "input": {
+    "pen": "Write by hand",
+    "penHint": "Switch input: keyboard or pen",
+    "keyboard": "Keyboard",
+    "clear": "Clear",
+    "reveal": "Show the answer",
+    "gotIt": "I wrote it right",
+    "missedIt": "I got it wrong"
   }
 }

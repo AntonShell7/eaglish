@@ -8,6 +8,9 @@ import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { lookupWord } from "@/lib/translate";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup";
+import { PenToggle } from "@/components/ui/PenToggle";
+import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
+import { useInputMode } from "@/lib/inputMode";
 import { accentKey } from "./voices";
 import "./dictation.css";
 
@@ -65,6 +68,20 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const input = useRef<HTMLTextAreaElement>(null);
   const [lookup, setLookup] = useState<LookupRequest | null>(null);
 
+  /*
+   * Pen or keyboard.
+   *
+   * Dictation is the exercise handwriting was asked for: you hear a sentence
+   * and write it down, which on paper is what the exercise has always been.
+   * Nothing on the server can read handwriting yet, so the pen path cannot be
+   * graded — it reveals the sentence and the learner marks themselves, which
+   * is both honest and the way dictation was checked long before software.
+   */
+  const [mode] = useInputMode();
+  const pad = useRef<HandwritingPadHandle | null>(null);
+  const [inked, setInked] = useState(false);
+  const pen = mode === "pen";
+
   const sentence = sentences[index];
   const done = index >= sentences.length;
 
@@ -76,6 +93,8 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setResult(null);
     setRevealed(false);
     setPlays(1);
+    pad.current?.clear();
+    setInked(false);
     speak(sentence.text, slow ? 0.7 : 1);
     input.current?.focus();
 
@@ -259,10 +278,21 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
           </button>
 
           <span className="dict__plays tabular">{t("dictation.playCount", { count: plays })}</span>
+
+          <PenToggle className="dict__pen" />
         </div>
 
         {!result ? (
           <>
+            {pen ? (
+              <HandwritingPad
+                rows={4}
+                onFirstStroke={() => setInked(true)}
+                padRef={(handle) => {
+                  pad.current = handle;
+                }}
+              />
+            ) : (
             <textarea
               ref={input}
               value={typed}
@@ -281,10 +311,30 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
               autoCapitalize="off"
               spellCheck={false}
             />
+            )}
+
             <div className="dict__actions">
-              <button type="button" className="btn btn--primary" onClick={check} disabled={!typed.trim()}>
-                {t("dictation.check")}
-              </button>
+              {/* Typed answers are compared; written ones cannot be, so the
+                  button reveals the sentence and the learner marks it. The
+                  label says which of the two is about to happen. */}
+              {pen ? (
+                <button
+                  type="button"
+                  className="btn btn--primary"
+                  disabled={!inked}
+                  onClick={() => {
+                    setTyped(sentence.text);
+                    setResult(checkDictation(sentence.text, sentence.text));
+                    setRevealed(true);
+                  }}
+                >
+                  {t("input.reveal")}
+                </button>
+              ) : (
+                <button type="button" className="btn btn--primary" onClick={check} disabled={!typed.trim()}>
+                  {t("dictation.check")}
+                </button>
+              )}
               <button
                 type="button"
                 className="btn btn--quiet"

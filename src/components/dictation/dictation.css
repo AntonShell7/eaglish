@@ -404,3 +404,9 @@ button.dict__m:hover {
     transform: translateY(-6px);
   }
 }
+
+/* The pen switch sits with the playback controls, beside the field it
+   changes rather than in a settings screen two taps away. */
+.dict__pen {
+  margin-left: auto;
+}

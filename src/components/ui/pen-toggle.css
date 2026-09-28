@@ -1,0 +1,83 @@
+/*
+ * The keyboard/pen switch.
+ *
+ * Built to Apple's proportions because those are the ones people read without
+ * thinking: a track a little under twice the knob's width, a knob that travels
+ * the difference, and a fill that says on rather than a label that does.
+ *
+ * Mint when on, not gold. Gold is decoration in this app; a control that
+ * changes how the whole site behaves is brand, and brand here is mint.
+ */
+
+.pen {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 650;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.pen:hover .pen__label {
+  color: var(--color-text);
+}
+
+.pen:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.pen__label {
+  transition: color var(--dur-1) var(--ease);
+}
+
+.pen__track {
+  position: relative;
+  display: block;
+  width: 38px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border);
+  transition:
+    background var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
+}
+
+.pen__track.is-on {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.pen__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  /* The spring is what makes it feel like a physical switch rather than a
+     checkbox that animates. */
+  transition: transform var(--dur-2) cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.pen__track.is-on .pen__knob {
+  transform: translateX(16px);
+  background: var(--color-on-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pen__knob,
+  .pen__track,
+  .pen__label {
+    transition: none;
+  }
+}

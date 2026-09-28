@@ -1,0 +1,109 @@
+/*
+ * The sheet.
+ *
+ * Dark by default and squared rather than lined, both by request — a white
+ * rectangle inside a dark interface was described, accurately, as a blot.
+ * The grid is painted on the canvas rather than in CSS; see the component for
+ * why a repeating gradient could not hold its lines straight.
+ */
+
+.hp {
+  --grid-line: rgba(255, 250, 240, 0.08);
+
+  --ink-mint: #7fd0b4;
+  --ink-red: #ff5a5f;
+  --ink-amber: #e3ac5b;
+  --ink-violet: #a98bff;
+  --ink-ink: #f2eee7;
+
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: #16130f;
+  overflow: hidden;
+}
+
+/* On paper the sheet stays dark: it is the writing surface, not the page, and
+   flipping it to white in the light theme makes the ink colours unreadable. */
+:root[data-theme="light"] .hp {
+  --grid-line: rgba(255, 250, 240, 0.09);
+}
+
+.hp__paper {
+  display: block;
+  width: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.hp__tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 11px;
+  border-top: 1px solid rgba(255, 250, 240, 0.07);
+  background: rgba(255, 250, 240, 0.02);
+}
+
+.hp__pens {
+  display: flex;
+  gap: 7px;
+}
+
+.hp__pen {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease);
+}
+
+.hp__pen:hover {
+  transform: scale(1.12);
+}
+
+/* The chosen pen gets a ring rather than a size change, so the row does not
+   reflow every time somebody picks a colour. */
+.hp__pen.is-on {
+  box-shadow: 0 0 0 2px #16130f, 0 0 0 4px currentColor;
+  color: rgba(255, 250, 240, 0.55);
+}
+
+.hp__clear {
+  border: 1px solid rgba(255, 250, 240, 0.14);
+  background: none;
+  color: rgba(255, 250, 240, 0.6);
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 650;
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    color var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease);
+}
+
+.hp__clear:hover:not(:disabled) {
+  color: rgba(255, 250, 240, 0.9);
+  border-color: rgba(255, 250, 240, 0.3);
+}
+
+.hp__clear:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp__pen {
+    transition: none;
+  }
+
+  .hp__pen:hover {
+    transform: none;
+  }
+}
