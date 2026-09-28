@@ -151,7 +151,9 @@
     "workoutDone": "Done — {{count}} words practised in context.",
     "markPrompt": "Read it through? Mark it — finishing is what counts as a task.",
     "markedNote": "Counted for today. The comprehension questions are below.",
-    "workoutLeft": "{{done}} of {{total}} done"
+    "workoutLeft": "{{done}} of {{total}} done",
+    "tagline": "Boost your vocabulary by reading",
+    "recycledTitle": "Your words, met again"
   },
   "writing": {
     "grammar": "Grammar",
@@ -835,7 +837,7 @@
     "emptyBody": "Save a few words while reading — tap any word in a text — and this page will build an exercise around them."
   },
   "dictation": {
-    "intro": "Listen to a sentence and write it down. The words you miss go straight into your vocabulary, together with the sentence you met them in. Nothing to copy out by hand.",
+    "intro": "Listen carefully and write what you hear",
     "allTopics": "All subjects",
     "sentenceCount_one": "{{count}} sentence",
     "sentenceCount_other": "{{count}} sentences",
@@ -990,7 +992,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "How people actually speak to each other — from a greeting outside a pub to the turns of phrase that live in books and refuse to translate word by word. No CEFR level here: colloquial English does not follow grammar, it is learned separately.",
+    "intro": "English beyond the textbook",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",

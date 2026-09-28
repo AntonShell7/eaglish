@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
-import { findTopic, loadTopicTexts, readingLibrarySize, readingTopics, wordCount } from "@/data/readingLibrary";
+import { findTopic, loadTopicTexts, readingTopics, wordCount } from "@/data/readingLibrary";
 import { LevelFilter } from "@/components/LevelFilter";
 import { levelOf, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
@@ -21,6 +21,7 @@ import { buildKnownModel, coverageOf } from "@/lib/knownWords";
 import { ensureLexicon } from "@/lib/lexicon";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { normalise, tokenise } from "@/lib/lexicon";
+import { recycledTexts, type RecycledText } from "@/lib/recycledTexts";
 import "./reading.css";
 
 /*
@@ -50,9 +51,36 @@ function minutesFor(text: ReadingText) {
 
 /* ── Stage 1: pick a topic ──────────────────────────────────────────────── */
 
-function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPersonal: () => void }) {
+function TopicGrid({
+  onPick,
+  onPersonal,
+  onOpenText,
+}: {
+  onPick: (id: string) => void;
+  onPersonal: () => void;
+  onOpenText: (text: ReadingText) => void;
+}) {
   const { t } = useTranslation();
   const interests = getLearnerProfile()?.interests ?? [];
+
+  /*
+   * Three texts holding words the learner saved recently.
+   *
+   * This is the half of Reading that justifies it being here at all: a word
+   * met again in a text somebody else wrote, without warning, is worth more
+   * than the same word on a card. Empty for a new account, which is correct —
+   * there is nothing to recycle yet, and the row simply does not appear.
+   */
+  const [recycled, setRecycled] = useState<RecycledText[]>([]);
+  useEffect(() => {
+    let live = true;
+    void recycledTexts().then((found) => {
+      if (live) setRecycled(found);
+    });
+    return () => {
+      live = false;
+    };
+  }, []);
 
   // Interests first — the profile exists to make this page shorter, not longer.
   const ordered = useMemo(() => {
@@ -63,10 +91,41 @@ function TopicGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPer
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
+      {/* A title and one line under it. What stood here was three sentences
+          explaining that unknown words can be tapped — which the first tap
+          teaches better than any paragraph, and which pushed the shelf below
+          the fold to say it. */}
       <h1 className="page-title text-3xl">{t("nav.reading")}</h1>
-      <p className="mt-2 max-w-2xl text-sm" style={{ color: "var(--color-text-muted)" }}>
-        {t("reading.libraryIntro", { count: readingLibrarySize })}
+      <p className="mt-2 max-w-2xl text-base" style={{ color: "var(--color-text-muted)" }}>
+        {t("reading.tagline")}
       </p>
+
+      {recycled.length > 0 && (
+        <section className="mt-8">
+          <h2 className="eyebrow">{t("reading.recycledTitle")}</h2>
+          <div data-stagger className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {recycled.map(({ text, words }) => (
+              <button
+                key={text.id}
+                type="button"
+                onClick={() => onOpenText(text)}
+                className="card card--interactive card--accent flex h-full flex-col p-4 text-left"
+              >
+                <span className="level self-start">{text.level}</span>
+                <span className="mt-2.5 block text-sm font-semibold leading-snug">{text.title}</span>
+                {/* The words themselves, not a count: seeing "concede" is what
+                    makes somebody open it, and "3 words" is not. */}
+                <span
+                  className="mt-2 block text-xs leading-relaxed"
+                  style={{ color: "var(--color-accent-ink)" }}
+                >
+                  {words.slice(0, 4).join(" · ")}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* The loop the whole app is built on gets the first card, not a menu item. */}
       <button
@@ -494,5 +553,5 @@ export default function Reading() {
     );
   }
 
-  return <TopicGrid onPick={setTopicId} onPersonal={() => setPersonal(true)} />;
+  return <TopicGrid onPick={setTopicId} onPersonal={() => setPersonal(true)} onOpenText={setOpen} />;
 }
