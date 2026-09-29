@@ -1,5 +1,5 @@
 import { supabase } from "./supabase";
-import { getVocabulary, mergeRemoteVocabulary, type VocabularyWord } from "./vocabularyStore";
+import { getVocabularyForSync, mergeRemoteVocabulary, type VocabularyWord } from "./vocabularyStore";
 import { getWritingHistory, mergeRemoteWriting, type WritingSubmission } from "./writingHistory";
 import {
   mergeRemoteReading,
@@ -99,16 +99,28 @@ export function pushVocabularyWord(word: VocabularyWord) {
       lapses: word.lapses ?? 0,
       last_reviewed_at: word.lastReviewedAt ? new Date(word.lastReviewedAt).toISOString() : null,
       sentence: word.sentence ?? null,
+      // The learner's own set. Added client-side first and not carried here,
+      // so a folder built on a laptop did not exist on the phone.
+      folder: word.folder ?? null,
+      deleted_at: word.deletedAt ? new Date(word.deletedAt).toISOString() : null,
     })
     .then(({ error }) => error && warn("push vocabulary", error));
 }
 
-export function deleteVocabularyWord(id: string) {
+/**
+ * Marks a word deleted rather than removing the row.
+ *
+ * Removing it left the other device holding a copy with no way to learn the
+ * deletion had happened — and its next sign-in pushed that copy back up, so
+ * the word returned. A tombstone is the only thing two devices can agree
+ * about an absence with.
+ */
+export function deleteVocabularyWord(word: VocabularyWord) {
   const db = client();
   if (!db) return;
   db.from("vocabulary_words")
-    .delete()
-    .eq("id", id)
+    .update({ deleted_at: new Date(word.deletedAt ?? Date.now()).toISOString() })
+    .eq("id", word.id)
     .then(({ error }) => error && warn("delete vocabulary", error));
 }
 
@@ -247,6 +259,8 @@ async function pullAll() {
         lapses: r.lapses ?? 0,
         lastReviewedAt: r.last_reviewed_at ? Date.parse(r.last_reviewed_at) : undefined,
         sentence: r.sentence ?? undefined,
+        folder: r.folder ?? undefined,
+        deletedAt: r.deleted_at ? Date.parse(r.deleted_at) : undefined,
       })),
     );
   }
@@ -300,7 +314,9 @@ async function pullAll() {
 
 /** Send everything the device holds, so work done signed-out isn't lost. */
 function pushLocalState() {
-  getVocabulary().forEach(pushVocabularyWord);
+  // Tombstones included: a deletion made offline has to reach the server too,
+  // or it is lost the moment another device pushes its own copy.
+  getVocabularyForSync().forEach(pushVocabularyWord);
   getWritingHistory().forEach(pushWritingSubmission);
   getActivity().forEach(pushActivityDay);
   const profile = getLearnerProfile();

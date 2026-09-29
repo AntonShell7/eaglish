@@ -47,6 +47,19 @@ export interface VocabularyWord {
    * only thing that made those twenty words belong together.
    */
   folder?: string;
+  /**
+   * When this word was deleted, if it was.
+   *
+   * A tombstone rather than a removal, because two devices cannot agree about
+   * an absence. Deleting used to splice the row out locally and delete it on
+   * the server — and the other device, still holding its own copy, pushed the
+   * whole list back up on its next sign-in and resurrected it. Nothing could
+   * be permanently deleted once a second device existed.
+   *
+   * Everything a learner sees goes through `getVocabulary`, which filters
+   * these out; the merge and the sync are the only places that look at them.
+   */
+  deletedAt?: number;
 }
 
 /** The shared set. Not a folder name — the absence of one. */
@@ -136,8 +149,25 @@ function writeAll(words: VocabularyWord[]) {
 }
 
 export function getVocabulary(): VocabularyWord[] {
-  return readAll().sort((a, b) => b.addedAt - a.addedAt);
+  return readAll()
+    .filter((w) => !w.deletedAt)
+    .sort((a, b) => b.addedAt - a.addedAt);
 }
+
+/** Including tombstones. For the sync, and for nothing else. */
+export function getVocabularyForSync(): VocabularyWord[] {
+  return readAll();
+}
+
+/**
+ * How long a tombstone is kept.
+ *
+ * Long enough that a device left in a drawer for a season still learns about
+ * the deletion when it wakes up; short enough that the list does not grow
+ * forever. A device offline longer than this resurrects the word, which is
+ * the least bad outcome available and is why the window is generous.
+ */
+const TOMBSTONE_DAYS = 180;
 
 export function addVocabularyWord(
   word: string,
@@ -278,23 +308,66 @@ export function getReviewedTodayCount(): number {
 }
 
 export function removeVocabularyWord(id: string) {
-  writeAll(readAll().filter((w) => w.id !== id));
-  deleteVocabularyWord(id);
+  const words = readAll();
+  const word = words.find((w) => w.id === id);
+  if (!word) return;
+  word.deletedAt = Date.now();
+  writeAll(words);
+  deleteVocabularyWord(word);
 }
 
 /**
- * Folds rows pulled from the account into the local cache. A word can exist on
- * both sides after offline study, so the copy with more reviews wins — that's
- * the one carrying the newer scheduling state.
+ * Folds rows pulled from the account into the local cache.
+ *
+ * Two passes, because there are two different kinds of duplicate.
+ *
+ * By id first: the same row seen from both sides after offline study. The copy
+ * carrying more reviews wins, since that is the one with the newer scheduling
+ * state — and a tombstone beats both, whatever its review count, because a
+ * deletion is the most recent thing anyone said about that word.
+ *
+ * Then by spelling: the same word saved independently on two devices before
+ * either had synced, which produces two different ids for one word. Keeping
+ * both would show it twice and schedule it twice, so the weaker copy is
+ * tombstoned rather than dropped — dropping it locally would leave the row
+ * alive on the server and let the next pull bring it straight back.
  */
 export function mergeRemoteVocabulary(remote: VocabularyWord[]) {
-  const byWord = new Map<string, VocabularyWord>();
-  for (const w of [...readAll(), ...remote]) {
-    const key = w.word.toLowerCase();
-    const seen = byWord.get(key);
-    if (!seen || w.reviewCount > seen.reviewCount) byWord.set(key, w);
+  const byId = new Map<string, VocabularyWord>();
+  for (const word of [...readAll(), ...remote]) {
+    const seen = byId.get(word.id);
+    if (!seen) {
+      byId.set(word.id, word);
+      continue;
+    }
+    if (word.deletedAt) byId.set(word.id, word);
+    else if (!seen.deletedAt && word.reviewCount > seen.reviewCount) byId.set(word.id, word);
   }
-  writeAll([...byWord.values()]);
+
+  const bySpelling = new Map<string, VocabularyWord>();
+  const merged: VocabularyWord[] = [];
+  for (const word of byId.values()) {
+    if (word.deletedAt) {
+      merged.push(word);
+      continue;
+    }
+    const key = word.word.toLowerCase();
+    const rival = bySpelling.get(key);
+    if (!rival) {
+      bySpelling.set(key, word);
+      merged.push(word);
+      continue;
+    }
+    const loser = word.reviewCount > rival.reviewCount ? rival : word;
+    const winner = loser === rival ? word : rival;
+    loser.deletedAt = Date.now();
+    bySpelling.set(key, winner);
+    merged.push(word === loser ? word : word);
+  }
+
+  // Tombstones are dropped once they are older than any device could need.
+  const cutoff = Date.now() - TOMBSTONE_DAYS * 24 * 60 * 60 * 1000;
+  writeAll(merged.filter((w) => !w.deletedAt || w.deletedAt >= cutoff));
 }
 
 /* ── Folders ──────────────────────────────────────────────────────────── */
