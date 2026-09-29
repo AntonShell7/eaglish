@@ -3,24 +3,100 @@
    nothing beside it to look at. */
 
 .fc {
+  position: relative;
   max-width: 34rem;
   margin: 0 auto;
 }
 
+/* ── The verdict stamp ─────────────────────────────────────────────────── */
+
+/* It rides on the card, at the corner opposite the direction of travel, so
+   the hand throwing the card never covers it. Outlined rather than filled: a
+   solid block of colour at this size would fight the word underneath, which
+   is the thing actually being reviewed. */
+.fc__stamp {
+  position: absolute;
+  top: 18px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 2px solid currentColor;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: opacity var(--dur-1) linear;
+}
+
+.fc__stamp--knew {
+  left: 18px;
+  color: var(--color-primary);
+  transform: rotate(-11deg);
+}
+
+.fc__stamp--again {
+  right: 18px;
+  color: var(--color-danger);
+  transform: rotate(11deg);
+}
+
+/* ── The card ──────────────────────────────────────────────────────────── */
+
 .fc__card {
+  position: relative;
   display: block;
   width: 100%;
   padding: 0;
   border: 0;
   background: none;
-  cursor: pointer;
+  cursor: grab;
   perspective: 1400px;
+  touch-action: pan-y;
+  /* The card returns to centre on its own when a throw is abandoned. While the
+     finger is down there is no transition at all, because a lagging card is
+     the one thing that makes a drag feel broken. */
+  transition: transform var(--dur-3) var(--ease-spring);
+  will-change: transform;
+}
+
+.fc__card.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.fc__card:focus-visible {
+  outline: none;
+}
+
+.fc__card:focus-visible .fc__face {
+  box-shadow:
+    var(--shadow-2),
+    var(--ring);
+}
+
+/* The throw. The card leaves in the direction it was sent and takes its
+   shadow with it; the next card arrives on a clean screen. */
+.fc__card.is-leaving {
+  pointer-events: none;
+  transition:
+    transform 260ms var(--ease-out),
+    opacity 260ms var(--ease-out);
+  opacity: 0;
+}
+
+.fc__card.is-leaving--knew {
+  transform: translateX(min(60vw, 30rem)) rotate(9deg);
+}
+
+.fc__card.is-leaving--again {
+  transform: translateX(max(-60vw, -30rem)) rotate(-9deg);
 }
 
 .fc__inner {
   position: relative;
   display: block;
-  min-height: 15rem;
+  min-height: 16rem;
   transform-style: preserve-3d;
   transition: transform 520ms var(--ease);
 }
@@ -30,7 +106,9 @@
 }
 
 /* Rotating on X rather than Y: the card turns away from you like a page on a
-   desk, which reads as revealing rather than as a carousel sliding past. */
+   desk, which reads as revealing rather than as a carousel sliding past. It
+   turns back the same way, as many times as asked — a card you cannot turn
+   over twice is a card that has taken the answer away from you. */
 .fc__face {
   position: absolute;
   inset: 0;
@@ -46,6 +124,7 @@
   box-shadow: var(--shadow-2);
   backface-visibility: hidden;
   text-align: center;
+  user-select: none;
 }
 
 .fc__face--back {
@@ -53,11 +132,29 @@
   background: var(--color-surface-2);
 }
 
+/* The verdict wash. It rides on the card itself, above both faces, so it
+   reads at any point in the flip. */
+.fc__tint {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  transition: opacity var(--dur-1) linear;
+}
+
+.fc__tint--knew {
+  background: var(--color-primary);
+}
+
+.fc__tint--again {
+  background: var(--color-danger);
+}
+
 .fc__word {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 6vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.9rem, 6vw, 2.8rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
   color: var(--color-text);
 }
 
@@ -67,32 +164,29 @@
 }
 
 .fc__translation {
-  font-size: clamp(1.3rem, 4.5vw, 1.8rem);
-  font-weight: 600;
+  font-size: clamp(1.3rem, 4.5vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 
 .fc__sentence {
   max-width: 26rem;
-  font-family: var(--font-reading);
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--color-text-muted);
 }
 
+/* ── Grading ───────────────────────────────────────────────────────────── */
+
+/* Always present, never revealed on the flip. The buttons appearing only
+   after the card turned meant the layout jumped under the learner's thumb at
+   exactly the moment they were about to reach for it. */
 .fc__grade {
   margin-top: 18px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  animation: fc-rise 320ms var(--ease) both;
-}
-
-@keyframes fc-rise {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
 }
 
 .fc__btn {
@@ -112,6 +206,7 @@
   transition:
     transform var(--dur-1) var(--ease),
     border-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease),
     background var(--dur-2) var(--ease);
 }
 
@@ -124,10 +219,9 @@
   color: var(--color-danger);
 }
 
-.fc__btn--knew {
-  background: var(--color-ink);
-  color: var(--color-on-ink);
-  border-color: transparent;
+.fc__btn--knew:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .fc__btn kbd {
@@ -135,12 +229,13 @@
   border-radius: 4px;
   border: 1px solid currentColor;
   opacity: 0.45;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-family: inherit;
+  line-height: 1.3;
 }
 
 .fc__hint {
-  margin-top: 18px;
+  margin-top: 14px;
   text-align: center;
   font-size: 0.75rem;
   color: var(--color-text-faint);
@@ -155,10 +250,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fc__inner {
+  .fc__inner,
+  .fc__card,
+  .fc__tint,
+  .fc__stamp {
     transition: none;
-  }
-  .fc__grade {
-    animation: none;
   }
 }
