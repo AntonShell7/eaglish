@@ -160,3 +160,83 @@
     inset: 14px auto 14px 0;
   }
 }
+
+/* ── The daily desk ────────────────────────────────────────────────────── */
+
+/* Three cards that are gone tomorrow, so they have to look like today's work
+   rather than like part of the shelf below. They get the tighter type and the
+   learner's own words in mint; the shelf gets counts and level chips. */
+.rd-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 8.5rem;
+  padding: 16px;
+  text-align: left;
+}
+
+.rd-desk__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rd-desk__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+/* The words this text was written around. Mint, because they are the one
+   thing on the card that belongs to the learner. */
+.rd-desk__words {
+  margin-top: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-primary);
+}
+
+.rd-desk__done {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+/* A finished text stays readable but stops asking to be opened. */
+.rd-desk.is-read {
+  opacity: 0.55;
+}
+
+.rd-desk.is-read:hover {
+  opacity: 0.8;
+}
+
+/* Waiting for a text to be written. A shape that breathes rather than a
+   spinner: three of these is a queue, and three spinners is an error state. */
+.rd-desk--pending {
+  border-style: dashed;
+  animation: rd-breathe 1.8s var(--ease) infinite;
+}
+
+@keyframes rd-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-desk--pending {
+    animation: none;
+    opacity: 0.45;
+  }
+}

@@ -4,6 +4,7 @@ import type { ComprehensionQuestion } from "@/data/readingTexts";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { recordQuizResult } from "@/lib/readingHistory";
 import { WordPractice, type PracticeWord } from "@/components/practice/WordPractice";
+import { markDeskTextRead } from "@/lib/dailyDesk";
 
 interface ComprehensionQuizProps {
   textId: string;
@@ -35,6 +36,11 @@ export function ComprehensionQuiz({ textId, questions, title, words }: Comprehen
     // it has been understood. Once per text per day — retaking it to raise a
     // score is welcome, farming the daily goal with the same five questions is not.
     finish("reading", `quiz:${textId}`, t("tasks.quizDone"));
+    /* Finishing the questions is what marks one of the day's three texts as
+       done, so tomorrow replaces it. Opening a text and leaving deliberately
+       does not: replacing something the learner never got to is how they lose
+       a text they meant to come back to. */
+    markDeskTextRead(textId);
   };
 
   return (

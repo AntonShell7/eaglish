@@ -21,7 +21,8 @@ import { buildKnownModel, coverageOf } from "@/lib/knownWords";
 import { ensureLexicon } from "@/lib/lexicon";
 import { getDueWords } from "@/lib/vocabularyStore";
 import { normalise, tokenise } from "@/lib/lexicon";
-import { recycledTexts, type RecycledText } from "@/lib/recycledTexts";
+import { refreshDesk, type DeskEntry, type DeskStatus } from "@/lib/dailyDesk";
+import { useAuth } from "@/context/AuthContext";
 import "./reading.css";
 
 /*
@@ -64,22 +65,43 @@ function TopicGrid({
   const interests = getLearnerProfile()?.interests ?? [];
 
   /*
-   * Three texts holding words the learner saved recently.
+   * The desk: three texts written around the words this learner saved most
+   * recently, turning over once a day.
    *
-   * This is the half of Reading that justifies it being here at all: a word
-   * met again in a text somebody else wrote, without warning, is worth more
-   * than the same word on a card. Empty for a new account, which is correct —
-   * there is nothing to recycle yet, and the row simply does not appear.
+   * This is the half of Reading that justifies it being here at all. A card
+   * can show a word ten times; a paragraph is where a learner finds out what
+   * the word is *for* — what it sits next to, what work it does, why it
+   * exists beyond its translation.
+   *
+   * It used to search the fixed library for texts containing saved words,
+   * which produced the thing it was supposed to prevent: a four-hundred-word
+   * text offered for one match, because the library is the library and it has
+   * whatever it has. Writing the text instead means every one of them carries
+   * four to seven of the learner's own words.
    */
-  const [recycled, setRecycled] = useState<RecycledText[]>([]);
+  const { user } = useAuth();
+  const profile = getLearnerProfile();
+  const [desk, setDesk] = useState<DeskEntry[]>([]);
+  const [deskState, setDeskState] = useState<DeskStatus["kind"] | "loading">("loading");
+
   useEffect(() => {
     let live = true;
-    void recycledTexts().then((found) => {
-      if (live) setRecycled(found);
+    void refreshDesk({
+      level: profile?.level ?? "B1-B2",
+      topics: profile?.interests ?? [],
+      userId: user?.id,
+      // The page fills in as each text lands rather than waiting for all three.
+      onProgress: (entries) => live && setDesk(entries),
+    }).then((status) => {
+      if (!live) return;
+      setDeskState(status.kind);
+      if (status.kind !== "tooFewWords") setDesk(status.entries);
     });
     return () => {
       live = false;
     };
+    // Once per mount. A refresh is a day boundary, not a render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Interests first — the profile exists to make this page shorter, not longer.
@@ -100,29 +122,35 @@ function TopicGrid({
         {t("reading.tagline")}
       </p>
 
-      {recycled.length > 0 && (
+      {(desk.length > 0 || deskState === "loading") && (
         <section className="mt-8">
-          <h2 className="eyebrow">{t("reading.recycledTitle")}</h2>
+          <h2 className="eyebrow">{t("reading.deskTitle")}</h2>
           <div data-stagger className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {recycled.map(({ text, words }) => (
+            {desk.map(({ text, read }) => (
               <button
                 key={text.id}
                 type="button"
                 onClick={() => onOpenText(text)}
-                className="card card--interactive card--accent flex h-full flex-col p-4 text-left"
+                className={read ? "rd-desk card card--interactive is-read" : "rd-desk card card--interactive"}
               >
-                <span className="level self-start">{text.level}</span>
-                <span className="mt-2.5 block text-sm font-semibold leading-snug">{text.title}</span>
-                {/* The words themselves, not a count: seeing "concede" is what
-                    makes somebody open it, and "3 words" is not. */}
-                <span
-                  className="mt-2 block text-xs leading-relaxed"
-                  style={{ color: "var(--color-accent-ink)" }}
-                >
-                  {words.slice(0, 4).join(" · ")}
+                <span className="rd-desk__top">
+                  <span className="level">{text.level}</span>
+                  {/* Finished texts are replaced tomorrow, and saying so is
+                      what stops "it disappeared" reading as a bug. */}
+                  {read && <span className="rd-desk__done">{t("reading.deskRead")}</span>}
                 </span>
+                <span className="rd-desk__title">{text.title}</span>
+                {/* The words themselves, not a count: seeing "concede" is what
+                    makes somebody open it, and "5 words" is not. */}
+                <span className="rd-desk__words">{text.targets.join(" · ")}</span>
               </button>
             ))}
+
+            {/* Placeholders while the rest of today's desk is being written. */}
+            {deskState === "loading" &&
+              Array.from({ length: Math.max(0, 3 - desk.length) }).map((_, i) => (
+                <span key={`skeleton-${i}`} className="rd-desk rd-desk--pending card" aria-hidden />
+              ))}
           </div>
         </section>
       )}

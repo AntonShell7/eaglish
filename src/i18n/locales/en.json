@@ -154,7 +154,9 @@
     "markedNote": "Counted for today. The comprehension questions are below.",
     "workoutLeft": "{{done}} of {{total}} done",
     "tagline": "Boost your vocabulary by reading",
-    "recycledTitle": "Your words, met again"
+    "recycledTitle": "Your words, met again",
+    "deskTitle": "Today's texts, from your words",
+    "deskRead": "read"
   },
   "writing": {
     "grammar": "Grammar",

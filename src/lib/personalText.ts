@@ -26,7 +26,14 @@ import { countWordUses } from "./wordMatch";
 const STORAGE_KEY = "personalTexts";
 const KEEP = 12;
 
-/** Enough words to build a text around, few enough to appear naturally. */
+/**
+ * Enough words to build a text around, few enough to appear naturally.
+ *
+ * Below four the text is not worth the reading: nobody should work through
+ * four hundred words to meet two. Above seven and every paragraph starts
+ * carrying a quota, which is the failure the prompt below spends most of its
+ * length trying to prevent.
+ */
 export const TARGET_WORDS = 6;
 
 export interface PersonalText extends ReadingText {
