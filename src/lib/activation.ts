@@ -1,4 +1,4 @@
-import { askModel, AiError } from "./aiClient";
+import { askModel, AiError, type AiFailure } from "./aiClient";
 import type { VocabularyWord } from "./vocabularyStore";
 
 /**
@@ -63,7 +63,7 @@ export interface UsageVerdict {
    * meaning, and this is where that quietly gets corrected.
    */
   alternatives: string[];
-  unavailable?: "no-key" | "failed";
+  unavailable?: AiFailure;
 }
 
 export interface Hint {
@@ -71,10 +71,10 @@ export interface Hint {
   toTranslate?: string;
   /** A model English sentence, shown only when asked for twice. */
   model?: string;
-  unavailable?: "no-key" | "failed";
+  unavailable?: AiFailure;
 }
 
-function reasonOf(error: unknown): "no-key" | "failed" {
+function reasonOf(error: unknown): AiFailure {
   return error instanceof AiError ? error.reason : "failed";
 }
 

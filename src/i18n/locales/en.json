@@ -506,7 +506,9 @@
     "mode": {
       "ru": "Russian",
       "en": "In English"
-    }
+    },
+    "signedOut": "Sign in — lookup and explanation are for account holders.",
+    "quota": "You've used this hour's requests. It comes back within the hour."
   },
   "landing": {
     "start": "Get started",

@@ -335,3 +335,25 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
     return { ...empty, unavailable: failure };
   }
 }
+
+/**
+ * The message key for a refusal.
+ *
+ * Four reasons, four answers, because the useful part of an error is what the
+ * reader is supposed to do next. "Sign in" and "wait an hour" are different
+ * instructions, and collapsing both into "it didn't work" — which is what the
+ * lookup popup did — leaves somebody staring at a dead button with no idea
+ * that one click would fix it.
+ */
+export function aiMessageKey(reason: Unavailable): string {
+  switch (reason) {
+    case "no-key":
+      return "lookup.noKey";
+    case "signed-out":
+      return "lookup.signedOut";
+    case "quota":
+      return "lookup.quota";
+    default:
+      return "lookup.failed";
+  }
+}

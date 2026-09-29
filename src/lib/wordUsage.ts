@@ -1,4 +1,4 @@
-import { askModel, AiError } from "./aiClient";
+import { askModel, AiError, type AiFailure } from "./aiClient";
 import type { Unavailable } from "./translate";
 
 /**
@@ -45,7 +45,7 @@ function appears(text: string, word: string): boolean {
 
 export async function checkWordUsage(text: string, targets: string[]): Promise<UsageReport> {
   /** The local-only report, used whenever the model cannot be reached. */
-  const offline = (reason: "no-key" | "failed"): UsageReport => ({
+  const offline = (reason: AiFailure): UsageReport => ({
     verdicts: targets.map((word) => ({
       word,
       used: appears(text, word),

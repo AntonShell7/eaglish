@@ -10,6 +10,7 @@ import {
   type WordLookupResult,
 } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
+import { aiMessageKey } from "@/lib/translate";
 import { markKnown } from "@/lib/knownWords";
 import { bandOf, ensureLexicon } from "@/lib/lexicon";
 
@@ -121,7 +122,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
     setSentenceLoading(true);
     const res = await translateToRussian(request.sentence, { known: request.knownSentenceTranslation });
     setSentence(
-      res.unavailable ? t(res.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed") : res.translation,
+      res.unavailable ? t(aiMessageKey(res.unavailable)) : res.translation,
     );
     setSentenceLoading(false);
   };
@@ -259,7 +260,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
               style={{ color: result.unavailable ? "var(--color-text-muted)" : "var(--color-text)" }}
             >
               {result.unavailable
-                ? t(result.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed")
+                ? t(aiMessageKey(result.unavailable))
                 : result.translation}
             </p>
           ) : (
@@ -268,7 +269,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
                 <p style={{ color: "var(--color-text-muted)" }}>{t("common.loading")}</p>
               ) : explanation.unavailable ? (
                 <p style={{ color: "var(--color-text-muted)" }}>
-                  {t(explanation.unavailable === "no-key" ? "lookup.noKey" : "lookup.failed")}
+                  {t(aiMessageKey(explanation.unavailable))}
                 </p>
               ) : (
                 <>

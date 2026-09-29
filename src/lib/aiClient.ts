@@ -1,3 +1,4 @@
+import { supabase } from "./supabase";
 /**
  * The browser's only route to the model.
  *
@@ -22,7 +23,13 @@
  */
 const ENDPOINT = import.meta.env.VITE_AI_ENDPOINT || "/api/ai";
 
-export type AiFailure = "no-key" | "failed";
+/**
+ * `signed-out` and `quota` are both "the endpoint refused you", and they are
+ * kept apart because the answers differ: one is fixed by signing in, the other
+ * only by waiting. Telling a learner to wait when they simply need to log in
+ * is the kind of message that gets a product abandoned.
+ */
+export type AiFailure = "no-key" | "failed" | "signed-out" | "quota";
 
 export class AiError extends Error {
   readonly reason: AiFailure;
@@ -66,14 +73,37 @@ export function aiConfigured(): boolean {
   return !keyMissing;
 }
 
+/**
+ * The current session's token.
+ *
+ * Read per call rather than cached: Supabase refreshes tokens in the
+ * background, and a cached one would start failing an hour into a session for
+ * no reason the learner could see.
+ */
+async function accessToken(): Promise<string | null> {
+  if (!supabase) return null;
+  try {
+    const { data } = await supabase.auth.getSession();
+    return data.session?.access_token ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function askModel(request: AiRequest): Promise<string> {
   if (keyMissing) throw new AiError("no-key");
+
+  /* The endpoint is private now: no session, no model. Checked here as well as
+     there, so a signed-out learner gets the honest answer immediately instead
+     of a round trip that can only end in 401. */
+  const token = await accessToken();
+  if (!token) throw new AiError("signed-out");
 
   let response: Response;
   try {
     response = await fetch(ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
       body: JSON.stringify(request),
     });
   } catch {
@@ -84,6 +114,9 @@ export async function askModel(request: AiRequest): Promise<string> {
     keyMissing = true;
     throw new AiError("no-key");
   }
+
+  if (response.status === 401) throw new AiError("signed-out");
+  if (response.status === 429) throw new AiError("quota");
 
   if (!response.ok) {
     throw new AiError("failed", `status ${response.status}`);
