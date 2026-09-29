@@ -4,124 +4,113 @@
 /* ─────────────────────────────────────────────────────────────────────────
    Design tokens.
 
-   The whole product is one deep violet, a warm paper ground and white cards.
-   What separates "a website" from something people want to sit inside is not
-   more colour — it is depth, rhythm and restraint: shadows that behave like
-   light, motion with a single easing curve, and type set for reading rather
-   than for filling a box.
+   Three colours and nothing else: deep black, mint, white.
+
+   This replaced a palette that had drifted. Every surface was warm — a brown
+   cast in the near-black, cream instead of white — and gold had crept out of
+   the small details it was meant for and onto buttons, rims, headings and
+   badges. Two things went wrong at once. A warm near-black reads as a
+   light black, which is the opposite of the ground this wants; and a third
+   colour used everywhere stops being an accent and starts competing with the
+   brand for what the product *is*.
+
+   So: the ground is neutral and genuinely dark, the mint of the logo is the
+   only colour on the site, and gold is gone. Separation comes from rims and
+   from text contrast — never from a fill that is one shade off the one
+   beside it, which is how a screen turns to mush.
 
    Older names (--shadow-soft, --radius-md …) are kept as aliases so every
    component written against them keeps working.
    ───────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Ground and surfaces.
-     Neutral, not tinted. The previous palette washed every surface in violet,
-     and a violet card on a violet page separates from nothing — which is
-     exactly how a screen turns to mush. Colour is now spent in one place: the
-     action you are meant to take. */
-  /* Ground and surfaces.
-     Paper rather than screen-grey. A neutral grey ground is what every admin
-     panel looks like, and this is a place people come to read: warmth in the
-     background is the difference between a dashboard and a desk. The tint is
-     slight on purpose — enough to feel, not enough to notice. */
-  --color-bg: #faf8f4;
+  /* Ground and surfaces — neutral, and that is the point.
+     Cream backgrounds and warm greys were making the light theme look like
+     stationery. White, and greys mixed from pure black, are what make the
+     mint read as the only colour in the room. */
+  --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-surface-2: #f4f1ea;
-  --color-surface-3: #eae5da;
+  --color-surface-2: #f6f6f6;
+  --color-surface-3: #ededed;
 
-  --color-text: #1c1a17;
-  --color-text-muted: #6a6357;
-  --color-text-faint: #76705f;
-  /* Rims, not fills, do the separating — and they are warm too, because a
-     neutral-grey line on a warm surface reads as dirt. */
-  --color-border: rgba(28, 26, 23, 0.1);
-  --color-border-strong: rgba(28, 26, 23, 0.18);
+  --color-text: #0a0a0a;
+  --color-text-muted: #6b6b6b;
+  --color-text-faint: #8a8a8a;
+  /* Rims, not fills, do the separating. */
+  --color-border: rgba(10, 10, 10, 0.1);
+  --color-border-strong: rgba(10, 10, 10, 0.18);
 
   /* Ink is the action.
-     The primary button is near-black rather than coloured: at this contrast it
+     The primary button is black rather than coloured: at this contrast it
      needs no decoration to be found, and nothing else on the page can compete
      with it. That is the whole trick behind interfaces that look expensive —
      one unmistakable thing to press, and restraint everywhere else. */
-  --color-ink: #1c1a17;
-  --color-ink-hover: #322e28;
-  --color-on-ink: #faf8f4;
+  --color-ink: #0a0a0a;
+  --color-ink-hover: #262626;
+  --color-on-ink: #ffffff;
 
-  /* Pine is the brand's voice: links, chips, the marks that say "this is ours".
-     Kept saturated and dark enough to read as text — 5.6:1 on paper — because
-     it is used as text far more often than as a fill. */
-  --color-primary: #1f6353;
-  --color-primary-hover: #174e42;
-  --color-primary-soft: #e4efe9;
-  --color-primary-softer: #f0f6f2;
+  /* The mint of the logo, darkened enough to be read as text on white.
+     It is the only colour the product has, so it carries every mark that
+     means "this is ours": links, chips, the active tab, the saved word. */
+  --color-primary: #0f6f5c;
+  --color-primary-hover: #0b5647;
+  --color-primary-soft: #e6f4f0;
+  --color-primary-softer: #f2f9f7;
   --color-on-primary: #ffffff;
 
-  /* Amber is decorative only: progress, streaks, a saved word's underline.
-     It never carries text, which is why it is allowed to be this bright. */
-  --color-accent: #c08327;
-  --color-accent-ink: #8a5c13;
-  --color-danger: #ae3b2c;
-  --color-success: #256b4c;
+  /* Accent is mint too. The token stays because components reference it;
+     what it must never again be is a third colour. */
+  --color-accent: #0f6f5c;
+  --color-accent-ink: #0b5647;
+  --color-danger: #c0392b;
+  --color-success: #0f6f5c;
 
-  /* Text selection: warm amber wash, dark ink on top. */
-  --color-selection: #f3d9a4;
-  --color-selection-ink: #1c1a17;
+  --color-selection: #cdeee4;
+  --color-selection-ink: #0a0a0a;
 
-  /* The CEFR badge: black and gold in both themes. It has to be readable at
-     10px against a white card, a tinted card and a photograph, so it carries
-     its own fill rather than inheriting one. */
-  --level-bg: #1c1a17;
-  --level-fg: #eccb84;
-  --level-rim: rgba(236, 203, 132, 0.34);
+  /* The CEFR badge. Black and white, so it is legible at 10px on a white
+     card, a tinted card and a photograph alike, and so it adds no colour. */
+  --level-bg: #0a0a0a;
+  --level-fg: #ffffff;
+  --level-rim: rgba(255, 255, 255, 0.22);
 
-  /* Radii come down: 22px on a card reads as a toy at this size. The best
-     product UIs sit at 8–14px, and the tighter corner is what makes a panel
-     look engineered. */
+  /* Radii: 8–14px is where a panel starts looking engineered rather than
+     like a toy. */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 22px;
   --radius-full: 999px;
 
-  /* Elevation: a tight contact shadow plus a wide soft one. Neutral now — a
-     coloured shadow only reads as quality when the whole room is that colour. */
+  /* Elevation: a tight contact shadow plus a wide soft one, mixed from pure
+     black so it never tints the surface under it. */
   --shadow-1:
-    0 1px 2px rgba(38, 32, 24, 0.05),
-    0 1px 3px rgba(38, 32, 24, 0.04);
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.04);
   --shadow-2:
-    0 2px 4px rgba(38, 32, 24, 0.05),
-    0 8px 20px rgba(38, 32, 24, 0.07);
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 20px rgba(0, 0, 0, 0.07);
   --shadow-3:
-    0 4px 8px rgba(38, 32, 24, 0.06),
-    0 16px 40px rgba(38, 32, 24, 0.1);
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    0 16px 40px rgba(0, 0, 0, 0.1);
   --shadow-4:
-    0 8px 16px rgba(38, 32, 24, 0.08),
-    0 32px 70px rgba(38, 32, 24, 0.14);
+    0 8px 16px rgba(0, 0, 0, 0.08),
+    0 32px 70px rgba(0, 0, 0, 0.14);
   --shadow-soft: var(--shadow-2);
   --shadow-soft-lg: var(--shadow-3);
 
-  --gradient-brand: linear-gradient(135deg, #14453a 0%, #1f6353 55%, #2f8a72 100%);
+  --gradient-brand: linear-gradient(135deg, #0b5647 0%, #0f6f5c 55%, #17a184 100%);
 
-  /* Gold, with the ink it sits against at each end. Used for the rim that
-     traces an interactive card and for anything that should read as the
-     expensive option — deliberately not mint, which was doing every job on
-     the site and had stopped meaning anything. */
-  --gradient-gilt: linear-gradient(
-    135deg,
-    #8a5c13 0%,
-    #c08327 22%,
-    #edc878 50%,
-    #c08327 78%,
-    #8a5c13 100%
-  );
+  /* Kept so that nothing referencing it breaks. It is mint now: the gilt
+     gradient it used to hold is the single largest thing that went wrong
+     with this palette. */
+  --gradient-gilt: linear-gradient(135deg, #0f6f5c 0%, #17a184 50%, #0f6f5c 100%);
   --gradient-sheen: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.14) 0%,
     rgba(255, 255, 255, 0) 60%
   );
 
-  /* One easing curve for everything that moves, one springier curve for things
-     that appear. */
   /* Motion.
      One curve does almost everything: fast at the start, settling at the end,
      which is how physical objects move and why interfaces that use it feel
@@ -141,92 +130,88 @@
   --dur-3: 420ms;
   --dur-4: 700ms;
 
-  --ring: 0 0 0 3px color-mix(in srgb, var(--color-accent) 32%, transparent);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent);
 
-  /* Control sizing. Buttons were 34px tall against a 16px page — small enough
-     to read as an afterthought. The reference set sits at 40–44px. */
   --control-h: 40px;
   --control-h-sm: 32px;
   --control-h-lg: 46px;
   --field-h: 46px;
 
-  /* Both families carry Cyrillic, which the previous pair did not: Newsreader
-     has no Russian, so every Russian heading in the app was silently falling
-     back to Georgia while English ones rendered as designed. Half the typography
-     was an accident.
+  /* One family, everywhere.
+     The site used to set every heading in a serif drawn for Google Books, and
+     a bookish serif over a minimal dark interface reads as two products
+     stitched together. Manrope is the face the wordmark is already set in —
+     semi-geometric, open counters, and it holds its shape at 800 weight with
+     the tracking pulled in, which is where it stops looking like a default
+     and starts looking drawn.
 
-     Manrope is a soft semi-geometric sans — rounded terminals, open counters,
-     warm without being cute. Literata was drawn for Google Books, so it is
-     built for exactly what happens here: paragraphs of English read slowly by
-     someone working at them. */
+     It carries Cyrillic, which matters more here than it sounds: the previous
+     display face had no Russian, so every Russian heading in the app was
+     silently falling back to Georgia while the English ones rendered as
+     designed. Half the typography was an accident. */
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-display: "Literata", ui-serif, Georgia, serif;
-  --font-reading: "Literata", ui-serif, Georgia, serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-reading: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  /* Near-black and neutral. Separation comes from the rim and from text
-     contrast, never from a barely-different fill. */
-  /* Warm charcoal, not blue-black. The same paper, at night: a cold near-black
-     under a warm light theme makes the two feel like different products. */
-  --color-bg: #131210;
-  --color-surface: #1a1815;
-  --color-surface-2: #211e1a;
-  --color-surface-3: #2c2823;
+  /* The theme the product is designed in.
+     Pure black ground with the surfaces lifted off it in small, even steps.
+     Nothing is tinted: a warm near-black is a light black, and a light black
+     is exactly what this is not supposed to be. */
+  --color-bg: #000000;
+  --color-surface: #0d0d0d;
+  --color-surface-2: #151515;
+  --color-surface-3: #1f1f1f;
 
-  --color-text: #f2eee7;
-  --color-text-muted: #a49c8f;
-  --color-text-faint: #8e8779;
-  --color-border: rgba(255, 250, 240, 0.1);
-  --color-border-strong: rgba(255, 250, 240, 0.18);
+  --color-text: #f5f5f5;
+  --color-text-muted: #9a9a9a;
+  --color-text-faint: #737373;
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-border-strong: rgba(255, 255, 255, 0.17);
 
-  /* Ink inverts: on a dark room the unmistakable button is the light one. */
-  --color-ink: #f2eee7;
+  /* Ink inverts: in a black room the unmistakable button is the white one. */
+  --color-ink: #f5f5f5;
   --color-ink-hover: #ffffff;
-  --color-on-ink: #1b1815;
+  --color-on-ink: #0a0a0a;
 
-  /* Pine lightens so it can still be read as text on a dark ground. */
-  --level-bg: #0e0d0b;
-  --level-fg: #f1d193;
-  --level-rim: rgba(241, 209, 147, 0.42);
-
+  /* The logo's mint, unmodified. On black it needs no darkening, and this is
+     the exact value the eagle is drawn in. */
   --color-primary: #7fd0b4;
   --color-primary-hover: #a3e3cd;
-  --color-primary-soft: rgba(127, 208, 180, 0.14);
-  --color-primary-softer: rgba(127, 208, 180, 0.07);
-  --color-on-primary: #10221d;
-  --color-accent: #e3ac5b;
-  --color-accent-ink: #efc685;
+  --color-primary-soft: rgba(127, 208, 180, 0.13);
+  --color-primary-softer: rgba(127, 208, 180, 0.06);
+  --color-on-primary: #06120f;
+
+  --color-accent: #7fd0b4;
+  --color-accent-ink: #a3e3cd;
   --color-danger: #e38377;
-  --color-success: #74c79b;
+  --color-success: #7fd0b4;
 
-  --color-selection: #7a5a1e;
-  --color-selection-ink: #fdf6e8;
+  --color-selection: rgba(127, 208, 180, 0.3);
+  --color-selection-ink: #ffffff;
 
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --level-bg: #ffffff;
+  --level-fg: #0a0a0a;
+  --level-rim: rgba(0, 0, 0, 0.18);
+
+  --gradient-brand: linear-gradient(135deg, #4fae90 0%, #7fd0b4 55%, #a3e3cd 100%);
+  --gradient-gilt: linear-gradient(135deg, #4fae90 0%, #a3e3cd 50%, #4fae90 100%);
+
+  /* Shadows on black do almost nothing, so they are deep and used sparingly;
+     the rim is what actually separates a card from the ground here. */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.8);
   --shadow-2:
-    0 2px 4px rgba(0, 0, 0, 0.5),
-    0 8px 24px rgba(0, 0, 0, 0.45);
+    0 2px 4px rgba(0, 0, 0, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.6);
   --shadow-3:
-    0 4px 10px rgba(0, 0, 0, 0.55),
-    0 18px 48px rgba(0, 0, 0, 0.55);
+    0 4px 10px rgba(0, 0, 0, 0.7),
+    0 18px 48px rgba(0, 0, 0, 0.65);
   --shadow-4:
-    0 10px 20px rgba(0, 0, 0, 0.6),
-    0 36px 90px rgba(0, 0, 0, 0.65);
-  --shadow-soft: var(--shadow-2);
-  --shadow-soft-lg: var(--shadow-3);
-
-  --gradient-brand: linear-gradient(135deg, #123c33 0%, #1f6353 60%, #7fd0b4 100%);
-  --gradient-gilt: linear-gradient(
-    135deg,
-    #8a5c13 0%,
-    #d8a24f 24%,
-    #f6dda5 50%,
-    #d8a24f 76%,
-    #8a5c13 100%
-  );
+    0 8px 18px rgba(0, 0, 0, 0.75),
+    0 36px 80px rgba(0, 0, 0, 0.7);
 
   color-scheme: dark;
 }
@@ -313,15 +298,20 @@ button:disabled {
 /* ── Headings ─────────────────────────────────────────────────────────── */
 
 /* Display type.
-   The reference points here are Stripe (40px at weight 300) and Linear (56px at
-   510): the best interfaces set large text *light* and tight, and reserve weight
-   for small labels where it actually aids scanning. Heavy headings are what make
-   a page look loud and cheap. */
+   Set the way the wordmark is set, because the wordmark is the one piece of
+   type on this site that already looks right: heavy, and pulled tight enough
+   that the letters read as a single shape rather than a row of characters.
+
+   The usual advice — set large text light, the way Stripe and Linear do — is
+   good advice for a page of prose and wrong here. A light 40px heading over a
+   black ground goes grey and recedes; the page then has nothing holding it
+   down. Weight plus negative tracking is what makes a black page look
+   deliberate instead of empty. */
 .page-title {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: -0.022em;
-  line-height: 1.12;
+  font-weight: 750;
+  letter-spacing: -0.032em;
+  line-height: 1.08;
   text-wrap: balance;
   /* Russian words are long — "возвращением" is twelve letters — and a fixed
      heading size that fits an English word runs off the side of a narrow phone.
@@ -351,10 +341,16 @@ button:disabled {
   --page-title-size: 1.125rem;
 }
 
-/* Optical sizes: the bigger the type, the tighter it wants to be set. */
+/* Optical sizes: the bigger the type, the tighter it wants to be set. Below
+   about 20px the tracking has to come back out again or the letters collide. */
 .page-title.text-3xl,
 .page-title.text-4xl {
-  letter-spacing: -0.028em;
+  letter-spacing: -0.042em;
+}
+
+.page-title.text-lg,
+.page-title.text-xl {
+  letter-spacing: -0.02em;
 }
 
 /* Numbers that change should not make the layout twitch. */

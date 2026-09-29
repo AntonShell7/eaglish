@@ -127,21 +127,18 @@ function TopicGrid({
         </section>
       )}
 
-      {/* The loop the whole app is built on gets the first card, not a menu item. */}
+      {/* The loop the whole app is built on gets the first card, not a menu item.
+          It used to be a solid mint slab, which made the one optional thing on
+          the page the loudest object on it. It is the same card as the topics
+          now, marked by a mint rule rather than a mint fill: position is what
+          says "first", and position costs no colour. */}
       <button
         type="button"
         onClick={onPersonal}
-        className="card card--interactive mt-8 flex w-full flex-col overflow-hidden p-6 text-left"
-        style={{
-          background: "var(--gradient-brand)",
-          borderColor: "transparent",
-          boxShadow: "var(--shadow-3)",
-        }}
+        className="card card--interactive rd-personal mt-8 flex w-full flex-col overflow-hidden p-6 text-left"
       >
-        <span className="page-title text-xl" style={{ color: "#ffffff" }}>
-          {t("reading.personalTitle")}
-        </span>
-        <span className="mt-1.5 max-w-xl text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.86)" }}>
+        <span className="page-title text-xl">{t("reading.personalTitle")}</span>
+        <span className="mt-1.5 max-w-xl text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
           {t("reading.personalTeaser")}
         </span>
       </button>

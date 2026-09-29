@@ -1,11 +1,11 @@
 /* The progress page.
-   Mint does the work, black does the holding, and gold appears three times on
+   Mint does the work and black does the holding. An earlier
    the whole page — the mean line, today's ring, and nothing else. The first
    version wore gold on every heading, which is how gold stops reading as gold
    and starts reading as brown. */
 
 .pg {
-  --pg-gold: #f2c572;
+  --pg-mark: var(--color-primary);
 }
 
 .pg-section {
@@ -21,7 +21,7 @@
   margin-bottom: 12px;
 }
 
-/* Headings are quiet type, not gold. */
+/* Headings are quiet type, never coloured. */
 .pg-eyebrow {
   font-size: 0.7rem;
   font-weight: 700;
@@ -134,7 +134,7 @@
 
 .dl__dot:hover {
   transform: scale(2.2);
-  background: var(--pg-gold);
+  background: var(--pg-mark);
 }
 
 .dl__foot {
@@ -310,9 +310,9 @@
   background: var(--color-primary);
 }
 
-/* The one place gold is allowed to point at something. */
+/* The one place a mark is allowed to point at something. */
 .ygrid__cell.is-today {
-  box-shadow: 0 0 0 1.5px var(--pg-gold);
+  box-shadow: 0 0 0 1.5px var(--pg-mark);
 }
 
 .ygrid__key {
@@ -431,7 +431,7 @@
   height: 9px;
   margin: -4.5px 0 0 -4.5px;
   background: var(--color-surface);
-  box-shadow: 0 0 0 2px var(--pg-gold);
+  box-shadow: 0 0 0 2px var(--pg-mark);
 }
 
 .dl__peakLabel {

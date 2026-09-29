@@ -1,22 +1,23 @@
 /* The front page.
-   Four colours and a lot of air: near-black ground, the brand mint, gold used
-   once as a hairline, warm white type. Everything expensive-looking comes from
-   restraint here — the page has no gradients, no glows and no boxes, so the
-   typography has to carry it, which is the only way a page like this ever
-   looks composed rather than assembled. */
+   Three colours and a lot of air: black ground, the brand mint, white type.
+   It used to carry a fourth — gold — on the eyebrows, the numerals, the
+   hairline and the diamond, which is four jobs for a colour that was supposed
+   to be a detail. Everything expensive-looking here comes from restraint: the
+   page has no gradients, no glows and no boxes, so the typography has to carry
+   it, which is the only way a page like this ever looks composed rather than
+   assembled. */
 
 .lp {
   /* Its own palette, not the app's tokens. The front page keeps one face
      whatever theme the reader has chosen, because it is what gets sent to
      people who have never opened the app, and a page that changes character
      with a toggle has no character. */
-  --ink: #0a0a09;
-  --paper: #f3efe7;
+  --ink: #000000;
+  --paper: #f5f5f5;
   --mint: #7fd0b4;
-  --gold: #e0ab5c;
-  --muted: rgba(243, 239, 231, 0.6);
-  --faint: rgba(243, 239, 231, 0.4);
-  --line: rgba(243, 239, 231, 0.1);
+  --muted: rgba(245, 245, 245, 0.58);
+  --faint: rgba(245, 245, 245, 0.38);
+  --line: rgba(245, 245, 245, 0.1);
 
   --gutter: clamp(22px, 6vw, 64px);
 
@@ -86,11 +87,12 @@
   width: 5px;
   height: 5px;
   transform: translate(-50%, -50%) rotate(45deg);
-  background: var(--gold);
+  background: var(--mint);
 }
 
-/* The sections, set as gold small caps — the line that tells a visitor what is
-   actually inside before they scroll a pixel. */
+/* The sections, in quiet small caps — the line that tells a visitor what is
+   actually inside before they scroll a pixel. It does not need a colour to do
+   that; the tracking and the position do it. */
 .lp-index {
   display: flex;
   flex-wrap: wrap;
@@ -101,7 +103,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(224, 171, 92, 0.85);
+  color: var(--muted);
 }
 
 .lp-index li {
@@ -117,7 +119,7 @@
   width: 3px;
   height: 3px;
   transform: translateY(-50%) rotate(45deg);
-  background: rgba(224, 171, 92, 0.55);
+  background: var(--mint);
 }
 
 .lp-hero__title {
@@ -187,16 +189,15 @@
   box-shadow: 0 14px 40px rgba(127, 208, 180, 0.26);
 }
 
-/* Gold appears on the quiet button as a hairline only — enough to feel
-   considered, never enough to compete with the mint. */
+/* The quiet button is a hairline and nothing else. The loud one is mint; if
+   this one also carried a colour there would be two things to press. */
 .lp-btn--quiet {
-  border-color: rgba(224, 171, 92, 0.35);
+  border-color: var(--line);
   color: var(--paper);
 }
 
 .lp-btn--quiet:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--paper);
   transform: translateY(-2px);
 }
 
@@ -218,7 +219,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--mint);
 }
 
 .lp-title {
@@ -264,15 +265,16 @@
   background: var(--ink);
 }
 
-/* Numerals in the book face, in gold, at a weight that reads as a mark on a
-   page rather than as a badge. */
+/* Numerals at a weight that reads as a mark on a page rather than as a badge.
+   Quiet rather than coloured: three of them in a row would be three accents,
+   and the eyebrow above already carries the section's one. */
 .lp-step__n {
   display: block;
   font-family: var(--font-display);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--gold);
+  color: var(--faint);
 }
 
 .lp-step__h {

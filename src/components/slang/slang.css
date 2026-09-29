@@ -62,8 +62,8 @@
 
 /* A marked expression is underlined rather than highlighted: a line with four
    coloured blocks in it stops being readable, and reading it is the exercise.
-   Gold rather than mint, because every other mark in the app moved to gold and
-   a section that keeps its own accent reads as a different product. */
+   Mint, like every other mark in the app — a section that keeps its own
+   accent reads as a different product. */
 .sl-mark {
   border: 0;
   padding: 1px 2px;

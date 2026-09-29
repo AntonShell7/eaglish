@@ -78,14 +78,15 @@ export default function Dashboard() {
       {!profile && (
         <Link
           to="/onboarding"
+          /* A hairline card with one mint word, not a mint panel. Filling it
+             made the only optional thing on the page the loudest thing on it. */
           className="card card--interactive mt-7 flex flex-wrap items-center justify-between gap-3 p-5"
-          style={{ borderColor: "var(--color-primary)", background: "var(--color-primary-soft)" }}
         >
           <span>
             <span className="block text-sm font-bold" style={{ color: "var(--color-primary)" }}>
               {t("onboarding.promptTitle")}
             </span>
-            <span className="mt-0.5 block text-xs" style={{ color: "var(--color-primary)" }}>
+            <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
               {t("onboarding.promptBody")}
             </span>
           </span>

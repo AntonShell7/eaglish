@@ -293,7 +293,7 @@
 /* ── Guest header ─────────────────────────────────────────────────────── */
 
 /* The header of the front page carries the same two actions as the page
-   itself, so it wears the same clothes: mint for the one to press, a gold
+   itself, so it wears the same clothes: mint for the one to press, a plain
    hairline for the quiet one. A header whose buttons look like a different
    product's is the fastest way to make a page feel assembled from parts. */
 .topline__guest {
@@ -338,13 +338,12 @@
 }
 
 .guest-btn--quiet {
-  border-color: rgba(224, 171, 92, 0.38);
+  border-color: var(--color-border-strong);
   color: var(--color-text);
 }
 
 .guest-btn--quiet:hover {
-  border-color: #e0ab5c;
-  color: #e0ab5c;
+  border-color: var(--color-text);
   transform: translateY(-1px);
 }
 
