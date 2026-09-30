@@ -30,3 +30,11 @@ dist-ssr
 
 # Local editor/tool settings
 .claude/
+
+# Coursework that keeps landing in this folder.
+# Six ПР05 folders and a practical write-up had been committed to the repo and
+# were sitting on GitHub next to the product. They are not deleted, they live
+# in ~/Documents/Учёба_ПР — this only stops them coming back.
+ПР0*
+Практическая_работа*
+Учебные работы/
