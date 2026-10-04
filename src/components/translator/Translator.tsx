@@ -4,6 +4,7 @@ import { translatorEntry, type TranslatorEntry } from "@/lib/translate";
 import { addVocabularyWord } from "@/lib/vocabularyStore";
 import { aiConfigured } from "@/lib/aiClient";
 import "./translator.css";
+import { SpeakButton } from "@/components/ui/SpeakButton";
 
 /**
  * The translator that is always there.
@@ -155,6 +156,9 @@ export function Translator() {
           <p className="tr__word">
             {entry.source}
             {entry.partOfSpeech && <span className="tr__pos">{entry.partOfSpeech}</span>}
+            {/* Only for the English side: hearing the Russian a Russian
+                speaker typed teaches nobody anything. */}
+            {entry.english && <SpeakButton text={entry.english} />}
           </p>
 
           {/* Every sense, in order. The first is the answer; the rest are here

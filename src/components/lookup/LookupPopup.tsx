@@ -11,6 +11,7 @@ import {
 } from "@/lib/translate";
 import { addVocabularyWord, isWordSaved } from "@/lib/vocabularyStore";
 import { aiMessageKey } from "@/lib/translate";
+import { SpeakButton } from "@/components/ui/SpeakButton";
 import { markKnown } from "@/lib/knownWords";
 import { bandOf, ensureLexicon } from "@/lib/lexicon";
 
@@ -210,7 +211,13 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
       ) : (
         <>
           <div className="flex items-baseline justify-between gap-2">
-            <p className="text-sm font-semibold">{result.word}</p>
+            {/* The word and the way to hear it, together: knowing what it
+                means and knowing how to say it are the two halves, and only
+                one of them was ever offered here. */}
+            <p className="flex items-center gap-1 text-sm font-semibold">
+              {result.word}
+              <SpeakButton text={result.word} />
+            </p>
             <span className="flex items-center gap-2">
               {/* How common the word is — the difference between a word worth
                   learning and one worth ignoring. */}

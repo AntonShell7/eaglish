@@ -65,6 +65,30 @@ function reasonOf(error: unknown): Unavailable {
  * hand-checked and cost nothing, which matters because the popup fires on
  * almost every unfamiliar word. Only misses reach the model.
  */
+/**
+ * What makes an example worth reading.
+ *
+ * "One natural sentence using the word" is what every one of these prompts
+ * used to ask for, and it is not enough — it is satisfied by "Outfield fires
+ * can refer to a bad day", which is a sentence, contains the word, and teaches
+ * nothing. The sentence has to carry the meaning, not merely host the word.
+ *
+ * The test is recoverability: somebody who did not know the word should be
+ * able to work out roughly what it means from this sentence alone. That one
+ * requirement rules out most of what goes wrong — abstract sentences, circular
+ * ones, and sentences about the word rather than sentences using it.
+ */
+const EXAMPLE_RULE = [
+  "The example must make the meaning recoverable: a reader who did not know the word should be able to work out roughly what it means from this sentence alone.",
+  "Put it in a concrete situation with enough around it to do that. \"A football team has ten outfield players and one goalkeeper\" teaches the word; \"Outfield players had a bad day\" does not, because it would read the same with any noun in it.",
+  "Write a sentence somebody would actually say or write. Never a sentence about the word, never \"X refers to Y\", never a definition wearing a sentence's clothes.",
+].join(" ");
+
+/** Russian text that came back in English — the failure to catch, not hope against. */
+function looksRussian(value: string | undefined): boolean {
+  return Boolean(value && /[\u0400-\u04FF]/.test(value));
+}
+
 export async function lookupWord(
   rawWord: string,
   options: { sentence?: string; glossary?: GlossaryLike } = {},
@@ -87,7 +111,7 @@ export async function lookupWord(
           {
             role: "system",
             content:
-              'Translate an English word or short phrase into Russian. Use the surrounding sentence for context when given. Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string}',
+              'Translate an English word or short phrase into Russian. The translation MUST be in Russian, written in Cyrillic — never an English definition, never a transliteration. Use the surrounding sentence for context when given. Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string}',
           },
           {
             role: "user",
@@ -98,9 +122,15 @@ export async function lookupWord(
         ],
       });
       const parsed = JSON.parse(raw || "{}");
-      if (parsed.translation) {
+      /* Checked rather than trusted. The model occasionally answers a request
+         for a Russian translation with an English gloss, and that lands in the
+         learner's vocabulary as the back of a card — so the card then tests
+         English against English and teaches nothing. A single Cyrillic letter
+         is a cheap and complete test for it. */
+      if (parsed.translation && looksRussian(parsed.translation)) {
         return { word: cleaned, translation: parsed.translation, partOfSpeech: parsed.partOfSpeech, isLive: true };
       }
+      if (parsed.translation) console.warn("[translate] answer was not in Russian:", cleaned, parsed.translation);
   } catch (err) {
     failure = reasonOf(err);
     if (failure === "failed") console.error("[translate] word lookup failed", err);
@@ -207,7 +237,9 @@ export async function explainInEnglish(
           role: "user",
           content: `Explain the English word or phrase "${word}" for an intermediate learner.${context}
 
-Return JSON: {"definition": "one sentence, plain English, simpler words than the headword", "example": "one natural example sentence using the word", "synonyms": ["at most three close synonyms, or an empty array"]}
+Return JSON: {"definition": "one sentence, plain English, simpler words than the headword", "example": "one example sentence", "synonyms": ["at most three close synonyms, or an empty array"]}
+
+${EXAMPLE_RULE}
 
 Explain the meaning it carries in that sentence, not every meaning it can have. Never use Russian.`,
         },
@@ -295,7 +327,7 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
             brief,
             "Only list a further sense when the word really has one: most words have a single meaning, and inventing a second is worse than giving one.",
             "definition: a short English definition of the commonest sense, under fifteen words.",
-            "example: one natural English sentence using the word in that sense.",
+            `example: one English sentence using the word in that sense. ${EXAMPLE_RULE}`,
             "partOfSpeech: in English, lowercase.",
             'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string}',
           ].join(" "),

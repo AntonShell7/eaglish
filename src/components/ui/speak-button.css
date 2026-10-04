@@ -1,0 +1,69 @@
+/* Hear the word.
+   Small, quiet and next to the headword, because it is an offer rather than a
+   step: most lookups are about meaning, and this must not look like something
+   that has to be pressed first. */
+
+.spk {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text-faint);
+  cursor: pointer;
+  transition:
+    color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease),
+    transform var(--dur-1) var(--ease);
+}
+
+.spk:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+
+.spk:active {
+  transform: scale(0.92);
+}
+
+.spk.is-on {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+/* The two arcs leave while the word is being said, which reads as sound
+   coming out rather than as a button in a pressed state. */
+.spk__wave {
+  transform-origin: 11px 12px;
+  opacity: 1;
+  transition: opacity var(--dur-2) var(--ease);
+}
+
+.spk.is-on .spk__wave--near {
+  animation: spk-pulse 900ms var(--ease) infinite;
+}
+
+.spk.is-on .spk__wave--far {
+  animation: spk-pulse 900ms var(--ease) 160ms infinite;
+}
+
+@keyframes spk-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spk.is-on .spk__wave--near,
+  .spk.is-on .spk__wave--far {
+    animation: none;
+  }
+}

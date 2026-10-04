@@ -508,7 +508,8 @@
       "en": "In English"
     },
     "signedOut": "Sign in — lookup and explanation are for account holders.",
-    "quota": "You've used this hour's requests. It comes back within the hour."
+    "quota": "You've used this hour's requests. It comes back within the hour.",
+    "listen": "Hear it"
   },
   "landing": {
     "start": "Get started",
