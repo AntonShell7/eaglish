@@ -1,11 +1,10 @@
-/* The day's minimum.
-   It stands where the dashboard's own heading was, and it is the only thing
-   on the page until it is answered — not because it is modal, but because
-   nothing else is worth reading first. */
+/* The day's practice, as a list of two.
+   It stands where the dashboard's hero was, and it is the only thing worth
+   reading until it is answered. */
 
 .ds {
   position: relative;
-  padding: 34px 30px 30px;
+  padding: 32px 30px 26px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -40,39 +39,190 @@
 }
 
 .ds__title {
-  margin-top: 10px;
-  font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+  margin-top: 8px;
+  font-size: clamp(1.4rem, 4vw, 1.95rem);
 }
 
 .ds__lede {
-  margin-top: 10px;
+  margin-top: 8px;
   max-width: 46ch;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: var(--color-text-muted);
 }
 
-.ds__actions {
+/* ── The two items ─────────────────────────────────────────────────────── */
+
+.ds__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ds__item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.ds__item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* The tick. Empty circle while the work is outstanding — a box you can see is
+   unticked is what makes a list feel like a list. */
+.ds__tick {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 999px;
+  border: 2px solid var(--color-border-strong);
+  color: var(--color-on-primary);
+  transition:
+    background var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease);
+}
+
+.ds__tick.is-done {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  animation: ds-pop var(--dur-3) var(--ease-spring) both;
+}
+
+/* It lands rather than appears. The overshoot is the whole reason this feels
+   like finishing something instead of like a state change. */
+@keyframes ds-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.ds__body {
+  min-width: 0;
+  flex: 1;
+}
+
+.ds__name {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  transition: color var(--dur-3) var(--ease);
+}
+
+/* The strike. Drawn left to right rather than simply present, because a line
+   that was already there is a style and a line that arrives is an event. */
+.ds__name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 52%;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.ds__item.is-done .ds__name {
+  color: var(--color-text-faint);
+}
+
+.ds__item.is-done .ds__name::after {
+  animation: ds-strike 420ms var(--ease) 120ms both;
+}
+
+@keyframes ds-strike {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.ds__note {
+  margin-top: 4px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.ds__item.is-done .ds__note {
+  color: var(--color-text-faint);
+}
+
+.ds__go {
+  margin-top: 12px;
+}
+
+/* ── The three doors ───────────────────────────────────────────────────── */
+
+.ds__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ds__choice {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-h);
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform var(--dur-1) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.ds__choice:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+
+/* ── The foot ──────────────────────────────────────────────────────────── */
+
+.ds__foot {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
-.ds__actions--quiet {
-  margin-top: 18px;
+.ds__closing {
+  flex: 1;
+  min-width: 12ch;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--color-primary);
+  animation: ds-in var(--dur-3) var(--ease) 420ms both;
 }
 
-.btn--lg {
-  height: var(--control-h-lg);
-  padding-inline: 30px;
-  font-size: 0.95rem;
-}
-
-/* "Not today" is a link, not a button. It has to be findable and must never
-   compete with the thing it declines — an equally weighted pair would turn a
-   minimum into a question. */
 .ds__skip {
   border: 0;
   padding: 0;
@@ -90,74 +240,21 @@
   color: var(--color-text-muted);
 }
 
-/* ── The three doors ───────────────────────────────────────────────────── */
-
-.ds__choices {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.ds__choice {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 18px 18px 16px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface-2);
-  text-decoration: none;
-  transition:
-    transform var(--dur-2) var(--ease),
-    border-color var(--dur-2) var(--ease),
-    background var(--dur-2) var(--ease);
-}
-
-.ds__choice:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-primary);
-  background: var(--color-primary-softer);
-}
-
-.ds__choiceName {
-  font-size: 1rem;
-  font-weight: 750;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-}
-
-.ds__choiceNote {
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-.ds__choiceTime {
-  margin-top: 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-text-faint);
-}
-
-.ds__done {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--color-border);
-  font-size: 0.82rem;
-  color: var(--color-primary);
-}
-
 @media (max-width: 640px) {
   .ds {
-    padding: 26px 20px 24px;
+    padding: 24px 18px 22px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ds {
+  .ds,
+  .ds__closing,
+  .ds__tick.is-done {
     animation: none;
+  }
+  .ds__item.is-done .ds__name::after {
+    animation: none;
+    transform: scaleX(1);
   }
   .ds__choice:hover {
     transform: none;

@@ -4,94 +4,128 @@ import type { DailyState } from "@/lib/dailyGoal";
 import "./daily-start.css";
 
 /**
- * The day's minimum, asked once.
+ * The day's practice, as a list of two.
  *
- * Two screens rather than one, because the two halves are different kinds of
- * thing and showing them together would turn a decision into a form. The first
- * states what is waiting — no options, because there are none worth offering.
- * The second offers three doors and nothing else.
+ * Both items are on screen from the start. That is the whole design: a learner
+ * can see the entire shape of what the day asks before doing any of it, which
+ * is the difference between a short list and a corridor with doors in it. A
+ * wizard that revealed the second step only after the first would be the same
+ * work and would feel like more of it, because nobody can tell how far a
+ * corridor goes.
  *
- * It is a panel on the dashboard, not a modal. A modal is a thing to dismiss,
- * and the muscle for dismissing them is the fastest-learned reflex in software;
- * a panel occupying the place the learner was already looking is simply the
- * page, and the way past it is to do the work or to say not today.
+ * Finishing one crosses it off and leaves the other standing. The panel waits
+ * until both are struck through and the learner closes it — the crossing-off
+ * is the point, and a panel that vanished the instant the last item completed
+ * would take the only satisfying moment away from the person who earned it.
  */
 
 interface Choice {
   to: string;
   key: "reading" | "listening" | "slang";
-  minutes: number;
 }
 
 const CHOICES: Choice[] = [
-  { to: "/reading", key: "reading", minutes: 4 },
-  { to: "/dictation", key: "listening", minutes: 4 },
-  { to: "/slang", key: "slang", minutes: 5 },
+  { to: "/reading", key: "reading" },
+  { to: "/dictation", key: "listening" },
+  { to: "/slang", key: "slang" },
 ];
+
+function Tick({ done }: { done: boolean }) {
+  return (
+    <span className={done ? "ds__tick is-done" : "ds__tick"} aria-hidden>
+      {done && (
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor"
+          strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+      )}
+    </span>
+  );
+}
 
 export function DailyStart({
   state,
   onReview,
   onSkip,
+  onClose,
 }: {
   state: DailyState;
-  /** Starts the review queue. */
   onReview: () => void;
   onSkip: () => void;
+  /** Both items crossed off and acknowledged. */
+  onClose: () => void;
 }) {
   const { t } = useTranslation();
   const left = Math.max(0, state.reviewTarget - state.reviewDone);
+  const allDone = state.reviewComplete && state.practiceComplete;
 
   return (
     <section className="ds">
       <p className="ds__eyebrow">{t("daily.eyebrow")}</p>
+      <h2 className="ds__title page-title">{t("daily.title")}</h2>
+      <p className="ds__lede">{t("daily.lede")}</p>
 
-      {state.stage === "review" ? (
-        <>
-          <h2 className="ds__title page-title">{t("daily.reviewTitle", { count: left })}</h2>
-          <p className="ds__lede">{t("daily.reviewLede")}</p>
-
-          <div className="ds__actions">
-            <button type="button" className="btn btn--primary btn--lg" onClick={onReview}>
-              {t("daily.reviewCta")}
-            </button>
-            <button type="button" className="ds__skip" onClick={onSkip}>
-              {t("daily.skip")}
-            </button>
+      <ol className="ds__list">
+        <li className={state.reviewComplete ? "ds__item is-done" : "ds__item"}>
+          <Tick done={state.reviewComplete} />
+          <div className="ds__body">
+            <p className="ds__name">{t("daily.reviewName")}</p>
+            {state.reviewComplete ? (
+              <p className="ds__note">{t("daily.reviewDone", { count: state.reviewDone })}</p>
+            ) : (
+              <>
+                <p className="ds__note">{t("daily.reviewNote", { count: left })}</p>
+                <button type="button" className="btn btn--primary btn--sm ds__go" onClick={onReview}>
+                  {t("daily.reviewCta")}
+                </button>
+              </>
+            )}
           </div>
-        </>
-      ) : (
-        <>
-          <h2 className="ds__title page-title">{t("daily.chooseTitle")}</h2>
-          <p className="ds__lede">{t("daily.chooseLede")}</p>
+        </li>
 
-          {/* Three doors, equal weight. Nothing is recommended and nothing is
-              marked as the main one: which of these somebody is in the mood
-              for is not a thing an algorithm knows, and pretending otherwise
-              turns a choice into a suggestion they have to refuse. */}
-          <div className="ds__choices">
-            {CHOICES.map((choice) => (
-              <Link key={choice.key} to={choice.to} className="ds__choice">
-                <span className="ds__choiceName">{t(`daily.choice.${choice.key}`)}</span>
-                <span className="ds__choiceNote">{t(`daily.choiceNote.${choice.key}`)}</span>
-                <span className="ds__choiceTime">{t("daily.minutes", { count: choice.minutes })}</span>
-              </Link>
-            ))}
+        <li className={state.practiceComplete ? "ds__item is-done" : "ds__item"}>
+          <Tick done={state.practiceComplete} />
+          <div className="ds__body">
+            <p className="ds__name">{t("daily.practiceName")}</p>
+            {state.practiceComplete ? (
+              <p className="ds__note">{t("daily.practiceDone")}</p>
+            ) : (
+              <>
+                <p className="ds__note">{t("daily.practiceNote")}</p>
+                {/* Three doors, equal weight. Nothing is recommended: which of
+                    these somebody is in the mood for is not a thing an
+                    algorithm knows, and marking one as the main choice turns
+                    the other two into options to refuse. */}
+                <div className="ds__choices">
+                  {CHOICES.map((choice) => (
+                    <Link key={choice.key} to={choice.to} className="ds__choice">
+                      {t(`daily.choice.${choice.key}`)}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
+        </li>
+      </ol>
 
-          <div className="ds__actions ds__actions--quiet">
-            <button type="button" className="ds__skip" onClick={onSkip}>
-              {t("daily.skip")}
+      <div className="ds__foot">
+        {allDone ? (
+          <>
+            <p className="ds__closing">{t("daily.allDone")}</p>
+            <button type="button" className="btn btn--primary" onClick={onClose}>
+              {t("daily.next")}
             </button>
-          </div>
-        </>
-      )}
-
-      {/* The review half, once it is behind them. Shown rather than removed,
-          because a thing you finished is worth seeing finished. */}
-      {state.stage === "choose" && state.reviewTarget > 0 && (
-        <p className="ds__done">{t("daily.reviewDone", { count: state.reviewTarget })}</p>
-      )}
+          </>
+        ) : (
+          /* "Not today" is a link, not a button. It has to be findable and must
+             never compete with the work it declines — an equally weighted pair
+             would turn a minimum into a question. */
+          <button type="button" className="ds__skip" onClick={onSkip}>
+            {t("daily.skip")}
+          </button>
+        )}
+      </div>
     </section>
   );
 }

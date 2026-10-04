@@ -1163,25 +1163,24 @@
   },
   "daily": {
     "eyebrow": "Today's minimum",
-    "reviewTitle": "{{count}} words are waiting",
-    "reviewTitle_one": "One word is waiting",
-    "reviewLede": "The ones closest to being lost. Which ones was decided for you, so it isn't a question first thing.",
+    "title": "Your daily English practice",
+    "lede": "Two things. Do both and the day counts. More is welcome, nobody is asking.",
+    "reviewName": "Review the words you've learned",
+    "reviewNote": "{{count}} words, closest to being lost",
+    "reviewNote_one": "One word, closest to being lost",
     "reviewCta": "Review",
-    "chooseTitle": "Now pick where the new words come from",
-    "chooseLede": "One of these is enough for the day to count. More is welcome, nobody is asking.",
-    "reviewDone": "Review done — {{count}} words",
-    "reviewDone_one": "Review done — one word",
+    "reviewDone": "{{count}} words reviewed",
+    "reviewDone_one": "One word reviewed",
+    "practiceName": "English practice",
+    "practiceNote": "Any one of these is enough",
+    "practiceDone": "Done",
+    "allDone": "That's today. Good work.",
+    "next": "Next",
     "skip": "Not today",
-    "minutes": "{{count}} min",
     "choice": {
       "reading": "Text",
       "listening": "Dictation",
       "slang": "Slang"
-    },
-    "choiceNote": {
-      "reading": "Read, and mine the words you don't have",
-      "listening": "Listen, and write down what you hear",
-      "slang": "A short lesson in English as spoken"
     }
   }
 }

@@ -23,7 +23,15 @@ import { planSession } from "./session";
  *   slang lesson: all three feed the same vocabulary, and which one somebody
  *   is in the mood for is not something an algorithm can know or should guess.
  *
- * And it asks once. The panel appears on the first visit of the learning day
+ * It is a list of two, not a sequence. Both items are on screen from the
+ * start: the learner can see the whole of what the day asks before doing any
+ * of it, which is the difference between a short list and a corridor with
+ * doors in it. Finishing one strikes it through and leaves the other standing,
+ * and the panel stays until both are crossed off and the learner closes it
+ * themselves — because the crossing-off *is* the reward, and a panel that
+ * vanished the moment the last item completed would take it away.
+ *
+ * And it asks once a day. It appears on the first visit of the learning day
  * and then gets out of the way; coming back in the evening lands on the
  * ordinary app. Anything past the minimum — more reviews, a second text, a
  * dictation for the pleasure of it — is the learner's own business and is
@@ -57,6 +65,7 @@ const INPUT_KINDS: ActivityKind[] = ["reading", "listening", "slang"];
 const REVIEW_CAP = 20;
 
 const SKIP_KEY = "dailyGoalSkipped";
+const CLOSED_KEY = "dailyGoalClosed";
 
 export type DailyStage =
   /** Words are waiting and have not been done. */
@@ -68,8 +77,11 @@ export type DailyStage =
 
 export interface DailyState {
   stage: DailyStage;
-  /** Whether the panel should show at all — false once skipped or finished. */
+  /** Whether the panel should show at all — false once skipped or closed. */
   show: boolean;
+  /** Each item of the list, for the strike-through. */
+  reviewComplete: boolean;
+  practiceComplete: boolean;
   /** Cards due in today's session, capped. */
   reviewTarget: number;
   reviewDone: number;
@@ -95,18 +107,45 @@ export function skipDailyGoal(userId?: string | null) {
   }
 }
 
+function closedToday(userId?: string | null): boolean {
+  try {
+    return Number(localStorage.getItem(CLOSED_KEY)) === learningDay(userId);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The learner has seen both items crossed off and pressed on.
+ *
+ * Separate from the skip because they mean opposite things, and because the
+ * panel has to survive completion long enough to be seen completed. Closing
+ * it is the learner's move, not the app's.
+ */
+export function closeDailyGoal(userId?: string | null) {
+  try {
+    localStorage.setItem(CLOSED_KEY, String(learningDay(userId)));
+  } catch {
+    // Same as the skip: it reappears, it never breaks.
+  }
+}
+
 export function dailyState(userId?: string | null): DailyState {
   const target = Math.min(REVIEW_CAP, planSession().review.length);
   const reviewed = getReviewedTodayCount();
   const done = kindsDoneToday();
   const inputDone = INPUT_KINDS.filter((kind) => done.has(kind));
 
-  const reviewLeft = target > 0 && reviewed < target;
-  const stage: DailyStage = reviewLeft ? "review" : inputDone.length === 0 ? "choose" : "done";
+  const reviewComplete = target === 0 || reviewed >= target;
+  const practiceComplete = inputDone.length > 0;
+  const stage: DailyStage = !reviewComplete ? "review" : !practiceComplete ? "choose" : "done";
 
   return {
     stage,
-    show: stage !== "done" && !skippedToday(userId),
+    reviewComplete,
+    practiceComplete,
+    // Stays up through completion so the last item can be seen struck through.
+    show: !skippedToday(userId) && !closedToday(userId),
     reviewTarget: target,
     reviewDone: reviewed,
     inputDone,

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
 import { IconBook, IconPen, IconQuotes, IconBookmark, IconHeadphones } from "@/components/brand/icons";
 import { getVocabulary } from "@/lib/vocabularyStore";
-import { dailyState, skipDailyGoal, type DailyState } from "@/lib/dailyGoal";
+import { closeDailyGoal, dailyState, skipDailyGoal, type DailyState } from "@/lib/dailyGoal";
 import { DailyStart } from "@/components/daily/DailyStart";
 import { useAuth } from "@/context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -115,6 +115,10 @@ export default function Dashboard() {
             onReview={() => navigate("/vocabulary")}
             onSkip={() => {
               skipDailyGoal(user?.id);
+              setDaily(dailyState(user?.id));
+            }}
+            onClose={() => {
+              closeDailyGoal(user?.id);
               setDaily(dailyState(user?.id));
             }}
           />
