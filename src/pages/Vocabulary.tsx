@@ -12,6 +12,7 @@ import {
 } from "@/lib/vocabularyStore";
 import { useTaskDone } from "@/components/tasks/TaskDoneProvider";
 import { WordList } from "@/components/vocabulary/WordList";
+import { BulkAdd } from "@/components/vocabulary/BulkAdd";
 import { Drill } from "@/components/vocabulary/Drill";
 import { DueSession } from "@/components/vocabulary/DueSession";
 import { ActiveVocabulary } from "@/components/activation/ActiveVocabulary";
@@ -235,7 +236,14 @@ export default function Vocabulary() {
 
           {tab === "all" && (
             <div className="mt-8">
-              <ManualAdd onAdded={refresh} />
+              {/* Two ways in, and the list is the one that was missing: a
+                  homework list of twenty words has no connection to anything
+                  the learner has read, and adding them through a two-field
+                  form is twenty forms. */}
+              <div className="mb-4 flex flex-wrap items-start gap-3">
+                <ManualAdd onAdded={refresh} />
+                <BulkAdd onAdded={refresh} />
+              </div>
 
               {words.length > 0 && (
                 <input

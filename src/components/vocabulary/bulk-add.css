@@ -1,0 +1,129 @@
+/* Pasting a list of words.
+   It lives beside the single-word form and is deliberately the larger of the
+   two, because twenty words at once is the case that was missing and one word
+   at a time is the case that already worked. */
+
+.ba__open {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-h);
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px dashed var(--color-border-strong);
+  background: none;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
+}
+
+.ba__open:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.ba {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.ba__title {
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
+.ba__hint {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.ba__input {
+  margin-top: 14px;
+  min-height: 9rem;
+  font-family: inherit;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.ba__folder {
+  margin-top: 10px;
+}
+
+/* ── What the app understood ───────────────────────────────────────────── */
+
+.ba__preview {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.ba__count {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.ba__rows {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ba__row {
+  display: flex;
+  gap: 10px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.ba__word {
+  min-width: 9ch;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.ba__tr {
+  color: var(--color-text-muted);
+}
+
+/* A word already saved is shown rather than hidden: silently dropping it
+   would leave the learner counting the list and finding one short. */
+.ba__row.is-dupe {
+  opacity: 0.5;
+}
+
+.ba__more {
+  margin-top: 2px;
+  font-size: 0.76rem;
+  color: var(--color-text-faint);
+}
+
+.ba__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.ba--done {
+  border-color: var(--color-primary);
+}
+
+.ba__doneLine {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}

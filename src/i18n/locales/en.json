@@ -13,7 +13,7 @@
     "logOut": "Log out",
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
-    "dictation": "English by ear",
+    "dictation": "Listening",
     "slang": "Slang"
   },
   "common": {
@@ -1182,5 +1182,24 @@
       "listening": "Dictation",
       "slang": "Slang"
     }
+  },
+  "bulk": {
+    "open": "+ Paste a list of words",
+    "title": "A list of words",
+    "hint": "Paste it as it is — \"word — translation\", or just the words. Anything without a translation gets looked up.",
+    "placeholder": "reluctant — unwilling\nlinger — to stay on\nconcede\nbrittle",
+    "found": "Adding: {{count}}",
+    "already": "already saved: {{count}}",
+    "willLookUp": "to look up: {{count}}",
+    "alreadyOne": "already saved",
+    "willFind": "we'll find it",
+    "andMore": "…and {{count}} more",
+    "folderPlaceholder": "Name this set — optional",
+    "save": "Save {{count}}",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "saved": "{{count}} words saved",
+    "more": "Add more",
+    "close": "Close"
   }
 }
