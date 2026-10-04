@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { FeatureCard } from "@/components/FeatureCard";
 import { IconBook, IconPen, IconQuotes, IconBookmark, IconHeadphones } from "@/components/brand/icons";
 import { getVocabulary } from "@/lib/vocabularyStore";
+import { dailyState, skipDailyGoal, type DailyState } from "@/lib/dailyGoal";
+import { DailyStart } from "@/components/daily/DailyStart";
+import { useAuth } from "@/context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import { planSession, type SessionPlan } from "@/lib/session";
 import { getStreak } from "@/lib/activityStore";
 import { masteredCount } from "@/lib/insights";
@@ -48,6 +52,12 @@ export default function Dashboard() {
    */
   const [plan, setPlan] = useState<SessionPlan | null>(null);
   const due = plan?.review.length ?? 0;
+
+  /* The day's minimum. Worked out from what was actually finished today, so
+     somebody who went and read a text on their own is not asked to do it. */
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [daily, setDaily] = useState<DailyState | null>(null);
   const [streak, setStreak] = useState(0);
   const [words, setWords] = useState(0);
   const [held, setHeld] = useState(0);
@@ -55,6 +65,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     setPlan(planSession());
+    setDaily(dailyState(user?.id));
     setStreak(getStreak());
     setWords(getVocabulary().length);
     setHeld(masteredCount());
@@ -94,7 +105,24 @@ export default function Dashboard() {
         </Link>
       )}
 
-      {/* The one loud thing on the page. */}
+      {/* The day's minimum takes the hero's place while it has something to
+          ask. One question a day, in the spot the learner is already looking,
+          and then it is gone until tomorrow. */}
+      {daily?.show && (
+        <div className="mt-7">
+          <DailyStart
+            state={daily}
+            onReview={() => navigate("/vocabulary")}
+            onSkip={() => {
+              skipDailyGoal(user?.id);
+              setDaily(dailyState(user?.id));
+            }}
+          />
+        </div>
+      )}
+
+      {/* The ordinary dashboard, once the panel is answered or skipped. */}
+      {!daily?.show && (
       <section className="card mt-7 overflow-hidden p-6 sm:p-8" style={{ boxShadow: "var(--shadow-2)" }}>
         <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-10">
           <div className="min-w-0 flex-1">
@@ -159,6 +187,7 @@ export default function Dashboard() {
           </div>
         </div>
       </section>
+      )}
 
       <section className="mt-12">
         <p className="eyebrow">{t("home.chooseMode")}</p>

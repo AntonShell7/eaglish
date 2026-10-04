@@ -184,3 +184,21 @@ export function getRecentDays(days = 14): { date: string; count: number }[] {
   }
   return out;
 }
+
+/**
+ * Which kinds of work were finished today.
+ *
+ * Reads the same list `completeTask` writes, so anything that already counts
+ * towards the daily goal counts here too — including work the learner went
+ * and did on their own, without being sent. A day's minimum should notice
+ * that, rather than insisting it be done through the front door.
+ */
+export function kindsDoneToday(): Set<ActivityKind> {
+  const prefix = `${todayKey()}|`;
+  const kinds = new Set<ActivityKind>();
+  for (const id of readDone()) {
+    const kind = id.slice(prefix.length).split("|")[0] as ActivityKind;
+    if (kind) kinds.add(kind);
+  }
+  return kinds;
+}

@@ -1,0 +1,165 @@
+/* The day's minimum.
+   It stands where the dashboard's own heading was, and it is the only thing
+   on the page until it is answered — not because it is modal, but because
+   nothing else is worth reading first. */
+
+.ds {
+  position: relative;
+  padding: 34px 30px 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  animation: ds-in var(--dur-3) var(--ease) both;
+}
+
+@keyframes ds-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* A mint rule down the leading edge: the same mark the day's texts carry, so
+   "this is yours, and it is for today" reads the same way everywhere. */
+.ds::before {
+  content: "";
+  position: absolute;
+  inset: 22px auto 22px 0;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.ds__eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.ds__title {
+  margin-top: 10px;
+  font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+}
+
+.ds__lede {
+  margin-top: 10px;
+  max-width: 46ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.ds__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ds__actions--quiet {
+  margin-top: 18px;
+}
+
+.btn--lg {
+  height: var(--control-h-lg);
+  padding-inline: 30px;
+  font-size: 0.95rem;
+}
+
+/* "Not today" is a link, not a button. It has to be findable and must never
+   compete with the thing it declines — an equally weighted pair would turn a
+   minimum into a question. */
+.ds__skip {
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--dur-2) var(--ease);
+}
+
+.ds__skip:hover {
+  color: var(--color-text-muted);
+}
+
+/* ── The three doors ───────────────────────────────────────────────────── */
+
+.ds__choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.ds__choice {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 18px 18px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  text-decoration: none;
+  transition:
+    transform var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.ds__choice:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+
+.ds__choiceName {
+  font-size: 1rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.ds__choiceNote {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.ds__choiceTime {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+}
+
+.ds__done {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.82rem;
+  color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+  .ds {
+    padding: 26px 20px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds {
+    animation: none;
+  }
+  .ds__choice:hover {
+    transform: none;
+  }
+}

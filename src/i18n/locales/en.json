@@ -1160,5 +1160,28 @@
     "reveal": "Show the answer",
     "gotIt": "I wrote it right",
     "missedIt": "I got it wrong"
+  },
+  "daily": {
+    "eyebrow": "Today's minimum",
+    "reviewTitle": "{{count}} words are waiting",
+    "reviewTitle_one": "One word is waiting",
+    "reviewLede": "The ones closest to being lost. Which ones was decided for you, so it isn't a question first thing.",
+    "reviewCta": "Review",
+    "chooseTitle": "Now pick where the new words come from",
+    "chooseLede": "One of these is enough for the day to count. More is welcome, nobody is asking.",
+    "reviewDone": "Review done — {{count}} words",
+    "reviewDone_one": "Review done — one word",
+    "skip": "Not today",
+    "minutes": "{{count}} min",
+    "choice": {
+      "reading": "Text",
+      "listening": "Dictation",
+      "slang": "Slang"
+    },
+    "choiceNote": {
+      "reading": "Read, and mine the words you don't have",
+      "listening": "Listen, and write down what you hear",
+      "slang": "A short lesson in English as spoken"
+    }
   }
 }
