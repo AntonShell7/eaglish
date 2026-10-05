@@ -875,7 +875,7 @@
     "sentenceCount_one": "{{count}} предложение",
     "sentenceCount_few": "{{count}} предложения",
     "sentenceCount_many": "{{count}} предложений",
-    "listenLabel": "Слушай и записывай",
+    "listenLabel": "СЛУШАЙ",
     "play": "Прослушать",
     "slow": "Помедленнее",
     "slowOn": "Помедленнее ✓",
@@ -933,7 +933,8 @@
       "sport": "Спорт",
       "travel": "Путешествия",
       "work": "Профессии"
-    }
+    },
+    "writeLabel": "ЗАПИШИ, ЧТО УСЛЫШАЛ"
   },
   "levels": {
     "label": "Уровень",

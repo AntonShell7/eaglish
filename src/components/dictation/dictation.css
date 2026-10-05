@@ -20,9 +20,22 @@
   gap: 12px;
 }
 
+/* Where you are in the text. It was a grey 13px aside; it is the only number
+   on the screen a learner checks between sentences, so it is the size of one. */
 .dict__count {
-  font-size: 0.8rem;
+  font-size: 1.05rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+.dict__count b {
+  font-weight: 750;
+}
+
+.dict__count span {
   color: var(--color-text-faint);
+  font-weight: 650;
 }
 
 .dict__bar {
@@ -45,26 +58,26 @@
    One surface and one rim. On a wide screen it splits in two — listening on
    the left, writing on the right — because those are the two halves of the
    exercise and putting them side by side is what finally uses the width. */
+/* No box.
+   It had a rim, a fill and a shadow, and on a black page that is a grey
+   rectangle announcing itself — the opposite of the minimalism this is
+   supposed to be. The ground is the page. What separates the two halves is a
+   single hairline, and nothing else needs a container at all. */
 .dict__stage {
-  margin-top: 20px;
+  margin-top: 28px;
   display: grid;
-  gap: clamp(22px, 3vw, 40px);
-  padding: clamp(24px, 3.5vw, 44px);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-2);
+  gap: clamp(26px, 3.5vw, 48px);
 }
 
 @media (min-width: 900px) {
   .dict__stage {
-    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    grid-template-columns: minmax(16rem, 21rem) minmax(0, 1fr);
     align-items: start;
   }
 
   /* A hairline between the halves rather than a second box around either. */
   .dict__write {
-    padding-left: clamp(22px, 3vw, 40px);
+    padding-left: clamp(26px, 3.5vw, 48px);
     border-left: 1px solid var(--color-border);
   }
 }
@@ -87,8 +100,14 @@
      rather than as large as a row of chips leaves it. */
   .dict__controls {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 14px;
+  }
+
+  /* Only the play button takes the column's width. A chip stretched to fill it
+     stops reading as a chip and starts reading as a second, confusing button. */
+  .dict__controls .dict__play {
+    align-self: stretch;
   }
 }
 
@@ -104,8 +123,8 @@
   font-size: 1.05rem;
   border-radius: 999px;
   border: 1px solid transparent;
-  background: var(--color-ink);
-  color: var(--color-on-ink);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
@@ -167,8 +186,8 @@
 }
 
 .dict__plays {
-  font-size: 0.78rem;
-  color: var(--color-text-faint);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
 /* The field is the thing being filled in, so it is the biggest thing on the
@@ -176,9 +195,11 @@
    most learners are trying to write into it. */
 .dict__input {
   width: 100%;
-  min-height: 9rem;
-  font-size: 1.1rem;
+  min-height: 10rem;
+  padding: 18px 20px;
+  font-size: 1.2rem;
   line-height: 1.7;
+  color: var(--color-text);
   resize: vertical;
 }
 
@@ -211,9 +232,10 @@
 }
 
 .dict__marks {
-  font-family: var(--font-reading);
-  font-size: 1.15rem;
-  line-height: 2;
+  font-size: 1.45rem;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
 }
 
 .dict__m {
@@ -370,9 +392,9 @@ button.dict__m:hover {
 /* The sentence and its translation read as one block, English above Russian,
    because that pairing is the reading exercise hiding inside the dictation. */
 .dict__ru {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  margin-top: 10px;
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: var(--color-text-muted);
 }
 
@@ -442,9 +464,10 @@ button.dict__m:hover {
  * line turning into noise, and a row of asterisks reads as damage.
  */
 .dict__skeleton {
-  font-family: var(--font-reading);
-  font-size: 1.15rem;
-  line-height: 2;
+  font-size: 1.45rem;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
   animation: hint-in var(--dur-3) var(--ease) both;
 }
 
@@ -499,10 +522,10 @@ button.dict__m:hover {
   }
 }
 
-.dict__listenFoot .dict__voice,
 .dict__listenFoot .dict__hints {
   margin: 0;
-  font-size: 0.76rem;
+  font-size: 0.8rem;
+  line-height: 1.9;
   color: var(--color-text-faint);
 }
 
@@ -512,4 +535,13 @@ button.dict__m:hover {
 .dict__input.is-locked {
   opacity: 0.6;
   cursor: default;
+}
+
+/* The two column headings. Louder than the app's usual eyebrow, because here
+   they are the only labels on a page with no box around anything — they do the
+   job the removed frame used to do, which is tell you which half is which. */
+.dict__listen > .eyebrow,
+.dict__write > .eyebrow {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
 }

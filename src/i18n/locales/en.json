@@ -854,7 +854,7 @@
     "allTopics": "All subjects",
     "sentenceCount_one": "{{count}} sentence",
     "sentenceCount_other": "{{count}} sentences",
-    "listenLabel": "Listen and write",
+    "listenLabel": "LISTEN",
     "play": "Play",
     "slow": "Slower",
     "slowOn": "Slower ✓",
@@ -911,7 +911,8 @@
       "sport": "Sport",
       "travel": "Travel",
       "work": "Trades"
-    }
+    },
+    "writeLabel": "WRITE WHAT YOU HEAR"
   },
   "levels": {
     "label": "Level",

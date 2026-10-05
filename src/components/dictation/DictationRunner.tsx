@@ -11,7 +11,6 @@ import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup
 import { PenToggle } from "@/components/ui/PenToggle";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
 import { useInputMode } from "@/lib/inputMode";
-import { accentKey } from "./voices";
 import "./dictation.css";
 
 export interface DictationSentence {
@@ -42,7 +41,7 @@ interface Props {
  */
 export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const { t } = useTranslation();
-  const { speak, stop, speaking, supported, prefetch, voices, voice, chooseVoice } = useSpeech();
+  const { speak, stop, speaking, supported, prefetch } = useSpeech();
   const { finish } = useTaskDone();
 
   // Resumes where the last session stopped: fifty fragments is twenty minutes,
@@ -251,8 +250,9 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
         <button type="button" className="btn btn--quiet btn--sm" onClick={onExit}>
           ← {t("dictation.back")}
         </button>
+        {/* The sentence you are on, as a number worth glancing at. */}
         <span className="dict__count tabular">
-          {index + 1} / {sentences.length}
+          <b>{index + 1}</b> <span>/ {sentences.length}</span>
         </span>
       </div>
 
@@ -294,36 +294,12 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
           <PenToggle className="dict__pen" />
         </div>
 
+          {/* The voice and accent picker is gone. It existed because the
+              library had no recordings and the browser's own voices were all
+              there was — which is also why it sounded the way it did. Every
+              sentence is recorded now, so the chooser was offering a worse
+              option for a problem that no longer exists. */}
           <div className="dict__listenFoot">
-            {voices.length > 0 && (
-            <p className="dict__voice">
-              <label htmlFor="dict-voice">{t("dictation.voiceLabel")}</label>{" "}
-              <select
-                id="dict-voice"
-                className="dict__voiceSelect"
-                value={voice?.name ?? ""}
-                onChange={(e) => {
-                  chooseVoice(e.target.value);
-                  const picked = voices.find((v) => v.name === e.target.value);
-                  // Speak on pick: the only way to judge a voice is to hear it.
-                  if (picked && sentence) {
-                    window.speechSynthesis.cancel();
-                    const sample = new SpeechSynthesisUtterance(sentence.text);
-                    sample.voice = picked;
-                    sample.lang = picked.lang;
-                    sample.rate = slow ? 0.7 : 1;
-                    window.speechSynthesis.speak(sample);
-                  }
-                }}
-              >
-                {voices.map((v) => (
-                  <option key={v.name} value={v.name}>
-                    {v.name} · {t(`dictation.accents.${accentKey(v.lang)}`)}
-                  </option>
-                ))}
-              </select>
-            </p>
-          )}
             <p className="dict__hints">
               <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
             </p>
@@ -335,6 +311,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
             moved the controls out from under the hand that was reaching for
             them. */}
         <div className="dict__write">
+          <p className="eyebrow">{t("dictation.writeLabel")}</p>
           {/* The field never leaves. It used to be swapped out for the
               result, which moved the buttons out from under the hand that was
               reaching for them on every single check. After a check it simply
