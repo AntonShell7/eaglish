@@ -1,0 +1,7 @@
+{
+ "voice": "nova,fable",
+ "model": "gpt-4o-mini-tts",
+ "count": 6,
+ "bytes": 174347,
+ "generated": "2026-10-05"
+}

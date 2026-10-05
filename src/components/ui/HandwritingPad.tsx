@@ -22,6 +22,18 @@ import "./handwriting-pad.css";
 
 const PENS = ["mint", "red", "amber", "violet", "ink"] as const;
 type Pen = (typeof PENS)[number];
+type Tool = Pen | "eraser";
+
+/**
+ * How close a stroke has to pass to be rubbed out, in CSS pixels.
+ *
+ * Whole strokes go rather than pixels. That sounds cruder and is what people
+ * actually want here: a letter is usually one or two strokes, so this rubs out
+ * letters, which is the unit anybody is thinking in when they want to fix a
+ * word. Pixel erasing leaves half-letters behind and needs far more precision
+ * than a fingertip has.
+ */
+const ERASER_RADIUS = 14;
 
 interface Stroke {
   pen: Pen;
@@ -71,6 +83,9 @@ export function HandwritingPad({
       return "mint";
     }
   });
+  /* The eraser is a tool, not a colour, so it is kept apart from the ink the
+     learner last chose — switching to it and back must return the same pen. */
+  const [tool, setTool] = useState<Tool>("mint");
 
   /* Colours come from the stylesheet rather than from constants here, so the
      ink follows the theme without this file knowing what the theme is. */
@@ -193,6 +208,7 @@ export function HandwritingPad({
 
   const choosePen = (next: Pen) => {
     setPen(next);
+    setTool(next);
     try {
       localStorage.setItem(PEN_KEY, next);
     } catch {
@@ -214,6 +230,18 @@ export function HandwritingPad({
     };
   };
 
+  /** Rubs out every stroke passing within the eraser's radius of a point. */
+  const erase = useCallback(
+    (x: number, y: number) => {
+      const before = strokes.current.length;
+      strokes.current = strokes.current.filter(
+        (stroke) => !stroke.points.some((p) => Math.hypot(p.x - x, p.y - y) <= ERASER_RADIUS),
+      );
+      if (strokes.current.length !== before) redraw();
+    },
+    [redraw],
+  );
+
   const down = (event: React.PointerEvent<HTMLCanvasElement>) => {
     // A palm resting on a tablet arrives as a separate touch contact while the
     // stylus is down; ignoring it is the difference between writing and
@@ -221,7 +249,14 @@ export function HandwritingPad({
     if (drawing.current && event.pointerType === "touch") return;
     event.currentTarget.setPointerCapture(event.pointerId);
     drawing.current = true;
-    strokes.current.push({ pen, points: [at(event)] });
+
+    const point = at(event);
+    if (tool === "eraser") {
+      erase(point.x, point.y);
+      return;
+    }
+
+    strokes.current.push({ pen, points: [point] });
     if (!written) {
       setWritten(true);
       onFirstStroke?.();
@@ -230,9 +265,16 @@ export function HandwritingPad({
 
   const move = (event: React.PointerEvent<HTMLCanvasElement>) => {
     if (!drawing.current) return;
+    const point = at(event);
+
+    if (tool === "eraser") {
+      erase(point.x, point.y);
+      return;
+    }
+
     const stroke = strokes.current[strokes.current.length - 1];
     if (!stroke) return;
-    stroke.points.push(at(event));
+    stroke.points.push(point);
     redraw();
   };
 
@@ -252,23 +294,56 @@ export function HandwritingPad({
         onPointerLeave={up}
       />
 
+      {/* Every tool in one row, the same size and shape.
+          The eraser and the bin used to be a word in the far corner, which is
+          the one place a hand holding a stylus is not. They sit beside the
+          ink now, where the hand already is. */}
       <div className="hp__tools">
         <div className="hp__pens">
           {PENS.map((which) => (
             <button
               key={which}
               type="button"
-              className={which === pen ? "hp__pen is-on" : "hp__pen"}
+              className={tool === which ? "hp__pen is-on" : "hp__pen"}
               style={{ background: `var(--ink-${which})` }}
               onClick={() => choosePen(which)}
               aria-label={which}
             />
           ))}
-        </div>
 
-        <button type="button" className="hp__clear" onClick={clear} disabled={!written}>
-          {t("input.clear")}
-        </button>
+          <span className="hp__divider" aria-hidden />
+
+          <button
+            type="button"
+            className={tool === "eraser" ? "hp__tool is-on" : "hp__tool"}
+            onClick={() => setTool("eraser")}
+            title={t("input.eraser")}
+            aria-label={t("input.eraser")}
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+              strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M8.5 20H21" />
+              <path d="m15.5 4.5-11 11a2 2 0 0 0 0 2.9l2.1 2.1a2 2 0 0 0 2.9 0l11-11a2 2 0 0 0 0-2.9l-2.1-2.1a2 2 0 0 0-2.9 0Z" />
+              <path d="m9 10 5 5" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            className="hp__tool hp__tool--clear"
+            onClick={clear}
+            disabled={!written}
+            title={t("input.clear")}
+            aria-label={t("input.clear")}
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+              strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" />
+              <path d="M19 6v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6" />
+              <path d="M10 11v6M14 11v6" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -99,6 +99,22 @@ PROVIDERS = {
         "default_voice": "nova",
         "format": "wav",
     },
+    # The newer model, and the reason to bother with it is the voices rather
+    # than the price: five more of them, and they carry more character than the
+    # original six. Confirmed available on this account by asking for each.
+    "openai-hd": {
+        "endpoint": "https://api.openai.com/v1/audio/speech",
+        "model": "gpt-4o-mini-tts",
+        "key_env": "OPENAI_API_KEY",
+        "max_chars": 4096,
+        "price_per_million": 12.0,
+        "voices": [
+            "alloy", "echo", "fable", "onyx", "nova", "shimmer",
+            "ash", "ballad", "coral", "sage", "verse",
+        ],
+        "default_voice": "ballad",
+        "format": "wav",
+    },
 }
 
 # Filled in by main() once the provider is chosen.
@@ -110,19 +126,35 @@ VOICES = P["voices"]
 
 # ── what to say ──────────────────────────────────────────────────────────────
 
-def sentences() -> list[str]:
-    """Every distinct English sentence in the library, in reading order."""
-    seen: dict[str, None] = {}
+def sentences(voices: list[str]) -> dict[str, str]:
+    """
+    Every distinct English sentence, mapped to the voice that will read it.
+
+    One voice per text rather than per sentence, and that is the whole point of
+    the arrangement: a reader whose voice changes mid-dictation is a distraction
+    at exactly the moment the learner is concentrating. Between texts it is the
+    opposite — meeting the same English in a different mouth is the thing that
+    stops an ear being trained on one speaker instead of on the language.
+
+    Texts are dealt out round-robin, so the split stays even however many
+    voices are given. A sentence that appears in two texts keeps whichever
+    voice reached it first; identical sentences across texts are rare and it
+    does not matter which one reads them.
+    """
+    assigned: dict[str, str] = {}
+    index = 0
     for folder in ("reading", "listening"):
         for path in sorted((ROOT / "src" / "data" / folder).glob("*.json")):
             if path.name == "index.json":
                 continue
             for text in json.load(open(path)):
+                voice = voices[index % len(voices)]
+                index += 1
                 for line in text.get("sentences", []):
                     body = (line.get("text") or "").strip()
                     if body:
-                        seen.setdefault(body, None)
-    return list(seen)
+                        assigned.setdefault(body, voice)
+    return assigned
 
 
 def key_of(text: str) -> str:
@@ -309,8 +341,8 @@ def main() -> None:
     VOICES = P["voices"]
     if args.voice is None:
         args.voice = P["default_voice"]
-    if args.voice not in VOICES and not args.samples:
-        raise SystemExit(f"{args.voice} is not one of {VOICES}")
+    # Checked later, once it has been split: --voice now takes a comma-separated
+    # list, and the names are validated against the chosen provider there.
 
     api_key = os.environ.get(P["key_env"]) or read_key(P["key_env"])
     if not api_key:
@@ -336,21 +368,29 @@ def main() -> None:
                 print(f"  {voice:<8} — unavailable ({type(error).__name__})")
         return
 
-    work = sentences()
-    if args.limit:
-        work = work[: args.limit]
+    chosen = [v.strip() for v in args.voice.split(",") if v.strip()]
+    unknown = [v for v in chosen if v not in VOICES]
+    if unknown:
+        raise SystemExit(f"not a voice on this provider: {unknown} — have {VOICES}")
 
-    todo = [s for s in work if not (OUT / f"{key_of(s)}.m4a").exists()]
-    print(f"{len(work)} sentences, {len(todo)} still to voice "
-          f"({sum(len(s) for s in todo):,} characters, "
-          f"about ${sum(len(s) for s in todo) / 1e6 * PRICE_PER_MILLION:.2f})")
+    work = sentences(chosen)
+    items = list(work.items())
+    if args.limit:
+        items = items[: args.limit]
+
+    todo = [(s, v) for s, v in items if not (OUT / f"{key_of(s)}.m4a").exists()]
+    spread = {v: sum(1 for _, got in todo if got == v) for v in chosen}
+    print(f"{len(items)} sentences, {len(todo)} still to voice "
+          f"({sum(len(s) for s, _ in todo):,} characters, "
+          f"about ${sum(len(s) for s, _ in todo) / 1e6 * PRICE_PER_MILLION:.2f})")
+    print("  " + " · ".join(f"{v}: {n}" for v, n in spread.items()))
     if not todo:
         return
 
     done = chars = 0
     started = time.time()
     with concurrent.futures.ThreadPoolExecutor(args.workers) as pool:
-        futures = {pool.submit(voice_one, s, args.voice, api_key): s for s in todo}
+        futures = {pool.submit(voice_one, s, v, api_key): s for s, v in todo}
         for future in concurrent.futures.as_completed(futures):
             _, spent, skipped = future.result()
             done += 1

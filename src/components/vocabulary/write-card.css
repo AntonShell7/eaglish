@@ -1,240 +1,141 @@
-/* The writing card.
-   A sheet of squared paper, the kind a school exercise book is made of: the
-   grid gives a letter its height and its slant without ruling the hand into
-   one line, which is what the old three-rule strip did badly. */
+/* Writing the word out.
+   One object on an empty screen: the pad, the prompt above it, and the answer
+   below once it has been asked for. */
 
 .wc {
-  /* Paper, grid and inks live on the card rather than on the sheet, so the
-     ink swatches below it inherit the same values the canvas draws with — a
-     swatch that is not exactly the colour it produces is a lie in a control. */
-  --wc-paper: #f6efdc;
-  --wc-grid: rgba(96, 82, 56, 0.16);
-  /* Small and uniform, the way a tablet's own grid paper is: big squares turn
-     into a chessboard the eye reads instead of a surface it writes on. */
-  --wc-cell: 26px;
-
-  --wc-pen-mint: #17806a;
-  /* The one red worth having: a clean, saturated signal red rather than the
-     brick shade a warm palette drifts towards. */
-  --wc-pen-red: #f5322a;
-  --wc-pen-amber: #c07d1d;
-  --wc-pen-violet: #7a5bd0;
-  /* Graphite, not black — a pencil rather than a marker. */
-  --wc-pen-ink: #46413a;
-
-  max-width: 720px;
+  max-width: 34rem;
   margin: 0 auto;
+  padding: 26px 24px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
   text-align: center;
 }
 
 .wc__prompt {
-  font-family: var(--font-display);
-  font-size: 1.9rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.wc__ask {
-  margin-top: 6px;
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-}
-
-.wc__paper {
-  position: relative;
-  margin-top: 22px;
-  height: 240px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  /* Paper only. The grid is drawn on the canvas, where a line can be told to
-     sit on a whole device pixel. */
-  background-color: var(--wc-paper);
-  overflow: hidden;
-  transition:
-    border-color var(--dur-2) var(--ease),
-    box-shadow var(--dur-2) var(--ease);
-}
-
-/* In the dark the sheet goes dark too. A white rectangle in a dark room is the
-   brightest thing on the screen and the eye cannot leave it alone — which is
-   the opposite of what a page you are meant to concentrate on should do.
-   The inks lift at the same time, so mint on charcoal stays mint. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .wc {
-    --wc-paper: #171512;
-    --wc-grid: rgba(228, 214, 180, 0.11);
-
-    --wc-pen-mint: #55e6b8;
-    --wc-pen-red: #ff453a;
-    --wc-pen-amber: #f5c563;
-    --wc-pen-violet: #bda2ff;
-    /* Softened well below white: a stroke at full white was the brightest
-       thing on the sheet and read as glare rather than as ink. */
-    --wc-pen-ink: #b9b2a4;
-  }
-}
-
-:root[data-theme="dark"] .wc {
-  --wc-paper: #171512;
-  --wc-grid: rgba(228, 214, 180, 0.11);
-
-  --wc-pen-mint: #55e6b8;
-  --wc-pen-red: #ff453a;
-  --wc-pen-amber: #f5c563;
-  --wc-pen-violet: #bda2ff;
-  /* Softened well below white: a stroke at full white was the brightest
-     thing on the sheet and read as glare rather than as ink. */
-  --wc-pen-ink: #b9b2a4;
-}
-
-.wc--right .wc__paper {
-  border-color: var(--color-success);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 22%, transparent);
-}
-
-.wc--wrong .wc__paper {
-  border-color: color-mix(in srgb, var(--color-danger) 60%, transparent);
-}
-
-.wc--reading .wc__paper {
-  opacity: 0.78;
-}
-
-.wc__canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  /* Without this the browser treats a stylus drag as a scroll and the first
-     stroke of every word is lost. */
-  touch-action: none;
-  cursor: crosshair;
-}
-
-/* Shown once, then never again: it is an instruction, and an instruction that
-   stays after it has been understood is just something in the way. */
-.wc__ghost {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.82rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--color-text-faint);
-  pointer-events: none;
 }
 
-/* The clear control, on the paper it clears. */
-.wc__clear {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--wc-grid);
-  background: color-mix(in srgb, var(--wc-paper) 82%, transparent);
-  color: var(--color-text-muted);
-  cursor: pointer;
-  padding: 0;
-  backdrop-filter: blur(6px);
-  transition:
-    color var(--dur-2) var(--ease),
-    border-color var(--dur-2) var(--ease),
-    transform var(--dur-2) var(--ease);
-  animation: wc-fade var(--dur-2) var(--ease);
+.wc__translation {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
 }
 
-.wc__clear:hover {
-  color: var(--color-danger);
-  border-color: color-mix(in srgb, var(--color-danger) 45%, transparent);
-  transform: scale(1.06);
+.wc__pad {
+  margin-top: 18px;
+  text-align: left;
 }
 
-@keyframes wc-fade {
+/* The answer sits directly under the writing, at a size that can be compared
+   with it letter by letter — which is the whole exercise once the pen is down. */
+.wc__answer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  animation: wc-reveal var(--dur-3) var(--ease) both;
+}
+
+@keyframes wc-reveal {
   from {
     opacity: 0;
+    transform: translateY(-4px);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .wc__clear {
-    animation: none;
-  }
-}
-
-.wc__pens {
-  margin-top: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.wc__pen {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  box-shadow: 0 0 0 1px var(--color-border);
-  cursor: pointer;
-  padding: 0;
-  transition:
-    transform var(--dur-2) var(--ease),
-    box-shadow var(--dur-2) var(--ease);
-}
-
-.wc__pen:hover {
-  transform: scale(1.12);
-}
-
-.wc__pen.is-on {
-  transform: scale(1.18);
-  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-text);
-}
-
-.wc__status {
-  min-height: 24px;
-  margin-top: 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.wc__reading {
+.wc__sentence {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  line-height: 1.6;
   color: var(--color-text-muted);
-}
-
-.wc__right {
-  color: var(--color-success);
-}
-
-.wc__wrong {
-  color: var(--color-danger);
-}
-
-.wc__answer {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
 }
 
 .wc__actions {
-  margin-top: 16px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-@media (max-width: 520px) {
-  .wc {
-    --wc-cell: 22px;
-  }
+.wc__grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
 
-  .wc__paper {
-    height: 190px;
+.wc__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--control-h-lg);
+  border-radius: 999px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform var(--dur-1) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    color var(--dur-2) var(--ease);
+}
+
+.wc__btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.wc__btn--again:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.wc__btn--knew:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.wc__btn kbd,
+.wc__hint kbd {
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  opacity: 0.45;
+  font-size: 0.75rem;
+  font-family: inherit;
+  line-height: 1.3;
+}
+
+.wc__hint {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+}
+
+.wc__hint kbd {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-2);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc__answer {
+    animation: none;
   }
 }
