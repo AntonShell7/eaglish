@@ -85,17 +85,24 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const sentence = sentences[index];
   const done = index >= sentences.length;
 
-  // A new sentence is played once without being asked: the exercise is
-  // listening, and the first thing that should happen is sound.
+  /*
+   * A new sentence arrives silent.
+   *
+   * It used to play itself the moment one appeared, on the reasoning that the
+   * exercise is listening so the first thing should be sound. In practice that
+   * means audio starting before the learner has settled, in a room where it
+   * may not be welcome, with no chance to put headphones on — and the first
+   * play of a dictation is the one that counts most. Pressing play is one tap
+   * and it is the learner's to make.
+   */
   useEffect(() => {
     if (!sentence || !supported) return;
     setTyped("");
     setResult(null);
     setRevealed(false);
-    setPlays(1);
+    setPlays(0);
     pad.current?.clear();
     setInked(false);
-    speak(sentence.text, slow ? 0.7 : 1);
     input.current?.focus();
 
     // The next line is fetched while this one is being typed, which is the
@@ -253,8 +260,13 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
         <span style={{ width: `${(index / sentences.length) * 100}%` }} />
       </div>
 
-      <section className="card dict__card">
-        <p className="eyebrow">{t("dictation.listenLabel")}</p>
+      {/* One surface, not a card inside a page inside a card.
+          The old layout nested three greys and then floated the whole thing in
+          the middle of a black screen, which read as a dialog box that had
+          lost its window. This is the page. */}
+      <section className="dict__stage">
+        <div className="dict__listen">
+          <p className="eyebrow">{t("dictation.listenLabel")}</p>
 
         <div className="dict__controls">
           <button type="button" className="dict__play" onClick={play} aria-label={t("dictation.play")}>
@@ -282,7 +294,51 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
           <PenToggle className="dict__pen" />
         </div>
 
-        {!result ? (
+          <div className="dict__listenFoot">
+            {voices.length > 0 && (
+            <p className="dict__voice">
+              <label htmlFor="dict-voice">{t("dictation.voiceLabel")}</label>{" "}
+              <select
+                id="dict-voice"
+                className="dict__voiceSelect"
+                value={voice?.name ?? ""}
+                onChange={(e) => {
+                  chooseVoice(e.target.value);
+                  const picked = voices.find((v) => v.name === e.target.value);
+                  // Speak on pick: the only way to judge a voice is to hear it.
+                  if (picked && sentence) {
+                    window.speechSynthesis.cancel();
+                    const sample = new SpeechSynthesisUtterance(sentence.text);
+                    sample.voice = picked;
+                    sample.lang = picked.lang;
+                    sample.rate = slow ? 0.7 : 1;
+                    window.speechSynthesis.speak(sample);
+                  }
+                }}
+              >
+                {voices.map((v) => (
+                  <option key={v.name} value={v.name}>
+                    {v.name} · {t(`dictation.accents.${accentKey(v.lang)}`)}
+                  </option>
+                ))}
+              </select>
+            </p>
+          )}
+            <p className="dict__hints">
+              <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
+            </p>
+          </div>
+        </div>
+
+        {/* The writing zone and the buttons keep their places whatever happens
+            below them. The result used to replace this block, so every check
+            moved the controls out from under the hand that was reaching for
+            them. */}
+        <div className="dict__write">
+          {/* The field never leaves. It used to be swapped out for the
+              result, which moved the buttons out from under the hand that was
+              reaching for them on every single check. After a check it simply
+              stops accepting input. */}
           <>
             {pen ? (
               <HandwritingPad
@@ -305,7 +361,8 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
               }}
               rows={3}
               placeholder={t("dictation.placeholder")}
-              className="field dict__input"
+              readOnly={Boolean(result)}
+              className={result ? "field dict__input is-locked" : "field dict__input"}
               autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
@@ -314,10 +371,36 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
             )}
 
             <div className="dict__actions">
-              {/* Typed answers are compared; written ones cannot be, so the
-                  button reveals the sentence and the learner marks it. The
-                  label says which of the two is about to happen. */}
-              {pen ? (
+              {result ? (
+                /* Same row, same place, different job. */
+                revealed ? (
+                  <>
+                    <button type="button" className="btn btn--primary" onClick={next}>
+                      {index + 1 >= sentences.length ? t("dictation.finishBtn") : t("dictation.next")}
+                    </button>
+                    <button type="button" className="btn btn--quiet" onClick={play}>
+                      {t("dictation.again")}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      className="btn btn--primary"
+                      onClick={() => {
+                        setResult(null);
+                        play();
+                        input.current?.focus();
+                      }}
+                    >
+                      {t("dictation.tryAgain")}
+                    </button>
+                    <button type="button" className="btn btn--ghost" onClick={() => setRevealed(true)}>
+                      {t("dictation.showAnswer")}
+                    </button>
+                  </>
+                )
+              ) : pen ? (
                 <button
                   type="button"
                   className="btn btn--primary"
@@ -335,25 +418,32 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                   {t("dictation.check")}
                 </button>
               )}
-              <button
-                type="button"
-                className="btn btn--quiet"
-                onClick={() => {
-                  // Straight to the answer. Asking for it is already an
-                  // admission that nothing was heard, and the skeleton of a
-                  // perfect match is the sentence itself — so stopping there
-                  // made the learner press the same button twice to see the
-                  // thing they had just asked for.
-                  setTyped(sentence.text);
-                  setResult(checkDictation(sentence.text, sentence.text));
-                  setRevealed(true);
-                }}
-              >
-                {t("dictation.reveal")}
-              </button>
+              {/* Only before a check, and only in typed mode. The pen's primary
+                  button already reveals the sentence, and once a result exists
+                  the row above is offering the reveal itself — either case put
+                  the same label on screen twice. */}
+              {!result && !pen && (
+                <button
+                  type="button"
+                  className="btn btn--quiet"
+                  onClick={() => {
+                    // Straight to the answer. Asking for it is already an
+                    // admission that nothing was heard, and the skeleton of a
+                    // perfect match is the sentence itself — so stopping there
+                    // made the learner press the same button twice to see the
+                    // thing they had just asked for.
+                    setTyped(sentence.text);
+                    setResult(checkDictation(sentence.text, sentence.text));
+                    setRevealed(true);
+                  }}
+                >
+                  {t("dictation.reveal")}
+                </button>
+              )}
             </div>
           </>
-        ) : (
+
+          {result && (
           <div className="dict__result">
             {!revealed ? (
               <>
@@ -368,23 +458,6 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                 </p>
 
                 <p className="dict__skHint">{t("dictation.skeletonHint")}</p>
-
-                <div className="dict__actions">
-                  <button
-                    type="button"
-                    className="btn btn--primary"
-                    onClick={() => {
-                      setResult(null);
-                      play();
-                      input.current?.focus();
-                    }}
-                  >
-                    {t("dictation.tryAgain")}
-                  </button>
-                  <button type="button" className="btn btn--ghost" onClick={() => setRevealed(true)}>
-                    {t("dictation.showAnswer")}
-                  </button>
-                </div>
               </>
             ) : (
             <>
@@ -455,55 +528,15 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
               </div>
             )}
 
-            <div className="dict__actions">
-              <button type="button" className="btn btn--primary" onClick={next}>
-                {index + 1 >= sentences.length ? t("dictation.finishBtn") : t("dictation.next")}
-              </button>
-              <button type="button" className="btn btn--quiet" onClick={play}>
-                {t("dictation.again")}
-              </button>
-            </div>
             </>
             )}
           </div>
-        )}
+          )}
+        </div>
       </section>
-
-      <p className="dict__hints">
-        <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
-      </p>
 
       {lookup && <LookupPopup request={lookup} onClose={() => setLookup(null)} />}
 
-      {voices.length > 0 && (
-        <p className="dict__voice">
-          <label htmlFor="dict-voice">{t("dictation.voiceLabel")}</label>{" "}
-          <select
-            id="dict-voice"
-            className="dict__voiceSelect"
-            value={voice?.name ?? ""}
-            onChange={(e) => {
-              chooseVoice(e.target.value);
-              const picked = voices.find((v) => v.name === e.target.value);
-              // Speak on pick: the only way to judge a voice is to hear it.
-              if (picked && sentence) {
-                window.speechSynthesis.cancel();
-                const sample = new SpeechSynthesisUtterance(sentence.text);
-                sample.voice = picked;
-                sample.lang = picked.lang;
-                sample.rate = slow ? 0.7 : 1;
-                window.speechSynthesis.speak(sample);
-              }
-            }}
-          >
-            {voices.map((v) => (
-              <option key={v.name} value={v.name}>
-                {v.name} · {t(`dictation.accents.${accentKey(v.lang)}`)}
-              </option>
-            ))}
-          </select>
-        </p>
-      )}
     </div>
   );
 }

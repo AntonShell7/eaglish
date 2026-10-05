@@ -1,10 +1,16 @@
 /* Dictation.
    The screen is almost empty on purpose: while a sentence is playing the only
-   things that matter are the replay button and the box you type into. */
+   things that matter are the replay button and the box you type into.
+
+   Empty is not the same as small, and the first version confused the two. It
+   put a 44rem card in the middle of a black page and nested three greys inside
+   it — page, card, field — so the exercise read as a dialog that had lost its
+   window. The emptiness is now the page's own: one surface, wide, with the
+   air inside the layout instead of around it. */
 
 .dict {
   margin: 0 auto;
-  max-width: 44rem;
+  max-width: 72rem;
 }
 
 .dict__top {
@@ -31,21 +37,59 @@
   display: block;
   height: 100%;
   border-radius: 999px;
-  background: var(--color-accent);
+  background: var(--color-primary);
   transition: width var(--dur-3) var(--ease);
 }
 
-.dict__card {
-  margin-top: 18px;
-  padding: clamp(20px, 4vw, 34px);
+/* The stage.
+   One surface and one rim. On a wide screen it splits in two — listening on
+   the left, writing on the right — because those are the two halves of the
+   exercise and putting them side by side is what finally uses the width. */
+.dict__stage {
+  margin-top: 20px;
+  display: grid;
+  gap: clamp(22px, 3vw, 40px);
+  padding: clamp(24px, 3.5vw, 44px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+}
+
+@media (min-width: 900px) {
+  .dict__stage {
+    grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  /* A hairline between the halves rather than a second box around either. */
+  .dict__write {
+    padding-left: clamp(22px, 3vw, 40px);
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.dict__listen {
+  display: flex;
+  flex-direction: column;
 }
 
 .dict__controls {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+}
+
+@media (min-width: 900px) {
+  /* Stacked in the column, so the play button can be as large as it deserves
+     rather than as large as a row of chips leaves it. */
+  .dict__controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
 }
 
 /* The replay button is the largest thing on the screen, because it is the one
@@ -53,9 +97,11 @@
 .dict__play {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  height: 52px;
-  padding: 0 24px;
+  justify-content: center;
+  gap: 12px;
+  height: 64px;
+  padding: 0 30px;
+  font-size: 1.05rem;
   border-radius: 999px;
   border: 1px solid transparent;
   background: var(--color-ink);
@@ -125,10 +171,15 @@
   color: var(--color-text-faint);
 }
 
+/* The field is the thing being filled in, so it is the biggest thing on the
+   page. It was three rows in a narrow card, which is smaller than the sentence
+   most learners are trying to write into it. */
 .dict__input {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  width: 100%;
+  min-height: 9rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  resize: vertical;
 }
 
 .dict__actions {
@@ -138,10 +189,25 @@
   gap: 10px;
 }
 
+/* Full-height buttons at this size: a 40px control under a 9rem field reads
+   as an afterthought. */
+.dict__actions .btn {
+  height: var(--control-h-lg);
+  padding-inline: 26px;
+}
+
+.dict__write {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ── The result ─────────────────────────────────────────────────────────── */
 
+/* Underneath, never instead of. The result used to replace the field and the
+   buttons, so every check moved the controls out from under the hand reaching
+   for them. */
 .dict__result {
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 .dict__marks {
@@ -409,4 +475,41 @@ button.dict__m:hover {
    changes rather than in a settings screen two taps away. */
 .dict__pen {
   margin-left: auto;
+}
+
+
+/* ── The listening column's own footer ─────────────────────────────────── */
+
+/* The voice picker and the keyboard hints used to sit loose under the whole
+   page, which made them read as page furniture rather than as part of the
+   exercise. They belong with the play button: which voice is speaking is a
+   property of the listening, not of the screen. */
+.dict__listenFoot {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 899px) {
+  .dict__listenFoot {
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.dict__listenFoot .dict__voice,
+.dict__listenFoot .dict__hints {
+  margin: 0;
+  font-size: 0.76rem;
+  color: var(--color-text-faint);
+}
+
+/* After a check the field stops taking input but stays exactly where it was,
+   dimmed rather than removed — what you wrote is the thing the marks below
+   are talking about. */
+.dict__input.is-locked {
+  opacity: 0.6;
+  cursor: default;
 }
