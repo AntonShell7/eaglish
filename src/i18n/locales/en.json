@@ -892,7 +892,7 @@
       "nz": "New Zealand",
       "other": "English"
     },
-    "perfect": "Every word, exactly right",
+    "perfect": "Exactly right",
     "skeletonHint": "Dots cover what didn't match — one per letter. Listen again and try once more.",
     "tryAgain": "Try again",
     "showAnswer": "Show the answer",
@@ -912,7 +912,11 @@
       "travel": "Travel",
       "work": "Trades"
     },
-    "writeLabel": "WRITE WHAT YOU HEAR"
+    "writeLabel": "WRITE WHAT YOU HEAR",
+    "slipped": "{{count}} slips — listen again",
+    "slipped_one": "One slip — listen again",
+    "onlyTypos": "Heard right — {{count}} typos",
+    "onlyTypos_one": "Heard right — one typo"
   },
   "levels": {
     "label": "Level",

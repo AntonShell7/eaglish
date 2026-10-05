@@ -14,7 +14,19 @@
  * without anyone writing anything down.
  */
 
-export type MarkKind = "correct" | "wrong" | "missing" | "extra";
+/**
+ * `typo` is a word heard right and typed wrong.
+ *
+ * It used to be folded into `correct`, on the reasoning that a slipped key is
+ * not a listening mistake and the word should not be collected as unknown.
+ * That reasoning holds for the vocabulary and fails for the learner, who was
+ * told "exactly right" over a sentence containing "sumer" and "insekts" — a
+ * dictation that calls a misspelling exact is teaching the misspelling.
+ *
+ * So it keeps its own name: still not collected as a word to study, still not
+ * counted as exact.
+ */
+export type MarkKind = "correct" | "typo" | "wrong" | "missing" | "extra";
 
 export interface Mark {
   kind: MarkKind;
@@ -103,9 +115,12 @@ export function checkDictation(expected: string, typed: string): DictationResult
       // Five letters, not four: "than" heard as "then" is exactly the kind of
       // minimal pair this exercise exists to catch, and forgiving it as a
       // typo would hide the mistake worth seeing.
-      const typo = distance(e[i], g[j]) <= 1 && e[i].length >= 5;
-      marks.push({ kind: typo ? "correct" : "wrong", expected: exp[i], typed: got[j] });
-      if (!typo) missed.push(exp[i]);
+      const near = distance(e[i], g[j]) <= 1 && e[i].length >= 5;
+      const same = e[i] === g[j];
+      marks.push({ kind: same ? "correct" : near ? "typo" : "wrong", expected: exp[i], typed: got[j] });
+      // A typo is not a word the learner failed to know, so it stays out of
+      // the study list — but it is still shown, and still not exact.
+      if (!same && !near) missed.push(exp[i]);
       i++;
       j++;
     } else if (lcs[i + 1][j] >= lcs[i][j + 1]) {

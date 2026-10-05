@@ -83,6 +83,11 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
 
   const sentence = sentences[index];
   const done = index >= sentences.length;
+  /* Exact, not nearly: a dictation is a transcription, and "almost" is the
+     thing the learner is here to stop doing. */
+  const perfect = result ? result.accuracy === 1 : false;
+  const typos = result ? result.marks.filter((m) => m.kind === "typo").length : 0;
+  const slips = result ? result.marks.filter((m) => m.kind !== "correct" && m.kind !== "typo").length : 0;
 
   /*
    * A new sentence arrives silent.
@@ -422,6 +427,62 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
 
           {result && (
           <div className="dict__result">
+            {/*
+              * The verdict, always, right or wrong.
+              *
+              * A check used to produce either a masked hint or the full answer,
+              * and in neither case did it say plainly how you had done. Getting
+              * a sentence exactly right is the whole point of the exercise and
+              * it passed without comment; getting one wrong showed a line of
+              * dots. Both are now a banner that names the outcome first and
+              * shows the detail under it.
+              */}
+            <p className={perfect ? "dict__verdict is-perfect" : "dict__verdict is-off"}>
+              <span className="dict__verdictMark" aria-hidden>
+                {perfect ? (
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+                    strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor"
+                    strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 8v5M12 16.5v.01" />
+                    <circle cx="12" cy="12" r="9" />
+                  </svg>
+                )}
+              </span>
+              {perfect
+                ? t("dictation.perfect")
+                : slips === 0
+                  ? t("dictation.onlyTypos", { count: typos })
+                  : t("dictation.slipped", { count: slips })}
+            </p>
+
+            {/* What you wrote, with the words that went wrong marked — before
+                the answer is given away. Seeing *where* you slipped is what
+                makes a second listen worth taking; seeing the answer ends it. */}
+            {!perfect && (
+              <p className="dict__yours">
+                {result.marks
+                  .filter((m) => m.kind !== "missing")
+                  .map((mark, i) => (
+                    <span
+                      key={i}
+                      className={
+                        mark.kind === "correct"
+                          ? "dict__y"
+                          : mark.kind === "typo"
+                            ? "dict__y dict__y--typo"
+                            : "dict__y dict__y--bad"
+                      }
+                    >
+                      {mark.typed}{" "}
+                    </span>
+                  ))}
+              </p>
+            )}
+
             {!revealed ? (
               <>
                 <p className="dict__skeleton">
@@ -470,16 +531,6 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
             <p className="dict__ru">{sentence.translationRu}</p>
 
             <p className="dict__tap">{t("dictation.tapAnyWord")}</p>
-
-            {/* The verdict is stated even when nothing went wrong. A screen
-                that only appears after a mistake teaches that being right is
-                uneventful — and it would skip the reading of the sentence,
-                which is worth as much as the correction. */}
-            <p className={result.accuracy === 1 ? "dict__verdict is-perfect" : "dict__verdict"}>
-              {result.accuracy === 1
-                ? t("dictation.perfect")
-                : t("dictation.accuracy", { percent: Math.round(result.accuracy * 100) })}
-            </p>
 
             {offered.length > 0 && (
               <div className="dict__harvest">
