@@ -143,7 +143,14 @@ def sentences(voices: list[str]) -> dict[str, str]:
     """
     assigned: dict[str, str] = {}
     index = 0
-    for folder in ("reading", "listening"):
+    # Dictation only.
+    #
+    # The reading library was in here too, and voicing it was 2,816 files and
+    # about three dollars spent on audio nothing plays. Reading is a reading
+    # exercise: the only sound it needs is a single word pronounced on demand,
+    # and that is synthesised in the browser by the speaker button next to the
+    # lookup. Recording whole reading texts in advance serves nobody.
+    for folder in ("listening",):
         for path in sorted((ROOT / "src" / "data" / folder).glob("*.json")):
             if path.name == "index.json":
                 continue
