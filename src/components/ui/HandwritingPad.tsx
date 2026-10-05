@@ -36,6 +36,14 @@ export interface HandwritingPadHandle {
   /** True once anything has been written. */
   hasInk: () => boolean;
   clear: () => void;
+  /**
+   * A PNG data URL of the writing alone, for a model to read.
+   *
+   * Redrawn rather than exported: the visible canvas carries the grid and
+   * whatever ink colour the learner picked, and both are noise to something
+   * trying to read words. Black on white, no ruling, is what OCR is good at.
+   */
+  toImage: () => string | null;
 }
 
 export function HandwritingPad({
@@ -148,9 +156,40 @@ export function HandwritingPad({
     redraw();
   }, [redraw]);
 
+  const toImage = useCallback((): string | null => {
+    const canvas = canvasRef.current;
+    if (!canvas || strokes.current.length === 0) return null;
+    const flat = document.createElement("canvas");
+    flat.width = canvas.width;
+    flat.height = canvas.height;
+    const ctx = flat.getContext("2d");
+    if (!ctx) return null;
+
+    const ratio = window.devicePixelRatio || 1;
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, flat.width, flat.height);
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = "#111111";
+
+    for (const stroke of strokes.current) {
+      for (let i = 1; i < stroke.points.length; i += 1) {
+        const from = stroke.points[i - 1];
+        const to = stroke.points[i];
+        ctx.beginPath();
+        ctx.lineWidth = to.w;
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.stroke();
+      }
+    }
+    return flat.toDataURL("image/png");
+  }, []);
+
   useEffect(() => {
-    padRef?.({ hasInk: () => strokes.current.length > 0, clear });
-  }, [padRef, clear]);
+    padRef?.({ hasInk: () => strokes.current.length > 0, clear, toImage });
+  }, [padRef, clear, toImage]);
 
   const choosePen = (next: Pen) => {
     setPen(next);

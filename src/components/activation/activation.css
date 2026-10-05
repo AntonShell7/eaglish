@@ -336,3 +336,30 @@
 .drill__pad {
   margin-top: 4px;
 }
+
+/* What the model read off the pad.
+   It sits between the writing and the verdict because that is exactly where
+   it belongs in the learner's head: this is the last moment to say "no, I
+   wrote something else" before anything is judged. */
+.drill__reading {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.drill__readingText {
+  margin-top: 8px;
+  min-height: 3.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.drill__readingActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}

@@ -1160,7 +1160,12 @@
     "clear": "Clear",
     "reveal": "Show the answer",
     "gotIt": "I wrote it right",
-    "missedIt": "I got it wrong"
+    "missedIt": "I got it wrong",
+    "reading": "Reading it…",
+    "iRead": "I read this",
+    "yesCheck": "Yes, check it",
+    "rewrite": "Write it again",
+    "unreadable": "Couldn't read that. Try writing a little larger."
   },
   "daily": {
     "eyebrow": "Today's minimum",

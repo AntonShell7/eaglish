@@ -13,7 +13,7 @@ import { handleAi } from './api/_ai.js'
  * production. It calls the same handler the deployed function does, so there is
  * one implementation to get right.
  */
-function aiDevEndpoint(apiKey: string | undefined): Plugin {
+function aiDevEndpoint(apiKey: string | undefined, openAiKey?: string): Plugin {
   return {
     name: 'eaglish-ai-dev',
     configureServer(server) {
@@ -36,7 +36,7 @@ function aiDevEndpoint(apiKey: string | undefined): Plugin {
             return
           }
 
-          const result = await handleAi(body, apiKey)
+          const result = await handleAi(body, apiKey, openAiKey)
           res.statusCode = result.status
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify(result.body))
@@ -52,7 +52,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    plugins: [react(), tailwindcss(), aiDevEndpoint(env.GROQ_API_KEY)],
+    plugins: [react(), tailwindcss(), aiDevEndpoint(env.GROQ_API_KEY, env.OPENAI_API_KEY)],
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, './src'),

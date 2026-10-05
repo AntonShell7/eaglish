@@ -69,7 +69,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     return send(res, 400, { error: "bad-json" });
   }
 
-  const result = await handleAi(body, process.env.GROQ_API_KEY);
+  const result = await handleAi(body, process.env.GROQ_API_KEY, process.env.OPENAI_API_KEY);
   send(res, result.status, result.body);
 }
 

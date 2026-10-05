@@ -17,8 +17,15 @@ import { fold } from "./wordMatch";
  * learner can trust to be strict.
  */
 
-/** Groq's vision model. The only one the endpoint will bill for pictures. */
-const MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
+/**
+ * The model that looks at the picture.
+ *
+ * OpenAI's, because Groq has no model with eyes — that is the whole reason the
+ * endpoint carries two providers. The small one is deliberate: this is reading
+ * a word written on a strip of canvas, not interpreting a document, and the
+ * larger model costs several times more to do the same job no better.
+ */
+const MODEL = "gpt-4o-mini";
 
 const PROMPT =
   "You are an OCR engine for English handwriting. The image shows a single " +
@@ -50,7 +57,7 @@ export async function readHandwriting(image: string, expected: string): Promise<
     raw = await askModel({
       model: MODEL,
       temperature: 0,
-      max_completion_tokens: 20,
+      max_completion_tokens: 40,
       messages: [
         {
           role: "user",
@@ -75,4 +82,50 @@ export async function readHandwriting(image: string, expected: string): Promise<
   if (!read) return { verdict: "unreadable" };
 
   return fold(read) === fold(expected) ? { verdict: "match", read } : { verdict: "different", read };
+}
+
+/**
+ * Reads handwriting without judging it.
+ *
+ * The single-word drill above compares against a word it already knows. A
+ * written sentence has nothing to compare against — the whole point is that
+ * the learner made it up — so this returns the transcription and stops there.
+ *
+ * What happens next is the part that makes handwritten sentences workable at
+ * all: the learner is shown what was read and confirms or corrects it before
+ * anything is graded. Without that step a single misread word has the model
+ * critiquing a sentence nobody wrote, and wrong feedback is worse than none —
+ * the learner either stops trusting the app or "fixes" something that was
+ * already right. With it, a misreading costs one tap.
+ */
+export async function transcribeHandwriting(image: string): Promise<string | null> {
+  try {
+    const raw = await askModel({
+      model: MODEL,
+      temperature: 0,
+      max_completion_tokens: 120,
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text:
+                "You are an OCR engine for English handwriting. The image shows one handwritten " +
+                "English sentence on ruled paper. Reply with exactly that sentence and nothing " +
+                "else: no quotes, no commentary, no correction. Transcribe what is written, " +
+                "including any spelling mistakes — do not fix them. If nothing is legible, reply " +
+                "with exactly: ???",
+            },
+            { type: "image_url", image_url: { url: image } },
+          ],
+        },
+      ],
+    });
+    const text = raw.trim().replace(/^["']|["']$/g, "");
+    return !text || text === "???" ? null : text;
+  } catch (error) {
+    if (error instanceof AiError) return null;
+    throw error;
+  }
 }

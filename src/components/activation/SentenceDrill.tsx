@@ -14,6 +14,7 @@ import { usesWord } from "@/lib/wordMatch";
 import { useInputMode } from "@/lib/inputMode";
 import { PenToggle } from "@/components/ui/PenToggle";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
+import { transcribeHandwriting } from "@/lib/handwriting";
 import "./activation.css";
 
 /**
@@ -51,6 +52,15 @@ export function SentenceDrill({
      for marking: nothing on the server reads handwriting yet, so the only
      honest check is one the learner makes with the answer in front of them. */
   const [inked, setInked] = useState(false);
+  /**
+   * What the model read off the pad, waiting to be confirmed.
+   *
+   * Nothing is graded until the learner agrees this is what they wrote. A
+   * single misread word would otherwise have the model critiquing a sentence
+   * nobody wrote, and wrong feedback is worse than none.
+   */
+  const [reading, setReading] = useState<string | null>(null);
+  const [readingFailed, setReadingFailed] = useState(false);
   /* What this learner already wrote with this word. The exercise is to say
      something new, not to reproduce a sentence that once worked. */
   const written = useMemo(() => sentencesFor(word.word), [word.word, verdictKey]);
@@ -61,6 +71,8 @@ export function SentenceDrill({
     setHint(null);
     setHintLevel(0);
     setInked(false);
+    setReading(null);
+    setReadingFailed(false);
     pad.current?.clear();
     if (!pen) input.current?.focus();
   }, [word.id, pen]);
@@ -90,8 +102,22 @@ export function SentenceDrill({
     setHintBusy(false);
   };
 
-  const submit = async () => {
-    const text = sentence.trim();
+  /**
+   * Sends the pad to be read, and stops. Nothing is graded off this.
+   */
+  const readPad = async () => {
+    const image = pad.current?.toImage();
+    if (!image || busy) return;
+    setBusy(true);
+    setReadingFailed(false);
+    const got = await transcribeHandwriting(image);
+    setBusy(false);
+    if (got) setReading(got);
+    else setReadingFailed(true);
+  };
+
+  const submit = async (fromPad?: string) => {
+    const text = (fromPad ?? sentence).trim();
     if (!text || busy) return;
 
     if (tooSimilar(text, written)) {
@@ -109,6 +135,10 @@ export function SentenceDrill({
     const result = await checkSentence(word, text);
     setVerdict(result);
     setBusy(false);
+    // The confirmed transcription becomes the answer, so the verdict screen
+    // shows what was judged rather than an empty keyboard field.
+    if (fromPad) setSentence(fromPad);
+    setReading(null);
 
     if (result.correct) {
       markActivated(word.word, text);
@@ -201,42 +231,57 @@ export function SentenceDrill({
             </div>
           )}
 
-          <div className="drill__actions">
-            {pen ? (
-              /* The model sentence is the answer key. It is one call, the same
-                 one the hint button makes, so revealing it costs nothing extra
-                 and the learner marks their own page against it. */
-              <button
-                type="button"
-                className="btn btn--primary"
-                onClick={hint?.model ? () => setHintLevel(2) : askForHint}
-                disabled={!inked || hintBusy}
-              >
-                {hintBusy ? t("activation.thinking") : t("input.reveal")}
-              </button>
-            ) : (
-              <button type="button" className="btn btn--primary" onClick={submit} disabled={!sentence.trim() || busy}>
-                {busy ? t("activation.checking") : t("activation.check")}
-              </button>
-            )}
-
-            {pen && hint?.model && hintLevel >= 2 && (
-              <>
+          {/* What was read, before anything is judged. The text is editable
+              rather than merely confirmable, because the commonest correction
+              is one word and retyping the sentence to fix it is worse than
+              having written it on a keyboard in the first place. */}
+          {reading !== null && (
+            <div className="drill__reading">
+              <p className="eyebrow">{t("input.iRead")}</p>
+              <textarea
+                className="field drill__readingText"
+                rows={2}
+                value={reading}
+                onChange={(e) => setReading(e.target.value)}
+                autoCorrect="off"
+                spellCheck={false}
+              />
+              <div className="drill__readingActions">
                 <button
                   type="button"
-                  className="btn btn--ghost"
-                  onClick={() => {
-                    markActivated(word.word, hint.model ?? "");
-                    reviewWord(word.id, 2);
-                    onDone(true);
-                  }}
+                  className="btn btn--primary btn--sm"
+                  onClick={() => void submit(reading)}
+                  disabled={!reading.trim() || busy}
                 >
-                  {t("input.gotIt")}
+                  {busy ? t("activation.checking") : t("input.yesCheck")}
                 </button>
-                <button type="button" className="btn btn--quiet" onClick={() => onDone(false)}>
-                  {t("input.missedIt")}
+                <button
+                  type="button"
+                  className="btn btn--quiet btn--sm"
+                  onClick={() => {
+                    setReading(null);
+                    pad.current?.clear();
+                    setInked(false);
+                  }}
+                  disabled={busy}
+                >
+                  {t("input.rewrite")}
                 </button>
-              </>
+              </div>
+            </div>
+          )}
+
+          {readingFailed && <p className="drill__warn">{t("input.unreadable")}</p>}
+
+          <div className="drill__actions">
+            {pen ? (
+              <button type="button" className="btn btn--primary" onClick={readPad} disabled={!inked || busy}>
+                {busy ? t("input.reading") : t("activation.check")}
+              </button>
+            ) : (
+              <button type="button" className="btn btn--primary" onClick={() => void submit()} disabled={!sentence.trim() || busy}>
+                {busy ? t("activation.checking") : t("activation.check")}
+              </button>
             )}
 
             {!pen && hintLevel < 2 && (

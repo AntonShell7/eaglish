@@ -11,16 +11,42 @@
  * that behaves differently in development is a proxy that gets debugged twice.
  */
 
-/** Models this endpoint is willing to bill for. */
-const ALLOWED_MODELS = new Set([
-  "openai/gpt-oss-120b",
-  // Vision, for handwriting practice. The provider has no such model on this
-  // account today, so the feature falls back to self-checking; the allowance
-  // is here because the request shape is the part worth getting right, and a
-  // key that can see is a configuration change rather than a rewrite.
-  "meta-llama/llama-4-scout-17b-16e-instruct",
-]);
+/**
+ * Two providers, one endpoint.
+ *
+ * Both speak the OpenAI chat-completions protocol — Groq deliberately copied
+ * it — so the only thing that differs is the address and which key pays. The
+ * model name decides, and nothing else in the app has to know there are two.
+ *
+ * Why not simply move everything to one: Groq is free and is doing the text
+ * work perfectly well, and the text work is the expensive half by a wide
+ * margin — three generated texts per learner per day at a couple of thousand
+ * output tokens each. OpenAI is here for the one thing Groq has no model for,
+ * which is looking at a picture. Paying for what is currently free, in order
+ * to tidy a provider list, would be the wrong trade.
+ */
+type Provider = "groq" | "openai";
+
+interface ModelSpec {
+  provider: Provider;
+  /** Reasoning models take an effort hint; vision models reject it. */
+  reasoning?: boolean;
+}
+
+const MODELS: Record<string, ModelSpec> = {
+  "openai/gpt-oss-120b": { provider: "groq", reasoning: true },
+  // Vision, for reading handwriting. Groq has no model with eyes, which is the
+  // single reason a second provider exists at all.
+  "gpt-4o-mini": { provider: "openai" },
+  "gpt-4o": { provider: "openai" },
+};
+
 const DEFAULT_MODEL = "openai/gpt-oss-120b";
+
+const ENDPOINTS: Record<Provider, string> = {
+  groq: "https://api.groq.com/openai/v1/chat/completions",
+  openai: "https://api.openai.com/v1/chat/completions",
+};
 
 /** Groq's free tier is 8000 tokens/minute; nothing here needs more than this. */
 const MAX_COMPLETION_TOKENS = 6000;
@@ -34,8 +60,6 @@ const MAX_BODY_CHARS = 24_000;
  */
 const MAX_IMAGE_CHARS = 400_000;
 const MAX_IMAGES = 2;
-
-const ENDPOINT = "https://api.groq.com/openai/v1/chat/completions";
 
 export interface AiResult {
   status: number;
@@ -98,7 +122,13 @@ function checkPart(raw: unknown): Sized {
  * The caps are what keeps that from being expensive, and the origin check
  * below is what keeps it from being convenient.
  */
-export async function handleAi(raw: unknown, apiKey: string | undefined): Promise<AiResult> {
+export async function handleAi(
+  raw: unknown,
+  apiKey: string | undefined,
+  openAiKey?: string | undefined,
+): Promise<AiResult> {
+  // The Groq key is still the one that must exist: it pays for everything
+  // except the picture, and a deployment without it has no working app.
   if (!apiKey) {
     return { status: 503, body: { error: "no-key" } };
   }
@@ -152,7 +182,8 @@ export async function handleAi(raw: unknown, apiKey: string | undefined): Promis
     clean.push({ role, content: parts });
   }
 
-  const model = typeof input.model === "string" && ALLOWED_MODELS.has(input.model) ? input.model : DEFAULT_MODEL;
+  const model = typeof input.model === "string" && MODELS[input.model] ? input.model : DEFAULT_MODEL;
+  const spec = MODELS[model];
 
   const temperature =
     typeof input.temperature === "number" && input.temperature >= 0 && input.temperature <= 2
@@ -172,18 +203,24 @@ export async function handleAi(raw: unknown, apiKey: string | undefined): Promis
     input.response_format !== null &&
     (input.response_format as Record<string, unknown>).type === "json_object";
 
+  /* The key for whichever provider owns this model. A request for a model
+     whose key is not configured is refused as unconfigured rather than sent
+     with the wrong credentials, which would spend the other provider's
+     allowance on an error. */
+  const key = spec.provider === "openai" ? openAiKey : apiKey;
+  if (!key) return { status: 503, body: { error: "no-key", provider: spec.provider } };
+
   let response: Response;
   try {
-    response = await fetch(ENDPOINT, {
+    response = await fetch(ENDPOINTS[spec.provider], {
       method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
       body: JSON.stringify({
         model,
         messages: clean,
         temperature,
         max_completion_tokens: maxTokens,
-        // Only the reasoning model takes this; the vision model rejects it.
-        ...(model.startsWith("openai/") ? { reasoning_effort: "low" } : {}),
+        ...(spec.reasoning ? { reasoning_effort: "low" } : {}),
         ...(jsonMode ? { response_format: { type: "json_object" } } : {}),
       }),
     });
