@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { checkDictation, maskAgainst, worthLearning, type DictationResult } from "@/lib/dictation";
+import { checkDictation, segmentTyped, worthLearning, type DictationResult } from "@/lib/dictation";
 import { WordPractice } from "@/components/practice/WordPractice";
 import { useSpeech } from "./useSpeech";
 import { clearProgress, getProgress, saveProgress } from "@/lib/dictationProgress";
@@ -224,16 +224,26 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
        * earned flashed past. One physical press is one action; the key has to
        * come up before it means anything again.
        */
+      /*
+       * Enter checks, and moves on once the sentence is right.
+       *
+       * There is no third thing it can do. A wrong answer stays in the box
+       * with its mistakes underlined, so the next press is a re-check of the
+       * text the learner has just fixed — which is the same action, not a
+       * different one. The only reason to track the key being held is that
+       * the Enter which submits an answer is still down when the result
+       * arrives, and a repeat would carry straight through to the next
+       * sentence past the verdict that was just earned.
+       */
       if (event.key === "Enter" && !event.shiftKey) {
         if (enterHeld) {
           event.preventDefault();
           return;
         }
         enterHeld = true;
-        if (result) {
+        if (result && passed) {
           event.preventDefault();
-          if (passed) next();
-          else retry();
+          next();
         }
       }
     };
@@ -269,14 +279,6 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setRevealed(outcome.accuracy === 1);
     setScores((all) => [...all, outcome.accuracy]);
     setMissedAll((all) => [...new Set([...all, ...outcome.missed])]);
-  };
-
-  /** Back to the field, with the sentence playing. */
-  const retry = () => {
-    setResult(null);
-    setRevealed(false);
-    play();
-    input.current?.focus();
   };
 
   const next = () => {
@@ -423,7 +425,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
             {/* The hint says what Enter does *now*, not what it does in
                 general — a key with two jobs needs the label to keep up. */}
             <p className="dict__hints">
-              <kbd>Enter</kbd> {!result ? t("dictation.hintCheck") : passed ? t("dictation.hintNext") : t("dictation.tryAgain").toLowerCase()}
+              <kbd>Enter</kbd> {result && passed ? t("dictation.hintNext") : t("dictation.hintCheck")}
               {" · "}
               <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
             </p>
@@ -436,10 +438,16 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
             them. */}
         <div className="dict__write">
           <p className="eyebrow">{t("dictation.writeLabel")}</p>
-          {/* The field never leaves. It used to be swapped out for the
-              result, which moved the buttons out from under the hand that was
-              reaching for them on every single check. After a check it simply
-              stops accepting input. */}
+          {/*
+            * The answer is never taken away.
+            *
+            * It used to be swapped for a result panel, so correcting a mistake
+            * meant retyping a sentence rather than fixing a word. The marks are
+            * drawn *under* the text instead: an overlay with the same font, the
+            * same padding and transparent characters, carrying thick underlines
+            * where the mistakes are. The textarea sits on top of it and stays
+            * editable throughout — fix the letter, press Enter, done.
+            */}
           <>
             {pen ? (
               <HandwritingPad
@@ -450,25 +458,44 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                 }}
               />
             ) : (
-            <textarea
-              ref={input}
-              value={typed}
-              onChange={(e) => setTyped(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  check();
-                }
-              }}
-              rows={3}
-              placeholder={t("dictation.placeholder")}
-              readOnly={Boolean(result)}
-              className={result ? "field dict__input is-locked" : "field dict__input"}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck={false}
-            />
+            <div className="dict__field">
+              {result && (
+                <div className="dict__overlay" aria-hidden>
+                  {segmentTyped(sentence.text, typed).map((seg, i) =>
+                    seg.kind === "ok" ? (
+                      <span key={i}>{seg.text}</span>
+                    ) : (
+                      <span key={i} className={`dict__seg dict__seg--${seg.kind}`}>
+                        {seg.text}
+                      </span>
+                    ),
+                  )}
+                </div>
+              )}
+              <textarea
+                ref={input}
+                value={typed}
+                onChange={(e) => {
+                  setTyped(e.target.value);
+                  // Editing is the correction, so the marks stand down as soon
+                  // as the thing they are marking changes.
+                  if (result) setResult(null);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    check();
+                  }
+                }}
+                rows={3}
+                placeholder={t("dictation.placeholder")}
+                className="field dict__input"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+              />
+            </div>
             )}
 
             <div className="dict__actions">
@@ -484,9 +511,12 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                     </button>
                   </>
                 ) : (
+                  /* Nothing to press. The text is in the box with its mistakes
+                     under it, and the way forward is to fix one and check
+                     again — which is the same button it already was. */
                   <>
-                    <button type="button" className="btn btn--primary" onClick={retry}>
-                      {t("dictation.tryAgain")}
+                    <button type="button" className="btn btn--primary" onClick={check} disabled={!typed.trim()}>
+                      {t("dictation.check")}
                     </button>
                     <button type="button" className="btn btn--ghost" onClick={() => setRevealed(true)}>
                       {t("dictation.showAnswer")}
@@ -559,45 +589,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                   : t("dictation.slipped", { count: slips })}
             </p>
 
-            {/* What you wrote, with the words that went wrong marked — before
-                the answer is given away. Seeing *where* you slipped is what
-                makes a second listen worth taking; seeing the answer ends it. */}
-            {!perfect && (
-              <p className="dict__yours">
-                {result.marks
-                  .filter((m) => m.kind !== "missing")
-                  .map((mark, i) => (
-                    <span
-                      key={i}
-                      className={
-                        mark.kind === "correct"
-                          ? "dict__y"
-                          : mark.kind === "typo"
-                            ? "dict__y dict__y--typo"
-                            : "dict__y dict__y--bad"
-                      }
-                    >
-                      {mark.typed}{" "}
-                    </span>
-                  ))}
-              </p>
-            )}
-
-            {!revealed ? (
-              <>
-                <p className="dict__skeleton">
-                  {maskAgainst(sentence.text, typed).map((word, i) => (
-                    // A real space, not a margin: the line has to survive being
-                    // copied and being read aloud by a screen reader.
-                    <span key={i} className={word.mask ? "dict__sk dict__sk--hidden" : "dict__sk"}>
-                      {word.mask ?? word.text}{" "}
-                    </span>
-                  ))}
-                </p>
-
-                <p className="dict__skHint">{t("dictation.skeletonHint")}</p>
-              </>
-            ) : (
+            {!revealed ? null : (
             <>
             {/* Every word is tappable, not only the ones marked wrong. A
                 learner often types a word correctly from the sound and still

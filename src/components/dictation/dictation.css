@@ -674,3 +674,68 @@ button.dict__m:hover {
   background: currentColor;
   opacity: 0.85;
 }
+
+
+/* ── Marks under the learner's own text ───────────────────────────────── */
+
+/*
+ * The overlay trick, and the two rules that make it work.
+ *
+ * The highlight is a second copy of the text sitting exactly behind the
+ * textarea, with transparent characters and the mistakes underlined. For the
+ * underlines to land under the right letters, every property that affects
+ * where a character sits has to match the textarea exactly: font, size, line
+ * height, padding, letter spacing, wrapping. If one of them drifts the marks
+ * slide off the words and the whole thing is worse than nothing.
+ */
+.dict__field {
+  position: relative;
+}
+
+.dict__overlay,
+.dict__field .dict__input {
+  /* The shared geometry. Changing any of these means changing both. */
+  padding: 18px 20px;
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  border: 1px solid transparent;
+}
+
+.dict__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  overflow: hidden;
+}
+
+/* The textarea rides on top, see-through, so the marks show beneath the
+   letters the learner is still editing. */
+.dict__field .dict__input {
+  position: relative;
+  background: transparent;
+}
+
+/*
+ * Two marks, told apart by weight rather than by a second colour.
+ *
+ * The reference does this with orange and pink, and that is a third and fourth
+ * colour on a site that has agreed to have one. Weight carries the same
+ * distinction: a solid bar under a word heard as the wrong word, a lighter
+ * dashed one under letters of a word that was heard right and typed wrong.
+ * They are different mistakes — one is fixed by listening again, the other by
+ * looking at what you typed — and that difference is what has to be visible,
+ * not which hue it wears.
+ */
+.dict__seg--word {
+  box-shadow: inset 0 -3px 0 0 var(--color-danger);
+}
+
+.dict__seg--letters {
+  border-bottom: 2px dashed var(--color-danger);
+  opacity: 0.85;
+}

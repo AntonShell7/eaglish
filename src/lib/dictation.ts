@@ -236,3 +236,106 @@ export function maskAgainst(expected: string, typed: string): MaskedWord[] {
 
   return out;
 }
+
+/* ── Marking the learner's own line ───────────────────────────────────── */
+
+export interface Segment {
+  text: string;
+  /** `word` — this word is wrong somewhere; `letters` — these characters are. */
+  kind: "ok" | "word" | "letters";
+}
+
+/**
+ * The learner's text, cut into pieces that can be underlined in place.
+ *
+ * The point is that the answer is never taken away. The text stays in the box
+ * exactly as it was typed, and the mistakes are drawn underneath it — so
+ * fixing one is editing a word, not re-entering a sentence. Everything else
+ * this file does is in service of a verdict; this is in service of a repair.
+ *
+ * Two depths of mark, because two different things go wrong. A word heard as
+ * another word is wrong from end to end and the whole of it is flagged. A word
+ * heard correctly and typed badly is wrong in two or three characters, and
+ * flagging the whole of it hides the only part worth looking at — so the
+ * common beginning and ending are left alone and the middle is marked.
+ */
+export function segmentTyped(expected: string, typed: string): Segment[] {
+  const got = tokenize(typed);
+  const out: Segment[] = [];
+
+  // The same alignment the marks use, so the two can never disagree about
+  // which typed word was being compared with which spoken one.
+  const marks = checkDictation(expected, typed).marks;
+  let gi = 0;
+
+  const push = (text: string, kind: Segment["kind"]) => {
+    const last = out[out.length - 1];
+    if (last && last.kind === kind) last.text += text;
+    else out.push({ text, kind });
+  };
+
+  for (const mark of marks) {
+    if (mark.kind === "missing") continue; // nothing of it was typed
+    const word = got[gi];
+    if (word === undefined) break;
+    gi += 1;
+
+    if (mark.kind === "correct") {
+      push(word, "ok");
+    } else if (mark.kind === "typo" && mark.expected) {
+      // Keep whatever the two spellings share at each end; mark what is left.
+      const a = normalize(mark.expected);
+      const b = normalize(word);
+      let head = 0;
+      while (head < a.length && head < b.length && a[head] === b[head]) head += 1;
+      let tail = 0;
+      while (
+        tail < a.length - head &&
+        tail < b.length - head &&
+        a[a.length - 1 - tail] === b[b.length - 1 - tail]
+      ) {
+        tail += 1;
+      }
+      // Offsets are into the normalised form; map them onto the raw word by
+      // counting from each end, which is exact for the only thing that differs
+      // between the two — leading and trailing punctuation.
+      const lead = word.length - word.replace(/^[^\p{L}\p{N}]+/u, "").length;
+      let start = lead + head;
+      let end = word.length - tail;
+
+      /*
+       * A missing letter has no letters of its own to mark.
+       *
+       * "summer" typed as "sumer" shares the whole of "sum" at the front and
+       * the whole of "er" at the back — between them there is nothing left to
+       * underline, and marking the entire word would hide the fact that five
+       * of its six characters were right. So the mark lands on the seam: one
+       * character at the join, which is where the eye needs to go.
+       */
+      if (start >= end) {
+        start = Math.min(start, word.length - 1);
+        end = Math.min(word.length, start + 1);
+      }
+
+      if (start < end) {
+        push(word.slice(0, start), "ok");
+        push(word.slice(start, end), "letters");
+        push(word.slice(end), "ok");
+      } else {
+        push(word, "letters");
+      }
+    } else {
+      push(word, "word");
+    }
+
+    push(" ", "ok");
+  }
+
+  // Anything typed past the end of the sentence.
+  for (; gi < got.length; gi += 1) {
+    push(got[gi], "word");
+    push(" ", "ok");
+  }
+
+  return out;
+}
