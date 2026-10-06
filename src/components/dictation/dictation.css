@@ -572,13 +572,40 @@ button.dict__m:hover {
 /* Right: mint fill, and the tick lands rather than appears. Getting a sentence
    down exactly is the thing this exercise exists for and it used to pass
    without a word. */
+/* Getting it exactly right is the thing this exercise is for, so it is the
+   loudest moment on the screen rather than a quiet line of text. A filled
+   panel, not a label — the failure case stays a label, which is the right way
+   round and used to be the wrong one. */
 .dict__verdict.is-perfect {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  background: var(--color-primary-soft);
   color: var(--color-primary);
+  font-size: 1.2rem;
 }
 
 .dict__verdict.is-perfect .dict__verdictMark {
+  width: 34px;
+  height: 34px;
   background: var(--color-primary);
   color: var(--color-on-primary);
+  animation: dict-tick var(--dur-3) var(--ease-spring) 60ms both;
+}
+
+/* The tick lands rather than appears. */
+@keyframes dict-tick {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.14);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Wrong: stated, not scolded. The outline rather than a red fill — a block of

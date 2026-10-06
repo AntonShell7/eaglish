@@ -918,7 +918,18 @@
     "onlyTypos": "Heard right — {{count}} typos",
     "onlyTypos_one": "Heard right — one typo",
     "skip": "Skip",
-    "hintNext": "next"
+    "hintNext": "next",
+    "praise": {
+      "exact": "Exactly right",
+      "clean": "Clean — word for word",
+      "every": "Every word in place",
+      "nothing": "Not one mistake",
+      "caught": "Caught all of it",
+      "sharp": "Sharp ear",
+      "spot": "Spot on",
+      "ear": "Your ear is working",
+      "flawless": "Flawless"
+    }
   },
   "levels": {
     "label": "Level",

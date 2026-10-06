@@ -13,6 +13,10 @@ import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/Handw
 import { useInputMode } from "@/lib/inputMode";
 import "./dictation.css";
 
+/** Said on an exact answer, in turn. Nine, so a long text does not repeat. */
+const PRAISE = ["exact", "clean", "every", "nothing", "caught", "sharp", "spot", "ear", "flawless"] as const;
+
+
 export interface DictationSentence {
   text: string;
   translationRu?: string;
@@ -148,6 +152,31 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
    */
   const autoPlay = useRef(false);
 
+  /**
+   * Which of the congratulations this sentence gets.
+   *
+   * Picked from the index rather than at random, so a re-render does not
+   * reshuffle the wording under the learner mid-read, and so going back to a
+   * sentence shows the same thing it showed before. The point of having
+   * several is that the fifteenth exactly-right in a row should not read like
+   * a receipt printer.
+   */
+  const praise = PRAISE[index % PRAISE.length];
+
+  /**
+   * Whether the Enter that is currently down has already been acted on.
+   *
+   * It has to be a ref, and that is the whole bug. It was a local inside the
+   * key-handling effect, and that effect re-registers on every render — so the
+   * check that a press triggers re-renders the component, the effect runs
+   * again, the flag resets to false, and the *repeat* of the very same
+   * physical press is treated as a fresh one. A first-time-correct answer was
+   * checked and then immediately skipped past, so the learner never saw that
+   * they had got it right. It only looked fine after a correction, because by
+   * then the key had genuinely been released and pressed again.
+   */
+  const enterHeld = useRef(false);
+
   const play = () => {
     if (!sentence) return;
     setPlays((n) => n + 1);
@@ -169,7 +198,6 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     // the text. Firing on keydown would break every Ctrl+C, so it fires on
     // release and only when nothing was pressed while it was held.
     let ctrlAlone = false;
-    let enterHeld = false;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Control" || event.key === "Meta") {
@@ -236,11 +264,11 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
        * sentence past the verdict that was just earned.
        */
       if (event.key === "Enter" && !event.shiftKey) {
-        if (enterHeld) {
+        if (enterHeld.current) {
           event.preventDefault();
           return;
         }
-        enterHeld = true;
+        enterHeld.current = true;
         if (result && passed) {
           event.preventDefault();
           next();
@@ -249,7 +277,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     };
 
     const onKeyUp = (event: KeyboardEvent) => {
-      if (event.key === "Enter") enterHeld = false;
+      if (event.key === "Enter") enterHeld.current = false;
       if ((event.key === "Control" || event.key === "Meta") && ctrlAlone) {
         ctrlAlone = false;
         play();
@@ -258,6 +286,8 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
 
     const onBlur = () => {
       ctrlAlone = false;
+      // A key released while the window was away never reports its keyup.
+      enterHeld.current = false;
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -583,7 +613,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                 )}
               </span>
               {perfect
-                ? t("dictation.perfect")
+                ? t(`dictation.praise.${praise}`)
                 : slips === 0
                   ? t("dictation.onlyTypos", { count: typos })
                   : t("dictation.slipped", { count: slips })}
