@@ -308,10 +308,20 @@
   transform: none;
 }
 
-/* Children arrive one after another rather than as a block. */
+/* Children arrive one after another rather than as a block.
+   The animation is held until the list itself is in view. It used to run on
+   mount: a plain CSS animation with no trigger, which meant every staggered
+   list below the fold played itself out while the reader was still looking at
+   the top of the page, and then sat finished and motionless by the time they
+   arrived. The effect existed in the stylesheet and was invisible on screen
+   for everything except the first viewport — which is exactly the complaint
+   that nothing on this site moves. */
 [data-stagger] > * {
   opacity: 0;
   transform: translateY(16px);
+}
+
+[data-stagger].is-in > * {
   animation: fade-up var(--dur-4) var(--ease) both;
 }
 
@@ -381,9 +391,11 @@
     transform: none;
   }
 
-  [data-stagger] > * {
+  [data-stagger] > *,
+  [data-stagger].is-in > * {
     opacity: 1;
     transform: none;
+    animation: none;
   }
 }
 

@@ -22,7 +22,12 @@ import { useEffect } from "react";
 export function useReveal(deps: unknown[] = []) {
   useEffect(() => {
     const revealAll = (nodes: HTMLElement[]) => nodes.forEach((n) => n.classList.add("is-in"));
-    const find = () => Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)"));
+    const find = () =>
+      Array.from(
+        document.querySelectorAll<HTMLElement>(
+          "[data-reveal]:not(.is-in), [data-stagger]:not(.is-in)",
+        ),
+      );
 
     if (!("IntersectionObserver" in window)) {
       revealAll(find());

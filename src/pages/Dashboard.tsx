@@ -14,6 +14,7 @@ import { masteredCount } from "@/lib/insights";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import { useCountUp } from "@/lib/useCountUp";
 import "@/components/charts/charts.css";
+import "./dashboard.css";
 
 const FEATURES = [
   { to: "/dictation", key: "dictation", icon: <IconHeadphones /> },
@@ -75,14 +76,48 @@ export default function Dashboard() {
   const streakShown = useCountUp(streak, 500);
   const dueShown = useCountUp(due, 700);
   const wordsShown = useCountUp(words, 900);
+  const heldShown = useCountUp(held, 1100);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
       {profile && <p className="eyebrow">{profile.level}</p>}
-      <h1 className="page-title mt-2 text-4xl">{t("dashboard.greeting")}</h1>
+      {/* Sized through the token rather than a utility class, so it still
+          shrinks on a narrow phone — Russian headings are long and a fixed
+          size runs off the side. */}
+      <h1
+        className="page-title mt-2"
+        style={{ "--page-title-size": "3.1rem" } as React.CSSProperties}
+      >
+        {t("dashboard.greeting")}
+      </h1>
       <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
         {streak > 0 ? t("dashboard.streakLine", { count: streakShown }) : t("dashboard.noStreakLine")}
       </p>
+
+      {/* Your own English, in three numbers.
+          These were two small figures in the right-hand gutter of the queue
+          card, where they read as metadata about the card rather than as facts
+          about the learner. They are the only things on this screen that grow
+          over months, which makes them the reason to open it on a day when
+          there is nothing due, so they get the width and the size.
+
+          They count up rather than appear. That is not decoration: a number
+          that lands on 340 from below is read as having got there, which is
+          exactly what it did. */}
+      <dl className="dash-stats" data-stagger>
+        <div className="dash-stat">
+          <dt className="dash-stat__n tabular">{wordsShown}</dt>
+          <dd className="dash-stat__l">{t("dashboard.wordsCollected", { count: words })}</dd>
+        </div>
+        <div className="dash-stat">
+          <dt className="dash-stat__n dash-stat__n--mint tabular">{heldShown}</dt>
+          <dd className="dash-stat__l">{t("dashboard.wordsHeld")}</dd>
+        </div>
+        <div className="dash-stat">
+          <dt className="dash-stat__n tabular">{streakShown}</dt>
+          <dd className="dash-stat__l">{t("dashboard.streakDays", { count: streak })}</dd>
+        </div>
+      </dl>
 
       {/* Anyone who skipped onboarding, or signed in on a fresh device, still
           needs a level — without one the app guesses, and guesses badly. */}
@@ -127,7 +162,7 @@ export default function Dashboard() {
 
       {/* The ordinary dashboard, once the panel is answered or skipped. */}
       {!daily?.show && (
-      <section className="card mt-7 overflow-hidden p-6 sm:p-8" style={{ boxShadow: "var(--shadow-2)" }}>
+      <section className="card mt-7 overflow-hidden p-6 sm:p-8" data-reveal style={{ boxShadow: "var(--shadow-2)" }}>
         <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:gap-10">
           <div className="min-w-0 flex-1">
             <p className="eyebrow">{due > 0 ? t("dashboard.dueLabel") : t("dashboard.queueClearLabel")}</p>
@@ -167,33 +202,16 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* The two numbers worth seeing without being asked: how much you
-              have collected, and how much of it is genuinely held. Neither is
-              a score — both are counts of your own English. */}
-          <div
-            className="grid shrink-0 grid-cols-2 gap-6 border-t pt-6 lg:w-56 lg:grid-cols-1 lg:gap-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-9"
-            style={{ borderColor: "var(--color-border)" }}
-          >
-            <div>
-              <p className="tabular text-3xl font-bold leading-none">{wordsShown}</p>
-              <p className="mt-1.5 text-xs" style={{ color: "var(--color-text-muted)" }}>
-                {t("dashboard.wordsCollected")}
-              </p>
-            </div>
-            <div>
-              <p className="tabular text-3xl font-bold leading-none" style={{ color: "var(--color-primary)" }}>
-                {held}
-              </p>
-              <p className="mt-1.5 text-xs" style={{ color: "var(--color-text-muted)" }}>
-                {t("dashboard.wordsHeld")}
-              </p>
-            </div>
-          </div>
         </div>
       </section>
       )}
 
-      <section className="mt-12">
+      {/* The same five destinations as the rail on the left, which on a wide
+          screen means the page opens with its own navigation printed twice,
+          four inches apart. Below 1024px there is no rail, and then this is
+          the only way through the app — so it stays, and hides itself where
+          it is a duplicate. */}
+      <section className="dash-doors mt-12" data-reveal>
         <p className="eyebrow">{t("home.chooseMode")}</p>
         <div data-stagger className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((feature, i) => (

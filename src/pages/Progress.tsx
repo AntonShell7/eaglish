@@ -137,11 +137,11 @@ export default function Progress() {
     <div className="pg mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("progress.title")}</h1>
 
-      <section className="pg-card" style={{ marginTop: 24 }}>
+      <section className="pg-card" data-reveal style={{ marginTop: 24 }}>
         <DayLine days={words} unit={t("progress.wordsUnit")} delta={delta} />
       </section>
 
-      <section className="pg-section">
+      <section className="pg-section" data-reveal>
         <div className="pg-head">
           <p className="pg-eyebrow">{t("progress.timeTitle")}</p>
           <p className="pg-note">{t("progress.lastThirty")}</p>
@@ -179,7 +179,7 @@ export default function Progress() {
         </div>
       </section>
 
-      <section className="pg-section">
+      <section className="pg-section" data-reveal>
         <div className="pg-head">
           <p className="pg-eyebrow">{t("progress.calendarTitle")}</p>
           <p className="pg-note">
@@ -192,7 +192,7 @@ export default function Progress() {
       </section>
 
       {scores.length > 1 && (
-        <section className="pg-section">
+        <section className="pg-section" data-reveal>
           <div className="pg-head">
             <p className="pg-eyebrow">{t("progress.scoresTitle")}</p>
           </div>

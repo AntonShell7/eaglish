@@ -582,7 +582,9 @@
     "wordsCollected_other": "words collected",
     "wordsCollected": "words collected",
     "dueSubTimed": "About {{minutes}} min. The order is already chosen: whatever is closest to being lost comes first.",
-    "dueSubCapped": "About {{minutes}} min. {{total}} are due in all — today takes the ones nearest to being forgotten, the rest keep."
+    "dueSubCapped": "About {{minutes}} min. {{total}} are due in all — today takes the ones nearest to being forgotten, the rest keep.",
+    "streakDays_one": "day in a row",
+    "streakDays_other": "days in a row"
   },
   "tasks": {
     "readingDone": "Text finished",

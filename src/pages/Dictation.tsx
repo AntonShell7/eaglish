@@ -153,7 +153,7 @@ export default function Dictation() {
                 {t("video.empty")}
               </p>
             ) : (
-              <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div data-stagger className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {videos.map((video) => (
                   <div key={video.id} className="card flex h-full flex-col p-5">
                     <span className="chip chip--brand self-start">{video.level}</span>

@@ -1,0 +1,52 @@
+/* The signed-in home screen.
+   Its styles live here rather than in home.css, which this page does not
+   import and which nothing else imports either. */
+/* ── The dashboard's three numbers ────────────────────────────────────── */
+
+/*
+ * Words collected, words held, days in a row.
+ *
+ * A row rather than a card, and no rules between the figures: the moment this
+ * gets a box it becomes a widget on a dashboard, and a widget is something you
+ * scan past. Without one it reads as a line of the page, which is what it is.
+ */
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 560px;
+  margin: 34px 0 0;
+  padding: 0;
+}
+
+.dash-stat__n {
+  font-family: var(--font-display);
+  /* Large enough that the count-up is worth watching. At 1.5rem a number
+     ticking upward looks like a glitch; at 3rem it looks like an odometer. */
+  font-size: clamp(2.1rem, 5.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+/* One of the three in mint — the one that is actually about knowing English
+   rather than about collecting it. */
+.dash-stat__n--mint {
+  color: var(--color-primary);
+}
+
+.dash-stat__l {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-text-muted);
+}
+
+/* The rail carries these same five links from 1024px up. */
+@media (min-width: 1024px) {
+  .dash-doors {
+    display: none;
+  }
+}
