@@ -39,17 +39,78 @@
 /* ── Hero ─────────────────────────────────────────────────────────────── */
 
 .lp-hero {
+  /* It occupies exactly one screen and no more. The old hero was 873px of
+     flow on a 900px display, which is the worst possible height: too tall to
+     finish, too short to look intentional, and it pushed the button off the
+     bottom. Owning the viewport means the first screen can be composed —
+     something at the top, something in the middle, something on the floor —
+     instead of merely ending wherever the content ran out.
+
+     svh rather than vh: on a phone, vh is the height the viewport has with
+     the browser chrome hidden, so a 100vh hero is always taller than the
+     screen it is on and always hides its own last line. */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - var(--topline-h));
   text-align: center;
-  padding: clamp(64px, 14vh, 150px) var(--gutter) clamp(56px, 11vh, 120px);
+  padding: 92px var(--gutter) 32px;
 }
 
-.lp-hero__mark.brand-chip {
-  width: clamp(80px, 10vw, 104px);
+/* Depth, on a page that had none.
+   Flat #000000 edge to edge is not minimalism, it is an unlit room — and it
+   is most of why this read as unfinished next to pages built on photography.
+   There is no photograph to use here, so the light comes from the brand
+   instead: one wide, very dim mint bloom behind the type, strongest where the
+   eye lands first. At 9% it is not visible as a colour. It is visible as the
+   page having a top. */
+.lp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(58% 42% at 50% 26%, rgba(127, 208, 180, 0.09), transparent 72%),
+    radial-gradient(90% 55% at 50% 110%, rgba(127, 208, 180, 0.05), transparent 70%);
+}
+
+.lp-hero > * {
+  position: relative;
+}
+
+/* ── The lockup ───────────────────────────────────────────────────────── */
+
+.lp-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lp-lockup__mark.brand-chip {
+  width: 38px;
   height: auto;
   background-color: var(--mint);
+}
+
+.lp-lockup__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--mint);
+}
+
+/* Below the desktop breakpoint the top bar carries the mark and the name
+   itself, so the hero's own lockup sits directly under an identical one —
+   the brand twice, forty pixels apart, which reads as a rendering fault
+   rather than as emphasis. The bar is the one that stays while the page
+   scrolls, so the hero yields. */
+@media (max-width: 1023px) {
+  .lp-lockup {
+    display: none;
+  }
 }
 
 /* The name, in the book face the reading itself is set in. A product about
@@ -98,7 +159,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px 18px;
-  margin: 34px 0 0;
+  /* Pushed to the floor of the hero rather than trailing the buttons, so the
+     first screen has a bottom edge instead of simply stopping. */
+  margin: auto 0 0;
+  padding-top: 56px;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -122,24 +186,37 @@
   background: var(--mint);
 }
 
+/* The headline.
+   It was 2.85rem at weight 500 — a size and a weight that make a sentence
+   look like body copy that happens to be first. The pages this is held up
+   against set their one promise at 100px and better, because a headline is
+   not there to be read so much as to be *seen* before anything is read.
+
+   Weight 650 rather than 500: on a black ground a light face at this size
+   goes grey and loses the page. Tracking at -0.04em because large type set at
+   normal tracking falls apart into separate letters — the bigger the type,
+   the tighter it has to be pulled. */
 .lp-hero__title {
-  margin: 30px 0 0;
-  max-width: 17ch;
+  margin: 26px 0 0;
+  max-width: 14ch;
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.75rem, 4.2vw, 2.85rem);
-  line-height: 1.16;
-  letter-spacing: -0.028em;
+  font-weight: 650;
+  font-size: clamp(2.5rem, 6.6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
   color: var(--paper);
   text-wrap: balance;
 }
 
+/* The lede was 58% white at 1.1rem, which on black is the brightness of a
+   disclaimer. It is the only sentence explaining what the product does, so
+   it gets read or the page has failed. */
 .lp-hero__sub {
-  margin: 20px 0 0;
-  max-width: 46ch;
-  font-size: clamp(0.98rem, 1.6vw, 1.1rem);
-  line-height: 1.65;
-  color: var(--muted);
+  margin: 22px 0 0;
+  max-width: 44ch;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.72);
   text-wrap: pretty;
 }
 
@@ -149,7 +226,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 40px;
+  margin-top: 34px;
 }
 
 .lp-actions--center {

@@ -26,29 +26,33 @@ export default function Landing() {
   return (
     <div className="lp">
       <section className="lp-hero">
-        {/* The masked variant, because it takes a colour: the plain artwork
-            can only be flipped black or white, and the mark should be mint
-            like the name under it. */}
-        <BrandLogo variant="chip" className="lp-hero__mark fade-up" />
+        {/* The lockup, small.
+            The name used to be the largest thing on the page at 90px, with
+            the promise under it at 40. That is the wrong way round: nobody
+            is persuaded by a name they have never heard, and the one line
+            that could persuade them was set as a caption. The mark and the
+            name now behave the way they do on every page that converts —
+            small, early, and out of the way of the sentence that does the
+            work. */}
+        <div className="lp-lockup fade-up">
+          <BrandLogo variant="chip" className="lp-lockup__mark" />
+          <span className="lp-lockup__name">{t("brand")}</span>
+        </div>
 
-        <h1 className="lp-wordmark fade-up" style={{ animationDelay: "60ms" }}>
-          {t("brand")}
+        {/* The promise, and now the only large thing here. */}
+        <h1 className="lp-hero__title fade-up" style={{ animationDelay: "80ms" }}>
+          {t("landing.heroTitle")}
         </h1>
 
-        {/* A gold hairline under the name, and nothing else decorative on the
-            page. One ornament, used once, reads as confidence; the same
-            ornament three times reads as decoration. */}
-        <span className="lp-rule fade-up" style={{ animationDelay: "110ms" }} aria-hidden />
-
-        <h2 className="lp-hero__title fade-up" style={{ animationDelay: "160ms" }}>
-          {t("landing.heroTitle")}
-        </h2>
-
-        <p className="lp-hero__sub fade-up" style={{ animationDelay: "220ms" }}>
+        <p className="lp-hero__sub fade-up" style={{ animationDelay: "150ms" }}>
           {t("landing.heroSub")}
         </p>
 
-        <div className="lp-actions fade-up" style={{ animationDelay: "280ms" }}>
+        {/* Above the fold, which it was not. The first screen ran 873px of
+            logo and air and put the only button on the page below the edge
+            of a laptop display — so the page asked to be scrolled before it
+            had said anything worth scrolling for. */}
+        <div className="lp-actions fade-up" style={{ animationDelay: "220ms" }}>
           <Link to="/register" className="lp-btn lp-btn--go">
             {t("landing.start")}
           </Link>
@@ -57,8 +61,12 @@ export default function Landing() {
           </Link>
         </div>
 
-        {/* What is inside, before a single scroll. */}
-        <ul className="lp-index fade-up" style={{ animationDelay: "340ms" }}>
+        {/* What is inside, sitting on the floor of the first screen rather
+            than in the middle of it — the same place a stats bar sits on the
+            pages this is measured against, and for the same reason: it is
+            the thing you read last and the thing that makes the screen feel
+            like it has a bottom. */}
+        <ul className="lp-index fade-up" style={{ animationDelay: "300ms" }}>
           <li>{t("landing.indexReading")}</li>
           <li>{t("landing.indexListening")}</li>
           <li>{t("landing.indexSlang")}</li>
@@ -108,14 +116,6 @@ export default function Landing() {
             {t("auth.logIn")}
           </Link>
         </div>
-
-        {/* What is inside, before a single scroll. */}
-        <ul className="lp-index fade-up" style={{ animationDelay: "340ms" }}>
-          <li>{t("landing.indexReading")}</li>
-          <li>{t("landing.indexListening")}</li>
-          <li>{t("landing.indexSlang")}</li>
-          <li>{t("landing.indexVocabulary")}</li>
-        </ul>
       </section>
     </div>
   );

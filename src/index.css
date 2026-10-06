@@ -74,12 +74,23 @@
   --level-fg: #ffffff;
   --level-rim: rgba(255, 255, 255, 0.22);
 
-  /* Radii: 8–14px is where a panel starts looking engineered rather than
-     like a toy. */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 22px;
+  /* Radii.
+     These were 8–14px, on the theory that tight corners read as engineered.
+     That is true of a dense tool and false of a consumer product, and it is
+     the single number behind the complaint that the buttons look blunt. The
+     sites this is measured against sit at 20–36px with pills for anything
+     small, and the difference is not subtle: a 16px corner on a 400px panel
+     is a chamfer, a 28px corner is a shape.
+
+     The rule is that radius scales with the object. A chip gets a pill, a
+     button gets a pill, a card gets 22, a panel gets 30, a hero surface gets
+     40. A fixed radius used at every size is what makes an interface look
+     like it was assembled from one component. */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --radius-2xl: 40px;
   --radius-full: 999px;
 
   /* Elevation: a tight contact shadow plus a wide soft one, mixed from pure
@@ -132,10 +143,21 @@
 
   --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 32%, transparent);
 
-  --control-h: 40px;
-  --control-h-sm: 32px;
-  --control-h-lg: 46px;
-  --field-h: 46px;
+  /* Control heights.
+     40px is the height of an admin table row, and it is what a button feels
+     like under a finger when it is too small to be the point of the screen.
+     Consumer products sit at 48 and push their primary action to 56. The
+     extra eight pixels cost nothing and are most of the difference between
+     a control that looks pressable and one that looks printed. */
+  /* The top bar's height, named so that a full-screen section can subtract
+     it. The bar sits in flow above the page, so a hero asking for 100svh
+     ends up one bar-height taller than the screen and hides its own floor. */
+  --topline-h: 61px;
+
+  --control-h: 48px;
+  --control-h-sm: 38px;
+  --control-h-lg: 56px;
+  --field-h: 52px;
 
   /* One family, everywhere.
      The site used to set every heading in a serif drawn for Google Books, and
@@ -200,18 +222,35 @@
   --gradient-brand: linear-gradient(135deg, #4fae90 0%, #7fd0b4 55%, #a3e3cd 100%);
   --gradient-gilt: linear-gradient(135deg, #4fae90 0%, #a3e3cd 50%, #4fae90 100%);
 
-  /* Shadows on black do almost nothing, so they are deep and used sparingly;
-     the rim is what actually separates a card from the ground here. */
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.8);
+  /* Elevation on black.
+     The previous values were the light theme's shadows with the opacity
+     pushed to 70%, and that is a contradiction: a black shadow on a black
+     ground is invisible where it is dark and grey where it is wide, so it
+     added a smudge around every card and no sense of height at all.
+
+     Height on a dark ground is made the way it is made in a dark room. The
+     surface catches light along its top edge — that is the inset hairline,
+     and it is the part that actually reads — while the ground beneath it
+     goes a little darker in contact. The shadow's job here is contact, not
+     drama, so it is tight and nearly opaque at the top and stops early.
+
+     This is why the cards looked flat however deep the shadow went. The
+     missing ingredient was never more black. It was the highlight. */
+  --shadow-1:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 1px 2px rgba(0, 0, 0, 0.6);
   --shadow-2:
-    0 2px 4px rgba(0, 0, 0, 0.7),
-    0 8px 24px rgba(0, 0, 0, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    0 10px 24px rgba(0, 0, 0, 0.35);
   --shadow-3:
-    0 4px 10px rgba(0, 0, 0, 0.7),
-    0 18px 48px rgba(0, 0, 0, 0.65);
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 4px 12px rgba(0, 0, 0, 0.55),
+    0 20px 48px rgba(0, 0, 0, 0.4);
   --shadow-4:
-    0 8px 18px rgba(0, 0, 0, 0.75),
-    0 36px 80px rgba(0, 0, 0, 0.7);
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 8px 20px rgba(0, 0, 0, 0.6),
+    0 40px 90px rgba(0, 0, 0, 0.45);
 
   color-scheme: dark;
 }

@@ -135,6 +135,10 @@
   justify-content: space-between;
   gap: 14px;
   padding: 12px 20px;
+  /* Declared rather than inherited from whatever is inside it, because the
+     landing hero sizes itself to the screen *minus this bar* and a height
+     that drifts with its contents would silently crop that hero's last line. */
+  min-height: var(--topline-h);
   /* At rest the bar is part of the page: no line, no shadow, nothing to
      separate it from content that has not moved yet. It only becomes a bar
      once something has scrolled under it — which is the moment the separation
