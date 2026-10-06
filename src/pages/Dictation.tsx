@@ -116,8 +116,10 @@ export default function Dictation() {
     );
   }
 
+  /* No kicker: it used to be passed the same string as the title, so the page
+     opened by saying its own name twice in a row. */
   return (
-    <SectionHero kicker={t("nav.dictation")} title={t("nav.dictation")} description={t("dictation.intro")}>
+    <SectionHero title={t("nav.dictation")} description={t("dictation.intro")}>
       <div className="segmented mt-8" ref={ref} style={style}>
         {(["voice", "video"] as const).map((key) => (
           <button
@@ -200,25 +202,17 @@ export default function Dictation() {
                   onClick={() => setTopic(entry.id)}
                   className="card card--interactive card--accent flex h-full flex-col p-5 text-left"
                 >
-                  <h2 className="page-title text-lg leading-snug">
+                  <h2 className="page-title text-xl leading-snug">
                     {t(`dictation.topics.${entry.id}`)}
                   </h2>
-                  <p className="mt-2 flex-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
-                    {t("reading.textCount", { count: entry.total })}
+                  {/* The per-level counts used to be printed here as six
+                      chips per card — forty-eight small numbers on one shelf,
+                      none of which anybody chooses a topic by. The level of a
+                      lesson is on the lesson, which is where the choice is
+                      actually made. */}
+                  <p className="shelf-meta">
+                    <span>{t("reading.textCount", { count: entry.total })}</span>
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {(["A1", "A2", "B1", "B2", "C1", "C2"] as const)
-                      .filter((level) => entry.counts[level])
-                      .map((level) => (
-                        <span
-                          key={level}
-                          className="rounded-full px-2 py-0.5 text-[10px] font-bold"
-                          style={{ background: "var(--color-surface-2)", color: "var(--color-text-muted)" }}
-                        >
-                          {level} · {entry.counts[level]}
-                        </span>
-                      ))}
-                  </div>
                 </button>
               ))}
             </div>

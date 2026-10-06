@@ -732,3 +732,26 @@ textarea.field {
     width: 100%;
   }
 }
+
+/* ── The shelf card's foot ────────────────────────────────────────────── */
+
+/*
+ * How much is in here, and across what range — on one line, at the bottom.
+ *
+ * `margin-top: auto` rather than a spacer above it: the card is a column of
+ * unequal height depending on how long its title wraps, and every foot in the
+ * row has to sit on the same line or the shelf looks like it was pasted
+ * together. Pushing from below is what keeps them level.
+ */
+.shelf-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}

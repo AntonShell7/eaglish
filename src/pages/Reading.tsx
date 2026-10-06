@@ -25,25 +25,6 @@ import { refreshDesk, type DeskEntry, type DeskStatus } from "@/lib/dailyDesk";
 import { useAuth } from "@/context/AuthContext";
 import "./reading.css";
 
-/*
- * The order badges appear in, not the list of what exists.
- *
- * Texts used to carry only the three bands, so a hard-coded triple was the
- * whole truth. New texts are written at one exact level, and a topic holding
- * both must show both — a card that silently omits its C1 texts is worse than
- * one with no badges at all.
- */
-const LEVEL_ORDER = ["A1", "A1-A2", "A2", "B1", "B1-B2", "B2", "C1", "C1-C2", "C2"];
-
-function badgeLevels(counts: Record<string, number>): string[] {
-  return Object.keys(counts)
-    .filter((level) => (counts[level] ?? 0) > 0)
-    .sort((a, b) => {
-      const ia = LEVEL_ORDER.indexOf(a);
-      const ib = LEVEL_ORDER.indexOf(b);
-      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
-    });
-}
 const WORDS_PER_MINUTE = 130;
 
 function minutesFor(text: ReadingText) {
@@ -117,7 +98,12 @@ function TopicGrid({
           explaining that unknown words can be tapped — which the first tap
           teaches better than any paragraph, and which pushed the shelf below
           the fold to say it. */}
-      <h1 className="page-title text-3xl">{t("nav.reading")}</h1>
+      <h1
+        className="page-title"
+        style={{ "--page-title-size": "3.1rem" } as React.CSSProperties}
+      >
+        {t("nav.reading")}
+      </h1>
       <p className="mt-2 max-w-2xl text-base" style={{ color: "var(--color-text-muted)" }}>
         {t("reading.tagline")}
       </p>
@@ -184,7 +170,7 @@ function TopicGrid({
               style={mine ? { borderColor: "var(--color-primary)" } : undefined}
             >
               <div className="flex items-start justify-between gap-3">
-                <h2 className="page-title text-lg leading-snug">{t(`reading.topics.${topic.id}`)}</h2>
+                <h2 className="page-title text-xl leading-snug">{t(`reading.topics.${topic.id}`)}</h2>
                 {mine && (
                   <span className="flex-none text-[10px] font-bold" style={{ color: "var(--color-primary)" }}>
                     {t("reading.yourTopic")}
@@ -192,21 +178,16 @@ function TopicGrid({
                 )}
               </div>
 
-              <p className="mt-2 flex-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
-                {t("reading.textCount", { count: topic.total })}
+              {/* One line, at the foot of the card: how much is in here.
+                  It briefly also carried the level span, which turned out to
+                  read "A1–C2" on every topic without exception — every topic
+                  is written across the whole range on purpose. A fact that is
+                  identical on ten cards is not a fact on a card, it is a
+                  pattern in the background, and printing it ten times is the
+                  same mistake as the sixty chips, only quieter. */}
+              <p className="shelf-meta">
+                <span>{t("reading.textCount", { count: topic.total })}</span>
               </p>
-
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {badgeLevels(topic.counts).map((level) => (
-                  <span
-                    key={level}
-                    className="rounded-full px-2 py-0.5 text-[10px] font-bold"
-                    style={{ background: "var(--color-surface-2)", color: "var(--color-text-muted)" }}
-                  >
-                    {level} · {topic.counts[level]}
-                  </span>
-                ))}
-              </div>
             </button>
           );
         })}

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 interface SectionHeroProps {
   /**
@@ -26,7 +26,15 @@ export function SectionHero({ kicker, title, description, children }: SectionHer
     <div className="mx-auto max-w-6xl px-5 py-10">
       <header>
         {kicker && <p className="eyebrow">{kicker}</p>}
-        <h1 className={`page-title max-w-2xl text-4xl${kicker ? " mt-2" : ""}`}>{title}</h1>
+        {/* Sized through the token rather than a utility class, so it keeps
+            the clamp that stops long Russian headings running off a phone,
+            and so every section opens at the same size as home. */}
+        <h1
+          className={`page-title max-w-2xl${kicker ? " mt-2" : ""}`}
+          style={{ "--page-title-size": "3.1rem" } as CSSProperties}
+        >
+          {title}
+        </h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
           {description}
         </p>
