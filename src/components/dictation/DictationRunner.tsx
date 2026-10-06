@@ -122,12 +122,12 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     input.current?.focus();
 
     if (!autoPlay.current) return;
-    // A beat before it speaks: arriving and being spoken at in the same frame
-    // reads as a glitch, and half a second is long enough to look up.
+    // Just enough that arriving and being spoken at are not the same frame.
+    // Half a second was a wait; this is a seam.
     const timer = window.setTimeout(() => {
       setPlays(1);
       speak(sentence.text, slow ? 0.7 : 1);
-    }, 500);
+    }, 100);
     return () => window.clearTimeout(timer);
 
     // The next line is fetched while this one is being typed, which is the
@@ -152,6 +152,9 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     if (!sentence) return;
     setPlays((n) => n + 1);
     speak(sentence.text, slow ? 0.7 : 1);
+    // Straight back to the field. The button was pressed in order to write,
+    // not in order to stand on the button.
+    if (!pen) input.current?.focus();
   };
 
   /**
@@ -166,6 +169,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     // the text. Firing on keydown would break every Ctrl+C, so it fires on
     // release and only when nothing was pressed while it was held.
     let ctrlAlone = false;
+    let enterHeld = false;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Control" || event.key === "Meta") {
@@ -175,6 +179,29 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
       ctrlAlone = false;
 
       /*
+       * Typing anywhere types into the field.
+       *
+       * Pressing play moves focus to the play button, and the next thing
+       * anybody does is type the sentence they are holding in their head — at
+       * which point nothing appeared, and the sentence was gone. A learner
+       * should never have to click a text box that is the only text box on the
+       * screen. The keystroke is not swallowed: focus moves and the character
+       * lands where it was going.
+       */
+      if (
+        !pen &&
+        !result &&
+        event.key.length === 1 &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.altKey &&
+        document.activeElement !== input.current
+      ) {
+        input.current?.focus();
+        return;
+      }
+
+      /*
        * One key, three meanings, and the state decides which.
        *
        * Enter checks. Enter again moves on — but only once the sentence has
@@ -182,14 +209,37 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
        * field with the sentence playing, because the useful thing to do after
        * a near miss is listen again, not read the answer.
        */
-      if (event.key === "Enter" && !event.shiftKey && result) {
-        event.preventDefault();
-        if (passed) next();
-        else retry();
+      /*
+       * One key, three meanings, and the state decides which.
+       *
+       * Enter checks. Enter again moves on — but only once the sentence has
+       * been got or given up on. In between it puts the learner back in the
+       * field with the sentence playing, because the useful thing to do after
+       * a near miss is listen again, not read the answer.
+       *
+       * `enterHeld` is what makes that true in practice rather than only in
+       * theory. The Enter that submits an answer is still down when the result
+       * arrives, and a held key repeats — so a single press was checking and
+       * then immediately advancing, and the verdict the learner had just
+       * earned flashed past. One physical press is one action; the key has to
+       * come up before it means anything again.
+       */
+      if (event.key === "Enter" && !event.shiftKey) {
+        if (enterHeld) {
+          event.preventDefault();
+          return;
+        }
+        enterHeld = true;
+        if (result) {
+          event.preventDefault();
+          if (passed) next();
+          else retry();
+        }
       }
     };
 
     const onKeyUp = (event: KeyboardEvent) => {
+      if (event.key === "Enter") enterHeld = false;
       if ((event.key === "Control" || event.key === "Meta") && ctrlAlone) {
         ctrlAlone = false;
         play();
@@ -325,13 +375,27 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
           <p className="eyebrow">{t("dictation.listenLabel")}</p>
 
         <div className="dict__controls">
+          {/* A disc with a triangle in it, and the bars only while sound is
+              actually coming out. The old one was a wide pill with three bars
+              where an icon should be, which at 64px tall read as a banner
+              rather than a button. */}
           <button type="button" className="dict__play" onClick={play} aria-label={t("dictation.play")}>
-            <span className={speaking ? "dict__wave is-on" : "dict__wave"} aria-hidden>
-              <i />
-              <i />
-              <i />
+            <span className="dict__playDisc" aria-hidden>
+              {speaking ? (
+                <span className="dict__wave is-on">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              ) : (
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
+                  <path d="M8 5.5v13a1 1 0 0 0 1.54.84l10-6.5a1 1 0 0 0 0-1.68l-10-6.5A1 1 0 0 0 8 5.5Z" />
+                </svg>
+              )}
             </span>
-            {t("dictation.play")}
+            <span className="dict__playLabel">
+              {plays === 0 ? t("dictation.play") : t("dictation.again")}
+            </span>
           </button>
 
           <button

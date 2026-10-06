@@ -116,11 +116,10 @@
 .dict__play {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  height: 64px;
-  padding: 0 30px;
-  font-size: 1.05rem;
+  gap: 14px;
+  height: 56px;
+  padding: 0 24px 0 8px;
+  font-size: 1rem;
   border-radius: 999px;
   border: 1px solid transparent;
   background: var(--color-primary);
@@ -644,4 +643,34 @@ button.dict__m:hover {
   text-decoration: underline dotted;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
+}
+
+
+/* The disc holds the icon, so the button is a label with a thing on it rather
+   than a pill with a glyph floating in the middle. It carries the ground
+   colour, which on a mint button is the only way a dark icon stays legible. */
+.dict__playDisc {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-on-primary) 16%, transparent);
+}
+
+.dict__playLabel {
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+/* The bars take the disc's place while sound is coming out — one object
+   changing state, not two objects swapping. */
+.dict__play .dict__wave {
+  height: 14px;
+}
+
+.dict__play .dict__wave i {
+  background: currentColor;
+  opacity: 0.85;
 }
