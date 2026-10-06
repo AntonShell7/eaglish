@@ -86,18 +86,30 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   /* Exact, not nearly: a dictation is a transcription, and "almost" is the
      thing the learner is here to stop doing. */
   const perfect = result ? result.accuracy === 1 : false;
+  /**
+   * Whether this fragment is finished with.
+   *
+   * A dictation is not a quiz you can click past. The point is to get the
+   * sentence down, so moving on means either getting it or asking to be shown
+   * it — and Enter used to skip straight over a wrong answer, which turned the
+   * exercise into a slideshow. Skipping is still allowed, by a button that
+   * says so.
+   */
+  const passed = perfect || revealed;
   const typos = result ? result.marks.filter((m) => m.kind === "typo").length : 0;
   const slips = result ? result.marks.filter((m) => m.kind !== "correct" && m.kind !== "typo").length : 0;
 
   /*
-   * A new sentence arrives silent.
+   * The first fragment arrives silent; every one after it plays itself.
    *
-   * It used to play itself the moment one appeared, on the reasoning that the
-   * exercise is listening so the first thing should be sound. In practice that
-   * means audio starting before the learner has settled, in a room where it
-   * may not be welcome, with no chance to put headphones on — and the first
-   * play of a dictation is the one that counts most. Pressing play is one tap
-   * and it is the learner's to make.
+   * The whole lesson used to start talking the moment it opened, which is
+   * audio beginning before anybody has settled, in a room where it may not be
+   * welcome, with no chance to reach for headphones — and the first play of a
+   * dictation is the one worth getting right. So the learner opens the sound.
+   *
+   * After that the opposite is true. Having decided to do a dictation and
+   * finished a fragment, pressing play again is a chore with no decision in
+   * it, so arriving at the next one starts it.
    */
   useEffect(() => {
     if (!sentence || !supported) return;
@@ -109,6 +121,15 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setInked(false);
     input.current?.focus();
 
+    if (!autoPlay.current) return;
+    // A beat before it speaks: arriving and being spoken at in the same frame
+    // reads as a glitch, and half a second is long enough to look up.
+    const timer = window.setTimeout(() => {
+      setPlays(1);
+      speak(sentence.text, slow ? 0.7 : 1);
+    }, 500);
+    return () => window.clearTimeout(timer);
+
     // The next line is fetched while this one is being typed, which is the
     // whole of the latency budget: by the time anyone presses Enter the audio
     // for what follows has been sitting decoded for half a minute.
@@ -118,6 +139,14 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     return stop;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, supported]);
+
+  /**
+   * Set once the learner has moved on from a fragment, so every fragment after
+   * the first plays on arrival. The first one waits: audio that starts before
+   * anybody has settled, in a room where it may not be welcome, is the one
+   * play of a dictation that is worth getting wrong.
+   */
+  const autoPlay = useRef(false);
 
   const play = () => {
     if (!sentence) return;
@@ -145,9 +174,18 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
       }
       ctrlAlone = false;
 
-      if (event.key === "Enter" && result && !event.shiftKey) {
+      /*
+       * One key, three meanings, and the state decides which.
+       *
+       * Enter checks. Enter again moves on — but only once the sentence has
+       * been got or given up on. In between it puts the learner back in the
+       * field with the sentence playing, because the useful thing to do after
+       * a near miss is listen again, not read the answer.
+       */
+      if (event.key === "Enter" && !event.shiftKey && result) {
         event.preventDefault();
-        next();
+        if (passed) next();
+        else retry();
       }
     };
 
@@ -183,7 +221,20 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setMissedAll((all) => [...new Set([...all, ...outcome.missed])]);
   };
 
+  /** Back to the field, with the sentence playing. */
+  const retry = () => {
+    setResult(null);
+    setRevealed(false);
+    play();
+    input.current?.focus();
+  };
+
   const next = () => {
+    /* The next fragment plays itself; this one did not. Pressing play once at
+       the start of a lesson is a decision — the learner chooses when sound
+       begins — and pressing it again at every fragment after that is a chore
+       with no decision in it. */
+    autoPlay.current = true;
     const nextIndex = index + 1;
     if (nextIndex >= sentences.length) {
       finish("listening", `dictation:${id}:${new Date().toDateString()}`, t("dictation.taskDone"));
@@ -305,8 +356,12 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
               sentence is recorded now, so the chooser was offering a worse
               option for a problem that no longer exists. */}
           <div className="dict__listenFoot">
+            {/* The hint says what Enter does *now*, not what it does in
+                general — a key with two jobs needs the label to keep up. */}
             <p className="dict__hints">
-              <kbd>Enter</kbd> {t("dictation.hintCheck")} · <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
+              <kbd>Enter</kbd> {!result ? t("dictation.hintCheck") : passed ? t("dictation.hintNext") : t("dictation.tryAgain").toLowerCase()}
+              {" · "}
+              <kbd>Ctrl</kbd> {t("dictation.hintReplay")}
             </p>
           </div>
         </div>
@@ -366,15 +421,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                   </>
                 ) : (
                   <>
-                    <button
-                      type="button"
-                      className="btn btn--primary"
-                      onClick={() => {
-                        setResult(null);
-                        play();
-                        input.current?.focus();
-                      }}
-                    >
+                    <button type="button" className="btn btn--primary" onClick={retry}>
                       {t("dictation.tryAgain")}
                     </button>
                     <button type="button" className="btn btn--ghost" onClick={() => setRevealed(true)}>
@@ -400,26 +447,15 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                   {t("dictation.check")}
                 </button>
               )}
-              {/* Only before a check, and only in typed mode. The pen's primary
-                  button already reveals the sentence, and once a result exists
-                  the row above is offering the reveal itself — either case put
-                  the same label on screen twice. */}
-              {!result && !pen && (
-                <button
-                  type="button"
-                  className="btn btn--quiet"
-                  onClick={() => {
-                    // Straight to the answer. Asking for it is already an
-                    // admission that nothing was heard, and the skeleton of a
-                    // perfect match is the sentence itself — so stopping there
-                    // made the learner press the same button twice to see the
-                    // thing they had just asked for.
-                    setTyped(sentence.text);
-                    setResult(checkDictation(sentence.text, sentence.text));
-                    setRevealed(true);
-                  }}
-                >
-                  {t("dictation.reveal")}
+              {/* Skip, not reveal.
+                  The answer used to be one press away before anything had been
+                  attempted, which is the exercise deleted rather than
+                  shortened. It is still reachable — after a try, where it
+                  means "I have had a go and I am stuck", which is a different
+                  thing to ask for. */}
+              {!result && (
+                <button type="button" className="btn btn--quiet" onClick={next}>
+                  {t("dictation.skip")}
                 </button>
               )}
             </div>

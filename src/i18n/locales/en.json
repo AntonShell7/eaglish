@@ -878,8 +878,8 @@
     "noVoiceTitle": "This browser cannot read aloud",
     "noVoiceBody": "Dictation uses the browser's built-in speech. There seems to be no English voice here — try Chrome, Safari or Edge.",
     "voiceLabel": "Voice and accent:",
-    "hintCheck": "check, then next",
-    "hintReplay": "play again",
+    "hintCheck": "check",
+    "hintReplay": "replay",
     "tapAnyWord": "Tap any word to see its translation.",
     "accents": {
       "us": "American",
@@ -916,7 +916,9 @@
     "slipped": "{{count}} slips — listen again",
     "slipped_one": "One slip — listen again",
     "onlyTypos": "Heard right — {{count}} typos",
-    "onlyTypos_one": "Heard right — one typo"
+    "onlyTypos_one": "Heard right — one typo",
+    "skip": "Skip",
+    "hintNext": "next"
   },
   "levels": {
     "label": "Level",
