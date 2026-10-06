@@ -241,8 +241,11 @@ export function maskAgainst(expected: string, typed: string): MaskedWord[] {
 
 export interface Segment {
   text: string;
-  /** `word` — this word is wrong somewhere; `letters` — these characters are. */
-  kind: "ok" | "word" | "letters";
+  /**
+   * `word` — this word is wrong somewhere; `letters` — these characters are;
+   * `gap` — a word was dropped and belongs at this point in the line.
+   */
+  kind: "ok" | "word" | "letters" | "gap";
 }
 
 /**
@@ -275,7 +278,18 @@ export function segmentTyped(expected: string, typed: string): Segment[] {
   };
 
   for (const mark of marks) {
-    if (mark.kind === "missing") continue; // nothing of it was typed
+    /*
+     * A dropped word has nothing of itself in the line to mark, and leaving it
+     * silent was the worst of the failures here: the verdict said "one
+     * mistake" and the line showed none, so the learner was told they were
+     * wrong and given no idea where. The gap itself is marked instead — a
+     * flagged space at the point the missing word belongs, between the two
+     * words it belongs between.
+     */
+    if (mark.kind === "missing") {
+      push("\u00a0", "gap");
+      continue;
+    }
     const word = got[gi];
     if (word === undefined) break;
     gi += 1;

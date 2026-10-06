@@ -787,3 +787,61 @@ button.dict__m:hover {
   border-bottom: 2px dashed var(--color-danger);
   opacity: 0.85;
 }
+
+/* A word that was never typed. There is nothing of it to underline, so the
+   mark is a narrow block standing in the space where it belongs — visible
+   enough to count, narrow enough not to shift the letters around it. */
+.dict__seg--gap {
+  position: relative;
+  display: inline-block;
+  width: 0.7em;
+  vertical-align: baseline;
+}
+
+.dict__seg--gap::after {
+  content: "";
+  position: absolute;
+  inset: 0.15em 0.05em 0.15em 0.05em;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-danger) 40%, transparent);
+  border-bottom: 3px solid var(--color-danger);
+}
+
+/* Back to an earlier fragment. Sits with the counter, because the counter is
+   where the eye already goes to ask "where am I". */
+.dict__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dict__step {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    color var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    transform var(--dur-1) var(--ease);
+}
+
+.dict__step:hover:not(:disabled) {
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.dict__step:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.dict__step:disabled {
+  opacity: 0.25;
+  cursor: default;
+}

@@ -253,27 +253,24 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
        * come up before it means anything again.
        */
       /*
-       * Enter checks, and moves on once the sentence is right.
+       * Enter is not handled here, and that is the fix for a bug that survived
+       * four attempts.
        *
-       * There is no third thing it can do. A wrong answer stays in the box
-       * with its mistakes underlined, so the next press is a re-check of the
-       * text the learner has just fixed — which is the same action, not a
-       * different one. The only reason to track the key being held is that
-       * the Enter which submits an answer is still down when the result
-       * arrives, and a repeat would carry straight through to the next
-       * sentence past the verdict that was just earned.
+       * React flushes a discrete event like keydown synchronously. So the
+       * check that the textarea's own handler runs re-renders the component
+       * *while the same keydown is still bubbling* — this effect re-registers
+       * mid-flight, and the freshly installed window listener then receives
+       * that very event with the new state already in its closure. It saw a
+       * passing result and advanced. One press, two handlers, two different
+       * views of the world, and the verdict the learner had just earned was
+       * skipped before it could be drawn.
+       *
+       * No amount of guarding fixes that, because the guard is reinstalled
+       * too. The answer is that Enter is decided in one place, by the handler
+       * on the field itself, which runs once per press with one consistent
+       * view of the state. The field is focused whenever this matters: on
+       * arrival, after play, and after a check.
        */
-      if (event.key === "Enter" && !event.shiftKey) {
-        if (enterHeld.current) {
-          event.preventDefault();
-          return;
-        }
-        enterHeld.current = true;
-        if (result && passed) {
-          event.preventDefault();
-          next();
-        }
-      }
     };
 
     const onKeyUp = (event: KeyboardEvent) => {
@@ -388,9 +385,28 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
         <button type="button" className="btn btn--quiet btn--sm" onClick={onExit}>
           ← {t("dictation.back")}
         </button>
-        {/* The sentence you are on, as a number worth glancing at. */}
-        <span className="dict__count tabular">
-          <b>{index + 1}</b> <span>/ {sentences.length}</span>
+        {/* The sentence you are on, and the way back to the ones before it.
+            A dictation is a text, not a quiz: a learner who half-heard
+            something two fragments ago should be able to go and hear it again
+            without restarting the lesson. Forward is deliberately not here —
+            that is earned by getting the sentence down. */}
+        <span className="dict__nav">
+          <button
+            type="button"
+            className="dict__step"
+            onClick={() => setIndex((i) => Math.max(0, i - 1))}
+            disabled={index === 0}
+            aria-label={t("dictation.previous")}
+            title={t("dictation.previous")}
+          >
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+              strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M15 5l-7 7 7 7" />
+            </svg>
+          </button>
+          <span className="dict__count tabular">
+            <b>{index + 1}</b> <span>/ {sentences.length}</span>
+          </span>
         </span>
       </div>
 
@@ -514,7 +530,11 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
-                    check();
+                    // Repeats from a held key would carry straight through the
+                    // verdict into the next sentence.
+                    if (e.repeat) return;
+                    if (result && passed) next();
+                    else check();
                   }
                 }}
                 rows={3}

@@ -929,7 +929,8 @@
       "spot": "Spot on",
       "ear": "Your ear is working",
       "flawless": "Flawless"
-    }
+    },
+    "previous": "Previous sentence"
   },
   "levels": {
     "label": "Level",
