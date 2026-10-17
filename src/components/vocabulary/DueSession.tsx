@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Drill } from "@/components/vocabulary/Drill";
 import { getDueWords, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
 import { planSession } from "@/lib/session";
+import { getStreak } from "@/lib/activityStore";
 
 /**
  * The review queue, served in runs rather than as one list.
@@ -53,9 +55,25 @@ export function DueSession({
   const [resting, setResting] = useState(false);
   const [reviewed, setReviewed] = useState(0);
 
+  /* What the session was actually like, kept as it happens.
+     The screen at the end used to be able to say only how many cards went
+     past — which is attendance, not a result. Whether they came back is the
+     thing the learner wants to know, and the thing that tells them what to
+     do next. */
+  const [recalled, setRecalled] = useState(0);
+  const [stumbled, setStumbled] = useState<string[]>([]);
+
   const review = (id: string, quality: 0 | 1 | 2 | 3, lastInQueue: boolean) => {
     onReview(id, quality, lastInQueue);
     setReviewed((n) => n + 1);
+    /* Grades 2 and 3 are "knew it"; 0 and 1 mean it had to be looked at
+       again. The word itself is kept rather than a tally, because "which
+       ones" is a more useful answer than "how many". */
+    if (quality >= 2) setRecalled((n) => n + 1);
+    else {
+      const word = run.find((w) => w.id === id);
+      if (word) setStumbled((list) => (list.includes(word.word) ? list : [...list, word.word]));
+    }
     if (lastInQueue) setResting(true);
   };
 
@@ -74,24 +92,75 @@ export function DueSession({
      and what remains is maintenance. */
   const clearedTheRisk = shakyLeft === 0 && left.length > 0;
 
+  const streak = getStreak();
+
   return (
     <div className="vocab-empty">
       <p className="page-title text-2xl">
-        {left.length === 0
-          ? t("vocabulary.queueEmpty")
-          : clearedTheRisk
-            ? t("vocabulary.riskCleared")
-            : t("vocabulary.runDone")}
+        {reviewed > 0
+          ? t("vocabulary.summaryTitle")
+          : left.length === 0
+            ? t("vocabulary.queueEmpty")
+            : clearedTheRisk
+              ? t("vocabulary.riskCleared")
+              : t("vocabulary.runDone")}
       </p>
 
+      {/* What happened, rather than that something happened.
+          This screen used to say "the queue is empty" and stop, while a toast
+          said much the same thing in the corner — the same news twice, and
+          neither half told the learner anything about how it went. */}
+      {reviewed > 0 && (
+        <div className="vs-summary">
+          <div className="vs-summary__figures">
+            <div className="vs-figure">
+              <p className="vs-figure__n tabular">{recalled}</p>
+              <p className="vs-figure__l">{t("vocabulary.summaryRecalled")}</p>
+            </div>
+            <div className="vs-figure">
+              <p className="vs-figure__n vs-figure__n--off tabular">{reviewed - recalled}</p>
+              <p className="vs-figure__l">{t("vocabulary.summaryStumbled")}</p>
+            </div>
+            {streak > 0 && (
+              <div className="vs-figure">
+                <p className="vs-figure__n tabular">{streak}</p>
+                <p className="vs-figure__l">{t("vocabulary.summaryStreak", { count: streak })}</p>
+              </div>
+            )}
+          </div>
+
+          {/* The words themselves, because "four were hard" is not actionable
+              and "crochet, bewilder" is. */}
+          {stumbled.length > 0 && (
+            <p className="vs-summary__hard">
+              <span className="vs-summary__hardH">{t("vocabulary.summaryHard")}</span>
+              {stumbled.slice(0, 6).join(" · ")}
+            </p>
+          )}
+        </div>
+      )}
+
       <p className="vocab-empty__p">
-        {reviewed > 0 && `${t("vocabulary.sessionSummary", { count: reviewed })} `}
         {left.length === 0
           ? t("vocabulary.queueEmptyBody")
           : clearedTheRisk
             ? t("vocabulary.riskClearedBody", { count: left.length })
             : t("vocabulary.runDoneBody", { count: left.length })}
       </p>
+
+      {/* Somewhere to go. A finished session that offers nothing next is where
+          the visit ends, and reading is what puts the next words in the
+          queue. */}
+      {left.length === 0 && (
+        <div className="vocab-empty__actions">
+          <Link to="/reading" className="btn btn--primary">
+            {t("vocabulary.summaryRead")}
+          </Link>
+          <Link to="/" className="btn btn--ghost">
+            {t("vocabulary.summaryHome")}
+          </Link>
+        </div>
+      )}
 
       {left.length > 0 && (
         <div className="vocab-empty__actions">

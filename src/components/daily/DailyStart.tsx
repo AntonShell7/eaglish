@@ -76,14 +76,25 @@ export function DailyStart({
         <li className={state.reviewComplete && !nothingToReview ? "ds__item is-done" : "ds__item"}>
           <Tick done={state.reviewComplete && !nothingToReview} />
           <div className="ds__body">
-            <p className="ds__name">{t("daily.reviewName")}</p>
+            {/* A queue made entirely of words never reviewed is not a
+                review of "previously learned" words, and those words are not
+                the ones "closest to being forgotten" — they are new. Saying
+                so costs nothing and stops the panel being wrong on exactly
+                the day somebody is deciding whether to trust it. */}
+            <p className="ds__name">
+              {state.reviewAllNew ? t("daily.reviewNameNew") : t("daily.reviewName")}
+            </p>
             {nothingToReview ? (
               <p className="ds__note">{t("daily.reviewNothingYet")}</p>
             ) : state.reviewComplete ? (
               <p className="ds__note">{t("daily.reviewDone", { count: state.reviewDone })}</p>
             ) : (
               <>
-                <p className="ds__note">{t("daily.reviewNote", { count: left })}</p>
+                <p className="ds__note">
+                  {state.reviewAllNew
+                    ? t("daily.reviewNoteNew", { count: left })
+                    : t("daily.reviewNote", { count: left })}
+                </p>
                 <button type="button" className="btn btn--primary btn--sm ds__go" onClick={onReview}>
                   {t("daily.reviewCta")}
                 </button>

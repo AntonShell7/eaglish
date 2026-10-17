@@ -85,6 +85,17 @@ export interface DailyState {
   /** Cards due in today's session, capped. */
   reviewTarget: number;
   reviewDone: number;
+  /**
+   * Every word in today's queue is one the learner has never reviewed.
+   *
+   * Worth distinguishing, because the panel's wording was false for exactly
+   * the people most likely to read it. A learner who saved five words this
+   * afternoon was told they were about to review "previously learned words",
+   * the ones "closest to being forgotten" — about words they had met once,
+   * minutes earlier, and never revisited. Both halves of that sentence were
+   * wrong on their first day in the app.
+   */
+  reviewAllNew: boolean;
   /** Which input kinds are already finished, if any. */
   inputDone: ActivityKind[];
 }
@@ -131,7 +142,8 @@ export function closeDailyGoal(userId?: string | null) {
 }
 
 export function dailyState(userId?: string | null): DailyState {
-  const target = Math.min(REVIEW_CAP, planSession().review.length);
+  const queue = planSession().review;
+  const target = Math.min(REVIEW_CAP, queue.length);
   const reviewed = getReviewedTodayCount();
   const done = kindsDoneToday();
   const inputDone = INPUT_KINDS.filter((kind) => done.has(kind));
@@ -148,6 +160,7 @@ export function dailyState(userId?: string | null): DailyState {
     show: !skippedToday(userId) && !closedToday(userId),
     reviewTarget: target,
     reviewDone: reviewed,
+    reviewAllNew: queue.length > 0 && queue.every((word) => word.reviewCount === 0),
     inputDone,
   };
 }

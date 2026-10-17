@@ -297,7 +297,13 @@ export default function Onboarding() {
 
                 <button type="button" className="ob-test" onClick={() => setTesting(true)}>
                   <span className="ob-test__h">{t("onboarding.testCta")}</span>
-                  <span className="ob-test__p">{t("onboarding.testCtaHint")}</span>
+                  <span className="ob-test__p">
+                    {/* The count comes from the test rather than from the
+                        sentence: it said ten for a twelve-question test, which
+                        is a small lie told on the screen where the app is
+                        asking to be trusted with five minutes. */}
+                    {t("onboarding.testCtaHint", { count: TOTAL_QUESTIONS })}
+                  </span>
                 </button>
 
                 <div className="ob-actions">

@@ -316,7 +316,8 @@
     "tabs": {
       "due": "You have probably forgotten these",
       "all": "All words",
-      "active": "Active vocabulary"
+      "active": "Active vocabulary",
+      "dueNew": "New words"
     },
     "expandAll": "Expand all",
     "collapseAll": "Collapse all",
@@ -333,7 +334,15 @@
     "mainFolder": "All words",
     "rename": "Rename",
     "renameFolder": "Set name",
-    "writeThis": "Write this word in English"
+    "writeThis": "Write this word in English",
+    "summaryTitle": "Session done",
+    "summaryRecalled": "recalled straight away",
+    "summaryStumbled": "needed another look",
+    "summaryHard": "These were the hardest",
+    "summaryStreak_one": "{{count}} day in a row",
+    "summaryStreak_other": "{{count}} days in a row",
+    "summaryRead": "Read a text",
+    "summaryHome": "Home"
   },
   "progress": {
     "title": "Your progress",
@@ -409,7 +418,8 @@
     "bandLow": "under {{to}} min",
     "bandMid": "{{from}}–{{to}} min",
     "bandHigh": "{{from}}+ min",
-    "minutesShort": "{{count}} min"
+    "minutesShort": "{{count}} min",
+    "noDaysYet": "Nothing in this window yet"
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -595,7 +605,9 @@
     "streakDays_one": "day in a row",
     "streakDays_other": "days in a row",
     "greetingFirst": "Let's begin",
-    "firstLine": "You're new here. Below is one thing to do today — about five minutes."
+    "firstLine": "You're new here. Below is one thing to do today — about five minutes.",
+    "dueLineNew_one": "{{count}} new word — its first review.",
+    "dueLineNew_other": "{{count}} new words — their first review."
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -717,7 +729,7 @@
       "C1-C2": "You read freely; nuance, register and idiom are the work now."
     },
     "testCta": "I'm not sure — check my level",
-    "testCtaHint": "10 adaptive questions, about five minutes. Every wrong answer is explained afterwards.",
+    "testCtaHint": "{{count}} adaptive questions, about five minutes. Every wrong answer is explained afterwards.",
     "question": "Question {{done}} of {{total}}",
     "stopTest": "Stop and choose a level myself",
     "testResultEyebrow": "Result",
@@ -1223,7 +1235,10 @@
       "listening": "Dictation",
       "slang": "Slang"
     },
-    "reviewNothingYet": "Nothing to review yet — words arrive once you start saving them."
+    "reviewNothingYet": "Nothing to review yet — words arrive once you start saving them.",
+    "reviewNameNew": "First review of your new words",
+    "reviewNoteNew_one": "One new word",
+    "reviewNoteNew_other": "{{count}} new words"
   },
   "bulk": {
     "open": "+ Paste a list of words",

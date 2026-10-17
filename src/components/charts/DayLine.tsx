@@ -37,7 +37,12 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
   );
 
   const total = days.reduce((sum, d) => sum + d.count, 0);
-  const max = Math.max(1, ...days.map((d) => d.count));
+  /* The tallest day there actually was. `max` below is floored at 1 so the
+     scaling never divides by zero — which is correct for geometry and wrong
+     as a fact, and the footer was printing it: a week with nothing in it
+     reported "peak 1". */
+  const highest = days.reduce((best, d) => Math.max(best, d.count), 0);
+  const max = Math.max(1, highest);
   const peak = days.reduce((best, d) => (d.count > best.count ? d : best), days[0] ?? { date: "", count: 0 });
 
   const points = days.map((day, i) => {
@@ -46,8 +51,11 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
     return { ...day, x, y };
   });
 
+  /* With no days there is nothing to draw, and the strings built from an
+     empty list are not merely empty — `area` would begin with an L command,
+     which is an invalid path and logs "Expected moveto" on every render. */
   const line = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
-  const area = `${line} L${W} ${H} L0 ${H} Z`;
+  const area = line ? `${line} L${W} ${H} L0 ${H} Z` : "";
 
   return (
     <section className="dl">
@@ -79,7 +87,8 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
             </linearGradient>
           </defs>
 
-          <path d={area} fill="url(#dl-fill)" />
+          {area && <path d={area} fill="url(#dl-fill)" />}
+          {line && (
           <path
             d={line}
             fill="none"
@@ -89,6 +98,7 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
             strokeLinejoin="round"
             strokeLinecap="round"
           />
+          )}
         </svg>
 
         {/* Dots sit outside the stretched SVG so they stay round: the plot is
@@ -106,9 +116,17 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
 
       <footer className="dl__foot">
         <span>{label.format(new Date(days[0]?.date ?? Date.now()))}</span>
+        {/* Only when there was a peak. Nothing happened is a fact worth
+            leaving unadorned, not one to dress as a record. */}
         <span className="dl__peakLabel">
-          {t("progress.peak", { count: max })}
-          {peak.date ? ` · ${label.format(new Date(peak.date))}` : ""}
+          {highest > 0 ? (
+            <>
+              {t("progress.peak", { count: highest })}
+              {peak.date ? ` · ${label.format(new Date(peak.date))}` : ""}
+            </>
+          ) : (
+            t("progress.noDaysYet")
+          )}
         </span>
         <span>{label.format(new Date(days[days.length - 1]?.date ?? Date.now()))}</span>
       </footer>

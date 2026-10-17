@@ -166,14 +166,25 @@ export default function Vocabulary() {
 
   const handleReview = (id: string, quality: 0 | 1 | 2 | 3, lastInQueue: boolean) => {
     reviewWord(id, quality);
-    setWords(getVocabulary());
+    /* Both lists, not just the words. Reviewing a card changes what is due,
+       and refreshing only the vocabulary left the tab counter frozen at the
+       number it had when the session started — so the figure beside "due"
+       stayed at twelve while the learner worked through all twelve. */
+    refresh();
 
     // A goal unit is five cards, or clearing whatever was left in the queue —
     // whichever comes first. The bucket id is derived from the day's own review
     // count, so leaving and coming back cannot award the same batch twice.
     const reviewedToday = getReviewedTodayCount();
     if (reviewedToday % REVIEWS_PER_TASK === 0 || lastInQueue) {
-      finish("vocabulary", `review:${Math.floor((reviewedToday - 1) / REVIEWS_PER_TASK)}`, t("tasks.reviewDone"));
+      /* Silent on the last card: the session's own summary screen is about
+         to say all of this, with more in it. */
+      finish(
+        "vocabulary",
+        `review:${Math.floor((reviewedToday - 1) / REVIEWS_PER_TASK)}`,
+        t("tasks.reviewDone"),
+        !lastInQueue,
+      );
     }
   };
 
@@ -191,6 +202,10 @@ export default function Vocabulary() {
 
   const count = (key: Tab) =>
     key === "due" ? due.length : key === "all" ? words.length : activatedCount();
+
+  /* Nothing in the queue has ever been reviewed, so calling the tab "you may
+     have forgotten these" is false: they were saved, not forgotten. */
+  const dueAllNew = due.length > 0 && due.every((w) => w.reviewCount === 0);
 
   return (
     <SectionHero title={t("nav.vocabulary")} description={t("home.descriptions.vocabulary")}>
@@ -211,7 +226,7 @@ export default function Vocabulary() {
                 refresh();
               }}
             >
-              {t(`vocabulary.tabs.${key}`)}
+              {key === "due" && dueAllNew ? t("vocabulary.tabs.dueNew") : t(`vocabulary.tabs.${key}`)}
               <span className="vocab-tabs__n tabular">{count(key)}</span>
             </button>
           ))}

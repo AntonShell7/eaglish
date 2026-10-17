@@ -52,3 +52,65 @@
   justify-content: center;
   gap: 8px;
 }
+
+/* ── What the session was like ────────────────────────────────────────── */
+
+/*
+ * The end of a review run.
+ *
+ * It used to say "the queue is empty" while a toast in the corner said much
+ * the same thing — the same news twice, and neither half told the learner
+ * anything about how it had gone. Attendance is not a result.
+ */
+.vs-summary {
+  margin: 18px 0 0;
+}
+
+.vs-summary__figures {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px 44px;
+}
+
+.vs-figure__n {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+/* The ones that needed another look are not a failure and are not dressed as
+   one — they are neutral, because they are the words the next session exists
+   for. */
+.vs-figure__n--off {
+  color: var(--color-text-muted);
+}
+
+.vs-figure__l {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.vs-summary__hard {
+  margin: 22px auto 0;
+  max-width: 44ch;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.vs-summary__hardH {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}

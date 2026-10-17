@@ -88,6 +88,10 @@ export default function Dashboard() {
    * greeting at everybody for a frame.
    */
   const ready = plan !== null;
+  /* Nothing in today's queue has been reviewed before, so "ready for review"
+     describes work the learner has not done yet rather than work they are
+     repeating. */
+  const dueAllNew = Boolean(plan && plan.review.length > 0 && plan.review.every((w) => w.reviewCount === 0));
   const fresh = ready && words === 0 && held === 0 && streak === 0;
 
   const streakShown = useCountUp(streak, 500);
@@ -191,7 +195,11 @@ export default function Dashboard() {
             <p className="eyebrow">{due > 0 ? t("dashboard.dueLabel") : t("dashboard.queueClearLabel")}</p>
 
             <h2 className="page-title mt-2 text-3xl">
-              {due > 0 ? t("dashboard.dueLine", { count: dueShown }) : t("dashboard.nothingDue")}
+              {due > 0
+                ? dueAllNew
+                  ? t("dashboard.dueLineNew", { count: dueShown })
+                  : t("dashboard.dueLine", { count: dueShown })
+                : t("dashboard.nothingDue")}
             </h2>
 
             <p className="mt-2 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
