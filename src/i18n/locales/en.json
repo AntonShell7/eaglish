@@ -584,7 +584,9 @@
     "dueSubTimed": "About {{minutes}} min. The order is already chosen: whatever is closest to being lost comes first.",
     "dueSubCapped": "About {{minutes}} min. {{total}} are due in all — today takes the ones nearest to being forgotten, the rest keep.",
     "streakDays_one": "day in a row",
-    "streakDays_other": "days in a row"
+    "streakDays_other": "days in a row",
+    "greetingFirst": "Let's begin",
+    "firstLine": "You're new here. Below is one thing to do today — about five minutes."
   },
   "tasks": {
     "readingDone": "Text finished",
@@ -1210,7 +1212,8 @@
       "reading": "Text",
       "listening": "Dictation",
       "slang": "Slang"
-    }
+    },
+    "reviewNothingYet": "Nothing to review yet — words arrive once you start saving them."
   },
   "bulk": {
     "open": "+ Paste a list of words",

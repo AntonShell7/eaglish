@@ -57,6 +57,13 @@ export function DailyStart({
 }) {
   const { t } = useTranslation();
   const left = Math.max(0, state.reviewTarget - state.reviewDone);
+
+  /* Nothing has ever been saved, so there is nothing owed — which the state
+     machine correctly calls "complete", and which the list was therefore
+     drawing as a finished task: struck through, ticked, and crediting the
+     reader with a review they did not do. A tick you did not earn devalues
+     every tick after it, so this row says why it is empty instead. */
+  const nothingToReview = state.reviewTarget === 0 && state.reviewDone === 0;
   const allDone = state.reviewComplete && state.practiceComplete;
 
   return (
@@ -66,11 +73,13 @@ export function DailyStart({
       <p className="ds__lede">{t("daily.lede")}</p>
 
       <ol className="ds__list">
-        <li className={state.reviewComplete ? "ds__item is-done" : "ds__item"}>
-          <Tick done={state.reviewComplete} />
+        <li className={state.reviewComplete && !nothingToReview ? "ds__item is-done" : "ds__item"}>
+          <Tick done={state.reviewComplete && !nothingToReview} />
           <div className="ds__body">
             <p className="ds__name">{t("daily.reviewName")}</p>
-            {state.reviewComplete ? (
+            {nothingToReview ? (
+              <p className="ds__note">{t("daily.reviewNothingYet")}</p>
+            ) : state.reviewComplete ? (
               <p className="ds__note">{t("daily.reviewDone", { count: state.reviewDone })}</p>
             ) : (
               <>

@@ -73,6 +73,23 @@ export default function Dashboard() {
     setProfile(getLearnerProfile());
   }, []);
 
+  /*
+   * Nobody has been here before.
+   *
+   * Nothing has been collected, nothing is held and no day has been counted —
+   * which is a different screen from an empty Tuesday, and was being shown as
+   * the same one. A first-time visitor was greeted with "welcome back" and
+   * then handed three large zeros: the only facts on the screen were three
+   * reminders of having nothing. The work to do is right underneath, so the
+   * numbers can simply wait until there is a number worth reading.
+   *
+   * It waits for the first load to finish. `plan` is null until the effect
+   * runs, and treating that moment as "new" would flash the beginner's
+   * greeting at everybody for a frame.
+   */
+  const ready = plan !== null;
+  const fresh = ready && words === 0 && held === 0 && streak === 0;
+
   const streakShown = useCountUp(streak, 500);
   const dueShown = useCountUp(due, 700);
   const wordsShown = useCountUp(words, 900);
@@ -88,10 +105,14 @@ export default function Dashboard() {
         className="page-title mt-2"
         style={{ "--page-title-size": "3.1rem" } as React.CSSProperties}
       >
-        {t("dashboard.greeting")}
+        {fresh ? t("dashboard.greetingFirst") : t("dashboard.greeting")}
       </h1>
       <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
-        {streak > 0 ? t("dashboard.streakLine", { count: streakShown }) : t("dashboard.noStreakLine")}
+        {fresh
+          ? t("dashboard.firstLine")
+          : streak > 0
+            ? t("dashboard.streakLine", { count: streakShown })
+            : t("dashboard.noStreakLine")}
       </p>
 
       {/* Your own English, in three numbers.
@@ -104,6 +125,7 @@ export default function Dashboard() {
           They count up rather than appear. That is not decoration: a number
           that lands on 340 from below is read as having got there, which is
           exactly what it did. */}
+      {!fresh && (
       <dl className="dash-stats" data-stagger>
         <div className="dash-stat">
           <dt className="dash-stat__n tabular">{wordsShown}</dt>
@@ -118,6 +140,7 @@ export default function Dashboard() {
           <dd className="dash-stat__l">{t("dashboard.streakDays", { count: streak })}</dd>
         </div>
       </dl>
+      )}
 
       {/* Anyone who skipped onboarding, or signed in on a fresh device, still
           needs a level — without one the app guesses, and guesses badly. */}
