@@ -168,8 +168,22 @@ scp -r deploy/dump deploy/restore-to-selfhost.sh eaglish@<ip>:~/supabase/docker/
 ssh eaglish@<ip> 'cd supabase/docker && bash restore-to-selfhost.sh ./dump'
 ```
 
-It prints row counts. **Compare them against the old project before going
-further** — a restore that half-worked looks exactly like one that worked.
+**The schema is restored and the rows are not**, which is the right call
+here: the old database holds eleven vocabulary words, eighteen reading
+sessions and two accounts, all of it the owner's own testing. The schema is
+the opposite — six of its ten migrations exist nowhere but the hosted
+project.
+
+Leaving the rows behind also removes a whole class of problem: no accounts
+move, so no sessions signed with the old JWT secret, no password hashes
+crossing GoTrue versions, nothing to reconcile. The new database starts
+empty and everyone registers once.
+
+The script prints row counts at the end. **Expect zeros.** What matters is
+that every table exists and nothing errored on the way — a restore that
+half-worked looks exactly like one that worked.
+
+`WITH_DATA=1` loads the rows too, for the day the contents actually matter.
 
 ### 6. Google sign-in
 
@@ -188,9 +202,13 @@ In Vercel → Project → Settings → Environment Variables:
 
 Redeploy. That is the whole application-side change.
 
-Everyone signs in once after this: sessions are signed with the old
-`JWT_SECRET` and the new server cannot verify them. Carrying them over would
-fail in a far more confusing way.
+The new database has no accounts in it, so register again from the live site
+once this is pointed at the new server.
+
+**Then update `VITE_ADMIN_IDS`.** It holds user UUIDs, and a fresh
+registration produces a new one — leave it and the admin page quietly stops
+recognising you, with nothing on screen to explain why. The new id is visible
+in Studio under `auth.users`.
 
 ### 8. Keep the way back for a week
 
