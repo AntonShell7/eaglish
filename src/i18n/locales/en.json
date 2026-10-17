@@ -3,7 +3,7 @@
   "nav": {
     "home": "Home",
     "reading": "Reading",
-    "writing": "Active vocabulary",
+    "writing": "Use your words",
     "listening": "Listening",
     "vocabulary": "Vocabulary",
     "progress": "Progress",
@@ -14,7 +14,10 @@
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
     "dictation": "Listening",
-    "slang": "Slang"
+    "slang": "Real English",
+    "more": "More",
+    "dictationShort": "Listening",
+    "moreTitle": "More sections"
   },
   "common": {
     "continue": "Continue",
@@ -281,7 +284,7 @@
     "doorDueEmpty": "Nothing to revisit today. It is all holding.",
     "doorAll": "All words",
     "doorAllBody": "The whole collection — by the day you collected them, or by how firmly each one is held.",
-    "doorActive": "Active vocabulary",
+    "doorActive": "Use your words",
     "doorActiveBody": "How many of your words you have actually put to work.",
     "style": {
       "typed": "Type it",
@@ -316,7 +319,7 @@
     "tabs": {
       "due": "You have probably forgotten these",
       "all": "All words",
-      "active": "Active vocabulary",
+      "active": "Use your words",
       "dueNew": "New words"
     },
     "expandAll": "Expand all",
@@ -401,9 +404,9 @@
     "section": {
       "reading": "Reading",
       "listening": "Listening",
-      "slang": "Slang",
+      "slang": "Real English",
       "vocabulary": "Vocabulary",
-      "writing": "Active vocabulary",
+      "writing": "Use your words",
       "other": "Elsewhere"
     },
     "calendarTitle": "Days worked",
@@ -576,7 +579,7 @@
     "heroSub": "Reading, listening, slang and your vocabulary in one place. An unfamiliar word goes straight from the text into your collection and comes back exactly when your brain is ready to lose it. Your range grows, your speech loosens — and all you did was show up.",
     "indexReading": "Reading",
     "indexListening": "Listening",
-    "indexSlang": "Slang",
+    "indexSlang": "Real English",
     "indexVocabulary": "Vocabulary"
   },
   "dashboard": {
@@ -679,7 +682,7 @@
     "back": "Back",
     "later": "Set this up later",
     "goalTitle": "What are you learning English for?",
-    "goalLede": "This decides which writing briefs you see first — nothing else changes about the app.",
+    "goalLede": "We'll pick texts and tasks around your goal — the first writing tasks included.",
     "goals": {
       "exams": {
         "h": "Exams",
@@ -717,7 +720,7 @@
       "Society": "Society"
     },
     "levelTitle": "What's your English level?",
-    "levelLede": "It sets which texts open first. If you're not sure, don't guess — the check below takes five minutes.",
+    "levelLede": "It sets which texts open first. If you're not sure, don't guess — the check takes five minutes and answers it properly.",
     "levelName": {
       "A1-A2": "Beginner",
       "B1-B2": "Intermediate",
@@ -768,7 +771,8 @@
       "5": "30 minutes a day"
     },
     "testResultNote": "An estimate, not a verdict: twelve questions land on the neighbouring level about a third of the time. If it feels wrong, set the level yourself — it only changes which texts open first.",
-    "planHorizon": "For scale: Cambridge English estimates 180–260 hours of practice per CEFR level. Your pace is about {{hours}} hours a month — so Eaglish counts the tasks you finish instead of promising a date."
+    "planHorizon": "At {{hours}} hours a month people usually notice the difference in reading within 3–4 weeks: visibly fewer unknown words on a page. Eaglish counts what you have done rather than promising a date.",
+    "orPickYourself": "or pick your level yourself"
   },
   "consent": {
     "title": "What Eaglish keeps",
@@ -965,7 +969,7 @@
     "yours": "yours"
   },
   "activation": {
-    "title": "Active vocabulary",
+    "title": "Use your words",
     "intro": "A word you have never said or written lives in recognition memory: it answers when asked and stays silent in the half-second speech allows. Here you build a sentence with it and get judged on that word alone.",
     "activeLabel": "Words you have actually used",
     "activeExplain": "Knowing a word and being able to reach for it are different things. The second number only moves when you build a sentence yourself.",
@@ -1233,7 +1237,7 @@
     "choice": {
       "reading": "Text",
       "listening": "Dictation",
-      "slang": "Slang"
+      "slang": "Real English"
     },
     "reviewNothingYet": "Nothing to review yet — words arrive once you start saving them.",
     "reviewNameNew": "First review of your new words",

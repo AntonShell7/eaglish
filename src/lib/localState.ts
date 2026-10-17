@@ -23,6 +23,7 @@ export const PROGRESS_KEYS = [
   "vocabularyWords",
   "activityLog",
   "learnerProfile",
+  "onboardingDeferred",
   "readingHistory",
   "readingQuizResults",
   "reviewLog",

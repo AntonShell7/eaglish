@@ -4,7 +4,14 @@ import { useNavigate, Link } from "react-router-dom";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
-import { GOALS, INTERESTS, saveLearnerProfile, type Goal, type PlacementRecord } from "@/lib/learnerProfile";
+import {
+  GOALS,
+  INTERESTS,
+  deferOnboarding,
+  saveLearnerProfile,
+  type Goal,
+  type PlacementRecord,
+} from "@/lib/learnerProfile";
 import {
   TOTAL_QUESTIONS,
   estimate,
@@ -35,7 +42,8 @@ function LevelTest({
   onDone: (level: ReadingLevel, record: PlacementRecord) => void;
   onCancel: () => void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const ru = i18n.language.startsWith("ru");
   const [session, setSession] = useState<PlacementSession>(startSession);
   const [item, setItem] = useState<PreparedItem | null>(() => nextItem(startSession()));
   const [finished, setFinished] = useState(false);
@@ -69,7 +77,10 @@ function LevelTest({
             {missed.map((a) => (
               <div key={a.id} className="ob-review__item">
                 <p className="ob-review__q">{a.text.replace("___", `[ ${a.expected} ]`)}</p>
-                <p className="ob-review__n">{a.note}</p>
+                {/* The explanation in the reader's language, the example
+                    in English. A learner placed at A1 was being handed the
+                    reasoning in the language they are here to learn. */}
+                <p className="ob-review__n">{ru ? a.noteRu : a.note}</p>
               </div>
             ))}
           </div>
@@ -227,9 +238,19 @@ export default function Onboarding() {
                   ))}
                 </div>
 
-                <Link to="/" className="ob-skip">
+                {/* Recorded, not just followed. Onboarding now opens by
+                    itself for anyone without a profile, so a "later" that
+                    left no trace would send them straight back here. */}
+                <button
+                  type="button"
+                  className="ob-skip"
+                  onClick={() => {
+                    deferOnboarding();
+                    navigate("/");
+                  }}
+                >
                   {t("onboarding.later")}
-                </Link>
+                </button>
               </div>
             )}
 
@@ -269,6 +290,27 @@ export default function Onboarding() {
                 <h2 className="ob-title">{t("onboarding.levelTitle")}</h2>
                 <p className="ob-lede">{t("onboarding.levelLede")}</p>
 
+                {/* The test first, and larger.
+                    Self-reporting a level is the option people take because
+                    it is quicker, and it is the one that produces the worse
+                    answer: most learners place themselves a band high, and
+                    the whole app is then tuned to a level they are not at.
+                    Twelve questions settles it properly, so that is the
+                    offer, and choosing by hand stays available underneath
+                    for anyone who already knows. */}
+                <button type="button" className="ob-test" onClick={() => setTesting(true)}>
+                  <span className="ob-test__h">{t("onboarding.testCta")}</span>
+                  <span className="ob-test__p">
+                    {/* The count comes from the test rather than from the
+                        sentence: it said ten for a twelve-question test, which
+                        is a small lie told on the screen where the app is
+                        asking to be trusted with five minutes. */}
+                    {t("onboarding.testCtaHint", { count: TOTAL_QUESTIONS })}
+                  </span>
+                </button>
+
+                <p className="ob-or">{t("onboarding.orPickYourself")}</p>
+
                 <div className="ob-grid">
                   {LEVELS.map((l) => (
                     <button
@@ -294,17 +336,6 @@ export default function Onboarding() {
                     </button>
                   ))}
                 </div>
-
-                <button type="button" className="ob-test" onClick={() => setTesting(true)}>
-                  <span className="ob-test__h">{t("onboarding.testCta")}</span>
-                  <span className="ob-test__p">
-                    {/* The count comes from the test rather than from the
-                        sentence: it said ten for a twelve-question test, which
-                        is a small lie told on the screen where the app is
-                        asking to be trusted with five minutes. */}
-                    {t("onboarding.testCtaHint", { count: TOTAL_QUESTIONS })}
-                  </span>
-                </button>
 
                 <div className="ob-actions">
                   <button type="button" className="ob-ghost" onClick={() => go("interests")}>

@@ -1,5 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { getLearnerProfile, isOnboardingDeferred } from "@/lib/learnerProfile";
 
 /**
  * The wall around the learning sections.
@@ -33,6 +34,32 @@ export function RequireAuth() {
     // `from` is what sends them back to the page they actually wanted once
     // they are in, instead of dumping everyone on the dashboard.
     return <Navigate to="/login" replace state={{ from: location.pathname + location.search }} />;
+  }
+
+  /*
+   * No profile yet, so the app does not know what level to serve.
+   *
+   * It used to wait to be asked — a card on the dashboard offering to set a
+   * level — which meant most people never set one, and the app spent their
+   * first week guessing. Everything it chooses hangs off that guess: which
+   * texts appear, how hard the dictation is, what the first review looks
+   * like. Four questions is a cheap price for the whole product working
+   * properly, and the one moment somebody will pay it is the moment they
+   * arrive.
+   *
+   * This covers Google as well, which is why it lives here rather than in
+   * the email sign-up flow: an OAuth round trip comes back to whatever page
+   * it started from, so routing the new account from inside Register would
+   * have missed exactly the people who took the quickest way in.
+   *
+   * `later` is honoured. Without that, declining it is a loop.
+   */
+  if (
+    location.pathname !== "/onboarding" &&
+    !getLearnerProfile() &&
+    !isOnboardingDeferred()
+  ) {
+    return <Navigate to="/onboarding" replace />;
   }
 
   return <Outlet />;

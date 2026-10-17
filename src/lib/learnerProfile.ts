@@ -44,6 +44,39 @@ export interface LearnerProfile {
 
 const STORAGE_KEY = "learnerProfile";
 
+/**
+ * "Not now."
+ *
+ * Onboarding opens by itself for anyone who has no profile, because without
+ * one the app guesses at their level and guesses badly — and the guess shapes
+ * every text it offers. But opening by itself has to be escapable, or the
+ * "later" link becomes a loop: skip, land on home, get sent straight back.
+ *
+ * Deferring is remembered per device and cleared on sign-out, like the rest
+ * of a learner's local state. There is no expiry: the dashboard already
+ * carries a standing invitation to set a level, and a flow that reappears
+ * after someone has declined it is a flow people learn to click past without
+ * reading.
+ */
+const DEFER_KEY = "onboardingDeferred";
+
+export function deferOnboarding() {
+  try {
+    localStorage.setItem(DEFER_KEY, "1");
+  } catch {
+    /* Storage disabled; onboarding will offer itself again, which is the
+       harmless direction to fail in. */
+  }
+}
+
+export function isOnboardingDeferred(): boolean {
+  try {
+    return localStorage.getItem(DEFER_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function getLearnerProfile(): LearnerProfile | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);

@@ -134,3 +134,20 @@ export function IconQuotes() {
     </svg>
   );
 }
+
+/**
+ * Three dots, for the phone bar's fifth slot.
+ *
+ * Horizontal rather than vertical: the vertical triple is read as "options
+ * for this item" and lives at the end of a row, while the horizontal one is
+ * read as "more of these" — which is exactly what it opens.
+ */
+export function IconMore() {
+  return (
+    <svg viewBox="0 0 24 24" width="20" height="20" {...base}>
+      <circle cx="5" cy="12" r="1.4" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+      <circle cx="19" cy="12" r="1.4" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}

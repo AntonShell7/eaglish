@@ -371,3 +371,97 @@
     font-size: 0.82rem;
   }
 }
+
+/* ── "More", and what it opens ────────────────────────────────────────── */
+
+/*
+ * The phone bar holds five targets before it stops being hittable, and the
+ * app has seven places to go. The fifth slot is a door rather than a
+ * destination: one tap reaches Real English, Use your words, Progress and
+ * Profile, all of which were otherwise unreachable from a phone except by
+ * going through the dashboard.
+ */
+.moresheet__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 44;
+  background: rgba(0, 0, 0, 0.5);
+  animation: more-fade var(--dur-2) var(--ease) both;
+}
+
+.moresheet {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 46;
+  padding: 10px 12px calc(14px + 62px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-4);
+  animation: more-rise var(--dur-3) var(--ease) both;
+}
+
+@keyframes more-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes more-rise {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+.moresheet__h {
+  margin: 6px 0 10px;
+  padding: 0 12px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.moresheet__link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.97rem;
+  font-weight: 650;
+  color: var(--color-text);
+}
+
+.moresheet__link.is-active {
+  background: var(--color-primary-softer);
+  color: var(--color-primary);
+}
+
+@media (min-width: 1024px) {
+  .moresheet,
+  .moresheet__scrim {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moresheet,
+  .moresheet__scrim {
+    animation: none;
+  }
+}
+
+/* The bar's labels must not wrap: a two-line label in a 75px column pushes
+   the whole bar out of shape and shifts every icon above it. */
+.tabbar__link {
+  overflow: hidden;
+}
+
+.tabbar__link > :last-child {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/context/AuthContext";
@@ -9,7 +9,9 @@ import {
   IconHeadphones,
   IconQuotes,
   IconBookmark,
+  IconPen,
   IconChart,
+  IconMore,
   IconUser,
 } from "@/components/brand/icons";
 import { StatsStrip } from "./StatsStrip";
@@ -41,22 +43,48 @@ const PRACTICE = [
   { to: "/slang", key: "slang", Icon: IconQuotes },
 ] as const;
 
-const WORDS = [{ to: "/vocabulary", key: "vocabulary", Icon: IconBookmark }] as const;
+/*
+ * Words: the collection, and the drill that proves you have them.
+ *
+ * "Use your words" lives here rather than under practice — it is not a way of
+ * meeting words but a way of showing you hold them — but it had no entry in
+ * the navigation at all, reachable only through a tab inside the vocabulary.
+ * A whole section with no door in the rail is a section nobody finds.
+ */
+const WORDS = [
+  { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
+  { to: "/writing", key: "writing", Icon: IconPen },
+] as const;
 
 const YOU = [
   { to: "/progress", key: "progress", Icon: IconChart },
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
-/* Five slots only — a tab bar with more becomes unhittable on a phone, so
-   adding dictation had to cost something. Progress is the one that leaves:
-   the dashboard already opens on a summary of it and links straight through,
-   while the practice sections have nowhere else to be reached from in one tap. */
+/*
+ * Five slots, and the fifth is a door rather than a destination.
+ *
+ * A phone bar with more than five targets stops being hittable, and the app
+ * has seven places to go. Spending the last slot on Profile meant three
+ * sections — Real English, Use your words, Progress — could not be reached
+ * from a phone at all without going via the dashboard. "More" costs one tap
+ * and reaches all of them, which is cheaper than a section being invisible.
+ *
+ * The label for dictation is the short one here: "Английский на слух" wraps
+ * to two lines in a 75px column and pushes the bar out of shape.
+ */
 const TABS = [
   { to: "/", key: "home", Icon: IconHome },
   { to: "/reading", key: "reading", Icon: IconBook },
-  { to: "/dictation", key: "dictation", Icon: IconHeadphones },
+  { to: "/dictation", key: "dictationShort", Icon: IconHeadphones },
   { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
+] as const;
+
+/** What sits behind "More". */
+const MORE = [
+  { to: "/slang", key: "slang", Icon: IconQuotes },
+  { to: "/writing", key: "writing", Icon: IconPen },
+  { to: "/progress", key: "progress", Icon: IconChart },
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
@@ -65,6 +93,11 @@ export function Layout() {
   const { pathname } = useLocation();
   const { user, demo } = useAuth();
   const scrolled = useScrolled();
+  const [more, setMore] = useState(false);
+
+  /* The sheet belongs to the page it was opened on. Leaving that page with it
+     still up would reopen it over the destination. */
+  useEffect(() => setMore(false), [pathname]);
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {
@@ -222,7 +255,40 @@ export function Layout() {
               {t(`nav.${key}`)}
             </NavLink>
           ))}
+
+          <button
+            type="button"
+            className={`tabbar__link ${more ? "tabbar__link--active" : ""}`}
+            aria-expanded={more}
+            onClick={() => setMore((v) => !v)}
+          >
+            <IconMore />
+            {t("nav.more")}
+          </button>
         </nav>
+      )}
+
+      {/* The rest of the app, one tap from the bar. It closes on choosing
+          something, and on tapping away — a sheet that only closes by its own
+          button is a sheet people get stuck in. */}
+      {user && more && (
+        <>
+          <div className="moresheet__scrim" onClick={() => setMore(false)} aria-hidden />
+          <div className="moresheet" role="dialog" aria-label={t("nav.moreTitle")}>
+            <p className="moresheet__h">{t("nav.moreTitle")}</p>
+            {MORE.map(({ to, key, Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) => `moresheet__link ${isActive ? "is-active" : ""}`}
+                onClick={() => setMore(false)}
+              >
+                <Icon />
+                {t(`nav.${key}`)}
+              </NavLink>
+            ))}
+          </div>
+        </>
       )}
 
       <SelectionLookup />

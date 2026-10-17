@@ -21,6 +21,7 @@ export interface PreparedItem {
   options: string[];
   answer: number;
   note: string;
+  noteRu: string;
 }
 
 export interface AnsweredItem {
@@ -31,6 +32,7 @@ export interface AnsweredItem {
   picked: string;
   expected: string;
   note: string;
+  noteRu: string;
   text: string;
 }
 
@@ -90,6 +92,7 @@ export function record(session: PlacementSession, item: PreparedItem, pickedInde
         picked: item.options[pickedIndex],
         expected: item.options[item.answer],
         note: item.note,
+        noteRu: item.noteRu,
         text: item.text,
       },
     ],

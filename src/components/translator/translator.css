@@ -15,6 +15,20 @@
   z-index: 60;
 }
 
+/* Clear of the tab bar.
+   At 18px from the bottom this sat exactly on top of the bar's fifth slot —
+   the same 75px column, the same rows — so on a phone a tap meant for the
+   last tab opened the translator instead. It went unnoticed while that slot
+   held Profile, which is reachable elsewhere; it stopped being survivable
+   when the slot became "More" and three sections hung off it. The feedback
+   button has always cleared the bar this way; this one simply never did. */
+@media (max-width: 1023px) {
+  .tr-tab,
+  .tr {
+    bottom: calc(18px + 62px + env(safe-area-inset-bottom));
+  }
+}
+
 /* ── Collapsed ───────────────────────────────────────────────────────────── */
 
 .tr-tab {
