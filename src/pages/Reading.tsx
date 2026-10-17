@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { ShareButton } from "@/components/ui/ShareButton";
 import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { findTopic, loadTopicTexts, readingTopics, wordCount } from "@/data/readingLibrary";
@@ -361,9 +363,15 @@ function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
     <div className="mx-auto max-w-5xl px-5 py-10">
       <ReadingProgress target={article} />
 
-      <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
-        ← {t("reading.backToList")}
-      </button>
+      {/* Back and share on one line: the text now has an address, so it can
+          be sent to somebody, which is the commonest thing anyone wants to do
+          with a text they liked. */}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
+          ← {t("reading.backToList")}
+        </button>
+        <ShareButton title={text.title} />
+      </div>
 
       <article ref={article} className="card mt-4 p-6 sm:p-12" style={{ boxShadow: "var(--shadow-2)" }}>
         <h1 className="page-title text-2xl">{text.title}</h1>
@@ -507,20 +515,46 @@ function PersonalTexts({
  * subject is the moment a reader decides whether to bother at all, so it gets a
  * screen of its own rather than a dropdown. Each topic's texts load on demand.
  */
+/**
+ * Reading, with the place you are in written in the address bar.
+ *
+ * All three levels — the shelf, a topic, a text — used to be local state at
+ * /reading, which had three consequences and no benefits. The browser's back
+ * button left the section instead of going up a level. Reloading inside a
+ * text dropped the reader on the shelf. And a text could not be sent to
+ * anybody: there was no address for it, so "read this one" meant describing
+ * where to click.
+ *
+ * The state is derived from the route rather than mirrored into it. Mirroring
+ * is what produces the bug where the address and the screen disagree after a
+ * back button; deriving cannot, because there is only one source.
+ */
 export default function Reading() {
   const { t } = useTranslation();
-  const [topicId, setTopicId] = useState<string | null>(null);
-  const [personal, setPersonal] = useState(false);
+  const { topic: topicParam, textId } = useParams<{ topic?: string; textId?: string }>();
+  const navigate = useNavigate();
+
+  /* "personal" occupies the topic slot. It is a real destination with its own
+     screen, and no topic is ever called that. */
+  const personal = topicParam === "personal";
+  const topicId = personal ? null : (topicParam ?? null);
+
   const [texts, setTexts] = useState<ReadingText[]>([]);
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState<ReadingText | null>(null);
+
+  /* Personal texts are the learner's own and exist only on their device, so
+     there is nothing to share and nothing to resolve from an id. They keep
+     the state they always had. */
+  const [openPersonal, setOpenPersonal] = useState<ReadingText | null>(null);
+
+  const open = textId ? (texts.find((text) => text.id === textId) ?? null) : null;
 
   const [quiz, setQuiz] = useState<QuizResult[]>([]);
 
   // Re-read on leaving the reader, so a fresh score shows up in the list.
   useEffect(() => {
     setQuiz(getQuizResults());
-  }, [open]);
+  }, [textId]);
 
   useEffect(() => {
     if (!topicId) return;
@@ -536,9 +570,25 @@ export default function Reading() {
     };
   }, [topicId]);
 
-  if (open) return <Reader key={open.id} text={open} onBack={() => setOpen(null)} />;
+  if (openPersonal) {
+    return <Reader key={openPersonal.id} text={openPersonal} onBack={() => setOpenPersonal(null)} />;
+  }
 
-  if (personal) return <PersonalTexts onPick={setOpen} onBack={() => setPersonal(false)} />;
+  if (personal) {
+    return <PersonalTexts onPick={setOpenPersonal} onBack={() => navigate("/reading")} />;
+  }
+
+  /* An id in the address that this topic does not contain. It happens with an
+     old link, a renamed text, or a typo — and dropping the reader on the
+     topic list is the honest answer, rather than a blank screen or a reader
+     showing nothing. */
+  if (textId && !loading && texts.length > 0 && !open) {
+    return <Navigate to={`/reading/${topicId}`} replace />;
+  }
+
+  if (open) {
+    return <Reader key={open.id} text={open} onBack={() => navigate(`/reading/${topicId}`)} />;
+  }
 
   if (topicId) {
     if (loading) {
@@ -554,11 +604,17 @@ export default function Reading() {
         topicId={topicId}
         texts={texts}
         quiz={quiz}
-        onPick={setOpen}
-        onBack={() => setTopicId(null)}
+        onPick={(text) => navigate(`/reading/${topicId}/${text.id}`)}
+        onBack={() => navigate("/reading")}
       />
     );
   }
 
-  return <TopicGrid onPick={setTopicId} onPersonal={() => setPersonal(true)} onOpenText={setOpen} />;
+  return (
+    <TopicGrid
+      onPick={(id) => navigate(`/reading/${id}`)}
+      onPersonal={() => navigate("/reading/personal")}
+      onOpenText={(text) => navigate(`/reading/${text.topic}/${text.id}`)}
+    />
+  );
 }

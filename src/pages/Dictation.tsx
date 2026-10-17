@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSegmented } from "@/lib/useSegmented";
 import { SectionHero } from "@/components/SectionHero";
@@ -34,11 +35,18 @@ import { ensureLexicon } from "@/lib/lexicon";
  */
 export default function Dictation() {
   const { t, i18n } = useTranslation();
+  /* Subject and lesson come from the address, for the same reasons reading
+     does: the back button should go up a level rather than out of the
+     section, a reload should land where it left — reloading mid-lesson used
+     to dump you back on the shelf — and a lesson somebody liked should be
+     sendable. */
+  const { topic: topicParam, id: lessonId } = useParams<{ topic?: string; id?: string }>();
+  const navigate = useNavigate();
+
   const [texts, setTexts] = useState<ReadingText[]>([]);
-  const [open, setOpen] = useState<ReadingText | null>(null);
   const [loading, setLoading] = useState(false);
   const [picked, setPicked] = useState<Cefr | null>(null);
-  const [topic, setTopic] = useState<string | null>(null);
+  const topic = topicParam ?? null;
   const [mode, setMode] = useState<"voice" | "video">("voice");
   const [videos, setVideos] = useState<VideoExercise[]>(() => getVideoExercises());
   const [adding, setAdding] = useState(false);
@@ -48,6 +56,8 @@ export default function Dictation() {
   const [levels, setLevels] = useState<Record<string, Cefr>>({});
 
   const bandOfLearner = getLearnerProfile()?.level ?? null;
+
+  const open = lessonId ? (texts.find((text) => text.id === lessonId) ?? null) : null;
 
   useEffect(() => {
     setLoading(true);
@@ -94,6 +104,12 @@ export default function Dictation() {
     return [...filtered].sort((a, b) => Number(b.level === bandOfLearner) - Number(a.level === bandOfLearner));
   }, [inTopic, levels, picked, bandOfLearner]);
 
+  /* An id this subject does not hold — an old link, or a typo. The shelf is
+     the honest landing place; a blank runner is not. */
+  if (lessonId && !loading && texts.length > 0 && !open) {
+    return <Navigate to={`/dictation/${topic}`} replace />;
+  }
+
   if (openVideo) {
     return (
       <div className="mx-auto max-w-6xl px-5 py-10">
@@ -110,7 +126,7 @@ export default function Dictation() {
           id={open.id}
           title={open.title}
           sentences={open.sentences}
-          onExit={() => setOpen(null)}
+          onExit={() => navigate(`/dictation/${topic}`)}
         />
       </div>
     );
@@ -199,7 +215,7 @@ export default function Dictation() {
                 <button
                   key={entry.id}
                   type="button"
-                  onClick={() => setTopic(entry.id)}
+                  onClick={() => navigate(`/dictation/${entry.id}`)}
                   className="card card--interactive card--accent flex h-full flex-col p-5 text-left"
                 >
                   <h2 className="page-title text-xl leading-snug">
@@ -223,8 +239,8 @@ export default function Dictation() {
               <button
                 type="button"
                 onClick={() => {
-                  setTopic(null);
                   setPicked(null);
+                  navigate("/dictation");
                 }}
                 className="text-sm font-semibold"
                 style={{ color: "var(--color-text-muted)" }}
@@ -258,7 +274,7 @@ export default function Dictation() {
                     key={text.id}
                     type="button"
                     className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
-                    onClick={() => setOpen(text)}
+                    onClick={() => navigate(`/dictation/${topic}/${text.id}`)}
                   >
                     {/* The same badge reading uses. Two sections showing the
                         level in two different colours is how an app starts

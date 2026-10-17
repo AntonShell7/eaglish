@@ -34,14 +34,23 @@ export default function App() {
 
         {/* Everything that writes progress needs an account to write it to. */}
         <Route element={<RequireAuth />}>
+          {/* The shelf, a topic, and a text, each with its own address: the
+              back button goes up a level instead of out of the section, a
+              reload lands where it left, and a text can be sent to somebody. */}
           <Route path="reading" element={<Reading />} />
+          <Route path="reading/:topic" element={<Reading />} />
+          <Route path="reading/:topic/:textId" element={<Reading />} />
           <Route path="dictation" element={<Dictation />} />
+          <Route path="dictation/:topic" element={<Dictation />} />
+          <Route path="dictation/:topic/:id" element={<Dictation />} />
           <Route path="writing" element={<Writing />} />
           <Route path="vocabulary" element={<Vocabulary />} />
           {/* Everyday English merged into Slang; the old address is in links
               and in people's history, so it still arrives somewhere useful. */}
           <Route path="everyday-english" element={<Navigate to="/slang" replace />} />
           <Route path="slang" element={<Slang />} />
+          <Route path="slang/:topic" element={<Slang />} />
+          <Route path="slang/:topic/:id" element={<Slang />} />
           <Route path="progress" element={<ProgressPage />} />
           <Route path="profile" element={<Profile />} />
           {/* Behind the auth wall like everything else; the real gate is the

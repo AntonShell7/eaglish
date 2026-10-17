@@ -1258,5 +1258,10 @@
     "saved": "{{count}} words saved",
     "more": "Add more",
     "close": "Close"
+  },
+  "share": {
+    "action": "Share",
+    "copied": "Link copied",
+    "copyManually": "Copy this link:"
   }
 }

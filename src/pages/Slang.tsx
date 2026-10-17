@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
+import { useNavigate, useParams } from "react-router-dom";
 import { DialogueRunner } from "@/components/slang/DialogueRunner";
 import { LessonRunner } from "@/components/everyday/LessonRunner";
 import { slangDialogues, slangShelf, type Dialogue, type SlangTopic } from "@/data/slangDialogues";
@@ -59,10 +60,18 @@ type Item =
 export default function Slang() {
   const { t, i18n } = useTranslation();
   const ru = i18n.language.startsWith("ru");
-  const [topic, setTopic] = useState<SlangTopic | null>(null);
-  const [open, setOpen] = useState<Dialogue | null>(null);
-  const [openLesson, setOpenLesson] = useState<string | null>(null);
+  /* Room and item in the address, as in reading and dictation. The id slot
+     holds either kind: a dialogue and a lesson are different screens but the
+     same thing to a link, and the learner choosing one does not care which
+     format it turned out to be. */
+  const { topic: topicParam, id: itemId } = useParams<{ topic?: string; id?: string }>();
+  const navigate = useNavigate();
+
+  const topic = (topicParam as SlangTopic | undefined) ?? null;
   const [lessonResults, setLessonResults] = useState<Record<string, LessonResult>>({});
+
+  const open = itemId ? (slangDialogues.find((d) => d.id === itemId) ?? null) : null;
+  const openLesson = itemId && !open ? itemId : null;
 
   useEffect(() => setLessonResults(getLessonResults()), [openLesson]);
 
@@ -119,8 +128,12 @@ export default function Slang() {
       <LessonRunner
         key={lesson.id}
         lesson={lesson}
-        onExit={() => setOpenLesson(null)}
-        onNextLesson={nextLesson && nextLesson.id !== lesson.id ? () => setOpenLesson(nextLesson.id) : undefined}
+        onExit={() => navigate(topic ? `/slang/${topic}` : "/slang")}
+        onNextLesson={
+          nextLesson && nextLesson.id !== lesson.id
+            ? () => navigate(`/slang/${nextLesson.topic}/${nextLesson.id}`)
+            : undefined
+        }
       />
     );
   }
@@ -128,7 +141,7 @@ export default function Slang() {
   if (open) {
     return (
       <SectionHero title={t("nav.slang")} description={t("slangModule.intro")}>
-        <DialogueRunner dialogue={open} onExit={() => setOpen(null)} />
+        <DialogueRunner dialogue={open} onExit={() => navigate(topic ? `/slang/${topic}` : "/slang")} />
       </SectionHero>
     );
   }
@@ -144,7 +157,7 @@ export default function Slang() {
             <button
               key={entry.id}
               type="button"
-              onClick={() => setTopic(entry.id)}
+              onClick={() => navigate(`/slang/${entry.id}`)}
               disabled={entry.total === 0}
               className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
             >
@@ -164,7 +177,7 @@ export default function Slang() {
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <button
               type="button"
-              onClick={() => setTopic(null)}
+              onClick={() => navigate("/slang")}
               className="text-sm font-semibold"
               style={{ color: "var(--color-text-muted)" }}
             >
@@ -187,9 +200,7 @@ export default function Slang() {
                   key={item.id}
                   type="button"
                   className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
-                  onClick={() =>
-                    item.kind === "dialogue" ? setOpen(item.dialogue) : setOpenLesson(item.id)
-                  }
+                  onClick={() => navigate(`/slang/${item.topic}/${item.id}`)}
                 >
                   {/* The format, where the other two shelves put the level.
                       A row still needs an anchor on the left, and this is the
