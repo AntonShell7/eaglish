@@ -17,6 +17,7 @@ import { Drill } from "@/components/vocabulary/Drill";
 import { DueSession } from "@/components/vocabulary/DueSession";
 import { ActiveVocabulary } from "@/components/activation/ActiveVocabulary";
 import { activatedCount } from "@/lib/activation";
+import { backfillTranslations } from "@/lib/backfill";
 import { useSegmented } from "@/lib/useSegmented";
 import "./vocabulary.css";
 
@@ -136,6 +137,21 @@ export default function Vocabulary() {
   };
 
   useEffect(refresh, []);
+
+  /* Words kept during an outage arrive here with a blank back. This is the
+     one screen where the learner is looking straight at them, so it is where
+     the missing translations get filled in — a few per visit, and the list
+     redraws if any landed. */
+  useEffect(() => {
+    let alive = true;
+    void backfillTranslations().then((filled) => {
+      if (alive && filled > 0) refresh();
+    });
+    return () => {
+      alive = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /** Snapshots the queue: a card answered mid-session must not reshuffle the rest. */
   const startDrill = (queue: VocabularyWord[], title: string) => {

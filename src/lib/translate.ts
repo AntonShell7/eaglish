@@ -1,4 +1,6 @@
 import { askModel, AiError, type AiFailure, type AiMessage, type AiRequest } from "./aiClient";
+import { getCachedLookup, putCachedLookup } from "./lookupCache";
+import { offlineTranslation } from "./offlineDictionary";
 
 export interface GlossaryLike {
   [word: string]: { translation: string; partOfSpeech?: string };
@@ -89,6 +91,15 @@ function looksRussian(value: string | undefined): boolean {
   return Boolean(value && /[\u0400-\u04FF]/.test(value));
 }
 
+/**
+ * Where an answer comes from, cheapest first.
+ *
+ * A glossary shipped with the text, then this session's cache, then the
+ * offline set, and only then the model. Every step before the last is free
+ * and instant, and the last one is rate-limited to sixty an hour — so asking
+ * it for a word the app already knows spends the learner's quota on an answer
+ * it has been given before.
+ */
 export async function lookupWord(
   rawWord: string,
   options: { sentence?: string; glossary?: GlossaryLike } = {},
@@ -99,6 +110,21 @@ export async function lookupWord(
   const entry = options.glossary?.[key];
   if (entry) {
     return { word: cleaned, translation: entry.translation, partOfSpeech: entry.partOfSpeech, isLive: false };
+  }
+
+  const cached = getCachedLookup(cleaned, options.sentence);
+  if (cached) {
+    return {
+      word: cleaned,
+      translation: cached.translation,
+      partOfSpeech: cached.partOfSpeech,
+      isLive: false,
+    };
+  }
+
+  const offline = await offlineTranslation(cleaned);
+  if (offline) {
+    return { word: cleaned, translation: offline, isLive: false };
   }
 
   let failure: Unavailable = "failed";
@@ -128,6 +154,10 @@ export async function lookupWord(
          English against English and teaches nothing. A single Cyrillic letter
          is a cheap and complete test for it. */
       if (parsed.translation && looksRussian(parsed.translation)) {
+        putCachedLookup(cleaned, options.sentence, {
+          translation: parsed.translation,
+          partOfSpeech: parsed.partOfSpeech,
+        });
         return { word: cleaned, translation: parsed.translation, partOfSpeech: parsed.partOfSpeech, isLive: true };
       }
       if (parsed.translation) console.warn("[translate] answer was not in Russian:", cleaned, parsed.translation);

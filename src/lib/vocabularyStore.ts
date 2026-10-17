@@ -207,6 +207,29 @@ export function addVocabularyWord(
   return entry;
 }
 
+/**
+ * Give a saved word the translation it was saved without.
+ *
+ * Words can now be kept while the model is unavailable, which means the
+ * vocabulary can hold entries whose back is blank. Those are still useful —
+ * they carry the word and the sentence it was met in — but they cannot be
+ * reviewed properly, so they are filled in as soon as an answer can be had.
+ */
+export function setTranslation(id: string, translation: string) {
+  if (!translation.trim()) return;
+  const words = readAll();
+  const entry = words.find((w) => w.id === id);
+  if (!entry || entry.translation.trim()) return;
+  entry.translation = translation;
+  writeAll(words);
+  pushVocabularyWord(entry);
+}
+
+/** Saved while the model was unreachable, and still waiting for a back. */
+export function getUntranslated(): VocabularyWord[] {
+  return readAll().filter((w) => !w.deletedAt && !w.translation.trim());
+}
+
 /** Case-insensitive: "Podcast" and "podcast" are the same entry. */
 export function isWordSaved(word: string): boolean {
   const key = word.trim().toLowerCase();

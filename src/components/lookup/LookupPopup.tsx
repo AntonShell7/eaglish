@@ -128,8 +128,20 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
     setSentenceLoading(false);
   };
 
+  /*
+   * Saving does not depend on the translation.
+   *
+   * The button used to be disabled whenever the lookup had failed, which made
+   * the app's one central gesture — tap an unknown word, keep it — contingent
+   * on a model call. Out of quota, offline, key missing: the word was simply
+   * lost, and the learner had no way to come back to it.
+   *
+   * A word saved with no translation is still the thing worth keeping. It
+   * carries the sentence it was met in, which is most of what makes a recall
+   * test possible, and the translation is filled in later by `backfill`.
+   */
   const handleSave = () => {
-    if (!result || result.unavailable) return;
+    if (!result) return;
     // The sentence travels with the word: it is what makes a real recall test
     // possible when this word comes back for review.
     addVocabularyWord(result.word, result.translation, request.source, request.sentence);
@@ -266,8 +278,12 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
               className="mt-2 text-sm"
               style={{ color: result.unavailable ? "var(--color-text-muted)" : "var(--color-text)" }}
             >
+              {/* The failure message now has to say that the word is still
+                  worth keeping, because the save button beside it is live.
+                  The old wording described the outage and stopped there,
+                  which read as "nothing to do here". */}
               {result.unavailable
-                ? t(aiMessageKey(result.unavailable))
+                ? `${t(aiMessageKey(result.unavailable))} ${t("lookup.saveAnyway")}`
                 : result.translation}
             </p>
           ) : (
@@ -320,7 +336,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
             <button
               type="button"
               onClick={handleSave}
-              disabled={saved || Boolean(result.unavailable)}
+              disabled={saved}
               className="rounded-full px-3 py-1.5 text-xs font-semibold on-primary disabled:opacity-50"
               style={{ background: saved ? "var(--color-success)" : "var(--color-primary)" }}
             >
