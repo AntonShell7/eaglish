@@ -1,0 +1,11 @@
+# Dumps never belong in the repository.
+#
+# data.sql carries real accounts — auth.users rows, identities, whatever a
+# learner has saved. schema.sql is harmless but large and regenerated on
+# demand. Neither is source, and one of them is personal data.
+#
+# This file exists because an empty roles.sql once reached a commit: a smoke
+# test of the export script created the directory, and the next `git add -A`
+# swept it up. The file was zero bytes and the repo was unharmed, but the
+# same path with a real dump in it would have published accounts.
+dump/
