@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { clearLocalProgress } from "@/lib/localState";
 import { setSyncUser } from "@/lib/sync";
 
 interface AuthContextValue {
@@ -135,7 +136,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { error: error?.message ?? null };
   };
 
+  /*
+   * End the session, and leave nothing of this learner on the device.
+   *
+   * The clearing is the point. Local progress is uploaded by `pushLocalState`
+   * as soon as a session appears, so whatever survives a sign-out is handed
+   * to whoever signs in next — their vocabulary, their streak, their reading
+   * history, written into somebody else's account. It happens before the
+   * sign-out call so there is no window in which a fresh session can see the
+   * old data. Preferences stay: see PROGRESS_KEYS.
+   */
   const signOut = async () => {
+    clearLocalProgress();
     if (DEMO) {
       setDemoSignedIn(false);
       return;

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { checkDictation, segmentTyped, worthLearning, type DictationResult } from "@/lib/dictation";
+import { checkDictation, isExact, segmentTyped, worthLearning, type DictationResult } from "@/lib/dictation";
 import { WordPractice } from "@/components/practice/WordPractice";
 import { useSpeech } from "./useSpeech";
 import { clearProgress, getProgress, saveProgress } from "@/lib/dictationProgress";
@@ -89,7 +89,9 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const done = index >= sentences.length;
   /* Exact, not nearly: a dictation is a transcription, and "almost" is the
      thing the learner is here to stop doing. */
-  const perfect = result ? result.accuracy === 1 : false;
+  /* Exact means every mark came back correct — not that accuracy reached 1,
+     which an invented word slips past untouched. */
+  const perfect = result ? isExact(result) : false;
   /**
    * Whether this fragment is finished with.
    *
@@ -303,7 +305,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     const outcome = checkDictation(sentence.text, typed);
     setResult(outcome);
     // A perfect answer has nothing to hide behind, so it opens straight away.
-    setRevealed(outcome.accuracy === 1);
+    setRevealed(isExact(outcome));
     setScores((all) => [...all, outcome.accuracy]);
     setMissedAll((all) => [...new Set([...all, ...outcome.missed])]);
   };

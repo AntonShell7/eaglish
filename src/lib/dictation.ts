@@ -78,6 +78,24 @@ function distance(a: string, b: string): number {
  * subsequence alignment finds which words genuinely correspond, so a single
  * dropped word is reported as a single dropped word.
  */
+/**
+ * Nothing at all was wrong with it.
+ *
+ * Not the same question as `accuracy === 1`, which is how this used to be
+ * asked. Accuracy is correct words over *expected* words, so a word the
+ * learner invented — the classic case being an article nobody said — leaves
+ * both halves of that fraction untouched and scores a flat 1.0. The app then
+ * answered "exact" to a sentence containing a word that was never spoken,
+ * which is the one answer a dictation must never give.
+ *
+ * Asking the marks instead catches an inserted word, a dropped word, a
+ * misheard word and a typo with a single question. Case and trailing
+ * punctuation are normalised away before marking, so they still cost nothing.
+ */
+export function isExact(result: DictationResult): boolean {
+  return result.marks.every((mark) => mark.kind === "correct");
+}
+
 export function checkDictation(expected: string, typed: string): DictationResult {
   const exp = tokenize(expected);
   const got = tokenize(typed);
