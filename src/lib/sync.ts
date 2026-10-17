@@ -8,7 +8,8 @@ import {
   type QuizResult,
 } from "./readingHistory";
 import { getActivity, mergeRemoteActivity, type ActivityKind, type DayActivity } from "./activityStore";
-import { getTimeLog } from "./timeStore";
+import { getSectionProgress, mergeSectionProgress, type SectionProgress } from "./sectionProgress";
+import { getTimeLog, mergeRemoteMinutes } from "./timeStore";
 import { getLearnerProfile, mergeRemoteProfile, type LearnerProfile } from "./learnerProfile";
 
 /**
@@ -67,7 +68,16 @@ export function pushLearnerProfile(profile: LearnerProfile) {
   const db = client();
   if (!db || profileColumnMissing) return;
   db.from("profiles")
-    .upsert({ id: currentUserId, english_level: profile.level, learner_profile: profile })
+    .upsert({
+      id: currentUserId,
+      english_level: profile.level,
+      learner_profile: profile,
+      /* Dictation, slang and known words ride with the profile rather than
+         in tables of their own: they are small, always read and written
+         whole, and never queried by their contents, so a column keeps the
+         sync to the round trip that was already happening. */
+      section_progress: getSectionProgress(),
+    })
     .then(({ error }) => {
       if (!error) return;
       profileColumnMissing = true;
@@ -236,11 +246,14 @@ async function pullAll() {
     db.from("reading_sessions").select("*"),
     db.from("quiz_results").select("*"),
     db.from("daily_activity").select("*"),
-    db.from("profiles").select("learner_profile").eq("id", currentUserId).maybeSingle(),
+    db.from("profiles").select("learner_profile, section_progress").eq("id", currentUserId).maybeSingle(),
   ]);
 
   if (profile.error) profileColumnMissing = true;
-  else mergeRemoteProfile((profile.data?.learner_profile as LearnerProfile | null) ?? null);
+  else {
+    mergeRemoteProfile((profile.data?.learner_profile as LearnerProfile | null) ?? null);
+    mergeSectionProgress(profile.data?.section_progress as Partial<SectionProgress> | null);
+  }
 
   if (vocab.data) {
     mergeRemoteVocabulary(
@@ -298,6 +311,11 @@ async function pullAll() {
   }
 
   if (activity.data) {
+    /* Listening, slang and the minutes were being written and never read
+       back. The push has sent all four columns for some time, so the data was
+       in the database the whole while — a second device simply dropped it on
+       the way in, and a learner who did their dictation on a phone saw a
+       blank listening column on their laptop. */
     mergeRemoteActivity(
       activity.data.map((r) => ({
         date: r.day,
@@ -306,9 +324,17 @@ async function pullAll() {
           writing: r.writing,
           vocabulary: r.vocabulary,
           quiz: r.quiz,
+          listening: r.listening,
+          slang: r.slang,
         },
       })),
     );
+
+    for (const row of activity.data) {
+      if (row.minutes_by_section) {
+        mergeRemoteMinutes(row.day, row.minutes_by_section as Record<string, number>);
+      }
+    }
   }
 }
 

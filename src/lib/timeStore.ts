@@ -50,6 +50,41 @@ export function getTimeLog(): TimeLog {
   }
 }
 
+/**
+ * Fold a day's minutes from another device into this one's log.
+ *
+ * Time is recorded in seconds per section on whichever device the learner was
+ * using, and a day can legitimately have time on two of them. The larger
+ * figure wins per section rather than the sum: a day's two records usually
+ * overlap — the same session seen by a device that synced late — and adding
+ * them would inflate every figure the progress screen shows. Undercounting a
+ * genuinely split day is the safer error, because the number is there to be
+ * trusted rather than to be impressive.
+ */
+export function mergeRemoteMinutes(date: string, bySection: Record<string, number>) {
+  if (!date || !bySection) return;
+  const log = getTimeLog();
+  const day = { ...(log[date] ?? {}) };
+  let changed = false;
+
+  for (const [section, minutes] of Object.entries(bySection)) {
+    const seconds = Math.round((minutes ?? 0) * 60);
+    const key = section as TimeSection;
+    if (seconds > (day[key] ?? 0)) {
+      day[key] = seconds;
+      changed = true;
+    }
+  }
+
+  if (!changed) return;
+  log[date] = day;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(log));
+  } catch {
+    /* Storage full or unavailable; the local clock keeps running regardless. */
+  }
+}
+
 export function addSeconds(section: TimeSection, seconds: number) {
   if (seconds <= 0) return;
   try {
