@@ -9,7 +9,11 @@ interface AuthContextValue {
   loading: boolean;
   /** True when the session is a local stand-in rather than a real account. */
   demo: boolean;
-  signUp: (email: string, password: string) => Promise<{ error: string | null }>;
+  signUp: (
+    email: string,
+    password: string,
+  ) => Promise<{ error: string | null; needsConfirmation: boolean }>;
+  resendConfirmation: (email: string) => Promise<{ error: string | null }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signInWithGoogle: () => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
@@ -66,10 +70,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => listener.subscription.unsubscribe();
   }, []);
 
+  /*
+   * Create the account, and say whether the person is already inside.
+   *
+   * Supabase answers sign-up in one of two ways depending on a project
+   * setting the client cannot see: with a session, meaning they are signed in
+   * now, or without one, meaning a confirmation email has been sent and there
+   * will be no session until the link is opened. This used to throw the
+   * answer away and route everybody to onboarding — which sits behind the
+   * auth wall, so everyone awaiting confirmation was bounced straight back to
+   * the login page seconds after creating an account.
+   */
   const signUp = async (email: string, password: string) => {
+    if (DEMO) return { error: null, needsConfirmation: false };
+    if (!supabase) return { error: "Supabase is not configured yet.", needsConfirmation: false };
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    return { error: error?.message ?? null, needsConfirmation: !error && !data.session };
+  };
+
+  /* A second copy of the confirmation email. The first one goes missing often
+     enough — spam folders, typos caught too late, a phone that was offline —
+     that without this the only route back is to start again. */
+  const resendConfirmation = async (email: string) => {
     if (DEMO) return { error: null };
     if (!supabase) return { error: "Supabase is not configured yet." };
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.resend({ type: "signup", email });
     return { error: error?.message ?? null };
   };
 
@@ -122,7 +147,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const user = DEMO ? (demoSignedIn ? DEMO_USER : null) : (session?.user ?? null);
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, demo: DEMO, signUp, signIn, signInWithGoogle, signOut }}>
+    <AuthContext.Provider value={{ user, session, loading, demo: DEMO, signUp, resendConfirmation, signIn, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );

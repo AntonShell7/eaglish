@@ -649,11 +649,35 @@ textarea.field {
 
 /* ── The other way in ─────────────────────────────────────────────────── */
 
-/* The Google button lives under the email form, separated by a rule that says
-   the two are alternatives rather than steps. Above the fields it read as the
-   main path and crowded them; here it is plainly the second door. */
+/* The Google button and the email form are alternatives, not steps, and the
+   rule between them says so. Which one comes first depends on the page: on
+   sign-up and sign-in Google leads, because the password field is where
+   sign-ups are abandoned; elsewhere it follows. */
 .auth-alt {
   margin-top: 22px;
+}
+
+/* Leading, so it carries no top margin and its rule sits underneath. */
+.auth-alt--lead {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.auth-alt--lead .auth-alt__rule {
+  margin: 20px 0 0;
+}
+
+/* The leading button is the primary action on the page and is dressed as one:
+   a filled control rather than a hairline one. */
+.auth-alt__btn--lead {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-2);
+  font-weight: 700;
+}
+
+.auth-alt__btn--lead:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
 }
 
 .auth-alt__rule {
@@ -754,4 +778,54 @@ textarea.field {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text-muted);
+}
+
+/* ── Waiting on a confirmation email ──────────────────────────────────── */
+
+/*
+ * The screen between "account created" and "signed in".
+ *
+ * It exists because that gap is real and was previously invisible: the app
+ * created the account, waited 1.6 seconds and pushed everyone to onboarding,
+ * which sits behind the auth wall — so anyone whose project requires email
+ * confirmation was thrown back to the login page with no explanation.
+ */
+.auth-sent {
+  margin-top: 8px;
+}
+
+.auth-sent__lede {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+/* The address, large and on its own line. A typed address nobody can check
+   after the fact is the commonest reason the letter never arrives. */
+.auth-sent__addr {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  word-break: break-all;
+  color: var(--color-text);
+}
+
+.auth-sent__note {
+  margin: 14px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-faint);
+}
+
+.auth-sent__ok {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-success);
+}
+
+.auth-sent__resend {
+  width: 100%;
+  margin-top: 18px;
 }

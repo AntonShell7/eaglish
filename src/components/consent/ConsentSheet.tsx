@@ -13,11 +13,15 @@ import "./consent.css";
 /**
  * The consent panel.
  *
- * Two states rather than a wall of text: a small card that says what is stored
- * and why, and a details view with the actual inventory and the one switch that
- * exists. The compact card carries no scrim and no blocked scrolling — holding a
- * reader hostage over a theme preference would be absurd — while the details
- * view dims the page, because that is a decision worth focus.
+ * Two states. At rest it is a single strip across the foot of the window —
+ * one sentence, one button, one link — and the details view behind it carries
+ * the full inventory and the one switch that exists.
+ *
+ * The strip replaced a card, and the card was a genuine obstacle rather than
+ * an ugly one. On a phone it covered the sign-up form outright: a visitor
+ * following a link to the app could not reach the email field until they had
+ * dealt with a notice about localStorage. The details view still dims the
+ * page, because that is a decision worth focus; the strip never does.
  *
  * The copy is the design here: most banners are vague because vagueness is
  * legally safer for companies that track people. Naming every key we write is
@@ -51,6 +55,17 @@ export function ConsentSheet() {
     return () => window.removeEventListener(CONSENT_REOPEN, reopen);
   }, []);
 
+  /* While the strip is up it covers the foot of the page, which on a phone is
+     where the submit button of a short form sits. Marking the document lets
+     the layout reserve that height instead, so the strip hides nothing — a
+     notice that obscures the button it is asking you to use is the original
+     problem in a smaller size. */
+  useEffect(() => {
+    if (!open || details) return;
+    document.body.classList.add("has-consent-bar");
+    return () => document.body.classList.remove("has-consent-bar");
+  }, [open, details]);
+
   // Escape closes the details view the same way the "back" button does.
   useEffect(() => {
     if (!details) return;
@@ -67,14 +82,34 @@ export function ConsentSheet() {
     setDetails(false);
   };
 
+  /* The resting state: a strip, not a dialog. It is deliberately not
+     `role="dialog"` and not modal — nothing here needs answering before the
+     page can be used, and announcing it as a dialog would tell a screen
+     reader the opposite. */
+  if (!details) {
+    return (
+      <section className="consent-bar" aria-label={t("consent.title")}>
+        <p className="consent-bar__text">{t("consent.barText")}</p>
+        <div className="consent-bar__actions">
+          <button type="button" className="consent-bar__ok" onClick={() => decide(false)}>
+            {t("consent.gotIt")}
+          </button>
+          <button type="button" className="consent-bar__more" onClick={() => setDetails(true)}>
+            {t("consent.customise")}
+          </button>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
       {details && <div className="consent-scrim" onClick={() => setDetails(false)} aria-hidden />}
 
       <section
-        className={`consent${details ? " consent--details" : ""}`}
+        className="consent consent--details"
         role="dialog"
-        aria-modal={details}
+        aria-modal
         aria-labelledby="consent-title"
       >
         <div className="consent__head">
@@ -88,10 +123,8 @@ export function ConsentSheet() {
 
         <p className="consent__lede">{t("consent.lede")}</p>
 
-        {details ? (
-          <>
-            <div className="consent__rows">
-              <div className="consent-row">
+        <div className="consent__rows">
+          <div className="consent-row">
                 <div className="consent-row__text">
                   <p className="consent-row__h">{t("consent.necessary.h")}</p>
                   <p className="consent-row__p">{t("consent.necessary.p")}</p>
@@ -130,25 +163,14 @@ export function ConsentSheet() {
               <p className="consent__inventory-note">{t("consent.noThirdParty")}</p>
             </div>
 
-            <div className="consent__actions">
-              <button type="button" className="consent__primary" onClick={() => decide(analytics)}>
-                {t("consent.save")}
-              </button>
-              <button type="button" className="consent__ghost" onClick={() => setDetails(false)}>
-                {t("consent.back")}
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="consent__actions">
-            <button type="button" className="consent__primary" onClick={() => decide(false)}>
-              {t("consent.gotIt")}
-            </button>
-            <button type="button" className="consent__ghost" onClick={() => setDetails(true)}>
-              {t("consent.customise")}
-            </button>
-          </div>
-        )}
+        <div className="consent__actions">
+          <button type="button" className="consent__primary" onClick={() => decide(analytics)}>
+            {t("consent.save")}
+          </button>
+          <button type="button" className="consent__ghost" onClick={() => setDetails(false)}>
+            {t("consent.back")}
+          </button>
+        </div>
 
         <p className="consent__foot">
           <Link to="/privacy">{t("footer.privacy")}</Link>

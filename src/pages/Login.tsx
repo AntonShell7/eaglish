@@ -44,6 +44,11 @@ export default function Login() {
         </p>
       }
     >
+      {/* Google first here too, so the two auth screens teach the same
+          shape — whichever one a person lands on, the quick door is in the
+          same place. */}
+      <GoogleButton label={t("auth.continueWithGoogle")} lead />
+
       <EmailField value={email} onChange={setEmail} />
 
       <PasswordField
@@ -64,8 +69,6 @@ export default function Login() {
       </Link>
 
       <SubmitButton loading={loading} label={t("auth.logIn")} />
-
-      <GoogleButton label={t("auth.continueWithGoogle")} />
     </AuthCard>
   );
 }

@@ -88,7 +88,15 @@
     "or": "or",
     "resetSentTo": "The email is on its way to",
     "resetSentNote": "Nothing after a couple of minutes? Check your spam folder. If the address is wrong, enter it again.",
-    "resetWrongAddress": "Use a different address"
+    "resetWrongAddress": "Use a different address",
+    "orByEmail": "or with email",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "We sent a confirmation link to",
+    "checkEmailSpam": "Nothing after a couple of minutes? Look in Spam — a first message from a new sender often lands there.",
+    "resendEmail": "Send the email again",
+    "resendIn": "You can resend in {{count}}s",
+    "resendSent": "Email sent again.",
+    "useGoogleInstead": "Use Google instead"
   },
   "home": {
     "kicker": "AI English Learning Platform",
@@ -773,7 +781,8 @@
       "progress": "words, activity, results",
       "consent": "this decision"
     },
-    "noThirdParty": "All of it lives in your browser. Nothing on this list is shared with anyone, and none of it is a third-party cookie."
+    "noThirdParty": "All of it lives in your browser. Nothing on this list is shared with anyone, and none of it is a third-party cookie.",
+    "barText": "We store only what the app needs to work. No trackers, no ads."
   },
   "legal": {
     "updated": "Last updated {{date}}",

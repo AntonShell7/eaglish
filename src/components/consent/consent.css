@@ -300,3 +300,116 @@
 .consent__foot a:hover {
   color: var(--color-primary);
 }
+
+/* ── The resting strip ────────────────────────────────────────────────── */
+
+/*
+ * One line across the foot of the window.
+ *
+ * It replaced a card that, on a phone, covered the sign-up form: somebody
+ * following a link to the app met a notice about localStorage before they
+ * could reach the email field. A consent notice has to be visible, which is
+ * not the same as being in the way, and the difference is most of what makes
+ * these things hated.
+ *
+ * It sits above the mobile tab bar rather than over it — covering the app's
+ * own navigation would trade one obstruction for another.
+ */
+.consent-bar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 45;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 18px;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  animation: consent-bar-in var(--dur-3) var(--ease) both;
+}
+
+@keyframes consent-bar-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* The tab bar owns the very bottom on a phone, so the strip stacks on top of
+   it. 62px is the tab bar's own height; its safe-area padding is added here
+   too, because both elements sit in the same inset. */
+@media (max-width: 1023px) {
+  .consent-bar {
+    bottom: calc(62px + env(safe-area-inset-bottom));
+    padding-bottom: 12px;
+  }
+}
+
+.consent-bar__text {
+  margin: 0;
+  flex: 1 1 24ch;
+  max-width: 68ch;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.consent-bar__actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 14px;
+}
+
+.consent-bar__ok {
+  height: 36px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-ink);
+  color: var(--color-on-ink);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--dur-2) var(--ease);
+}
+
+.consent-bar__ok:hover {
+  background: var(--color-ink-hover);
+}
+
+.consent-bar__more {
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.consent-bar__more:hover {
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent-bar {
+    animation: none;
+  }
+}
+
+/* Room for the strip, so it never sits on top of a page's last control. */
+.has-consent-bar .shell__main {
+  padding-bottom: 104px;
+}
+
+@media (max-width: 1023px) {
+  .has-consent-bar .shell__main {
+    padding-bottom: 116px;
+  }
+}
