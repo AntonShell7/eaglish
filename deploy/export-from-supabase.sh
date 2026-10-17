@@ -34,8 +34,18 @@ set -euo pipefail
 OUT="$(cd "$(dirname "$0")" && pwd)/dump"
 mkdir -p "$OUT"
 
+# Homebrew installs libpq "keg-only" — the client tools land in their own
+# prefix and are deliberately left off PATH, because they would otherwise
+# shadow a full Postgres install. Finding them here means the script works
+# straight after `brew install libpq`, which is where most people meet this.
+if ! command -v pg_dump >/dev/null; then
+  for dir in /opt/homebrew/opt/libpq/bin /usr/local/opt/libpq/bin; do
+    [ -x "$dir/pg_dump" ] && PATH="$dir:$PATH" && break
+  done
+fi
+
 command -v pg_dump >/dev/null || {
-  echo "pg_dump not found. On macOS: brew install libpq && brew link --force libpq" >&2
+  echo "pg_dump not found. On macOS: brew install libpq" >&2
   exit 1
 }
 
