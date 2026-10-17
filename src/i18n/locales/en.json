@@ -422,7 +422,8 @@
     "bandMid": "{{from}}–{{to}} min",
     "bandHigh": "{{from}}+ min",
     "minutesShort": "{{count}} min",
-    "noDaysYet": "Nothing in this window yet"
+    "noDaysYet": "Nothing in this window yet",
+    "accuracyPending": "The correct-answer figure appears once you have answered your first text quiz."
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -610,7 +611,11 @@
     "greetingFirst": "Let's begin",
     "firstLine": "You're new here. Below is one thing to do today — about five minutes.",
     "dueLineNew_one": "{{count}} new word — its first review.",
-    "dueLineNew_other": "{{count}} new words — their first review."
+    "dueLineNew_other": "{{count}} new words — their first review.",
+    "firstStepEyebrow": "First step",
+    "firstStepTitle": "Read one text — about {{count}} minutes",
+    "firstStepBody": "Tap any unfamiliar word as you go: the translation appears beside it, and the word goes into your vocabulary to come back for review.",
+    "firstStepGo": "Start"
   },
   "tasks": {
     "readingDone": "Text finished",

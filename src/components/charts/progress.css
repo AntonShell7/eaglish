@@ -336,7 +336,7 @@
   transform: none;
 }
 
-/* ── Figures, locked and open ─────────────────────────────────────────── */
+/* ── Figures ──────────────────────────────────────────────────────────── */
 
 .fig {
   display: flex;
@@ -369,40 +369,6 @@
   font-size: 0.72rem;
   font-weight: 600;
   color: var(--color-text-faint);
-}
-
-.locked {
-  border-style: dashed;
-  background: var(--color-surface-2);
-}
-
-.locked .fig__value {
-  color: var(--color-text-faint);
-  letter-spacing: 0.08em;
-}
-
-.locked__note {
-  margin-top: 10px;
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: var(--color-text-faint);
-}
-
-.locked__track {
-  display: block;
-  height: 3px;
-  margin-top: 12px;
-  border-radius: 999px;
-  background: var(--color-surface-3);
-  overflow: hidden;
-}
-
-.locked__fill {
-  display: block;
-  height: 100%;
-  border-radius: 999px;
-  background: var(--color-primary);
-  transition: width var(--dur-4) var(--ease);
 }
 
 /* Direction, next to the total. A number on its own says nothing about

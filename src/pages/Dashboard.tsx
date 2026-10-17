@@ -13,6 +13,7 @@ import { getStreak } from "@/lib/activityStore";
 import { masteredCount } from "@/lib/insights";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
 import { useCountUp } from "@/lib/useCountUp";
+import { pickFirstStep, type FirstStep } from "@/lib/firstStep";
 import "@/components/charts/charts.css";
 import "./dashboard.css";
 
@@ -87,12 +88,29 @@ export default function Dashboard() {
    * runs, and treating that moment as "new" would flash the beginner's
    * greeting at everybody for a frame.
    */
+  /* One concrete thing to do, for somebody who has done nothing yet. */
+  const [firstStep, setFirstStep] = useState<FirstStep | null>(null);
+
   const ready = plan !== null;
   /* Nothing in today's queue has been reviewed before, so "ready for review"
      describes work the learner has not done yet rather than work they are
      repeating. */
   const dueAllNew = Boolean(plan && plan.review.length > 0 && plan.review.every((w) => w.reviewCount === 0));
   const fresh = ready && words === 0 && held === 0 && streak === 0;
+
+  /* Only fetched when there is nothing else to show. Loading the library on
+     every dashboard visit would be a cost paid by everybody for a card most
+     people will never see again after their first day. */
+  useEffect(() => {
+    if (!fresh) return;
+    let alive = true;
+    void pickFirstStep().then((step) => {
+      if (alive) setFirstStep(step);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [fresh]);
 
   const streakShown = useCountUp(streak, 500);
   const dueShown = useCountUp(due, 700);
@@ -164,6 +182,27 @@ export default function Dashboard() {
             </span>
           </span>
           <span className="btn btn--primary btn--sm">{t("onboarding.promptCta")}</span>
+        </Link>
+      )}
+
+      {/* One text, named, with one button.
+          A dashboard of equally weighted doors is a decision, and deciding
+          what to study is the work people are worst at — asking it of
+          somebody in their first thirty seconds is how a first session
+          becomes the only one. This replaces that menu for exactly as long
+          as the account has nothing in it. */}
+      {fresh && firstStep && (
+        <Link to={`/reading/${firstStep.topicId}/${firstStep.text.id}`} className="firststep">
+          <span className="firststep__eyebrow">{t("dashboard.firstStepEyebrow")}</span>
+          <span className="firststep__title">
+            {t("dashboard.firstStepTitle", { count: firstStep.minutes })}
+          </span>
+          <span className="firststep__text">
+            <span className="level">{firstStep.text.level}</span>
+            {firstStep.text.title}
+          </span>
+          <span className="firststep__body">{t("dashboard.firstStepBody")}</span>
+          <span className="btn btn--primary firststep__go">{t("dashboard.firstStepGo")}</span>
         </Link>
       )}
 

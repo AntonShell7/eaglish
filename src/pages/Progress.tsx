@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { DayLine, type DayCount } from "@/components/charts/DayLine";
 import { Donut, type Slice } from "@/components/charts/Donut";
 import { YearGrid } from "@/components/charts/YearGrid";
-import { LockedStat } from "@/components/charts/LockedStat";
 import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
 import { getWritingHistory } from "@/lib/writingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
@@ -12,9 +11,6 @@ import { getActivity, getStreak, getBestStreak, totalForDay } from "@/lib/activi
 import { minutesByDay, timeBySection, totalMinutes, type TimeSection } from "@/lib/timeStore";
 import "@/components/charts/charts.css";
 import "@/components/charts/progress.css";
-
-/** Days of real use before a figure is allowed to speak. */
-const UNLOCK_DAYS = 7;
 
 const SECTION_COLOR: Record<TimeSection, string> = {
   reading: "var(--color-primary)",
@@ -123,7 +119,6 @@ export default function Progress() {
     );
   }, [t]);
 
-  const unlocked = daysStudied >= UNLOCK_DAYS;
   const quiz = useMemo(() => getQuizTotals(), []);
 
   /* Words per week, from the days that actually exist rather than from a
@@ -157,23 +152,34 @@ export default function Progress() {
             />
           </div>
 
+          {/*
+            * Two of these three were never waiting on anything.
+            *
+            * All three used to be locked together behind a week of use, and
+            * shown meanwhile as grey tiles reading "——". Days studied and
+            * words per week are computable from the first session — they are
+            * counts of what the learner has already done — so locking them
+            * hid a fact the app already knew in order to keep a rule tidy,
+            * and handed a newcomer a screen of dashes as their reward for
+            * starting.
+            *
+            * Only the correct-answer percentage genuinely needs data: a
+            * single quiz gives 0% or 100%, neither of which means anything.
+            * It waits on having been answered at all rather than on a
+            * calendar, and says so in a line instead of occupying a tile
+            * with nothing in it.
+            */}
           <div className="pg-grid">
-            {unlocked ? (
-              <>
-                <Figure
-                  label={t("progress.questionsCorrect")}
-                  value={quiz.total ? `${Math.round((quiz.correct / quiz.total) * 100)}%` : "—"}
-                  hint={quiz.total ? `${quiz.correct} / ${quiz.total}` : undefined}
-                />
-                <Figure label={t("progress.newPerWeek")} value={perWeek} />
-                <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
-              </>
+            <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
+            <Figure label={t("progress.newPerWeek")} value={perWeek} />
+            {quiz.total > 0 ? (
+              <Figure
+                label={t("progress.questionsCorrect")}
+                value={`${Math.round((quiz.correct / quiz.total) * 100)}%`}
+                hint={`${quiz.correct} / ${quiz.total}`}
+              />
             ) : (
-              <>
-                <LockedStat label={t("progress.questionsCorrect")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-                <LockedStat label={t("progress.newPerWeek")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-                <LockedStat label={t("progress.daysStudied")} daysDone={daysStudied} daysNeeded={UNLOCK_DAYS} />
-              </>
+              <p className="pg-pending">{t("progress.accuracyPending")}</p>
             )}
           </div>
         </div>

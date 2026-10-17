@@ -1,0 +1,14 @@
+
+/* A metric that is genuinely waiting on data, said in a line.
+   It replaced a grey tile containing "——", which is the visual equivalent of
+   showing somebody an empty box and calling it a reward for starting. */
+.pg-pending {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}

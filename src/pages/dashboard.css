@@ -50,3 +50,82 @@
     display: none;
   }
 }
+
+/* ── The first step ───────────────────────────────────────────────────── */
+
+/*
+ * One named text and one button, for an account with nothing in it yet.
+ *
+ * It is a link rather than a card with a link inside it: the whole block is
+ * the target, which is what makes it feel like one offer rather than a panel
+ * with a control on it.
+ */
+.firststep {
+  display: block;
+  margin-top: 28px;
+  padding: 26px 26px 24px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary-softer);
+  box-shadow: var(--shadow-2);
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.firststep:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-3);
+}
+
+.firststep__eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.firststep__title {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+/* The text's own title, with its level badge. Naming it is the point: "read
+   something" is a category, "The Shop That Sold Nothing" is a thing you can
+   picture starting. */
+.firststep__text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--color-text);
+}
+
+.firststep__body {
+  display: block;
+  margin-top: 12px;
+  max-width: 54ch;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.firststep__go {
+  margin-top: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .firststep:hover {
+    transform: none;
+  }
+}
