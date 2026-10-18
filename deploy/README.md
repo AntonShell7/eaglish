@@ -223,12 +223,18 @@ data. Delete nothing until the new one has carried real users for days.
 `delete-account` and `admin-stats` run on this server too, from
 `volumes/functions/`. Two things about them are not obvious:
 
-**`jsr.io` does not resolve from this host.** The request hangs until it times
-out, so Deno blocks on the first import and the runtime never boots — while
-printing *nothing at all*, in the container or in the foreground, which makes
-it look dead rather than stuck. `registry.npmjs.org` answers normally, so
-every import uses an `npm:` specifier. If a function is ever added with a
-`jsr:` import it will fail the same silent way.
+**`jsr.io` stalls partway through from this host.** Not a clean block: DNS
+resolves, TLS completes, ALPN negotiates h2 and the first `meta.json` comes
+back — then the next request hangs and never returns. Deno blocks on the
+import and the runtime never boots, while printing *nothing at all*, in the
+container or in the foreground, which makes it look dead rather than stuck.
+
+That silence is the thing to recognise. A crash leaves a message; this leaves
+none. A runtime that can report errors and reports nothing is waiting.
+
+`registry.npmjs.org` answers normally from the same host, so every import uses
+an `npm:` specifier. A function added later with a `jsr:` import will fail the
+same silent way.
 
 **Three of those edits live in files the Supabase repo owns** —
 `volumes/functions/main/index.ts` and `volumes/functions/deno.jsonc`. A
