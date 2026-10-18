@@ -76,7 +76,16 @@ Deno.serve(async (req: Request) => {
     return new Response(JSON.stringify({ error: "denied" }), { status: 403, headers });
   }
 
-  let body: { passcode?: string; action?: string; userId?: string } = {};
+  let body: {
+    passcode?: string;
+    action?: string;
+    userId?: string;
+    /* Access codes. */
+    count?: number;
+    note?: string;
+    days?: number | null;
+    maxUses?: number;
+  } = {};
   try {
     body = await req.json();
   } catch {
@@ -89,6 +98,106 @@ Deno.serve(async (req: Request) => {
   }
 
   const admin = createClient(url, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+
+  /* ── Access codes ───────────────────────────────────────────────────────
+   *
+   * `access_codes` has row-level security on and no policy at all, so no
+   * browser can read or write it with any token. That is the point — a code
+   * anyone can list is not a code — and it is also why minting them has to
+   * happen here, where the service key lives.
+   *
+   * Before this existed the only way to hand a friend access was to open an
+   * SSH tunnel and type SQL, which is not a thing to ask of somebody on a
+   * phone on a Saturday. */
+
+  /* No O/0, no I/1, no S/5. A code gets read off a screenshot and typed back
+     by somebody who did not choose it, and every one of those pairs is a
+     support message waiting to happen. */
+  const ALPHABET = "ABCDEFGHJKLMNPQRTUVWXYZ2346789";
+
+  function mintCode(): string {
+    const bytes = new Uint8Array(8);
+    crypto.getRandomValues(bytes);
+    /* Modulo bias is irrelevant here: the alphabet is 30 long, the codes are
+       random only to stop guessing, and `redeem_access_code` rate-limits wrong
+       attempts to ten an hour anyway. */
+    const body = Array.from(bytes, (b) => ALPHABET[b % ALPHABET.length]).join("");
+    return `EAGL${body}`;
+  }
+
+  if (body.action === "codes") {
+    const { data, error } = await admin
+      .from("access_codes")
+      .select("code, plan, days, max_uses, uses, note, created_at, expires_at")
+      .order("created_at", { ascending: false })
+      .limit(500);
+
+    if (error) {
+      /* The commonest cause by far is migration 005 not having run on this
+         database, and "relation does not exist" explains that where a generic
+         failure would not. */
+      return new Response(JSON.stringify({ error: "codes-unavailable", detail: error.message }), {
+        status: 503,
+        headers,
+      });
+    }
+
+    return new Response(JSON.stringify({ codes: data ?? [] }), { status: 200, headers });
+  }
+
+  if (body.action === "make-codes") {
+    const count = Math.min(Math.max(Math.trunc(body.count ?? 1), 1), 50);
+    const maxUses = Math.min(Math.max(Math.trunc(body.maxUses ?? 1), 1), 1000);
+    /* null means the access never runs out, which is what a code for a friend
+       is. Anything else is a number of days from the moment it is redeemed. */
+    const days = body.days === null || body.days === undefined ? null : Math.max(1, Math.trunc(body.days));
+    const note = (body.note ?? "").slice(0, 200) || null;
+
+    const rows = Array.from({ length: count }, () => ({
+      code: mintCode(),
+      plan: "pro",
+      days,
+      max_uses: maxUses,
+      note,
+    }));
+
+    const { data, error } = await admin.from("access_codes").insert(rows).select("code, days, max_uses, note");
+
+    if (error) {
+      return new Response(JSON.stringify({ error: "codes-unavailable", detail: error.message }), {
+        status: 503,
+        headers,
+      });
+    }
+
+    return new Response(JSON.stringify({ codes: data ?? [] }), { status: 200, headers });
+  }
+
+  /* Give one account full access directly, without a code going through
+     anybody's hands. For the owner's own second account, and for the apology
+     that should not require inventing a coupon. */
+  if (body.action === "grant" && body.userId) {
+    const { error } = await admin.from("subscriptions").upsert(
+      {
+        user_id: body.userId,
+        plan: "pro",
+        source: "grant",
+        granted_at: new Date().toISOString(),
+        expires_at: null,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" },
+    );
+
+    if (error) {
+      return new Response(JSON.stringify({ error: "codes-unavailable", detail: error.message }), {
+        status: 503,
+        headers,
+      });
+    }
+
+    return new Response(JSON.stringify({ granted: body.userId }), { status: 200, headers });
+  }
 
   /* ── One person, in detail ──────────────────────────────────────────── */
   if (body.action === "user" && body.userId) {

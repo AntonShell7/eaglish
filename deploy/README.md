@@ -280,6 +280,51 @@ variable stops Compose picking up an override automatically.
 
 ---
 
+## Releasing a migration, and why the order is not a preference
+
+Migration 005 adds plans and access codes, and the application reads from the
+tables it creates. **The database goes first, then the site.** If the site
+ships first, `fetchAccess` asks a table that is not there, treats the answer
+as "has not paid", and every account — including the owner's — loses
+listening, writing and slang until the migration lands.
+
+The reverse order costs nothing: a database that knows about plans while the
+old site is live is simply a database nobody asks.
+
+```bash
+scp supabase/migrations/005_plans_and_access_codes.sql root@89.111.170.134:/root/005.sql
+```
+
+```bash
+ssh root@89.111.170.134 'cd /opt/supabase/docker && docker compose exec -T db psql -U postgres --single-transaction -v ON_ERROR_STOP=1 -f /dev/stdin < /root/005.sql'
+```
+
+`--single-transaction` with `ON_ERROR_STOP=1` is what makes this safe to run:
+either every statement lands or none of them do, and a half-applied migration
+— some tables created, the function not replaced — is the state that would be
+genuinely hard to reason about afterwards.
+
+The one object it replaces is `claim_ai_call`. Keep the way back first:
+
+```bash
+ssh root@89.111.170.134 'cd /opt/supabase/docker && docker compose exec -T db psql -U postgres -At -c "select pg_get_functiondef(oid) from pg_proc where proname = '"'"'claim_ai_call'"'"'" > /root/claim_ai_call.before.sql'
+```
+
+The two edge functions live in `volumes/functions/` and are **not** redeployed
+by a `git push` — they are copied to the server by hand. `admin-stats` gained
+the code-minting actions, so it has to be copied again for the Коды tab to
+work:
+
+```bash
+scp supabase/functions/admin-stats/index.ts root@89.111.170.134:/opt/supabase/docker/volumes/functions/admin-stats/index.ts
+```
+
+```bash
+ssh root@89.111.170.134 'cd /opt/supabase/docker && docker compose restart functions'
+```
+
+---
+
 ## Then, and only then
 
 The Roskomnadzor notification asks where the database is. Submitting it after

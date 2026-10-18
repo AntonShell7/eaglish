@@ -105,7 +105,20 @@ export function togglePinned(id: string): string[] {
   return next;
 }
 
-export type Failure = "denied" | "offline" | "unconfigured";
+/** One access code, as the owner's console lists it. */
+export interface AccessCodeRow {
+  code: string;
+  plan: string;
+  /** Days of access once redeemed; null means it never runs out. */
+  days: number | null;
+  max_uses: number;
+  uses: number;
+  note: string | null;
+  created_at: string;
+  expires_at: string | null;
+}
+
+export type Failure = "denied" | "offline" | "unconfigured" | "unavailable";
 export type AdminResult<T> = { ok: true; data: T } | { ok: false; reason: Failure };
 
 async function call<T>(passcode: string, payload: Record<string, unknown>): Promise<AdminResult<T>> {
@@ -134,6 +147,11 @@ async function call<T>(passcode: string, payload: Record<string, unknown>): Prom
   }
 
   if (response.status === 401 || response.status === 403) return { ok: false, reason: "denied" };
+  /* 503 is the function reaching the database and being refused by it — in
+     practice, migration 005 not having run yet. Reported apart from "offline"
+     because the fix is completely different and the two are indistinguishable
+     from the message otherwise. */
+  if (response.status === 503) return { ok: false, reason: "unavailable" };
   if (!response.ok) return { ok: false, reason: "offline" };
 
   return { ok: true, data: (await response.json()) as T };
@@ -143,3 +161,27 @@ export const fetchAdminStats = (passcode: string) => call<AdminStats>(passcode, 
 
 export const fetchUserDetail = (passcode: string, userId: string) =>
   call<UserDetail>(passcode, { action: "user", userId });
+
+/* ── Access codes ──────────────────────────────────────────────────────── */
+
+export const fetchCodes = (passcode: string) =>
+  call<{ codes: AccessCodeRow[] }>(passcode, { action: "codes" });
+
+/**
+ * Mint codes.
+ *
+ * `days: null` means the access never expires, which is what a code for a
+ * friend is; a number is days counted from the moment it is redeemed, not from
+ * now, so a code can sit in a message for a week without burning its trial.
+ */
+export const makeCodes = (
+  passcode: string,
+  options: { count: number; note: string; days: number | null; maxUses: number },
+) => call<{ codes: Pick<AccessCodeRow, "code" | "days" | "max_uses" | "note">[] }>(passcode, {
+  action: "make-codes",
+  ...options,
+});
+
+/** Full access for one account, with no code passing through anybody's hands. */
+export const grantPro = (passcode: string, userId: string) =>
+  call<{ granted: string }>(passcode, { action: "grant", userId });

@@ -1153,12 +1153,14 @@
     "error": {
       "denied": "Wrong passcode, or this account has no access.",
       "offline": "The server did not answer. Try again.",
-      "unconfigured": "No backend configured."
+      "unconfigured": "No backend configured.",
+      "unavailable": "The database does not know about codes yet — migration 005 has not run."
     },
     "tab": {
       "overview": "Overview",
       "people": "People",
-      "texts": "Texts"
+      "texts": "Texts",
+      "codes": "Codes"
     },
     "whereTime": "Where time goes",
     "searchPeople": "Search by email",
@@ -1173,7 +1175,31 @@
     "colText": "Text",
     "colOpens": "Opens",
     "colReaders": "Readers",
-    "quizLine": "Correct answers across everyone: {{correct}} of {{total}}."
+    "quizLine": "Correct answers across everyone: {{correct}} of {{total}}.",
+    "codes": {
+      "makeTitle": "Grant access",
+      "makeHint": "Each code opens full access for one person. Send it to a friend; they type it in their profile or on the pricing page.",
+      "count": "How many",
+      "note": "Who for",
+      "notePlaceholder": "For example, friends launch",
+      "forever": "Never expires",
+      "days": "Days",
+      "make": "Generate",
+      "freshTitle_one": "{{count}} new code",
+      "freshTitle_other": "{{count}} new codes",
+      "freshHint": "Copy them now — once you leave this tab they are only in the table below.",
+      "copyAll": "Copy all",
+      "copied": "Copied",
+      "listTitle": "Issued codes",
+      "empty": "No codes yet.",
+      "colCode": "Code",
+      "colUsed": "Used",
+      "colLength": "Length",
+      "colNote": "Who for",
+      "foreverShort": "forever",
+      "daysShort_one": "{{count}} day",
+      "daysShort_other": "{{count}} days"
+    }
   },
   "practice": {
     "inviteTitle": "Make the new words stick",

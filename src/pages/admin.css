@@ -339,3 +339,108 @@
   font-weight: 600;
   letter-spacing: -0.02em;
 }
+
+/* ── Access codes ────────────────────────────────────────────────────────
+   The one screen in this console that is used standing up, on a phone, in the
+   middle of a conversation — "send me the link" happens in chat, not at a
+   desk. So the controls are large and the freshly made codes are the loudest
+   thing on the panel. */
+
+.adm__codeForm {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.adm__codeHint {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.adm__codeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-end;
+}
+
+.adm__codeField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 7rem;
+}
+
+.adm__codeField--wide {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.adm__codeField > span {
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--color-text-muted);
+}
+
+.adm__codeCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: var(--field-h);
+}
+
+/* The batch just made. Monospaced and large enough to read off a screen
+   someone is holding up, because that is how half of these will travel. */
+.adm__fresh {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-softer);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.adm__freshHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.adm__freshList {
+  display: grid;
+  gap: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  /* Selectable as a block, so copying by hand works when the clipboard API
+     is refused — which it is, on an insecure origin. */
+  user-select: all;
+}
+
+/* A code that has been used up is still worth seeing — it answers "did Dima
+   ever actually use it" — but it should not compete with the live ones. */
+.adm__table tr.is-spent {
+  opacity: 0.45;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .adm__fresh {
+    background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+    border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+  }
+}
+
+:root[data-theme="dark"] .adm__fresh {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+}

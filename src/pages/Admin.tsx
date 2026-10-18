@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  fetchCodes,
+  makeCodes,
   fetchAdminStats,
   fetchUserDetail,
   getPinned,
@@ -8,11 +10,12 @@ import {
   type AdminStats,
   type RosterRow,
   type UserDetail,
+  type AccessCodeRow,
 } from "@/lib/admin";
 import { readingLibrarySize } from "@/data/readingLibrary";
 import "./admin.css";
 
-type Tab = "overview" | "people" | "texts";
+type Tab = "overview" | "people" | "texts" | "codes";
 
 /**
  * The owner's console.
@@ -75,7 +78,7 @@ export default function Admin() {
       </header>
 
       <nav className="adm__tabs" role="tablist">
-        {(["overview", "people", "texts"] as Tab[]).map((key) => (
+        {(["overview", "people", "texts", "codes"] as Tab[]).map((key) => (
           <button
             key={key}
             type="button"
@@ -92,6 +95,7 @@ export default function Admin() {
       {tab === "overview" && <Overview stats={stats} />}
       {tab === "people" && <People stats={stats} passcode={passcode} />}
       {tab === "texts" && <Texts stats={stats} />}
+      {tab === "codes" && <Codes passcode={passcode} />}
     </div>
   );
 }
@@ -463,5 +467,194 @@ function Kpi({ label, value }: { label: string; value: number }) {
       <p className="adm__kpiN tabular">{value}</p>
       <p className="adm__kpiL">{label}</p>
     </div>
+  );
+}
+
+/* ── Access codes ──────────────────────────────────────────────────────── */
+
+/**
+ * Making codes, and seeing which ones have been used.
+ *
+ * This exists because the alternative was a tunnel and a SQL prompt. Handing
+ * a friend access is the single most frequent thing that will happen in the
+ * weeks before payment works, and a task done twenty times on a phone cannot
+ * live in psql.
+ *
+ * The freshly minted batch is shown apart from the list and stays on screen
+ * until the tab is left: a code that scrolled away into a table of two hundred
+ * is a code that has to be hunted for, and the whole point of generating one
+ * is to paste it into a message in the next ten seconds.
+ */
+function Codes({ passcode }: { passcode: string }) {
+  const { t } = useTranslation();
+
+  const [codes, setCodes] = useState<AccessCodeRow[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [fresh, setFresh] = useState<string[]>([]);
+  const [copied, setCopied] = useState(false);
+
+  const [count, setCount] = useState(5);
+  const [note, setNote] = useState("");
+  const [forever, setForever] = useState(true);
+  const [days, setDays] = useState(30);
+
+  const load = async () => {
+    const result = await fetchCodes(passcode);
+    if (result.ok) {
+      setCodes(result.data.codes);
+      setError(null);
+    } else {
+      setError(t(`admin.error.${result.reason}`));
+    }
+  };
+
+  useEffect(() => {
+    void load();
+    // The passcode cannot change without the whole console being re-entered.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const generate = async (e: FormEvent) => {
+    e.preventDefault();
+    setBusy(true);
+    setError(null);
+    setCopied(false);
+
+    const result = await makeCodes(passcode, {
+      count,
+      note,
+      days: forever ? null : days,
+      maxUses: 1,
+    });
+
+    setBusy(false);
+    if (!result.ok) {
+      setError(t(`admin.error.${result.reason}`));
+      return;
+    }
+
+    setFresh(result.data.codes.map((c) => c.code));
+    void load();
+  };
+
+  const copyAll = async () => {
+    try {
+      await navigator.clipboard.writeText(fresh.join("\n"));
+      setCopied(true);
+    } catch {
+      /* Clipboard refused — the codes are on screen and can be selected. */
+    }
+  };
+
+  return (
+    <section className="adm__block">
+      <form className="adm__codeForm" onSubmit={generate}>
+        <p className="adm__h">{t("admin.codes.makeTitle")}</p>
+        <p className="adm__codeHint">{t("admin.codes.makeHint")}</p>
+
+        <div className="adm__codeRow">
+          <label className="adm__codeField">
+            <span>{t("admin.codes.count")}</span>
+            <input
+              type="number"
+              className="field"
+              min={1}
+              max={50}
+              value={count}
+              onChange={(e) => setCount(Number(e.target.value))}
+            />
+          </label>
+
+          <label className="adm__codeField adm__codeField--wide">
+            <span>{t("admin.codes.note")}</span>
+            <input
+              type="text"
+              className="field"
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              placeholder={t("admin.codes.notePlaceholder")}
+            />
+          </label>
+        </div>
+
+        <div className="adm__codeRow">
+          <label className="adm__codeCheck">
+            <input type="checkbox" checked={forever} onChange={(e) => setForever(e.target.checked)} />
+            <span>{t("admin.codes.forever")}</span>
+          </label>
+
+          {!forever && (
+            <label className="adm__codeField">
+              <span>{t("admin.codes.days")}</span>
+              <input
+                type="number"
+                className="field"
+                min={1}
+                max={3650}
+                value={days}
+                onChange={(e) => setDays(Number(e.target.value))}
+              />
+            </label>
+          )}
+        </div>
+
+        <button type="submit" className="btn btn--primary" disabled={busy}>
+          {busy ? t("common.loading") : t("admin.codes.make")}
+        </button>
+
+        {error && <p className="adm__error">{error}</p>}
+      </form>
+
+      {fresh.length > 0 && (
+        <div className="adm__fresh">
+          <div className="adm__freshHead">
+            <p className="adm__h">{t("admin.codes.freshTitle", { count: fresh.length })}</p>
+            <button type="button" className="btn btn--sm" onClick={copyAll}>
+              {copied ? t("admin.codes.copied") : t("admin.codes.copyAll")}
+            </button>
+          </div>
+          <ul className="adm__freshList">
+            {fresh.map((code) => (
+              <li key={code}>{code}</li>
+            ))}
+          </ul>
+          <p className="adm__codeHint">{t("admin.codes.freshHint")}</p>
+        </div>
+      )}
+
+      <p className="adm__h" style={{ marginTop: "30px" }}>{t("admin.codes.listTitle")}</p>
+
+      {codes === null && !error && <p className="adm__codeHint">{t("common.loading")}</p>}
+
+      {codes !== null && codes.length === 0 && <p className="adm__codeHint">{t("admin.codes.empty")}</p>}
+
+      {codes !== null && codes.length > 0 && (
+        <div className="adm__tableWrap">
+          <table className="adm__table">
+            <thead>
+              <tr>
+                <th>{t("admin.codes.colCode")}</th>
+                <th>{t("admin.codes.colUsed")}</th>
+                <th>{t("admin.codes.colLength")}</th>
+                <th>{t("admin.codes.colNote")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {codes.map((row) => (
+                <tr key={row.code} className={row.uses >= row.max_uses ? "is-spent" : undefined}>
+                  <td className="tabular">{row.code}</td>
+                  <td className="num tabular">
+                    {row.uses} / {row.max_uses}
+                  </td>
+                  <td>{row.days === null ? t("admin.codes.foreverShort") : t("admin.codes.daysShort", { count: row.days })}</td>
+                  <td>{row.note ?? "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
   );
 }

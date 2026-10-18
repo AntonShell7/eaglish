@@ -302,8 +302,13 @@ on conflict (user_id) do nothing;
 
 /* ── Making codes ─────────────────────────────────────────────────────── */
 
--- There is no interface for this yet. Until there is, codes are made here —
--- through the Studio tunnel (see deploy/README.md) or psql on the server.
+-- Normally this happens in the owner's console, under "Коды" — the
+-- `admin-stats` edge function mints them with the service key, because this
+-- table cannot be read or written with any browser token.
+--
+-- The statements below are the way in when the console itself is not
+-- available: through the Studio tunnel (see deploy/README.md) or psql on the
+-- server.
 --
 -- One lifetime code for one friend:
 --
