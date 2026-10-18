@@ -218,6 +218,37 @@ data. Delete nothing until the new one has carried real users for days.
 
 ---
 
+## Edge functions, and the import that hangs
+
+`delete-account` and `admin-stats` run on this server too, from
+`volumes/functions/`. Two things about them are not obvious:
+
+**`jsr.io` does not resolve from this host.** The request hangs until it times
+out, so Deno blocks on the first import and the runtime never boots — while
+printing *nothing at all*, in the container or in the foreground, which makes
+it look dead rather than stuck. `registry.npmjs.org` answers normally, so
+every import uses an `npm:` specifier. If a function is ever added with a
+`jsr:` import it will fail the same silent way.
+
+**Three of those edits live in files the Supabase repo owns** —
+`volumes/functions/main/index.ts` and `volumes/functions/deno.jsonc`. A
+`git pull` in `/opt/supabase` reverts them and the runtime goes quiet again.
+The two application functions are kept in this repo under
+`supabase/functions/` and can be copied back; the router and the import map
+have to be re-patched by hand:
+
+```
+sed -i 's|jsr:@panva/jose@6|npm:jose@6|' volumes/functions/main/index.ts
+sed -i 's|jsr:@supabase/functions-js@\^2|npm:@supabase/functions-js@^2|' volumes/functions/deno.jsonc
+```
+
+`ADMIN_IDS` and `ADMIN_PASSCODE` reach the runtime through
+`docker-compose.override.yml`, which also carries the Google provider. That
+file is referenced from `COMPOSE_FILE` in `.env`, because setting that
+variable stops Compose picking up an override automatically.
+
+---
+
 ## Then, and only then
 
 The Roskomnadzor notification asks where the database is. Submitting it after

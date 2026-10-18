@@ -1,4 +1,9 @@
-import { createClient } from "jsr:@supabase/supabase-js@2";
+import { createClient } from "npm:@supabase/supabase-js@2";
+// npm, not jsr. jsr.io does not resolve from the Russian host this now
+// runs on — the request hangs until it times out, and Deno blocks on the
+// first import without printing anything, so the runtime looks dead
+// rather than stuck. registry.npmjs.org answers fine and carries the
+// same package.
 
 /**
  * The numbers behind the product, for the person who owns it.
