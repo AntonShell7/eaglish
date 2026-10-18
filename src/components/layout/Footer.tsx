@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { openConsentSettings } from "@/lib/consent";
 import { useAuth } from "@/context/AuthContext";
 import { looksLikeAdmin } from "@/lib/admin";
+import { CONTACT_EMAIL } from "@/data/legal";
 import "./footer.css";
 
 const LINKS: { key: string; to: string }[] = [
@@ -57,6 +58,15 @@ export function Footer() {
               {t(link.key)}
             </Link>
           ))}
+
+          {/* The address itself rather than a "Contact" link.
+              A payment provider moderating the site looks for a way to reach
+              a human, and so does anybody deciding whether to send money to a
+              stranger's website — both of them are looking for this string,
+              and a label that hides it behind one more click serves neither. */}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="ft__link">
+            {CONTACT_EMAIL}
+          </a>
 
           {/* Consent has to be as easy to revisit as it was to give. */}
           <button type="button" onClick={openConsentSettings} className="ft__link">
