@@ -46,7 +46,8 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "who",
         h: "Кто обрабатывает данные",
         p: [
-          `Eaglish — учебный проект, который ведёт частное лицо. По любым вопросам о данных пиши на ${CONTACT_EMAIL}: это тот же адрес, по которому можно потребовать удалить аккаунт.`,
+          "Оператор персональных данных — Шелудько Антон Павлович, самозанятый, ИНН 253715678005.",
+          `По любым вопросам о данных пиши на ${CONTACT_EMAIL}: это тот же адрес, по которому можно потребовать удалить аккаунт.`,
         ],
       },
       {
@@ -144,7 +145,8 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "who",
         h: "Who handles your data",
         p: [
-          `Eaglish is a study project run by an individual. For anything about your data, write to ${CONTACT_EMAIL} — the same address that deletes an account on request.`,
+          "The data controller is Anton Pavlovich Sheludko, registered in Russia under the professional income tax regime, INN 253715678005.",
+          `For anything about your data, write to ${CONTACT_EMAIL} — the same address that deletes an account on request.`,
         ],
       },
       {
@@ -385,17 +387,32 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
  * these three fields, and so does anyone deciding whether to hand over money
  * to a stranger's website.
  *
- * **These are placeholders.** Fill them before the offer is of any use, and
- * before applying to a provider. They have to match what is registered in
- * «Мой налог» exactly; a name that differs from the registration is the kind
- * of discrepancy that turns a three-day moderation into three weeks.
+ * These have to match what is registered in «Мой налог» exactly; a name that
+ * differs from the registration is the kind of discrepancy that turns a
+ * three-day moderation into three weeks.
+ *
+ * The tax number's two check digits were verified before it was written down.
+ * A transposed pair reads as a perfectly ordinary number and is only caught
+ * by whoever rejects the application a week later.
  */
 export const OPERATOR = {
   /** Фамилия Имя Отчество, exactly as registered. */
-  fullName: "—————",
+  fullName: "Шелудько Антон Павлович",
+  /**
+   * The same name in the genitive.
+   *
+   * Russian needs it for the one sentence that matters most — "настоящий
+   * документ является публичной офертой <кого>" — and a template that drops
+   * the nominative in there produces "офертой Шелудько Антон Павлович", which
+   * is the kind of thing that makes a reader doubt everything after it.
+   * Шелудько does not decline; the given name and patronymic do.
+   */
+  fullNameGenitive: "Шелудько Антона Павловича",
+  /** For the English translation, which should not be half in Cyrillic. */
+  fullNameLatin: "Anton Pavlovich Sheludko",
   status: "Самозанятый (плательщик налога на профессиональный доход)",
   /** ИНН, twelve digits. */
-  inn: "————————————",
+  inn: "253715678005",
   email: CONTACT_EMAIL,
 } as const;
 
@@ -442,7 +459,7 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "general",
         h: "Общие положения",
         p: [
-          `Настоящий документ является публичной офертой ${OPERATOR.fullName} (далее — «Исполнитель») в соответствии со статьёй 437 Гражданского кодекса Российской Федерации.`,
+          `Настоящий документ является публичной офертой ${OPERATOR.fullNameGenitive} (далее — «Исполнитель») в соответствии со статьёй 437 Гражданского кодекса Российской Федерации.`,
           "Оферта адресована любому дееспособному физическому лицу (далее — «Пользователь»), желающему приобрести доступ к платным разделам сервиса Eaglish, размещённого по адресу eaglish.ru.",
           "Договор считается заключённым с момента оплаты (акцепта). Отдельный документ на бумаге не составляется и не подписывается.",
         ],
@@ -558,7 +575,7 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         h: "Note on this translation",
         p: [
           "The Russian text of this offer is the binding document. This translation exists so that a reader who does not read Russian knows what they are agreeing to; where the two differ, the Russian version governs.",
-          `The offer is made by ${OPERATOR.fullName}, registered in Russia under the professional income tax regime, INN ${OPERATOR.inn}.`,
+          `The offer is made by ${OPERATOR.fullNameLatin}, registered in Russia under the professional income tax regime, INN ${OPERATOR.inn}.`,
         ],
       },
       {
@@ -610,7 +627,7 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "requisites",
         h: "Provider",
         p: [
-          OPERATOR.fullName,
+          OPERATOR.fullNameLatin,
           OPERATOR.status,
           `INN: ${OPERATOR.inn}`,
           `Email: ${OPERATOR.email}`,
