@@ -41,6 +41,12 @@ export function sectionOf(pathname: string): ProSection | null {
 /**
  * Prices, in roubles.
  *
+ * **These are for display.** The amount actually charged is decided by
+ * `api/_pay.ts`, which holds its own copy because the serverless functions are
+ * compiled separately and do not resolve this project's path aliases. Change
+ * one and change the other in the same commit: a mismatch shows one price and
+ * charges another.
+ *
  * `yearly` is deliberately not twelve times `monthly`: paying for a year is
  * worth a discount to us as well as to the learner, because a year of language
  * learning is the unit that actually works and a month is the unit that gets

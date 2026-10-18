@@ -431,7 +431,8 @@
     "support": "Support",
     "tagline": "A vocabulary that grows out of what you read.",
     "terms": "Terms",
-    "cookieSettings": "Cookie settings"
+    "cookieSettings": "Cookie settings",
+    "offer": "Offer"
   },
   "shell": {
     "practice": "Practice",
@@ -1391,6 +1392,20 @@
         "body": "How people actually speak: slang, idioms, real dialogue. Textbooks skip it and conversation is made of it — someone with good grammar can be stopped by three simple words."
       }
     },
-    "legal": "Prices are in roubles and include all taxes. Payment becomes available once a payment provider is connected; until then access is granted by code. By subscribing you accept the terms of use and the privacy policy."
+    "legal": "Prices are in roubles and include all taxes. Payment becomes available once a payment provider is connected; until then access is granted by code. By subscribing you accept the terms of use and the privacy policy.",
+    "pay": {
+      "going": "Taking you to payment…",
+      "needAccount": "Create an account and pay",
+      "errors": {
+        "payments-off": "Payment is not connected yet. Write to us and we will send an access code.",
+        "unauthenticated": "Your session ended — sign in again.",
+        "unavailable": "The payment service is unavailable right now. Try again in a few minutes.",
+        "failed": "Could not start the payment. Try again."
+      }
+    }
+  },
+  "offer": {
+    "draftTitle": "This is a draft, not a contract in force",
+    "draftBody": "The requisites are still blank: the provider's name and tax number are not filled in. Until they are, this document cannot be shown to a payment provider and no money can be taken under it."
   }
 }

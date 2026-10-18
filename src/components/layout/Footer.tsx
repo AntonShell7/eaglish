@@ -16,6 +16,7 @@ const LINKS: { key: string; to: string }[] = [
      provider's moderator looks for prices, terms and contacts together, and
      so does anyone wondering what this costs. */
   { key: "nav.pricing", to: "/pricing" },
+  { key: "footer.offer", to: "/offer" },
   { key: "footer.privacy", to: "/privacy" },
   { key: "footer.terms", to: "/terms" },
 ];

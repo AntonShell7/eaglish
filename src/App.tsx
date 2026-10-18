@@ -18,6 +18,7 @@ import Terms from "@/pages/Terms";
 import NotFound from "@/pages/NotFound";
 import Onboarding from "@/pages/Onboarding";
 import Pricing from "@/pages/Pricing";
+import Offer from "@/pages/Offer";
 import { RequireAuth } from "@/components/auth/RequireAuth";
 import { RequirePlan } from "@/components/access/RequirePlan";
 
@@ -83,6 +84,10 @@ export default function App() {
             before approving anything, and a price behind a sign-in is a price
             nobody sees. */}
         <Route path="pricing" element={<Pricing />} />
+        {/* The contract money is paid under. Public, and findable at its
+            own address, because that is where a provider's moderator
+            looks for it. */}
+        <Route path="offer" element={<Offer />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

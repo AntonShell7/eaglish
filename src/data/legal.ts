@@ -1,5 +1,5 @@
 /**
- * Privacy policy and terms.
+ * Privacy policy, terms, and the public offer.
  *
  * Kept as data, not as prose inside a component, so both languages stay in step
  * and the page can render a summary, a table of contents and the body from one
@@ -7,6 +7,8 @@
  * named here are the ones the code really talks to (Google, Groq, OpenAI, the host) —
  * because a policy that describes a different product is worse than none.
  */
+
+import { PRICES } from "@/lib/plans";
 
 /**
  * The address a reader can actually write to: it appears in both documents as
@@ -368,6 +370,251 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
         id: "contact",
         h: "Contact",
         p: [`Questions, complaints, account deletion: ${CONTACT_EMAIL}.`],
+      },
+    ],
+  },
+};
+
+/* ── Публичная оферта ──────────────────────────────────────────────────── */
+
+/**
+ * Who is selling, in the sense the law means.
+ *
+ * A public offer without a real name and a real taxpayer number is not an
+ * offer — it is a web page. A payment provider's moderator checks exactly
+ * these three fields, and so does anyone deciding whether to hand over money
+ * to a stranger's website.
+ *
+ * **These are placeholders.** Fill them before the offer is of any use, and
+ * before applying to a provider. They have to match what is registered in
+ * «Мой налог» exactly; a name that differs from the registration is the kind
+ * of discrepancy that turns a three-day moderation into three weeks.
+ */
+export const OPERATOR = {
+  /** Фамилия Имя Отчество, exactly as registered. */
+  fullName: "—————",
+  status: "Самозанятый (плательщик налога на профессиональный доход)",
+  /** ИНН, twelve digits. */
+  inn: "————————————",
+  email: CONTACT_EMAIL,
+} as const;
+
+/** True once the requisites above have been replaced with real ones. */
+export const OPERATOR_READY = !OPERATOR.fullName.startsWith("—") && !OPERATOR.inn.startsWith("—");
+
+const MONTHLY = PRICES.monthly.toLocaleString("ru-RU");
+const YEARLY = PRICES.yearly.toLocaleString("ru-RU");
+
+/**
+ * The public offer.
+ *
+ * Russian law, Russian audience, so the Russian text is the document and the
+ * English one is a courtesy translation that says so about itself.
+ *
+ * Two decisions inside it are worth naming because they are design choices,
+ * not boilerplate:
+ *
+ * **No automatic renewal.** A subscription is paid once for a period and ends
+ * when the period ends. This is simpler to build — no stored cards, no
+ * recurring mandate — and it removes the single largest source of consumer
+ * complaints and of regulatory attention in subscription businesses. Somebody
+ * who wants another year will pay for another year.
+ *
+ * **A refund rule that is actually usable.** Russian consumer law (ст. 32
+ * ЗоЗПП) already lets a customer walk away at any time and get back what was
+ * not yet rendered, so a document pretending otherwise would be void anyway.
+ * Saying it plainly costs nothing and is one of the few places a document
+ * like this can earn trust rather than spend it.
+ *
+ * Not legal advice, and not a substitute for a lawyer reading it before money
+ * moves.
+ */
+export const offerDoc: Record<"ru" | "en", LegalDoc> = {
+  ru: {
+    title: "Публичная оферта",
+    summary: [
+      "Это договор между тобой и исполнителем. Оплачивая подписку, ты его принимаешь.",
+      "Подписка не продлевается сама: оплатил период — он закончился — доступ вернулся к бесплатному.",
+      "Передумал — напиши на почту, вернём деньги за неиспользованную часть.",
+    ],
+    sections: [
+      {
+        id: "general",
+        h: "Общие положения",
+        p: [
+          `Настоящий документ является публичной офертой ${OPERATOR.fullName} (далее — «Исполнитель») в соответствии со статьёй 437 Гражданского кодекса Российской Федерации.`,
+          "Оферта адресована любому дееспособному физическому лицу (далее — «Пользователь»), желающему приобрести доступ к платным разделам сервиса Eaglish, размещённого по адресу eaglish.ru.",
+          "Договор считается заключённым с момента оплаты (акцепта). Отдельный документ на бумаге не составляется и не подписывается.",
+        ],
+      },
+      {
+        id: "subject",
+        h: "Предмет договора",
+        p: [
+          "Исполнитель предоставляет Пользователю доступ к платным разделам сервиса: упражнениям на восприятие речи на слух, письменным заданиям с автоматической проверкой, материалам разговорного английского и распознаванию рукописного текста.",
+          "Сервис предоставляет материалы и инструменты для самостоятельного изучения английского языка. Это не образовательная организация, обучение не ведётся по образовательной программе, документ об образовании не выдаётся.",
+          "Часть сервиса — чтение, личный словарь, расписание повторений и статистика — доступна бесплатно и не является предметом настоящего договора.",
+        ],
+      },
+      {
+        id: "acceptance",
+        h: "Как заключается договор",
+        p: [
+          "Акцептом оферты является оплата подписки любым из предложенных на сайте способов.",
+          "Совершая оплату, Пользователь подтверждает, что ознакомился с настоящей офертой, условиями использования и политикой конфиденциальности, согласен с ними и обладает необходимой дееспособностью.",
+          "Доступ открывается автоматически после поступления подтверждения об оплате от платёжного сервиса — как правило, в течение нескольких минут.",
+        ],
+      },
+      {
+        id: "price",
+        h: "Стоимость и оплата",
+        p: [
+          `Стоимость подписки: ${MONTHLY} ₽ за один месяц доступа или ${YEARLY} ₽ за один год доступа.`,
+          "Цены указаны в рублях Российской Федерации и включают все применимые налоги. Исполнитель применяет специальный налоговый режим «Налог на профессиональный доход», НДС не облагается.",
+          "Оплата производится через платёжный сервис. Исполнитель не получает и не хранит данные банковских карт Пользователя.",
+          "После оплаты Исполнитель формирует чек в соответствии с Федеральным законом № 422-ФЗ и направляет его на адрес электронной почты, указанный при оплате.",
+          "Исполнитель вправе изменить стоимость подписки. Изменение не затрагивает уже оплаченные периоды.",
+        ],
+      },
+      {
+        id: "term",
+        h: "Срок подписки",
+        p: [
+          "Подписка действует с момента открытия доступа и до окончания оплаченного периода.",
+          "Автоматическое продление не производится, деньги повторно не списываются. По окончании периода аккаунт возвращается к бесплатному доступу; сохранённые слова, расписание повторений и вся статистика остаются у Пользователя в полном объёме.",
+          "Чтобы продолжить, Пользователь оплачивает следующий период самостоятельно.",
+        ],
+      },
+      {
+        id: "refund",
+        h: "Возврат денежных средств",
+        p: [
+          "Пользователь вправе отказаться от договора в любой момент на основании статьи 32 Закона «О защите прав потребителей».",
+          "При отказе Исполнитель возвращает стоимость неиспользованной части подписки, рассчитанную пропорционально оставшимся дням оплаченного периода.",
+          `Для возврата достаточно написать на ${OPERATOR.email} с адреса почты, на который зарегистрирован аккаунт, и указать причину — она нужна нам, чтобы стать лучше, и не влияет на решение.`,
+          "Возврат производится тем же способом, которым была произведена оплата, в течение десяти рабочих дней с момента получения обращения.",
+          "Если сервис не работал по вине Исполнителя более трёх суток подряд, подписка продлевается на срок простоя либо возвращается полностью — по выбору Пользователя.",
+        ],
+      },
+      {
+        id: "duties",
+        h: "Права и обязанности",
+        p: [
+          "Исполнитель обязуется обеспечивать работоспособность сервиса, устранять неисправности в разумный срок и уведомлять о плановых работах заранее, когда это возможно.",
+          "Пользователь обязуется не передавать доступ к аккаунту третьим лицам, не копировать и не распространять материалы сервиса, не предпринимать действий, нарушающих его работу.",
+          "Доступ предоставляется одному человеку. При обнаружении одновременного использования аккаунта несколькими лицами Исполнитель вправе приостановить доступ, уведомив Пользователя и вернув стоимость неиспользованной части.",
+          "Исключительные права на материалы сервиса принадлежат Исполнителю. Подписка даёт право пользоваться ими лично, но не передаёт никаких прав на сами материалы.",
+        ],
+      },
+      {
+        id: "liability",
+        h: "Ответственность и ограничения",
+        p: [
+          "Проверка письменных работ, переводы и часть учебных материалов формируются автоматически с использованием языковых моделей. Они полезны как ориентир, но могут содержать ошибки, и Исполнитель не гарантирует их безошибочность.",
+          "Исполнитель не гарантирует достижения Пользователем конкретного уровня владения языком: результат зависит от регулярности и объёма самостоятельной работы.",
+          "Исполнитель не несёт ответственности за недоступность сервиса, вызванную обстоятельствами вне его контроля: сбоями у хостинг-провайдера, у операторов связи, действиями третьих лиц.",
+          "Ответственность Исполнителя в любом случае ограничена стоимостью оплаченной подписки.",
+        ],
+      },
+      {
+        id: "data",
+        h: "Персональные данные",
+        p: [
+          "Обработка персональных данных Пользователя осуществляется в соответствии с политикой конфиденциальности, размещённой на сайте, и Федеральным законом № 152-ФЗ.",
+          "Принимая настоящую оферту, Пользователь подтверждает согласие на обработку своих персональных данных на условиях, изложенных в политике конфиденциальности.",
+        ],
+      },
+      {
+        id: "changes",
+        h: "Изменение оферты и разрешение споров",
+        p: [
+          "Исполнитель вправе изменить настоящую оферту. Новая редакция вступает в силу с момента публикации на сайте и не распространяется на уже оплаченные периоды.",
+          "Все споры стороны стремятся разрешить путём переговоров. Претензия направляется на адрес электронной почты Исполнителя и рассматривается в течение десяти рабочих дней.",
+          "При недостижении согласия спор подлежит разрешению в соответствии с законодательством Российской Федерации.",
+        ],
+      },
+      {
+        id: "requisites",
+        h: "Реквизиты Исполнителя",
+        p: [
+          OPERATOR.fullName,
+          OPERATOR.status,
+          `ИНН: ${OPERATOR.inn}`,
+          `Электронная почта: ${OPERATOR.email}`,
+        ],
+      },
+    ],
+  },
+  en: {
+    title: "Public offer",
+    summary: [
+      "This is the contract between you and the provider. Paying for a subscription accepts it.",
+      "A subscription does not renew itself: the period you paid for ends, and the account returns to the free plan.",
+      "Changed your mind? Write to us and we refund the part you did not use.",
+    ],
+    sections: [
+      {
+        id: "general",
+        h: "Note on this translation",
+        p: [
+          "The Russian text of this offer is the binding document. This translation exists so that a reader who does not read Russian knows what they are agreeing to; where the two differ, the Russian version governs.",
+          `The offer is made by ${OPERATOR.fullName}, registered in Russia under the professional income tax regime, INN ${OPERATOR.inn}.`,
+        ],
+      },
+      {
+        id: "subject",
+        h: "What is being sold",
+        p: [
+          "Access to the paid sections of Eaglish: listening exercises, written work with automatic feedback, spoken-English material and handwriting recognition.",
+          "Eaglish provides materials and tools for studying English on your own. It is not an accredited school, teaches no certified programme and issues no diploma.",
+          "Reading, your own dictionary, the review schedule and the statistics are free and are not covered by this contract.",
+        ],
+      },
+      {
+        id: "price",
+        h: "Price and payment",
+        p: [
+          `${MONTHLY} ₽ for one month of access, or ${YEARLY} ₽ for one year.`,
+          "Prices are in Russian roubles and include all applicable taxes. Payment is handled by a payment service; we never receive or store your card details.",
+          "A receipt is issued after payment and sent to the email address given at checkout.",
+        ],
+      },
+      {
+        id: "term",
+        h: "How long it lasts",
+        p: [
+          "Access runs until the paid period ends. There is no automatic renewal and nothing is charged again.",
+          "When the period ends the account returns to the free plan. Every saved word, the review schedule and all statistics remain yours in full.",
+        ],
+      },
+      {
+        id: "refund",
+        h: "Refunds",
+        p: [
+          "You may end this contract at any time under article 32 of the Russian consumer protection law.",
+          "We refund the unused part of the subscription, calculated by the days remaining.",
+          `Write to ${OPERATOR.email} from the address your account uses. Refunds are made by the original payment method within ten working days.`,
+          "If the service was down through our fault for more than three days running, we extend the subscription by that time or refund it in full, whichever you prefer.",
+        ],
+      },
+      {
+        id: "liability",
+        h: "Limits",
+        p: [
+          "Written feedback, translations and some study material are generated automatically by language models. They are useful as a guide and can be wrong.",
+          "We do not promise that you will reach any particular level: that depends on how much work you do.",
+          "Our liability is limited to the amount you paid.",
+        ],
+      },
+      {
+        id: "requisites",
+        h: "Provider",
+        p: [
+          OPERATOR.fullName,
+          OPERATOR.status,
+          `INN: ${OPERATOR.inn}`,
+          `Email: ${OPERATOR.email}`,
+        ],
       },
     ],
   },
