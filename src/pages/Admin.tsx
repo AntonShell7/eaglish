@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import {
   fetchCodes,
   makeCodes,
+  CODE_DURATIONS,
+  durationLabel,
   fetchAdminStats,
   fetchUserDetail,
   getPinned,
@@ -496,8 +498,12 @@ function Codes({ passcode }: { passcode: string }) {
 
   const [count, setCount] = useState(5);
   const [note, setNote] = useState("");
-  const [forever, setForever] = useState(true);
-  const [days, setDays] = useState(30);
+  /* Indexed rather than stored as a number, so "forever" (null days) is just
+     another entry in the list instead of a separate piece of state that the
+     number field has to be disabled for. */
+  const [durationKey, setDurationKey] = useState("forever");
+
+  const duration = CODE_DURATIONS.find((d) => d.key === durationKey) ?? CODE_DURATIONS[CODE_DURATIONS.length - 1];
 
   const load = async () => {
     const result = await fetchCodes(passcode);
@@ -524,7 +530,7 @@ function Codes({ passcode }: { passcode: string }) {
     const result = await makeCodes(passcode, {
       count,
       note,
-      days: forever ? null : days,
+      days: duration.days,
       maxUses: 1,
     });
 
@@ -579,24 +585,20 @@ function Codes({ passcode }: { passcode: string }) {
         </div>
 
         <div className="adm__codeRow">
-          <label className="adm__codeCheck">
-            <input type="checkbox" checked={forever} onChange={(e) => setForever(e.target.checked)} />
-            <span>{t("admin.codes.forever")}</span>
+          <label className="adm__codeField adm__codeField--wide">
+            <span>{t("admin.codes.duration")}</span>
+            <select
+              className="field"
+              value={durationKey}
+              onChange={(e) => setDurationKey(e.target.value)}
+            >
+              {CODE_DURATIONS.map((d) => (
+                <option key={d.key} value={d.key}>
+                  {t(`admin.codes.durations.${d.key}`)}
+                </option>
+              ))}
+            </select>
           </label>
-
-          {!forever && (
-            <label className="adm__codeField">
-              <span>{t("admin.codes.days")}</span>
-              <input
-                type="number"
-                className="field"
-                min={1}
-                max={3650}
-                value={days}
-                onChange={(e) => setDays(Number(e.target.value))}
-              />
-            </label>
-          )}
         </div>
 
         <button type="submit" className="btn btn--primary" disabled={busy}>
@@ -647,7 +649,12 @@ function Codes({ passcode }: { passcode: string }) {
                   <td className="num tabular">
                     {row.uses} / {row.max_uses}
                   </td>
-                  <td>{row.days === null ? t("admin.codes.foreverShort") : t("admin.codes.daysShort", { count: row.days })}</td>
+                  <td>
+                    {(() => {
+                      const label = durationLabel(row.days);
+                      return t(label.key, { count: label.count });
+                    })()}
+                  </td>
                   <td>{row.note ?? "—"}</td>
                 </tr>
               ))}

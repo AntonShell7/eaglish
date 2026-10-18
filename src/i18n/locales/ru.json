@@ -1217,8 +1217,6 @@
       "count": "Сколько",
       "note": "Для кого",
       "notePlaceholder": "Например, запуск для друзей",
-      "forever": "Навсегда",
-      "days": "Дней",
       "make": "Сгенерировать",
       "freshTitle_one": "{{count}} новый код",
       "freshTitle_few": "{{count}} новых кода",
@@ -1235,7 +1233,18 @@
       "foreverShort": "навсегда",
       "daysShort_one": "{{count}} день",
       "daysShort_few": "{{count}} дня",
-      "daysShort_many": "{{count}} дней"
+      "daysShort_many": "{{count}} дней",
+      "duration": "На какой срок",
+      "durations": {
+        "d3": "3 дня",
+        "d7": "Неделя",
+        "d14": "2 недели",
+        "m1": "Месяц",
+        "m3": "3 месяца",
+        "m6": "6 месяцев",
+        "y1": "Год",
+        "forever": "Навсегда"
+      }
     }
   },
   "practice": {

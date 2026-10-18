@@ -105,6 +105,44 @@ export function togglePinned(id: string): string[] {
   return next;
 }
 
+/**
+ * How long a code is worth, as the console offers it.
+ *
+ * Presets rather than a number field, because the question being answered is
+ * "what am I giving this person" and the answers are a small, well-known set:
+ * a few days to try it, a month as a gift, a year for somebody who helped,
+ * forever for the people who were here first. Typing 180 into a box is the
+ * same thing with an arithmetic step in front of it, and a slip of the finger
+ * there gives somebody eighteen days instead of six months.
+ *
+ * `null` means it never runs out. Counted from redemption, not from issue, so
+ * a code can sit unread in a message for a week without spending the gift.
+ */
+export const CODE_DURATIONS: { key: string; days: number | null }[] = [
+  { key: "d3", days: 3 },
+  { key: "d7", days: 7 },
+  { key: "d14", days: 14 },
+  { key: "m1", days: 30 },
+  { key: "m3", days: 90 },
+  { key: "m6", days: 180 },
+  { key: "y1", days: 365 },
+  { key: "forever", days: null },
+];
+
+/**
+ * The nicest way to say a length.
+ *
+ * A code issued as "6 месяцев" should be listed as six months, not as 180
+ * days — otherwise the owner has to divide in their head to check they gave
+ * what they meant to. Anything not matching a preset (a code made directly in
+ * SQL, say) falls back to a plain day count.
+ */
+export function durationLabel(days: number | null): { key: string; count: number } {
+  const preset = CODE_DURATIONS.find((d) => d.days === days);
+  if (preset) return { key: `admin.codes.durations.${preset.key}`, count: 0 };
+  return { key: "admin.codes.daysShort", count: days ?? 0 };
+}
+
 /** One access code, as the owner's console lists it. */
 export interface AccessCodeRow {
   code: string;

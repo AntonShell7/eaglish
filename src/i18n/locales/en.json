@@ -1183,8 +1183,6 @@
       "count": "How many",
       "note": "Who for",
       "notePlaceholder": "For example, friends launch",
-      "forever": "Never expires",
-      "days": "Days",
       "make": "Generate",
       "freshTitle_one": "{{count}} new code",
       "freshTitle_other": "{{count}} new codes",
@@ -1199,7 +1197,18 @@
       "colNote": "Who for",
       "foreverShort": "forever",
       "daysShort_one": "{{count}} day",
-      "daysShort_other": "{{count}} days"
+      "daysShort_other": "{{count}} days",
+      "duration": "For how long",
+      "durations": {
+        "d3": "3 days",
+        "d7": "A week",
+        "d14": "2 weeks",
+        "m1": "A month",
+        "m3": "3 months",
+        "m6": "6 months",
+        "y1": "A year",
+        "forever": "Forever"
+      }
     }
   },
   "practice": {
