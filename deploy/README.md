@@ -218,6 +218,31 @@ data. Delete nothing until the new one has carried real users for days.
 
 ---
 
+## What the subdomain exposes
+
+`db.eaglish.ru` proxies three path groups and answers 404 to everything
+else: `/auth/v1/`, `/rest/v1/` and `/functions/v1/`. That is the whole of
+what the application asks for.
+
+It used to proxy everything, and Supabase serves **Studio** at `/` — the
+database's own console, where every row of every table can be read and
+edited. The only thing in the way was a password, and a password on the open
+internet can be guessed at around the clock with nobody the wiser.
+
+Studio still runs. It is reached through a tunnel instead:
+
+```bash
+ssh -N -L 8000:127.0.0.1:8000 root@89.111.170.134
+```
+
+and then `http://127.0.0.1:8000` in a browser. Leave that command running
+while you use it; Ctrl-C closes the tunnel.
+
+Unknown paths answer 404 rather than 403, because a refusal tells you there
+is something there to refuse.
+
+---
+
 ## Edge functions, and the import that hangs
 
 `delete-account` and `admin-stats` run on this server too, from
