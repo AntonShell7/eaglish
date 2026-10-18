@@ -4,7 +4,7 @@
  * Kept as data, not as prose inside a component, so both languages stay in step
  * and the page can render a summary, a table of contents and the body from one
  * source. The content describes what the app actually does — the third parties
- * named here are the ones the code really talks to (Supabase, Groq, the host) —
+ * named here are the ones the code really talks to (Google, Groq, OpenAI, the host) —
  * because a policy that describes a different product is worse than none.
  */
 
@@ -16,7 +16,7 @@
  */
 export const CONTACT_EMAIL = "eaglish@yandex.ru";
 
-export const LAST_UPDATED = "2026-09-28";
+export const LAST_UPDATED = "2026-10-18";
 
 export interface LegalSection {
   id: string;
@@ -51,10 +51,12 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "what",
         h: "Какие данные мы собираем",
         p: [
-          "Данные аккаунта: адрес электронной почты и пароль. Пароль мы не видим — он хранится в виде хеша у нашего провайдера аутентификации.",
+          "Данные аккаунта: адрес электронной почты и пароль. Пароль мы не видим — он хранится в виде хеша.",
+          "Если ты входишь через Google, Google передаёт нам имя и ссылку на фотографию профиля вместе с адресом почты. Это происходит один раз, при первом входе, и отказаться от передачи этих полей, оставив вход через Google, нельзя. Регистрация по почте их не требует.",
           "Учебные данные: сохранённые слова и расписание их повторений, отправленные тексты и оценки к ним, открытые тексты и результаты вопросов, ежедневная активность и настройки из онбординга (уровень, цель, темы, дневная норма).",
+          "Когда ты сообщаешь о проблеме, вместе с сообщением сохраняется страница, с которой оно отправлено, и строка с описанием браузера — без них отчёт невозможно воспроизвести.",
           "Локальные настройки в браузере: тема оформления, язык интерфейса, согласие на этой странице и копия учебного прогресса, чтобы приложение работало без интернета.",
-          "Мы не собираем имя, возраст, номер телефона, платёжные данные и не запрашиваем доступ к камере, микрофону или геолокации.",
+          "Мы не собираем возраст, номер телефона, платёжные данные и не запрашиваем доступ к камере, микрофону или геолокации.",
         ],
       },
       {
@@ -69,10 +71,20 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "third-parties",
         h: "Кому передаются данные",
         p: [
-          "Supabase — хранение базы данных и аутентификация. Там лежат аккаунт и учебные данные.",
-          "Groq — обработка текста нейросетью. Туда уходит слово с предложением, в котором ты его встретил (для перевода), и текст, который ты отправил на проверку письма. Не отправляй в эти поля персональные данные — свои или чужие.",
+          "Google — только если ты выбрал вход через Google. Google узнаёт, что ты пользуешься Eaglish, и передаёт нам почту, имя и ссылку на фотографию.",
+          "Groq и OpenAI — обработка текста нейросетью. Туда уходит слово с предложением, в котором ты его встретил, текст, отправленный на проверку письма, и снимок рукописной страницы, если ты пользуешься письмом от руки. Не отправляй в эти поля персональные данные — свои или чужие.",
           "Хостинг сайта — отдача файлов приложения и техничеcкие журналы запросов у провайдера.",
           "Больше никому. Мы не передаём данные рекламным сетям, не продаём их и не обмениваем.",
+        ],
+      },
+      {
+        id: "where",
+        h: "Где хранятся данные",
+        p: [
+          "База данных находится в России, в дата-центре в Санкт-Петербурге. Там лежат аккаунт, учебный прогресс и всё остальное, что ты сохранил.",
+          "За пределы России уходит только одно: текст, который ты отправляешь нейросети. Это слово с предложением, в котором ты его встретил, текст на проверку письма или снимок рукописной страницы. Серверы Groq и OpenAI находятся за рубежом, и такая передача по закону считается трансграничной.",
+          "Сами по себе эти запросы не содержат твоего имени или адреса почты — уходит только текст. Но текст пишешь ты, поэтому в поля проверки письма не стоит вносить ничего, что ты не готов отправить за границу.",
+          "Ответы нейросети возвращаются и сохраняются уже здесь, в российской базе.",
         ],
       },
       {
@@ -89,7 +101,7 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "У Eaglish есть служебная страница, к которой имеет доступ только владелец сервиса. На ней видно: список аккаунтов с адресами почты, дата регистрации и последнего входа, выбранный уровень, сколько слов сохранено и сколько повторений сделано. По отдельному аккаунту можно открыть и сам список сохранённых слов с переводами и датами.",
           "Это нужно, чтобы понимать, работает ли обучение, и чинить то, что сломалось. Мы не читаем эти данные ради любопытства и не передаём их наружу — ограничения из раздела «Кому передаются данные» действуют и здесь.",
-          "Чего там нет: твоего пароля — он хранится только в виде необратимого хеша у Supabase, и его не видит никто, включая нас.",
+          "Чего там нет: твоего пароля — он хранится только в виде необратимого хеша, и его не видит никто, включая нас.",
         ],
       },
       {
@@ -137,10 +149,12 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "what",
         h: "What we collect",
         p: [
-          "Account data: your email address and a password. We never see the password itself; our authentication provider stores a hash of it.",
+          "Account data: your email address and a password. We never see the password itself; only a hash of it is stored.",
+          "If you sign in with Google, Google passes us your name and a link to your profile picture along with your email address. This happens once, at first sign-in, and there is no way to keep Google sign-in while declining those fields. Signing up with an email address does not involve them.",
           "Learning data: saved words and their review schedule, submitted texts and their scores, which texts you opened and how you answered their questions, daily activity, and your onboarding answers (level, goal, topics, daily target).",
+          "When you report a problem, the page you sent it from and a line describing your browser are stored with the message — a report cannot be reproduced without them.",
           "Local settings in your browser: theme, interface language, the consent recorded on this page, and a copy of your progress so the app works offline.",
-          "We do not collect your name, age, phone number or payment details, and we never ask for camera, microphone or location access.",
+          "We do not collect your age, phone number or payment details, and we never ask for camera, microphone or location access.",
         ],
       },
       {
@@ -155,10 +169,20 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         id: "third-parties",
         h: "Who else sees it",
         p: [
-          "Supabase — database storage and authentication. Your account and learning data live there.",
-          "Groq — AI text processing. A word plus the sentence you met it in is sent for translation, and a piece of writing is sent when you ask for an assessment. Please don't type personal data — yours or anyone else's — into those fields.",
+          "Google — only if you chose to sign in with Google. Google learns that you use Eaglish, and passes us your email, your name and a link to your picture.",
+          "Groq and OpenAI — AI text processing. A word plus the sentence you met it in is sent for translation, a piece of writing is sent when you ask for an assessment, and an image of a handwritten page is sent if you write by hand. Please don't type personal data — yours or anyone else's — into those fields.",
           "Our hosting provider — serving the application files, plus ordinary request logs.",
           "Nobody else. We do not share data with ad networks, sell it, or trade it.",
+        ],
+      },
+      {
+        id: "where",
+        h: "Where the data lives",
+        p: [
+          "The database is in Russia, in a data centre in St Petersburg. Your account, your progress and everything you have saved are there.",
+          "One thing leaves Russia: the text you send to the AI. That is a word with the sentence you met it in, a piece of writing submitted for assessment, or an image of a handwritten page. Groq's and OpenAI's servers are abroad, and under Russian law that counts as a cross-border transfer.",
+          "Those requests do not carry your name or email — only the text. But you write the text, so do not put anything into the writing fields that you would not want sent abroad.",
+          "The AI's answers come back and are stored here, in the Russian database.",
         ],
       },
       {
@@ -175,7 +199,7 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "Eaglish has an internal page that only the owner of the service can open. It shows a list of accounts with their email addresses, sign-up and last sign-in dates, the chosen level, how many words are saved and how many reviews have been done. For an individual account it can also show the saved words themselves, with translations and dates.",
           "This exists so we can tell whether the teaching works and fix what breaks. We do not read it out of curiosity and we do not pass it on — the limits in the sharing section above apply here too.",
-          "What it does not show: your password. That is held only as an irreversible hash at Supabase, and nobody sees it, including us.",
+          "What it does not show: your password. That is held only as an irreversible hash, and nobody sees it, including us.",
         ],
       },
       {
