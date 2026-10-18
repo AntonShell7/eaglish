@@ -1,0 +1,78 @@
+/* The paywall, and the lock marks that warn about it in advance. */
+
+.pw {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.pw__lede {
+  margin-top: 0.85rem;
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* The reassurance, set as its own block.
+   Somebody who has just met a price is working out what they have lost, and
+   the answer is nothing — every word they saved is still theirs and reading is
+   still open. Said in the margin, that sentence is not read; given a panel, it
+   is. */
+.pw__free {
+  margin-top: 1.4rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-softer);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.pw__free-h {
+  font-weight: 650;
+  font-size: 0.9375rem;
+  color: var(--color-accent-ink);
+}
+
+.pw__free-p {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.pw__actions {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pw__code {
+  margin-top: 1.75rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Dark mode: the soft mint panel is mixed rather than swapped, so it stays a
+   tint of the brand instead of becoming a grey box. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pw__free {
+    background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+    border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+  }
+
+  :root:not([data-theme="light"]) .pw__free-h {
+    color: var(--color-primary);
+  }
+}
+
+:root[data-theme="dark"] .pw__free {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+:root[data-theme="dark"] .pw__free-h {
+  color: var(--color-primary);
+}

@@ -12,6 +12,10 @@ const LINKS: { key: string; to: string }[] = [
   { key: "nav.vocabulary", to: "/vocabulary" },
   { key: "nav.writing", to: "/writing" },
   { key: "nav.progress", to: "/progress" },
+  /* Next to the legal pages rather than among the sections: a payment
+     provider's moderator looks for prices, terms and contacts together, and
+     so does anyone wondering what this costs. */
+  { key: "nav.pricing", to: "/pricing" },
   { key: "footer.privacy", to: "/privacy" },
   { key: "footer.terms", to: "/terms" },
 ];

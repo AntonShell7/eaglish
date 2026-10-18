@@ -1,0 +1,228 @@
+/* The pricing page.
+   Two columns that can be read against each other, which is the only thing a
+   price table does better than a paragraph. Everything else here is in service
+   of that comparison staying legible on a phone, where the columns stack and
+   the comparison has to survive being vertical. */
+
+.pr__head {
+  max-width: 44rem;
+}
+
+.pr__lede {
+  margin-top: 0.85rem;
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* Already subscribed. */
+.pr__have {
+  margin-top: 1.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-softer);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.pr__have-h {
+  font-weight: 650;
+  color: var(--color-accent-ink);
+}
+
+.pr__have-p {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.pr__cycle {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pr__grid {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px) {
+  .pr__grid {
+    /* The paid column a little wider. It carries two more lines of list and
+       the checkout block, and equal columns leave it cramped while the free
+       one has air it does not need. */
+    grid-template-columns: 1fr 1.08fr;
+    align-items: start;
+  }
+}
+
+.pr__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  padding: clamp(1.35rem, 4vw, 1.9rem);
+  box-shadow: var(--shadow-1);
+}
+
+/* The paid card, lifted — a hairline in the brand colour and a real shadow.
+   Not a coloured fill: a page where one of two options is shouting reads as a
+   sales page, and the free plan here is a genuine offer rather than a decoy. */
+.pr__card--pro {
+  border-color: color-mix(in srgb, var(--color-primary) 38%, transparent);
+  box-shadow: var(--shadow-2);
+}
+
+.pr__name {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+}
+
+.pr__price {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.pr__amount {
+  font-family: var(--font-display);
+  font-weight: 750;
+  font-size: clamp(2.1rem, 9vw, 2.75rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.pr__unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.pr__note {
+  margin-top: 0.45rem;
+  font-size: 0.875rem;
+  color: var(--color-text-faint);
+}
+
+.pr__list {
+  margin-top: 1.3rem;
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* The tick is drawn with a border rather than a glyph, so it cannot be
+   affected by a missing font and sits on the first line of a wrapping item. */
+.pr__list li {
+  position: relative;
+  padding-left: 1.65rem;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+.pr__list li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.42em;
+  width: 0.55rem;
+  height: 0.3rem;
+  border-left: 2px solid var(--color-text-faint);
+  border-bottom: 2px solid var(--color-text-faint);
+  transform: rotate(-45deg);
+}
+
+.pr__list--pro li {
+  color: var(--color-text);
+}
+
+.pr__list--pro li::before {
+  border-color: var(--color-primary);
+}
+
+/* Pushes the action to the bottom so the two cards' buttons line up even when
+   one list is longer than the other. */
+.pr__foot {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.pr__current {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+}
+
+/* Payment not open yet. Stated, not disguised as a button. */
+.pr__soon {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+}
+
+.pr__soon-h {
+  font-weight: 650;
+  font-size: 0.9375rem;
+}
+
+.pr__soon-p {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.pr__codeblock {
+  margin-top: 2rem;
+  padding: clamp(1.15rem, 4vw, 1.6rem);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+}
+
+.pr__codehint {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.pr__legal {
+  margin-top: 2.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-text-faint);
+  max-width: 44rem;
+}
+
+/* Dark mode: the two tinted panels are mixed against the dark surface rather
+   than kept as light mint, which would glow. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pr__have {
+    background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+    border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+  }
+
+  :root:not([data-theme="light"]) .pr__have-h {
+    color: var(--color-primary);
+  }
+}
+
+:root[data-theme="dark"] .pr__have {
+  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
+  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
+:root[data-theme="dark"] .pr__have-h {
+  color: var(--color-primary);
+}

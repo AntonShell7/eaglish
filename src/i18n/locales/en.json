@@ -17,7 +17,8 @@
     "slang": "Real English",
     "more": "More",
     "dictationShort": "Listening",
-    "moreTitle": "More sections"
+    "moreTitle": "More sections",
+    "pricing": "Plans"
   },
   "common": {
     "continue": "Continue",
@@ -460,7 +461,10 @@
     "dailyGoalLabel": "Daily goal",
     "dailyGoalHint": "How many activities count as a finished day.",
     "memberSince": "Member since",
-    "noLevelYet": "Level not set"
+    "noLevelYet": "Level not set",
+    "plan": "Plan",
+    "planFreeHint": "Reading, dictionary and reviews — free",
+    "seePlans": "See plans"
   },
   "achievements": {
     "firstSteps": {
@@ -1272,5 +1276,95 @@
     "action": "Share",
     "copied": "Link copied",
     "copyManually": "Copy this link:"
+  },
+  "pricing": {
+    "eyebrow": "Plans",
+    "title": "Reading is free. The rest is a subscription.",
+    "lede": "Words come from reading, so reading is open in full and stays that way: every text, your own dictionary and the review schedule. A subscription opens the sections that put those words to work — listening, checked writing, and the English textbooks leave out.",
+    "cycleLabel": "Billing period",
+    "cycle": {
+      "monthly": "Monthly",
+      "yearly": "Yearly"
+    },
+    "saving": "Save {{amount}} ₽",
+    "per": {
+      "monthly": "per month",
+      "yearly": "per year"
+    },
+    "have": {
+      "title": "Subscription active",
+      "until": "Valid until {{date}}.",
+      "forever": "Valid with no end date."
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "note": "Forever, no card",
+        "cta": "Create an account",
+        "current": "Your current plan"
+      },
+      "pro": {
+        "name": "Full access",
+        "note": "Billed monthly, cancel any time",
+        "perMonth": "That is {{amount}} ₽ a month",
+        "cta": "Subscribe",
+        "current": "Your current plan"
+      }
+    },
+    "features": {
+      "readingAll": "Every text in Reading",
+      "vocabulary": "Your own dictionary: your words, your folders, translation on a tap",
+      "schedule": "The review schedule — it decides what to revisit today",
+      "progress": "Progress and statistics",
+      "aiFree": "{{free}} AI requests a day",
+      "everythingFree": "Everything in the free plan",
+      "listening": "Listening: dictation checked word by word",
+      "writing": "Writing with feedback — grammar, vocabulary, coherence",
+      "slang": "English beyond the textbook: slang and real dialogue",
+      "handwriting": "Handwriting recognition — write by hand, the app reads it",
+      "aiPro": "{{pro}} AI requests a day"
+    },
+    "soon": {
+      "title": "Payment opens in the coming weeks",
+      "body": "For now access is granted by code. To join the first group, write to:"
+    },
+    "code": {
+      "label": "Access code",
+      "placeholder": "For example, EAGL2026",
+      "submit": "Activate",
+      "checking": "Checking…",
+      "done": "Done — full access is open",
+      "doneHint": "Every section works now. Enjoy.",
+      "haveOne": "Have an access code?",
+      "signInFirst": "A code attaches to an account, so first",
+      "errors": {
+        "not-found": "No such code. Check the characters — they are Latin letters.",
+        "used-up": "This code has already been used.",
+        "expired": "This code has expired.",
+        "too-many": "Too many attempts. Try again in an hour.",
+        "failed": "The code could not be checked. Try again.",
+        "signed-out": "Your session ended — sign in again and the code will work."
+      }
+    },
+    "paywall": {
+      "eyebrow": "Subscription section",
+      "stillFree": "Nothing is lost",
+      "stillFreeBody": "Every word you saved, the review schedule and all of Reading stay free. A subscription takes nothing away — it adds.",
+      "see": "See the plans — from {{price}} ₽",
+      "toReading": "Back to reading",
+      "dictation": {
+        "title": "English by ear",
+        "body": "You hear a phrase and write it down. The app compares it word by word and shows not \"wrong\" but which word you missed. It is the one section that trains hearing rather than recognising text on a page."
+      },
+      "writing": {
+        "title": "Writing with feedback",
+        "body": "Write a text and get it read for grammar, vocabulary and coherence, with the specific fix named. You can write by hand: the app reads handwriting and checks it the same way."
+      },
+      "slang": {
+        "title": "English beyond the textbook",
+        "body": "How people actually speak: slang, idioms, real dialogue. Textbooks skip it and conversation is made of it — someone with good grammar can be stopped by three simple words."
+      }
+    },
+    "legal": "Prices are in roubles and include all taxes. Payment becomes available once a payment provider is connected; until then access is granted by code. By subscribing you accept the terms of use and the privacy policy."
   }
 }

@@ -43,6 +43,10 @@ export const PROGRESS_KEYS = [
   "writingHistory",
   "videoExercises",
   "timeOnSite",
+  /* The cached plan. It is an answer about one account, so leaving it behind
+     would show the next person to sign in on this device a paid interface
+     bought by somebody else. */
+  "accessPlan",
 ] as const;
 
 /**

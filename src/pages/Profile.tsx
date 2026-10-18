@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { useAccess } from "@/context/AccessContext";
+import { RedeemCode } from "@/components/access/RedeemCode";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { StatTile } from "@/components/charts/figures";
 import { IconFlame, IconBookmark } from "@/components/brand/icons";
@@ -16,6 +18,7 @@ import "@/components/charts/charts.css";
 export default function Profile() {
   const { t } = useTranslation();
   const { user, signOut } = useAuth();
+  const { plan, isPro, expiresAt } = useAccess();
   const navigate = useNavigate();
 
   const [streak, setStreak] = useState(0);
@@ -79,6 +82,50 @@ export default function Profile() {
         </div>
 
       </section>
+
+      {/* The plan.
+          Immediately under the identity card, because "what am I paying for"
+          belongs with "who am I signed in as" — and because this is where
+          somebody who was sent a code comes looking for the box to type it
+          into, having found nothing on the dashboard. */}
+      {user && (
+        <section className="card mt-5 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="eyebrow">{t("profile.plan")}</p>
+              <p className="mt-1 text-lg font-extrabold">
+                {t(`pricing.plans.${plan}.name`)}
+              </p>
+              <p className="mt-0.5 text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {isPro
+                  ? expiresAt
+                    ? t("pricing.have.until", {
+                        date: new Date(expiresAt).toLocaleDateString(undefined, {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        }),
+                      })
+                    : t("pricing.have.forever")
+                  : t("profile.planFreeHint")}
+              </p>
+            </div>
+
+            {!isPro && (
+              <Link to="/pricing" className="btn btn--primary">
+                {t("profile.seePlans")}
+              </Link>
+            )}
+          </div>
+
+          {!isPro && (
+            <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--color-border)" }}>
+              <p className="eyebrow">{t("pricing.code.haveOne")}</p>
+              <RedeemCode compact />
+            </div>
+          )}
+        </section>
+      )}
 
       {/* KPI row — headline numbers, not charts */}
       {/* Three counts, all of them about English. XP and "0/3 today" lived

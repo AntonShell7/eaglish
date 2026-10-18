@@ -465,3 +465,31 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+/* ── The lock mark in the navigation ──────────────────────────────────────
+   A section that will ask for money should say so before it is clicked. A
+   small dot rather than a padlock glyph: at 14px a padlock is a smudge, and
+   the rail already carries an icon per item — a second one competes with it. */
+.rail__lock,
+.moresheet__lock {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--color-text-faint);
+  vertical-align: middle;
+  flex: none;
+}
+
+/* On the bottom bar the slot is an icon over a label, so the dot goes in the
+   corner instead of after the text, where it would read as punctuation. */
+.tabbar__lock {
+  position: absolute;
+  top: 8px;
+  right: calc(50% - 16px);
+  width: 5px;
+  height: 5px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-faint);
+}

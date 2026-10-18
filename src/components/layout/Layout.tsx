@@ -24,6 +24,8 @@ import { FeedbackButton } from "@/components/FeedbackButton";
 import { sectionFor, startClock } from "@/lib/timeStore";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { useReveal } from "@/lib/useReveal";
+import { useAccess } from "@/context/AccessContext";
+import { sectionOf } from "@/lib/plans";
 import { useScrolled } from "@/lib/useScrolled";
 import { SelectionLookup } from "@/components/lookup/SelectionLookup";
 import { TaskDoneProvider } from "@/components/tasks/TaskDoneProvider";
@@ -92,7 +94,15 @@ export function Layout() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const { user, demo } = useAuth();
+  const { isPro } = useAccess();
   const scrolled = useScrolled();
+
+  /* A dot next to the sections a free account cannot open yet.
+     Clicking one is not an error — it reaches a screen explaining what is
+     there and what it costs — but finding that out by clicking is a worse
+     experience than being told beforehand, and this is the cheapest possible
+     way to tell. Nothing is shown to someone who has paid. */
+  const locked = (to: string) => !isPro && sectionOf(to) !== null;
   const [more, setMore] = useState(false);
 
   /* The sheet belongs to the page it was opened on. Leaving that page with it
@@ -142,6 +152,7 @@ export function Layout() {
                 >
                   <Icon />
                   {t(`nav.${key}`)}
+                  {locked(to) && <span className="rail__lock" aria-hidden="true" />}
                 </NavLink>
               ))}
             </nav>
@@ -156,6 +167,7 @@ export function Layout() {
                 >
                   <Icon />
                   {t(`nav.${key}`)}
+                  {locked(to) && <span className="rail__lock" aria-hidden="true" />}
                 </NavLink>
               ))}
             </nav>
@@ -170,6 +182,7 @@ export function Layout() {
                 >
                   <Icon />
                   {t(`nav.${key}`)}
+                  {locked(to) && <span className="rail__lock" aria-hidden="true" />}
                 </NavLink>
               ))}
             </nav>
@@ -253,6 +266,7 @@ export function Layout() {
             >
               <Icon />
               {t(`nav.${key}`)}
+              {locked(to) && <span className="tabbar__lock" aria-hidden="true" />}
             </NavLink>
           ))}
 
@@ -285,6 +299,7 @@ export function Layout() {
               >
                 <Icon />
                 {t(`nav.${key}`)}
+                {locked(to) && <span className="moresheet__lock" aria-hidden="true" />}
               </NavLink>
             ))}
           </div>

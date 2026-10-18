@@ -17,7 +17,9 @@ import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import NotFound from "@/pages/NotFound";
 import Onboarding from "@/pages/Onboarding";
+import Pricing from "@/pages/Pricing";
 import { RequireAuth } from "@/components/auth/RequireAuth";
+import { RequirePlan } from "@/components/access/RequirePlan";
 
 export default function App() {
   return (
@@ -37,21 +39,34 @@ export default function App() {
           {/* The shelf, a topic, and a text, each with its own address: the
               back button goes up a level instead of out of the section, a
               reload lands where it left, and a text can be sent to somebody. */}
+          {/* Free, and all of it. Reading is where words come from, and the
+              rest of the product is built on the claim that you learn a word
+              by meeting it somewhere you wanted to be. Rationing that leaves
+              nothing to sell later. */}
           <Route path="reading" element={<Reading />} />
           <Route path="reading/:topic" element={<Reading />} />
           <Route path="reading/:topic/:textId" element={<Reading />} />
-          <Route path="dictation" element={<Dictation />} />
-          <Route path="dictation/:topic" element={<Dictation />} />
-          <Route path="dictation/:topic/:id" element={<Dictation />} />
-          <Route path="writing" element={<Writing />} />
           <Route path="vocabulary" element={<Vocabulary />} />
-          {/* Everyday English merged into Slang; the old address is in links
-              and in people's history, so it still arrives somewhere useful. */}
-          <Route path="everyday-english" element={<Navigate to="/slang" replace />} />
-          <Route path="slang" element={<Slang />} />
-          <Route path="slang/:topic" element={<Slang />} />
-          <Route path="slang/:topic/:id" element={<Slang />} />
           <Route path="progress" element={<ProgressPage />} />
+
+          {/* Everyday English merged into Slang; the old address is in links
+              and in people's history, so it still arrives somewhere useful.
+              Outside the plan gate, so the redirect happens first and the
+              paywall then names Slang rather than a path nobody recognises. */}
+          <Route path="everyday-english" element={<Navigate to="/slang" replace />} />
+
+          {/* Paid. The sections that use what the free account collected —
+              see PRO_SECTIONS, which this guard reads the section name from. */}
+          <Route element={<RequirePlan />}>
+            <Route path="dictation" element={<Dictation />} />
+            <Route path="dictation/:topic" element={<Dictation />} />
+            <Route path="dictation/:topic/:id" element={<Dictation />} />
+            <Route path="writing" element={<Writing />} />
+            <Route path="slang" element={<Slang />} />
+            <Route path="slang/:topic" element={<Slang />} />
+            <Route path="slang/:topic/:id" element={<Slang />} />
+          </Route>
+
           <Route path="profile" element={<Profile />} />
           {/* Behind the auth wall like everything else; the real gate is the
               account check inside the edge function this page calls. */}
@@ -64,6 +79,10 @@ export default function App() {
         <Route path="reset-password" element={<ResetPassword />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
+        {/* Public on purpose: a payment provider's moderator reads this page
+            before approving anything, and a price behind a sign-in is a price
+            nobody sees. */}
+        <Route path="pricing" element={<Pricing />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
