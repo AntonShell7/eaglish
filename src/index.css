@@ -31,15 +31,16 @@
    costs one request to a server we control and cannot be throttled by
    somebody else.
 
-   Instrument Serif has one weight and one style. Asking for bold would make
-   the browser smear a fake one, so anything set in this face is set at 400
-   and gets its presence from size instead. */
+   Rochester is a script face with one weight. Asking for bold would make the
+   browser smear a fake one, so it is set at 400 and gets its presence from
+   size instead — which is also the only way a script works: small, it turns
+   into a smudge. */
 @font-face {
-  font-family: "Instrument Serif";
-  font-style: italic;
+  font-family: "Rochester";
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  src: url("/fonts/rochester-latin.woff2") format("woff2");
 }
 
 :root {
@@ -193,9 +194,11 @@
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-reading: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  /* Used for the two lines on the front page that are meant to be looked at
-     rather than read: the promise and the name. Italic by nature. */
-  --font-script: "Instrument Serif", Georgia, "Times New Roman", serif;
+  /* The one line on the front page meant to be looked at rather than read.
+     A script, so it is used once and large — the name beside it stays in the
+     product's own face, because two decorative things next to each other
+     cancel out. */
+  --font-script: "Rochester", "Brush Script MT", cursive;
 
   color-scheme: light;
 }

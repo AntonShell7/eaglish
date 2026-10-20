@@ -69,7 +69,7 @@
      which is what happened when the gaps grew and the hero quietly outgrew
      the screen. Measured from the top, the position is the number below and
      stays put. */
-  padding: 72px var(--gutter) 40px;
+  padding: 56px var(--gutter) 40px;
 }
 
 /* Depth, on a page that had none.
@@ -115,12 +115,11 @@
 }
 
 .lp-lockup__name {
-  font-family: var(--font-script);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(2.3rem, 4.8vw, 3.3rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 4.4vw, 3rem);
   line-height: 1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.035em;
   color: var(--mint);
 }
 
@@ -255,13 +254,20 @@
    the tighter it has to be pulled. */
 .lp-hero__title {
   margin: 0;
-  max-width: 16ch;
+  /* Wide enough to hold the line in one piece on a desktop. A script's
+     characters are narrow, so 16ch — which suited the sans — was cutting it
+     fine; the sentence reads as one gesture or it reads as two halves. */
+  max-width: 22ch;
   font-family: var(--font-script);
-  font-style: italic;
   font-weight: 400;
-  font-size: clamp(2.5rem, 6.6vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  /* Bigger than the sans ever was. A script carries less weight per pixel —
+     the strokes are thin and the letters lean — so it needs the size to read
+     as the loudest thing on the screen rather than as a caption. */
+  font-size: clamp(2.7rem, 9.2vw, 7.4rem);
+  /* Scripts have tall ascenders and deep descenders that collide at tight
+     leading; the y of "Study" would sit in the n of "not". */
+  line-height: 1.12;
+  letter-spacing: 0;
   color: var(--paper);
   text-wrap: balance;
 }
