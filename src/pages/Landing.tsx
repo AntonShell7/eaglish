@@ -51,13 +51,16 @@ export default function Landing() {
         {/* Above the fold, which it was not. The first screen ran 873px of
             logo and air and put the only button on the page below the edge
             of a laptop display — so the page asked to be scrolled before it
-            had said anything worth scrolling for. */}
+            had said anything worth scrolling for.
+
+            One button, not two. "Войти" used to sit beside it and was doing
+            nothing for anybody: a returning visitor already has the sign-in
+            link in the bar at the top of every page, and a newcomer reading
+            two options has to choose before they have decided anything. The
+            page now asks for one thing. */}
         <div className="lp-actions fade-up" style={{ animationDelay: "220ms" }}>
           <Link to="/register" className="lp-btn lp-btn--go">
             {t("landing.start")}
-          </Link>
-          <Link to="/login" className="lp-btn lp-btn--quiet">
-            {t("auth.logIn")}
           </Link>
         </div>
 
