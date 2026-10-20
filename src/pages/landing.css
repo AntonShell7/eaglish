@@ -53,10 +53,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: calc(100svh - var(--topline-h));
   text-align: center;
-  padding: 92px var(--gutter) 32px;
+
+  /* The four blocks — promise, mark, description, button — are separated by
+     one number rather than four, so they read as a set rather than as things
+     that happened to end up near each other. */
+  --hero-gap: 34px;
+
+  /* Anchored to the top rather than centred. Centring sounds like the right
+     answer and is not: the block's distance from the top then depends on how
+     tall the paragraph happens to be, so it moves whenever the copy changes,
+     and a tall enough composition silently stops being centred at all —
+     which is what happened when the gaps grew and the hero quietly outgrew
+     the screen. Measured from the top, the position is the number below and
+     stays put. */
+  padding: 72px var(--gutter) 40px;
 }
 
 /* Depth, on a page that had none.
@@ -91,8 +104,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-top: 22px;
+  gap: 10px;
+  margin-top: var(--hero-gap);
 }
 
 .lp-lockup__mark.brand-chip {
@@ -102,11 +115,12 @@
 }
 
 .lp-lockup__name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.1rem, 4.4vw, 3rem);
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.3rem, 4.8vw, 3.3rem);
   line-height: 1;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
   color: var(--mint);
 }
 
@@ -133,12 +147,13 @@
    stays legible; it just stops wasting room. */
 @media (max-width: 640px) {
   .lp-hero {
+    --hero-gap: 24px;
     padding-top: 76px;
+    padding-bottom: 96px;
   }
 
   .lp-lockup {
-    gap: 9px;
-    margin-top: 18px;
+    gap: 8px;
   }
 
   .lp-lockup__mark.brand-chip {
@@ -150,7 +165,6 @@
   }
 
   .lp-hero__sub {
-    margin-top: 18px;
     font-size: 1rem;
     line-height: 1.55;
   }
@@ -241,9 +255,10 @@
    the tighter it has to be pulled. */
 .lp-hero__title {
   margin: 0;
-  max-width: 14ch;
-  font-family: var(--font-display);
-  font-weight: 650;
+  max-width: 16ch;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
   font-size: clamp(2.5rem, 6.6vw, 5rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -261,10 +276,10 @@
    and a little more air between lines: the same words, four or five lines
    instead of eight. */
 .lp-hero__sub {
-  margin: 24px 0 0;
+  margin: var(--hero-gap) 0 0;
   max-width: 58ch;
-  font-size: clamp(1.06rem, 1.6vw, 1.26rem);
-  line-height: 1.65;
+  font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+  line-height: 1.6;
   color: rgba(245, 245, 245, 0.78);
   text-wrap: pretty;
 }
@@ -275,7 +290,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 34px;
+  margin-top: var(--hero-gap);
 }
 
 .lp-actions--center {

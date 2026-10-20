@@ -23,6 +23,25 @@
    component written against them keeps working.
    ───────────────────────────────────────────────────────────────────────── */
 
+/* The display face, served from our own host.
+   Manrope comes from Google's CDN, which is a dependency this project has
+   already been bitten by once: the site had to leave Vercel because a foreign
+   address for eaglish.ru was filtered, and a font that arrives from abroad is
+   the same bet placed again. Fifteen kilobytes sitting next to the bundle
+   costs one request to a server we control and cannot be throttled by
+   somebody else.
+
+   Instrument Serif has one weight and one style. Asking for bold would make
+   the browser smear a fake one, so anything set in this face is set at 400
+   and gets its presence from size instead. */
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+}
+
 :root {
   /* Ground and surfaces — neutral, and that is the point.
      Cream backgrounds and warm greys were making the light theme look like
@@ -174,6 +193,9 @@
   --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-reading: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Used for the two lines on the front page that are meant to be looked at
+     rather than read: the promise and the name. Italic by nature. */
+  --font-script: "Instrument Serif", Georgia, "Times New Roman", serif;
 
   color-scheme: light;
 }
