@@ -26,23 +26,21 @@ export default function Landing() {
   return (
     <div className="lp">
       <section className="lp-hero">
-        {/* The lockup, small.
-            The name used to be the largest thing on the page at 90px, with
-            the promise under it at 40. That is the wrong way round: nobody
-            is persuaded by a name they have never heard, and the one line
-            that could persuade them was set as a caption. The mark and the
-            name now behave the way they do on every page that converts —
-            small, early, and out of the way of the sentence that does the
-            work. */}
-        <div className="lp-lockup fade-up">
+        {/* The promise first, and in English.
+            It names the subject before a word of explanation, which is the
+            one job the top line has. */}
+        <h1 className="lp-hero__title fade-up">{t("landing.heroTitle")}</h1>
+
+        {/* Then the brand, stacked and large: the bird above its own name.
+            It used to be a small horizontal lockup sitting above the
+            headline, where it was neither read nor seen — too small to be a
+            mark and too early to mean anything. Under the promise it has
+            something to belong to, and at this size the eagle is finally
+            the thing it was drawn to be. */}
+        <div className="lp-lockup fade-up" style={{ animationDelay: "80ms" }}>
           <BrandLogo variant="chip" className="lp-lockup__mark" />
           <span className="lp-lockup__name">{t("brand")}</span>
         </div>
-
-        {/* The promise, and now the only large thing here. */}
-        <h1 className="lp-hero__title fade-up" style={{ animationDelay: "80ms" }}>
-          {t("landing.heroTitle")}
-        </h1>
 
         <p className="lp-hero__sub fade-up" style={{ animationDelay: "150ms" }}>
           {t("landing.heroSub")}
@@ -64,17 +62,6 @@ export default function Landing() {
           </Link>
         </div>
 
-        {/* What is inside, sitting on the floor of the first screen rather
-            than in the middle of it — the same place a stats bar sits on the
-            pages this is measured against, and for the same reason: it is
-            the thing you read last and the thing that makes the screen feel
-            like it has a bottom. */}
-        <ul className="lp-index fade-up" style={{ animationDelay: "300ms" }}>
-          <li>{t("landing.indexReading")}</li>
-          <li>{t("landing.indexListening")}</li>
-          <li>{t("landing.indexSlang")}</li>
-          <li>{t("landing.indexVocabulary")}</li>
-        </ul>
       </section>
 
       <section className="lp-section" data-reveal>

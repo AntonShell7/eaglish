@@ -82,14 +82,21 @@
 
 /* ── The lockup ───────────────────────────────────────────────────────── */
 
+/* The bird above its own name, and both of them large.
+   This was a 38px mark beside 1.35rem of text, sitting above the headline —
+   small enough to be missed and early enough to mean nothing to somebody who
+   has not heard of it. It comes after the promise now, which has already said
+   what this is, and it is sized to be looked at rather than scanned past. */
 .lp-lockup {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin-top: 22px;
 }
 
 .lp-lockup__mark.brand-chip {
-  width: 38px;
+  width: clamp(72px, 10vw, 104px);
   height: auto;
   background-color: var(--mint);
 }
@@ -97,8 +104,9 @@
 .lp-lockup__name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.1rem, 4.4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
   color: var(--mint);
 }
 
@@ -109,7 +117,42 @@
    scrolls, so the hero yields. */
 @media (max-width: 1023px) {
   .lp-lockup {
-    display: none;
+    gap: 11px;
+    margin-top: 24px;
+  }
+}
+
+/* A phone has to hold the same four things in two thirds of the height, and
+   the paragraph alone runs to ten lines at this width. Measured at 375×812
+   the button finished seventeen pixels above the fold, which is no margin at
+   all — a shorter handset would have hidden it, and a call to action below
+   the fold is a call to action nobody answers.
+
+   So the first screen is tightened rather than the copy cut: a smaller mark,
+   slightly less air above it, and a paragraph set one step down. Everything
+   stays legible; it just stops wasting room. */
+@media (max-width: 640px) {
+  .lp-hero {
+    padding-top: 76px;
+  }
+
+  .lp-lockup {
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .lp-lockup__mark.brand-chip {
+    width: 60px;
+  }
+
+  .lp-lockup__name {
+    font-size: 1.85rem;
+  }
+
+  .lp-hero__sub {
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.55;
   }
 }
 
@@ -197,7 +240,7 @@
    normal tracking falls apart into separate letters — the bigger the type,
    the tighter it has to be pulled. */
 .lp-hero__title {
-  margin: 26px 0 0;
+  margin: 0;
   max-width: 14ch;
   font-family: var(--font-display);
   font-weight: 650;
