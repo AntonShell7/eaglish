@@ -18,7 +18,7 @@ import { PRICES } from "@/lib/plans";
  */
 export const CONTACT_EMAIL = "eaglish@yandex.ru";
 
-export const LAST_UPDATED = "2026-10-18";
+export const LAST_UPDATED = "2026-10-20";
 
 export interface LegalSection {
   id: string;
@@ -59,7 +59,8 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
           "Учебные данные: сохранённые слова и расписание их повторений, отправленные тексты и оценки к ним, открытые тексты и результаты вопросов, ежедневная активность и настройки из онбординга (уровень, цель, темы, дневная норма).",
           "Когда ты сообщаешь о проблеме, вместе с сообщением сохраняется страница, с которой оно отправлено, и строка с описанием браузера — без них отчёт невозможно воспроизвести.",
           "Локальные настройки в браузере: тема оформления, язык интерфейса, согласие на этой странице и копия учебного прогресса, чтобы приложение работало без интернета.",
-          "Мы не собираем возраст, номер телефона, платёжные данные и не запрашиваем доступ к камере, микрофону или геолокации.",
+          "Если ты оформляешь подписку, мы сохраняем запись о платеже: сумму, оплаченный период, дату и адрес почты для чека. Данные банковской карты в сервис не попадают — их принимает платёжный сервис, и мы их не видим и не храним.",
+          "Мы не собираем возраст, номер телефона и не запрашиваем доступ к камере, микрофону или геолокации.",
         ],
       },
       {
@@ -76,6 +77,7 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "Google — только если ты выбрал вход через Google. Google узнаёт, что ты пользуешься Eaglish, и передаёт нам почту, имя и ссылку на фотографию.",
           "Groq и OpenAI — обработка текста нейросетью. Туда уходит слово с предложением, в котором ты его встретил, текст, отправленный на проверку письма, и снимок рукописной страницы, если ты пользуешься письмом от руки. Не отправляй в эти поля персональные данные — свои или чужие.",
+          "ЮKassa — приём оплаты, если ты оформляешь подписку. Туда уходит сумма и адрес почты для чека; данные карты ты вводишь на их стороне, к нам они не попадают.",
           "Хостинг сайта — отдача файлов приложения и техничеcкие журналы запросов у провайдера.",
           "Больше никому. Мы не передаём данные рекламным сетям, не продаём их и не обмениваем.",
         ],
@@ -158,7 +160,8 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
           "Learning data: saved words and their review schedule, submitted texts and their scores, which texts you opened and how you answered their questions, daily activity, and your onboarding answers (level, goal, topics, daily target).",
           "When you report a problem, the page you sent it from and a line describing your browser are stored with the message — a report cannot be reproduced without them.",
           "Local settings in your browser: theme, interface language, the consent recorded on this page, and a copy of your progress so the app works offline.",
-          "We do not collect your age, phone number or payment details, and we never ask for camera, microphone or location access.",
+          "If you take out a subscription we keep a record of the payment: the amount, the period paid for, the date and the email address the receipt goes to. Card details never reach the service — the payment provider takes them, and we neither see nor store them.",
+          "We do not collect your age or phone number, and we never ask for camera, microphone or location access.",
         ],
       },
       {
@@ -175,6 +178,7 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "Google — only if you chose to sign in with Google. Google learns that you use Eaglish, and passes us your email, your name and a link to your picture.",
           "Groq and OpenAI — AI text processing. A word plus the sentence you met it in is sent for translation, a piece of writing is sent when you ask for an assessment, and an image of a handwritten page is sent if you write by hand. Please don't type personal data — yours or anyone else's — into those fields.",
+          "ЮKassa — taking payment, if you subscribe. It receives the amount and the email address for the receipt; you enter your card details on their side and they never reach us.",
           "Our hosting provider — serving the application files, plus ordinary request logs.",
           "Nobody else. We do not share data with ad networks, sell it, or trade it.",
         ],
@@ -237,7 +241,7 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
   ru: {
     title: "Условия использования",
     summary: [
-      "Eaglish бесплатен и предоставляется как есть — это учебный проект, а не аккредитованная школа.",
+      "Чтение, словарь и повторения бесплатны. Аудирование, письмо и живой английский — по подписке.",
       "Тексты и оценки создаёт нейросеть: они полезны как ориентир, но могут содержать ошибки.",
       "Отвечай за свой аккаунт и не ломай сервис — остальное на нашей стороне.",
     ],
@@ -247,7 +251,9 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
         h: "Что это за сервис",
         p: [
           "Eaglish — платформа для самостоятельного изучения английского: чтение с переводом по клику, письмо с обратной связью, словарь с интервальными повторениями и уроки разговорного английского.",
-          "Пользоваться можно бесплатно. Мы можем менять состав разделов, добавлять и убирать материалы.",
+          "Чтение, личный словарь, расписание повторений и статистика доступны бесплатно и без ограничения по времени. Аудирование, письмо с проверкой и раздел живого английского открываются по подписке.",
+          "Это учебный проект, а не аккредитованная образовательная организация: обучение не ведётся по образовательной программе и документ об образовании не выдаётся.",
+          "Мы можем менять состав разделов, добавлять и убирать материалы. Изменение состава бесплатной части не затрагивает уже оплаченные периоды.",
         ],
       },
       {
@@ -256,6 +262,15 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "Для сохранения прогресса между устройствами нужен аккаунт. Указывай настоящий адрес почты — на него приходит подтверждение и восстановление пароля.",
           "Отвечай за сохранность пароля и за всё, что происходит под твоим аккаунтом. Если заметил чужой вход — сразу смени пароль и напиши нам.",
+        ],
+      },
+      {
+        id: "subscription",
+        h: "Подписка и оплата",
+        p: [
+          "Платные разделы открываются подпиской на выбранный срок либо кодом доступа.",
+          "Условия оплаты, сроки, порядок возврата денег и реквизиты исполнителя изложены в публичной оферте — она является договором между тобой и исполнителем и принимается в момент оплаты.",
+          "Подписка не продлевается автоматически: по окончании оплаченного периода аккаунт возвращается к бесплатному доступу. Сохранённые слова, расписание повторений и статистика остаются у тебя полностью.",
         ],
       },
       {
@@ -308,7 +323,7 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
   en: {
     title: "Terms of use",
     summary: [
-      "Eaglish is free and provided as is — a study project, not an accredited school.",
+      "Reading, the dictionary and reviews are free. Listening, writing and spoken English need a subscription.",
       "Texts and scores are produced by an AI model: useful as guidance, but capable of being wrong.",
       "Look after your account and don't attack the service; the rest is on us.",
     ],
@@ -318,7 +333,9 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
         h: "What this is",
         p: [
           "Eaglish is a self-study English platform: reading with tap-to-translate, writing with feedback, a vocabulary trained by spaced repetition, and everyday-English lessons.",
-          "It is free to use. We may change which sections exist and add or remove material.",
+          "Reading, your own dictionary, the review schedule and the statistics are free, with no time limit. Listening, checked writing and the spoken-English section open with a subscription.",
+          "This is a study project, not an accredited school: it teaches no certified programme and issues no diploma.",
+          "We may change which sections exist and add or remove material. Changing what the free plan contains does not affect periods already paid for.",
         ],
       },
       {
@@ -327,6 +344,15 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
         p: [
           "An account is what carries progress between devices. Use a real email address — confirmation and password recovery go there.",
           "You are responsible for your password and for what happens under your account. If you see a sign-in that wasn't you, change the password and tell us.",
+        ],
+      },
+      {
+        id: "subscription",
+        h: "Subscription and payment",
+        p: [
+          "The paid sections open with a subscription for a chosen period, or with an access code.",
+          "The price, the term, how refunds work and the provider's details are set out in the public offer, which is the contract between you and the provider and is accepted when you pay.",
+          "A subscription does not renew itself: when the paid period ends the account returns to the free plan. Your saved words, review schedule and statistics stay with you in full.",
         ],
       },
       {
