@@ -23,24 +23,47 @@
    component written against them keeps working.
    ───────────────────────────────────────────────────────────────────────── */
 
-/* The display face, served from our own host.
+/* The two faces the front page uses, served from our own host.
    Manrope comes from Google's CDN, which is a dependency this project has
    already been bitten by once: the site had to leave Vercel because a foreign
-   address for eaglish.ru was filtered, and a font that arrives from abroad is
-   the same bet placed again. Fifteen kilobytes sitting next to the bundle
-   costs one request to a server we control and cannot be throttled by
-   somebody else.
+   address for eaglish.ru was filtered, and a typeface arriving from abroad is
+   the same bet placed again. A few tens of kilobytes beside the bundle cost
+   one request to a server we control.
 
-   Rochester is a script face with one weight. Asking for bold would make the
-   browser smear a fake one, so it is set at 400 and gets its presence from
-   size instead — which is also the only way a script works: small, it turns
-   into a smudge. */
+   Eagle Lake carries the promise. One weight, so it is set at 400 and gets
+   its presence from size — and it is a display face, used once and large;
+   small, a calligraphic hand turns into a smudge.
+
+   PT Sans Caption carries the Russian paragraph. It was drawn for small sizes
+   and for Cyrillic specifically, which is exactly the job: five lines of
+   Russian under a headline, meant to be read rather than admired. Both of its
+   subsets are loaded, because the paragraph ends in "like eagle". */
 @font-face {
-  font-family: "Rochester";
+  font-family: "Eagle Lake";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/rochester-latin.woff2") format("woff2");
+  src: url("/fonts/eaglelake-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ptsanscaption-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "PT Sans Caption";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ptsanscaption-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -195,10 +218,11 @@
   --font-display: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-reading: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
   /* The one line on the front page meant to be looked at rather than read.
-     A script, so it is used once and large — the name beside it stays in the
-     product's own face, because two decorative things next to each other
-     cancel out. */
-  --font-script: "Rochester", "Brush Script MT", cursive;
+     Used once and large — the name beside it stays in the product's own face,
+     because two decorative things next to each other cancel out. */
+  --font-script: "Eagle Lake", Georgia, serif;
+  /* The paragraph under it: drawn for small sizes and for Cyrillic. */
+  --font-caption: "PT Sans Caption", var(--font-sans);
 
   color-scheme: light;
 }

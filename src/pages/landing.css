@@ -263,10 +263,10 @@
   /* Bigger than the sans ever was. A script carries less weight per pixel —
      the strokes are thin and the letters lean — so it needs the size to read
      as the loudest thing on the screen rather than as a caption. */
-  font-size: clamp(2.7rem, 9.2vw, 7.4rem);
-  /* Scripts have tall ascenders and deep descenders that collide at tight
-     leading; the y of "Study" would sit in the n of "not". */
-  line-height: 1.12;
+  font-size: clamp(2.05rem, 6.3vw, 5rem);
+  /* A calligraphic face still needs room below the baseline, just less than
+     a joined script does. */
+  line-height: 1.18;
   letter-spacing: 0;
   color: var(--paper);
   text-wrap: balance;
@@ -282,8 +282,9 @@
    and a little more air between lines: the same words, four or five lines
    instead of eight. */
 .lp-hero__sub {
+  font-family: var(--font-caption);
   margin: var(--hero-gap) 0 0;
-  max-width: 58ch;
+  max-width: 66ch;
   font-size: clamp(1.02rem, 1.45vw, 1.14rem);
   line-height: 1.6;
   color: rgba(245, 245, 245, 0.78);
