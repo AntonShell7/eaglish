@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { apiUrl } from "./apiBase";
 /**
  * The browser's only route to the model.
  *
@@ -21,7 +22,7 @@ import { supabase } from "./supabase";
  * a European caller — so the build points this at an absolute address instead.
  * The endpoint answers a fixed list of origins, and this is one of them.
  */
-const ENDPOINT = import.meta.env.VITE_AI_ENDPOINT || "/api/ai";
+const ENDPOINT = import.meta.env.VITE_AI_ENDPOINT || apiUrl("/api/ai");
 
 /**
  * `signed-out` and `quota` are both "the endpoint refused you", and they are

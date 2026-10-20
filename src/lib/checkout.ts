@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import { apiUrl } from "./apiBase";
 
 /**
  * Sending somebody off to pay.
@@ -28,7 +29,7 @@ export async function startCheckout(cycle: "monthly" | "yearly"): Promise<Checko
 
   let response: Response;
   try {
-    response = await fetch("/api/pay", {
+    response = await fetch(apiUrl("/api/pay"), {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({ cycle }),
