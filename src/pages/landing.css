@@ -18,6 +18,9 @@
   --muted: rgba(245, 245, 245, 0.58);
   --faint: rgba(245, 245, 245, 0.38);
   --line: rgba(245, 245, 245, 0.1);
+  /* For the two quotes in the margin — a cool blue that sits beside the mint
+     without competing with it. */
+  --sky: #8fb4de;
 
   --gutter: clamp(22px, 6vw, 64px);
 
@@ -355,7 +358,7 @@
 .lp-section {
   max-width: 1000px;
   margin: 0 auto;
-  padding: clamp(56px, 10vh, 104px) var(--gutter);
+  padding: clamp(40px, 6vh, 68px) var(--gutter);
   border-top: 1px solid var(--line);
 }
 
@@ -413,19 +416,18 @@
 /* Five numbered points between hairlines: the numeral in a narrow column of
    its own, the text beside it. */
 .lp-pillars {
-  max-width: 820px;
-  margin: clamp(40px, 7vh, 64px) auto 0;
+  max-width: 880px;
+  margin: clamp(18px, 2.5vh, 26px) auto 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--line);
 }
 
 .lp-pillar {
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: 0 20px;
-  padding: 30px 0 32px;
-  border-bottom: 1px solid var(--line);
+  padding: 16px 0 18px;
+  position: relative;
 }
 
 /* Quiet rather than coloured, as before: five mint numerals would be five
@@ -451,11 +453,13 @@
 
 /* The paragraph face of the hero, so the page has one reading voice. */
 .lp-pillar__p {
-  margin: 10px 0 0;
-  max-width: 62ch;
+  margin: 7px 0 0;
+  /* Wider than it was: a line back is a line of height saved, and the
+     paragraph reads no worse for it at this size. */
+  max-width: 72ch;
   font-family: var(--font-caption);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.55;
   color: rgba(245, 245, 245, 0.74);
   text-wrap: pretty;
 }
@@ -601,5 +605,56 @@
   .lp-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px 16px;
+  }
+}
+
+/* ── The two lines in the margin ──────────────────────────────────────────
+   Each sits beside the point it belongs with, tilted, in the hand from the
+   top of the page and in a blue that does not compete with the mint.
+
+   They are decoration: `aria-hidden` in the markup, and hidden outright
+   below 1280px. The list is 820px wide inside a 1000px section, so there is
+   only margin to put them in on a wide screen — on anything narrower they
+   would sit on top of the text, which is the thing Anton asked to avoid. */
+.lp-quote {
+  display: none;
+  margin: 0;
+  width: 15rem;
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.lp-quote__text {
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  line-height: 1.25;
+  color: var(--sky);
+}
+
+.lp-quote__who {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(143, 180, 222, 0.62);
+}
+
+@media (min-width: 1280px) {
+  .lp-quote {
+    display: block;
+  }
+
+  .lp-quote--left {
+    right: calc(100% + 40px);
+    transform: translateY(-50%) rotate(-7deg);
+    text-align: right;
+  }
+
+  .lp-quote--right {
+    left: calc(100% + 40px);
+    transform: translateY(-50%) rotate(7deg);
+    text-align: left;
   }
 }

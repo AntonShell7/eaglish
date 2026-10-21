@@ -546,7 +546,7 @@
     "pillars": {
       "practice": {
         "h": "Plenty of practice",
-        "p": "Texts, dictation, voiced sentences and real dialogue."
+        "p": ""
       },
       "stats": {
         "reading": "texts to read",
@@ -555,12 +555,12 @@
         "dialogues": "dialogues of real speech"
       },
       "vocabulary": {
-        "h": "The system is built so the words you study are remembered for good",
-        "p": "Unknown words go into your dictionary and are learned by spaced repetition."
+        "h": "Words are remembered for good",
+        "p": "The system is built so the words you study are remembered for good: unknown words go into your dictionary and are learned by spaced repetition."
       },
       "recurring": {
         "h": "Words come back in the texts",
-        "p": "The words you are studying turn up in texts as often as you need them to — the less well you remember one, the more often it appears."
+        "p": "The words you are studying turn up in texts, and from that the system works out how well you actually remember them."
       },
       "science": {
         "h": "Based on scientific research",

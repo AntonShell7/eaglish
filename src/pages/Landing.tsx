@@ -17,6 +17,14 @@ const STATS = [
   { key: "voiced", value: 5000, plus: true },
   { key: "dialogues", value: 50, plus: true },
 ] as const;
+/* Two lines in the margin beside the list, each beside the point it belongs
+   with. Decoration rather than content — hidden from screen readers and from
+   anything narrower than a laptop, where there is no margin to put them in. */
+const QUOTES: Record<string, { text: string; who: string; side: "left" | "right" }> = {
+  practice: { text: "Practice makes perfect", who: "Cristiano Ronaldo", side: "left" },
+  recurring: { text: "Experience is the best teacher", who: "Aristotle", side: "right" },
+};
+
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
 
 /**
@@ -89,10 +97,20 @@ export default function Landing() {
         <ol className="lp-pillars" data-stagger>
           {PILLARS.map((key, i) => (
             <li key={key} className="lp-pillar">
+              {QUOTES[key] && (
+                <figure className={`lp-quote lp-quote--${QUOTES[key].side}`} aria-hidden="true">
+                  <blockquote className="lp-quote__text">{QUOTES[key].text}</blockquote>
+                  <figcaption className="lp-quote__who">{QUOTES[key].who}</figcaption>
+                </figure>
+              )}
               <span className="lp-pillar__n">{String(i + 1).padStart(2, "0")}</span>
               <div className="lp-pillar__body">
                 <h3 className="lp-pillar__h">{t(`landing.pillars.${key}.h`)}</h3>
-                <p className="lp-pillar__p">{t(`landing.pillars.${key}.p`)}</p>
+                {/* The first point has no sentence of its own — the counts
+                    below say it better than a line listing them would. */}
+                {t(`landing.pillars.${key}.p`) && (
+                  <p className="lp-pillar__p">{t(`landing.pillars.${key}.p`)}</p>
+                )}
                 {key === "practice" && (
                   <dl className="lp-stats">
                     {STATS.map((stat) => (
