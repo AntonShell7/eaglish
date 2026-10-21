@@ -513,14 +513,19 @@
   text-align: center;
 }
 
+/* The last line is set in the same hand as "Study smarter, not harder" and
+   "Our own method for learning English", so the page closes in the voice it
+   opened in, and large, because it is the only thing left to read. The space
+   under it is its own rather than the button's: .lp-actions carries no top
+   margin anywhere, which the hero depends on. */
 .lp-close__h {
-  margin: 0 auto;
-  max-width: 18ch;
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
-  line-height: 1.2;
-  letter-spacing: -0.028em;
+  margin: 0 auto 40px;
+  max-width: 20ch;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 5.6vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: 0;
   color: var(--paper);
   text-wrap: balance;
 }
@@ -639,7 +644,11 @@
   }
 
   .lp-quote--right {
-    left: calc(100% + (100vw - 872px) / 4);
+    /* Twenty-two pixels short of the middle of the margin. Centred exactly,
+       this one's last letter came within a few pixels of the window edge —
+       the sentence is nearly as wide as the margin itself — and a letter
+       that close to the edge reads as about to fall off it. */
+    left: calc(100% + (100vw - 872px) / 4 - 22px);
     transform: translate(-50%, -50%) rotate(12deg);
   }
 }
