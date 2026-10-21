@@ -46,21 +46,6 @@
   src: url("/fonts/rochester-latin.woff2") format("woff2");
 }
 
-/* Rochester has no Cyrillic, and the closing line of the Russian landing is
-   Russian. CSS falls back one glyph at a time, so naming this after Rochester
-   in --font-script means Latin keeps the hand it had and only the Cyrillic
-   comes from here: "Our own method" stays Rochester, "Начни сегодня" is set
-   in Marck Script, and nothing on the page changes typeface mid-word. Only
-   the Cyrillic subset is loaded, because that is the only thing it is for. */
-@font-face {
-  font-family: "Marck Script";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/marckscript-cyrillic.woff2") format("woff2");
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-
 @font-face {
   font-family: "PT Sans Caption";
   font-style: normal;
@@ -235,7 +220,7 @@
   /* The one line on the front page meant to be looked at rather than read.
      Used once and large — the name beside it stays in the product's own face,
      because two decorative things next to each other cancel out. */
-  --font-script: "Rochester", "Marck Script", "Brush Script MT", cursive;
+  --font-script: "Rochester", "Brush Script MT", cursive;
   /* The paragraph under it: drawn for small sizes and for Cyrillic. */
   --font-caption: "PT Sans Caption", var(--font-sans);
 
