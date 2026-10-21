@@ -23,6 +23,7 @@ const STATS = [
 const QUOTES: Record<string, { text: string; who: string; side: "left" | "right" }> = {
   practice: { text: "Practice makes perfect", who: "Cristiano Ronaldo", side: "left" },
   recurring: { text: "Experience is the best teacher", who: "Aristotle", side: "right" },
+  handy: { text: "Simply lovely!", who: "Max Verstappen", side: "left" },
 };
 
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
@@ -100,7 +101,7 @@ export default function Landing() {
               {QUOTES[key] && (
                 <figure className={`lp-quote lp-quote--${QUOTES[key].side}`} aria-hidden="true">
                   <blockquote className="lp-quote__text">{QUOTES[key].text}</blockquote>
-                  <figcaption className="lp-quote__who">{QUOTES[key].who}</figcaption>
+                  <figcaption className="lp-quote__who">— {QUOTES[key].who}</figcaption>
                 </figure>
               )}
               <span className="lp-pillar__n">{String(i + 1).padStart(2, "0")}</span>

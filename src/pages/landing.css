@@ -18,9 +18,7 @@
   --muted: rgba(245, 245, 245, 0.58);
   --faint: rgba(245, 245, 245, 0.38);
   --line: rgba(245, 245, 245, 0.1);
-  /* For the two quotes in the margin — a cool blue that sits beside the mint
-     without competing with it. */
-  --sky: #8fb4de;
+
 
   --gutter: clamp(22px, 6vw, 64px);
 
@@ -608,20 +606,30 @@
   }
 }
 
-/* ── The two lines in the margin ──────────────────────────────────────────
-   Each sits beside the point it belongs with, tilted, in the hand from the
-   top of the page and in a blue that does not compete with the mint.
+/* ── The quotes in the margin ────────────────────────────────────────────
+   Three of them, roughly down the length of the list: left, right, left.
+   They are not tied to what their row says — they are stickers on a page,
+   and a sticker's job is to be somewhere pleasant, not to argue a point.
 
-   They are decoration: `aria-hidden` in the markup, and hidden outright
-   below 1280px. The list is 820px wide inside a 1000px section, so there is
-   only margin to put them in on a wide screen — on anything narrower they
-   would sit on top of the text, which is the thing Anton asked to avoid. */
+   Sized from the space that actually exists: the list is 880px wide, so the
+   margin beside it is (100vw - 880) / 2, and the quote takes what is left of
+   that after a gap. Below 1360px there is not enough of it for text this
+   size, and they switch off rather than crowd the column.
+
+   Decoration, so: aria-hidden in the markup, no pointer events, no text
+   selection. */
 .lp-quote {
   display: none;
   margin: 0;
-  width: 15rem;
   position: absolute;
   top: 50%;
+  /* The margin is (100vw - 880) / 2. The subtraction is not just a gap: a
+     box tilted twelve degrees is wider than the text inside it — about
+     h·sin(12°) wider — so the element has to stop short of the edge by more
+     than it looks like it needs, or the corner hangs off the page and the
+     whole document gains a horizontal scrollbar. */
+  width: min(19rem, calc((100vw - 880px) / 2 - 34px));
+  text-align: center;
   pointer-events: none;
   user-select: none;
 }
@@ -629,32 +637,30 @@
 .lp-quote__text {
   margin: 0;
   font-family: var(--font-script);
-  font-size: 1.55rem;
-  line-height: 1.25;
-  color: var(--sky);
+  font-size: clamp(1.75rem, 1.75vw, 2.3rem);
+  line-height: 1.2;
+  color: var(--mint);
 }
 
 .lp-quote__who {
-  margin-top: 6px;
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  color: rgba(143, 180, 222, 0.62);
+  margin-top: 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: rgba(127, 208, 180, 0.55);
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1360px) {
   .lp-quote {
     display: block;
   }
 
   .lp-quote--left {
-    right: calc(100% + 40px);
-    transform: translateY(-50%) rotate(-7deg);
-    text-align: right;
+    right: calc(100% + 14px);
+    transform: translateY(-50%) rotate(-12deg);
   }
 
   .lp-quote--right {
-    left: calc(100% + 40px);
-    transform: translateY(-50%) rotate(7deg);
-    text-align: left;
+    left: calc(100% + 14px);
+    transform: translateY(-50%) rotate(12deg);
   }
 }
