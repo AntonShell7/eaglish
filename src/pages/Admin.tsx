@@ -17,7 +17,7 @@ import {
 import { readingLibrarySize } from "@/data/readingLibrary";
 import "./admin.css";
 
-type Tab = "overview" | "people" | "texts" | "codes";
+type Tab = "overview" | "audience" | "people" | "texts" | "codes";
 
 /**
  * The owner's console.
@@ -80,7 +80,7 @@ export default function Admin() {
       </header>
 
       <nav className="adm__tabs" role="tablist">
-        {(["overview", "people", "texts", "codes"] as Tab[]).map((key) => (
+        {(["overview", "audience", "people", "texts", "codes"] as Tab[]).map((key) => (
           <button
             key={key}
             type="button"
@@ -95,6 +95,7 @@ export default function Admin() {
       </nav>
 
       {tab === "overview" && <Overview stats={stats} />}
+      {tab === "audience" && <Audience stats={stats} />}
       {tab === "people" && <People stats={stats} passcode={passcode} />}
       {tab === "texts" && <Texts stats={stats} />}
       {tab === "codes" && <Codes passcode={passcode} />}
@@ -194,6 +195,183 @@ function Overview({ stats }: { stats: AdminStats }) {
   );
 }
 
+/* ── Audience ──────────────────────────────────────────────────────────
+   Everything onboarding asks, counted.
+
+   The percentages have two different denominators and the screen has to say
+   which is which, or it reports something false. Goal, level and daily goal
+   are one answer each, so they divide by the number of people who answered
+   and add up to a hundred. Interests are multiple choice: six topics, any
+   number of them picked, so their counts sum past the number of people and
+   each one means "this share picked it". Drawing both as slices of the same
+   pie would be a lie told in a chart. */
+
+const GOAL_COLOURS = ["#6fd3a8", "#7aa7f0", "#e5a86a", "#c58ae0", "#6fc9d3", "#9aa3b2"];
+
+function Audience({ stats }: { stats: AdminStats }) {
+  const { t } = useTranslation();
+  /* The site and the edge function ship separately, and the site can get
+     there first: an older function answers without this block at all. An
+     empty one renders "nobody has answered yet", which is wrong for a day
+     and harmless, where reading .answered off undefined is a white screen. */
+  const o = stats.onboarding ?? {
+    answered: 0,
+    goals: {},
+    interests: {},
+    levels: {},
+    dailyGoals: {},
+    placement: { tested: 0, selfReported: 0, averagePercent: null },
+  };
+  const answered = o.answered;
+
+  const goals = Object.entries(o.goals).sort((a, b) => b[1] - a[1]);
+  const levels = Object.entries(o.levels).sort((a, b) => a[0].localeCompare(b[0]));
+  const interests = Object.entries(o.interests).sort((a, b) => b[1] - a[1]);
+  const daily = Object.entries(o.dailyGoals).sort((a, b) => Number(a[0]) - Number(b[0]));
+
+  if (answered === 0) {
+    return (
+      <section className="adm__block">
+        <p className="adm__h">{t("admin.audience.title")}</p>
+        <p className="adm__empty">{t("admin.audience.nobody")}</p>
+      </section>
+    );
+  }
+
+  return (
+    <>
+      <div className="adm__kpis">
+        <Kpi label={t("admin.audience.answered")} value={answered} />
+        <Kpi label={t("admin.audience.tested")} value={o.placement.tested} />
+        <Kpi label={t("admin.audience.picked")} value={o.placement.selfReported} />
+        <Kpi label={t("admin.audience.avgScore")} value={o.placement.averagePercent ?? 0} />
+      </div>
+
+      <div className="adm__cols">
+        <section className="adm__block">
+          <p className="adm__h">{t("admin.audience.goals")}</p>
+          <p className="adm__sub">{t("admin.audience.ofAnswered", { count: answered })}</p>
+          <Donut
+            slices={goals.map(([key, n], i) => ({
+              key,
+              label: t(`onboarding.goals.${key}.h`),
+              value: n,
+              colour: GOAL_COLOURS[i % GOAL_COLOURS.length],
+            }))}
+            total={answered}
+          />
+        </section>
+
+        <section className="adm__block">
+          <p className="adm__h">{t("admin.audience.levels")}</p>
+          <p className="adm__sub">{t("admin.audience.ofAnswered", { count: answered })}</p>
+          <Shares rows={levels.map(([key, n]) => ({ key, label: key, value: n }))} total={answered} />
+        </section>
+      </div>
+
+      <div className="adm__cols">
+        <section className="adm__block">
+          <p className="adm__h">{t("admin.audience.interests")}</p>
+          <p className="adm__sub">{t("admin.audience.multiple")}</p>
+          <Shares
+            rows={interests.map(([key, n]) => ({ key, label: t(`onboarding.topics.${key}`, key), value: n }))}
+            total={answered}
+          />
+        </section>
+
+        <section className="adm__block">
+          <p className="adm__h">{t("admin.audience.dailyGoal")}</p>
+          <p className="adm__sub">{t("admin.audience.ofAnswered", { count: answered })}</p>
+          <Shares
+            rows={daily.map(([key, n]) => ({
+              key,
+              label: t("admin.audience.tasksPerDay", { count: Number(key) }),
+              value: n,
+            }))}
+            total={answered}
+          />
+        </section>
+      </div>
+    </>
+  );
+}
+
+/** A ring, drawn as one circle with a dashed stroke per slice. */
+function Donut({
+  slices,
+  total,
+}: {
+  slices: { key: string; label: string; value: number; colour: string }[];
+  total: number;
+}) {
+  const R = 54;
+  const C = 2 * Math.PI * R;
+  let offset = 0;
+
+  return (
+    <div className="adm__donutWrap">
+      <svg viewBox="0 0 140 140" className="adm__donut" role="img">
+        <circle cx="70" cy="70" r={R} className="adm__donutTrack" />
+        {slices.map((s) => {
+          const length = total > 0 ? (s.value / total) * C : 0;
+          const dash = `${length} ${C - length}`;
+          const node = (
+            <circle
+              key={s.key}
+              cx="70"
+              cy="70"
+              r={R}
+              stroke={s.colour}
+              strokeDasharray={dash}
+              /* Negative, because the stroke is drawn clockwise from three
+                 o'clock and each slice has to start where the last ended. */
+              strokeDashoffset={-offset}
+              className="adm__donutSlice"
+            />
+          );
+          offset += length;
+          return node;
+        })}
+      </svg>
+
+      <ul className="adm__legend">
+        {slices.map((s) => (
+          <li key={s.key}>
+            <span className="adm__dot" style={{ background: s.colour }} />
+            <span className="adm__legendL">{s.label}</span>
+            <span className="adm__legendN tabular">{Math.round((s.value / total) * 100)}%</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Proportional bars: the share of people, with the count beside it. */
+function Shares({ rows, total }: { rows: { key: string; label: string; value: number }[]; total: number }) {
+  if (rows.length === 0) return null;
+  const widest = Math.max(...rows.map((r) => r.value), 1);
+
+  return (
+    <ul className="adm__shares">
+      {rows.map((r) => (
+        <li key={r.key}>
+          <span className="adm__shareL">{r.label}</span>
+          <span className="adm__shareTrack">
+            {/* Scaled against the largest row, not against the total: with
+                six topics nothing reaches a third and every bar would be a
+                stub. The number on the right is the real share. */}
+            <span style={{ width: `${Math.round((r.value / widest) * 100)}%` }} />
+          </span>
+          <span className="adm__shareN tabular">
+            {Math.round((r.value / total) * 100)}% · {r.value}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /* ── People ────────────────────────────────────────────────────────────── */
 
 function People({ stats, passcode }: { stats: AdminStats; passcode: string }) {
@@ -239,6 +417,8 @@ function People({ stats, passcode }: { stats: AdminStats; passcode: string }) {
               <th aria-label={t("admin.pin")} />
               <th>{t("admin.colWho")}</th>
               <th>{t("admin.colVia")}</th>
+              <th>{t("admin.colGoal")}</th>
+              <th>{t("admin.colLevel")}</th>
               <th className="num">{t("admin.colMinutes")}</th>
               <th className="num">{t("admin.colDays")}</th>
               <th className="num">{t("admin.colWords")}</th>
@@ -294,6 +474,8 @@ function PersonRow({
         </button>
       </td>
       <td>{row.provider ?? "—"}</td>
+      <td>{row.goal ? t(`onboarding.goals.${row.goal}.h`) : "—"}</td>
+      <td className="tabular">{row.level ?? "—"}</td>
       <td className="num tabular">{row.minutes}</td>
       <td className="num tabular">{row.activeDays}</td>
       <td className="num tabular">{row.words}</td>
@@ -339,6 +521,43 @@ function Person({ id, passcode, onBack }: { id: string; passcode: string; onBack
         {detail.profile.provider ?? "—"}
         {detail.profile.createdAt ? ` · ${t("admin.since")} ${new Date(detail.profile.createdAt).toLocaleDateString()}` : ""}
       </p>
+
+      {detail.learner && (
+        /* Read this before the numbers underneath. Three sessions and then
+           silence means one thing from somebody who came for travel English
+           and another from somebody preparing for an exam in April. */
+        <dl className="adm__intake">
+          <div>
+            <dt>{t("admin.colGoal")}</dt>
+            <dd>{detail.learner.goal ? t(`onboarding.goals.${detail.learner.goal}.h`) : "—"}</dd>
+          </div>
+          <div>
+            <dt>{t("admin.colLevel")}</dt>
+            <dd>
+              {detail.learner.level ?? "—"}
+              {detail.learner.placement && (
+                <span className="adm__intakeNote">
+                  {detail.learner.placement.selfReported
+                    ? ` · ${t("admin.audience.selfReported")}`
+                    : ` · ${detail.learner.placement.correct}/${detail.learner.placement.total}`}
+                </span>
+              )}
+            </dd>
+          </div>
+          <div>
+            <dt>{t("admin.audience.interests")}</dt>
+            <dd>
+              {detail.learner.interests?.length
+                ? detail.learner.interests.map((topic) => t(`onboarding.topics.${topic}`, topic)).join(", ")
+                : "—"}
+            </dd>
+          </div>
+          <div>
+            <dt>{t("admin.audience.dailyGoal")}</dt>
+            <dd>{detail.learner.dailyGoal ? t("admin.audience.tasksPerDay", { count: detail.learner.dailyGoal }) : "—"}</dd>
+          </div>
+        </dl>
+      )}
 
       <div className="adm__kpis" style={{ marginTop: 18 }}>
         <Kpi label={t("admin.colMinutes")} value={detail.totals.minutes} />

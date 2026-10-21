@@ -444,3 +444,146 @@
   background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
   border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
 }
+
+/* ── Audience ─────────────────────────────────────────────────────────── */
+
+.adm__sub {
+  margin: -6px 0 14px;
+  font-size: 0.76rem;
+  color: var(--color-text-faint);
+}
+
+.adm__donutWrap {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.adm__donut {
+  flex: none;
+  width: 140px;
+  height: 140px;
+  /* Start the ring at twelve o'clock. The stroke is drawn from three. */
+  transform: rotate(-90deg);
+}
+
+.adm__donutTrack {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 16;
+}
+
+.adm__donutSlice {
+  fill: none;
+  stroke-width: 16;
+  /* A hairline of page colour between slices, so two neighbours of similar
+     weight do not read as one. */
+  stroke-linecap: butt;
+  transition: stroke-dasharray var(--dur-3) var(--ease);
+}
+
+.adm__legend {
+  flex: 1 1 180px;
+  min-width: 170px;
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adm__legend li {
+  display: grid;
+  grid-template-columns: 10px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+}
+
+.adm__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.adm__legendL {
+  color: var(--color-text);
+}
+
+.adm__legendN {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.adm__shares {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adm__shares li {
+  display: grid;
+  grid-template-columns: minmax(92px, 34%) 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.adm__shareL {
+  font-size: 0.82rem;
+  color: var(--color-text);
+}
+
+.adm__shareTrack {
+  height: 9px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.adm__shareTrack > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width var(--dur-3) var(--ease);
+}
+
+.adm__shareN {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* What one person answered on the way in, above what they have done since. */
+.adm__intake {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px 20px;
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 12px);
+  background: var(--color-surface-2);
+}
+
+.adm__intake dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.adm__intake dd {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.adm__intakeNote {
+  color: var(--color-text-muted);
+}

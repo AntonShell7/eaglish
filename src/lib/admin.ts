@@ -29,6 +29,31 @@ export interface RosterRow {
   activeDays: number;
   words: number;
   textsRead: number;
+  /** What they answered on the way in; null for anyone who skipped it. */
+  goal: string | null;
+  level: string | null;
+}
+
+/**
+ * The intake answers, counted across everybody.
+ *
+ * Onboarding asks four questions and the answers were only ever read back to
+ * the person who gave them — the level picked a text, the goal reordered the
+ * briefs. Summed, they answer the one question the rest of this console
+ * cannot: who is here. That is what decides what gets written next.
+ *
+ * `answered` is the denominator for goals, levels and daily goals, each of
+ * which is one choice per person. Interests are not: they are multiple
+ * choice, so their counts add up to more than `answered` and each percentage
+ * means "this share of people picked it", not a slice of a whole.
+ */
+export interface OnboardingStats {
+  answered: number;
+  goals: Record<string, number>;
+  interests: Record<string, number>;
+  levels: Record<string, number>;
+  dailyGoals: Record<string, number>;
+  placement: { tested: number; selfReported: number; averagePercent: number | null };
 }
 
 export interface AdminStats {
@@ -47,6 +72,7 @@ export interface AdminStats {
     minutes: number;
   };
   sectionTotals: Record<string, number>;
+  onboarding: OnboardingStats;
   texts: { textId: string; opens: number; readers: number }[];
   roster: RosterRow[];
   billing: null;
@@ -70,6 +96,14 @@ export interface UserDetail {
     writingPieces: number;
     quiz: { correct: number; total: number };
   };
+  learner: {
+    level?: string;
+    goal?: string;
+    interests?: string[];
+    dailyGoal?: number;
+    onboardedAt?: number;
+    placement?: { band?: string; correct?: number; total?: number; selfReported?: boolean };
+  } | null;
   words: { word: string; translation: string; added_at: string; review_count: number; stability: number | null }[];
   reads: { text_id: string; opened_at: string }[];
   writing: { topic_id: string; overall: number; submitted_at: string }[];

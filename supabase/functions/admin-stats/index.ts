@@ -202,8 +202,9 @@ Deno.serve(async (req: Request) => {
   /* ── One person, in detail ──────────────────────────────────────────── */
   if (body.action === "user" && body.userId) {
     const id = body.userId;
-    const [person, activity, words, reads, writing, quizzes] = await Promise.all([
+    const [person, profile, activity, words, reads, writing, quizzes] = await Promise.all([
       admin.auth.admin.getUserById(id),
+      admin.from("profiles").select("english_level, learner_profile").eq("id", id).maybeSingle(),
       admin.from("daily_activity").select("*").eq("user_id", id).order("day", { ascending: false }).limit(120),
       admin.from("vocabulary_words").select("word, translation, added_at, review_count, stability").eq("user_id", id).order("added_at", { ascending: false }).limit(300),
       admin.from("reading_sessions").select("text_id, opened_at").eq("user_id", id).order("opened_at", { ascending: false }).limit(300),
@@ -258,6 +259,11 @@ Deno.serve(async (req: Request) => {
           writingPieces: (writing.data ?? []).length,
           quiz: quizTotals,
         },
+        /* What they said on the way in: the goal, the topics, the level and
+           whether that level was measured or claimed. Read beside the days
+           below it, this is the difference between "stopped coming" and
+           "came for exam practice and was handed travel texts". */
+        learner: (profile.data?.learner_profile ?? null),
         words: words.data ?? [],
         reads: reads.data ?? [],
         writing: writing.data ?? [],
@@ -270,8 +276,9 @@ Deno.serve(async (req: Request) => {
   const since30 = dayKey(new Date(Date.now() - 30 * DAY));
   const since7 = dayKey(new Date(Date.now() - 7 * DAY));
 
-  const [users, activity, words, sessions, writing, quizzes] = await Promise.all([
+  const [users, profiles, activity, words, sessions, writing, quizzes] = await Promise.all([
     admin.auth.admin.listUsers({ perPage: 1000 }),
+    admin.from("profiles").select("id, english_level, learner_profile"),
     admin.from("daily_activity").select("user_id, day, minutes, minutes_by_section").gte("day", since30),
     admin.from("vocabulary_words").select("user_id"),
     admin.from("reading_sessions").select("user_id, text_id"),
@@ -283,6 +290,66 @@ Deno.serve(async (req: Request) => {
   const rows = activity.data ?? [];
   const vocab = words.data ?? [];
   const reads = sessions.data ?? [];
+
+  /* ── What the intake answers add up to ──────────────────────────────
+     Every question onboarding asks is already stored per person; counted
+     across everybody it answers a different question — who is actually
+     here. Which is what decides what gets written next: six people reading
+     for an exam and none for travel is an argument about the library, not
+     about the learners.
+
+     Interests are multiple choice, so their counts sum to more than the
+     number of people and the percentages are "of those who answered", not
+     a slice of a pie. Levels fall back to the profile column for anyone who
+     set a level without finishing onboarding. */
+  interface Learner {
+    level?: string;
+    goal?: string;
+    interests?: string[];
+    dailyGoal?: number;
+    placement?: { correct?: number; total?: number; selfReported?: boolean };
+  }
+
+  const bump = (into: Record<string, number>, key: string | null | undefined) => {
+    if (key === null || key === undefined || key === "") return;
+    into[key] = (into[key] ?? 0) + 1;
+  };
+
+  const goals: Record<string, number> = {};
+  const interests: Record<string, number> = {};
+  const levels: Record<string, number> = {};
+  const dailyGoals: Record<string, number> = {};
+  const placement = { tested: 0, selfReported: 0, averagePercent: null as number | null };
+  const intake: Record<string, { goal: string | null; level: string | null }> = {};
+  let answered = 0;
+  let scoreSum = 0;
+  let scored = 0;
+
+  for (const row of profiles.data ?? []) {
+    const learner = (row.learner_profile ?? null) as Learner | null;
+    const level = learner?.level ?? (row.english_level as string | null) ?? null;
+    intake[row.id as string] = { goal: learner?.goal ?? null, level };
+    if (!learner) continue;
+
+    answered += 1;
+    bump(goals, learner.goal);
+    bump(levels, level);
+    if (learner.dailyGoal) bump(dailyGoals, String(learner.dailyGoal));
+    for (const topic of learner.interests ?? []) bump(interests, topic);
+
+    const p = learner.placement;
+    if (!p) continue;
+    if (p.selfReported) {
+      placement.selfReported += 1;
+    } else {
+      placement.tested += 1;
+      if (p.total) {
+        scoreSum += (p.correct ?? 0) / p.total;
+        scored += 1;
+      }
+    }
+  }
+  if (scored > 0) placement.averagePercent = Math.round((scoreSum / scored) * 100);
 
   const signupsByDay: Record<string, number> = {};
   for (const person of people) {
@@ -343,6 +410,8 @@ Deno.serve(async (req: Request) => {
         activeDays: u?.days ?? 0,
         words: u?.words ?? 0,
         textsRead: u?.texts.size ?? 0,
+        goal: intake[p.id]?.goal ?? null,
+        level: intake[p.id]?.level ?? null,
       };
     })
     .sort((a, b) => b.minutes - a.minutes);
@@ -359,6 +428,7 @@ Deno.serve(async (req: Request) => {
         minutes: rows.reduce((sum, r) => sum + ((r.minutes as number) ?? 0), 0),
       },
       sectionTotals,
+      onboarding: { answered, goals, interests, levels, dailyGoals, placement },
       texts,
       roster,
       // No billing system exists, so there is nothing truthful to report about

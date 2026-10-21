@@ -1184,7 +1184,8 @@
       "overview": "Обзор",
       "people": "Пользователи",
       "texts": "Тексты",
-      "codes": "Коды"
+      "codes": "Коды",
+      "audience": "Кто учится"
     },
     "whereTime": "Куда уходит время",
     "searchPeople": "Поиск по почте",
@@ -1234,7 +1235,27 @@
         "y1": "Год",
         "forever": "Навсегда"
       }
-    }
+    },
+    "audience": {
+      "title": "Кто учится",
+      "nobody": "Пока никто не прошёл первые вопросы.",
+      "answered": "Ответили",
+      "tested": "Прошли тест",
+      "picked": "Выбрали сами",
+      "avgScore": "Средний балл теста, %",
+      "goals": "Зачем им английский",
+      "levels": "Уровень",
+      "interests": "Что интересно читать",
+      "dailyGoal": "Сколько заданий в день",
+      "ofAnswered": "Доля от {{count}} ответивших",
+      "multiple": "Можно выбрать несколько, поэтому сумма больше 100%",
+      "tasksPerDay_one": "{{count}} задание",
+      "tasksPerDay_few": "{{count}} задания",
+      "tasksPerDay_many": "{{count}} заданий",
+      "selfReported": "выбрал сам"
+    },
+    "colGoal": "Цель",
+    "colLevel": "Уровень"
   },
   "practice": {
     "inviteTitle": "Закрепи новые слова",

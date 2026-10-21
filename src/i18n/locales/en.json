@@ -1150,7 +1150,8 @@
       "overview": "Overview",
       "people": "People",
       "texts": "Texts",
-      "codes": "Codes"
+      "codes": "Codes",
+      "audience": "Audience"
     },
     "whereTime": "Where time goes",
     "searchPeople": "Search by email",
@@ -1198,7 +1199,26 @@
         "y1": "A year",
         "forever": "Forever"
       }
-    }
+    },
+    "audience": {
+      "title": "Who is learning",
+      "nobody": "Nobody has answered the opening questions yet.",
+      "answered": "Answered",
+      "tested": "Took the test",
+      "picked": "Chose a level",
+      "avgScore": "Average test score, %",
+      "goals": "What they want English for",
+      "levels": "Level",
+      "interests": "What they want to read",
+      "dailyGoal": "Tasks a day",
+      "ofAnswered": "Share of the {{count}} who answered",
+      "multiple": "More than one may be picked, so the shares pass 100%",
+      "tasksPerDay_one": "{{count}} task",
+      "tasksPerDay_other": "{{count}} tasks",
+      "selfReported": "self-reported"
+    },
+    "colGoal": "Goal",
+    "colLevel": "Level"
   },
   "practice": {
     "inviteTitle": "Make the new words stick",
