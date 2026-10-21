@@ -167,10 +167,6 @@
     font-size: 1.85rem;
   }
 
-  .lp-hero__sub {
-    font-size: 1rem;
-    line-height: 1.55;
-  }
 }
 
 /* The name, in the book face the reading itself is set in. A product about
@@ -517,5 +513,18 @@
 
   .lp-btn {
     width: 100%;
+  }
+}
+
+/* The phone's paragraph, last in the file on purpose.
+   This override lived inside the mobile block two hundred lines above, which
+   is before `.lp-hero__sub` is declared — same specificity, earlier in the
+   source, so the base rule won and the phone quietly used the desktop size.
+   Nothing looked broken; the text was simply a step larger than intended,
+   and the twelfth line it caused left nine pixels under the button. */
+@media (max-width: 640px) {
+  .lp-hero__sub {
+    font-size: 1rem;
+    line-height: 1.55;
   }
 }
