@@ -30,20 +30,20 @@
    the same bet placed again. A few tens of kilobytes beside the bundle cost
    one request to a server we control.
 
-   Eagle Lake carries the promise. One weight, so it is set at 400 and gets
-   its presence from size — and it is a display face, used once and large;
-   small, a calligraphic hand turns into a smudge.
+   Rochester carries the promise. One weight, so it is set at 400 and gets
+   its presence from size — and it is a script, used once and large; small, a
+   joined hand turns into a smudge.
 
    PT Sans Caption carries the Russian paragraph. It was drawn for small sizes
    and for Cyrillic specifically, which is exactly the job: five lines of
    Russian under a headline, meant to be read rather than admired. Both of its
    subsets are loaded, because the paragraph ends in "like eagle". */
 @font-face {
-  font-family: "Eagle Lake";
+  font-family: "Rochester";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/eaglelake-latin.woff2") format("woff2");
+  src: url("/fonts/rochester-latin.woff2") format("woff2");
 }
 
 @font-face {
@@ -220,7 +220,7 @@
   /* The one line on the front page meant to be looked at rather than read.
      Used once and large — the name beside it stays in the product's own face,
      because two decorative things next to each other cancel out. */
-  --font-script: "Eagle Lake", Georgia, serif;
+  --font-script: "Rochester", "Brush Script MT", cursive;
   /* The paragraph under it: drawn for small sizes and for Cyrillic. */
   --font-caption: "PT Sans Caption", var(--font-sans);
 

@@ -69,11 +69,11 @@
      which is what happened when the gaps grew and the hero quietly outgrew
      the screen. Measured from the top, the position is the number below and
      stays put. */
-  /* 117px rather than a round number: it is what puts the centre of the
-     lockup on the centre of the screen, measured rather than guessed. The
-     mark is the thing the eye lands on, so it is the thing worth centring —
-     everything else arranges itself around it. */
-  padding: 117px var(--gutter) 40px;
+  /* The promise and the mark now travel as one block, so the thing being
+     placed is that pair rather than the mark alone — which is why this is no
+     longer the number that centred the lockup. Raised, with the paragraph
+     and the button hanging below. */
+  padding: 80px var(--gutter) 40px;
 }
 
 /* Depth, on a page that had none.
@@ -109,7 +109,11 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-top: var(--hero-gap);
+  /* Not --hero-gap. The promise and the mark are meant to read as one thing
+     — the line sits on the bird the way a signature sits on a drawing — so
+     the space between them is a seam rather than one of the page's gaps.
+     Every other interval on this screen is still the common number. */
+  margin-top: 6px;
 }
 
 .lp-lockup__mark.brand-chip {
@@ -263,10 +267,10 @@
   /* Bigger than the sans ever was. A script carries less weight per pixel —
      the strokes are thin and the letters lean — so it needs the size to read
      as the loudest thing on the screen rather than as a caption. */
-  font-size: clamp(1.9rem, 5.9vw, 4.7rem);
-  /* A calligraphic face still needs room below the baseline, just less than
-     a joined script does. */
-  line-height: 1.18;
+  font-size: clamp(2.2rem, 7vw, 5.6rem);
+  /* A joined hand needs room below the baseline: at tighter leading the tail
+     of the y in "Study" lands in the word beneath it. */
+  line-height: 1.12;
   letter-spacing: 0;
   color: var(--paper);
   text-wrap: balance;
