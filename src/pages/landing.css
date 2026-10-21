@@ -53,14 +53,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   min-height: calc(100svh - var(--topline-h));
   text-align: center;
 
-  /* The four blocks — promise, mark, description, button — are separated by
-     one number rather than four, so they read as a set rather than as things
-     that happened to end up near each other. */
-  --hero-gap: 34px;
+  /* The four blocks — promise, mark, description, button — are spread across
+     the screen by `space-between` rather than pushed apart by margins. The
+     gaps are then equal by construction and as large as the screen allows,
+     and nothing needs re-tuning when a block changes height: the browser
+     divides whatever is left over. Every margin between them is zero for
+     this to work. */
 
   /* Anchored to the top rather than centred. Centring sounds like the right
      answer and is not: the block's distance from the top then depends on how
@@ -69,11 +71,7 @@
      which is what happened when the gaps grew and the hero quietly outgrew
      the screen. Measured from the top, the position is the number below and
      stays put. */
-  /* The promise and the mark now travel as one block, so the thing being
-     placed is that pair rather than the mark alone — which is why this is no
-     longer the number that centred the lockup. Raised, with the paragraph
-     and the button hanging below. */
-  padding: 80px var(--gutter) 40px;
+  padding: 78px var(--gutter) 52px;
 }
 
 /* Depth, on a page that had none.
@@ -109,11 +107,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  /* Not --hero-gap. The promise and the mark are meant to read as one thing
-     — the line sits on the bird the way a signature sits on a drawing — so
-     the space between them is a seam rather than one of the page's gaps.
-     Every other interval on this screen is still the common number. */
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .lp-lockup__mark.brand-chip {
@@ -139,7 +133,7 @@
 @media (max-width: 1023px) {
   .lp-lockup {
     gap: 11px;
-    margin-top: 24px;
+    
   }
 }
 
@@ -154,9 +148,8 @@
    stays legible; it just stops wasting room. */
 @media (max-width: 640px) {
   .lp-hero {
-    --hero-gap: 24px;
-    padding-top: 76px;
-    padding-bottom: 96px;
+    padding-top: 64px;
+    padding-bottom: 60px;
   }
 
   .lp-lockup {
@@ -287,7 +280,7 @@
    instead of eight. */
 .lp-hero__sub {
   font-family: var(--font-caption);
-  margin: var(--hero-gap) 0 0;
+  margin: 0;
   max-width: 66ch;
   font-size: clamp(1.14rem, 1.6vw, 1.26rem);
   line-height: 1.6;
@@ -301,7 +294,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: var(--hero-gap);
+  margin-top: 0;
 }
 
 .lp-actions--center {
