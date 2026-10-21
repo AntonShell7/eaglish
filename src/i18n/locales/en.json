@@ -542,24 +542,36 @@
   },
   "landing": {
     "start": "Get started",
-    "methodEyebrow": "The method",
-    "methodTitle": "A word isn't learned once. It's met enough times.",
-    "methodLede": "Forgetting follows a curve: what isn't revisited is gone within days. Eaglish takes the words out of your own reading and returns them at the edge of that curve, where a single repetition is worth the most.",
-    "steps": {
-      "meet": {
-        "h": "Meet it in context",
-        "p": "Tap any word, anywhere in the app, and the translation fits the sentence it came from — not a dictionary's first guess."
+    "methodTitle": "Our own method for learning English",
+    "methodSub": "The Eaglish system",
+    "pillars": {
+      "practice": {
+        "h": "An ocean of practice",
+        "p": "Texts to read and dictations for every level from A1 to C2, with every sentence translated and voiced."
       },
-      "save": {
-        "h": "Keep it in one tap",
-        "p": "It joins your collection with the sentence attached, so you remember where you met it and what it was doing there."
+      "stats": {
+        "reading": "texts to read",
+        "dictation": "dictation texts",
+        "voiced": "voiced sentences",
+        "dialogues": "dialogues of real speech"
       },
-      "returns": {
-        "h": "See it again on time",
-        "p": "Spaced repetition schedules the next meeting, and saved words stay marked in later texts — so the repeat never passes unnoticed."
+      "vocabulary": {
+        "h": "Your own vocabulary, on spaced repetition",
+        "p": "An unfamiliar word goes into your vocabulary with one tap, and the system brings it back exactly when it starts to fade. That is how the words you learn stay with you for good."
+      },
+      "recurring": {
+        "h": "Words come back in texts",
+        "p": "The words you are learning turn up in texts more often the less well you know them yet. Meeting a word in a real sentence fixes it better than any card."
+      },
+      "science": {
+        "h": "Built on research",
+        "p": "The way words are studied rests on spaced repetition and active recall. In published studies these methods more than doubled retention compared with simply rereading."
+      },
+      "handy": {
+        "h": "Everything at hand",
+        "p": "Instant translation of unfamiliar words and phrases right in the text, and word cards that accept handwriting."
       }
     },
-    "loop": "then the loop begins again",
     "principlesEyebrow": "How we work",
     "principlesTitle": "Four decisions everything else follows from.",
     "principles": {

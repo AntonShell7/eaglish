@@ -3,7 +3,20 @@ import { Link } from "react-router-dom";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import "./landing.css";
 
-const STEPS = ["meet", "save", "returns"] as const;
+const PILLARS = ["practice", "vocabulary", "recurring", "science", "handy"] as const;
+
+/* How much there is to practise on, counted from src/data on 21 Oct 2026:
+   140 reading texts, 120 dictation texts, 4,963 voiced dictation sentences,
+   18 slang dialogues. Written down rather than computed because counting the
+   dictation sentences means loading the whole library into the front page.
+   Rounded down, so the page stays true as the library grows; raise them by
+   hand when it has grown enough to matter. */
+const STATS = [
+  { key: "reading", value: 140, plus: false },
+  { key: "dictation", value: 120, plus: false },
+  { key: "voiced", value: 4900, plus: true },
+  { key: "dialogues", value: 18, plus: false },
+] as const;
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
 
 /**
@@ -21,7 +34,8 @@ const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
  * name, a sentence, and the way in.
  */
 export default function Landing() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const number = new Intl.NumberFormat(i18n.language);
 
   return (
     <div className="lp">
@@ -64,22 +78,39 @@ export default function Landing() {
 
       </section>
 
-      <section className="lp-section" data-reveal>
-        <p className="lp-eyebrow">{t("landing.methodEyebrow")}</p>
-        <h2 className="lp-title">{t("landing.methodTitle")}</h2>
-        <p className="lp-lede">{t("landing.methodLede")}</p>
+      {/* The method, under the first screen. The heading is set in the same
+          hand as the promise above it and in the brand mint, so the two read
+          as one voice: the promise, then how it is kept. */}
+      <section className="lp-section lp-method" data-reveal>
+        <header className="lp-method__head">
+          <h2 className="lp-method__title">{t("landing.methodTitle")}</h2>
+          <p className="lp-method__sub">{t("landing.methodSub")}</p>
+        </header>
 
-        <ol className="lp-steps" data-stagger>
-          {STEPS.map((key, i) => (
-            <li key={key} className="lp-step">
-              <span className="lp-step__n">{String(i + 1).padStart(2, "0")}</span>
-              <p className="lp-step__h">{t(`landing.steps.${key}.h`)}</p>
-              <p className="lp-step__p">{t(`landing.steps.${key}.p`)}</p>
+        <ol className="lp-pillars" data-stagger>
+          {PILLARS.map((key, i) => (
+            <li key={key} className="lp-pillar">
+              <span className="lp-pillar__n">{String(i + 1).padStart(2, "0")}</span>
+              <div className="lp-pillar__body">
+                <h3 className="lp-pillar__h">{t(`landing.pillars.${key}.h`)}</h3>
+                <p className="lp-pillar__p">{t(`landing.pillars.${key}.p`)}</p>
+                {key === "practice" && (
+                  <dl className="lp-stats">
+                    {STATS.map((stat) => (
+                      <div key={stat.key} className="lp-stat">
+                        <dt className="lp-stat__label">{t(`landing.pillars.stats.${stat.key}`)}</dt>
+                        <dd className="lp-stat__value">
+                          {number.format(stat.value)}
+                          {stat.plus && "+"}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
             </li>
           ))}
         </ol>
-
-        <p className="lp-loop">{t("landing.loop")}</p>
       </section>
 
       <section className="lp-section" data-reveal>
