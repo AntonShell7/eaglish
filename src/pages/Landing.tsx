@@ -26,8 +26,6 @@ const QUOTES: Record<string, { text: string; who: string; side: "left" | "right"
   handy: { text: "Simply lovely", who: "Max Verstappen", side: "left" },
 };
 
-const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
-
 /**
  * The front page — the only screen most people will ever judge this by.
  *
@@ -104,7 +102,7 @@ export default function Landing() {
                   <figcaption className="lp-quote__who">— {QUOTES[key].who}</figcaption>
                 </figure>
               )}
-              <span className="lp-pillar__n">{String(i + 1).padStart(2, "0")}</span>
+              <span className="lp-pillar__n">{i + 1}</span>
               <div className="lp-pillar__body">
                 <h3 className="lp-pillar__h">{t(`landing.pillars.${key}.h`)}</h3>
                 {/* The first point has no sentence of its own — the counts
@@ -131,28 +129,16 @@ export default function Landing() {
         </ol>
       </section>
 
-      <section className="lp-section" data-reveal>
-        <p className="lp-eyebrow">{t("landing.principlesEyebrow")}</p>
-        <h2 className="lp-title">{t("landing.principlesTitle")}</h2>
-
-        <div className="lp-principles" data-stagger>
-          {PRINCIPLES.map((key) => (
-            <div key={key} className="lp-principle">
-              <p className="lp-principle__h">{t(`landing.principles.${key}.h`)}</p>
-              <p className="lp-principle__p">{t(`landing.principles.${key}.p`)}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      {/* The last word, and the same green button as the first screen. The
+          four principles used to stand between the method and this, saying
+          in prose what the five points had already shown; and the sign-in
+          link beside the button gave a visitor a choice to make instead of
+          a thing to do. Both are gone. */}
       <section className="lp-close" data-reveal>
         <h2 className="lp-close__h">{t("landing.closeTitle")}</h2>
         <div className="lp-actions lp-actions--center">
           <Link to="/register" className="lp-btn lp-btn--go">
             {t("landing.start")}
-          </Link>
-          <Link to="/login" className="lp-btn lp-btn--quiet">
-            {t("auth.logIn")}
           </Link>
         </div>
       </section>

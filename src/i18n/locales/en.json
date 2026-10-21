@@ -571,27 +571,7 @@
         "p": "Automatic translation of unknown words and phrases, and cards for learning words that support handwriting input."
       }
     },
-    "principlesEyebrow": "How we work",
-    "principlesTitle": "Four decisions everything else follows from.",
-    "principles": {
-      "context": {
-        "h": "Context over lists",
-        "p": "Words arrive inside sentences you wanted to understand. That's the difference between recognising a word and having it."
-      },
-      "honest": {
-        "h": "Honest assessment",
-        "p": "Writing comes back with a real score and the specific fixes behind it. No inflated praise — you can't correct what nobody names."
-      },
-      "short": {
-        "h": "Short, and daily",
-        "p": "Five focused minutes outperform an hour once a week. The streak protects the habit; it isn't there to guilt you into it."
-      },
-      "ownLanguage": {
-        "h": "Your language for the interface",
-        "p": "Navigate in Russian if it helps. The English you came for is never translated away."
-      }
-    },
-    "closeTitle": "One text. Five minutes. Today.",
+    "closeTitle": "Start today — tomorrow brings the first result",
     "heroTitle": "Study smarter, not harder",
     "heroSub": "Everything you need to use English with confidence, in one place: boost your vocabulary, become more well-read, improve your English listening skills, and learn new words and phrases by methods that have evidence behind them. Find your freedom in English — like an eagle in the sky 🦅",
     "indexReading": "Reading",

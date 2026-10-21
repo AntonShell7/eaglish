@@ -503,38 +503,6 @@
   color: var(--muted);
 }
 
-/* ── Principles ───────────────────────────────────────────────────────── */
-
-.lp-principles {
-  display: grid;
-  gap: 34px 48px;
-  margin: 46px 0 0;
-}
-
-@media (min-width: 720px) {
-  .lp-principles {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.lp-principle {
-  padding-left: 20px;
-  border-left: 1px solid rgba(224, 171, 92, 0.3);
-}
-
-.lp-principle__h {
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: var(--paper);
-}
-
-.lp-principle__p {
-  margin: 9px 0 0;
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--muted);
-}
-
 /* ── Close ────────────────────────────────────────────────────────────── */
 
 .lp-close {
@@ -635,14 +603,14 @@
 .lp-quote__text {
   margin: 0;
   font-family: var(--font-script);
-  /* As large as the side margin allows, and no larger. The margin is
-     (100vw - 880) / 2; the longest quote is 9.4 times the type size wide in
-     Rochester; a line tilted twelve degrees eats a little more than its own
-     width. Divide the available room by twenty and that is the biggest
-     size at which the sentence still fits on one line — the same size for
-     all three, so they read as one hand. Capped, or on a wide screen they
-     start competing with the headings. */
-  font-size: min(3rem, calc((100vw - 880px) / 20));
+  /* As large as the margin allows, and no larger. The list is 872px wide
+     (a 1000px section less 64px of padding on each side), so the margin
+     beside it is (100vw - 872) / 2. The longest quote is 9.4 times the type
+     size wide in Rochester and the tilt costs a little more than that; the
+     divisor and the two pixels are what is left when the sentence must fit
+     on one line with a few pixels to spare. One rule for all three, so they
+     read as one hand. Capped, or a wide screen turns them into headings. */
+  font-size: min(3rem, calc((100vw - 872px) / 19 - 2px));
   line-height: 1.2;
   white-space: nowrap;
   color: var(--mint);
@@ -660,13 +628,18 @@
     display: block;
   }
 
+  /* Each quote sits on the middle of the margin beside the list, which is
+     (100vw - 872) / 4 from the list's own edge. Anchoring to that midpoint
+     rather than to a gap is what makes the two sides answer each other: a
+     short quote and a long one hang from the same vertical line, and the
+     long one keeps as much air on its right as it has on its left. */
   .lp-quote--left {
-    right: calc(100% + 14px);
-    transform: translateY(-50%) rotate(-12deg);
+    left: calc((872px - 100vw) / 4);
+    transform: translate(-50%, -50%) rotate(-12deg);
   }
 
   .lp-quote--right {
-    left: calc(100% + 14px);
-    transform: translateY(-50%) rotate(12deg);
+    left: calc(100% + (100vw - 872px) / 4);
+    transform: translate(-50%, -50%) rotate(12deg);
   }
 }
