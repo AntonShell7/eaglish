@@ -609,7 +609,9 @@
     "firstStepEyebrow": "First step",
     "firstStepTitle": "Read one text — about {{count}} minutes",
     "firstStepBody": "Tap any unfamiliar word as you go: the translation appears beside it, and the word goes into your vocabulary to come back for review.",
-    "firstStepGo": "Start"
+    "firstStepGo": "Start",
+    "weekKept_one": "{{count}} day this week",
+    "weekKept_other": "{{count}} days this week"
   },
   "tasks": {
     "readingDone": "Text finished",

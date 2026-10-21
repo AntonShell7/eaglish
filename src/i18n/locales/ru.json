@@ -626,7 +626,10 @@
     "firstStepEyebrow": "Первый шаг",
     "firstStepTitle": "Прочитай один текст — минут на {{count}}",
     "firstStepBody": "Незнакомые слова нажимай прямо в тексте: перевод появится рядом, а слово уйдёт в твой словарь и вернётся на повторении.",
-    "firstStepGo": "Начать"
+    "firstStepGo": "Начать",
+    "weekKept_one": "{{count}} день за неделю",
+    "weekKept_few": "{{count}} дня за неделю",
+    "weekKept_many": "{{count}} дней за неделю"
   },
   "tasks": {
     "readingDone": "Текст прочитан",
