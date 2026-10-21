@@ -69,7 +69,11 @@
      which is what happened when the gaps grew and the hero quietly outgrew
      the screen. Measured from the top, the position is the number below and
      stays put. */
-  padding: 56px var(--gutter) 40px;
+  /* 117px rather than a round number: it is what puts the centre of the
+     lockup on the centre of the screen, measured rather than guessed. The
+     mark is the thing the eye lands on, so it is the thing worth centring —
+     everything else arranges itself around it. */
+  padding: 117px var(--gutter) 40px;
 }
 
 /* Depth, on a page that had none.
@@ -263,7 +267,7 @@
   /* Bigger than the sans ever was. A script carries less weight per pixel —
      the strokes are thin and the letters lean — so it needs the size to read
      as the loudest thing on the screen rather than as a caption. */
-  font-size: clamp(2.05rem, 6.3vw, 5rem);
+  font-size: clamp(1.9rem, 5.9vw, 4.7rem);
   /* A calligraphic face still needs room below the baseline, just less than
      a joined script does. */
   line-height: 1.18;
@@ -285,9 +289,9 @@
   font-family: var(--font-caption);
   margin: var(--hero-gap) 0 0;
   max-width: 66ch;
-  font-size: clamp(1.02rem, 1.45vw, 1.14rem);
+  font-size: clamp(1.14rem, 1.6vw, 1.26rem);
   line-height: 1.6;
-  color: rgba(245, 245, 245, 0.78);
+  color: rgba(245, 245, 245, 0.88);
   text-wrap: pretty;
 }
 
