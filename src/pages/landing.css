@@ -508,7 +508,11 @@
 .lp-close {
   max-width: 1000px;
   margin: 0 auto;
-  padding: clamp(64px, 12vh, 124px) var(--gutter) clamp(80px, 14vh, 140px);
+  /* Less air above than below. The method ends with its own 54px of
+     padding, so the top of this block is measured on top of that: what
+     looked like a comfortable 108px was a 147px hole between the last
+     point and the line that asks for the click. */
+  padding: clamp(36px, 6vh, 64px) var(--gutter) clamp(80px, 14vh, 140px);
   border-top: 1px solid var(--line);
   text-align: center;
 }
@@ -644,11 +648,11 @@
   }
 
   .lp-quote--right {
-    /* Twenty-two pixels short of the middle of the margin. Centred exactly,
+    /* Fifty-two pixels short of the middle of the margin. Centred exactly,
        this one's last letter came within a few pixels of the window edge —
        the sentence is nearly as wide as the margin itself — and a letter
        that close to the edge reads as about to fall off it. */
-    left: calc(100% + (100vw - 872px) / 4 - 22px);
+    left: calc(100% + (100vw - 872px) / 4 - 52px);
     transform: translate(-50%, -50%) rotate(12deg);
   }
 }
