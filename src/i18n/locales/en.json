@@ -546,8 +546,8 @@
     "methodSub": "The Eaglish system",
     "pillars": {
       "practice": {
-        "h": "An ocean of practice",
-        "p": "Texts to read and dictations for every level from A1 to C2, with every sentence translated and voiced."
+        "h": "Plenty of practice",
+        "p": "Texts, dictation, voiced sentences and real dialogue."
       },
       "stats": {
         "reading": "texts to read",
@@ -556,20 +556,20 @@
         "dialogues": "dialogues of real speech"
       },
       "vocabulary": {
-        "h": "Your own vocabulary, on spaced repetition",
-        "p": "An unfamiliar word goes into your vocabulary with one tap, and the system brings it back exactly when it starts to fade. That is how the words you learn stay with you for good."
+        "h": "Unknown words go into your dictionary and are learned by spaced repetition",
+        "p": "The system is built so that the words you study are remembered for good."
       },
       "recurring": {
-        "h": "Words come back in texts",
-        "p": "The words you are learning turn up in texts more often the less well you know them yet. Meeting a word in a real sentence fixes it better than any card."
+        "h": "Words come back in the texts",
+        "p": "The words you are studying turn up in texts as often as you need them to — the less well you remember one, the more often it appears."
       },
       "science": {
-        "h": "Built on research",
-        "p": "The way words are studied rests on spaced repetition and active recall. In published studies these methods more than doubled retention compared with simply rereading."
+        "h": "Based on scientific research",
+        "p": "The learning strategies are built on scientific research that found a 200% increase in the effectiveness of studying material."
       },
       "handy": {
-        "h": "Everything at hand",
-        "p": "Instant translation of unfamiliar words and phrases right in the text, and word cards that accept handwriting."
+        "h": "Everything within reach",
+        "p": "Automatic translation of unknown words and phrases, and cards for learning words that support handwriting input."
       }
     },
     "principlesEyebrow": "How we work",
