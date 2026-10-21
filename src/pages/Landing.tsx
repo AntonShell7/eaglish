@@ -23,7 +23,7 @@ const STATS = [
 const QUOTES: Record<string, { text: string; who: string; side: "left" | "right" }> = {
   practice: { text: "Practice makes perfect", who: "Cristiano Ronaldo", side: "left" },
   recurring: { text: "Experience is the best teacher", who: "Aristotle", side: "right" },
-  handy: { text: "Simply lovely!", who: "Max Verstappen", side: "left" },
+  handy: { text: "Simply lovely", who: "Max Verstappen", side: "left" },
 };
 
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;

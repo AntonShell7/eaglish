@@ -623,12 +623,10 @@
   margin: 0;
   position: absolute;
   top: 50%;
-  /* The margin is (100vw - 880) / 2. The subtraction is not just a gap: a
-     box tilted twelve degrees is wider than the text inside it — about
-     h·sin(12°) wider — so the element has to stop short of the edge by more
-     than it looks like it needs, or the corner hangs off the page and the
-     whole document gains a horizontal scrollbar. */
-  width: min(19rem, calc((100vw - 880px) / 2 - 34px));
+  /* The box hugs its text, because the text may not wrap: the longest of
+     the three has to sit on one line, and that is what fixes the type size
+     below. A fixed-width box would hide an overflow instead of showing it. */
+  width: max-content;
   text-align: center;
   pointer-events: none;
   user-select: none;
@@ -637,8 +635,16 @@
 .lp-quote__text {
   margin: 0;
   font-family: var(--font-script);
-  font-size: clamp(1.75rem, 1.75vw, 2.3rem);
+  /* As large as the side margin allows, and no larger. The margin is
+     (100vw - 880) / 2; the longest quote is 9.4 times the type size wide in
+     Rochester; a line tilted twelve degrees eats a little more than its own
+     width. Divide the available room by twenty and that is the biggest
+     size at which the sentence still fits on one line — the same size for
+     all three, so they read as one hand. Capped, or on a wide screen they
+     start competing with the headings. */
+  font-size: min(3rem, calc((100vw - 880px) / 20));
   line-height: 1.2;
+  white-space: nowrap;
   color: var(--mint);
 }
 
