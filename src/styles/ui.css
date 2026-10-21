@@ -650,34 +650,10 @@ textarea.field {
 /* ── The other way in ─────────────────────────────────────────────────── */
 
 /* The Google button and the email form are alternatives, not steps, and the
-   rule between them says so. Which one comes first depends on the page: on
-   sign-up and sign-in Google leads, because the password field is where
-   sign-ups are abandoned; elsewhere it follows. */
+   rule between them says so. It follows the form everywhere: the shortcut is
+   worth offering and is not worth opening with. */
 .auth-alt {
-  margin-top: 22px;
-}
-
-/* Leading, so it carries no top margin and its rule sits underneath. */
-.auth-alt--lead {
-  margin-top: 0;
-  margin-bottom: 4px;
-}
-
-.auth-alt--lead .auth-alt__rule {
-  margin: 20px 0 0;
-}
-
-/* The leading button is the primary action on the page and is dressed as one:
-   a filled control rather than a hairline one. */
-.auth-alt__btn--lead {
-  border-color: var(--color-border-strong);
-  background: var(--color-surface-2);
-  font-weight: 700;
-}
-
-.auth-alt__btn--lead:hover:not(:disabled) {
-  border-color: var(--color-primary);
-  background: var(--color-primary-softer);
+  margin-top: 26px;
 }
 
 .auth-alt__rule {

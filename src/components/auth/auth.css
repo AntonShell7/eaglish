@@ -49,7 +49,13 @@
 
 /* Every field is the same object, so they all sit the same distance apart. */
 .auth-field {
-  margin-top: 20px;
+  margin-top: 22px;
+}
+
+/* The first field after the heading gets a little more, so the title has
+   room to be a title rather than a label for the box underneath it. */
+.auth-field:first-of-type {
+  margin-top: 26px;
 }
 
 .auth-field__label {
@@ -90,10 +96,62 @@
   background: var(--color-surface-3);
 }
 
+/* Consent sits with the button that acts on it, and the box lines up with
+   the first line of the text rather than floating in the middle of two. */
+.auth-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 22px;
+  cursor: pointer;
+}
+
+.auth-consent__box {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.auth-consent__text {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* "Forgot your password?" — the sign-in page's counterpart to the checkbox,
+   in the same place and at the same size, so the two screens share a rhythm
+   rather than merely a card. */
+.auth-aside {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.auth-link {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.auth-consent__text .auth-link {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.auth-foot {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
 .auth-submit {
   width: 100%;
   height: var(--control-h-lg);
-  margin-top: 24px;
+  margin-top: 26px;
   font-size: 0.975rem;
 }
 

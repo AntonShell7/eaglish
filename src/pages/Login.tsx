@@ -36,19 +36,14 @@ export default function Login() {
       title={t("auth.logIn")}
       onSubmit={handleSubmit}
       footer={
-        <p className="mt-5 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+        <p className="auth-foot">
           {t("auth.noAccount")}{" "}
-          <Link to="/register" className="font-semibold" style={{ color: "var(--color-primary)" }}>
+          <Link to="/register" className="auth-link">
             {t("auth.createAccount")}
           </Link>
         </p>
       }
     >
-      {/* Google first here too, so the two auth screens teach the same
-          shape — whichever one a person lands on, the quick door is in the
-          same place. */}
-      <GoogleButton label={t("auth.continueWithGoogle")} lead />
-
       <EmailField value={email} onChange={setEmail} />
 
       <PasswordField
@@ -60,15 +55,16 @@ export default function Login() {
 
       <FormError message={error} />
 
-      <Link
-        to="/forgot-password"
-        className="mt-3 inline-block text-xs font-medium"
-        style={{ color: "var(--color-primary)" }}
-      >
+      {/* The same slot the sign-up page gives its consent checkbox, so the
+          two screens have one shape: title, two fields, one small line, the
+          button, then the other way in. */}
+      <Link to="/forgot-password" className="auth-link auth-aside">
         {t("auth.forgotPassword")}
       </Link>
 
       <SubmitButton loading={loading} label={t("auth.logIn")} />
+
+      <GoogleButton label={t("auth.continueWithGoogle")} />
     </AuthCard>
   );
 }

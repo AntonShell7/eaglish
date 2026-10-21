@@ -80,9 +80,9 @@ export default function Register() {
       title={sentTo ? t("auth.checkEmailTitle") : t("auth.signUp")}
       onSubmit={handleSubmit}
       footer={
-        <p className="mt-5 text-center text-sm" style={{ color: "var(--color-text-muted)" }}>
+        <p className="auth-foot">
           {t("auth.haveAccount")}{" "}
-          <Link to="/login" className="font-semibold" style={{ color: "var(--color-primary)" }}>
+          <Link to="/login" className="auth-link">
             {t("auth.logIn")}
           </Link>
         </p>
@@ -95,16 +95,16 @@ export default function Register() {
            once the form is gone — where to look when it does not arrive, and
            how to get another one. */
         <div className="auth-sent">
-          <p className="auth-sent__lede">{t("auth.checkEmailBody")}</p>
-          <p className="auth-sent__addr">{sentTo}</p>
+          <p className="auth-sent__lead">{t("auth.checkEmailBody")}</p>
+          <p className="auth-sent__mail">{sentTo}</p>
           <p className="auth-sent__note">{t("auth.checkEmailSpam")}</p>
 
           <FormError message={error} />
-          {resent && <p className="auth-sent__ok">{t("auth.resendSent")}</p>}
+          {resent && <p className="auth-sent__note">{t("auth.resendSent")}</p>}
 
           <button
             type="button"
-            className="btn btn--ghost auth-sent__resend"
+            className="btn btn--ghost auth-sent__again"
             onClick={resend}
             disabled={cooldown > 0}
           >
@@ -115,10 +115,6 @@ export default function Register() {
         </div>
       ) : (
         <>
-          {/* Google first: the password field is where sign-ups are
-              abandoned, and this route skips both it and the email. */}
-          <GoogleButton label={t("auth.signUpWithGoogle")} lead />
-
           <EmailField value={email} onChange={setEmail} />
 
           <PasswordField
@@ -137,36 +133,37 @@ export default function Register() {
               buys very little and costs a step on the one screen where steps
               are most expensive. */}
 
-          {/* Consent lives next to the button that acts on it, not in a
-              sentence under it that nobody reads. */}
-          <label className="mt-5 flex cursor-pointer items-start gap-3">
+          {/* Consent, and nothing beside it. A paragraph used to follow,
+              summarising what is kept and who sees it; it was accurate and
+              nobody read it, and on the screen it read as fine print warning
+              about something. Whoever wants to know follows the two links,
+              which is what they are for. */}
+          <label className="auth-consent">
             <input
               type="checkbox"
+              className="auth-consent__box"
               checked={accepted}
               onChange={(e) => {
                 setAccepted(e.target.checked);
                 setError(null);
               }}
-              className="mt-0.5 h-4 w-4 flex-none accent-[var(--color-primary)]"
             />
-            <span className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+            <span className="auth-consent__text">
               <Trans
                 i18nKey="auth.acceptLegal"
                 components={{
-                  terms: <Link to="/terms" className="font-semibold underline" style={{ color: "var(--color-primary)" }} />,
-                  privacy: <Link to="/privacy" className="font-semibold underline" style={{ color: "var(--color-primary)" }} />,
+                  terms: <Link to="/terms" className="auth-link" />,
+                  privacy: <Link to="/privacy" className="auth-link" />,
                 }}
               />
             </span>
           </label>
 
-          <p className="mt-3 text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-            {t("auth.dataNote")}
-          </p>
-
           <FormError message={error} />
 
           <SubmitButton loading={loading} label={t("auth.createAccount")} />
+
+          <GoogleButton label={t("auth.signUpWithGoogle")} />
         </>
       )}
     </AuthCard>
