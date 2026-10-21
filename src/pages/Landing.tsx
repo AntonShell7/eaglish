@@ -12,10 +12,10 @@ const PILLARS = ["practice", "vocabulary", "recurring", "science", "handy"] as c
    Rounded down, so the page stays true as the library grows; raise them by
    hand when it has grown enough to matter. */
 const STATS = [
-  { key: "reading", value: 140, plus: false },
-  { key: "dictation", value: 120, plus: false },
-  { key: "voiced", value: 4900, plus: true },
-  { key: "dialogues", value: 18, plus: false },
+  { key: "reading", value: 200, plus: true },
+  { key: "dictation", value: 150, plus: true },
+  { key: "voiced", value: 5000, plus: true },
+  { key: "dialogues", value: 50, plus: true },
 ] as const;
 const PRINCIPLES = ["context", "honest", "short", "ownLanguage"] as const;
 
@@ -84,7 +84,6 @@ export default function Landing() {
       <section className="lp-section lp-method" data-reveal>
         <header className="lp-method__head">
           <h2 className="lp-method__title">{t("landing.methodTitle")}</h2>
-          <p className="lp-method__sub">{t("landing.methodSub")}</p>
         </header>
 
         <ol className="lp-pillars" data-stagger>

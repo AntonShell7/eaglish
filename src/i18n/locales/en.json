@@ -543,7 +543,6 @@
   "landing": {
     "start": "Get started",
     "methodTitle": "Our own method for learning English",
-    "methodSub": "The Eaglish system",
     "pillars": {
       "practice": {
         "h": "Plenty of practice",
@@ -556,8 +555,8 @@
         "dialogues": "dialogues of real speech"
       },
       "vocabulary": {
-        "h": "Unknown words go into your dictionary and are learned by spaced repetition",
-        "p": "The system is built so that the words you study are remembered for good."
+        "h": "The system is built so the words you study are remembered for good",
+        "p": "Unknown words go into your dictionary and are learned by spaced repetition."
       },
       "recurring": {
         "h": "Words come back in the texts",
