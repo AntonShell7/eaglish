@@ -129,23 +129,7 @@
     "libraryIntro": "{{count}} texts across ten subjects. Pick something you'd read for its own sake — every unknown word is one tap from a translation, and one more from your vocabulary.",
     "textCount_one": "{{count}} text",
     "textCount_other": "{{count}} texts",
-    "yourTopic": "Your topic",
-    "allTopics": "All topics",
     "backToList": "Back to the list",
-    "topics": {
-      "daily-life": "Daily life",
-      "travel": "Travel",
-      "technology": "Technology",
-      "science": "Science",
-      "sport": "Sport",
-      "culture": "Culture",
-      "business": "Work and business",
-      "health": "Health",
-      "environment": "Environment",
-      "society": "Society",
-      "celebrities": "Celebrities",
-      "wordwork": "Vocabulary in use"
-    },
     "knownShare": "{{percent}}% known",
     "recycled_one": "Recently learned: {{count}}",
     "recycled_other": "Recently learned: {{count}}",
@@ -166,7 +150,28 @@
     "tagline": "Boost your vocabulary by reading",
     "recycledTitle": "Your words, met again",
     "deskTitle": "Today's texts, from your words",
-    "deskRead": "read"
+    "deskRead": "read",
+    "allLevels": "All levels",
+    "yourLevel": "your level",
+    "levelEmpty": "Coming soon",
+    "levels": {
+      "a1-a2": {
+        "h": "A1–A2",
+        "p": "Short texts in plain words. The beginning."
+      },
+      "b1-b2": {
+        "h": "B1–B2",
+        "p": "Ordinary living English: longer, freer, unsimplified."
+      },
+      "c1-c2": {
+        "h": "C1–C2",
+        "p": "Complex syntax, exact words, grown-up subjects."
+      },
+      "advanced": {
+        "h": "Advanced",
+        "p": "The hardest: idiom, literary vocabulary, phrases no coursebook prints."
+      }
+    }
   },
   "writing": {
     "grammar": "Grammar",

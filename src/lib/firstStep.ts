@@ -1,4 +1,4 @@
-import { loadTopicTexts, readingTopics, wordCount } from "@/data/readingLibrary";
+import { bandOf, loadLevelTexts, readingLevels, wordCount } from "@/data/readingLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "./learnerProfile";
 
@@ -21,7 +21,7 @@ import { getLearnerProfile } from "./learnerProfile";
 
 export interface FirstStep {
   text: ReadingText;
-  topicId: string;
+  bandId: string;
   minutes: number;
 }
 
@@ -41,26 +41,30 @@ function matchesBand(level: string, band: string | null): boolean {
 /**
  * Pick it.
  *
- * Preference order: a topic the learner said they were interested in, then
- * any topic; within that, a text at their level, then any text; and among
- * those, the shortest — because the first one has to be finishable. Two
- * minutes of reading that ends is worth more than ten that does not.
+ * The learner's own band first, then any band that has something in it; within
+ * that, the shortest text — because the first one has to be finishable. Two
+ * minutes of reading that ends is worth more than ten that do not.
+ *
+ * It used to prefer a topic the learner had ticked on the way in. The shelf is
+ * no longer arranged by topic, and the level matters more than the subject
+ * anyway: an A2 reader handed a C1 piece about something they like has been
+ * handed nothing.
  */
 export async function pickFirstStep(): Promise<FirstStep | null> {
   const profile = getLearnerProfile();
   const band = profile?.level ?? null;
-  const interests = profile?.interests ?? [];
 
-  const preferred = readingTopics.filter(
-    (topic) => topic.total > 0 && (interests.includes(topic.id) || interests.includes(topic.label)),
-  );
-  const fallback = readingTopics.filter((topic) => topic.total > 0);
-  const order = [...preferred, ...fallback.filter((topic) => !preferred.includes(topic))];
+  const own = band ? bandOf(band.startsWith("A") ? "A1" : band.startsWith("B") ? "B1" : "C1") : null;
+  const stocked = readingLevels.filter((level) => level.total > 0);
+  const order = [
+    ...stocked.filter((level) => level.id === own),
+    ...stocked.filter((level) => level.id !== own),
+  ];
 
-  for (const topic of order.slice(0, 4)) {
+  for (const level of order) {
     let texts: ReadingText[];
     try {
-      texts = await loadTopicTexts(topic.id);
+      texts = await loadLevelTexts(level.id);
     } catch {
       continue;
     }
@@ -73,7 +77,7 @@ export async function pickFirstStep(): Promise<FirstStep | null> {
 
     return {
       text: shortest,
-      topicId: topic.id,
+      bandId: level.id,
       minutes: Math.max(1, Math.round(wordCount(shortest) / WORDS_PER_MINUTE)),
     };
   }

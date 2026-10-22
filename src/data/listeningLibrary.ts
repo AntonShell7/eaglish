@@ -72,26 +72,31 @@ export const listeningTexts = [
 
 export const listeningCount = listeningTexts.length;
 
-/** The eight subjects, ordered as the shelf shows them. */
-export const listeningTopics = [
-  "animals",
-  "environment",
-  "food",
-  "health",
-  "how",
-  "sport",
-  "travel",
-  "work",
-] as const;
+/**
+ * The shelf, by level rather than by subject.
+ *
+ * It was eight topics — animals, food, sport — and the first question the page
+ * asked was which of them you fancied. That is the wrong first question for a
+ * dictation: what decides whether a fragment can be typed from memory is its
+ * level, not whether it is about a bicycle. The subject of a lesson is its
+ * title's business now.
+ */
+export const listeningBands = ["a1-a2", "b1-b2", "c1-c2", "advanced"] as const;
 
-export type ListeningTopic = (typeof listeningTopics)[number];
+export type ListeningBand = (typeof listeningBands)[number];
 
-/** How many texts each subject holds, and at which levels. */
+export function bandOfLevel(level: string): ListeningBand {
+  if (level === "A1" || level === "A2") return "a1-a2";
+  if (level === "B1" || level === "B2") return "b1-b2";
+  return "c1-c2";
+}
+
+/** How many lessons each band holds, and at which levels inside it. */
 export function listeningShelf() {
   const out = new Map<string, { total: number; counts: Record<string, number> }>();
-  for (const topic of listeningTopics) out.set(topic, { total: 0, counts: {} });
+  for (const band of listeningBands) out.set(band, { total: 0, counts: {} });
   for (const text of listeningTexts) {
-    const entry = out.get(text.topic);
+    const entry = out.get(bandOfLevel(text.level));
     if (!entry) continue;
     entry.total += 1;
     entry.counts[text.level] = (entry.counts[text.level] ?? 0) + 1;

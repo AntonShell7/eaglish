@@ -206,7 +206,7 @@ export default function Dashboard() {
           becomes the only one. This replaces that menu for exactly as long
           as the account has nothing in it. */}
       {fresh && firstStep && (
-        <Link to={`/reading/${firstStep.topicId}/${firstStep.text.id}`} className="firststep">
+        <Link to={`/reading/${firstStep.bandId}/${firstStep.text.id}`} className="firststep">
           <span className="firststep__eyebrow">{t("dashboard.firstStepEyebrow")}</span>
           <span className="firststep__title">
             {t("dashboard.firstStepTitle", { count: firstStep.minutes })}

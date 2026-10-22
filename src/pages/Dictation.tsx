@@ -8,7 +8,7 @@ import { VideoDictation } from "@/components/dictation/VideoDictation";
 import { AddVideo } from "@/components/dictation/AddVideo";
 import { getVideoExercises, removeVideoExercise } from "@/lib/videoStore";
 import type { VideoExercise } from "@/lib/videoDictation";
-import { listeningTexts, listeningShelf } from "@/data/listeningLibrary";
+import { listeningTexts, listeningShelf, bandOfLevel } from "@/data/listeningLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { LevelFilter } from "@/components/LevelFilter";
@@ -84,7 +84,7 @@ export default function Dictation() {
 
   /** Texts in the open subject. The shelf is never shown undivided. */
   const inTopic = useMemo(
-    () => (topic ? texts.filter((text) => text.topic === topic) : []),
+    () => (topic ? texts.filter((text) => bandOfLevel(text.level) === topic) : []),
     [texts, topic],
   );
 
@@ -205,29 +205,37 @@ export default function Dictation() {
         )
       ) : (
         <>
-          {/* Stage one: the subject. Same shape as reading, because the two
+          {/* Stage one: the level. Same shape as reading, because the two
               shelves are browsed by the same person and a section that
               rearranges itself between visits is a section people stop
               trusting. */}
           {!topic && !loading && (
-            <div data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {shelf.map((entry) => (
                 <button
                   key={entry.id}
                   type="button"
                   onClick={() => navigate(`/dictation/${entry.id}`)}
-                  className="card card--interactive card--accent flex h-full flex-col p-5 text-left"
+                  disabled={entry.total === 0}
+                  className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
                 >
                   <h2 className="page-title text-xl leading-snug">
-                    {t(`dictation.topics.${entry.id}`)}
+                    {t(`reading.levels.${entry.id}.h`)}
                   </h2>
+                  <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    {t(`reading.levels.${entry.id}.p`)}
+                  </p>
                   {/* The per-level counts used to be printed here as six
                       chips per card — forty-eight small numbers on one shelf,
                       none of which anybody chooses a topic by. The level of a
                       lesson is on the lesson, which is where the choice is
                       actually made. */}
                   <p className="shelf-meta">
-                    <span>{t("reading.textCount", { count: entry.total })}</span>
+                    <span>
+                      {entry.total > 0
+                        ? t("reading.textCount", { count: entry.total })
+                        : t("reading.levelEmpty")}
+                    </span>
                   </p>
                 </button>
               ))}
@@ -245,7 +253,7 @@ export default function Dictation() {
                 className="text-sm font-semibold"
                 style={{ color: "var(--color-text-muted)" }}
               >
-                ← {t("dictation.allTopics")}
+                ← {t("reading.allLevels")}
               </button>
               {!loading && <LevelFilter value={picked} counts={counts} onChange={setPicked} />}
             </div>

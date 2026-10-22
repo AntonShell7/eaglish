@@ -1,5 +1,5 @@
 import type { ReadingText } from "@/data/readingTexts";
-import { readingTopics, loadTopicTexts } from "@/data/readingLibrary";
+import { readingLevels, loadLevelTexts } from "@/data/readingLibrary";
 import { getVocabulary } from "./vocabularyStore";
 import { tokenise, normalise } from "./lexicon";
 import { usesWord } from "./wordMatch";
@@ -53,7 +53,7 @@ export async function recycledTexts(): Promise<RecycledText[]> {
   if (wanted.length === 0) return [];
 
   const batches = await Promise.all(
-    readingTopics.filter((topic) => topic.total > 0).map((topic) => loadTopicTexts(topic.id)),
+    readingLevels.filter((level) => level.total > 0).map((level) => loadLevelTexts(level.id)),
   );
 
   const scored: RecycledText[] = [];

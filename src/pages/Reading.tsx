@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { ShareButton } from "@/components/ui/ShareButton";
 import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
-import { findTopic, loadTopicTexts, readingTopics, wordCount } from "@/data/readingLibrary";
+import { bandOf, loadLevelTexts, readingLevels, wordCount } from "@/data/readingLibrary";
 import { LevelFilter } from "@/components/LevelFilter";
 import { levelOf, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
@@ -33,9 +33,9 @@ function minutesFor(text: ReadingText) {
   return Math.max(1, Math.round(wordCount(text) / WORDS_PER_MINUTE));
 }
 
-/* ── Stage 1: pick a topic ──────────────────────────────────────────────── */
+/* ── Stage 1: pick a level ──────────────────────────────────────────────── */
 
-function TopicGrid({
+function LevelGrid({
   onPick,
   onPersonal,
   onOpenText,
@@ -45,7 +45,6 @@ function TopicGrid({
   onOpenText: (text: ReadingText) => void;
 }) {
   const { t } = useTranslation();
-  const interests = getLearnerProfile()?.interests ?? [];
 
   /*
    * The desk: three texts written around the words this learner saved most
@@ -87,12 +86,14 @@ function TopicGrid({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Interests first — the profile exists to make this page shorter, not longer.
-  const ordered = useMemo(() => {
-    const liked = (id: string) =>
-      interests.includes(id) || interests.includes(findTopic(id)?.label ?? "") ? 0 : 1;
-    return [...readingTopics].sort((a, b) => liked(a.id) - liked(b.id) || b.total - a.total);
-  }, [interests]);
+  /* The learner's own band first, then the shelf in order. The profile exists
+     to make this page shorter, not longer — and at four cards, "shorter" means
+     putting the right one under the cursor rather than hiding the others. */
+  const mine = profile?.level ? bandOf(profile.level.slice(0, 2)) : null;
+  const ordered = useMemo(
+    () => [...readingLevels].sort((a, b) => Number(b.id === mine) - Number(a.id === mine)),
+    [mine],
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-10">
@@ -159,36 +160,35 @@ function TopicGrid({
         </span>
       </button>
 
-      <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {ordered.map((topic) => {
-          const mine = interests.includes(topic.id) || interests.includes(topic.label);
+      <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {ordered.map((level) => {
+          const yours = level.id === mine;
           return (
             <button
-              key={topic.id}
+              key={level.id}
               type="button"
-              onClick={() => onPick(topic.id)}
-              disabled={topic.total === 0}
+              onClick={() => onPick(level.id)}
+              disabled={level.total === 0}
               className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
-              style={mine ? { borderColor: "var(--color-primary)" } : undefined}
+              style={yours ? { borderColor: "var(--color-primary)" } : undefined}
             >
               <div className="flex items-start justify-between gap-3">
-                <h2 className="page-title text-xl leading-snug">{t(`reading.topics.${topic.id}`)}</h2>
-                {mine && (
+                <h2 className="page-title text-xl leading-snug">{t(`reading.levels.${level.id}.h`)}</h2>
+                {yours && (
                   <span className="flex-none text-[10px] font-bold" style={{ color: "var(--color-primary)" }}>
-                    {t("reading.yourTopic")}
+                    {t("reading.yourLevel")}
                   </span>
                 )}
               </div>
 
-              {/* One line, at the foot of the card: how much is in here.
-                  It briefly also carried the level span, which turned out to
-                  read "A1–C2" on every topic without exception — every topic
-                  is written across the whole range on purpose. A fact that is
-                  identical on ten cards is not a fact on a card, it is a
-                  pattern in the background, and printing it ten times is the
-                  same mistake as the sixty chips, only quieter. */}
+              <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                {t(`reading.levels.${level.id}.p`)}
+              </p>
+
               <p className="shelf-meta">
-                <span>{t("reading.textCount", { count: topic.total })}</span>
+                <span>
+                  {level.total > 0 ? t("reading.textCount", { count: level.total }) : t("reading.levelEmpty")}
+                </span>
               </p>
             </button>
           );
@@ -204,13 +204,13 @@ function TopicGrid({
 const IDEAL_COVERAGE = 0.97;
 
 function TextList({
-  topicId,
+  bandId,
   texts,
   quiz,
   onPick,
   onBack,
 }: {
-  topicId: string;
+  bandId: string;
   texts: ReadingText[];
   quiz: QuizResult[];
   onPick: (text: ReadingText) => void;
@@ -285,11 +285,11 @@ function TextList({
   return (
     <div className="mx-auto max-w-5xl px-5 py-10">
       <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
-        ← {t("reading.allTopics")}
+        ← {t("reading.allLevels")}
       </button>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="page-title text-3xl">{t(`reading.topics.${topicId}`)}</h1>
+        <h1 className="page-title text-3xl">{t(`reading.levels.${bandId}.h`)}</h1>
 
         <LevelFilter value={level} counts={counts} onChange={setLevel} />
       </div>
@@ -449,7 +449,7 @@ function PersonalTexts({
   return (
     <div className="mx-auto max-w-5xl px-5 py-10">
       <button type="button" onClick={onBack} className="text-sm font-semibold" style={{ color: "var(--color-text-muted)" }}>
-        ← {t("reading.allTopics")}
+        ← {t("reading.allLevels")}
       </button>
 
       <h1 className="page-title mt-4 text-3xl">{t("reading.personalTitle")}</h1>
@@ -509,16 +509,9 @@ function PersonalTexts({
 /* ── The section ────────────────────────────────────────────────────────── */
 
 /**
- * Reading: topic, then text, then the text itself.
- *
- * With a library this size a single flat list would be unusable — and choosing a
- * subject is the moment a reader decides whether to bother at all, so it gets a
- * screen of its own rather than a dropdown. Each topic's texts load on demand.
- */
-/**
  * Reading, with the place you are in written in the address bar.
  *
- * All three levels — the shelf, a topic, a text — used to be local state at
+ * All three stages — the shelf, a band, a text — used to be local state at
  * /reading, which had three consequences and no benefits. The browser's back
  * button left the section instead of going up a level. Reloading inside a
  * text dropped the reader on the shelf. And a text could not be sent to
@@ -531,13 +524,13 @@ function PersonalTexts({
  */
 export default function Reading() {
   const { t } = useTranslation();
-  const { topic: topicParam, textId } = useParams<{ topic?: string; textId?: string }>();
+  const { topic: bandParam, textId } = useParams<{ topic?: string; textId?: string }>();
   const navigate = useNavigate();
 
-  /* "personal" occupies the topic slot. It is a real destination with its own
-     screen, and no topic is ever called that. */
-  const personal = topicParam === "personal";
-  const topicId = personal ? null : (topicParam ?? null);
+  /* "personal" occupies the band slot. It is a real destination with its own
+     screen, and no band is ever called that. */
+  const personal = bandParam === "personal";
+  const bandId = personal ? null : (bandParam ?? null);
 
   const [texts, setTexts] = useState<ReadingText[]>([]);
   const [loading, setLoading] = useState(false);
@@ -557,10 +550,10 @@ export default function Reading() {
   }, [textId]);
 
   useEffect(() => {
-    if (!topicId) return;
+    if (!bandId) return;
     let cancelled = false;
     setLoading(true);
-    loadTopicTexts(topicId).then((loaded) => {
+    loadLevelTexts(bandId).then((loaded: ReadingText[]) => {
       if (cancelled) return;
       setTexts(loaded);
       setLoading(false);
@@ -568,7 +561,7 @@ export default function Reading() {
     return () => {
       cancelled = true;
     };
-  }, [topicId]);
+  }, [bandId]);
 
   if (openPersonal) {
     return <Reader key={openPersonal.id} text={openPersonal} onBack={() => setOpenPersonal(null)} />;
@@ -578,19 +571,19 @@ export default function Reading() {
     return <PersonalTexts onPick={setOpenPersonal} onBack={() => navigate("/reading")} />;
   }
 
-  /* An id in the address that this topic does not contain. It happens with an
+  /* An id in the address that this band does not contain. It happens with an
      old link, a renamed text, or a typo — and dropping the reader on the
-     topic list is the honest answer, rather than a blank screen or a reader
+     band's list is the honest answer, rather than a blank screen or a reader
      showing nothing. */
   if (textId && !loading && texts.length > 0 && !open) {
-    return <Navigate to={`/reading/${topicId}`} replace />;
+    return <Navigate to={`/reading/${bandId}`} replace />;
   }
 
   if (open) {
-    return <Reader key={open.id} text={open} onBack={() => navigate(`/reading/${topicId}`)} />;
+    return <Reader key={open.id} text={open} onBack={() => navigate(`/reading/${bandId}`)} />;
   }
 
-  if (topicId) {
+  if (bandId) {
     if (loading) {
       return (
         <p className="mx-auto max-w-5xl px-5 py-16 text-sm" style={{ color: "var(--color-text-muted)" }}>
@@ -600,21 +593,21 @@ export default function Reading() {
     }
     return (
       <TextList
-        key={topicId}
-        topicId={topicId}
+        key={bandId}
+        bandId={bandId}
         texts={texts}
         quiz={quiz}
-        onPick={(text) => navigate(`/reading/${topicId}/${text.id}`)}
+        onPick={(text) => navigate(`/reading/${bandId}/${text.id}`)}
         onBack={() => navigate("/reading")}
       />
     );
   }
 
   return (
-    <TopicGrid
-      onPick={(id) => navigate(`/reading/${id}`)}
+    <LevelGrid
+      onPick={(id: string) => navigate(`/reading/${id}`)}
       onPersonal={() => navigate("/reading/personal")}
-      onOpenText={(text) => navigate(`/reading/${text.topic}/${text.id}`)}
+      onOpenText={(text: ReadingText) => navigate(`/reading/${bandOf(text.level)}/${text.id}`)}
     />
   );
 }

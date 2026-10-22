@@ -1,131 +1,31 @@
 [
  {
-  "id": "wordwork",
-  "label": "Vocabulary in use",
+  "id": "a1-a2",
+  "total": 44,
   "counts": {
-   "B1": 5,
-   "B2": 5,
-   "C1": 4,
-   "A2": 3,
-   "A1": 1,
-   "C2": 2
-  },
-  "total": 20
+   "A1": 21,
+   "A2": 23
+  }
  },
  {
-  "id": "science",
-  "label": "Science",
+  "id": "b1-b2",
+  "total": 50,
   "counts": {
-   "C1": 3,
-   "A2": 4,
-   "A1": 2,
-   "C2": 5,
-   "B2": 1
-  },
-  "total": 15
+   "B1": 25,
+   "B2": 25
+  }
  },
  {
-  "id": "celebrities",
-  "label": "Celebrities",
+  "id": "c1-c2",
+  "total": 46,
   "counts": {
-   "B1": 3,
-   "B2": 5,
-   "A2": 1,
-   "C1": 2,
-   "A1": 2,
-   "C2": 1
-  },
-  "total": 14
+   "C1": 24,
+   "C2": 22
+  }
  },
  {
-  "id": "environment",
-  "label": "Environment",
-  "counts": {
-   "B2": 1,
-   "A2": 3,
-   "C1": 2,
-   "A1": 4,
-   "C2": 2,
-   "B1": 2
-  },
-  "total": 14
- },
- {
-  "id": "culture",
-  "label": "Culture",
-  "counts": {
-   "C1": 4,
-   "B2": 2,
-   "A1": 2,
-   "C2": 3,
-   "A2": 1,
-   "B1": 1
-  },
-  "total": 13
- },
- {
-  "id": "health",
-  "label": "Health",
-  "counts": {
-   "B1": 3,
-   "C1": 2,
-   "B2": 3,
-   "A1": 3,
-   "C2": 1,
-   "A2": 1
-  },
-  "total": 13
- },
- {
-  "id": "society",
-  "label": "Society",
-  "counts": {
-   "B1": 2,
-   "A2": 2,
-   "C2": 2,
-   "B2": 2,
-   "C1": 3,
-   "A1": 2
-  },
-  "total": 13
- },
- {
-  "id": "sport",
-  "label": "Sport",
-  "counts": {
-   "B1": 3,
-   "A2": 3,
-   "B2": 2,
-   "A1": 2,
-   "C1": 1,
-   "C2": 2
-  },
-  "total": 13
- },
- {
-  "id": "technology",
-  "label": "Technology",
-  "counts": {
-   "B1": 4,
-   "A1": 2,
-   "C2": 3,
-   "B2": 1,
-   "A2": 1,
-   "C1": 2
-  },
-  "total": 13
- },
- {
-  "id": "travel",
-  "label": "Travel",
-  "counts": {
-   "A2": 4,
-   "B2": 3,
-   "A1": 1,
-   "C1": 1,
-   "B1": 2,
-   "C2": 1
-  },
-  "total": 12
+  "id": "advanced",
+  "total": 0,
+  "counts": {}
  }
 ]
