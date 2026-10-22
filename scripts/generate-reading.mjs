@@ -22,6 +22,7 @@
  * Usage:
  *   node scripts/generate-reading.mjs                     # fill every topic to TARGET_PER_LEVEL
  *   node scripts/generate-reading.mjs --topic sport --count 2
+ *   node scripts/generate-reading.mjs --advanced          # fill the Advanced shelf
  *   node scripts/generate-reading.mjs --dry               # one text, printed, nothing written
  */
 
@@ -200,6 +201,47 @@ const LEVEL_SPEC = {
   },
 };
 
+/*
+ * The fourth shelf.
+ *
+ * Not "C1-C2 but harder" — harder in a particular direction. What a learner
+ * who already reads C2 prose is short of is not grammar; it is the stock of
+ * idiom, collocation and literary vocabulary that native writers reach for
+ * without noticing, and which no coursebook prints because none of it is on a
+ * syllabus. So these are written to carry that and to be worth reading on
+ * their own terms, which is the only way anybody finishes one.
+ */
+const ADVANCED_SPEC = {
+  sentences: "30 to 40",
+  words: "550 to 750",
+  guidance:
+    "The hardest English this library holds, and a pleasure to read. Essayistic: a real argument that turns at least once, built from precise collocation and confident rhythm. Reach deliberately for idiom and figurative phrasing a native writer would use and a textbook never teaches — 'a foregone conclusion', 'cut both ways', 'the exception that proves the rule', 'hedge your bets', 'by the same token'. Reach equally for literary and academic vocabulary: words like ostensibly, inasmuch, provenance, tacit, salient, attenuate, beholden, countenance. Long sentences are welcome where they earn their length, but never ornament for its own sake: every clause carries meaning. Aim at a reader who wants their English to sound educated in writing and in conversation alike.",
+};
+
+/** Angles for the Advanced shelf. Subjects an adult reader would choose. */
+const ADVANCED_ANGLES = [
+  "why some cities feel alive and others feel staged",
+  "what boredom is for",
+  "the quiet economics of a second-hand market",
+  "why experts disagree about things they both understand",
+  "how a language loses a word",
+  "the case against measuring everything",
+  "what a good apology actually does",
+  "why old buildings are rebuilt rather than preserved",
+  "the difference between confidence and certainty",
+  "how reputations outlive the people who earned them",
+  "why rules get written after the accident",
+  "what nostalgia conceals",
+  "the hidden cost of convenience",
+  "how a crowd decides anything",
+  "why some ideas spread and better ones do not",
+  "what silence does in a conversation",
+  "the logic of superstition",
+  "why forecasts are wrong in the same direction",
+  "how taste is learned and then denied",
+  "what a map leaves out on purpose",
+];
+
 /* ── Groq ─────────────────────────────────────────────────────────────────── */
 
 function loadEnv() {
@@ -343,6 +385,57 @@ REQUIREMENTS
 - Output nothing but the JSON.`;
 }
 
+function buildAdvancedPrompt({ angles, avoidTitles }) {
+  return `Write ${angles.length} separate reading texts for advanced learners of English — people who already read C2 prose comfortably and want the English that textbooks never teach.
+
+Write one text per subject, in this order:
+${angles.map((a, i) => `${i + 1}. ${a}`).join("\n")}
+
+EACH TEXT: ${ADVANCED_SPEC.sentences} sentences, ${ADVANCED_SPEC.words} words in total.
+STYLE: ${ADVANCED_SPEC.guidance}
+
+WHAT MAKES THESE DIFFERENT
+- At least six idioms or figurative expressions per text, used naturally, never explained and never clustered.
+- The examples named in STYLE above are there to show the register, NOT to be copied. Do not use any of them. Choose your own, and choose different ones for each text — twenty texts sharing five idioms is a phrasebook, not a library.
+- At least eight words of genuinely literary or academic register per text, each doing real work in its sentence.
+- The idiom and the vocabulary serve the argument. A text that is a showcase for phrases is a failed text: a reader must want to finish it for what it says.
+
+HARD RULES
+- Never state facts about a named real person, company product or event. Write about unnamed people and general patterns. Invented biography is not acceptable.
+- No statistics, dates or study citations unless so widely known they cannot be wrong.
+- Each text is self-contained and ends on a real closing thought, not a cliffhanger.
+- Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
+
+Return JSON exactly like this, with ${angles.length} items in "texts":
+{
+  "texts": [
+    {
+      "title": "3-6 words, specific, intriguing, no colon",
+      "sentences": [
+        { "text": "One English sentence.", "translationRu": "Естественный перевод на русский." }
+      ],
+      "glossary": {
+        "word": { "translation": "русский перевод", "partOfSpeech": "noun|verb|adjective|adverb|phrase" }
+      },
+      "questions": [
+        {
+          "question": "A question about the text in English",
+          "options": ["four options", "as plain strings", "one of them correct", "no letters or numbering"],
+          "answer": 0,
+          "explanation": "One sentence saying why that option is right, referring to the text."
+        }
+      ]
+    }
+  ]
+}
+
+REQUIREMENTS
+- Every sentence needs a natural Russian translation — meaning-for-meaning, not word-for-word. Idioms are translated by sense, never literally.
+- glossary: 10 to 14 entries per text, the idioms and the hardest vocabulary that actually appear. Lowercase keys, base form; a multi-word idiom is one key.
+- questions: exactly 3 per text, 4 options each, exactly one correct, answerable from the text alone. Vary which index is correct.
+- Output nothing but the JSON.`;
+}
+
 /* ── Validation — the part that makes generated content shippable ─────────── */
 
 function validate(raw, { topic, level }) {
@@ -417,12 +510,29 @@ function slug(title) {
 
 /* ── Store ────────────────────────────────────────────────────────────────── */
 
-function topicFile(topic) {
-  return join(OUT_DIR, `${topic}.json`);
+/*
+ * The library is filed by level, not by subject.
+ *
+ * It used to be one file per topic, because the shelf asked for a topic
+ * first. The shelf asks for a level now — a learner picks something they can
+ * read, not a genre — so the chunks follow, and the topics below survive only
+ * as angles that keep generated texts from converging on the same article.
+ */
+const BANDS = ["a1-a2", "b1-b2", "c1-c2", "advanced"];
+
+/** CEFR level to band. "advanced" is never derived: it is written for. */
+function bandOf(level) {
+  if (level === "A1" || level === "A2" || level === "A1-A2") return "a1-a2";
+  if (level === "B1" || level === "B2" || level === "B1-B2") return "b1-b2";
+  return "c1-c2";
 }
 
-function readTopic(topic) {
-  const file = topicFile(topic);
+function bandFile(band) {
+  return join(OUT_DIR, `${band}.json`);
+}
+
+function readBand(band) {
+  const file = bandFile(band);
   if (!existsSync(file)) return [];
   try {
     return JSON.parse(readFileSync(file, "utf8"));
@@ -431,29 +541,31 @@ function readTopic(topic) {
   }
 }
 
-function writeTopic(topic, texts) {
-  mkdirSync(dirname(topicFile(topic)), { recursive: true });
-  writeFileSync(topicFile(topic), `${JSON.stringify(texts, null, 2)}\n`);
+function writeBand(band, texts) {
+  mkdirSync(dirname(bandFile(band)), { recursive: true });
+  writeFileSync(bandFile(band), `${JSON.stringify(texts, null, 1)}\n`);
 }
 
 function writeIndex() {
-  const index = Object.entries(TOPICS).map(([id, { label }]) => {
-    const texts = readTopic(id);
+  const index = BANDS.map((id) => {
+    const texts = readBand(id);
     const counts = {};
-    for (const level of LEVELS) counts[level] = texts.filter((t) => t.level === level).length;
-    return { id, label, counts, total: texts.length };
+    for (const text of texts) counts[text.level] = (counts[text.level] ?? 0) + 1;
+    return { id, counts, total: texts.length };
   });
-  writeFileSync(join(OUT_DIR, "index.json"), `${JSON.stringify(index, null, 2)}\n`);
+  writeFileSync(join(OUT_DIR, "index.json"), `${JSON.stringify(index, null, 1)}\n`);
   return index;
 }
 
 /* ── Runner ───────────────────────────────────────────────────────────────── */
 
 async function generateBatch(job, existing) {
-  const prompt = buildPrompt({
-    ...job,
-    avoidTitles: existing.filter((t) => t.level === job.level).map((t) => t.title),
-  });
+  const prompt = job.advanced
+    ? buildAdvancedPrompt({ angles: job.angles, avoidTitles: existing.map((t) => t.title) })
+    : buildPrompt({
+        ...job,
+        avoidTitles: existing.filter((t) => t.level === job.level).map((t) => t.title),
+      });
 
   // Retries are generous because the usual failure is a rate limit, not a bad
   // model response — giving up there would leave holes in the library.
@@ -484,23 +596,37 @@ async function main() {
   const only = args.includes("--topic") ? args[args.indexOf("--topic") + 1] : null;
   const count = args.includes("--count") ? Number(args[args.indexOf("--count") + 1]) : null;
   const dry = args.includes("--dry");
+  const advanced = args.includes("--advanced");
 
   const topics = only ? [only] : Object.keys(TOPICS);
   const jobs = [];
 
-  for (const topic of topics) {
+  if (advanced) {
+    const have = readBand("advanced");
+    const want = count ?? Math.max(0, 20 - have.length);
+    for (let i = 0; i < want; i += BATCH) {
+      jobs.push({
+        topic: "advanced",
+        band: "advanced",
+        level: "C2",
+        advanced: true,
+        angles: ADVANCED_ANGLES.slice(have.length + i, have.length + Math.min(i + BATCH, want)),
+      });
+    }
+  }
+
+  for (const topic of advanced ? [] : topics) {
     const meta = TOPICS[topic];
     if (!meta) throw new Error(`unknown topic ${topic}`);
-    const existing = readTopic(topic);
-    for (const level of LEVELS) {
-      const have = existing.filter((t) => t.level === level).length;
+        for (const level of LEVELS) {
+      const have = readBand(bandOf(level)).filter((t) => t.topic === topic).length;
       const want = count ?? Math.max(0, TARGET_PER_LEVEL - have);
       for (let i = 0; i < want; i += BATCH) {
         const angles = [];
         for (let k = i; k < Math.min(i + BATCH, want); k++) {
           angles.push(meta.angles[(have + k) % meta.angles.length]);
         }
-        jobs.push({ topic, label: meta.label, level, angles });
+        jobs.push({ topic, band: bandOf(level), label: meta.label, level, angles });
       }
     }
   }
@@ -516,16 +642,16 @@ async function main() {
   let done = 0;
   let kept = 0;
 
-  // Grouped by topic so each file is written once per batch, not once per text.
-  const byTopic = new Map();
+  // Grouped by band so each file is written once per batch, not once per text.
+  const byBand = new Map();
   for (const job of jobs) {
-    if (!byTopic.has(job.topic)) byTopic.set(job.topic, []);
-    byTopic.get(job.topic).push(job);
+    if (!byBand.has(job.band)) byBand.set(job.band, []);
+    byBand.get(job.band).push(job);
   }
 
-  for (const [topic, topicJobs] of byTopic) {
-    const texts = readTopic(topic);
-    const queue = [...topicJobs];
+  for (const [band, bandJobs] of byBand) {
+    const texts = readBand(band);
+    const queue = [...bandJobs];
 
     const workers = Array.from({ length: CONCURRENCY }, async () => {
       while (queue.length) {
@@ -533,7 +659,7 @@ async function main() {
         const batch = await generateBatch(job, texts);
         done++;
         for (const text of batch) {
-          const base = slug(text.title) || `${topic}-${texts.length + 1}`;
+          const base = slug(text.title) || `${band}-${texts.length + 1}`;
           if (texts.some((t) => t.id === base || t.title.toLowerCase() === text.title.toLowerCase())) {
             console.warn(`  ✗ duplicate title "${text.title}"`);
             continue;
@@ -541,14 +667,14 @@ async function main() {
           text.id = base;
           texts.push(text);
           kept++;
-          writeTopic(topic, texts);
-          console.log(`  ✓ [${kept}] ${topic} ${job.level} — ${text.title}`);
+          writeBand(band, texts);
+          console.log(`  ✓ [${kept}] ${band} ${job.level} — ${text.title}`);
         }
       }
     });
 
     await Promise.all(workers);
-    writeTopic(topic, texts);
+    writeBand(band, texts);
   }
 
   const index = writeIndex();
