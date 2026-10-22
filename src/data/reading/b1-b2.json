@@ -9378,5 +9378,166 @@
     "explanation": "The closing sentence."
    }
   ]
+ },
+ {
+  "id": "barcelona-s-tiki-taka-legacy",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Barcelona's Tiki‑taka Legacy",
+  "sentences": [
+   {
+    "text": "In the early 2000s Barcelona began to play a brand of football that attracted worldwide attention.",
+    "translationRu": "В начале 2000‑х годов Барселона начала играть в стиль футбола, который привлёк внимание всего мира."
+   },
+   {
+    "text": "The team relied on short, quick passes rather than long balls.",
+    "translationRu": "Команда полагалась на короткие, быстрые передачи вместо длинных пасов."
+   },
+   {
+    "text": "Coach Pep Guardiola refined this approach after taking charge in 2008.",
+    "translationRu": "Тренер Пеп Гвардиола усовершенствовал этот подход после того, как стал главным в 2008 году."
+   },
+   {
+    "text": "He emphasized possession, meaning the players tried to keep the ball as long as possible.",
+    "translationRu": "Он подчёркивал владение, то есть игроки пытались держать мяч как можно дольше."
+   },
+   {
+    "text": "Midfielders like Xavi and Andres Iniesta acted as the engine, constantly moving the ball forward.",
+    "translationRu": "Полузащитники, такие как Чави и Андрес Иньеста, выступали в роли двигателя, постоянно перемещая мяч вперёд."
+   },
+   {
+    "text": "Their ability to read each other’s movements made the passing flow almost effortless.",
+    "translationRu": "Их способность читать движения друг друга делала передачу почти без усилий."
+   },
+   {
+    "text": "Opponents found it hard to press because the ball rarely stayed in one place for long.",
+    "translationRu": "Противникам было трудно оказывать прессинг, потому что мяч редко оставался в одном месте надолго."
+   },
+   {
+    "text": "Barcelona also trained younger players in the same philosophy, creating a pipeline of talent.",
+    "translationRu": "Барселона также тренировала молодых игроков в той же философии, создавая поток талантов."
+   },
+   {
+    "text": "When the club won the Champions League in 2009, the world took notice.",
+    "translationRu": "Когда клуб выиграл Лигу чемпионов в 2009 году, мир обратил на это внимание."
+   },
+   {
+    "text": "Other clubs started to copy the short‑passing game, hoping to replicate the success.",
+    "translationRu": "Другие клубы начали копировать игру короткими передачами, надеясь повторить успех."
+   },
+   {
+    "text": "Manchester City and Bayern Munich, among others, adopted similar training drills.",
+    "translationRu": "Манчестер Сити и Бавария, среди прочих, внедрили похожие тренировочные упражнения."
+   },
+   {
+    "text": "Even national teams, like Spain, built their tactics around the same principles.",
+    "translationRu": "Даже национальные сборные, такие как Испания, построили тактику на тех же принципах."
+   },
+   {
+    "text": "The media praised the style as beautiful and intelligent.",
+    "translationRu": "СМИ хвалили стиль как красивый и умный."
+   },
+   {
+    "text": "Fans appreciated the constant movement and the low number of wasted chances.",
+    "translationRu": "Болельщики оценили постоянное движение и небольшое количество упущенных возможностей."
+   },
+   {
+    "text": "Critics argued that it could become predictable if overused.",
+    "translationRu": "Критики утверждали, что стиль может стать предсказуемым при чрезмерном использовании."
+   },
+   {
+    "text": "Nevertheless, the approach forced coaches worldwide to rethink their tactics.",
+    "translationRu": "Тем не менее, подход заставил тренеров по всему миру пересмотреть свою тактику."
+   },
+   {
+    "text": "Academies now teach players to prioritize quick, accurate passing over physical strength.",
+    "translationRu": "В академиях теперь учат игроков отдавать приоритет быстрым, точным передачам, а не физической силе."
+   },
+   {
+    "text": "The success also boosted Barcelona’s brand, leading to more merchandise sales.",
+    "translationRu": "Успех также укрепил бренд Барселоны, что привело к росту продаж мерча."
+   },
+   {
+    "text": "Young players grew up watching the matches and trying to imitate their heroes.",
+    "translationRu": "Молодые игроки росли, смотря матчи и пытаясь подражать своим героям."
+   },
+   {
+    "text": "As a result, the style spread beyond Europe, reaching clubs in Asia and the Americas.",
+    "translationRu": "В результате стиль распространился за пределы Европы, достигнув клубов в Азии и Америке."
+   },
+   {
+    "text": "Today, the influence of Barcelona’s tiki‑taka can be seen in many modern teams.",
+    "translationRu": "Сегодня влияние тики‑такa Барселоны видно во многих современных командах."
+   },
+   {
+    "text": "While tactics continue to evolve, the legacy of that era remains a benchmark for excellence.",
+    "translationRu": "Хотя тактика продолжает развиваться, наследие той эпохи остаётся эталоном совершенства."
+   }
+  ],
+  "glossary": {
+   "tiki‑taka": {
+    "translation": "тики‑така (стиль коротких пасов)",
+    "partOfSpeech": "noun"
+   },
+   "press": {
+    "translation": "окаживать прессинг, оказывать давление",
+    "partOfSpeech": "verb"
+   },
+   "pipeline": {
+    "translation": "поток, система подготовки",
+    "partOfSpeech": "noun"
+   },
+   "benchmark": {
+    "translation": "эталон, образец",
+    "partOfSpeech": "noun"
+   },
+   "rethink": {
+    "translation": "пересмотреть, переосмыслить",
+    "partOfSpeech": "verb"
+   },
+   "drill": {
+    "translation": "упражнение, тренировка",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Which coach is credited with refining Barcelona’s short‑passing style?",
+    "options": [
+     "Luis Enrique",
+     "Pep Guardiola",
+     "Jürgen Klopp",
+     "Zinedine Zidane"
+    ],
+    "answer": 1,
+    "explanation": "The text states that Pep Guardiola refined the approach after taking charge in 2008."
+   },
+   {
+    "id": "q2",
+    "question": "What was one result of Barcelona’s success mentioned in the text?",
+    "options": [
+     "A decline in ticket sales",
+     "More merchandise sales",
+     "A ban on short passes",
+     "A change in stadium location"
+    ],
+    "answer": 1,
+    "explanation": "The text notes that the success boosted Barcelona’s brand, leading to more merchandise sales."
+   },
+   {
+    "id": "q3",
+    "question": "According to the passage, how did other clubs react to Barcelona’s style?",
+    "options": [
+     "They ignored it completely",
+     "They copied the short‑passing game",
+     "They focused on defensive tactics only",
+     "They stopped playing in Europe"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that other clubs started to copy the short‑passing game hoping to replicate the success."
+   }
+  ]
  }
 ]

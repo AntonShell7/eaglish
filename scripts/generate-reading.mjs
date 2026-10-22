@@ -10,8 +10,9 @@
  * audited or replaced later, and the six hand-written texts stay separate.
  *
  * Two deliberate content rules live in the prompt:
- *   - no factual claims about named real people (a public app must not invent
- *     biography), so the culture topic writes about unnamed figures and trends;
+ *   - real people, clubs and companies may be named, and nothing may be
+ *     invented about them: public record only, no invented quotes, figures or
+ *     private life, and no wording lifted from anybody's article;
  *   - the Russian is a natural translation, not a word-for-word gloss, because
  *     that is what the reader compares against while reading.
  *
@@ -47,6 +48,21 @@ const TARGET_PER_LEVEL = 7;
 const LEVELS = ["A1-A2", "B1-B2", "C1-C2"];
 
 /** Topic id → label plus the angles that keep generated texts from converging. */
+/*
+ * Naming names.
+ *
+ * These prompts used to forbid every real person, club and company, and that
+ * was one rule doing the work of two. The risk was never the name — facts are
+ * not anybody's property, and a text about why a club plays the way it does is
+ * both legal and the kind of thing people actually open. The risk is invention:
+ * a made-up quote, a made-up transfer fee, a sentence about somebody's private
+ * life. So the rule is now about truth rather than about names, and the shelf
+ * can carry the subjects a reader came for.
+ *
+ * The line that does not move: nothing is copied. Articles, interviews and
+ * books are somebody's copyright, and a commercial site that reprints them is
+ * a takedown waiting to happen. Facts are free; the sentences are ours.
+ */
 const TOPICS = {
   "daily-life": {
     label: "Daily life",
@@ -124,6 +140,37 @@ const TOPICS = {
       "why some songs from decades ago come back",
       "the rise of the podcast interview",
       "how streaming changed album length",
+    ],
+  },
+  /* Named subjects, on the public record. Everything here is the kind of
+     thing a reader already half-knows and wants the rest of — which is what
+     makes somebody open a text instead of scrolling past it. The angles name
+     the field rather than the person, so the model picks a subject it is
+     actually sure about instead of being pushed into inventing detail about
+     one it is not. */
+  famous: {
+    label: "Famous people, clubs and companies",
+    angles: [
+      "why one football club's playing style became the one everyone copied",
+      "how a streaming service decides what to make next",
+      "what a record-breaking footballer actually changed about the position",
+      "how a phone company turned a product launch into an event",
+      "why a film franchise keeps working after a dozen films",
+      "what a long-running animated series got right at the start",
+      "how a sportswear brand built its name on one endorsement idea",
+      "why a basketball league exports better than any other",
+      "what a famous director does that other directors do not",
+      "how a social app's recommendation feed changed what gets made",
+      "why one video game sold to people who do not play video games",
+      "what happened to the music industry when downloads arrived",
+      "how a search company ended up running an operating system",
+      "why a hockey league plays a season that long",
+      "what a pop star's re-recording of their own albums was about",
+      "how a short-video trend starts and why most die in a week",
+      "why some film plots are the same story told again",
+      "what a Formula 1 team's pit crew is actually doing",
+      "how an electric car company made its batteries the product",
+      "why a streaming show from one country became a worldwide habit",
     ],
   },
   business: {
@@ -349,8 +396,10 @@ EACH TEXT: ${spec.sentences} sentences, ${spec.words} words in total.
 STYLE: ${spec.guidance}
 
 HARD RULES
-- Never state facts about a named real person, company product or event. Write about unnamed people ("a Norwegian runner", "one musician") and general patterns. Invented biography is not acceptable.
-- No statistics, dates or study citations unless they are so widely known they cannot be wrong. Prefer describing mechanisms over quoting numbers.
+- Real people, clubs, companies, films and apps are welcome subjects — they are most of what anybody actually wants to read about. What is forbidden is inventing anything about them. Write only what is settled, public and checkable: what a club is, where it plays, what a film is about, how a product works, what a trend consists of, why something became popular.
+- Never invent a quotation, a date, a transfer fee, a chart position, a box-office figure or a statistic. If you are not certain of a number, write the sentence without it — "one of the most-watched finals" is true and safe where a made-up viewing figure is neither.
+- Nothing about anybody's private life, health, family, finances or opinions. Nothing a person could reasonably object to. Public work, public record, public events only.
+- Do not reproduce wording from an article, an interview, a song or a book. Every sentence is your own.
 - Each text is self-contained and ends on a real closing thought, not a cliffhanger.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
 
@@ -412,8 +461,10 @@ WHAT MAKES THESE DIFFERENT
 - The idiom and the vocabulary serve the argument. A text that is a showcase for phrases is a failed text: a reader must want to finish it for what it says.
 
 HARD RULES
-- Never state facts about a named real person, company product or event. Write about unnamed people and general patterns. Invented biography is not acceptable.
-- No statistics, dates or study citations unless so widely known they cannot be wrong.
+- Real people, clubs, companies, films and apps are welcome subjects — they are most of what anybody actually wants to read about. What is forbidden is inventing anything about them. Write only what is settled, public and checkable: what a club is, where it plays, what a film is about, how a product works, what a trend consists of, why something became popular.
+- Never invent a quotation, a date, a transfer fee, a chart position, a box-office figure or a statistic. If you are not certain of a number, write the sentence without it — "one of the most-watched finals" is true and safe where a made-up viewing figure is neither.
+- Nothing about anybody's private life, health, family, finances or opinions. Nothing a person could reasonably object to. Public work, public record, public events only.
+- Do not reproduce wording from an article, an interview, a song or a book. Every sentence is your own.
 - Each text is self-contained and ends on a real closing thought, not a cliffhanger.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
 - These idioms and words are already used elsewhere on this shelf. Do not use any of them: ${avoidPhrases.slice(0, 120).join("; ") || "(none yet)"}.

@@ -81,6 +81,15 @@ npm run build          # tsc -b && vite build
   The repository is **public**: github.com/AntonShell7/eaglish.
 - Database dumps must never enter the repo. `deploy/.gitignore` covers it.
 - No new dependencies without a reason worth stating.
+- **Texts may name real people, clubs and companies, and may invent nothing
+  about them.** Facts are not anybody's property and a text about why a club
+  plays the way it does is what people actually open; a made-up quote, a
+  made-up transfer fee or a line about somebody's private life is a different
+  thing entirely. Nothing is copied either — articles, interviews and books are
+  under copyright, and a commercial site that reprints them is a takedown
+  waiting to happen. Verbatim material may come only from the public domain
+  (expired copyright, US federal publications) or an open licence, with its
+  terms honoured. Facts are free; the sentences are ours.
 
 ## Things that have bitten us
 

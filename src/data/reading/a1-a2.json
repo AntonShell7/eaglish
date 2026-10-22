@@ -7306,5 +7306,142 @@
     "explanation": "The same age they start understanding what others feel."
    }
   ]
+ },
+ {
+  "id": "barcelona-s-tiki-taka-influence",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Barcelona's Tiki Taka Influence",
+  "sentences": [
+   {
+    "text": "Barcelona is a football club in Spain.",
+    "translationRu": "Барселона — футбольный клуб в Испании."
+   },
+   {
+    "text": "It plays in the city of Barcelona.",
+    "translationRu": "Он играет в городе Барселона."
+   },
+   {
+    "text": "The club has many fans worldwide.",
+    "translationRu": "У клуба много поклонников по всему миру."
+   },
+   {
+    "text": "In 2008 the team changed its style.",
+    "translationRu": "В 2008 году команда изменила свой стиль."
+   },
+   {
+    "text": "The coach wanted quick passes.",
+    "translationRu": "Тренер хотел быстрых передач."
+   },
+   {
+    "text": "Players moved the ball with short touches.",
+    "translationRu": "Игроки перемещали мяч короткими касаниями."
+   },
+   {
+    "text": "They kept the ball low on the ground.",
+    "translationRu": "Они держали мяч низко к земле."
+   },
+   {
+    "text": "The style made the game fast.",
+    "translationRu": "Этот стиль делал игру быстрой."
+   },
+   {
+    "text": "It also made the team control the match.",
+    "translationRu": "Он также позволял команде контролировать матч."
+   },
+   {
+    "text": "Opponents found it hard to win.",
+    "translationRu": "Противникам было трудно выиграть."
+   },
+   {
+    "text": "The club won many trophies with this style.",
+    "translationRu": "Клуб выиграл много трофеев с этим стилем."
+   },
+   {
+    "text": "Other clubs watched the games.",
+    "translationRu": "Другие клубы смотрели эти матчи."
+   },
+   {
+    "text": "They tried to copy the short passes.",
+    "translationRu": "Они пытались копировать короткие передачи."
+   },
+   {
+    "text": "Many teams adopted similar tactics.",
+    "translationRu": "Многие команды приняли похожие тактики."
+   },
+   {
+    "text": "The media called it \"tiki taka\".",
+    "translationRu": "СМИ назвали его «тики‑така»."
+   },
+   {
+    "text": "Fans liked the beautiful play.",
+    "translationRu": "Болельщики любили красивую игру."
+   },
+   {
+    "text": "The style spread to many leagues.",
+    "translationRu": "Стиль распространился во многих лигах."
+   },
+   {
+    "text": "Today many clubs use short passing games.",
+    "translationRu": "Сегодня многие клубы используют игру короткими пасами."
+   }
+  ],
+  "glossary": {
+   "tiki taka": {
+    "translation": "тики‑така (стиль коротких пасов)",
+    "partOfSpeech": "phrase"
+   },
+   "tactic": {
+    "translation": "тактика",
+    "partOfSpeech": "noun"
+   },
+   "adopt": {
+    "translation": "принять, перенять",
+    "partOfSpeech": "verb"
+   },
+   "control": {
+    "translation": "контроль, контролировать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What did Barcelona want to do with the ball?",
+    "options": [
+     "Kick it far",
+     "Hold it still",
+     "Make short passes",
+     "Throw it away"
+    ],
+    "answer": 2,
+    "explanation": "The text says the coach wanted quick passes and players used short touches."
+   },
+   {
+    "id": "q2",
+    "question": "How did other clubs react to Barcelona's style?",
+    "options": [
+     "They ignored it",
+     "They copied it",
+     "They banned it",
+     "They praised it loudly"
+    ],
+    "answer": 1,
+    "explanation": "The text states that other clubs tried to copy the short passes and many adopted similar tactics."
+   },
+   {
+    "id": "q3",
+    "question": "What is the media name for Barcelona's style?",
+    "options": [
+     "Fast football",
+     "Tiki taka",
+     "Long shots",
+     "Heavy defense"
+    ],
+    "answer": 0,
+    "explanation": "The text mentions the media called it \"tiki taka\"."
+   }
+  ]
  }
 ]
