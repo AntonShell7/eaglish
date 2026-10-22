@@ -133,10 +133,9 @@
     "knownShare": "{{percent}}% known",
     "recycled_one": "Recently learned: {{count}}",
     "recycled_other": "Recently learned: {{count}}",
-    "personalTitle": "A text built from your words",
-    "personalTeaser": "Written around the words you are learning right now — each of them twice.",
+    "personalTitle": "Write a text at your level around the words you are learning",
+    "personalTeaser": "Built around the words you are learning right now — the fastest way to make them stick",
     "personalLede": "Cards bring a word back; only a text brings it back in use. Press the button and one gets built at your level, on your subject, with your words placed rather than piled up.",
-    "personalWillUse": "Words that will go into it",
     "personalNoWords": "Save a few words first — tap any word while reading, and this page will build a text around them.",
     "personalCta": "Write a text from my words",
     "personalWriting": "Building your text…",
@@ -172,9 +171,32 @@
         "p": "The hardest: idiom, literary vocabulary, phrases no coursebook prints."
       }
     },
-    "personalEyebrow": "Written for you",
-    "personalTopicLabel": "What should it be about?",
-    "personalTopicPlaceholder": "American football · why ships float · the strongest currencies"
+    "personalTopicLabel": "What should the text be about:",
+    "personalTopicPlaceholder": "American football · why ships float · the strongest currencies",
+    "personalPageTitle": "Write a text of your own",
+    "personalRandom": "Pick a subject for me",
+    "personalRandomPool": [
+      "why ships float",
+      "American football and its rules",
+      "the strongest currencies in the world",
+      "how a coffee machine works",
+      "why the sky turns red at sunset",
+      "a history of the button",
+      "what happens to the body during a marathon",
+      "how sunken ships are found",
+      "why some languages die and others do not",
+      "how an airport works behind the scenes",
+      "why cats land on their feet",
+      "how perfume is made",
+      "why bread rises",
+      "how a submarine works",
+      "why deserts grow",
+      "how insurance works",
+      "what an aircraft's black box really is",
+      "why volcanoes erupt",
+      "how time zones came about",
+      "why some books get banned"
+    ]
   },
   "writing": {
     "grammar": "Grammar",

@@ -145,26 +145,32 @@
   color: #d4d4d4;
 }
 
-.forge__words {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.forge__word {
-  padding: 6px 13px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
-  color: #f5f5f5;
-  font-size: 0.84rem;
+/* "Pick a subject for me" — a quiet second control under the field, not a
+   second button competing with the mint one. An empty field is a small
+   decision, and a small decision at the end of a tired day is where a session
+   ends instead of starting. */
+.forge__dice {
+  display: block;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
   font-weight: 650;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: opacity var(--dur-2) var(--ease);
 }
 
-/* Mint on black. The panel is already the exception on this page; the button
-   only has to say "press me", and it says it the same way every other button
-   in the app does. */
+.forge__dice:hover:not(:disabled) {
+  opacity: 0.78;
+}
+
+.forge__dice:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .forge__cta {
   display: inline-flex;
   align-items: center;

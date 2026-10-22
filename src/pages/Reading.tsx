@@ -153,10 +153,8 @@ function LevelGrid({
           It gets the generator's own ground now — the black panel it opens
           onto — so the shelf reads as one offer and four doors. */}
       <button type="button" onClick={onPersonal} className="forge forge--door mt-8 w-full text-left">
-        <span className="forge__label">{t("reading.personalEyebrow")}</span>
-        <span className="forge__door-h">{t("reading.personalTitle")}</span>
+        <span className="forge__door-h">{t("reading.personalTitle")} →</span>
         <span className="forge__door-p">{t("reading.personalTeaser")}</span>
-        <span className="forge__door-go">{t("reading.personalCta")} →</span>
       </button>
 
       <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -434,6 +432,13 @@ function PersonalTexts({
      somebody who just wants to press it. */
   const [subject, setSubject] = useState("");
 
+  const rollSubject = () => {
+    const pool = t("reading.personalRandomPool", { returnObjects: true }) as string[];
+    if (!Array.isArray(pool) || pool.length === 0) return;
+    const next = pool.filter((item) => item !== subject);
+    setSubject(next[Math.floor(Math.random() * next.length)] ?? pool[0]);
+  };
+
   const make = async () => {
     setBusy(true);
     setError(null);
@@ -459,7 +464,7 @@ function PersonalTexts({
         ← {t("reading.allLevels")}
       </button>
 
-      <h1 className="page-title mt-4 text-3xl">{t("reading.personalTitle")}</h1>
+      <h1 className="page-title mt-4 text-3xl">{t("reading.personalPageTitle")}</h1>
       <p className="mt-2 max-w-2xl text-sm" style={{ color: "var(--color-text-muted)" }}>
         {t("reading.personalLede")}
       </p>
@@ -474,14 +479,11 @@ function PersonalTexts({
           <p className="forge__note">{t("reading.personalNoWords")}</p>
         ) : (
           <>
-            <p className="forge__label">{t("reading.personalWillUse")}</p>
-            <p className="forge__words">
-              {targets.map((word) => (
-                <span key={word} className="forge__word">
-                  {word}
-                </span>
-              ))}
-            </p>
+            {/* The word list that used to stand here is gone. It printed six
+                bare stems — "torso", "polyurethane", "rather" — above a field
+                asking what the text should be about, which read as a quiz
+                about words the reader half-remembers saving. The words are in
+                the text when it arrives, and that is where they do their work. */}
             <label className="forge__field">
               <span className="forge__fieldLabel">{t("reading.personalTopicLabel")}</span>
               <input
@@ -494,6 +496,12 @@ function PersonalTexts({
                 disabled={busy}
               />
             </label>
+
+            {/* For the evening when nothing comes to mind. An empty field is a
+                small decision and a small decision is where a session ends. */}
+            <button type="button" onClick={rollSubject} disabled={busy} className="forge__dice">
+              {t("reading.personalRandom")}
+            </button>
 
             <button type="button" onClick={make} disabled={busy} className="forge__cta">
               {busy ? t("reading.personalWriting") : t("reading.personalCta")}
