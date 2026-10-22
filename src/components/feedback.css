@@ -170,3 +170,13 @@
   color: var(--color-primary);
   text-decoration: underline;
 }
+
+/* Clear of the consent notice, while it is up.
+   The launcher's 84px clears the tab bar and nothing else, so on a phone it
+   sat inside the strip asking to be read — over "Подробнее", which is itself
+   a link. The notice marks the body while it is showing; this reads that mark
+   and goes away with it. Placed at the end of the file so it wins: the base
+   rule above has the same weight and would otherwise be the one that counts. */
+.has-consent-bar .fb-launch {
+  bottom: calc(84px + 118px + env(safe-area-inset-bottom));
+}

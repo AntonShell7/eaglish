@@ -135,9 +135,9 @@
     "recycled_other": "Recently learned: {{count}}",
     "personalTitle": "Write a text at your level around the words you are learning",
     "personalTeaser": "Built around the words you are learning right now — the fastest way to make them stick",
-    "personalLede": "Cards bring a word back; only a text brings it back in use. Press the button and one gets built at your level, on your subject, with your words placed rather than piled up.",
+    "personalLede": "Remembering a new word gets 97% more effective when the brain meets it again and again, in different contexts and different forms.",
     "personalNoWords": "Save a few words first — tap any word while reading, and this page will build a text around them.",
-    "personalCta": "Write a text from my words",
+    "personalCta": "Write the text",
     "personalWriting": "Building your text…",
     "personalFailed": "Couldn't write the text this time. Try again in a minute.",
     "workoutTitle": "Work with the words",
@@ -175,28 +175,7 @@
     "personalTopicPlaceholder": "American football · why ships float · the strongest currencies",
     "personalPageTitle": "Write a text of your own",
     "personalRandom": "Pick a subject for me",
-    "personalRandomPool": [
-      "why ships float",
-      "American football and its rules",
-      "the strongest currencies in the world",
-      "how a coffee machine works",
-      "why the sky turns red at sunset",
-      "a history of the button",
-      "what happens to the body during a marathon",
-      "how sunken ships are found",
-      "why some languages die and others do not",
-      "how an airport works behind the scenes",
-      "why cats land on their feet",
-      "how perfume is made",
-      "why bread rises",
-      "how a submarine works",
-      "why deserts grow",
-      "how insurance works",
-      "what an aircraft's black box really is",
-      "why volcanoes erupt",
-      "how time zones came about",
-      "why some books get banned"
-    ]
+    "personalMine": "Your texts"
   },
   "writing": {
     "grammar": "Grammar",
@@ -1287,7 +1266,10 @@
     "example": "Example",
     "saved": "Saved",
     "another": "Another",
-    "go": "Translate"
+    "go": "Translate",
+    "explain": "Explain this word",
+    "explaining": "Explaining…",
+    "result": "Translation"
   },
   "input": {
     "pen": "Write by hand",

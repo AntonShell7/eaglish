@@ -1,0 +1,870 @@
+[
+ {
+  "ru": "как делают бумагу",
+  "en": "how is paper made"
+ },
+ {
+  "ru": "почему стекло прозрачно",
+  "en": "why is glass transparent"
+ },
+ {
+  "ru": "как формируют пластиковые бутылки",
+  "en": "how are plastic bottles formed"
+ },
+ {
+  "ru": "почему алюминиевые банки ржавеют",
+  "en": "why do aluminum cans rust"
+ },
+ {
+  "ru": "как закаливают шоколад",
+  "en": "how is chocolate tempered"
+ },
+ {
+  "ru": "почему кофе растворяется в воде",
+  "en": "why does coffee dissolve in water"
+ },
+ {
+  "ru": "как дрожжи поднимают хлеб",
+  "en": "how is bread leavened"
+ },
+ {
+  "ru": "почему деним сжимается после стирки",
+  "en": "why does denim shrink when washed"
+ },
+ {
+  "ru": "как заливают свечи",
+  "en": "how are candles poured"
+ },
+ {
+  "ru": "почему у карандашей есть ластики",
+  "en": "why do pencils have erasers"
+ },
+ {
+  "ru": "как крепятся щетинки зубной щётки",
+  "en": "how are toothbrush bristles attached"
+ },
+ {
+  "ru": "почему батареи протекают кислотой",
+  "en": "why do batteries leak acid"
+ },
+ {
+  "ru": "как изготавливают нить лампы накаливания",
+  "en": "how is a light bulb filament made"
+ },
+ {
+  "ru": "почему резиновые ленты эластичны",
+  "en": "why are rubber bands elastic"
+ },
+ {
+  "ru": "как делают зонты водонепроницаемыми",
+  "en": "how are umbrellas waterproofed"
+ },
+ {
+  "ru": "почему обувь образует складки",
+  "en": "why do shoes develop creases"
+ },
+ {
+  "ru": "как утепляют матрасы",
+  "en": "how are mattresses insulated"
+ },
+ {
+  "ru": "почему мыло пенится в воде",
+  "en": "why does soap foam in water"
+ },
+ {
+  "ru": "как смешивают краску для цветов",
+  "en": "how is paint mixed for colors"
+ },
+ {
+  "ru": "почему керамические плитки покрыты глазурью",
+  "en": "why are ceramic tiles glazed"
+ },
+ {
+  "ru": "почему улицы в виде сетки",
+  "en": "why streets are grid-shaped"
+ },
+ {
+  "ru": "почему в некоторых городах есть каналы",
+  "en": "why some cities have canals"
+ },
+ {
+  "ru": "почему небоскрёбы сосредоточены в центре",
+  "en": "why skyscrapers cluster downtown"
+ },
+ {
+  "ru": "почему городские парки находятся в центре",
+  "en": "why city parks are central"
+ },
+ {
+  "ru": "почему старые кварталы имеют узкие переулки",
+  "en": "why old towns have narrow alleys"
+ },
+ {
+  "ru": "почему здания имеют отступы от улицы",
+  "en": "why buildings have setbacks"
+ },
+ {
+  "ru": "почему тротуары иногда подняты над землёй",
+  "en": "why sidewalks are sometimes raised"
+ },
+ {
+  "ru": "почему крыши в средиземноморье черепичными",
+  "en": "why mediterranean roofs are terracotta"
+ },
+ {
+  "ru": "почему районы часто имеют одинаковый фасад",
+  "en": "why districts often share uniform façades"
+ },
+ {
+  "ru": "почему круговые перекрёстки заменяют светофоры",
+  "en": "why traffic circles replace intersections"
+ },
+ {
+  "ru": "почему цены на нефть растут",
+  "en": "why oil prices rise"
+ },
+ {
+  "ru": "почему инфляция падает в некоторых странах",
+  "en": "why inflation falls in some countries"
+ },
+ {
+  "ru": "как меняется стоимость золота",
+  "en": "how gold price changes"
+ },
+ {
+  "ru": "почему валютный курс колеблется ежедневно",
+  "en": "why exchange rates fluctuate daily"
+ },
+ {
+  "ru": "почему цены на жильё растут в мегаполисах",
+  "en": "why housing prices rise in megacities"
+ },
+ {
+  "ru": "как формируются цены на авиабилеты",
+  "en": "how airline ticket prices are set"
+ },
+ {
+  "ru": "почему стоимость электроэнергии увеличивается зимой",
+  "en": "why electricity costs increase in winter"
+ },
+ {
+  "ru": "как банки определяют процентные ставки",
+  "en": "how banks set interest rates"
+ },
+ {
+  "ru": "почему цены на продукты сезонно меняются",
+  "en": "why food prices change seasonally"
+ },
+ {
+  "ru": "как работает система налогообложения товаров",
+  "en": "how tax system works for goods"
+ },
+ {
+  "ru": "почему цены на лекарства часто выше в аптеке",
+  "en": "why medicine prices are higher in pharmacies"
+ },
+ {
+  "ru": "как спрос влияет на цены на аренду",
+  "en": "how demand affects rent prices"
+ },
+ {
+  "ru": "почему стоимость страховки меняется каждый год",
+  "en": "why insurance costs vary each year"
+ },
+ {
+  "ru": "как инфляция измеряется в экономике",
+  "en": "how inflation is measured in economy"
+ },
+ {
+  "ru": "почему цены на автомобили падают после выпуска модели",
+  "en": "why car prices drop after model release"
+ },
+ {
+  "ru": "как цены на услуги репетиторов определяются",
+  "en": "how tutor service fees are determined"
+ },
+ {
+  "ru": "почему в баскетболе четыре четверти",
+  "en": "why basketball games have four quarters"
+ },
+ {
+  "ru": "как в футболе решаются ничьи",
+  "en": "how soccer matches decide draws"
+ },
+ {
+  "ru": "почему в теннисе шесть геймов в сете",
+  "en": "why tennis sets go to six games"
+ },
+ {
+  "ru": "как в бейсболе считаются страйки и болы",
+  "en": "how baseball counts strikes and balls"
+ },
+ {
+  "ru": "почему в волейболе играют до пяти сетов",
+  "en": "why volleyball uses best-of-five sets"
+ },
+ {
+  "ru": "как в крикете формируются оверы",
+  "en": "how cricket overs are structured"
+ },
+ {
+  "ru": "почему марафон олимпиады 42,195 км",
+  "en": "why olympic marathon is 42.195 km"
+ },
+ {
+  "ru": "как в гольфе рассчитывают гандикап",
+  "en": "how golf handicaps are calculated"
+ },
+ {
+  "ru": "почему в баскетболе номера от 0 до 99",
+  "en": "why basketball players wear numbers 0-99"
+ },
+ {
+  "ru": "как в регби считается очки",
+  "en": "how scoring works in rugby union"
+ },
+ {
+  "ru": "почему в американском футболе четыре дауна",
+  "en": "why american football has four downs"
+ },
+ {
+  "ru": "как в формуле‑1 определяют стартовую решётку",
+  "en": "how formula 1 qualifying determines grid"
+ },
+ {
+  "ru": "почему в хоккее три периода",
+  "en": "why ice hockey uses three periods"
+ },
+ {
+  "ru": "как в боксе оценивают каждый раунд",
+  "en": "how boxing matches are scored round by round"
+ },
+ {
+  "ru": "почему в крикете иннинг состоит из 50 оверов",
+  "en": "why cricket innings can have 50 overs"
+ },
+ {
+  "ru": "как в плавании организуют отборы и финалы",
+  "en": "how swimming uses heats and finals"
+ },
+ {
+  "ru": "почему на беговой дорожке девять полос",
+  "en": "why track races use lanes 1-9"
+ },
+ {
+  "ru": "как в теннисе работает тай‑брейк",
+  "en": "how tennis tie‑break points work"
+ },
+ {
+  "ru": "почему в волейболе есть номер либеро",
+  "en": "why volleyball uses libero jersey number"
+ },
+ {
+  "ru": "как в крикете применяют метод дакворт‑льюиса",
+  "en": "how cricket uses duckworth‑lewis method"
+ },
+ {
+  "ru": "почему в гимнастике баллы с десятичными",
+  "en": "why gymnastics scores have decimal points"
+ },
+ {
+  "ru": "как в лыжных прыжках считают баллы",
+  "en": "how ski jumping points are calculated"
+ },
+ {
+  "ru": "почему в футбольных лигах есть повышение и понижение",
+  "en": "why football leagues have promotion and relegation"
+ },
+ {
+  "ru": "как в марафоне используют сплит‑время",
+  "en": "how marathon pacing uses split times"
+ },
+ {
+  "ru": "почему в баскетболе таймер броска 24 секунды",
+  "en": "why basketball uses shot clock of 24 seconds"
+ },
+ {
+  "ru": "как в гребле измеряют время каждые 500 метров",
+  "en": "how rowing races are timed by 500‑meter splits"
+ },
+ {
+  "ru": "почему в бейсболе девять иннингов",
+  "en": "why baseball uses nine innings"
+ },
+ {
+  "ru": "как в крикете используют темп пробега",
+  "en": "how cricket uses run rate to assess performance"
+ },
+ {
+  "ru": "почему в футболе добавляют время травм",
+  "en": "why soccer uses added injury time"
+ },
+ {
+  "ru": "как в фигурном катании считаются оценки исполнения",
+  "en": "how figure skating grades of execution work"
+ },
+ {
+  "ru": "как растут томаты в теплице",
+  "en": "how tomatoes grow in greenhouses"
+ },
+ {
+  "ru": "почему морковь сладкая после варки",
+  "en": "why carrots sweeten after cooking"
+ },
+ {
+  "ru": "как образуется аромат специй при сушке",
+  "en": "how spice aroma forms during drying"
+ },
+ {
+  "ru": "почему оливковое масло светлое",
+  "en": "why olive oil looks light"
+ },
+ {
+  "ru": "как образуется крем во взбитых сливках",
+  "en": "how whipped cream forms when mixing"
+ },
+ {
+  "ru": "почему орехи хрустят после обжарки",
+  "en": "why nuts crackle after roasting"
+ },
+ {
+  "ru": "как образуется пузырьки в безалкогольных напитках",
+  "en": "how bubbles develop in soda drinks"
+ },
+ {
+  "ru": "почему авокадо мягче в тепле",
+  "en": "why avocado softens in heat"
+ },
+ {
+  "ru": "как формируется вкус сыра с плесенью",
+  "en": "how cheese flavor develops with mold"
+ },
+ {
+  "ru": "почему вороны используют инструменты",
+  "en": "why crows use tools"
+ },
+ {
+  "ru": "как дельфины решают задачи совместно",
+  "en": "how dolphins solve problems together"
+ },
+ {
+  "ru": "почему осьминоги открывают раковины",
+  "en": "why octopuses open shells"
+ },
+ {
+  "ru": "как пчёлы выбирают новые улья",
+  "en": "how bees choose new hives"
+ },
+ {
+  "ru": "почему слоны проявляют сострадание к мёртвым",
+  "en": "why elephants show compassion to dead"
+ },
+ {
+  "ru": "как шимпанзе планируют охоту на термитов",
+  "en": "how chimpanzees plan termite hunting"
+ },
+ {
+  "ru": "почему воробьи хранят пищу на зиму",
+  "en": "why sparrows store food for winter"
+ },
+ {
+  "ru": "как морские котики используют морскую губку",
+  "en": "how sea otters use sea sponges"
+ },
+ {
+  "ru": "почему куры распознают человеческие лица",
+  "en": "why chickens recognize human faces"
+ },
+ {
+  "ru": "как врановые передают информацию о хищниках",
+  "en": "how ravens convey predator warnings"
+ },
+ {
+  "ru": "почему крокодилы используют камни как наживку",
+  "en": "why crocodiles use stones as bait"
+ },
+ {
+  "ru": "как пингвины выбирают партнёра по браку",
+  "en": "how penguins choose a mate"
+ },
+ {
+  "ru": "почему бобры строят сложные плотины",
+  "en": "why beavers build complex dams"
+ },
+ {
+  "ru": "как пауки планируют сеть в новых местах",
+  "en": "how spiders plan webs in new sites"
+ },
+ {
+  "ru": "почему морские коньки ухаживают за потомством",
+  "en": "why seahorses care for offspring"
+ },
+ {
+  "ru": "как вороны играют в камень-ножницы-бумага",
+  "en": "how crows play rock paper scissors"
+ },
+ {
+  "ru": "почему киты синхронно всплывают к поверхности",
+  "en": "why whales surface synchronously"
+ },
+ {
+  "ru": "как гепарды используют тени для охоты",
+  "en": "how cheetahs use shadows for hunting"
+ },
+ {
+  "ru": "почему морские черепахи возвращаются к родным пляжам",
+  "en": "why sea turtles return to natal beaches"
+ },
+ {
+  "ru": "как муравьи создают живые мосты",
+  "en": "how ants create living bridges"
+ },
+ {
+  "ru": "почему совы меняют положение головы для лучшего зрения",
+  "en": "why owls swivel heads for better view"
+ },
+ {
+  "ru": "как работает стиральная машина",
+  "en": "how does a washing machine work"
+ },
+ {
+  "ru": "почему холодильник замораживает еду",
+  "en": "why does a refrigerator freeze food"
+ },
+ {
+  "ru": "как нагревается микроволновка",
+  "en": "how does a microwave heat food"
+ },
+ {
+  "ru": "как работает посудомоечная машина",
+  "en": "how does a dishwasher work"
+ },
+ {
+  "ru": "почему чайник быстро закипает",
+  "en": "why does a kettle boil quickly"
+ },
+ {
+  "ru": "как работает вентилятор электрический",
+  "en": "how does an electric fan work"
+ },
+ {
+  "ru": "почему кондиционер охлаждает воздух",
+  "en": "why does an air conditioner cool"
+ },
+ {
+  "ru": "как регулируется температура термостата",
+  "en": "how does a thermostat set temperature"
+ },
+ {
+  "ru": "почему тостер поджаривает хлеб",
+  "en": "why does a toaster brown bread"
+ },
+ {
+  "ru": "как работает блендер ножевой",
+  "en": "how does a blender work"
+ },
+ {
+  "ru": "почему миксер перемешивает тесто",
+  "en": "why does a mixer stir dough"
+ },
+ {
+  "ru": "как работает электрический фен",
+  "en": "how does a hair dryer work"
+ },
+ {
+  "ru": "почему электробритва вибрирует",
+  "en": "why does an electric razor vibrate"
+ },
+ {
+  "ru": "как работает пылесос электрический",
+  "en": "how does an electric vacuum work"
+ },
+ {
+  "ru": "почему электрический утюг гладит ткань",
+  "en": "why does an iron smooth fabric"
+ },
+ {
+  "ru": "как работает электроплита индукционная",
+  "en": "how does an induction cooktop work"
+ },
+ {
+  "ru": "почему электрические часы тикают",
+  "en": "why do electric clocks tick"
+ },
+ {
+  "ru": "как работает автоматический замок",
+  "en": "how does an automatic lock work"
+ },
+ {
+  "ru": "почему лифт поднимает",
+  "en": "why does an elevator lift"
+ },
+ {
+  "ru": "как работает эскалатор шаговый",
+  "en": "how does an escalator move"
+ },
+ {
+  "ru": "почему автоматические двери открываются",
+  "en": "why do automatic doors open"
+ },
+ {
+  "ru": "как работает датчик парковки",
+  "en": "how does a parking sensor work"
+ },
+ {
+  "ru": "почему gps показывает местоположение",
+  "en": "why does gps show location"
+ },
+ {
+  "ru": "как работает смартфон процессор",
+  "en": "how does a smartphone processor work"
+ },
+ {
+  "ru": "почему ноутбук быстро нагревается",
+  "en": "why does a laptop heat up"
+ },
+ {
+  "ru": "как работает телевизор led",
+  "en": "how does an led tv work"
+ },
+ {
+  "ru": "почему пульт управляет техникой",
+  "en": "why does a remote control work"
+ },
+ {
+  "ru": "как работает wi‑fi роутер",
+  "en": "how does a wi‑fi router work"
+ },
+ {
+  "ru": "почему электрический чайник шумит",
+  "en": "why does an electric kettle hiss"
+ },
+ {
+  "ru": "как работает система умного дома",
+  "en": "how does a smart home system work"
+ },
+ {
+  "ru": "почему мы забываем имена",
+  "en": "why we forget names"
+ },
+ {
+  "ru": "как работает кратковременная память",
+  "en": "how short-term memory works"
+ },
+ {
+  "ru": "почему появляются дежавю",
+  "en": "why déjà vu occurs"
+ },
+ {
+  "ru": "как мозг фильтрует раздражители",
+  "en": "how the brain filters stimuli"
+ },
+ {
+  "ru": "почему внимание рассеивается",
+  "en": "why attention drifts"
+ },
+ {
+  "ru": "как формируются привычки",
+  "en": "how habits form"
+ },
+ {
+  "ru": "почему мы ошибаемся в оценке времени",
+  "en": "why we misjudge time"
+ },
+ {
+  "ru": "как работает эффект ореола",
+  "en": "how halo effect works"
+ },
+ {
+  "ru": "почему вспоминаем яркие детали",
+  "en": "why we recall vivid details"
+ },
+ {
+  "ru": "как работает рабочая память",
+  "en": "how working memory operates"
+ },
+ {
+  "ru": "почему мы пропускаем встречи",
+  "en": "why we miss appointments"
+ },
+ {
+  "ru": "как формируются ложные воспоминания",
+  "en": "how false memories form"
+ },
+ {
+  "ru": "почему многозадачность ухудшает продуктивность",
+  "en": "why multitasking hurts performance"
+ },
+ {
+  "ru": "как работает селективное внимание",
+  "en": "how selective attention works"
+ },
+ {
+  "ru": "почему забываем пароли",
+  "en": "why we forget passwords"
+ },
+ {
+  "ru": "как мозг заполняет пробелы",
+  "en": "how the brain fills gaps"
+ },
+ {
+  "ru": "почему забываем сны после пробуждения",
+  "en": "why we forget dreams upon waking"
+ },
+ {
+  "ru": "как работает эффект подтверждения",
+  "en": "how confirmation bias works"
+ },
+ {
+  "ru": "почему мы переоцениваем свои знания",
+  "en": "why we overestimate our knowledge"
+ },
+ {
+  "ru": "как возникает эффект привязки",
+  "en": "how anchoring effect arises"
+ },
+ {
+  "ru": "почему внимание уходит к ярким объектам",
+  "en": "why attention goes to bright objects"
+ },
+ {
+  "ru": "как работает эффект распределения ресурсов",
+  "en": "how resource allocation effect works"
+ },
+ {
+  "ru": "почему мы не замечаем изменения в комнате",
+  "en": "why we miss changes in a room"
+ },
+ {
+  "ru": "как работает процесс кодирования памяти",
+  "en": "how memory encoding works"
+ },
+ {
+  "ru": "почему мы путаем похожие лица",
+  "en": "why we confuse similar faces"
+ },
+ {
+  "ru": "как формируется эффект первой импрессии",
+  "en": "how first impression effect forms"
+ },
+ {
+  "ru": "почему забываем цели после отпуска",
+  "en": "why we forget goals after vacation"
+ },
+ {
+  "ru": "как работает эффект снижения внимания",
+  "en": "how attention lapse effect works"
+ },
+ {
+  "ru": "почему мы воспринимаем иллюзии движения",
+  "en": "why we perceive motion illusions"
+ },
+ {
+  "ru": "как мозг обрабатывает шумовые сигналы",
+  "en": "how the brain processes noise signals"
+ },
+ {
+  "ru": "почему металл расширяется при нагреве",
+  "en": "why metal expands when heated"
+ },
+ {
+  "ru": "как термос сохраняет тепло",
+  "en": "how a thermos keeps heat"
+ },
+ {
+  "ru": "почему черные поверхности нагреваются сильнее",
+  "en": "why black surfaces heat up faster"
+ },
+ {
+  "ru": "как работает холодильный компрессор",
+  "en": "how a refrigeration compressor works"
+ },
+ {
+  "ru": "почему пар вращает турбины",
+  "en": "why steam drives turbines"
+ },
+ {
+  "ru": "как конвекционная печь готовит пищу",
+  "en": "how a convection oven cooks"
+ },
+ {
+  "ru": "почему лед тает при комнатной температуре",
+  "en": "why ice melts at room temperature"
+ },
+ {
+  "ru": "как работает тепловой насос",
+  "en": "how a heat pump works"
+ },
+ {
+  "ru": "почему свеча гаснет без воздуха",
+  "en": "why a candle goes out without air"
+ },
+ {
+  "ru": "как тепло передаётся по металлу",
+  "en": "how heat conducts through metal"
+ },
+ {
+  "ru": "почему кристаллы льда образуют шестиугольники",
+  "en": "why ice crystals form hexagons"
+ },
+ {
+  "ru": "как работает термостат в обогревателе",
+  "en": "how a thermostat controls heating"
+ },
+ {
+  "ru": "почему солнце выглядит желтым",
+  "en": "why the sun looks yellow"
+ },
+ {
+  "ru": "как работает микроволновая печь",
+  "en": "how a microwave oven works"
+ },
+ {
+  "ru": "почему железо ржавеет быстрее в тепле",
+  "en": "why iron rusts faster in heat"
+ },
+ {
+  "ru": "как работает паровая плита на кухне",
+  "en": "how a steam kettle works"
+ },
+ {
+  "ru": "почему горячий воздух поднимается вверх",
+  "en": "why hot air rises upward"
+ },
+ {
+  "ru": "как работает система раздельного сбора мусора",
+  "en": "how separate waste collection works"
+ },
+ {
+  "ru": "почему бумажные отходы компостируют",
+  "en": "why paper waste is composted"
+ },
+ {
+  "ru": "как перерабатывают старые холодильники",
+  "en": "how old refrigerators are recycled"
+ },
+ {
+  "ru": "почему стеклянные бутылки можно переплавлять",
+  "en": "why glass bottles can be melted"
+ },
+ {
+  "ru": "как превращают пластиковый мусор в топливо",
+  "en": "how plastic waste becomes fuel"
+ },
+ {
+  "ru": "почему электроника попадает в специальные пункты",
+  "en": "why electronics go to special points"
+ },
+ {
+  "ru": "как сортируют металлические отходы на заводе",
+  "en": "how metal waste is sorted at plant"
+ },
+ {
+  "ru": "почему органические отходы идут в компост",
+  "en": "why organic waste goes to compost"
+ },
+ {
+  "ru": "как работают перерабатывающие центры бытового мусора",
+  "en": "how household waste recycling centers work"
+ },
+ {
+  "ru": "почему пластиковые пакеты часто попадают в океан",
+  "en": "why plastic bags often end up in ocean"
+ },
+ {
+  "ru": "как перерабатывают использованные батареи",
+  "en": "how used batteries are recycled"
+ },
+ {
+  "ru": "почему стеклянные окна часто отправляют на свалку",
+  "en": "why glass windows often go to landfill"
+ },
+ {
+  "ru": "как превращают пищевые отходы в биогаз",
+  "en": "how food waste becomes biogas"
+ },
+ {
+  "ru": "почему пластиковые крышки часто оказываются в мусоре",
+  "en": "why plastic caps often end up in trash"
+ },
+ {
+  "ru": "как перерабатывают старую мебель из дерева",
+  "en": "how old wooden furniture is recycled"
+ },
+ {
+  "ru": "почему бумажные стаканчики часто попадают в компост",
+  "en": "why paper cups often go to compost"
+ },
+ {
+  "ru": "как собирают мусор в многоквартирных домах",
+  "en": "how waste is collected in apartments"
+ },
+ {
+  "ru": "почему алюминиевые банки часто перерабатывают",
+  "en": "why aluminum cans are often recycled"
+ },
+ {
+  "ru": "как работает система возврата бутылок",
+  "en": "how bottle return system works"
+ },
+ {
+  "ru": "почему тканевые сумки реже попадают в океан",
+  "en": "why cloth bags rarely end up in ocean"
+ },
+ {
+  "ru": "как утилизируют отработанные масляные фильтры",
+  "en": "how used oil filters are disposed"
+ },
+ {
+  "ru": "почему в некоторых городах радиальная планировка улиц",
+  "en": "why some cities have radial street layouts"
+ },
+ {
+  "ru": "почему многие города имеют главный бульвар",
+  "en": "why many cities have a main boulevard"
+ },
+ {
+  "ru": "почему городские площади часто содержат памятники",
+  "en": "why city squares often host monuments"
+ },
+ {
+  "ru": "почему старые районы имеют булыжные улицы",
+  "en": "why older districts have cobblestone streets"
+ },
+ {
+  "ru": "почему современные кварталы используют тупики",
+  "en": "why modern neighborhoods feature cul‑de‑sacs"
+ },
+ {
+  "ru": "почему промышленные зоны размещаются у рек",
+  "en": "why industrial zones are placed near rivers"
+ },
+ {
+  "ru": "почему небоскрёбы сосредоточены в финансовом районе",
+  "en": "why skyscrapers cluster in financial districts"
+ },
+ {
+  "ru": "почему некоторые улицы названы цифрами",
+  "en": "why some streets are named after numbers"
+ },
+ {
+  "ru": "почему города развивают набережные прогулки",
+  "en": "why cities develop waterfront promenades"
+ },
+ {
+  "ru": "почему отдельные районы имеют одинаковую высоту зданий",
+  "en": "why certain districts have uniform building heights"
+ },
+ {
+  "ru": "почему пешеходные зоны закрыты для машин",
+  "en": "why pedestrian zones are car‑free"
+ },
+ {
+  "ru": "почему городские парки имеют овальную форму",
+  "en": "why urban parks are shaped like ovals"
+ },
+ {
+  "ru": "почему в некоторых городах подземные торги",
+  "en": "why some cities have underground malls"
+ }
+]

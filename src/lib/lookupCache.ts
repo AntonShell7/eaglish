@@ -22,6 +22,8 @@ const LIMIT = 1200;
 export interface CachedLookup {
   translation: string;
   partOfSpeech?: string;
+  /** The short Russian gloss, when the translation needed one. */
+  note?: string;
   /** When it was stored, so the oldest entries go first when the cache fills. */
   at: number;
 }

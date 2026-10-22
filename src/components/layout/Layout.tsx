@@ -17,6 +17,9 @@ import {
 import { StatsStrip } from "./StatsStrip";
 import { Footer } from "./Footer";
 import { Translator } from "@/components/translator/Translator";
+
+/** The way in. No floating anything over a form with two fields. */
+const AUTH_ROUTES = new Set(["/login", "/register", "/forgot-password", "/reset-password", "/onboarding"]);
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 import { ConsentSheet } from "@/components/consent/ConsentSheet";
@@ -248,11 +251,14 @@ export function Layout() {
 
         <Footer />
 
-        {/* Present on every page of the signed-in app. The moment a learner
-            needs a word is the moment they are halfway through writing a
-            sentence, and leaving for a translator is how that sentence gets
-            abandoned. */}
-        <Translator />
+        {/* Present on every page of the signed-in app, and only there. The
+            moment a learner needs a word is the moment they are halfway
+            through writing a sentence, and leaving for a translator is how
+            that sentence gets abandoned — but a visitor reading the pitch or
+            filling in a sign-up form is not in that moment, and a floating
+            control in the corner of those screens is one more thing in the
+            way of the one thing they are there to do. */}
+        {user && !AUTH_ROUTES.has(pathname) && <Translator />}
       </div>
 
       {user && (

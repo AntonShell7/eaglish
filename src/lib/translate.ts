@@ -10,6 +10,17 @@ export interface WordLookupResult {
   word: string;
   translation: string;
   partOfSpeech?: string;
+  /**
+   * Two or three Russian words saying what the translation *is*, when the
+   * translation is itself opaque.
+   *
+   * "polyethylene" comes back as "полиэтилен", which is a correct answer and
+   * no answer at all: a reader who did not know the English word usually does
+   * not know the Russian one either, and the lookup has handed them a second
+   * word to go and look up somewhere else. Chemistry, law and anatomy are full
+   * of these. Only set when it genuinely helps — a gloss on "стол" is noise.
+   */
+  note?: string;
   /** Came from a live model rather than a curated glossary. */
   isLive: boolean;
   /**
@@ -118,6 +129,7 @@ export async function lookupWord(
       word: cleaned,
       translation: cached.translation,
       partOfSpeech: cached.partOfSpeech,
+      note: cached.note,
       isLive: false,
     };
   }
@@ -137,7 +149,9 @@ export async function lookupWord(
           {
             role: "system",
             content:
-              'Translate an English word or short phrase into Russian. The translation MUST be in Russian, written in Cyrillic — never an English definition, never a transliteration. Use the surrounding sentence for context when given. Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string}',
+              'Translate an English word or short phrase into Russian. The translation MUST be in Russian, written in Cyrillic — never an English definition, never a transliteration. Use the surrounding sentence for context when given. ' +
+              'note: two to four Russian words saying what the thing IS, and ONLY when the Russian translation is itself a term an ordinary reader might not know — a chemical, a legal or medical term, a piece of jargon, a loanword. For "полиэтилен" that is "вид пластика"; for "вертлужная впадина" it is "часть тазовой кости". For ordinary words like "стол" or "бежать" return an empty string: a gloss on a word everybody knows is noise. Never repeat the translation inside the note, and never write it in English. ' +
+              'Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string, "note": string}',
           },
           {
             role: "user",
@@ -154,11 +168,22 @@ export async function lookupWord(
          English against English and teaches nothing. A single Cyrillic letter
          is a cheap and complete test for it. */
       if (parsed.translation && looksRussian(parsed.translation)) {
+        /* The gloss is held to the same test as the translation: an English
+           note is the same failure in a smaller box. */
+        const note =
+          typeof parsed.note === "string" && looksRussian(parsed.note) ? parsed.note.trim() : undefined;
         putCachedLookup(cleaned, options.sentence, {
           translation: parsed.translation,
           partOfSpeech: parsed.partOfSpeech,
+          note,
         });
-        return { word: cleaned, translation: parsed.translation, partOfSpeech: parsed.partOfSpeech, isLive: true };
+        return {
+          word: cleaned,
+          translation: parsed.translation,
+          partOfSpeech: parsed.partOfSpeech,
+          note,
+          isLive: true,
+        };
       }
       if (parsed.translation) console.warn("[translate] answer was not in Russian:", cleaned, parsed.translation);
   } catch (err) {
@@ -324,6 +349,8 @@ export interface TranslatorEntry {
   partOfSpeech?: string;
   /** In English: the coursebook move, kept short. */
   definition?: string;
+  /** Two or three Russian words saying what an opaque translation is. */
+  note?: string;
   /** One natural sentence using it. */
   example?: string;
   unavailable?: Unavailable;
@@ -357,9 +384,10 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
             brief,
             "Only list a further sense when the word really has one: most words have a single meaning, and inventing a second is worse than giving one.",
             "definition: a short English definition of the commonest sense, under fifteen words.",
+            'note: two to four Russian words saying what the thing IS, and only when the Russian equivalent is itself a term an ordinary reader might not know — a chemical, a legal or medical term, jargon, a loanword. For "полиэтилен" that is "вид пластика". For ordinary words return an empty string. Never in English, never repeating the translation.',
             `example: one English sentence using the word in that sense. ${EXAMPLE_RULE}`,
             "partOfSpeech: in English, lowercase.",
-            'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string}',
+            'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string, "note": string}',
           ].join(" "),
         },
         { role: "user", content: source },
@@ -372,6 +400,7 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
       definition?: string;
       example?: string;
       partOfSpeech?: string;
+      note?: string;
     };
 
     if (!parsed.primary) return { ...empty, unavailable: "failed" };
@@ -390,12 +419,56 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
       partOfSpeech: parsed.partOfSpeech,
       definition: parsed.definition,
       example: parsed.example,
+      note: typeof parsed.note === "string" && looksRussian(parsed.note) ? parsed.note.trim() : undefined,
     };
   } catch (err) {
     const failure = reasonOf(err);
     if (failure === "failed") console.error("[translate] translator entry failed", err);
     return { ...empty, unavailable: failure };
   }
+}
+
+/**
+ * "Explain what this word means."
+ *
+ * The dictionary answer and the explanation are different questions and the
+ * panel was only ever answering the first. "Polyethylene — полиэтилен" is
+ * correct and leaves a reader exactly where they started; what they wanted was
+ * two sentences about what the stuff is. Asked for separately, because most
+ * lookups do not need it and paying for a paragraph on every "table" would
+ * make the common case slow.
+ *
+ * Russian, because the person reading it is reading in Russian. The English
+ * they came for is the word itself.
+ */
+export async function explainWord(word: string, sentence?: string): Promise<{ text: string; unavailable?: Unavailable }> {
+  const subject = word.trim();
+  if (!subject) return { text: "", unavailable: "failed" };
+
+  try {
+    const out = await groq({
+      temperature: 0.3,
+      max_completion_tokens: 320,
+      messages: [
+        {
+          role: "system",
+          content:
+            "Объясни по-русски, что значит английское слово или выражение, которое назовёт пользователь. Два-три коротких предложения, простым языком, как объяснил бы знающий человек: что это за вещь или понятие, где встречается, с чем его путают. Без словарных помет, без списка значений, без английского определения. Если слово многозначное — объясни то значение, которое подходит к предложению, если оно дано. Ответь только объяснением.",
+        },
+        {
+          role: "user",
+          content: sentence ? `Предложение: "${sentence}"\nСлово: "${subject}"` : `Слово: "${subject}"`,
+        },
+      ],
+    });
+    if (out) return { text: out.trim() };
+  } catch (err) {
+    const failure = reasonOf(err);
+    if (failure === "failed") console.error("[translate] explain failed", err);
+    return { text: "", unavailable: failure };
+  }
+
+  return { text: "", unavailable: "failed" };
 }
 
 /**

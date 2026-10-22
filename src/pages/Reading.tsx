@@ -17,6 +17,7 @@ import {
   targetsPresent,
   type PersonalText,
 } from "@/lib/personalText";
+import { nextSubject } from "@/lib/topicPool";
 import { logReadingOpen, getQuizResults, type QuizResult } from "@/lib/readingHistory";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { buildKnownModel, coverageOf } from "@/lib/knownWords";
@@ -416,7 +417,7 @@ function PersonalTexts({
   onPick: (text: PersonalText) => void;
   onBack: () => void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [texts, setTexts] = useState<PersonalText[]>(() => getPersonalTexts());
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -432,12 +433,7 @@ function PersonalTexts({
      somebody who just wants to press it. */
   const [subject, setSubject] = useState("");
 
-  const rollSubject = () => {
-    const pool = t("reading.personalRandomPool", { returnObjects: true }) as string[];
-    if (!Array.isArray(pool) || pool.length === 0) return;
-    const next = pool.filter((item) => item !== subject);
-    setSubject(next[Math.floor(Math.random() * next.length)] ?? pool[0]);
-  };
+  const rollSubject = () => setSubject(nextSubject(i18n.language));
 
   const make = async () => {
     setBusy(true);
@@ -511,7 +507,13 @@ function PersonalTexts({
         {error && <p className="forge__error">{error}</p>}
       </div>
 
-      <div className="mt-6 space-y-2">
+      {/* Everything this reader has had written for them, newest first. The
+          list used to begin with no heading at all, which left two English
+          titles sitting under the generator with nothing saying whose they
+          were or where they came from. */}
+      {texts.length > 0 && <h2 className="forge__shelfTitle">{t("reading.personalMine")}</h2>}
+
+      <div className="mt-3 space-y-2">
         {texts.map((text) => (
           <button
             key={text.id}
