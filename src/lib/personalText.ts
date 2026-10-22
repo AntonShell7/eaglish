@@ -82,12 +82,15 @@ export function pickTargets(limit = TARGET_WORDS): string[] {
   return chosen;
 }
 
+/* Longer than they were — 180 words was a page you finish before the subject
+   has gone anywhere, and a text that short cannot carry six words twice each
+   without reading as a word list with punctuation. */
 const LEVEL_BRIEF: Record<ReadingLevel, string> = {
-  "A1-A2": "Very simple English: present and past simple, short sentences, the most common words. 180 to 260 words.",
+  "A1-A2": "Very simple English: present and past simple, short sentences, the most common words. 280 to 360 words.",
   "B1-B2":
-    "Everyday and semi-formal English: mixed tenses, linking words, some phrasal verbs, varied sentence length. 280 to 400 words.",
+    "Everyday and semi-formal English: mixed tenses, linking words, some phrasal verbs, varied sentence length. 420 to 560 words.",
   "C1-C2":
-    "Advanced English: argument rather than description, precise collocation, hedging, some abstract nouns. Dense but readable. 350 to 480 words.",
+    "Advanced English: argument rather than description, precise collocation, hedging, some abstract nouns. Dense but readable. 520 to 700 words.",
 };
 
 export interface PersonalTextOptions {
@@ -102,9 +105,12 @@ function buildPrompt({ level, topic, targets }: PersonalTextOptions) {
 TOPIC: ${topic}
 LEVEL: ${LEVEL_BRIEF[level]}
 
-MUST USE THESE WORDS: ${targets.join(", ")}
-Use each one EXACTLY TWICE across the whole text — no more. Twice is the point: once is not enough to learn from, and a third time makes the text obviously about the word list. Count them before you answer. Inflections of the same word (swim / swims / swimming / swimmer / swimmers) all count towards that total of two, so a text containing "swimmer" four times has broken this rule.
+WORDS TO WORK IN: ${targets.join(", ")}
+Use as many of them as the subject will genuinely carry, and use each one you do use EXACTLY TWICE — no more. Twice is the point: once is not enough to learn from, and a third time makes the text obviously about the word list. Count them before you answer. Inflections of the same word (swim / swims / swimming / swimmer / swimmers) all count towards that total of two, so a text containing "swimmer" four times has broken this rule.
 Put the two uses far apart, in different paragraphs, doing different work. Never define them, never draw attention to them, never list them.
+
+LEAVING A WORD OUT IS ALLOWED AND IS OFTEN RIGHT
+If a word does not belong in this subject, drop it. Four words that genuinely belong beat six where two were wedged in — a wedged word teaches the reader nothing except that the text was assembled, and it costs the credibility of the four that were honest. Aim to place as many as you can; never place one at the cost of the sentence around it.
 
 THE TEXT MUST STAND ON ITS OWN
 This is the rule that matters most, and it is the one that is usually broken. Write a real text first — one subject, an argument or a story that goes somewhere, paragraphs that follow from each other — and let the required words fall into it where they happen to fit. A reader who has never seen the word list should not be able to guess it.
@@ -114,6 +120,7 @@ HARD RULES
 - Never state facts about a named real person, company product or event. Write about unnamed people and general patterns.
 - No invented statistics or study citations.
 - Several paragraphs, a real beginning and a real ending.
+- Write to the full length asked for above. A text that stops early is a text that said less than it could have.
 
 Return JSON exactly like this:
 {

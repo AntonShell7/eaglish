@@ -144,20 +144,19 @@ function LevelGrid({
         </section>
       )}
 
-      {/* The loop the whole app is built on gets the first card, not a menu item.
-          It used to be a solid mint slab, which made the one optional thing on
-          the page the loudest object on it. It is the same card as the topics
-          now, marked by a mint rule rather than a mint fill: position is what
-          says "first", and position costs no colour. */}
-      <button
-        type="button"
-        onClick={onPersonal}
-        className="card card--interactive rd-personal mt-8 flex w-full flex-col overflow-hidden p-6 text-left"
-      >
-        <span className="page-title text-xl">{t("reading.personalTitle")}</span>
-        <span className="mt-1.5 max-w-xl text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-          {t("reading.personalTeaser")}
-        </span>
+      {/* The loop the whole app is built on, and the only thing on this page
+          that writes something rather than listing it. It spent a while
+          dressed as one of the shelf cards, on the argument that position
+          says "first" and costs no colour. Position says "first" to somebody
+          already reading top to bottom; four level cards underneath are
+          brighter objects than a hairline rectangle, and the eye goes to them.
+          It gets the generator's own ground now — the black panel it opens
+          onto — so the shelf reads as one offer and four doors. */}
+      <button type="button" onClick={onPersonal} className="forge forge--door mt-8 w-full text-left">
+        <span className="forge__label">{t("reading.personalEyebrow")}</span>
+        <span className="forge__door-h">{t("reading.personalTitle")}</span>
+        <span className="forge__door-p">{t("reading.personalTeaser")}</span>
+        <span className="forge__door-go">{t("reading.personalCta")} →</span>
       </button>
 
       <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -427,10 +426,18 @@ function PersonalTexts({
   const profile = getLearnerProfile();
   const targets = pickTargets();
 
+  /* What the text should be about, in the reader's own words.
+     It used to be the first interest ticked during onboarding, which meant
+     every text anybody ever generated was about the same thing — and the one
+     question this screen could usefully ask was the one it did not ask. Left
+     empty it falls back to that interest, so the button still works for
+     somebody who just wants to press it. */
+  const [subject, setSubject] = useState("");
+
   const make = async () => {
     setBusy(true);
     setError(null);
-    const topic = profile?.interests?.[0] ?? "everyday life";
+    const topic = subject.trim() || profile?.interests?.[0] || "everyday life";
     const result = await generatePersonalText({
       level: profile?.level ?? "A1-A2",
       topic,
@@ -475,6 +482,19 @@ function PersonalTexts({
                 </span>
               ))}
             </p>
+            <label className="forge__field">
+              <span className="forge__fieldLabel">{t("reading.personalTopicLabel")}</span>
+              <input
+                type="text"
+                className="forge__input"
+                value={subject}
+                maxLength={120}
+                onChange={(e) => setSubject(e.target.value)}
+                placeholder={t("reading.personalTopicPlaceholder")}
+                disabled={busy}
+              />
+            </label>
+
             <button type="button" onClick={make} disabled={busy} className="forge__cta">
               {busy ? t("reading.personalWriting") : t("reading.personalCta")}
             </button>

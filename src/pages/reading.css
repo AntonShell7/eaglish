@@ -39,6 +39,98 @@
   opacity: 0.42;
 }
 
+/* The same panel used as a door: the shelf's entry to the generator, which
+   has to be the loudest object on a page whose other objects are four level
+   cards. Same ground, so pressing it leads somewhere that looks like it. */
+.forge--door {
+  display: block;
+  transition:
+    transform var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
+}
+
+.forge--door:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-4, var(--shadow-3));
+}
+
+.forge__door-h {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #fafafa;
+}
+
+.forge__door-p {
+  display: block;
+  margin-top: 10px;
+  max-width: 48ch;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+
+.forge__door-go {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forge--door:hover {
+    transform: none;
+  }
+}
+
+/* The subject line. A text field on a black panel needs its own surface —
+   inheriting the page's field styles put a light input on a dark machine. */
+.forge__field {
+  display: block;
+  margin-top: 18px;
+}
+
+.forge__fieldLabel {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: #d4d4d4;
+}
+
+.forge__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md, 12px);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.95rem;
+  color: #fafafa;
+  transition:
+    border-color var(--dur-2) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+
+.forge__input::placeholder {
+  color: #7a7a7a;
+}
+
+.forge__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.forge__input:disabled {
+  opacity: 0.55;
+}
+
 .forge__label {
   font-size: 0.7rem;
   font-weight: 800;
