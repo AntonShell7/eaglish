@@ -215,7 +215,7 @@ const ADVANCED_SPEC = {
   sentences: "30 to 40",
   words: "550 to 750",
   guidance:
-    "The hardest English this library holds, and a pleasure to read. Essayistic: a real argument that turns at least once, built from precise collocation and confident rhythm. Reach deliberately for idiom and figurative phrasing a native writer would use and a textbook never teaches — 'a foregone conclusion', 'cut both ways', 'the exception that proves the rule', 'hedge your bets', 'by the same token'. Reach equally for literary and academic vocabulary: words like ostensibly, inasmuch, provenance, tacit, salient, attenuate, beholden, countenance. Long sentences are welcome where they earn their length, but never ornament for its own sake: every clause carries meaning. Aim at a reader who wants their English to sound educated in writing and in conversation alike.",
+    "The hardest English this library holds, and a pleasure to read. Essayistic: a real argument that turns at least once, built from precise collocation and confident rhythm. Reach deliberately for idiom and figurative phrasing a native writer would use and a textbook never teaches, and equally for literary and academic vocabulary — the register of a good long-form essay, not of a grammar exercise. Long sentences are welcome where they earn their length, but never ornament for its own sake: every clause carries meaning. Aim at a reader who wants their English to sound educated in writing and in conversation alike.",
 };
 
 /** Angles for the Advanced shelf. Subjects an adult reader would choose. */
@@ -385,7 +385,18 @@ REQUIREMENTS
 - Output nothing but the JSON.`;
 }
 
-function buildAdvancedPrompt({ angles, avoidTitles }) {
+/*
+ * No examples of the idiom or the vocabulary.
+ *
+ * The first run named five idioms and eight words as illustrations of the
+ * register, and told the model not to copy them. It copied them: "tacit"
+ * landed in eighteen of nineteen texts, "by the same token" in seventeen.
+ * A prohibition does not undo an anchor — the only reliable way not to get a
+ * word back is not to say it. The register is described instead, and what has
+ * already been used is passed in as a list to avoid, which is a fact about the
+ * shelf rather than a suggestion about style.
+ */
+function buildAdvancedPrompt({ angles, avoidTitles, avoidPhrases }) {
   return `Write ${angles.length} separate reading texts for advanced learners of English — people who already read C2 prose comfortably and want the English that textbooks never teach.
 
 Write one text per subject, in this order:
@@ -396,7 +407,7 @@ STYLE: ${ADVANCED_SPEC.guidance}
 
 WHAT MAKES THESE DIFFERENT
 - At least six idioms or figurative expressions per text, used naturally, never explained and never clustered.
-- The examples named in STYLE above are there to show the register, NOT to be copied. Do not use any of them. Choose your own, and choose different ones for each text — twenty texts sharing five idioms is a phrasebook, not a library.
+- Choose different idioms and different advanced words for each text. Twenty texts sharing five idioms is a phrasebook, not a library.
 - At least eight words of genuinely literary or academic register per text, each doing real work in its sentence.
 - The idiom and the vocabulary serve the argument. A text that is a showcase for phrases is a failed text: a reader must want to finish it for what it says.
 
@@ -405,6 +416,7 @@ HARD RULES
 - No statistics, dates or study citations unless so widely known they cannot be wrong.
 - Each text is self-contained and ends on a real closing thought, not a cliffhanger.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
+- These idioms and words are already used elsewhere on this shelf. Do not use any of them: ${avoidPhrases.slice(0, 120).join("; ") || "(none yet)"}.
 
 Return JSON exactly like this, with ${angles.length} items in "texts":
 {
@@ -561,7 +573,11 @@ function writeIndex() {
 
 async function generateBatch(job, existing) {
   const prompt = job.advanced
-    ? buildAdvancedPrompt({ angles: job.angles, avoidTitles: existing.map((t) => t.title) })
+    ? buildAdvancedPrompt({
+        angles: job.angles,
+        avoidTitles: existing.map((t) => t.title),
+        avoidPhrases: [...new Set(existing.flatMap((t) => Object.keys(t.glossary ?? {})))],
+      })
     : buildPrompt({
         ...job,
         avoidTitles: existing.filter((t) => t.level === job.level).map((t) => t.title),
