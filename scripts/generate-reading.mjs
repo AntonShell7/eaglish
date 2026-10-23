@@ -23,6 +23,7 @@
  * Usage:
  *   node scripts/generate-reading.mjs                     # fill every topic to TARGET_PER_LEVEL
  *   node scripts/generate-reading.mjs --topic sport --count 2
+ *   node scripts/generate-reading.mjs --topic famous --level A1-A2 --count 7
  *   node scripts/generate-reading.mjs --advanced          # fill the Advanced shelf
  *   node scripts/generate-reading.mjs --advanced --openai # same, paid, no daily cap
  *   node scripts/generate-reading.mjs --dry               # one text, printed, nothing written
@@ -37,7 +38,7 @@ const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const CONCURRENCY = 1;
 /** Texts per request. Batching amortises the prompt and roughly triples throughput
  *  against a tokens-per-minute cap. */
-const BATCH = 2;
+let BATCH = 2;
 /**
  * Tokens-per-minute is the real ceiling (8k on the free tier, ~2k per text), so
  * the runner spaces requests instead of sprinting into a 429 and then waiting
@@ -229,21 +230,26 @@ const TOPICS = {
 };
 
 const LEVEL_SPEC = {
+  /* Longer than they were, at every level.
+     The old floors — 180 words at A1, 280 at B1 — produced texts that ended
+     before their subject had gone anywhere, and the model habitually
+     undershoots a range by a fifth, so a 180 floor meant texts of 110. The
+     numbers below are what it takes to land where the shelf needs to be. */
   "A1-A2": {
-    sentences: "16 to 20",
-    words: "180 to 260",
+    sentences: "26 to 32",
+    words: "320 to 400",
     guidance:
       "Very simple English. Present simple and past simple only, short sentences, the most frequent 1000 words. No idioms, no subordinate clauses longer than one.",
   },
   "B1-B2": {
-    sentences: "20 to 26",
-    words: "280 to 400",
+    sentences: "30 to 38",
+    words: "450 to 560",
     guidance:
       "Everyday and semi-formal English. A mix of tenses, some linking words, a few phrasal verbs. Sentences of varied length, no rare vocabulary.",
   },
   "C1-C2": {
-    sentences: "22 to 30",
-    words: "350 to 480",
+    sentences: "32 to 40",
+    words: "520 to 650",
     guidance:
       "Advanced, essay-like register. Nuanced argument, precise collocation, hedging, some abstract nouns. Still readable — dense but never ornamental.",
   },
@@ -494,7 +500,7 @@ TOPIC: ${label}
 Write one text per angle, in this order:
 ${angles.map((a, i) => `${i + 1}. ${a}`).join("\n")}
 
-EACH TEXT: ${spec.sentences} sentences, ${spec.words} words in total.
+EACH TEXT: ${spec.sentences} sentences, ${spec.words} words in total. Write to the full length — a text that stops at half of it has said half of what it could.
 STYLE: ${spec.guidance}
 
 HARD RULES
@@ -774,7 +780,18 @@ async function main() {
   const advanced = args.includes("--advanced");
   /* --openai tops a shelf up when Groq's daily ceiling is spent. Same prompt,
      same output; it simply costs money instead of waiting until tomorrow. */
-  if (args.includes("--openai")) engine = "openai";
+  if (args.includes("--openai")) {
+    engine = "openai";
+    /* One text per request on this engine.
+       Two in one response made the model split a single answer budget between
+       them, and it chose to shorten rather than to stop: texts came back at
+       250 words against a 450-to-560 brief, consistently. Asking for one at a
+       time costs an extra round trip and gets the length that was ordered. */
+    BATCH = 1;
+  }
+
+  /* --level narrows a run to one band, for topping a single shelf up. */
+  const onlyLevel = args.includes("--level") ? args[args.indexOf("--level") + 1] : null;
 
   const topics = only ? [only] : Object.keys(TOPICS);
   const jobs = [];
@@ -807,6 +824,7 @@ async function main() {
     const meta = TOPICS[topic];
     if (!meta) throw new Error(`unknown topic ${topic}`);
         for (const level of LEVELS) {
+      if (onlyLevel && level !== onlyLevel) continue;
       const have = readBand(bandOf(level)).filter((t) => t.topic === topic).length;
       const want = count ?? Math.max(0, TARGET_PER_LEVEL - have);
       for (let i = 0; i < want; i += BATCH) {

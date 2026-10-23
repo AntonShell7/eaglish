@@ -663,7 +663,7 @@
   "id": "my-neighbour-has-a-dog",
   "level": "A1",
   "topic": "wordwork",
-  "title": "My Neighbour Has a Dog",
+  "title": "Buks: The Morning Barker",
   "sentences": [
    {
     "text": "My neighbour has a dog. The dog is called Buks.",
@@ -1178,7 +1178,7 @@
   "level": "A1",
   "topic": "culture",
   "generated": false,
-  "title": "The Dog Who Waited",
+  "title": "The Loyal Wait of Hachiko",
   "sentences": [
    {
     "text": "This is a true story about a dog in Japan.",
@@ -2297,7 +2297,7 @@
   "level": "A1",
   "topic": "health",
   "generated": false,
-  "title": "Why We Blink So Much",
+  "title": "Blinking: More Than You Think",
   "sentences": [
    {
     "text": "You blink all the time.",
@@ -2949,7 +2949,7 @@
   "level": "A2",
   "topic": "environment",
   "generated": false,
-  "title": "Flamingos Are Born Grey",
+  "title": "Flamingos Start Grey",
   "sentences": [
    {
     "text": "A flamingo is a tall pink bird that stands in shallow water.",
@@ -3274,7 +3274,7 @@
   "id": "learning-to-cook-badly",
   "level": "A2",
   "topic": "wordwork",
-  "title": "Learning to Cook Badly",
+  "title": "Cooking Failures, Lessons Gained",
   "sentences": [
    {
     "text": "I started cooking at twenty-four, which is late.",
@@ -6229,7 +6229,7 @@
   "level": "A1-A2",
   "topic": "famous",
   "generated": true,
-  "title": "Why Clubs Copying a Style",
+  "title": "Barcelona's Playbook",
   "sentences": [
    {
     "text": "Barcelona FC is a famous football club.",
@@ -6555,7 +6555,7 @@
   "level": "A1-A2",
   "topic": "famous",
   "generated": true,
-  "title": "A New Football Style",
+  "title": "Messi's Football Revolution",
   "sentences": [
    {
     "text": "Lionel Messi is a famous football player from Argentina.",
@@ -6732,7 +6732,7 @@
   "level": "A1-A2",
   "topic": "famous",
   "generated": true,
-  "title": "A Phone Launch Event",
+  "title": "The Yearly iPhone Unveil",
   "sentences": [
    {
     "text": "Apple is a famous company from the United States.",
@@ -6917,7 +6917,7 @@
   "level": "A1-A2",
   "topic": "famous",
   "generated": true,
-  "title": "Why Film Series Succeed",
+  "title": "The Magic of Film Franchises",
   "sentences": [
    {
     "text": "A film franchise is a series of films with the same characters or story.",
@@ -7062,7 +7062,7 @@
   "level": "A1-A2",
   "topic": "famous",
   "generated": true,
-  "title": "Success of Animated Series",
+  "title": "Animation's Long-Lasting Hits",
   "sentences": [
    {
     "text": "An animated series is a TV show where characters are drawn or made with computers.",
@@ -7199,6 +7199,1482 @@
     ],
     "answer": 1,
     "explanation": "Adults find the series interesting because it comments on society, as mentioned in the text."
+   }
+  ]
+ },
+ {
+  "id": "a-famous-sportswear-brand",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "A Famous Sportswear Brand",
+  "sentences": [
+   {
+    "text": "Nike is a famous sportswear brand.",
+    "translationRu": "Nike — это известный бренд спортивной одежды."
+   },
+   {
+    "text": "It is known all over the world.",
+    "translationRu": "Он известен по всему миру."
+   },
+   {
+    "text": "Nike sells shoes, clothes, and sports gear.",
+    "translationRu": "Nike продает обувь, одежду и спортивное снаряжение."
+   },
+   {
+    "text": "The company started in 1964.",
+    "translationRu": "Компания начала свою деятельность в 1964 году."
+   },
+   {
+    "text": "It was called Blue Ribbon Sports then.",
+    "translationRu": "Тогда она называлась Blue Ribbon Sports."
+   },
+   {
+    "text": "In 1971, the name changed to Nike.",
+    "translationRu": "В 1971 году название изменилось на Nike."
+   },
+   {
+    "text": "Nike is from the Greek goddess of victory.",
+    "translationRu": "Nike — это имя греческой богини победы."
+   },
+   {
+    "text": "Nike has a famous slogan: 'Just Do It'.",
+    "translationRu": "У Nike есть известный слоган: «Просто сделай это»."
+   },
+   {
+    "text": "This slogan is very popular.",
+    "translationRu": "Этот слоган очень популярен."
+   },
+   {
+    "text": "Many people know it.",
+    "translationRu": "Многие люди его знают."
+   },
+   {
+    "text": "Nike became very famous with one idea.",
+    "translationRu": "Nike стал очень известным благодаря одной идее."
+   },
+   {
+    "text": "The company used endorsements.",
+    "translationRu": "Компания использовала участие известных личностей."
+   },
+   {
+    "text": "An endorsement is when a famous person supports a product.",
+    "translationRu": "Одобрение — это когда известная личность поддерживает продукт."
+   },
+   {
+    "text": "In 1984, Nike signed a deal with Michael Jordan.",
+    "translationRu": "В 1984 году Nike заключил сделку с Майклом Джорданом."
+   },
+   {
+    "text": "Michael Jordan is a famous basketball player.",
+    "translationRu": "Майкл Джордан — известный баскетболист."
+   },
+   {
+    "text": "Nike made special shoes for him.",
+    "translationRu": "Nike создал специальные кроссовки для него."
+   },
+   {
+    "text": "These shoes are called Air Jordans.",
+    "translationRu": "Эти кроссовки называются Air Jordans."
+   },
+   {
+    "text": "Air Jordans became very popular.",
+    "translationRu": "Air Jordans стали очень популярными."
+   },
+   {
+    "text": "Many people bought them.",
+    "translationRu": "Многие люди их покупали."
+   },
+   {
+    "text": "The partnership made Nike very successful.",
+    "translationRu": "Партнёрство сделало Nike очень успешным."
+   },
+   {
+    "text": "Michael Jordan helped Nike become famous.",
+    "translationRu": "Майкл Джордан помог Nike стать известным."
+   },
+   {
+    "text": "The company continues with this idea today.",
+    "translationRu": "Компания продолжает использовать эту идею сегодня."
+   },
+   {
+    "text": "They work with many famous athletes.",
+    "translationRu": "Они работают со многими известными спортсменами."
+   },
+   {
+    "text": "Athletes like Serena Williams and Cristiano Ronaldo wear Nike.",
+    "translationRu": "Спортсмены, такие как Серена Уильямс и Криштиану Роналду, носят Nike."
+   },
+   {
+    "text": "Nike's strategy works very well for them.",
+    "translationRu": "Стратегия Nike работает для них очень хорошо."
+   },
+   {
+    "text": "Many people see athletes wearing Nike.",
+    "translationRu": "Многие люди видят, как спортсмены носят Nike."
+   },
+   {
+    "text": "They want to wear the same brand.",
+    "translationRu": "Они хотят носить тот же бренд."
+   },
+   {
+    "text": "Nike continues to grow and innovate.",
+    "translationRu": "Nike продолжает расти и вводить новшества."
+   },
+   {
+    "text": "They stay a leader in sportswear.",
+    "translationRu": "Они остаются лидером в спортивной одежде."
+   },
+   {
+    "text": "Nike's success comes from smart marketing.",
+    "translationRu": "Успех Nike исходит из умного маркетинга."
+   },
+   {
+    "text": "Endorsements are a big part of it.",
+    "translationRu": "Участие известных личностей — важная часть этого."
+   },
+   {
+    "text": "This helped them become a global brand.",
+    "translationRu": "Это помогло им стать мировым брендом."
+   }
+  ],
+  "glossary": {
+   "slogan": {
+    "translation": "слоган",
+    "partOfSpeech": "noun"
+   },
+   "endorsement": {
+    "translation": "одобрение",
+    "partOfSpeech": "noun"
+   },
+   "deal": {
+    "translation": "сделка",
+    "partOfSpeech": "noun"
+   },
+   "partnership": {
+    "translation": "партнёрство",
+    "partOfSpeech": "noun"
+   },
+   "strategy": {
+    "translation": "стратегия",
+    "partOfSpeech": "noun"
+   },
+   "athlete": {
+    "translation": "спортсмен",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does Nike mainly sell?",
+    "options": [
+     "Shoes and sports gear",
+     "Cars and bikes",
+     "Books and music",
+     "Food and drinks"
+    ],
+    "answer": 0,
+    "explanation": "The text states that Nike sells shoes, clothes, and sports gear."
+   },
+   {
+    "id": "q2",
+    "question": "Who did Nike sign a deal with in 1984?",
+    "options": [
+     "Cristiano Ronaldo",
+     "Serena Williams",
+     "Michael Jordan",
+     "Lionel Messi"
+    ],
+    "answer": 2,
+    "explanation": "The text mentions that Nike signed a deal with Michael Jordan in 1984."
+   },
+   {
+    "id": "q3",
+    "question": "What are Air Jordans?",
+    "options": [
+     "A type of car",
+     "A style of clothes",
+     "A type of shoes",
+     "A music band"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that Air Jordans are special shoes made for Michael Jordan."
+   }
+  ]
+ },
+ {
+  "id": "why-basketball-leagues-excel",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Why Basketball Leagues Excel",
+  "sentences": [
+   {
+    "text": "Basketball is a very popular sport around the world.",
+    "translationRu": "Баскетбол - это очень популярный вид спорта во всем мире."
+   },
+   {
+    "text": "Many people play it in schools and parks.",
+    "translationRu": "Многие люди играют в него в школах и парках."
+   },
+   {
+    "text": "The National Basketball Association (NBA) is the main league for basketball.",
+    "translationRu": "Национальная баскетбольная ассоциация (NBA) - это основная лига по баскетболу."
+   },
+   {
+    "text": "It is based in the United States.",
+    "translationRu": "Она находится в Соединенных Штатах."
+   },
+   {
+    "text": "The NBA started in 1946.",
+    "translationRu": "NBA началась в 1946 году."
+   },
+   {
+    "text": "Today, it is famous all over the world.",
+    "translationRu": "Сегодня она известна во всем мире."
+   },
+   {
+    "text": "Players from many countries join the NBA.",
+    "translationRu": "Игроки из многих стран присоединяются к NBA."
+   },
+   {
+    "text": "Some of these players become very famous.",
+    "translationRu": "Некоторые из этих игроков становятся очень известными."
+   },
+   {
+    "text": "People watch NBA games on TV and online.",
+    "translationRu": "Люди смотрят игры NBA по телевизору и в интернете."
+   },
+   {
+    "text": "The games are often in the top ten of most-watched events.",
+    "translationRu": "Игры часто входят в десятку самых популярных событий."
+   },
+   {
+    "text": "The NBA has many fans because it is exciting.",
+    "translationRu": "У NBA много фанатов, потому что это захватывающе."
+   },
+   {
+    "text": "Every year, there is an All-Star Game.",
+    "translationRu": "Каждый год проводится игра всех звезд."
+   },
+   {
+    "text": "In this game, the best players come together.",
+    "translationRu": "В этой игре собираются лучшие игроки."
+   },
+   {
+    "text": "It is a special event, and many people watch it.",
+    "translationRu": "Это особое событие, и его смотрят многие люди."
+   },
+   {
+    "text": "The NBA also sells many products.",
+    "translationRu": "NBA также продает много товаров."
+   },
+   {
+    "text": "It sells jerseys, hats, and shoes with team logos.",
+    "translationRu": "Она продает футболки, кепки и обувь с логотипами команд."
+   },
+   {
+    "text": "Fans buy these items to support their favorite teams.",
+    "translationRu": "Фанаты покупают эти вещи, чтобы поддержать любимые команды."
+   },
+   {
+    "text": "The league's marketing is very strong.",
+    "translationRu": "Маркетинг лиги очень сильный."
+   },
+   {
+    "text": "This helps it grow in many countries.",
+    "translationRu": "Это помогает ей расти во многих странах."
+   },
+   {
+    "text": "The NBA has a strong presence on social media.",
+    "translationRu": "NBA имеет сильное присутствие в социальных сетях."
+   },
+   {
+    "text": "It shares highlights and player interviews.",
+    "translationRu": "Она делится лучшими моментами и интервью с игроками."
+   },
+   {
+    "text": "This makes the league even more popular.",
+    "translationRu": "Это делает лигу еще более популярной."
+   },
+   {
+    "text": "Many local basketball leagues try to copy the NBA.",
+    "translationRu": "Многие местные баскетбольные лиги стараются копировать NBA."
+   },
+   {
+    "text": "They want the same success in their countries.",
+    "translationRu": "Они хотят такого же успеха в своих странах."
+   },
+   {
+    "text": "The NBA is a role model for them.",
+    "translationRu": "NBA является для них образцом для подражания."
+   },
+   {
+    "text": "This shows how strong the league's influence is.",
+    "translationRu": "Это показывает, насколько сильное влияние у лиги."
+   },
+   {
+    "text": "Thanks to all these factors, the NBA remains on top.",
+    "translationRu": "Благодаря всем этим факторам, NBA остается на вершине."
+   },
+   {
+    "text": "It is truly a global leader in sports.",
+    "translationRu": "Она действительно является мировым лидером в спорте."
+   }
+  ],
+  "glossary": {
+   "league": {
+    "translation": "лига",
+    "partOfSpeech": "noun"
+   },
+   "exciting": {
+    "translation": "захватывающий",
+    "partOfSpeech": "adjective"
+   },
+   "jersey": {
+    "translation": "футболка",
+    "partOfSpeech": "noun"
+   },
+   "highlight": {
+    "translation": "лучший момент",
+    "partOfSpeech": "noun"
+   },
+   "influence": {
+    "translation": "влияние",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "When did the NBA start?",
+    "options": [
+     "1946",
+     "1990",
+     "1973",
+     "1965"
+    ],
+    "answer": 0,
+    "explanation": "The text states that the NBA started in 1946."
+   },
+   {
+    "id": "q2",
+    "question": "What does the NBA sell with team logos?",
+    "options": [
+     "Jerseys and hats",
+     "Bicycles",
+     "Computers",
+     "Water bottles"
+    ],
+    "answer": 0,
+    "explanation": "The text mentions the NBA sells jerseys, hats, and shoes with team logos."
+   },
+   {
+    "id": "q3",
+    "question": "What does the NBA share on social media?",
+    "options": [
+     "Game schedules",
+     "Weather updates",
+     "Highlights and player interviews",
+     "Cooking recipes"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that the NBA shares highlights and player interviews on social media."
+   }
+  ]
+ },
+ {
+  "id": "director-s-unique-approach",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Director's Unique Approach",
+  "sentences": [
+   {
+    "text": "Steven Spielberg is a famous film director.",
+    "translationRu": "Стивен Спилберг — известный режиссер."
+   },
+   {
+    "text": "He makes many popular movies.",
+    "translationRu": "Он снимает много популярных фильмов."
+   },
+   {
+    "text": "Spielberg uses a special way to tell stories.",
+    "translationRu": "Спилберг использует особый способ подачи историй."
+   },
+   {
+    "text": "He mixes fantasy and real life.",
+    "translationRu": "Он смешивает фантазию и реальную жизнь."
+   },
+   {
+    "text": "This makes his movies exciting and emotional.",
+    "translationRu": "Это делает его фильмы захватывающими и эмоциональными."
+   },
+   {
+    "text": "One famous movie is 'Jurassic Park'.",
+    "translationRu": "Один из известных фильмов — это 'Парк Юрского периода'."
+   },
+   {
+    "text": "Dinosaurs come to life in this movie.",
+    "translationRu": "В этом фильме динозавры оживают."
+   },
+   {
+    "text": "Spielberg also directed 'E.T. the Extra-Terrestrial'.",
+    "translationRu": "Спилберг также снял 'Инопланетянин'."
+   },
+   {
+    "text": "It is about a boy and an alien.",
+    "translationRu": "Это история о мальчике и инопланетянине."
+   },
+   {
+    "text": "Spielberg likes to show a child's view of the world.",
+    "translationRu": "Спилберг любит показывать мир глазами ребенка."
+   },
+   {
+    "text": "This makes the movies feel magical.",
+    "translationRu": "Это делает фильмы волшебными."
+   },
+   {
+    "text": "Another movie is 'Schindler's List'.",
+    "translationRu": "Еще один фильм — 'Список Шиндлера'."
+   },
+   {
+    "text": "This movie is about World War II.",
+    "translationRu": "Этот фильм о Второй мировой войне."
+   },
+   {
+    "text": "It shows the courage of a man who saves many lives.",
+    "translationRu": "Он показывает мужество человека, который спасает много жизней."
+   },
+   {
+    "text": "Spielberg uses black and white film for this story.",
+    "translationRu": "Спилберг использует черно-белую пленку для этого фильма."
+   },
+   {
+    "text": "This makes the story feel more serious.",
+    "translationRu": "Это делает историю более серьезной."
+   },
+   {
+    "text": "Spielberg's movies often have strong messages.",
+    "translationRu": "Фильмы Спилберга часто несут мощные послания."
+   },
+   {
+    "text": "He talks about hope, courage, and love.",
+    "translationRu": "Он рассказывает о надежде, мужестве и любви."
+   },
+   {
+    "text": "He also works with famous actors.",
+    "translationRu": "Он также работает с известными актерами."
+   },
+   {
+    "text": "Tom Hanks and Harrison Ford are in his movies.",
+    "translationRu": "Том Хэнкс и Харрисон Форд снимаются в его фильмах."
+   },
+   {
+    "text": "Spielberg does not just make movies for fun.",
+    "translationRu": "Спилберг снимает фильмы не только для развлечения."
+   },
+   {
+    "text": "He wants people to think and feel.",
+    "translationRu": "Он хочет, чтобы люди думали и чувствовали."
+   },
+   {
+    "text": "This makes him different from many other directors.",
+    "translationRu": "Это отличает его от многих других режиссеров."
+   },
+   {
+    "text": "Spielberg's unique style is famous around the world.",
+    "translationRu": "Уникальный стиль Спилберга известен во всем мире."
+   },
+   {
+    "text": "People love his movies for their heart and creativity.",
+    "translationRu": "Люди любят его фильмы за душу и креативность."
+   },
+   {
+    "text": "He continues to make new movies today.",
+    "translationRu": "Он продолжает снимать новые фильмы и сегодня."
+   },
+   {
+    "text": "Many people look forward to his next movie.",
+    "translationRu": "Многие люди с нетерпением ждут его нового фильма."
+   },
+   {
+    "text": "Steven Spielberg is a director who inspires others.",
+    "translationRu": "Стивен Спилберг — режиссер, который вдохновляет других."
+   }
+  ],
+  "glossary": {
+   "director": {
+    "translation": "режиссёр",
+    "partOfSpeech": "noun"
+   },
+   "fantasy": {
+    "translation": "фантазия",
+    "partOfSpeech": "noun"
+   },
+   "emotional": {
+    "translation": "эмоциональный",
+    "partOfSpeech": "adjective"
+   },
+   "courage": {
+    "translation": "мужество",
+    "partOfSpeech": "noun"
+   },
+   "unique": {
+    "translation": "уникальный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is one movie directed by Steven Spielberg?",
+    "options": [
+     "Jurassic Park",
+     "Harry Potter",
+     "Titanic",
+     "The Matrix"
+    ],
+    "answer": 0,
+    "explanation": "'Jurassic Park' is mentioned as a movie directed by Spielberg."
+   },
+   {
+    "id": "q2",
+    "question": "What is special about Spielberg's movies?",
+    "options": [
+     "They are always animated",
+     "They feel magical and exciting",
+     "They are only about space",
+     "They have no famous actors"
+    ],
+    "answer": 1,
+    "explanation": "His movies are described as exciting and emotional with a magical feel."
+   },
+   {
+    "id": "q3",
+    "question": "What type of film does Spielberg use for 'Schindler's List'?",
+    "options": [
+     "Color film",
+     "Digital film",
+     "Black and white film",
+     "Silent film"
+    ],
+    "answer": 2,
+    "explanation": "The text states that he uses black and white film for 'Schindler's List'."
+   }
+  ]
+ },
+ {
+  "id": "social-app-s-impact-on-content",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Social App's Impact on Content",
+  "sentences": [
+   {
+    "text": "Many people use social apps every day.",
+    "translationRu": "Многие люди используют социальные приложения каждый день."
+   },
+   {
+    "text": "These apps have a big impact on what we see and share.",
+    "translationRu": "Эти приложения сильно влияют на то, что мы видим и делимся."
+   },
+   {
+    "text": "One popular app is TikTok.",
+    "translationRu": "Одно популярное приложение - это TikTok."
+   },
+   {
+    "text": "TikTok is known for its short videos.",
+    "translationRu": "TikTok известен своими короткими видео."
+   },
+   {
+    "text": "The app has a recommendation feed.",
+    "translationRu": "У приложения есть рекомендационный фид."
+   },
+   {
+    "text": "This feed shows videos to users based on their interests.",
+    "translationRu": "Этот фид показывает видео пользователям на основе их интересов."
+   },
+   {
+    "text": "This feature is very successful.",
+    "translationRu": "Эта функция очень успешна."
+   },
+   {
+    "text": "Creators make videos that they hope will become popular.",
+    "translationRu": "Создатели создают видео, которые, как они надеются, станут популярными."
+   },
+   {
+    "text": "They want their videos to appear in the recommendation feed.",
+    "translationRu": "Они хотят, чтобы их видео появились в рекомендационном фиде."
+   },
+   {
+    "text": "When a video is popular, more people see it.",
+    "translationRu": "Когда видео популярно, его видит больше людей."
+   },
+   {
+    "text": "This can make the creator famous.",
+    "translationRu": "Это может сделать создателя знаменитым."
+   },
+   {
+    "text": "Many creators follow trends to get more views.",
+    "translationRu": "Многие создатели следуют трендам, чтобы получить больше просмотров."
+   },
+   {
+    "text": "Trends are popular themes or actions in videos.",
+    "translationRu": "Тренды - это популярные темы или действия в видео."
+   },
+   {
+    "text": "When a trend is big, many people copy it.",
+    "translationRu": "Когда тренд велик, многие люди его копируют."
+   },
+   {
+    "text": "This can lead to even more views.",
+    "translationRu": "Это может привести к еще большему числу просмотров."
+   },
+   {
+    "text": "Companies also use TikTok to advertise.",
+    "translationRu": "Компании также используют TikTok для рекламы."
+   },
+   {
+    "text": "They want to reach a young audience.",
+    "translationRu": "Они хотят достичь молодой аудитории."
+   },
+   {
+    "text": "Some companies create their own trends.",
+    "translationRu": "Некоторые компании создают свои собственные тренды."
+   },
+   {
+    "text": "This helps them connect with users.",
+    "translationRu": "Это помогает им связаться с пользователями."
+   },
+   {
+    "text": "The recommendation feed is very powerful.",
+    "translationRu": "Рекомендационный фид очень мощный."
+   },
+   {
+    "text": "It changes how videos are made and shared.",
+    "translationRu": "Он меняет то, как создаются и распространяются видео."
+   },
+   {
+    "text": "Creators think about what will work on the feed.",
+    "translationRu": "Создатели думают о том, что будет работать в фиде."
+   },
+   {
+    "text": "They plan carefully to make popular content.",
+    "translationRu": "Они тщательно планируют, чтобы создать популярный контент."
+   },
+   {
+    "text": "TikTok’s system influences many creators.",
+    "translationRu": "Система TikTok влияет на многих создателей."
+   },
+   {
+    "text": "Even people not on the app are interested.",
+    "translationRu": "Даже люди, которые не в приложении, интересуются."
+   },
+   {
+    "text": "They want to know why videos go viral.",
+    "translationRu": "Они хотят знать, почему видео становятся вирусными."
+   },
+   {
+    "text": "The recommendation feed is an important tool.",
+    "translationRu": "Рекомендационный фид - это важный инструмент."
+   },
+   {
+    "text": "It shapes what content is made today.",
+    "translationRu": "Он формирует, какой контент создается сегодня."
+   }
+  ],
+  "glossary": {
+   "impact": {
+    "translation": "влияние",
+    "partOfSpeech": "noun"
+   },
+   "recommendation": {
+    "translation": "рекомендация",
+    "partOfSpeech": "noun"
+   },
+   "trend": {
+    "translation": "тренд",
+    "partOfSpeech": "noun"
+   },
+   "audience": {
+    "translation": "аудитория",
+    "partOfSpeech": "noun"
+   },
+   "viral": {
+    "translation": "вирусный",
+    "partOfSpeech": "adjective"
+   },
+   "creator": {
+    "translation": "создатель",
+    "partOfSpeech": "noun"
+   },
+   "influence": {
+    "translation": "влиять",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is TikTok known for?",
+    "options": [
+     "Short videos",
+     "Long articles",
+     "Live discussions",
+     "Music playlists"
+    ],
+    "answer": 0,
+    "explanation": "The text states that TikTok is known for its short videos."
+   },
+   {
+    "id": "q2",
+    "question": "Why do companies use TikTok?",
+    "options": [
+     "To make movies",
+     "To reach a young audience",
+     "To print newspapers",
+     "To sell books"
+    ],
+    "answer": 1,
+    "explanation": "According to the text, companies use TikTok to reach a young audience."
+   },
+   {
+    "id": "q3",
+    "question": "What do creators aim for with the recommendation feed?",
+    "options": [
+     "To write books",
+     "To gain followers",
+     "To appear in the feed",
+     "To watch TV"
+    ],
+    "answer": 2,
+    "explanation": "Creators want their videos to appear in the recommendation feed, as stated in the text."
+   }
+  ]
+ },
+ {
+  "id": "animal-crossing-s-broad-appeal",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Animal Crossing's Broad Appeal",
+  "sentences": [
+   {
+    "text": "Animal Crossing is a popular video game.",
+    "translationRu": "Animal Crossing — популярная видеоигра."
+   },
+   {
+    "text": "Many people who do not usually play video games like it.",
+    "translationRu": "Многим людям, которые обычно не играют в видеоигры, она нравится."
+   },
+   {
+    "text": "Why do they like it?",
+    "translationRu": "Почему она им нравится?"
+   },
+   {
+    "text": "The game is about living in a small village.",
+    "translationRu": "Игра о жизни в маленькой деревне."
+   },
+   {
+    "text": "Players have animal friends in the game.",
+    "translationRu": "У игроков есть друзья-животные в игре."
+   },
+   {
+    "text": "They can build a house and decorate it.",
+    "translationRu": "Они могут построить дом и украсить его."
+   },
+   {
+    "text": "The game is not stressful.",
+    "translationRu": "Игра не вызывает стресса."
+   },
+   {
+    "text": "It is very relaxing to play.",
+    "translationRu": "Играть в неё очень расслабляюще."
+   },
+   {
+    "text": "Players do not have to win.",
+    "translationRu": "Игрокам не нужно побеждать."
+   },
+   {
+    "text": "They can play at their own pace.",
+    "translationRu": "Они могут играть в своем собственном темпе."
+   },
+   {
+    "text": "The game has colorful graphics.",
+    "translationRu": "У игры красочная графика."
+   },
+   {
+    "text": "The music is calm and nice.",
+    "translationRu": "Музыка спокойная и приятная."
+   },
+   {
+    "text": "Players talk to their animal friends.",
+    "translationRu": "Игроки разговаривают со своими друзьями-животными."
+   },
+   {
+    "text": "This makes them feel good.",
+    "translationRu": "Это заставляет их чувствовать себя хорошо."
+   },
+   {
+    "text": "The game has special events.",
+    "translationRu": "В игре есть специальные события."
+   },
+   {
+    "text": "Players can celebrate holidays.",
+    "translationRu": "Игроки могут праздновать праздники."
+   },
+   {
+    "text": "They can catch fish and bugs.",
+    "translationRu": "Они могут ловить рыбу и жуков."
+   },
+   {
+    "text": "They can also grow plants.",
+    "translationRu": "Они также могут выращивать растения."
+   },
+   {
+    "text": "Some players like to collect things.",
+    "translationRu": "Некоторые игроки любят собирать вещи."
+   },
+   {
+    "text": "They collect furniture and clothes.",
+    "translationRu": "Они собирают мебель и одежду."
+   },
+   {
+    "text": "These activities are fun for many.",
+    "translationRu": "Эти занятия многим кажутся забавными."
+   },
+   {
+    "text": "The game is also social.",
+    "translationRu": "Игра также социальная."
+   },
+   {
+    "text": "Players can visit each other’s villages.",
+    "translationRu": "Игроки могут посещать деревни друг друга."
+   },
+   {
+    "text": "They can send letters to friends.",
+    "translationRu": "Они могут отправлять письма друзьям."
+   },
+   {
+    "text": "This makes the game special.",
+    "translationRu": "Это делает игру особенной."
+   },
+   {
+    "text": "Animal Crossing offers simple joy.",
+    "translationRu": "Animal Crossing предлагает простую радость."
+   },
+   {
+    "text": "It is easy to understand.",
+    "translationRu": "Она легко понимается."
+   },
+   {
+    "text": "This is why it is popular with all ages.",
+    "translationRu": "Вот почему она популярна среди всех возрастов."
+   },
+   {
+    "text": "It is a perfect way to relax.",
+    "translationRu": "Это идеальный способ расслабиться."
+   },
+   {
+    "text": "Animal Crossing feels like a small, happy world.",
+    "translationRu": "Animal Crossing ощущается как маленький, счастливый мир."
+   },
+   {
+    "text": "That feeling attracts many players.",
+    "translationRu": "Это чувство привлекает многих игроков."
+   }
+  ],
+  "glossary": {
+   "village": {
+    "translation": "деревня",
+    "partOfSpeech": "noun"
+   },
+   "decorate": {
+    "translation": "украшать",
+    "partOfSpeech": "verb"
+   },
+   "pace": {
+    "translation": "темп",
+    "partOfSpeech": "noun"
+   },
+   "graphics": {
+    "translation": "графика",
+    "partOfSpeech": "noun"
+   },
+   "celebrate": {
+    "translation": "праздновать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is Animal Crossing about?",
+    "options": [
+     "Living in a small village",
+     "Fighting monsters",
+     "Racing cars",
+     "Solving puzzles"
+    ],
+    "answer": 0,
+    "explanation": "The text states that Animal Crossing is about living in a small village."
+   },
+   {
+    "id": "q2",
+    "question": "Why do many people like Animal Crossing?",
+    "options": [
+     "It is stressful",
+     "It is simple and fun",
+     "It has difficult levels",
+     "It is very realistic"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that many people like Animal Crossing because it is simple and fun."
+   },
+   {
+    "id": "q3",
+    "question": "What can players do in the game?",
+    "options": [
+     "Build cars",
+     "Fight enemies",
+     "Grow plants",
+     "Solve mysteries"
+    ],
+    "answer": 2,
+    "explanation": "Players can grow plants, as mentioned in the text."
+   }
+  ]
+ },
+ {
+  "id": "music-industry-changes",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Music Industry Changes",
+  "sentences": [
+   {
+    "text": "In the past, people buy music on CDs.",
+    "translationRu": "В прошлом люди покупали музыку на компакт-дисках."
+   },
+   {
+    "text": "They listen to songs on radios and at concerts.",
+    "translationRu": "Они слушали песни по радио и на концертах."
+   },
+   {
+    "text": "Then something new happens.",
+    "translationRu": "Потом происходит что-то новое."
+   },
+   {
+    "text": "The internet starts to change everything.",
+    "translationRu": "Интернет начинает менять всё."
+   },
+   {
+    "text": "People can now download music.",
+    "translationRu": "Теперь люди могут скачивать музыку."
+   },
+   {
+    "text": "Many people start using new websites.",
+    "translationRu": "Многие люди начинают использовать новые сайты."
+   },
+   {
+    "text": "They can find songs online.",
+    "translationRu": "Они могут находить песни в интернете."
+   },
+   {
+    "text": "Some music is free.",
+    "translationRu": "Некоторая музыка бесплатная."
+   },
+   {
+    "text": "This is bad for some companies.",
+    "translationRu": "Это плохо для некоторых компаний."
+   },
+   {
+    "text": "Record stores sell fewer CDs.",
+    "translationRu": "Магазины пластинок продают меньше компакт-дисков."
+   },
+   {
+    "text": "Many stores close.",
+    "translationRu": "Многие магазины закрываются."
+   },
+   {
+    "text": "But not everyone is sad.",
+    "translationRu": "Но не все грустят."
+   },
+   {
+    "text": "Some artists like the change.",
+    "translationRu": "Некоторым артистам нравится это изменение."
+   },
+   {
+    "text": "They can reach more fans online.",
+    "translationRu": "Они могут достичь большего количества фанатов онлайн."
+   },
+   {
+    "text": "They sell songs directly to listeners.",
+    "translationRu": "Они продают песни напрямую слушателям."
+   },
+   {
+    "text": "New platforms help them.",
+    "translationRu": "Новые платформы помогают им."
+   },
+   {
+    "text": "iTunes is one famous example.",
+    "translationRu": "iTunes — один известный пример."
+   },
+   {
+    "text": "People buy songs online legally.",
+    "translationRu": "Люди покупают песни в интернете легально."
+   },
+   {
+    "text": "Streaming services like Spotify also grow.",
+    "translationRu": "Сервисы потоковой передачи, такие как Spotify, тоже растут."
+   },
+   {
+    "text": "They offer music for a monthly fee.",
+    "translationRu": "Они предлагают музыку за ежемесячную плату."
+   },
+   {
+    "text": "Now, many people do not buy CDs.",
+    "translationRu": "Сейчас многие люди не покупают компакт-диски."
+   },
+   {
+    "text": "They stream or download songs.",
+    "translationRu": "Они стримят или скачивают песни."
+   },
+   {
+    "text": "The music industry changes a lot.",
+    "translationRu": "Музыкальная индустрия сильно меняется."
+   },
+   {
+    "text": "Some companies struggle, but some succeed.",
+    "translationRu": "Некоторые компании испытывают трудности, но некоторые добиваются успеха."
+   },
+   {
+    "text": "Artists have more ways to share music.",
+    "translationRu": "У артистов больше способов делиться музыкой."
+   },
+   {
+    "text": "The internet opens new doors.",
+    "translationRu": "Интернет открывает новые двери."
+   },
+   {
+    "text": "The world of music is now very different.",
+    "translationRu": "Мир музыки теперь очень отличается."
+   }
+  ],
+  "glossary": {
+   "concert": {
+    "translation": "концерт",
+    "partOfSpeech": "noun"
+   },
+   "download": {
+    "translation": "скачивать",
+    "partOfSpeech": "verb"
+   },
+   "record": {
+    "translation": "запись",
+    "partOfSpeech": "noun"
+   },
+   "artist": {
+    "translation": "артист",
+    "partOfSpeech": "noun"
+   },
+   "stream": {
+    "translation": "передавать поток",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "How did people mostly buy music in the past?",
+    "options": [
+     "On CDs",
+     "Online",
+     "From friends",
+     "At concerts"
+    ],
+    "answer": 0,
+    "explanation": "The text says people buy music on CDs in the past."
+   },
+   {
+    "id": "q2",
+    "question": "What problem do record stores face?",
+    "options": [
+     "High rent",
+     "Fewer CD sales",
+     "No customers",
+     "Too many orders"
+    ],
+    "answer": 1,
+    "explanation": "The text mentions that record stores sell fewer CDs."
+   },
+   {
+    "id": "q3",
+    "question": "What does iTunes help people do?",
+    "options": [
+     "Listen to radio",
+     "Buy songs legally",
+     "Chat with artists",
+     "Watch movies"
+    ],
+    "answer": 1,
+    "explanation": "According to the text, iTunes helps people buy songs online legally."
+   }
+  ]
+ },
+ {
+  "id": "search-company-to-os-giant",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Search Company to OS Giant",
+  "sentences": [
+   {
+    "text": "Google starts as a search company.",
+    "translationRu": "Google начиналась как поисковая компания."
+   },
+   {
+    "text": "It helps people find information online.",
+    "translationRu": "Она помогает людям находить информацию в интернете."
+   },
+   {
+    "text": "Google becomes very popular.",
+    "translationRu": "Google становится очень популярной."
+   },
+   {
+    "text": "Many people use Google every day.",
+    "translationRu": "Много людей используют Google каждый день."
+   },
+   {
+    "text": "Google wants to do more than search.",
+    "translationRu": "Google хочет делать больше, чем просто поиск."
+   },
+   {
+    "text": "In 2005, Google buys a company called Android.",
+    "translationRu": "В 2005 году Google покупает компанию под названием Android."
+   },
+   {
+    "text": "Android makes software for phones.",
+    "translationRu": "Android делает программы для телефонов."
+   },
+   {
+    "text": "Google works hard on Android.",
+    "translationRu": "Google усердно работает над Android."
+   },
+   {
+    "text": "In 2008, Google releases the first Android phone.",
+    "translationRu": "В 2008 году Google выпускает первый телефон на Android."
+   },
+   {
+    "text": "It is a big step for Google.",
+    "translationRu": "Это большой шаг для Google."
+   },
+   {
+    "text": "Android is open for all phone makers.",
+    "translationRu": "Android открыт для всех производителей телефонов."
+   },
+   {
+    "text": "Many companies use Android now.",
+    "translationRu": "Многие компании сейчас используют Android."
+   },
+   {
+    "text": "It becomes the most popular phone system in the world.",
+    "translationRu": "Он становится самой популярной операционной системой для телефонов в мире."
+   },
+   {
+    "text": "Android is easy to use.",
+    "translationRu": "Android легок в использовании."
+   },
+   {
+    "text": "It has many apps.",
+    "translationRu": "У него много приложений."
+   },
+   {
+    "text": "Developers like to make apps for Android.",
+    "translationRu": "Разработчики любят создавать приложения для Android."
+   },
+   {
+    "text": "Google Play is the store for Android apps.",
+    "translationRu": "Google Play — это магазин приложений для Android."
+   },
+   {
+    "text": "Millions of apps are on Google Play.",
+    "translationRu": "Миллионы приложений находятся в Google Play."
+   },
+   {
+    "text": "Google updates Android every year.",
+    "translationRu": "Google обновляет Android каждый год."
+   },
+   {
+    "text": "New versions have better features.",
+    "translationRu": "Новые версии имеют улучшенные функции."
+   },
+   {
+    "text": "Android helps Google grow.",
+    "translationRu": "Android помогает Google расти."
+   },
+   {
+    "text": "Now, Google is not just a search company.",
+    "translationRu": "Теперь Google — это не просто поисковая компания."
+   },
+   {
+    "text": "It is also a leader in phone systems.",
+    "translationRu": "Это также лидер в системах для телефонов."
+   },
+   {
+    "text": "Google shows that change is good.",
+    "translationRu": "Google показывает, что изменения — это хорошо."
+   },
+   {
+    "text": "The story of Google and Android is a success.",
+    "translationRu": "История Google и Android — это пример успеха."
+   },
+   {
+    "text": "Many people use Android phones today.",
+    "translationRu": "Сегодня многие люди используют телефоны на Android."
+   },
+   {
+    "text": "They are part of Google's big achievement.",
+    "translationRu": "Они являются частью большого достижения Google."
+   }
+  ],
+  "glossary": {
+   "search": {
+    "translation": "поиск",
+    "partOfSpeech": "noun"
+   },
+   "release": {
+    "translation": "выпускать",
+    "partOfSpeech": "verb"
+   },
+   "update": {
+    "translation": "обновлять",
+    "partOfSpeech": "verb"
+   },
+   "developer": {
+    "translation": "разработчик",
+    "partOfSpeech": "noun"
+   },
+   "feature": {
+    "translation": "функция",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does Google initially start as?",
+    "options": [
+     "A search company",
+     "A phone maker",
+     "An app developer",
+     "A store"
+    ],
+    "answer": 0,
+    "explanation": "The text states that Google starts as a search company."
+   },
+   {
+    "id": "q2",
+    "question": "When does Google release the first Android phone?",
+    "options": [
+     "2005",
+     "2008",
+     "2010",
+     "2012"
+    ],
+    "answer": 1,
+    "explanation": "The text mentions that the first Android phone releases in 2008."
+   },
+   {
+    "id": "q3",
+    "question": "What is Google Play?",
+    "options": [
+     "A search engine",
+     "A phone",
+     "An app store",
+     "A software update"
+    ],
+    "answer": 2,
+    "explanation": "The text describes Google Play as the store for Android apps."
+   }
+  ]
+ },
+ {
+  "id": "hockey-league-s-long-season",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Hockey League's Long Season",
+  "sentences": [
+   {
+    "text": "The National Hockey League (NHL) is famous around the world.",
+    "translationRu": "Национальная хоккейная лига (НХЛ) знаменита во всем мире."
+   },
+   {
+    "text": "It is a professional ice hockey league in North America.",
+    "translationRu": "Это профессиональная лига хоккея с шайбой в Северной Америке."
+   },
+   {
+    "text": "Many people watch NHL games every year.",
+    "translationRu": "Многие люди смотрят игры НХЛ каждый год."
+   },
+   {
+    "text": "The NHL season is very long.",
+    "translationRu": "Сезон НХЛ очень долгий."
+   },
+   {
+    "text": "It starts in October and finishes in June.",
+    "translationRu": "Он начинается в октябре и заканчивается в июне."
+   },
+   {
+    "text": "The season has 82 games for each team.",
+    "translationRu": "Сезон состоит из 82 игр для каждой команды."
+   },
+   {
+    "text": "People might ask why it is so long.",
+    "translationRu": "Люди могут спросить, почему он такой долгий."
+   },
+   {
+    "text": "The long season helps teams play against each other many times.",
+    "translationRu": "Долгий сезон помогает командам играть друг с другом много раз."
+   },
+   {
+    "text": "This gives a fair chance to find the best team.",
+    "translationRu": "Это дает честный шанс определить лучшую команду."
+   },
+   {
+    "text": "Hockey is a team sport.",
+    "translationRu": "Хоккей - это командный вид спорта."
+   },
+   {
+    "text": "Each game can be different.",
+    "translationRu": "Каждая игра может быть другой."
+   },
+   {
+    "text": "Players get better as they play more games.",
+    "translationRu": "Игроки становятся лучше, когда играют больше игр."
+   },
+   {
+    "text": "A long season also makes more exciting games.",
+    "translationRu": "Долгий сезон также создаёт более захватывающие игры."
+   },
+   {
+    "text": "Fans enjoy watching many games.",
+    "translationRu": "Фанатам нравится смотреть много игр."
+   },
+   {
+    "text": "More games mean more fun for fans.",
+    "translationRu": "Больше игр означает больше удовольствия для фанатов."
+   },
+   {
+    "text": "The league wants to keep fans happy.",
+    "translationRu": "Лига хочет, чтобы фанаты были довольны."
+   },
+   {
+    "text": "Hockey is a popular sport in North America.",
+    "translationRu": "Хоккей - популярный спорт в Северной Америке."
+   },
+   {
+    "text": "Canada and the United States have many hockey fans.",
+    "translationRu": "В Канаде и США много фанатов хоккея."
+   },
+   {
+    "text": "The NHL season has regular games and playoffs.",
+    "translationRu": "В сезоне НХЛ есть регулярные игры и плей-офф."
+   },
+   {
+    "text": "In the playoffs, only the best teams play.",
+    "translationRu": "В плей-офф играют только лучшие команды."
+   },
+   {
+    "text": "Playoffs make the end of the season very exciting.",
+    "translationRu": "Плей-офф делает конец сезона очень захватывающим."
+   },
+   {
+    "text": "The Stanley Cup is the final goal for every team.",
+    "translationRu": "Кубок Стэнли - это конечная цель для каждой команды."
+   },
+   {
+    "text": "Winning the Stanley Cup is a big honor.",
+    "translationRu": "Выиграть Кубок Стэнли - это большая честь."
+   },
+   {
+    "text": "Teams work hard all season to win it.",
+    "translationRu": "Команды усердно работают весь сезон, чтобы выиграть его."
+   },
+   {
+    "text": "Fans cheer for their teams all season long.",
+    "translationRu": "Фанаты поддерживают свои команды весь сезон."
+   },
+   {
+    "text": "The long NHL season is important for teams and fans.",
+    "translationRu": "Долгий сезон НХЛ важен для команд и фанатов."
+   },
+   {
+    "text": "It brings excitement and competition to many people.",
+    "translationRu": "Он приносит волнение и соревнование многим людям."
+   }
+  ],
+  "glossary": {
+   "league": {
+    "translation": "лига",
+    "partOfSpeech": "noun"
+   },
+   "professional": {
+    "translation": "профессиональный",
+    "partOfSpeech": "adjective"
+   },
+   "playoffs": {
+    "translation": "плей-офф",
+    "partOfSpeech": "noun"
+   },
+   "exciting": {
+    "translation": "захватывающий",
+    "partOfSpeech": "adjective"
+   },
+   "stanley cup": {
+    "translation": "Кубок Стэнли",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "When does the NHL season start?",
+    "options": [
+     "October",
+     "December",
+     "June",
+     "August"
+    ],
+    "answer": 0,
+    "explanation": "The text states that the NHL season starts in October."
+   },
+   {
+    "id": "q2",
+    "question": "Why is the NHL season long?",
+    "options": [
+     "To make more money",
+     "To find the best team",
+     "To include more teams",
+     "To shorten the playoffs"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that a long season helps find the best team."
+   },
+   {
+    "id": "q3",
+    "question": "What is the final goal for every NHL team?",
+    "options": [
+     "To play more games",
+     "To find more fans",
+     "To win the Stanley Cup",
+     "To improve skills"
+    ],
+    "answer": 2,
+    "explanation": "The text mentions that the Stanley Cup is the final goal for every team."
    }
   ]
  }
