@@ -288,14 +288,65 @@
   color: var(--color-text);
 }
 
-/* The words this text was written around. Mint, because they are the one
-   thing on the card that belongs to the learner. */
-.rd-desk__words {
+/* What the card used to end with was the list of words the text was built
+   around — "concede · threshold · vivid". The argument was that seeing the
+   word is what makes somebody open it. In practice it is a row of stems under
+   a title, and it told the reader what the text was *for* instead of what it
+   was about, which is the one thing a title already does better. */
+
+.rd-desk__sub {
   margin-top: auto;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.6;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* Four to a row: today's three, and the one you ask for. */
+.rd-deskRow {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .rd-deskRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .rd-deskRow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.rd-deskTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* The one card that makes something rather than opening something: a mint
+   hairline and a plus where the others carry a level. */
+.rd-desk--make {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-border));
+}
+
+.rd-desk--make:hover {
+  border-color: var(--color-primary);
+}
+
+.rd-desk__plus {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
   color: var(--color-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .rd-desk__done {
@@ -345,4 +396,69 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-text);
+}
+
+/* ── The shelf of one band ────────────────────────────────────────────── */
+
+/*
+ * Texts in columns, not in a stack.
+ *
+ * It was one row per text across the full width, which on a laptop is a short
+ * title in the left third and two thirds of nothing — and the band cards
+ * directly above it fit four across. A list down a narrow strip of a wide
+ * screen manages to waste space horizontally and cost scrolling vertically at
+ * the same time.
+ */
+.rd-list {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .rd-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .rd-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.rd-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 14px 15px 15px;
+}
+
+.rd-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rd-row__score {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-success);
+}
+
+.rd-row__title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+
+.rd-row__meta {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: var(--color-text-faint);
 }

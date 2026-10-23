@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { getLearnerProfile, isOnboardingDeferred } from "@/lib/learnerProfile";
+import { syncSettled, whenSynced } from "@/lib/sync";
 
 /**
  * The wall around the learning sections.
@@ -18,9 +20,23 @@ export function RequireAuth() {
   const { user, loading } = useAuth();
   const location = useLocation();
 
+  /* The same wait as on "/": the profile comes from the server, and until it
+     has, an empty device copy is indistinguishable from an unanswered
+     questionnaire. See the note in src/lib/sync.ts. */
+  const [synced, setSynced] = useState(syncSettled);
+
+  useEffect(() => {
+    if (synced) return;
+    let live = true;
+    void whenSynced().then(() => live && setSynced(true));
+    return () => {
+      live = false;
+    };
+  }, [synced]);
+
   // Restoring a session takes a moment. Redirecting during it would bounce a
   // signed-in user to the login screen on every hard refresh.
-  if (loading) {
+  if (loading || (user && !synced)) {
     return (
       <div className="mx-auto max-w-6xl px-5 py-10">
         <div className="skeleton h-8 w-48 rounded-[var(--radius-sm)]" />

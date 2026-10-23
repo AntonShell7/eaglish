@@ -338,7 +338,13 @@ async function runRefresh(options: DeskOptions, today: number): Promise<DeskStat
     if (targets.length < MIN_WORDS) break;
 
     const topic = topics.length > 0 ? topics[slot % topics.length] : "everyday life";
-    const result = await generatePersonalText({ level, topic, targets });
+    /* One of the three is Advanced for anybody past A2. It is a register
+       rather than a band — idiom and literary vocabulary on B2 syntax — so it
+       is readable at B1 and is the part of the language a learner will not
+       meet anywhere else in the app. The other two stay at their own level,
+       because three hard texts is not a day's work, it is a day skipped. */
+    const register = slot % 3 === 2 && level !== "A1-A2" ? ("advanced" as const) : level;
+    const result = await generatePersonalText({ level: register, topic, targets });
 
     if ("error" in result) {
       failed = true;

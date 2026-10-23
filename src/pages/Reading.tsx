@@ -112,51 +112,51 @@ function LevelGrid({
         {t("reading.tagline")}
       </p>
 
-      {(desk.length > 0 || deskState === "loading") && (
-        <section className="mt-8">
-          <h2 className="eyebrow">{t("reading.deskTitle")}</h2>
-          <div data-stagger className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {desk.map(({ text, read }) => (
-              <button
-                key={text.id}
-                type="button"
-                onClick={() => onOpenText(text)}
-                className={read ? "rd-desk card card--interactive is-read" : "rd-desk card card--interactive"}
-              >
-                <span className="rd-desk__top">
-                  <span className="level">{text.level}</span>
-                  {/* Finished texts are replaced tomorrow, and saying so is
-                      what stops "it disappeared" reading as a bug. */}
-                  {read && <span className="rd-desk__done">{t("reading.deskRead")}</span>}
+      {/* Today's three, and the way to ask for a fourth.
+          The door used to be a full-width black slab of its own under the
+          desk, which made the optional thing the largest object on the page
+          and pushed the shelf below the fold. It is a card in the same row
+          now, the same size as what it produces — which is also what it is:
+          one more of these, on a subject you choose. */}
+      <section className="mt-8">
+        <h2 className="rd-deskTitle">{t("reading.deskTitle")}</h2>
+        <div data-stagger className="rd-deskRow mt-3">
+          {desk.map(({ text, read }) => (
+            <button
+              key={text.id}
+              type="button"
+              onClick={() => onOpenText(text)}
+              className={read ? "rd-desk card card--interactive is-read" : "rd-desk card card--interactive"}
+            >
+              <span className="rd-desk__top">
+                <span className="level">
+                  {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
                 </span>
-                <span className="rd-desk__title">{text.title}</span>
-                {/* The words themselves, not a count: seeing "concede" is what
-                    makes somebody open it, and "5 words" is not. */}
-                <span className="rd-desk__words">{text.targets.join(" · ")}</span>
-              </button>
+                {/* Finished texts are replaced tomorrow, and saying so is
+                    what stops "it disappeared" reading as a bug. */}
+                {read && <span className="rd-desk__done">{t("reading.deskRead")}</span>}
+              </span>
+              <span className="rd-desk__title">{text.title}</span>
+            </button>
+          ))}
+
+          {/* Placeholders while the rest of today's desk is being written. */}
+          {deskState === "loading" &&
+            Array.from({ length: Math.max(0, 3 - desk.length) }).map((_, i) => (
+              <span key={`skeleton-${i}`} className="rd-desk rd-desk--pending card" aria-hidden />
             ))}
 
-            {/* Placeholders while the rest of today's desk is being written. */}
-            {deskState === "loading" &&
-              Array.from({ length: Math.max(0, 3 - desk.length) }).map((_, i) => (
-                <span key={`skeleton-${i}`} className="rd-desk rd-desk--pending card" aria-hidden />
-              ))}
-          </div>
-        </section>
-      )}
-
-      {/* The loop the whole app is built on, and the only thing on this page
-          that writes something rather than listing it. It spent a while
-          dressed as one of the shelf cards, on the argument that position
-          says "first" and costs no colour. Position says "first" to somebody
-          already reading top to bottom; four level cards underneath are
-          brighter objects than a hairline rectangle, and the eye goes to them.
-          It gets the generator's own ground now — the black panel it opens
-          onto — so the shelf reads as one offer and four doors. */}
-      <button type="button" onClick={onPersonal} className="forge forge--door mt-8 w-full text-left">
-        <span className="forge__door-h">{t("reading.personalTitle")} →</span>
-        <span className="forge__door-p">{t("reading.personalTeaser")}</span>
-      </button>
+          <button type="button" onClick={onPersonal} className="rd-desk rd-desk--make card card--interactive">
+            <span className="rd-desk__top">
+              <span className="rd-desk__plus" aria-hidden>
+                +
+              </span>
+            </span>
+            <span className="rd-desk__title">{t("reading.personalTitle")}</span>
+            <span className="rd-desk__sub">{t("reading.personalTeaser")}</span>
+          </button>
+        </div>
+      </section>
 
       <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {ordered.map((level) => {
@@ -292,29 +292,41 @@ function TextList({
         <LevelFilter value={level} counts={counts} onChange={setLevel} />
       </div>
 
-      <div data-stagger className="mt-6 space-y-2">
-        {visible.map(({ text, coverage, recycled }) => {
+      {/* Three to a row where there is room. One text per line left two
+          thirds of the page empty on a laptop — the shelf above it fits four
+          cards across, and a list of short titles down a narrow strip of a
+          wide screen is the one layout that wastes space in both directions. */}
+      <div data-stagger className="rd-list mt-6">
+        {visible.map(({ text, recycled }) => {
           const best = quiz.filter((r) => r.textId === text.id).reduce((max, r) => Math.max(max, r.correct), -1);
           return (
             <button
               key={text.id}
               type="button"
               onClick={() => onPick(text)}
-              className="card card--interactive card--accent flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left"
+              className="card card--interactive card--accent rd-row text-left"
               style={best >= 0 ? { borderColor: "var(--color-success)" } : undefined}
             >
               {/* The level leads, because difficulty is what a reader sorts on
                   before the subject. Measured where the frequency list has
                   loaded, published band until then — never absent. */}
-              <span className="level flex-none">{measured[text.id] ?? text.level}</span>
+              <span className="rd-row__top">
+                <span className="level flex-none">{measured[text.id] ?? text.level}</span>
+                {best >= 0 && (
+                  <span className="rd-row__score">
+                    ✓ {best}/{text.questions.length}
+                  </span>
+                )}
+              </span>
 
-              <span className="min-w-0 flex-1">
-                <span className="block text-sm font-semibold">{text.title}</span>
-                <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
-                  {t("reading.minRead", { count: minutesFor(text) })} ·{" "}
-                  {t("reading.words", { count: wordCount(text) })}
-                  {coverage && ` · ${t("reading.knownShare", { percent: Math.round(coverage.known * 100) })}`}
-                </span>
+              <span className="min-w-0">
+                <span className="rd-row__title">{text.title}</span>
+                {/* The length, and nothing else. Reading time was the same
+                    fact divided by a constant, and the share of known words
+                    was a percentage that moves on its own and that nobody
+                    picks a text by — three numbers under every title, two of
+                    them restating the third. */}
+                <span className="rd-row__meta">{t("reading.words", { count: wordCount(text) })}</span>
 
                 {/* Only rendered when there is something to say. The wrapper
                     used to sit on every row carrying its own top margin, which
@@ -331,12 +343,6 @@ function TextList({
                   </span>
                 )}
               </span>
-
-              {best >= 0 && (
-                <span className="flex-none text-xs font-bold" style={{ color: "var(--color-success)" }}>
-                  ✓ {best}/{text.questions.length}
-                </span>
-              )}
             </button>
           );
         })}

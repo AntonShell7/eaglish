@@ -358,15 +358,52 @@ function pushLocalState() {
 export async function setSyncUser(userId: string | null) {
   const changed = userId !== currentUserId;
   currentUserId = userId;
-  if (!userId || !changed || !supabase) return;
-
-  try {
-    await pullAll();
-    pushLocalState();
-    flushPending();
-  } catch (error) {
-    warn("initial sync", error);
+  if (!userId || !supabase) {
+    settle();
+    return;
   }
+  if (!changed) return;
+
+  firstPull = (async () => {
+    try {
+      await pullAll();
+      pushLocalState();
+      flushPending();
+    } catch (error) {
+      warn("initial sync", error);
+    }
+  })().finally(settle);
+
+  await firstPull;
+}
+
+/**
+ * Whether this device has finished its first read from the server.
+ *
+ * It exists because of one bug and it is worth naming. The learner profile —
+ * level, goal, daily goal — is written to the device and to the server, and
+ * read from the device. On a browser that has not been used before, the
+ * device copy is empty until this pull finishes, so for a second or two after
+ * signing in the app cannot tell "has not answered the questions" from "has
+ * not been told yet". It told people who had answered them months ago to
+ * answer them again, and only sometimes, which is exactly how a race looks.
+ *
+ * So anything whose answer changes depending on what the server holds waits
+ * for this instead of guessing.
+ */
+let firstPull: Promise<void> | null = null;
+let settled = false;
+
+function settle() {
+  settled = true;
+}
+
+export function syncSettled(): boolean {
+  return settled;
+}
+
+export function whenSynced(): Promise<void> {
+  return firstPull ?? Promise.resolve();
 }
 
 export { ACTIVITY_KINDS };

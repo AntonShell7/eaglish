@@ -39,6 +39,8 @@ export const TARGET_WORDS = 6;
 export interface PersonalText extends ReadingText {
   /** The learning words this text was built around. */
   targets: string[];
+  /** Set when it was written in the Advanced register rather than to a band. */
+  register?: "advanced";
   createdAt: number;
 }
 
@@ -85,22 +87,36 @@ export function pickTargets(limit = TARGET_WORDS): string[] {
 /* Longer than they were — 180 words was a page you finish before the subject
    has gone anywhere, and a text that short cannot carry six words twice each
    without reading as a word list with punctuation. */
-const LEVEL_BRIEF: Record<ReadingLevel, string> = {
+/**
+ * The fourth register.
+ *
+ * "Advanced" is not a CEFR band and deliberately so: it is the idiom and the
+ * literary vocabulary that sits on no syllabus, and a B1 reader gets as much
+ * out of meeting "a foregone conclusion" in a text they can follow as a C2
+ * reader does. So it is a register the generator can be asked for rather than
+ * a level a learner is assigned to, and the daily desk asks for one of these
+ * for anybody at B1 and above.
+ */
+export type TextRegister = ReadingLevel | "advanced";
+
+const LEVEL_BRIEF: Record<TextRegister, string> = {
   "A1-A2": "Very simple English: present and past simple, short sentences, the most common words. 280 to 360 words.",
   "B1-B2":
     "Everyday and semi-formal English: mixed tenses, linking words, some phrasal verbs, varied sentence length. 420 to 560 words.",
   "C1-C2":
     "Advanced English: argument rather than description, precise collocation, hedging, some abstract nouns. Dense but readable. 520 to 700 words.",
+  advanced:
+    "The register of a good long-form essay rather than a grammar exercise. Grammar no harder than B2 — the difficulty is the vocabulary, not the syntax — so a confident B1 reader can follow every sentence while meeting English no coursebook prints. Work in at least four idioms or figurative expressions and at least six words of literary or academic register, all of them carrying meaning rather than decorating. A sentence or two of genuinely informal English is welcome where the subject invites it. 450 to 620 words.",
 };
 
 export interface PersonalTextOptions {
-  level: ReadingLevel;
+  level: TextRegister;
   topic: string;
   targets: string[];
 }
 
 function buildPrompt({ level, topic, targets }: PersonalTextOptions) {
-  return `Write one reading text for an English learner at CEFR ${level}.
+  return `Write one reading text for an English learner${level === "advanced" ? "" : ` at CEFR ${level}`}.
 
 TOPIC: ${topic}
 LEVEL: ${LEVEL_BRIEF[level]}
@@ -261,7 +277,12 @@ export async function generatePersonalText(options: PersonalTextOptions): Promis
 
     const text: PersonalText = {
       id: `personal-${Date.now()}`,
-      level: options.level,
+      /* The badge is a band, because every reader of a ReadingText expects
+         one. The register rides alongside it rather than inside it: an
+         Advanced text is C-level in vocabulary and B-level in syntax, and
+         flattening that into one label would lose the half that matters. */
+      level: options.level === "advanced" ? "C1-C2" : options.level,
+      register: options.level === "advanced" ? "advanced" : undefined,
       topic: "personal",
       generated: true,
       title: String(raw.title ?? "").trim() || options.topic,

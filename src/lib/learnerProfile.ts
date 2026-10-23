@@ -52,17 +52,18 @@ const STORAGE_KEY = "learnerProfile";
  * every text it offers. But opening by itself has to be escapable, or the
  * "later" link becomes a loop: skip, land on home, get sent straight back.
  *
- * Deferring is remembered per device and cleared on sign-out, like the rest
- * of a learner's local state. There is no expiry: the dashboard already
- * carries a standing invitation to set a level, and a flow that reappears
- * after someone has declined it is a flow people learn to click past without
- * reading.
+ * "Later" means later, not never. It used to be remembered forever on the
+ * device, which meant one tap on the way in and the app spent the rest of
+ * that person's time guessing at their level — and the standing invitation on
+ * the dashboard is not a substitute, because the people who skipped the
+ * questions are exactly the people not reading a hairline card. It lasts the
+ * session now: the next visit asks again, and answering is what stops it.
  */
 const DEFER_KEY = "onboardingDeferred";
 
 export function deferOnboarding() {
   try {
-    localStorage.setItem(DEFER_KEY, "1");
+    sessionStorage.setItem(DEFER_KEY, "1");
   } catch {
     /* Storage disabled; onboarding will offer itself again, which is the
        harmless direction to fail in. */
@@ -71,7 +72,7 @@ export function deferOnboarding() {
 
 export function isOnboardingDeferred(): boolean {
   try {
-    return localStorage.getItem(DEFER_KEY) === "1";
+    return sessionStorage.getItem(DEFER_KEY) === "1";
   } catch {
     return false;
   }
