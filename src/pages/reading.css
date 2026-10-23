@@ -462,3 +462,133 @@
   font-size: 0.76rem;
   color: var(--color-text-faint);
 }
+
+/* ── How far a reader got ─────────────────────────────────────────────── */
+
+/*
+ * Three states on a shelf of fifty: untouched, opened, finished.
+ *
+ * Without them the list has no memory, and a reader opens the same text twice
+ * by accident while thirty they have never seen sit below it. Finished ones
+ * are not hidden — people go back — they simply stop competing for the top of
+ * the list, and they fade enough that the eye skips them on the way down.
+ */
+.rd-row__state {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-sky);
+}
+
+.rd-row__state.is-done {
+  color: var(--color-success);
+}
+
+.rd-row.is-done {
+  opacity: 0.62;
+}
+
+.rd-row.is-done:hover {
+  opacity: 1;
+}
+
+/*
+ * The crown: at most two per shelf.
+ *
+ * It marks the texts holding the most words this reader is due to review, and
+ * meeting a word inside a sentence is worth more than meeting it on a card.
+ * Rare on purpose — a crown awarded to the best of a weak field is a crown
+ * people learn to ignore.
+ */
+.rd-row.is-crowned {
+  border-color: color-mix(in srgb, var(--color-sky) 60%, var(--color-border));
+  background:
+    linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--color-sky) 9%, transparent),
+      transparent 62%
+    ),
+    var(--color-surface);
+}
+
+.rd-row__crown {
+  margin-left: auto;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-sky);
+}
+
+.rd-row__state {
+  margin-left: auto;
+}
+
+.rd-row__crown + .rd-row__state {
+  margin-left: 0;
+}
+
+
+/* ── The four bands ───────────────────────────────────────────────────── */
+
+/*
+ * A colour per band, and it is a ramp rather than decoration.
+ *
+ * The shelf was four identical dark rectangles whose only difference was the
+ * text inside them, which makes "which one am I" a reading task every single
+ * visit. Difficulty is the one thing these cards differ by, so it is the one
+ * thing worth colouring: blue at the start, mint in the middle, amber at C,
+ * violet for the register that sits outside the scale. The tint is a wash in
+ * the corner and a coloured heading — enough to tell them apart at a glance,
+ * not enough to turn the page into a paint chart.
+ */
+.lvl-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.lvl-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% -60% auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--lvl-tint);
+  filter: blur(34px);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity var(--dur-2) var(--ease);
+}
+
+.lvl-card:hover::after {
+  opacity: 0.85;
+}
+
+.lvl-card__h {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--lvl-ink);
+}
+
+.lvl-card--a1-a2 {
+  --lvl-tint: var(--color-sky);
+  --lvl-ink: var(--color-sky);
+}
+
+.lvl-card--b1-b2 {
+  --lvl-tint: var(--color-primary);
+  --lvl-ink: var(--color-primary);
+}
+
+.lvl-card--c1-c2 {
+  --lvl-tint: #e0ab5c;
+  --lvl-ink: #e0ab5c;
+}
+
+.lvl-card--advanced {
+  --lvl-tint: #a98ae0;
+  --lvl-ink: #a98ae0;
+}

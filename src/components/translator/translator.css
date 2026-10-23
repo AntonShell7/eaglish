@@ -11,7 +11,7 @@
 .tr {
   position: fixed;
   right: 18px;
-  bottom: 18px;
+  bottom: calc(18px + var(--tr-lift, 0px));
   z-index: 60;
 }
 
@@ -23,13 +23,13 @@
    it. */
 .has-consent-bar .tr-tab,
 .has-consent-bar .tr {
-  bottom: calc(18px + 118px);
+  bottom: calc(18px + 118px + var(--tr-lift, 0px));
 }
 
 @media (max-width: 1023px) {
   .has-consent-bar .tr-tab,
   .has-consent-bar .tr {
-    bottom: calc(132px + 118px + env(safe-area-inset-bottom));
+    bottom: calc(132px + 118px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
   }
 }
 
@@ -52,7 +52,7 @@
 @media (max-width: 1023px) {
   .tr-tab,
   .tr {
-    bottom: calc(132px + env(safe-area-inset-bottom));
+    bottom: calc(132px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
   }
 }
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import { explainWord, translatorEntry, type TranslatorEntry } from "@/lib/translate";
 import { TranslateMark } from "./TranslateMark";
@@ -46,6 +46,44 @@ export function Translator() {
   }, [open]);
 
   const toggle = useCallback(() => setOpen((was) => !was), []);
+
+  /*
+   * It stops at the footer rather than sitting on it.
+   *
+   * Fixed to the bottom of the window, it covered whatever the last screenful
+   * happened to be — on most pages the footer, whose links are real links. A
+   * fixed offset cannot solve that, because how much footer is on screen
+   * depends on where the reader stopped scrolling. So it measures: the part of
+   * the footer currently in view is exactly how far up the control has to go,
+   * which on a long page is nothing at all.
+   */
+  const [lift, setLift] = useState(0);
+
+  useEffect(() => {
+    const footer = document.querySelector(".ft");
+    if (!footer) return;
+
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const rect = footer.getBoundingClientRect();
+      setLift(Math.max(0, Math.round(window.innerHeight - rect.top)));
+    };
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, []);
+
+  const lifted = { "--tr-lift": `${lift}px` } as CSSProperties;
 
   /* Escape closes it, and the shortcut opens it from anywhere — the point is
      not breaking a sentence in progress, so reaching it must not cost a trip
@@ -117,6 +155,7 @@ export function Translator() {
       <button
         type="button"
         className="tr-tab"
+        style={lifted}
         onClick={toggle}
         title={t("translator.shortcut")}
         aria-label={t("translator.open")}
@@ -128,7 +167,7 @@ export function Translator() {
   }
 
   return (
-    <section className="tr" role="dialog" aria-label={t("translator.open")}>
+    <section className="tr" style={lifted} role="dialog" aria-label={t("translator.open")}>
       <header className="tr__top">
         <p className="tr__title">
           <TranslateMark className="tr__titleMark" />

@@ -104,6 +104,15 @@
   /* Accent is mint too. The token stays because components reference it;
      what it must never again be is a third colour. */
   --color-accent: #0f6f5c;
+
+  /* The second accent.
+     Mint carries the brand and is spent once a screen, which left everything
+     else in greys — correct and, across a library of two hundred cards, flat.
+     This is for the marks that are about the reader rather than about the
+     product: where they got to, which text is the one for them today. A
+     different hue, so the two never read as the same signal. */
+  --color-sky: #2f7fd1;
+  --color-sky-soft: rgba(47, 127, 209, 0.12);
   --color-accent-ink: #0b5647;
   --color-danger: #c0392b;
   --color-success: #0f6f5c;
@@ -257,6 +266,10 @@
   --color-on-primary: #06120f;
 
   --color-accent: #7fd0b4;
+
+  /* Lifted for a black ground: the light-theme blue goes muddy on it. */
+  --color-sky: #6aa9e9;
+  --color-sky-soft: rgba(106, 169, 233, 0.14);
   --color-accent-ink: #a3e3cd;
   --color-danger: #e38377;
   --color-success: #7fd0b4;

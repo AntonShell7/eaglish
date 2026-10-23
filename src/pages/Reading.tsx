@@ -14,11 +14,10 @@ import {
   generatePersonalText,
   getPersonalTexts,
   pickTargets,
-  targetsPresent,
   type PersonalText,
 } from "@/lib/personalText";
 import { nextSubject } from "@/lib/topicPool";
-import { logReadingOpen, getQuizResults, type QuizResult } from "@/lib/readingHistory";
+import { logReadingOpen, getQuizResults, getReadingHistory, type QuizResult } from "@/lib/readingHistory";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { buildKnownModel, coverageOf } from "@/lib/knownWords";
 import { ensureLexicon } from "@/lib/lexicon";
@@ -167,11 +166,11 @@ function LevelGrid({
               type="button"
               onClick={() => onPick(level.id)}
               disabled={level.total === 0}
-              className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
+              className={`card card--interactive card--accent lvl-card lvl-card--${level.id} flex h-full flex-col p-5 text-left disabled:opacity-50`}
               style={yours ? { borderColor: "var(--color-primary)" } : undefined}
             >
               <div className="flex items-start justify-between gap-3">
-                <h2 className="page-title text-xl leading-snug">{t(`reading.levels.${level.id}.h`)}</h2>
+                <h2 className="lvl-card__h">{t(`reading.levels.${level.id}.h`)}</h2>
                 {yours && (
                   <span className="flex-none text-[10px] font-bold" style={{ color: "var(--color-primary)" }}>
                     {t("reading.yourLevel")}
@@ -252,8 +251,13 @@ function TextList({
   const scored = useMemo(() => {
     const model = buildKnownModel();
     const due = new Set(getDueWords().map((w) => normalise(w.word)));
+    /* Opened at least once, and finished. A text with a quiz behind it is
+       done; one that was opened and never answered was started. Both are
+       facts the shelf owes the reader — fifty titles with no memory in them
+       is a shelf you re-open the same text from twice by accident. */
+    const opened = new Set(getReadingHistory().map((entry) => entry.textId));
 
-    return texts
+    const rows = texts
       .filter((text) => !level || measured[text.id] === level)
       .map((text) => {
         const sentences = text.sentences.map((s) => s.text);
@@ -261,9 +265,27 @@ function TextList({
         const recycled = due.size
           ? new Set(sentences.flatMap(tokenise).filter((token) => due.has(token))).size
           : 0;
-        return { text, coverage, recycled };
+        const best = quiz
+          .filter((r) => r.textId === text.id)
+          .reduce((max, r) => Math.max(max, r.correct), -1);
+        return {
+          text,
+          coverage,
+          recycled,
+          best,
+          done: best >= 0,
+          started: best < 0 && opened.has(text.id),
+          crowned: false,
+        };
       })
       .sort((a, b) => {
+        /* Finished texts go to the bottom, before anything else is weighed.
+           They are not hidden — a reader goes back to one — but a shelf that
+           keeps offering what you already read is a shelf that looks empty of
+           new things while holding thirty of them. */
+        const left = Number(a.done) - Number(b.done);
+        if (left !== 0) return left;
+
         /* The newest wave first, whatever else is true. They are the texts
            written about things a reader already half-knows, and on a shelf of
            fifty the thing that decides whether anybody reads one at all is
@@ -283,7 +305,19 @@ function TextList({
           Math.abs(a.coverage.known - IDEAL_COVERAGE) - Math.abs(b.coverage.known - IDEAL_COVERAGE)
         );
       });
-  }, [texts, level, lexicon]);
+
+    /* The crown: at most two, and only where there is something to crown.
+       It marks the texts carrying the most words this reader is due to
+       review — meeting a word inside a sentence is worth more than meeting
+       it on a card, so these are the two the shelf should be pointing at.
+       Given to nothing when nothing qualifies: a crown on the best of a bad
+       field teaches people to ignore crowns. */
+    const candidates = rows.filter((row) => !row.done && row.recycled > 0);
+    const best = [...candidates].sort((a, b) => b.recycled - a.recycled).slice(0, 2);
+    for (const row of best) row.crowned = true;
+
+    return [...rows].sort((a, b) => Number(b.crowned) - Number(a.crowned) || 0);
+  }, [texts, level, lexicon, quiz]);
 
   const visible = scored;
 
@@ -304,26 +338,30 @@ function TextList({
           cards across, and a list of short titles down a narrow strip of a
           wide screen is the one layout that wastes space in both directions. */}
       <div data-stagger className="rd-list mt-6">
-        {visible.map(({ text, recycled }) => {
-          const best = quiz.filter((r) => r.textId === text.id).reduce((max, r) => Math.max(max, r.correct), -1);
+        {visible.map(({ text, recycled, best, done, started, crowned }) => {
           return (
             <button
               key={text.id}
               type="button"
               onClick={() => onPick(text)}
-              className="card card--interactive card--accent rd-row text-left"
-              style={best >= 0 ? { borderColor: "var(--color-success)" } : undefined}
+              className={`card card--interactive card--accent rd-row text-left${done ? " is-done" : ""}${crowned ? " is-crowned" : ""}`}
             >
               {/* The level leads, because difficulty is what a reader sorts on
                   before the subject. Measured where the frequency list has
                   loaded, published band until then — never absent. */}
               <span className="rd-row__top">
                 <span className="level flex-none">{measured[text.id] ?? text.level}</span>
-                {best >= 0 && (
-                  <span className="rd-row__score">
-                    ✓ {best}/{text.questions.length}
+                {crowned && (
+                  <span className="rd-row__crown" title={t("reading.crownWhy")} aria-label={t("reading.crownWhy")}>
+                    ♛
                   </span>
                 )}
+                {done && (
+                  <span className="rd-row__state is-done">
+                    ✓ {t("reading.stateDone")} · {best}/{text.questions.length}
+                  </span>
+                )}
+                {started && <span className="rd-row__state">{t("reading.stateStarted")}</span>}
               </span>
 
               <span className="min-w-0">
@@ -446,6 +484,21 @@ function PersonalTexts({
      somebody who just wants to press it. */
   const [subject, setSubject] = useState("");
 
+  /* Finished last, started marked, newest first among the rest — the same
+     order the band shelves use, because a reader should not have to learn
+     two systems inside one section. */
+  const mine = useMemo(() => {
+    const quizzed = new Set(getQuizResults().map((r) => r.textId));
+    const opened = new Set(getReadingHistory().map((entry) => entry.textId));
+    return texts
+      .map((text) => ({
+        text,
+        done: quizzed.has(text.id),
+        started: !quizzed.has(text.id) && opened.has(text.id),
+      }))
+      .sort((a, b) => Number(a.done) - Number(b.done) || b.text.createdAt - a.text.createdAt);
+  }, [texts]);
+
   const rollSubject = () => setSubject(nextSubject(i18n.language));
 
   const make = async () => {
@@ -526,21 +579,29 @@ function PersonalTexts({
           were or where they came from. */}
       {texts.length > 0 && <h2 className="forge__shelfTitle">{t("reading.personalMine")}</h2>}
 
-      <div className="mt-3 space-y-2">
-        {texts.map((text) => (
+      {/* The same cards as everywhere else, in the same grid: these are texts
+          on a shelf, and they were the one shelf in the app still drawn as
+          full-width strips with a list of word stems under each title. Read
+          ones sink to the bottom, as they do on every other shelf. */}
+      <div data-stagger className="rd-list mt-3">
+        {mine.map(({ text, done, started }) => (
           <button
             key={text.id}
             type="button"
             onClick={() => onPick(text)}
-            className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
+            className={`card card--interactive card--accent rd-row text-left${done ? " is-done" : ""}`}
           >
-            <span className="level flex-none">{text.level}</span>
-
-            <span className="min-w-0 flex-1">
-              <span className="block text-sm font-semibold">{text.title}</span>
-              <span className="mt-0.5 block text-xs" style={{ color: "var(--color-text-muted)" }}>
-                {t("reading.words", { count: wordCount(text) })} · {targetsPresent(text).join(", ")}
+            <span className="rd-row__top">
+              <span className="level flex-none">
+                {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
               </span>
+              {done && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}
+              {started && <span className="rd-row__state">{t("reading.stateStarted")}</span>}
+            </span>
+
+            <span className="min-w-0">
+              <span className="rd-row__title">{text.title}</span>
+              <span className="rd-row__meta">{t("reading.words", { count: wordCount(text) })}</span>
             </span>
           </button>
         ))}

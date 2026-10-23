@@ -4457,123 +4457,6 @@
   ]
  },
  {
-  "id": "what-the-hand-knows",
-  "level": "B1",
-  "topic": "health",
-  "generated": false,
-  "title": "What the Hand Knows",
-  "sentences": [
-   {
-    "text": "Hold your hand in front of you and open it.",
-    "translationRu": "Поднимите руку перед собой и раскройте ладонь."
-   },
-   {
-    "text": "Twenty-seven bones, and almost none of the muscles that move your fingers are in the fingers themselves.",
-    "translationRu": "Двадцать семь костей — и почти ни одной из мышц, двигающих пальцы, в самих пальцах нет."
-   },
-   {
-    "text": "They sit in the forearm and pull the fingers by long tendons, like a puppet worked from a distance.",
-    "translationRu": "Они лежат в предплечье и тянут пальцы длинными сухожилиями, будто марионетку издалека."
-   },
-   {
-    "text": "This is why a pianist's forearms ache after a concert while the fingers feel fine.",
-    "translationRu": "Поэтому у пианиста после концерта ноют предплечья, а пальцы в порядке."
-   },
-   {
-    "text": "The design buys something valuable: the fingers stay thin.",
-    "translationRu": "Такая конструкция кое-что даёт: пальцы остаются тонкими."
-   },
-   {
-    "text": "Thin fingers fit into narrow places, and narrow places are where most useful things are.",
-    "translationRu": "Тонкие пальцы пролезают в узкие места, а в узких местах и находится большинство полезного."
-   },
-   {
-    "text": "Your hand also carries more touch receptors per square centimetre than almost anywhere else on the body.",
-    "translationRu": "В руке также больше осязательных рецепторов на квадратный сантиметр, чем почти где-либо ещё."
-   },
-   {
-    "text": "The brain reserves a huge area for the hands, far out of proportion to their size.",
-    "translationRu": "Мозг отводит рукам огромную область, несоразмерную их размеру."
-   },
-   {
-    "text": "Draw a person with body parts scaled to that map and you get a creature with enormous hands and a tiny back.",
-    "translationRu": "Нарисуйте человека, где части тела увеличены по этой карте, — получится существо с гигантскими кистями и крошечной спиной."
-   },
-   {
-    "text": "It is a reasonable portrait of what we actually pay attention to.",
-    "translationRu": "И это вполне честный портрет того, на что мы на самом деле обращаем внимание."
-   }
-  ],
-  "glossary": {
-   "forearm": {
-    "translation": "предплечье",
-    "partOfSpeech": "noun"
-   },
-   "tendon": {
-    "translation": "сухожилие",
-    "partOfSpeech": "noun"
-   },
-   "puppet": {
-    "translation": "марионетка",
-    "partOfSpeech": "noun"
-   },
-   "ache": {
-    "translation": "ныть, болеть",
-    "partOfSpeech": "verb"
-   },
-   "receptor": {
-    "translation": "рецептор",
-    "partOfSpeech": "noun"
-   },
-   "reserve": {
-    "translation": "отводить, выделять",
-    "partOfSpeech": "verb"
-   },
-   "out of proportion": {
-    "translation": "несоразмерно",
-    "partOfSpeech": "phrase"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Where are the muscles that move the fingers?",
-    "options": [
-     "In the fingers",
-     "In the forearm",
-     "In the shoulder",
-     "In the palm"
-    ],
-    "answer": 1,
-    "explanation": "They sit in the forearm and pull via long tendons."
-   },
-   {
-    "id": "q2",
-    "question": "What advantage does this give?",
-    "options": [
-     "A stronger grip",
-     "Thin fingers that fit into narrow places",
-     "Faster movement",
-     "Warmer hands"
-    ],
-    "answer": 1,
-    "explanation": "Narrow places hold most useful things."
-   },
-   {
-    "id": "q3",
-    "question": "What would a body scaled to the brain's map look like?",
-    "options": [
-     "Normal",
-     "Enormous hands and a tiny back",
-     "A huge head",
-     "Long legs"
-    ],
-    "answer": 1,
-    "explanation": "The text describes exactly this drawing."
-   }
-  ]
- },
- {
   "id": "the-loudness-war",
   "level": "B1",
   "topic": "technology",
@@ -7229,131 +7112,6 @@
     ],
     "answer": 0,
     "explanation": "The text says exactly this, and adds that his sales improved as a result."
-   }
-  ]
- },
- {
-  "id": "the-octopus-problem",
-  "level": "B2",
-  "topic": "environment",
-  "generated": false,
-  "title": "The Octopus Problem",
-  "sentences": [
-   {
-    "text": "An octopus has around five hundred million neurons, roughly the same as a dog.",
-    "translationRu": "У осьминога около пятисот миллионов нейронов — примерно как у собаки."
-   },
-   {
-    "text": "Two thirds of them are not in its head.",
-    "translationRu": "Две трети из них находятся не в голове."
-   },
-   {
-    "text": "They are distributed along the arms, which means each arm can taste, decide and act with a striking degree of independence.",
-    "translationRu": "Они распределены по щупальцам, и каждое умеет пробовать на вкус, решать и действовать с поразительной самостоятельностью."
-   },
-   {
-    "text": "Sever the nerve to the brain and a severed arm will still reach for food and pass it towards where a mouth used to be.",
-    "translationRu": "Перережьте нерв, ведущий к мозгу, и отделённое щупальце всё равно потянется за едой и передаст её туда, где раньше был рот."
-   },
-   {
-    "text": "This raises a question biologists find genuinely awkward.",
-    "translationRu": "Это ставит вопрос, который биологов по-настоящему смущает."
-   },
-   {
-    "text": "Is an octopus one animal making decisions, or nine intelligences negotiating?",
-    "translationRu": "Осьминог — это одно существо, принимающее решения, или девять разумов, ведущих переговоры?"
-   },
-   {
-    "text": "Our intuitions about minds were built by watching vertebrates, creatures with a single command centre behind the eyes.",
-    "translationRu": "Наши представления о разуме выросли из наблюдения за позвоночными — существами с единым командным центром за глазами."
-   },
-   {
-    "text": "The octopus is the closest thing on this planet to meeting an alien.",
-    "translationRu": "Осьминог — самое близкое к встрече с инопланетянином, что есть на этой планете."
-   },
-   {
-    "text": "Our last common ancestor was a flattish worm some six hundred million years ago.",
-    "translationRu": "Наш последний общий предок был плоским червём около шестисот миллионов лет назад."
-   },
-   {
-    "text": "Everything intelligent about an octopus evolved separately, from scratch.",
-    "translationRu": "Всё разумное в осьминоге развилось отдельно, с нуля."
-   },
-   {
-    "text": "Which is why the question is not really about octopuses.",
-    "translationRu": "Именно поэтому вопрос на самом деле не про осьминогов."
-   },
-   {
-    "text": "It is about whether the shape a mind takes in us is the only shape available.",
-    "translationRu": "Он о том, единственная ли это форма, которую может принять разум."
-   }
-  ],
-  "glossary": {
-   "distributed": {
-    "translation": "распределённый",
-    "partOfSpeech": "adjective"
-   },
-   "striking": {
-    "translation": "поразительный",
-    "partOfSpeech": "adjective"
-   },
-   "sever": {
-    "translation": "перерезать, отсечь",
-    "partOfSpeech": "verb"
-   },
-   "awkward": {
-    "translation": "неудобный, щекотливый",
-    "partOfSpeech": "adjective"
-   },
-   "vertebrate": {
-    "translation": "позвоночное",
-    "partOfSpeech": "noun"
-   },
-   "ancestor": {
-    "translation": "предок",
-    "partOfSpeech": "noun"
-   },
-   "from scratch": {
-    "translation": "с нуля",
-    "partOfSpeech": "phrase"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Where are most of an octopus's neurons?",
-    "options": [
-     "In the head",
-     "In the arms",
-     "Around the eyes",
-     "In the skin"
-    ],
-    "answer": 1,
-    "explanation": "Two thirds are distributed along the arms."
-   },
-   {
-    "id": "q2",
-    "question": "Why is the octopus close to meeting an alien?",
-    "options": [
-     "It lives deep",
-     "Its intelligence evolved separately from ours",
-     "It has blue blood",
-     "It changes colour"
-    ],
-    "answer": 1,
-    "explanation": "Our last common ancestor was a worm; its intelligence arose from scratch."
-   },
-   {
-    "id": "q3",
-    "question": "What larger question does this raise?",
-    "options": [
-     "Whether octopuses feel pain",
-     "Whether our shape of mind is the only one possible",
-     "How to keep them in tanks",
-     "Why dogs are clever"
-    ],
-    "answer": 1,
-    "explanation": "The closing line states exactly this."
    }
   ]
  },
@@ -10206,6 +9964,324 @@
     ],
     "answer": 1,
     "explanation": "The closing sentence."
+   }
+  ]
+ },
+ {
+  "id": "predicting-the-future",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Predicting the Future",
+  "sentences": [
+   {
+    "text": "The Simpsons is one of the longest-running animated series on television.",
+    "translationRu": "Симпсоны — один из самых долгоиграющих анимационных сериалов на телевидении."
+   },
+   {
+    "text": "Since its debut in 1989, it has captured the hearts of millions.",
+    "translationRu": "С момента своего дебюта в 1989 году он завоевал сердца миллионов."
+   },
+   {
+    "text": "Its satirical take on family life and society has been both entertaining and insightful.",
+    "translationRu": "Его сатирический взгляд на семейную жизнь и общество был как развлекательным, так и проницательным."
+   },
+   {
+    "text": "Throughout the years, The Simpsons has been known for predicting future events.",
+    "translationRu": "На протяжении многих лет Симпсоны были известны предсказанием будущих событий."
+   },
+   {
+    "text": "Some of these predictions are surprisingly accurate.",
+    "translationRu": "Некоторые из этих предсказаний на удивление точны."
+   },
+   {
+    "text": "For example, in 2000, an episode featured Donald Trump as a future president of the United States.",
+    "translationRu": "Например, в 2000 году в одном из эпизодов был показан Дональд Трамп в качестве будущего президента США."
+   },
+   {
+    "text": "Fifteen years later, this prediction came true.",
+    "translationRu": "Пятнадцать лет спустя это предсказание сбылось."
+   },
+   {
+    "text": "Another instance is their prediction of smartwatches in a 1995 episode.",
+    "translationRu": "Другим примером является их предсказание умных часов в эпизоде 1995 года."
+   },
+   {
+    "text": "At that time, the idea of a watch that could make calls seemed like science fiction.",
+    "translationRu": "На тот момент идея часов, которые могли бы совершать звонки, казалась научной фантастикой."
+   },
+   {
+    "text": "Fast forward to today, and smartwatches are a part of everyday life.",
+    "translationRu": "Перенесёмся в сегодняшний день, и умные часы являются частью повседневной жизни."
+   },
+   {
+    "text": "Some fans even believe that the creators have a crystal ball.",
+    "translationRu": "Некоторые фанаты даже считают, что у создателей есть хрустальный шар."
+   },
+   {
+    "text": "The show's ability to foresee technological and political changes is remarkable.",
+    "translationRu": "Способность шоу предвидеть технологические и политические изменения поразительна."
+   },
+   {
+    "text": "However, the show's writers have explained these predictions in interviews.",
+    "translationRu": "Тем не менее, авторы сериала объясняли эти предсказания в интервью."
+   },
+   {
+    "text": "They credit it to careful research and a good understanding of societal trends.",
+    "translationRu": "Они приписывают это тщательному исследованию и хорошему пониманию общественных тенденций."
+   },
+   {
+    "text": "The Simpsons writers often explore 'what if' scenarios in their scripts.",
+    "translationRu": "Сценаристы Симпсонов часто исследуют сценарии «что если» в своих сценариях."
+   },
+   {
+    "text": "They also consult experts in various fields to keep the content relevant.",
+    "translationRu": "Они также консультируются с экспертами в различных областях, чтобы содержание оставалось актуальным."
+   },
+   {
+    "text": "Moreover, they draw inspiration from current events to craft their stories.",
+    "translationRu": "Более того, они черпают вдохновение из текущих событий для создания своих историй."
+   },
+   {
+    "text": "All of these elements come together to create the predictions.",
+    "translationRu": "Все эти элементы объединяются, чтобы создать предсказания."
+   },
+   {
+    "text": "While the predictions are not always intentional, they show the show's impact.",
+    "translationRu": "Хотя предсказания не всегда намеренные, они показывают влияние шоу."
+   },
+   {
+    "text": "The Simpsons remains a cultural phenomenon because of its humor and relevance.",
+    "translationRu": "Симпсоны остаются культурным феноменом благодаря своему юмору и актуальности."
+   },
+   {
+    "text": "Fans will continue to look for predictions as new episodes air.",
+    "translationRu": "Фанаты продолжат искать предсказания по мере выхода новых эпизодов."
+   },
+   {
+    "text": "This anticipation is a testament to the show’s enduring legacy.",
+    "translationRu": "Это ожидание свидетельствует о долговечном наследии шоу."
+   }
+  ],
+  "glossary": {
+   "debut": {
+    "translation": "дебют",
+    "partOfSpeech": "noun"
+   },
+   "satirical": {
+    "translation": "сатирический",
+    "partOfSpeech": "adjective"
+   },
+   "scenario": {
+    "translation": "сценарий",
+    "partOfSpeech": "noun"
+   },
+   "remarkable": {
+    "translation": "замечательный",
+    "partOfSpeech": "adjective"
+   },
+   "consult": {
+    "translation": "консультироваться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What did The Simpsons predict in 2000?",
+    "options": [
+     "Donald Trump's presidency",
+     "Smartwatches",
+     "Virtual reality",
+     "The K-pop boom"
+    ],
+    "answer": 0,
+    "explanation": "The text states that an episode in 2000 featured Donald Trump as a future president."
+   },
+   {
+    "id": "q2",
+    "question": "How do the writers of The Simpsons explain their predictions?",
+    "options": [
+     "They have a crystal ball",
+     "They do careful research",
+     "They are gifted psychics",
+     "They use random ideas"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that the writers credit their predictions to careful research and understanding of trends."
+   },
+   {
+    "id": "q3",
+    "question": "Why do fans continue to look for predictions in new episodes?",
+    "options": [
+     "They believe it is a thriller show",
+     "They enjoy the humor",
+     "The show has a history of accurate predictions",
+     "They want to find mistakes"
+    ],
+    "answer": 2,
+    "explanation": "Fans continue to look for predictions because the show has a history of getting things right."
+   }
+  ]
+ },
+ {
+  "id": "behind-the-swoosh",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Behind the Swoosh",
+  "sentences": [
+   {
+    "text": "Nike is one of the most recognizable sportswear brands in the world.",
+    "translationRu": "Nike — один из самых узнаваемых брендов спортивной одежды в мире."
+   },
+   {
+    "text": "Its journey to the top involved a strategic endorsement idea.",
+    "translationRu": "Его путь к вершине включал стратегическую идею поддержки."
+   },
+   {
+    "text": "In the early 1980s, Nike was looking for a way to stand out from its competitors.",
+    "translationRu": "В начале 1980-х Nike искала способ выделиться среди своих конкурентов."
+   },
+   {
+    "text": "The company decided to focus on basketball, a popular sport in America.",
+    "translationRu": "Компания решила сосредоточиться на баскетболе, популярном виде спорта в Америке."
+   },
+   {
+    "text": "Nike signed a young basketball player named Michael Jordan to an endorsement deal.",
+    "translationRu": "Nike подписала контракт на поддержку с молодым баскетболистом по имени Майкл Джордан."
+   },
+   {
+    "text": "At the time, Jordan was just starting his career with the Chicago Bulls.",
+    "translationRu": "На тот момент Джордан только начинал свою карьеру в Чикаго Буллс."
+   },
+   {
+    "text": "Nike believed that Jordan had the potential to become a superstar.",
+    "translationRu": "Nike верила, что Джордан может стать суперзвездой."
+   },
+   {
+    "text": "The company launched a new line of sneakers called Air Jordan.",
+    "translationRu": "Компания запустила новую линейку кроссовок под названием Air Jordan."
+   },
+   {
+    "text": "These shoes were designed specifically for basketball.",
+    "translationRu": "Эти кроссовки были разработаны специально для баскетбола."
+   },
+   {
+    "text": "The release of Air Jordan was a revolutionary moment for both Nike and sports marketing.",
+    "translationRu": "Выпуск Air Jordan стал революционным моментом как для Nike, так и для спортивного маркетинга."
+   },
+   {
+    "text": "The shoes quickly became a cultural icon.",
+    "translationRu": "Кроссовки быстро стали культурным символом."
+   },
+   {
+    "text": "People were captivated by Jordan’s performance and wanted to emulate his style.",
+    "translationRu": "Людей захватило выступление Джордана, и они хотели подражать его стилю."
+   },
+   {
+    "text": "The association with a rising basketball star proved to be a smart move.",
+    "translationRu": "Ассоциация с восходящей баскетбольной звездой оказалась умным ходом."
+   },
+   {
+    "text": "Nike's sales soared, and the company established itself as a leader in the industry.",
+    "translationRu": "Продажи Nike взлетели, и компания закрепила за собой звание лидера в индустрии."
+   },
+   {
+    "text": "The Air Jordan sneakers became a must-have item for many.",
+    "translationRu": "Кроссовки Air Jordan стали необходимым предметом для многих."
+   },
+   {
+    "text": "This success story encouraged Nike to continue using endorsements as a marketing strategy.",
+    "translationRu": "Эта успешная история вдохновила Nike продолжать использовать поддержку в качестве маркетинговой стратегии."
+   },
+   {
+    "text": "Over the years, they have signed deals with various athletes.",
+    "translationRu": "На протяжении многих лет они заключали сделки с различными спортсменами."
+   },
+   {
+    "text": "Nike’s ability to stay relevant is linked to its innovative marketing.",
+    "translationRu": "Способность Nike оставаться актуальным связана с его инновационным маркетингом."
+   },
+   {
+    "text": "By associating with successful athletes, Nike continues to build its brand.",
+    "translationRu": "Связываясь с успешными спортсменами, Nike продолжает строить свой бренд."
+   },
+   {
+    "text": "The endorsement of Michael Jordan set the standard for future sports marketing campaigns.",
+    "translationRu": "Поддержка Майкла Джордана задала стандарт для будущих спортивных маркетинговых кампаний."
+   },
+   {
+    "text": "Today, Air Jordans are still popular, with new editions released regularly.",
+    "translationRu": "Сегодня Air Jordans все еще популярны, и регулярно выпускаются новые издания."
+   },
+   {
+    "text": "The partnership between Nike and Michael Jordan is seen as a major factor in the brand's success.",
+    "translationRu": "Партнёрство между Nike и Майклом Джорданом рассматривается как основной фактор успеха бренда."
+   },
+   {
+    "text": "It shows how a single endorsement can transform a company.",
+    "translationRu": "Это показывает, как одна поддержка может преобразовать компанию."
+   }
+  ],
+  "glossary": {
+   "endorsement": {
+    "translation": "поддержка",
+    "partOfSpeech": "noun"
+   },
+   "strategic": {
+    "translation": "стратегический",
+    "partOfSpeech": "adjective"
+   },
+   "revolutionary": {
+    "translation": "революционный",
+    "partOfSpeech": "adjective"
+   },
+   "emulate": {
+    "translation": "подражать",
+    "partOfSpeech": "verb"
+   },
+   "sneaker": {
+    "translation": "кроссовок",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Which sport did Nike focus on in the 1980s?",
+    "options": [
+     "Soccer",
+     "Basketball",
+     "Tennis",
+     "Track and field"
+    ],
+    "answer": 1,
+    "explanation": "The text states that Nike decided to focus on basketball to stand out."
+   },
+   {
+    "id": "q2",
+    "question": "What made Air Jordan sneakers iconic?",
+    "options": [
+     "Their price",
+     "Design for basketball",
+     "Jordan's performance",
+     "Limited availability"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that people were captivated by Jordan's performance, making the sneakers iconic."
+   },
+   {
+    "id": "q3",
+    "question": "What strategy did Nike use to build its brand?",
+    "options": [
+     "Opening more stores",
+     "Using endorsements",
+     "Reducing prices",
+     "Focusing on advertising"
+    ],
+    "answer": 1,
+    "explanation": "Nike used endorsements, starting with Michael Jordan, to successfully build its brand."
    }
   ]
  }

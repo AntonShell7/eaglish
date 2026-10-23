@@ -1,1407 +1,5 @@
 [
  {
-  "id": "barcelona-s-tiki-taka-influence",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Barcelona's Tiki Taka Influence",
-  "sentences": [
-   {
-    "text": "Barcelona is a football club in Spain.",
-    "translationRu": "Барселона — футбольный клуб в Испании."
-   },
-   {
-    "text": "It plays in the city of Barcelona.",
-    "translationRu": "Он играет в городе Барселона."
-   },
-   {
-    "text": "The club has many fans worldwide.",
-    "translationRu": "У клуба много поклонников по всему миру."
-   },
-   {
-    "text": "In 2008 the team changed its style.",
-    "translationRu": "В 2008 году команда изменила свой стиль."
-   },
-   {
-    "text": "The coach wanted quick passes.",
-    "translationRu": "Тренер хотел быстрых передач."
-   },
-   {
-    "text": "Players moved the ball with short touches.",
-    "translationRu": "Игроки перемещали мяч короткими касаниями."
-   },
-   {
-    "text": "They kept the ball low on the ground.",
-    "translationRu": "Они держали мяч низко к земле."
-   },
-   {
-    "text": "The style made the game fast.",
-    "translationRu": "Этот стиль делал игру быстрой."
-   },
-   {
-    "text": "It also made the team control the match.",
-    "translationRu": "Он также позволял команде контролировать матч."
-   },
-   {
-    "text": "Opponents found it hard to win.",
-    "translationRu": "Противникам было трудно выиграть."
-   },
-   {
-    "text": "The club won many trophies with this style.",
-    "translationRu": "Клуб выиграл много трофеев с этим стилем."
-   },
-   {
-    "text": "Other clubs watched the games.",
-    "translationRu": "Другие клубы смотрели эти матчи."
-   },
-   {
-    "text": "They tried to copy the short passes.",
-    "translationRu": "Они пытались копировать короткие передачи."
-   },
-   {
-    "text": "Many teams adopted similar tactics.",
-    "translationRu": "Многие команды приняли похожие тактики."
-   },
-   {
-    "text": "The media called it \"tiki taka\".",
-    "translationRu": "СМИ назвали его «тики‑така»."
-   },
-   {
-    "text": "Fans liked the beautiful play.",
-    "translationRu": "Болельщики любили красивую игру."
-   },
-   {
-    "text": "The style spread to many leagues.",
-    "translationRu": "Стиль распространился во многих лигах."
-   },
-   {
-    "text": "Today many clubs use short passing games.",
-    "translationRu": "Сегодня многие клубы используют игру короткими пасами."
-   }
-  ],
-  "glossary": {
-   "tiki taka": {
-    "translation": "тики‑така (стиль коротких пасов)",
-    "partOfSpeech": "phrase"
-   },
-   "tactic": {
-    "translation": "тактика",
-    "partOfSpeech": "noun"
-   },
-   "adopt": {
-    "translation": "принять, перенять",
-    "partOfSpeech": "verb"
-   },
-   "control": {
-    "translation": "контроль, контролировать",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What did Barcelona want to do with the ball?",
-    "options": [
-     "Kick it far",
-     "Hold it still",
-     "Make short passes",
-     "Throw it away"
-    ],
-    "answer": 2,
-    "explanation": "The text says the coach wanted quick passes and players used short touches."
-   },
-   {
-    "id": "q2",
-    "question": "How did other clubs react to Barcelona's style?",
-    "options": [
-     "They ignored it",
-     "They copied it",
-     "They banned it",
-     "They praised it loudly"
-    ],
-    "answer": 1,
-    "explanation": "The text states that other clubs tried to copy the short passes and many adopted similar tactics."
-   },
-   {
-    "id": "q3",
-    "question": "What is the media name for Barcelona's style?",
-    "options": [
-     "Fast football",
-     "Tiki taka",
-     "Long shots",
-     "Heavy defense"
-    ],
-    "answer": 0,
-    "explanation": "The text mentions the media called it \"tiki taka\"."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "how-netflix-picks-new-shows",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "How Netflix picks new shows",
-  "sentences": [
-   {
-    "text": "Netflix is a streaming service.",
-    "translationRu": "Netflix — это сервис потокового вещания."
-   },
-   {
-    "text": "It works in many countries.",
-    "translationRu": "Он работает во многих странах."
-   },
-   {
-    "text": "People watch movies and series there.",
-    "translationRu": "Люди смотрят там фильмы и сериалы."
-   },
-   {
-    "text": "The company wants to keep viewers happy.",
-    "translationRu": "Компания хочет, чтобы зрители были довольны."
-   },
-   {
-    "text": "It looks at what people watch most.",
-    "translationRu": "Она смотрит, что люди смотрят чаще всего."
-   },
-   {
-    "text": "It also checks how long they stay on a show.",
-    "translationRu": "Она также проверяет, как долго они остаются у сериала."
-   },
-   {
-    "text": "The data is collected every day.",
-    "translationRu": "Данные собираются каждый день."
-   },
-   {
-    "text": "The team studies the data.",
-    "translationRu": "Команда изучает эти данные."
-   },
-   {
-    "text": "They see which genres are popular.",
-    "translationRu": "Они видят, какие жанры популярны."
-   },
-   {
-    "text": "They see which actors attract viewers.",
-    "translationRu": "Они видят, какие актёры привлекают зрителей."
-   },
-   {
-    "text": "They also ask viewers for feedback.",
-    "translationRu": "Они также спрашивают зрителей обратную связь."
-   },
-   {
-    "text": "The feedback is short and simple.",
-    "translationRu": "Обратная связь короткая и простая."
-   },
-   {
-    "text": "The team meets each month.",
-    "translationRu": "Команда собирается каждый месяц."
-   },
-   {
-    "text": "They discuss the trends they saw.",
-    "translationRu": "Они обсуждают увиденные тенденции."
-   },
-   {
-    "text": "They decide what type of show to make.",
-    "translationRu": "Они решают, какой тип шоу создать."
-   },
-   {
-    "text": "They also choose the budget.",
-    "translationRu": "Они также выбирают бюджет."
-   },
-   {
-    "text": "The chosen idea goes to writers.",
-    "translationRu": "Выбранная идея передаётся сценаристам."
-   },
-   {
-    "text": "The writers create a pilot episode.",
-    "translationRu": "Сценаристы создают пилотный эпизод."
-   },
-   {
-    "text": "If the pilot is liked, the series is produced.",
-    "translationRu": "Если пилот понравился, сериал производится."
-   },
-   {
-    "text": "The new series then appears on Netflix.",
-    "translationRu": "Новый сериал появляется на Netflix."
-   }
-  ],
-  "glossary": {
-   "streaming": {
-    "translation": "потоковое вещание",
-    "partOfSpeech": "noun"
-   },
-   "genre": {
-    "translation": "жанр",
-    "partOfSpeech": "noun"
-   },
-   "budget": {
-    "translation": "бюджет",
-    "partOfSpeech": "noun"
-   },
-   "pilot": {
-    "translation": "пилотный эпизод",
-    "partOfSpeech": "noun"
-   },
-   "trend": {
-    "translation": "тенденция",
-    "partOfSpeech": "noun"
-   },
-   "feedback": {
-    "translation": "обратная связь",
-    "partOfSpeech": "noun"
-   },
-   "viewer": {
-    "translation": "зритель",
-    "partOfSpeech": "noun"
-   },
-   "produce": {
-    "translation": "производить",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What does Netflix study to choose new shows?",
-    "options": [
-     "The weather",
-     "Viewer data",
-     "Stock prices",
-     "Travel guides"
-    ],
-    "answer": 1,
-    "explanation": "The text says Netflix looks at what people watch most and how long they stay on a show, i.e., viewer data."
-   },
-   {
-    "id": "q2",
-    "question": "How often does the Netflix team meet to discuss trends?",
-    "options": [
-     "Every day",
-     "Every week",
-     "Every month",
-     "Every year"
-    ],
-    "answer": 2,
-    "explanation": "The text states the team meets each month."
-   },
-   {
-    "id": "q3",
-    "question": "What happens if the pilot episode is liked?",
-    "options": [
-     "It is cancelled",
-     "It is shown in theaters",
-     "The series is produced",
-     "It is sent to other companies"
-    ],
-    "answer": 2,
-    "explanation": "The text says if the pilot is liked, the series is produced."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "how-messi-changed-the-forward-role",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "How Messi changed the forward role",
-  "sentences": [
-   {
-    "text": "Lionel Messi is a famous footballer.",
-    "translationRu": "Лионель Месси — известный футболист."
-   },
-   {
-    "text": "He plays for Paris Saint‑Germain.",
-    "translationRu": "Он играет за «Пари Сен‑Жермен»."
-   },
-   {
-    "text": "He also played for Barcelona for many years.",
-    "translationRu": "Он также много лет играл за «Барселону»."
-   },
-   {
-    "text": "He is known for scoring many goals.",
-    "translationRu": "Он известен тем, что забивает много голов."
-   },
-   {
-    "text": "He also helps his team keep the ball.",
-    "translationRu": "Он также помогает своей команде держать мяч."
-   },
-   {
-    "text": "Before Messi, forwards mostly waited near the goal.",
-    "translationRu": "До Месси форварды в основном ждали у ворот."
-   },
-   {
-    "text": "They mostly tried to finish passes.",
-    "translationRu": "Они в основном пытались завершать передачи."
-   },
-   {
-    "text": "Messi started to move away from the goal.",
-    "translationRu": "Месси начал отдаляться от ворот."
-   },
-   {
-    "text": "He often dropped into the midfield.",
-    "translationRu": "Он часто опускался в центр поля."
-   },
-   {
-    "text": "He helped build attacks from deeper places.",
-    "translationRu": "Он помогал строить атаки из более глубоких позиций."
-   },
-   {
-    "text": "He also created chances for teammates.",
-    "translationRu": "Он также создавал возможности для товарищей по команде."
-   },
-   {
-    "text": "Opponents had to track him all over the pitch.",
-    "translationRu": "Противники вынуждены были следить за ним по всему полю."
-   },
-   {
-    "text": "This made defenses harder to organize.",
-    "translationRu": "Это делало защиту труднее организовать."
-   },
-   {
-    "text": "Messi also improved his passing.",
-    "translationRu": "Месси также улучшил свои передачи."
-   },
-   {
-    "text": "He gave more assists than many strikers.",
-    "translationRu": "Он дал больше результативных передач, чем многие нападающие."
-   },
-   {
-    "text": "Coaches copied his style for other forwards.",
-    "translationRu": "Тренеры копировали его стиль для других форвардов."
-   },
-   {
-    "text": "Young players now train to move like him.",
-    "translationRu": "Молодые игроки теперь тренируются двигаться, как он."
-   },
-   {
-    "text": "The forward position now includes playmaking.",
-    "translationRu": "Позиция форварда теперь включает создание игры."
-   },
-   {
-    "text": "Messi's influence is seen in many leagues.",
-    "translationRu": "Влияние Месси видно во многих лигах."
-   },
-   {
-    "text": "He changed how the role is taught.",
-    "translationRu": "Он изменил то, как обучают этой роли."
-   },
-   {
-    "text": "His legacy will stay in football.",
-    "translationRu": "Его наследие останется в футболе."
-   }
-  ],
-  "glossary": {
-   "forward": {
-    "translation": "форвард, нападающий",
-    "partOfSpeech": "noun"
-   },
-   "midfield": {
-    "translation": "центр поля",
-    "partOfSpeech": "noun"
-   },
-   "assist": {
-    "translation": "результативная передача",
-    "partOfSpeech": "noun"
-   },
-   "defense": {
-    "translation": "защита",
-    "partOfSpeech": "noun"
-   },
-   "coach": {
-    "translation": "тренер",
-    "partOfSpeech": "noun"
-   },
-   "influence": {
-    "translation": "влияние",
-    "partOfSpeech": "noun"
-   },
-   "legacy": {
-    "translation": "наследие",
-    "partOfSpeech": "noun"
-   },
-   "track": {
-    "translation": "отслеживать",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What new activity did Messi add to the forward role?",
-    "options": [
-     "He stayed near the goal",
-     "He moved into midfield",
-     "He became a goalkeeper",
-     "He stopped scoring"
-    ],
-    "answer": 1,
-    "explanation": "The text says Messi often dropped into the midfield, adding that activity to the forward role."
-   },
-   {
-    "id": "q2",
-    "question": "How did opponents react to Messi's movement?",
-    "options": [
-     "They ignored him",
-     "They tracked him everywhere",
-     "They gave him the ball",
-     "They left the field"
-    ],
-    "answer": 1,
-    "explanation": "The text states opponents had to track him all over the pitch."
-   },
-   {
-    "id": "q3",
-    "question": "What did coaches do after seeing Messi's style?",
-    "options": [
-     "They banned his tactics",
-     "They copied his style for other forwards",
-     "They stopped training forwards",
-     "They changed the ball size"
-    ],
-    "answer": 1,
-    "explanation": "The text says coaches copied his style for other forwards."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "phone-launch-becomes-a-live-event",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Phone launch becomes a live event",
-  "sentences": [
-   {
-    "text": "Apple announced a new iPhone model.",
-    "translationRu": "Apple объявила о новой модели iPhone."
-   },
-   {
-    "text": "The company held a big show in a hall.",
-    "translationRu": "Компания провела большое шоу в зале."
-   },
-   {
-    "text": "The hall was full of lights and screens.",
-    "translationRu": "Зал был полон света и экранов."
-   },
-   {
-    "text": "Apple showed the phone from many angles.",
-    "translationRu": "Apple показала телефон с разных ракурсов."
-   },
-   {
-    "text": "They let the audience see the camera work.",
-    "translationRu": "Они позволили публике увидеть работу камеры."
-   },
-   {
-    "text": "The phone had a faster chip than before.",
-    "translationRu": "У телефона был более быстрый чип, чем раньше."
-   },
-   {
-    "text": "It also had a bigger battery.",
-    "translationRu": "Он также имел большую батарею."
-   },
-   {
-    "text": "Apple let the crowd try the phone.",
-    "translationRu": "Apple позволила толпе протестировать телефон."
-   },
-   {
-    "text": "People could take photos and watch videos.",
-    "translationRu": "Люди могли делать фотографии и смотреть видео."
-   },
-   {
-    "text": "The event was streamed on the web.",
-    "translationRu": "Событие транслировалось в интернете."
-   },
-   {
-    "text": "Millions of viewers watched it at home.",
-    "translationRu": "Миллионы зрителей смотрели его дома."
-   },
-   {
-    "text": "The show had music and short films.",
-    "translationRu": "Шоу имело музыку и короткие фильмы."
-   },
-   {
-    "text": "Apple used the film to show the phone.",
-    "translationRu": "Apple использовала фильм, чтобы показать телефон."
-   },
-   {
-    "text": "The film showed everyday people using it.",
-    "translationRu": "Фильм показывал обычных людей, использующих его."
-   },
-   {
-    "text": "The event created a lot of talk online.",
-    "translationRu": "Событие создало много разговоров онлайн."
-   },
-   {
-    "text": "Fans posted pictures of the stage.",
-    "translationRu": "Фанаты публиковали фотографии сцены."
-   },
-   {
-    "text": "The phone started selling the next day.",
-    "translationRu": "Телефон начал продаваться на следующий день."
-   },
-   {
-    "text": "Apple said the event helped the launch.",
-    "translationRu": "Apple сказала, что событие помогло запуску."
-   }
-  ],
-  "glossary": {
-   "announce": {
-    "translation": "объявлять",
-    "partOfSpeech": "verb"
-   },
-   "chip": {
-    "translation": "чип",
-    "partOfSpeech": "noun"
-   },
-   "battery": {
-    "translation": "батарея",
-    "partOfSpeech": "noun"
-   },
-   "stream": {
-    "translation": "транслировать",
-    "partOfSpeech": "verb"
-   },
-   "launch": {
-    "translation": "запуск",
-    "partOfSpeech": "noun"
-   },
-   "stage": {
-    "translation": "сцена",
-    "partOfSpeech": "noun"
-   },
-   "crowd": {
-    "translation": "толпа",
-    "partOfSpeech": "noun"
-   },
-   "talk": {
-    "translation": "разговор",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Where did Apple hold the show?",
-    "options": [
-     "In a park",
-     "In a hall",
-     "On a beach",
-     "In a museum"
-    ],
-    "answer": 1,
-    "explanation": "The text says the company held a big show in a hall."
-   },
-   {
-    "id": "q2",
-    "question": "What did the audience get to do?",
-    "options": [
-     "Buy the phone",
-     "Try the phone",
-     "Watch a concert",
-     "Play games"
-    ],
-    "answer": 0,
-    "explanation": "The text states Apple let the crowd try the phone."
-   },
-   {
-    "id": "q3",
-    "question": "When did the phone start selling?",
-    "options": [
-     "The same day",
-     "A week later",
-     "The next day",
-     "A month later"
-    ],
-    "answer": 2,
-    "explanation": "The text says the phone started selling the next day."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "why-a-film-series-still-works",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Why a film series still works",
-  "sentences": [
-   {
-    "text": "The Marvel movies are very popular.",
-    "translationRu": "Фильмы Marvel очень популярны."
-   },
-   {
-    "text": "They tell stories about heroes.",
-    "translationRu": "Они рассказывают истории о героях."
-   },
-   {
-    "text": "Each film has its own plot.",
-    "translationRu": "У каждого фильма есть свой сюжет."
-   },
-   {
-    "text": "The heroes face big problems.",
-    "translationRu": "Герои сталкиваются с большими проблемами."
-   },
-   {
-    "text": "They also have funny moments.",
-    "translationRu": "У них также есть смешные моменты."
-   },
-   {
-    "text": "The movies use strong special effects.",
-    "translationRu": "Фильмы используют мощные спецэффекты."
-   },
-   {
-    "text": "The effects make the action clear.",
-    "translationRu": "Эффекты делают действие понятным."
-   },
-   {
-    "text": "The cast changes a little each time.",
-    "translationRu": "Актёры немного меняются каждый раз."
-   },
-   {
-    "text": "New heroes join the team.",
-    "translationRu": "Новые герои присоединяются к команде."
-   },
-   {
-    "text": "Old heroes stay and help.",
-    "translationRu": "Старые герои остаются и помогают."
-   },
-   {
-    "text": "Fans like to see familiar faces.",
-    "translationRu": "Фанаты любят видеть знакомые лица."
-   },
-   {
-    "text": "The stories link together.",
-    "translationRu": "Истории связаны между собой."
-   },
-   {
-    "text": "One film ends with a clue.",
-    "translationRu": "Один фильм заканчивается подсказкой."
-   },
-   {
-    "text": "The clue points to the next film.",
-    "translationRu": "Подсказка указывает на следующий фильм."
-   },
-   {
-    "text": "This keeps interest high.",
-    "translationRu": "Это поддерживает высокий интерес."
-   },
-   {
-    "text": "The movies also show real places.",
-    "translationRu": "Фильмы также показывают реальные места."
-   },
-   {
-    "text": "People can visit those places later.",
-    "translationRu": "Люди могут позже посетить эти места."
-   },
-   {
-    "text": "The series sells many tickets.",
-    "translationRu": "Серия продаёт много билетов."
-   },
-   {
-    "text": "It also sells many toys.",
-    "translationRu": "Она также продаёт много игрушек."
-   },
-   {
-    "text": "That makes the brand stay strong.",
-    "translationRu": "Это делает бренд сильным."
-   }
-  ],
-  "glossary": {
-   "hero": {
-    "translation": "герой",
-    "partOfSpeech": "noun"
-   },
-   "plot": {
-    "translation": "сюжет",
-    "partOfSpeech": "noun"
-   },
-   "effect": {
-    "translation": "эффект",
-    "partOfSpeech": "noun"
-   },
-   "clue": {
-    "translation": "подсказка",
-    "partOfSpeech": "noun"
-   },
-   "ticket": {
-    "translation": "билет",
-    "partOfSpeech": "noun"
-   },
-   "toy": {
-    "translation": "игрушка",
-    "partOfSpeech": "noun"
-   },
-   "brand": {
-    "translation": "бренд",
-    "partOfSpeech": "noun"
-   },
-   "cast": {
-    "translation": "актерский состав",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What do the movies use to show action?",
-    "options": [
-     "Music",
-     "Special effects",
-     "Live animals",
-     "Cartoons"
-    ],
-    "answer": 1,
-    "explanation": "The text says the movies use strong special effects."
-   },
-   {
-    "id": "q2",
-    "question": "How does one film lead to the next?",
-    "options": [
-     "With a clue",
-     "With a song",
-     "With a joke",
-     "With a poster"
-    ],
-    "answer": 0,
-    "explanation": "The text explains one film ends with a clue that points to the next film."
-   },
-   {
-    "id": "q3",
-    "question": "What can fans do after seeing the places in the movies?",
-    "options": [
-     "Buy tickets",
-     "Visit the places",
-     "Write reviews",
-     "Make movies"
-    ],
-    "answer": 1,
-    "explanation": "The text says people can visit those places later."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "how-a-cartoon-started-right",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "How a Cartoon Started Right",
-  "sentences": [
-   {
-    "text": "The series began in the late 1990s.",
-    "translationRu": "Сериал начался в конце 1990‑х годов."
-   },
-   {
-    "text": "It was made for children.",
-    "translationRu": "Он был сделан для детей."
-   },
-   {
-    "text": "The characters were simple and bright.",
-    "translationRu": "Персонажи были простыми и яркими."
-   },
-   {
-    "text": "Each episode was about ten minutes long.",
-    "translationRu": "Каждая серия была около десяти минут."
-   },
-   {
-    "text": "The story always started in a small town.",
-    "translationRu": "История всегда начиналась в маленьком городке."
-   },
-   {
-    "text": "The main hero was a young boy.",
-    "translationRu": "Главный герой был молодым мальчиком."
-   },
-   {
-    "text": "He had a pet dog who could talk.",
-    "translationRu": "У него была говорящая собака."
-   },
-   {
-    "text": "The dog gave simple advice.",
-    "translationRu": "Собака давала простые советы."
-   },
-   {
-    "text": "The advice was about friendship.",
-    "translationRu": "Советы касались дружбы."
-   },
-   {
-    "text": "The show used bright colors.",
-    "translationRu": "Шоу использовало яркие цвета."
-   },
-   {
-    "text": "The music was short and catchy.",
-    "translationRu": "Музыка была короткой и запоминающейся."
-   },
-   {
-    "text": "Kids could repeat the tune easily.",
-    "translationRu": "Дети могли легко повторять мелодию."
-   },
-   {
-    "text": "The creators kept the language clear.",
-    "translationRu": "Создатели сохраняли язык простым."
-   },
-   {
-    "text": "They avoided complex jokes.",
-    "translationRu": "Они избегали сложных шуток."
-   },
-   {
-    "text": "The episodes always ended happily.",
-    "translationRu": "Эпизоды всегда заканчивались счастливо."
-   },
-   {
-    "text": "Parents liked the moral lessons.",
-    "translationRu": "Родителям нравились моральные уроки."
-   },
-   {
-    "text": "The series was sold to many countries.",
-    "translationRu": "Сериал был продан во многие страны."
-   },
-   {
-    "text": "It stayed popular for many years.",
-    "translationRu": "Он оставался популярным в течение многих лет."
-   }
-  ],
-  "glossary": {
-   "series": {
-    "translation": "сериал",
-    "partOfSpeech": "noun"
-   },
-   "episode": {
-    "translation": "серия",
-    "partOfSpeech": "noun"
-   },
-   "character": {
-    "translation": "персонаж",
-    "partOfSpeech": "noun"
-   },
-   "advice": {
-    "translation": "совет",
-    "partOfSpeech": "noun"
-   },
-   "moral": {
-    "translation": "моральный",
-    "partOfSpeech": "adjective"
-   },
-   "catchy": {
-    "translation": "запоминающийся",
-    "partOfSpeech": "adjective"
-   },
-   "bright": {
-    "translation": "яркий",
-    "partOfSpeech": "adjective"
-   },
-   "simple": {
-    "translation": "простой",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What was the length of each episode?",
-    "options": [
-     "about five minutes",
-     "about ten minutes",
-     "about fifteen minutes",
-     "about twenty minutes"
-    ],
-    "answer": 1,
-    "explanation": "The text says each episode was about ten minutes long."
-   },
-   {
-    "id": "q2",
-    "question": "Who gave advice in the show?",
-    "options": [
-     "the boy",
-     "the dog",
-     "the teacher",
-     "the neighbor"
-    ],
-    "answer": 1,
-    "explanation": "The pet dog who could talk gave simple advice."
-   },
-   {
-    "id": "q3",
-    "question": "Why did parents like the series?",
-    "options": [
-     "because of the music",
-     "because of the moral lessons",
-     "because of the action",
-     "because of the comedy"
-    ],
-    "answer": 1,
-    "explanation": "Parents liked the moral lessons mentioned in the text."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "one-idea-made-a-sports-brand-big",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "One Idea Made a Sports Brand Big",
-  "sentences": [
-   {
-    "text": "A sportswear company started in the 1960s.",
-    "translationRu": "Спортивная компания начала работать в 1960‑х годах."
-   },
-   {
-    "text": "It made shoes for running.",
-    "translationRu": "Она делала обувь для бега."
-   },
-   {
-    "text": "The founder believed shoes help performance.",
-    "translationRu": "Основатель считал, что обувь улучшает результаты."
-   },
-   {
-    "text": "He chose one athlete to wear the shoes.",
-    "translationRu": "Он выбрал одного спортсмена, чтобы тот носил обувь."
-   },
-   {
-    "text": "The athlete was a famous sprinter.",
-    "translationRu": "Спортсменом был известный спринтер."
-   },
-   {
-    "text": "The sprinter won many races.",
-    "translationRu": "Спринтер выиграл много гонок."
-   },
-   {
-    "text": "The media showed the shoes in the races.",
-    "translationRu": "СМИ показывали обувь во время гонок."
-   },
-   {
-    "text": "Fans saw the shoes and wanted them.",
-    "translationRu": "Болельщики видели обувь и хотели её."
-   },
-   {
-    "text": "The company advertised the wins.",
-    "translationRu": "Компания рекламировала победы."
-   },
-   {
-    "text": "It said the shoes made the runner fast.",
-    "translationRu": "Она говорила, что обувь делает бегуна быстрым."
-   },
-   {
-    "text": "People bought the shoes for that reason.",
-    "translationRu": "Люди покупали обувь по этой причине."
-   },
-   {
-    "text": "Sales grew quickly.",
-    "translationRu": "Продажи быстро росли."
-   },
-   {
-    "text": "Other athletes asked for the shoes.",
-    "translationRu": "Другие спортсмены просили эту обувь."
-   },
-   {
-    "text": "The brand kept the same simple design.",
-    "translationRu": "Бренд сохранял тот же простой дизайн."
-   },
-   {
-    "text": "It added a small logo on the side.",
-    "translationRu": "Он добавил маленький логотип сбоку."
-   },
-   {
-    "text": "The logo became easy to recognize.",
-    "translationRu": "Логотип стал легко узнаваемым."
-   },
-   {
-    "text": "The company opened stores worldwide.",
-    "translationRu": "Компания открыла магазины по всему миру."
-   },
-   {
-    "text": "Today the brand is known for that first idea.",
-    "translationRu": "Сегодня бренд известен благодаря той первой идее."
-   }
-  ],
-  "glossary": {
-   "sportswear": {
-    "translation": "спортивная одежда",
-    "partOfSpeech": "noun"
-   },
-   "athlete": {
-    "translation": "спортсмен",
-    "partOfSpeech": "noun"
-   },
-   "performance": {
-    "translation": "результат",
-    "partOfSpeech": "noun"
-   },
-   "design": {
-    "translation": "дизайн",
-    "partOfSpeech": "noun"
-   },
-   "logo": {
-    "translation": "логотип",
-    "partOfSpeech": "noun"
-   },
-   "advertise": {
-    "translation": "рекламировать",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What product did the company first make?",
-    "options": [
-     "t-shirts",
-     "running shoes",
-     "headbands",
-     "sports watches"
-    ],
-    "answer": 1,
-    "explanation": "The text states the company made shoes for running."
-   },
-   {
-    "id": "q2",
-    "question": "How did the brand become easy to recognize?",
-    "options": [
-     "by using bright colors",
-     "by adding a small logo",
-     "by changing the name",
-     "by sponsoring many teams"
-    ],
-    "answer": 1,
-    "explanation": "The text says the brand added a small logo on the side, which became easy to recognize."
-   },
-   {
-    "id": "q3",
-    "question": "What was the main reason people bought the shoes?",
-    "options": [
-     "because they were cheap",
-     "because they were stylish",
-     "because the sprinter wore them",
-     "because they were on sale"
-    ],
-    "answer": 2,
-    "explanation": "The text explains people bought the shoes because the sprinter won many races while wearing them."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "why-the-nba-is-global",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Why the NBA is global",
-  "sentences": [
-   {
-    "text": "The NBA is a basketball league in the United States.",
-    "translationRu": "NBA — это баскетбольная лига в Соединённых Штатах."
-   },
-   {
-    "text": "It started in 1946 and grew fast.",
-    "translationRu": "Она началась в 1946 году и быстро росла."
-   },
-   {
-    "text": "The league has 30 teams.",
-    "translationRu": "В лиге 30 команд."
-   },
-   {
-    "text": "Each team plays many games every season.",
-    "translationRu": "Каждая команда играет много матчей каждый сезон."
-   },
-   {
-    "text": "Fans can watch games on TV.",
-    "translationRu": "Зрители могут смотреть матчи по телевизору."
-   },
-   {
-    "text": "The NBA also streams games online.",
-    "translationRu": "NBA также транслирует матчи онлайн."
-   },
-   {
-    "text": "These services are available in many countries.",
-    "translationRu": "Эти сервисы доступны во многих странах."
-   },
-   {
-    "text": "The league signs players from all over the world.",
-    "translationRu": "Лига подписывает игроков со всего мира."
-   },
-   {
-    "text": "Stars like Giannis and Luka come from Europe.",
-    "translationRu": "Звёзды, такие как Джаннис и Лука, пришли из Европы."
-   },
-   {
-    "text": "They become role models for young players.",
-    "translationRu": "Они становятся образцами для подражания для молодых игроков."
-   },
-   {
-    "text": "The NBA holds exhibition games abroad.",
-    "translationRu": "NBA проводит показательные матчи за границей."
-   },
-   {
-    "text": "These games attract local fans.",
-    "translationRu": "Эти матчи привлекают местных зрителей."
-   },
-   {
-    "text": "The league also runs basketball camps worldwide.",
-    "translationRu": "Лига также проводит баскетбольные лагеря по всему миру."
-   },
-   {
-    "text": "Kids learn skills from NBA coaches.",
-    "translationRu": "Дети учатся навыкам у тренеров NBA."
-   },
-   {
-    "text": "Merchandise with the NBA logo is sold everywhere.",
-    "translationRu": "Товары с логотипом NBA продаются везде."
-   },
-   {
-    "text": "Social media shows highlights every day.",
-    "translationRu": "В соцсетях каждый день показывают лучшие моменты."
-   },
-   {
-    "text": "The league listens to fans and adds new features.",
-    "translationRu": "Лига слушает фанатов и добавляет новые функции."
-   },
-   {
-    "text": "Because of all this, the NBA is known worldwide.",
-    "translationRu": "Из‑за всего этого NBA известна во всём мире."
-   },
-   {
-    "text": "It continues to grow as new fans join.",
-    "translationRu": "Она продолжает расти, пока к ней присоединяются новые зрители."
-   }
-  ],
-  "glossary": {
-   "league": {
-    "translation": "лига",
-    "partOfSpeech": "noun"
-   },
-   "season": {
-    "translation": "сезон",
-    "partOfSpeech": "noun"
-   },
-   "stream": {
-    "translation": "транслировать",
-    "partOfSpeech": "verb"
-   },
-   "exhibition": {
-    "translation": "показательный",
-    "partOfSpeech": "adjective"
-   },
-   "camp": {
-    "translation": "лагерь",
-    "partOfSpeech": "noun"
-   },
-   "highlight": {
-    "translation": "лучший момент",
-    "partOfSpeech": "noun"
-   },
-   "feature": {
-    "translation": "функция",
-    "partOfSpeech": "noun"
-   },
-   "merchandise": {
-    "translation": "товары",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "How many teams does the NBA have?",
-    "options": [
-     "20",
-     "25",
-     "30",
-     "35"
-    ],
-    "answer": 2,
-    "explanation": "The text says the league has 30 teams."
-   },
-   {
-    "id": "q2",
-    "question": "What does the NBA do to reach fans in other countries?",
-    "options": [
-     "Only sell tickets abroad",
-     "Hold exhibition games abroad",
-     "Close all foreign offices",
-     "Ban online streaming"
-    ],
-    "answer": 1,
-    "explanation": "The text mentions the NBA holds exhibition games abroad."
-   },
-   {
-    "id": "q3",
-    "question": "Which word describes the NBA's growth?",
-    "options": [
-     "slow",
-     "steady",
-     "fast",
-     "none"
-    ],
-    "answer": 2,
-    "explanation": "The text says the league grew fast."
-   }
-  ],
-  "featured": true
- },
- {
-  "id": "what-a-director-does-differently",
-  "level": "A1-A2",
-  "topic": "famous",
-  "generated": true,
-  "title": "What a director does differently",
-  "sentences": [
-   {
-    "text": "Christopher Nolan is a famous film director.",
-    "translationRu": "Кристофер Нолан — известный кинорежиссёр."
-   },
-   {
-    "text": "He makes movies that many people watch.",
-    "translationRu": "Он делает фильмы, которые смотрит много людей."
-   },
-   {
-    "text": "His movies often use real locations.",
-    "translationRu": "В его фильмах часто используют реальные места."
-   },
-   {
-    "text": "He does not rely on computer graphics only.",
-    "translationRu": "Он не полагается только на компьютерную графику."
-   },
-   {
-    "text": "Nolan writes the story and the script.",
-    "translationRu": "Нолан пишет сюжет и сценарий."
-   },
-   {
-    "text": "He also plans the camera moves.",
-    "translationRu": "Он также планирует движения камеры."
-   },
-   {
-    "text": "He likes to use practical effects.",
-    "translationRu": "Он любит использовать практические эффекты."
-   },
-   {
-    "text": "For example, he built a real rotating hallway.",
-    "translationRu": "Например, он построил реальный вращающийся коридор."
-   },
-   {
-    "text": "The hallway was filmed with a real camera.",
-    "translationRu": "Коридор снимали реальной камерой."
-   },
-   {
-    "text": "He works with the same crew on many films.",
-    "translationRu": "Он работает с той же командой на многих фильмах."
-   },
-   {
-    "text": "The crew knows his style well.",
-    "translationRu": "Команда хорошо знает его стиль."
-   },
-   {
-    "text": "He often shoots scenes many times.",
-    "translationRu": "Он часто снимает сцены много раз."
-   },
-   {
-    "text": "He checks each take for detail.",
-    "translationRu": "Он проверяет каждый дубль на детали."
-   },
-   {
-    "text": "Nolan also uses music that fits the story.",
-    "translationRu": "Нолан также использует музыку, подходящую к сюжету."
-   },
-   {
-    "text": "He works with a composer from the start.",
-    "translationRu": "Он работает с композитором с самого начала."
-   },
-   {
-    "text": "The music helps the audience feel tension.",
-    "translationRu": "Музыка помогает зрителям почувствовать напряжение."
-   },
-   {
-    "text": "His films often have non‑linear timelines.",
-    "translationRu": "В его фильмах часто нелинейные временные линии."
-   },
-   {
-    "text": "He shows events out of order on purpose.",
-    "translationRu": "Он показывает события нарочно в неправильном порядке."
-   },
-   {
-    "text": "This makes viewers think about cause and effect.",
-    "translationRu": "Это заставляет зрителей думать о причине и следствии."
-   },
-   {
-    "text": "Because of these choices, his movies feel unique.",
-    "translationRu": "Из‑за этих приёмов его фильмы ощущаются уникальными."
-   }
-  ],
-  "glossary": {
-   "director": {
-    "translation": "режиссёр",
-    "partOfSpeech": "noun"
-   },
-   "location": {
-    "translation": "место",
-    "partOfSpeech": "noun"
-   },
-   "practical": {
-    "translation": "практический",
-    "partOfSpeech": "adjective"
-   },
-   "crew": {
-    "translation": "команда",
-    "partOfSpeech": "noun"
-   },
-   "timeline": {
-    "translation": "временная линия",
-    "partOfSpeech": "noun"
-   },
-   "tension": {
-    "translation": "напряжение",
-    "partOfSpeech": "noun"
-   },
-   "non‑linear": {
-    "translation": "нелинейный",
-    "partOfSpeech": "adjective"
-   },
-   "composer": {
-    "translation": "композитор",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What does Nolan prefer instead of only CGI?",
-    "options": [
-     "Animated characters",
-     "Practical effects",
-     "Silent films",
-     "Live theater"
-    ],
-    "answer": 1,
-    "explanation": "The text says he likes to use practical effects."
-   },
-   {
-    "id": "q2",
-    "question": "How many times does Nolan often shoot a scene?",
-    "options": [
-     "Once",
-     "Twice",
-     "Many times",
-     "Never"
-    ],
-    "answer": 2,
-    "explanation": "The text states he often shoots scenes many times."
-   },
-   {
-    "id": "q3",
-    "question": "When does Nolan work with a composer?",
-    "options": [
-     "After filming",
-     "During editing",
-     "From the start",
-     "Never"
-    ],
-    "answer": 2,
-    "explanation": "The text says he works with a composer from the start."
-   }
-  ],
-  "featured": true
- },
- {
   "id": "why-we-sneeze",
   "level": "A1",
   "topic": "health",
@@ -1563,167 +161,6 @@
     ],
     "answer": 1,
     "explanation": "It runs in families."
-   }
-  ]
- },
- {
-  "id": "the-tree-that-is-older",
-  "level": "A1",
-  "topic": "environment",
-  "generated": false,
-  "title": "A Tree Older Than Writing",
-  "sentences": [
-   {
-    "text": "In the mountains of California there are very old trees.",
-    "translationRu": "В горах Калифорнии растут очень старые деревья."
-   },
-   {
-    "text": "They are not big.",
-    "translationRu": "Они не большие."
-   },
-   {
-    "text": "They are small and grey and they look almost dead.",
-    "translationRu": "Они маленькие, серые и выглядят почти мёртвыми."
-   },
-   {
-    "text": "But one of them is more than four thousand seven hundred years old.",
-    "translationRu": "Но одному из них больше четырёх тысяч семисот лет."
-   },
-   {
-    "text": "It was already old when people built the pyramids in Egypt.",
-    "translationRu": "Оно было уже старым, когда в Египте строили пирамиды."
-   },
-   {
-    "text": "It was alive before writing.",
-    "translationRu": "Оно жило ещё до письменности."
-   },
-   {
-    "text": "Why do these trees live so long?",
-    "translationRu": "Почему эти деревья живут так долго?"
-   },
-   {
-    "text": "The answer is strange.",
-    "translationRu": "Ответ странный."
-   },
-   {
-    "text": "They live in a bad place.",
-    "translationRu": "Они живут в плохом месте."
-   },
-   {
-    "text": "The ground is dry and the wind is cold.",
-    "translationRu": "Земля сухая, ветер холодный."
-   },
-   {
-    "text": "There is very little water.",
-    "translationRu": "Воды очень мало."
-   },
-   {
-    "text": "So the trees grow very, very slowly.",
-    "translationRu": "Поэтому деревья растут очень-очень медленно."
-   },
-   {
-    "text": "Slow wood is hard wood.",
-    "translationRu": "Медленная древесина — твёрдая древесина."
-   },
-   {
-    "text": "Insects cannot eat it easily.",
-    "translationRu": "Насекомым нелегко её съесть."
-   },
-   {
-    "text": "Water cannot get inside it.",
-    "translationRu": "Вода не может попасть внутрь."
-   },
-   {
-    "text": "An easy life makes a soft tree.",
-    "translationRu": "Лёгкая жизнь делает дерево мягким."
-   },
-   {
-    "text": "A hard life makes a tree that waits.",
-    "translationRu": "Трудная жизнь делает дерево, которое ждёт."
-   },
-   {
-    "text": "Scientists do not say where the oldest tree is.",
-    "translationRu": "Учёные не говорят, где растёт самое старое дерево."
-   },
-   {
-    "text": "They are afraid that people will come and touch it.",
-    "translationRu": "Они боятся, что придут люди и будут его трогать."
-   }
-  ],
-  "glossary": {
-   "grey": {
-    "translation": "серый",
-    "partOfSpeech": "adjective"
-   },
-   "alive": {
-    "translation": "живой",
-    "partOfSpeech": "adjective"
-   },
-   "writing": {
-    "translation": "письменность",
-    "partOfSpeech": "noun"
-   },
-   "ground": {
-    "translation": "земля, почва",
-    "partOfSpeech": "noun"
-   },
-   "dry": {
-    "translation": "сухой",
-    "partOfSpeech": "adjective"
-   },
-   "slowly": {
-    "translation": "медленно",
-    "partOfSpeech": "adverb"
-   },
-   "hard": {
-    "translation": "твёрдый",
-    "partOfSpeech": "adjective"
-   },
-   "insect": {
-    "translation": "насекомое",
-    "partOfSpeech": "noun"
-   },
-   "afraid": {
-    "translation": "боящийся",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What do the oldest trees look like?",
-    "options": [
-     "Big and green",
-     "Small, grey and almost dead",
-     "Tall and young",
-     "Wide and soft"
-    ],
-    "answer": 1,
-    "explanation": "The text describes them as small, grey and looking almost dead."
-   },
-   {
-    "id": "q2",
-    "question": "Why do they live so long?",
-    "options": [
-     "Good soil",
-     "They grow slowly in a hard place, so the wood is hard",
-     "People water them",
-     "They are new"
-    ],
-    "answer": 1,
-    "explanation": "Slow wood is hard wood, which insects and water cannot enter."
-   },
-   {
-    "id": "q3",
-    "question": "Why is the place secret?",
-    "options": [
-     "It is dangerous",
-     "Scientists are afraid people will touch the tree",
-     "It is private land",
-     "Nobody knows it"
-    ],
-    "answer": 1,
-    "explanation": "Stated in the last sentence."
    }
   ]
  },
@@ -2568,167 +1005,6 @@
     ],
     "answer": 1,
     "explanation": "Her parents said it was her choice."
-   }
-  ]
- },
- {
-  "id": "the-bird-that-never-lands",
-  "level": "A1",
-  "topic": "environment",
-  "generated": false,
-  "title": "The Bird That Sleeps in the Air",
-  "sentences": [
-   {
-    "text": "There is a small bird called a swift.",
-    "translationRu": "Есть маленькая птица — стриж."
-   },
-   {
-    "text": "You can see swifts in summer over cities.",
-    "translationRu": "Летом стрижей видно над городами."
-   },
-   {
-    "text": "They fly fast and they make a loud noise.",
-    "translationRu": "Они летают быстро и громко кричат."
-   },
-   {
-    "text": "Swifts do something very strange.",
-    "translationRu": "Со стрижами связана очень странная вещь."
-   },
-   {
-    "text": "A young swift leaves its nest.",
-    "translationRu": "Молодой стриж покидает гнездо."
-   },
-   {
-    "text": "Then it flies.",
-    "translationRu": "И летит."
-   },
-   {
-    "text": "It does not stop for ten months.",
-    "translationRu": "Он не останавливается десять месяцев."
-   },
-   {
-    "text": "It does not sit on a tree.",
-    "translationRu": "Он не садится на дерево."
-   },
-   {
-    "text": "It does not stand on the ground.",
-    "translationRu": "Он не стоит на земле."
-   },
-   {
-    "text": "It eats in the air.",
-    "translationRu": "Он ест в воздухе."
-   },
-   {
-    "text": "It drinks in the air.",
-    "translationRu": "Он пьёт в воздухе."
-   },
-   {
-    "text": "And it sleeps in the air too.",
-    "translationRu": "И спит он тоже в воздухе."
-   },
-   {
-    "text": "Scientists put very small computers on some swifts.",
-    "translationRu": "Учёные прикрепили к стрижам крошечные приборы."
-   },
-   {
-    "text": "The computers showed the birds high in the sky at night.",
-    "translationRu": "Приборы показали птиц высоко в небе ночью."
-   },
-   {
-    "text": "They go up, and then they come down slowly while they sleep.",
-    "translationRu": "Они поднимаются вверх, а потом медленно снижаются во сне."
-   },
-   {
-    "text": "Maybe only half of the brain sleeps.",
-    "translationRu": "Возможно, спит только половина мозга."
-   },
-   {
-    "text": "The other half keeps flying.",
-    "translationRu": "Другая половина продолжает лететь."
-   },
-   {
-    "text": "A swift lands only when it makes a nest.",
-    "translationRu": "Стриж садится, только когда вьёт гнездо."
-   },
-   {
-    "text": "Its feet are small and weak.",
-    "translationRu": "Лапки у него маленькие и слабые."
-   },
-   {
-    "text": "It does not need them.",
-    "translationRu": "Они ему не нужны."
-   }
-  ],
-  "glossary": {
-   "bird": {
-    "translation": "птица",
-    "partOfSpeech": "noun"
-   },
-   "nest": {
-    "translation": "гнездо",
-    "partOfSpeech": "noun"
-   },
-   "ground": {
-    "translation": "земля",
-    "partOfSpeech": "noun"
-   },
-   "sky": {
-    "translation": "небо",
-    "partOfSpeech": "noun"
-   },
-   "slowly": {
-    "translation": "медленно",
-    "partOfSpeech": "adverb"
-   },
-   "half": {
-    "translation": "половина",
-    "partOfSpeech": "noun"
-   },
-   "land": {
-    "translation": "садиться, приземляться",
-    "partOfSpeech": "verb"
-   },
-   "weak": {
-    "translation": "слабый",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "How long does a young swift fly without stopping?",
-    "options": [
-     "Ten days",
-     "Ten weeks",
-     "Ten months",
-     "Ten years"
-    ],
-    "answer": 2,
-    "explanation": "The text says ten months."
-   },
-   {
-    "id": "q2",
-    "question": "How do swifts sleep?",
-    "options": [
-     "On trees",
-     "High in the sky, coming down slowly",
-     "On the ground",
-     "They do not sleep"
-    ],
-    "answer": 1,
-    "explanation": "Scientists saw them high in the sky at night."
-   },
-   {
-    "id": "q3",
-    "question": "Why are its feet weak?",
-    "options": [
-     "It is ill",
-     "It almost never uses them",
-     "They are broken",
-     "It is young"
-    ],
-    "answer": 1,
-    "explanation": "It lands only to make a nest."
    }
   ]
  },
@@ -4017,316 +2293,6 @@
   ]
  },
  {
-  "id": "the-loneliest-whale",
-  "level": "A1",
-  "topic": "environment",
-  "generated": false,
-  "title": "The Whale Nobody Can Hear",
-  "sentences": [
-   {
-    "text": "Whales sing.",
-    "translationRu": "Киты поют."
-   },
-   {
-    "text": "They sing to find other whales in the dark water.",
-    "translationRu": "Они поют, чтобы найти других китов в тёмной воде."
-   },
-   {
-    "text": "Most big whales sing low, at about twenty hertz.",
-    "translationRu": "Большинство крупных китов поют низко — примерно на двадцати герцах."
-   },
-   {
-    "text": "Other whales hear this and answer.",
-    "translationRu": "Другие киты это слышат и отвечают."
-   },
-   {
-    "text": "In 1989 scientists in America heard something new.",
-    "translationRu": "В 1989 году учёные в Америке услышали кое-что новое."
-   },
-   {
-    "text": "One whale was singing at fifty-two hertz.",
-    "translationRu": "Один кит пел на пятидесяти двух герцах."
-   },
-   {
-    "text": "This is much higher.",
-    "translationRu": "Это гораздо выше."
-   },
-   {
-    "text": "It is the wrong song.",
-    "translationRu": "Это неправильная песня."
-   },
-   {
-    "text": "Other whales probably cannot understand it.",
-    "translationRu": "Другие киты, скорее всего, его не понимают."
-   },
-   {
-    "text": "The scientists listened for many years.",
-    "translationRu": "Учёные слушали много лет."
-   },
-   {
-    "text": "The whale moved north in summer and south in winter, like other whales.",
-    "translationRu": "Кит уходил на север летом и на юг зимой, как другие киты."
-   },
-   {
-    "text": "But it was always alone.",
-    "translationRu": "Но он всегда был один."
-   },
-   {
-    "text": "Nobody ever answered.",
-    "translationRu": "Ему никто не ответил."
-   },
-   {
-    "text": "People call it the loneliest whale in the world.",
-    "translationRu": "Его называют самым одиноким китом в мире."
-   },
-   {
-    "text": "Newspapers wrote about it and people cried.",
-    "translationRu": "О нём писали газеты, и люди плакали."
-   },
-   {
-    "text": "But scientists are careful.",
-    "translationRu": "Но учёные осторожны."
-   },
-   {
-    "text": "Maybe the whale is not sad.",
-    "translationRu": "Может быть, киту и не грустно."
-   },
-   {
-    "text": "Maybe other whales can hear it, and they only think it sounds strange.",
-    "translationRu": "Может, другие киты его слышат — просто им кажется, что он звучит странно."
-   },
-   {
-    "text": "We do not know.",
-    "translationRu": "Мы не знаем."
-   },
-   {
-    "text": "The song is still out there, somewhere in the Pacific.",
-    "translationRu": "Песня всё ещё где-то там, в Тихом океане."
-   }
-  ],
-  "glossary": {
-   "whale": {
-    "translation": "кит",
-    "partOfSpeech": "noun"
-   },
-   "sing": {
-    "translation": "петь",
-    "partOfSpeech": "verb"
-   },
-   "low": {
-    "translation": "низко",
-    "partOfSpeech": "adverb"
-   },
-   "answer": {
-    "translation": "отвечать",
-    "partOfSpeech": "verb"
-   },
-   "alone": {
-    "translation": "один",
-    "partOfSpeech": "adjective"
-   },
-   "lonely": {
-    "translation": "одинокий",
-    "partOfSpeech": "adjective"
-   },
-   "careful": {
-    "translation": "осторожный",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Why do whales sing?",
-    "options": [
-     "To sleep",
-     "To find other whales",
-     "To eat",
-     "To swim faster"
-    ],
-    "answer": 1,
-    "explanation": "They sing to find other whales in the dark water."
-   },
-   {
-    "id": "q2",
-    "question": "What is strange about this whale?",
-    "options": [
-     "It is very small",
-     "It sings much higher than other whales",
-     "It never moves",
-     "It sings in the day only"
-    ],
-    "answer": 1,
-    "explanation": "Fifty-two hertz instead of about twenty."
-   },
-   {
-    "id": "q3",
-    "question": "What do scientists say?",
-    "options": [
-     "The whale is definitely sad",
-     "Maybe it is not sad, we do not know",
-     "The whale is dead",
-     "It is not a whale"
-    ],
-    "answer": 1,
-    "explanation": "The text says scientists are careful about this."
-   }
-  ]
- },
- {
-  "id": "why-the-sea-is-salty",
-  "level": "A1",
-  "topic": "science",
-  "generated": false,
-  "title": "Where the Salt in the Sea Comes From",
-  "sentences": [
-   {
-    "text": "Rain is not salty.",
-    "translationRu": "Дождь не солёный."
-   },
-   {
-    "text": "Rivers are not salty.",
-    "translationRu": "Реки не солёные."
-   },
-   {
-    "text": "But the sea is very salty.",
-    "translationRu": "А море очень солёное."
-   },
-   {
-    "text": "Why?",
-    "translationRu": "Почему?"
-   },
-   {
-    "text": "The answer starts with rain on rocks.",
-    "translationRu": "Ответ начинается с дождя на камнях."
-   },
-   {
-    "text": "Rain is a little bit acid.",
-    "translationRu": "Дождь чуть-чуть кислый."
-   },
-   {
-    "text": "It falls on stone and takes very small pieces of it away.",
-    "translationRu": "Он падает на камень и уносит очень маленькие его кусочки."
-   },
-   {
-    "text": "These pieces are minerals, and salt is one of them.",
-    "translationRu": "Эти кусочки — минералы, и соль один из них."
-   },
-   {
-    "text": "Rivers carry them to the sea.",
-    "translationRu": "Реки несут их в море."
-   },
-   {
-    "text": "You cannot taste the salt in a river because there is very little.",
-    "translationRu": "В реке соль не чувствуется на вкус, потому что её очень мало."
-   },
-   {
-    "text": "But rivers never stop.",
-    "translationRu": "Но реки не останавливаются."
-   },
-   {
-    "text": "They have been doing this for millions of years.",
-    "translationRu": "Они делают это миллионы лет."
-   },
-   {
-    "text": "Now here is the important part.",
-    "translationRu": "А вот важная часть."
-   },
-   {
-    "text": "Water leaves the sea when the sun is hot.",
-    "translationRu": "Вода уходит из моря, когда солнце горячее."
-   },
-   {
-    "text": "It goes up into the sky and becomes rain again.",
-    "translationRu": "Она поднимается в небо и снова становится дождём."
-   },
-   {
-    "text": "But the salt cannot go up.",
-    "translationRu": "А соль подняться не может."
-   },
-   {
-    "text": "The salt stays.",
-    "translationRu": "Соль остаётся."
-   },
-   {
-    "text": "Water comes and goes, and the salt only comes.",
-    "translationRu": "Вода приходит и уходит, а соль только приходит."
-   },
-   {
-    "text": "So every year the sea is a tiny bit more salty.",
-    "translationRu": "И каждый год море чуть-чуть солонее."
-   }
-  ],
-  "glossary": {
-   "salty": {
-    "translation": "солёный",
-    "partOfSpeech": "adjective"
-   },
-   "rock": {
-    "translation": "камень, порода",
-    "partOfSpeech": "noun"
-   },
-   "piece": {
-    "translation": "кусочек",
-    "partOfSpeech": "noun"
-   },
-   "mineral": {
-    "translation": "минерал",
-    "partOfSpeech": "noun"
-   },
-   "carry": {
-    "translation": "нести",
-    "partOfSpeech": "verb"
-   },
-   "taste": {
-    "translation": "чувствовать на вкус",
-    "partOfSpeech": "verb"
-   },
-   "stay": {
-    "translation": "оставаться",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Where does the salt come from?",
-    "options": [
-     "From fish",
-     "From rain taking pieces of rock",
-     "From the sky",
-     "From the wind"
-    ],
-    "answer": 1,
-    "explanation": "Rain is slightly acid and takes minerals from stone."
-   },
-   {
-    "id": "q2",
-    "question": "Why can you not taste salt in a river?",
-    "options": [
-     "Rivers are cold",
-     "There is very little",
-     "Rivers move fast",
-     "Rivers have no salt at all"
-    ],
-    "answer": 1,
-    "explanation": "The text says there is very little."
-   },
-   {
-    "id": "q3",
-    "question": "Why does the sea get saltier?",
-    "options": [
-     "Water leaves but salt stays",
-     "People add salt",
-     "Fish make salt",
-     "Rain is salty"
-    ],
-    "answer": 0,
-    "explanation": "Water goes up into the sky; the salt cannot."
-   }
-  ]
- },
- {
   "id": "why-we-blink",
   "level": "A1",
   "topic": "health",
@@ -4814,171 +2780,6 @@
     ],
     "answer": 1,
     "explanation": "Often the loudest sound of the day."
-   }
-  ]
- },
- {
-  "id": "bees-give-directions",
-  "level": "A2",
-  "topic": "environment",
-  "generated": false,
-  "title": "Bees Tell Each Other Where the Flowers Are",
-  "sentences": [
-   {
-    "text": "A bee finds a good field of flowers.",
-    "translationRu": "Пчела находит хорошее поле цветов."
-   },
-   {
-    "text": "It flies home to tell the others.",
-    "translationRu": "Она летит домой рассказать остальным."
-   },
-   {
-    "text": "But bees cannot speak.",
-    "translationRu": "Но пчёлы не умеют говорить."
-   },
-   {
-    "text": "So the bee dances.",
-    "translationRu": "Поэтому пчела танцует."
-   },
-   {
-    "text": "Inside the hive it is dark.",
-    "translationRu": "Внутри улья темно."
-   },
-   {
-    "text": "The other bees cannot see the dance.",
-    "translationRu": "Другие пчёлы танца не видят."
-   },
-   {
-    "text": "They feel it with their bodies.",
-    "translationRu": "Они чувствуют его телом."
-   },
-   {
-    "text": "The dance has a shape like the number eight.",
-    "translationRu": "Танец имеет форму восьмёрки."
-   },
-   {
-    "text": "In the middle the bee walks in a straight line and shakes.",
-    "translationRu": "В середине пчела идёт по прямой и трясётся."
-   },
-   {
-    "text": "That straight line is the direction.",
-    "translationRu": "Эта прямая — направление."
-   },
-   {
-    "text": "But direction from what?",
-    "translationRu": "Но направление от чего?"
-   },
-   {
-    "text": "From the sun.",
-    "translationRu": "От солнца."
-   },
-   {
-    "text": "The angle of the line shows the angle to the sun.",
-    "translationRu": "Угол линии показывает угол к солнцу."
-   },
-   {
-    "text": "And the time?",
-    "translationRu": "А время?"
-   },
-   {
-    "text": "The longer the bee shakes, the further the flowers are.",
-    "translationRu": "Чем дольше пчела трясётся, тем дальше цветы."
-   },
-   {
-    "text": "A short dance means near.",
-    "translationRu": "Короткий танец — близко."
-   },
-   {
-    "text": "A long dance means far.",
-    "translationRu": "Долгий танец — далеко."
-   },
-   {
-    "text": "A scientist called Karl von Frisch understood this and won a Nobel Prize.",
-    "translationRu": "Учёный Карл фон Фриш это понял и получил Нобелевскую премию."
-   },
-   {
-    "text": "For a long time other scientists did not believe him.",
-    "translationRu": "Долгое время другие учёные ему не верили."
-   },
-   {
-    "text": "It sounded too clever for an insect.",
-    "translationRu": "Это казалось слишком умным для насекомого."
-   }
-  ],
-  "glossary": {
-   "hive": {
-    "translation": "улей",
-    "partOfSpeech": "noun"
-   },
-   "dance": {
-    "translation": "танцевать; танец",
-    "partOfSpeech": "verb"
-   },
-   "dark": {
-    "translation": "тёмный",
-    "partOfSpeech": "adjective"
-   },
-   "shape": {
-    "translation": "форма",
-    "partOfSpeech": "noun"
-   },
-   "straight": {
-    "translation": "прямой",
-    "partOfSpeech": "adjective"
-   },
-   "shake": {
-    "translation": "трястись",
-    "partOfSpeech": "verb"
-   },
-   "direction": {
-    "translation": "направление",
-    "partOfSpeech": "noun"
-   },
-   "angle": {
-    "translation": "угол",
-    "partOfSpeech": "noun"
-   },
-   "insect": {
-    "translation": "насекомое",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Why does the bee dance?",
-    "options": [
-     "To rest",
-     "To tell others where flowers are",
-     "To get warm",
-     "To find the queen"
-    ],
-    "answer": 1,
-    "explanation": "Bees cannot speak, so the bee dances."
-   },
-   {
-    "id": "q2",
-    "question": "What shows the direction?",
-    "options": [
-     "The speed",
-     "The angle of the straight line, against the sun",
-     "The sound",
-     "The smell"
-    ],
-    "answer": 1,
-    "explanation": "The angle of the line shows the angle to the sun."
-   },
-   {
-    "id": "q3",
-    "question": "What does a long dance mean?",
-    "options": [
-     "The flowers are near",
-     "The flowers are far",
-     "There is danger",
-     "It is late"
-    ],
-    "answer": 1,
-    "explanation": "The longer the shaking, the further the flowers."
    }
   ]
  },
@@ -7890,159 +5691,6 @@
   ]
  },
  {
-  "id": "the-shortest-war",
-  "level": "A2",
-  "topic": "society",
-  "generated": false,
-  "title": "The War That Lasted Less Than an Hour",
-  "sentences": [
-   {
-    "text": "Most wars last years.",
-    "translationRu": "Большинство войн длятся годами."
-   },
-   {
-    "text": "Some last months.",
-    "translationRu": "Некоторые — месяцы."
-   },
-   {
-    "text": "One war lasted about thirty-eight minutes.",
-    "translationRu": "Одна война продлилась около тридцати восьми минут."
-   },
-   {
-    "text": "It happened in 1896 in Zanzibar, an island in Africa.",
-    "translationRu": "Это случилось в 1896 году на Занзибаре, острове в Африке."
-   },
-   {
-    "text": "The old ruler died.",
-    "translationRu": "Старый правитель умер."
-   },
-   {
-    "text": "A new ruler took his place.",
-    "translationRu": "Его место занял новый."
-   },
-   {
-    "text": "But Britain wanted a different man there.",
-    "translationRu": "Но Британия хотела видеть там другого человека."
-   },
-   {
-    "text": "Britain had ships near the island.",
-    "translationRu": "У Британии рядом с островом стояли корабли."
-   },
-   {
-    "text": "The new ruler had a small palace and about three thousand men.",
-    "translationRu": "У нового правителя был небольшой дворец и около трёх тысяч человек."
-   },
-   {
-    "text": "Britain sent a message: leave, or we will start at nine o'clock.",
-    "translationRu": "Британия послала сообщение: уходи, или мы начнём в девять."
-   },
-   {
-    "text": "He did not leave.",
-    "translationRu": "Он не ушёл."
-   },
-   {
-    "text": "At nine o'clock the ships began.",
-    "translationRu": "В девять корабли начали."
-   },
-   {
-    "text": "The palace was made of wood.",
-    "translationRu": "Дворец был деревянный."
-   },
-   {
-    "text": "It fell very quickly.",
-    "translationRu": "Он рухнул очень быстро."
-   },
-   {
-    "text": "By about twenty to ten it was finished.",
-    "translationRu": "Примерно без двадцати десять всё закончилось."
-   },
-   {
-    "text": "The ruler escaped and lived for many more years.",
-    "translationRu": "Правитель бежал и прожил ещё много лет."
-   },
-   {
-    "text": "History books call it the shortest war in the world.",
-    "translationRu": "Учебники называют её самой короткой войной в мире."
-   },
-   {
-    "text": "But short does not mean small.",
-    "translationRu": "Но короткая не значит маленькая."
-   },
-   {
-    "text": "About five hundred people died in those thirty-eight minutes.",
-    "translationRu": "За эти тридцать восемь минут погибло около пятисот человек."
-   }
-  ],
-  "glossary": {
-   "ruler": {
-    "translation": "правитель",
-    "partOfSpeech": "noun"
-   },
-   "palace": {
-    "translation": "дворец",
-    "partOfSpeech": "noun"
-   },
-   "ship": {
-    "translation": "корабль",
-    "partOfSpeech": "noun"
-   },
-   "message": {
-    "translation": "сообщение",
-    "partOfSpeech": "noun"
-   },
-   "wood": {
-    "translation": "дерево (материал)",
-    "partOfSpeech": "noun"
-   },
-   "escape": {
-    "translation": "сбежать",
-    "partOfSpeech": "verb"
-   },
-   "history": {
-    "translation": "история",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "How long did the war last?",
-    "options": [
-     "Thirty-eight days",
-     "About thirty-eight minutes",
-     "One year",
-     "Three hours"
-    ],
-    "answer": 1,
-    "explanation": "The text says about thirty-eight minutes."
-   },
-   {
-    "id": "q2",
-    "question": "Why did the palace fall quickly?",
-    "options": [
-     "It was very old",
-     "It was made of wood",
-     "It was empty",
-     "It was small"
-    ],
-    "answer": 1,
-    "explanation": "Stated directly."
-   },
-   {
-    "id": "q3",
-    "question": "What does the last line say?",
-    "options": [
-     "Nobody died",
-     "About five hundred people died",
-     "The ruler died",
-     "It was a game"
-    ],
-    "answer": 1,
-    "explanation": "Short does not mean small."
-   }
-  ]
- },
- {
   "id": "the-weekend-i-fixed-a-bike",
   "level": "A2",
   "topic": "wordwork",
@@ -8251,139 +5899,6 @@
     ],
     "answer": 2,
     "explanation": "He insists he has fixed one bicycle, and says the door in his head is open now."
-   }
-  ]
- },
- {
-  "id": "venice-in-february",
-  "level": "A2",
-  "topic": "travel",
-  "generated": false,
-  "title": "Venice in February",
-  "sentences": [
-   {
-    "text": "Everyone tells you to visit Venice in spring.",
-    "translationRu": "Все советуют приезжать в Венецию весной."
-   },
-   {
-    "text": "They are wrong.",
-    "translationRu": "Они не правы."
-   },
-   {
-    "text": "Go in February, when the fog sits on the water and the crowds have gone home.",
-    "translationRu": "Приезжайте в феврале, когда над водой стоит туман, а толпы разъехались по домам."
-   },
-   {
-    "text": "The city is cold and a little sad, and that is when it is most itself.",
-    "translationRu": "Город холодный и немного печальный — и именно тогда он больше всего похож на себя."
-   },
-   {
-    "text": "In summer you queue for an hour to see a church.",
-    "translationRu": "Летом вы час стоите в очереди, чтобы увидеть церковь."
-   },
-   {
-    "text": "In February you walk in and you are alone with it.",
-    "translationRu": "В феврале вы просто входите — и остаётесь с ней наедине."
-   },
-   {
-    "text": "The light is grey, so the gold inside looks warmer.",
-    "translationRu": "Свет серый, поэтому золото внутри кажется теплее."
-   },
-   {
-    "text": "You will get lost, because everyone gets lost in Venice.",
-    "translationRu": "Вы заблудитесь, потому что в Венеции теряются все."
-   },
-   {
-    "text": "The streets are narrow and they end at water without warning.",
-    "translationRu": "Улицы узкие и обрываются водой без предупреждения."
-   },
-   {
-    "text": "Do not fight it.",
-    "translationRu": "Не боритесь с этим."
-   },
-   {
-    "text": "The city is small, and every wrong turn brings you somewhere worth seeing.",
-    "translationRu": "Город маленький, и каждый неверный поворот выводит куда-нибудь стоящее."
-   },
-   {
-    "text": "Bring warm shoes.",
-    "translationRu": "Возьмите тёплую обувь."
-   },
-   {
-    "text": "The water rises in winter, and the squares flood for an hour or two.",
-    "translationRu": "Зимой вода поднимается, и площади заливает на час-другой."
-   },
-   {
-    "text": "Locals put on boots and carry on.",
-    "translationRu": "Местные надевают сапоги и живут дальше."
-   }
-  ],
-  "glossary": {
-   "fog": {
-    "translation": "туман",
-    "partOfSpeech": "noun"
-   },
-   "queue": {
-    "translation": "стоять в очереди",
-    "partOfSpeech": "verb"
-   },
-   "narrow": {
-    "translation": "узкий",
-    "partOfSpeech": "adjective"
-   },
-   "get lost": {
-    "translation": "заблудиться",
-    "partOfSpeech": "phrase"
-   },
-   "flood": {
-    "translation": "затоплять",
-    "partOfSpeech": "verb"
-   },
-   "locals": {
-    "translation": "местные жители",
-    "partOfSpeech": "noun"
-   },
-   "carry on": {
-    "translation": "продолжать как ни в чём не бывало",
-    "partOfSpeech": "phrase"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Why does the writer recommend February?",
-    "options": [
-     "Tickets are cheaper",
-     "The fog is gone",
-     "No crowds, and the city feels like itself",
-     "The water is warm"
-    ],
-    "answer": 2,
-    "explanation": "The crowds have gone home, and that is when the city is most itself."
-   },
-   {
-    "id": "q2",
-    "question": "What does the writer say about getting lost?",
-    "options": [
-     "Avoid it with a map",
-     "Do not fight it",
-     "Ask a local at once",
-     "It is dangerous"
-    ],
-    "answer": 1,
-    "explanation": "Every wrong turn brings you somewhere worth seeing."
-   },
-   {
-    "id": "q3",
-    "question": "What happens to the squares in winter?",
-    "options": [
-     "They close",
-     "They flood briefly",
-     "They fill with tourists",
-     "They freeze"
-    ],
-    "answer": 1,
-    "explanation": "The water rises and the squares flood for an hour or two."
    }
   ]
  },
@@ -8706,6 +6221,984 @@
     ],
     "answer": 1,
     "explanation": "The same age they start understanding what others feel."
+   }
+  ]
+ },
+ {
+  "id": "why-clubs-copying-a-style",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Why Clubs Copying a Style",
+  "sentences": [
+   {
+    "text": "Barcelona FC is a famous football club.",
+    "translationRu": "Барселона ФК — известный футбольный клуб."
+   },
+   {
+    "text": "It plays in Spain.",
+    "translationRu": "Он играет в Испании."
+   },
+   {
+    "text": "Many people love its way of playing.",
+    "translationRu": "Многие люди любят его стиль игры."
+   },
+   {
+    "text": "This style is called tiki-taka.",
+    "translationRu": "Этот стиль называется тики-така."
+   },
+   {
+    "text": "It means short, quick passes and control.",
+    "translationRu": "Это означает короткие, быстрые передачи и контроль."
+   },
+   {
+    "text": "The players move a lot.",
+    "translationRu": "Игроки много двигаются."
+   },
+   {
+    "text": "They always try to keep the ball.",
+    "translationRu": "Они всегда стараются держать мяч у себя."
+   },
+   {
+    "text": "This style is very hard to play against.",
+    "translationRu": "Против такого стиля очень трудно играть."
+   },
+   {
+    "text": "It led Barcelona to many wins.",
+    "translationRu": "Он привел Барселону к многим победам."
+   },
+   {
+    "text": "Other clubs saw this success.",
+    "translationRu": "Другие клубы увидели этот успех."
+   },
+   {
+    "text": "They wanted to win too.",
+    "translationRu": "Они тоже хотели побеждать."
+   },
+   {
+    "text": "Many started to copy this style.",
+    "translationRu": "Многие начали копировать этот стиль."
+   },
+   {
+    "text": "Even national teams copied it.",
+    "translationRu": "Даже национальные команды копировали его."
+   },
+   {
+    "text": "Spain's national team used tiki-taka.",
+    "translationRu": "Национальная команда Испании использовала тики-така."
+   },
+   {
+    "text": "It helped them win a World Cup.",
+    "translationRu": "Это помогло им выиграть Чемпионат мира."
+   },
+   {
+    "text": "Coaches teach this style to young players.",
+    "translationRu": "Тренеры учат этому стилю молодых игроков."
+   },
+   {
+    "text": "They think it is the future of football.",
+    "translationRu": "Они думают, что это будущее футбола."
+   },
+   {
+    "text": "Some clubs mix tiki-taka with other styles.",
+    "translationRu": "Некоторые клубы смешивают тики-така с другими стилями."
+   },
+   {
+    "text": "This can create new ways to play.",
+    "translationRu": "Это может создавать новые способы игры."
+   },
+   {
+    "text": "Fans enjoy seeing beautiful football.",
+    "translationRu": "Болельщикам нравится видеть красивый футбол."
+   },
+   {
+    "text": "Tiki-taka is attractive to watch.",
+    "translationRu": "Тики-така приятно смотреть."
+   },
+   {
+    "text": "It is also very effective.",
+    "translationRu": "Она также очень эффективна."
+   },
+   {
+    "text": "Barcelona has a big influence.",
+    "translationRu": "Барселона оказывает большое влияние."
+   },
+   {
+    "text": "Now, tiki-taka is famous worldwide.",
+    "translationRu": "Теперь тики-така известна во всем мире."
+   }
+  ],
+  "glossary": {
+   "club": {
+    "translation": "клуб",
+    "partOfSpeech": "noun"
+   },
+   "style": {
+    "translation": "стиль",
+    "partOfSpeech": "noun"
+   },
+   "success": {
+    "translation": "успех",
+    "partOfSpeech": "noun"
+   },
+   "control": {
+    "translation": "контроль",
+    "partOfSpeech": "noun"
+   },
+   "influence": {
+    "translation": "влияние",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is the name of Barcelona FC's playing style?",
+    "options": [
+     "tiki-taka",
+     "kick-ball",
+     "long-pass",
+     "goal-strike"
+    ],
+    "answer": 0,
+    "explanation": "The text explains that the style is called tiki-taka."
+   },
+   {
+    "id": "q2",
+    "question": "Which national team used tiki-taka to win a World Cup?",
+    "options": [
+     "Germany",
+     "Spain",
+     "Brazil",
+     "France"
+    ],
+    "answer": 1,
+    "explanation": "The text states that Spain's national team used tiki-taka."
+   },
+   {
+    "id": "q3",
+    "question": "Why do other clubs copy Barcelona's style?",
+    "options": [
+     "They like it",
+     "They want to win",
+     "They have no choice",
+     "It looks easy"
+    ],
+    "answer": 1,
+    "explanation": "Other clubs saw Barcelona's success and wanted to win too."
+   }
+  ]
+ },
+ {
+  "id": "how-streaming-services-decide",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "How Streaming Services Decide",
+  "sentences": [
+   {
+    "text": "Streaming services are very popular now.",
+    "translationRu": "Стриминговые сервисы сейчас очень популярны."
+   },
+   {
+    "text": "They allow people to watch movies and shows online.",
+    "translationRu": "Они позволяют людям смотреть фильмы и шоу онлайн."
+   },
+   {
+    "text": "Netflix is one of the biggest streaming services.",
+    "translationRu": "Netflix — один из крупнейших стриминговых сервисов."
+   },
+   {
+    "text": "It has millions of users worldwide.",
+    "translationRu": "У него миллионы пользователей по всему миру."
+   },
+   {
+    "text": "But how does Netflix decide what shows to make?",
+    "translationRu": "Но как Netflix решает, какие шоу производить?"
+   },
+   {
+    "text": "First, it looks at data from users.",
+    "translationRu": "Сначала он смотрит на данные от пользователей."
+   },
+   {
+    "text": "It sees what people watch the most.",
+    "translationRu": "Он видит, что люди смотрят больше всего."
+   },
+   {
+    "text": "If a lot of people watch a show, it is a hit.",
+    "translationRu": "Если много людей смотрят шоу, это хит."
+   },
+   {
+    "text": "Netflix tries to make more shows like that.",
+    "translationRu": "Netflix старается сделать больше подобных шоу."
+   },
+   {
+    "text": "The service also checks what people search for.",
+    "translationRu": "Сервис также проверяет, что люди ищут."
+   },
+   {
+    "text": "If many people search for a topic, it may be popular.",
+    "translationRu": "Если многие ищут тему, она может быть популярной."
+   },
+   {
+    "text": "Netflix wants to make shows people want to see.",
+    "translationRu": "Netflix хочет делать шоу, которые люди хотят смотреть."
+   },
+   {
+    "text": "Sometimes, it tries new ideas too.",
+    "translationRu": "Иногда он пробует и новые идеи."
+   },
+   {
+    "text": "These can become big hits.",
+    "translationRu": "Они могут стать большими хитами."
+   },
+   {
+    "text": "The service also listens to feedback.",
+    "translationRu": "Сервис также слушает отзывы."
+   },
+   {
+    "text": "Users can rate shows and give comments.",
+    "translationRu": "Пользователи могут оценивать шоу и оставлять комментарии."
+   },
+   {
+    "text": "Good ratings help Netflix decide what to make next.",
+    "translationRu": "Хорошие оценки помогают Netflix решить, что делать дальше."
+   },
+   {
+    "text": "The service works with many creators.",
+    "translationRu": "Сервис работает с многими создателями."
+   },
+   {
+    "text": "They bring new ideas to Netflix.",
+    "translationRu": "Они приносят новые идеи в Netflix."
+   },
+   {
+    "text": "Popular shows can bring more subscribers.",
+    "translationRu": "Популярные шоу могут привлечь больше подписчиков."
+   },
+   {
+    "text": "Netflix always wants to grow.",
+    "translationRu": "Netflix всегда хочет расти."
+   },
+   {
+    "text": "It invests in many different types of content.",
+    "translationRu": "Он вкладывает в много разных видов контента."
+   },
+   {
+    "text": "Netflix tries to please a wide audience.",
+    "translationRu": "Netflix старается угодить широкой аудитории."
+   }
+  ],
+  "glossary": {
+   "streaming": {
+    "translation": "стриминговый",
+    "partOfSpeech": "adjective"
+   },
+   "decide": {
+    "translation": "решать",
+    "partOfSpeech": "verb"
+   },
+   "data": {
+    "translation": "данные",
+    "partOfSpeech": "noun"
+   },
+   "feedback": {
+    "translation": "обратная связь",
+    "partOfSpeech": "noun"
+   },
+   "invest": {
+    "translation": "вкладывать",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does Netflix look at first to decide on new shows?",
+    "options": [
+     "User data",
+     "Old shows",
+     "Competitors",
+     "Music trends"
+    ],
+    "answer": 0,
+    "explanation": "The text says Netflix first looks at user data."
+   },
+   {
+    "id": "q2",
+    "question": "Why is feedback important for Netflix?",
+    "options": [
+     "It helps make decisions",
+     "It brings more users",
+     "It costs less",
+     "It's entertaining"
+    ],
+    "answer": 0,
+    "explanation": "Feedback helps Netflix decide what to make next."
+   },
+   {
+    "id": "q3",
+    "question": "What can popular shows bring to Netflix?",
+    "options": [
+     "More subscribers",
+     "Old technology",
+     "Fewer creators",
+     "Less data"
+    ],
+    "answer": 0,
+    "explanation": "The text states that popular shows can bring more subscribers."
+   }
+  ]
+ },
+ {
+  "id": "a-new-football-style",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "A New Football Style",
+  "sentences": [
+   {
+    "text": "Lionel Messi is a famous football player from Argentina.",
+    "translationRu": "Лионель Месси - известный футболист из Аргентины."
+   },
+   {
+    "text": "He plays for Inter Miami and was with FC Barcelona for many years.",
+    "translationRu": "Он играет за Интер Майами и долгое время был с ФК Барселона."
+   },
+   {
+    "text": "Messi is one of the best players in the world.",
+    "translationRu": "Месси - один из лучших игроков в мире."
+   },
+   {
+    "text": "He changes how people think about football.",
+    "translationRu": "Он изменяет то, как люди думают о футболе."
+   },
+   {
+    "text": "Before Messi, the position of forward was different.",
+    "translationRu": "До Месси позиция нападающего была другой."
+   },
+   {
+    "text": "Forwards usually had to be tall and strong.",
+    "translationRu": "Нападающие обычно должны были быть высокими и сильными."
+   },
+   {
+    "text": "Messi is not very tall.",
+    "translationRu": "Месси не очень высокий."
+   },
+   {
+    "text": "But he is very fast and skillful.",
+    "translationRu": "Но он очень быстрый и ловкий."
+   },
+   {
+    "text": "He uses his speed to score goals.",
+    "translationRu": "Он использует свою скорость, чтобы забивать голы."
+   },
+   {
+    "text": "Messi also helps his team by passing the ball well.",
+    "translationRu": "Месси также помогает своей команде хорошими передачами мяча."
+   },
+   {
+    "text": "He is known for his dribbling skills.",
+    "translationRu": "Он известен своими дриблинговыми способностями."
+   },
+   {
+    "text": "Dribbling is the act of controlling the ball with the feet.",
+    "translationRu": "Дриблинг - это умение контролировать мяч ногами."
+   },
+   {
+    "text": "Many young players want to play like Messi now.",
+    "translationRu": "Многие молодые игроки сейчас хотят играть как Месси."
+   },
+   {
+    "text": "They focus on speed and control.",
+    "translationRu": "Они сосредотачиваются на скорости и контроле."
+   },
+   {
+    "text": "Messi shows that size is not the most important thing.",
+    "translationRu": "Месси показывает, что размер не самое важное."
+   },
+   {
+    "text": "Skill and intelligence can be more important.",
+    "translationRu": "Мастерство и интеллект могут быть более важными."
+   },
+   {
+    "text": "This change affects football at all levels.",
+    "translationRu": "Это изменение влияет на футбол на всех уровнях."
+   },
+   {
+    "text": "Clubs look for players with speed and agility now.",
+    "translationRu": "Клубы теперь ищут игроков со скоростью и ловкостью."
+   },
+   {
+    "text": "Many teams change their training because of Messi.",
+    "translationRu": "Многие команды изменяют свои тренировки из-за Месси."
+   },
+   {
+    "text": "Messi's impact on football is large.",
+    "translationRu": "Влияние Месси на футбол велико."
+   },
+   {
+    "text": "He inspires players all over the world.",
+    "translationRu": "Он вдохновляет игроков по всему миру."
+   },
+   {
+    "text": "His style is now a model for many.",
+    "translationRu": "Его стиль теперь является образцом для многих."
+   },
+   {
+    "text": "Messi continues to play and break records.",
+    "translationRu": "Месси продолжает играть и устанавливать рекорды."
+   },
+   {
+    "text": "Many people watch his games to learn.",
+    "translationRu": "Многие люди смотрят его игры, чтобы научиться."
+   },
+   {
+    "text": "Messi's influence on football will last for many years.",
+    "translationRu": "Влияние Месси на футбол будет длиться многие годы."
+   },
+   {
+    "text": "His name is now a part of football history.",
+    "translationRu": "Его имя теперь часть истории футбола."
+   },
+   {
+    "text": "Football changes because of players like Messi.",
+    "translationRu": "Футбол меняется благодаря таким игрокам, как Месси."
+   }
+  ],
+  "glossary": {
+   "forward": {
+    "translation": "нападающий",
+    "partOfSpeech": "noun"
+   },
+   "skillful": {
+    "translation": "ловкий",
+    "partOfSpeech": "adjective"
+   },
+   "dribbling": {
+    "translation": "дриблинг",
+    "partOfSpeech": "noun"
+   },
+   "agility": {
+    "translation": "ловкость",
+    "partOfSpeech": "noun"
+   },
+   "impact": {
+    "translation": "влияние",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is Lionel Messi known for?",
+    "options": [
+     "His dribbling skills",
+     "Being very tall",
+     "Strong passes",
+     "Playing defense"
+    ],
+    "answer": 0,
+    "explanation": "The text states that Messi is known for his dribbling skills."
+   },
+   {
+    "id": "q2",
+    "question": "How does Messi change the forward position?",
+    "options": [
+     "By being tall",
+     "By using skill and speed",
+     "By playing as a defender",
+     "By focusing on strength"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that Messi uses skill and speed in the forward position."
+   },
+   {
+    "id": "q3",
+    "question": "What do young players focus on now?",
+    "options": [
+     "Strength",
+     "Height",
+     "Speed and control",
+     "Goalkeeping"
+    ],
+    "answer": 2,
+    "explanation": "The text mentions young players focus on speed and control now."
+   }
+  ]
+ },
+ {
+  "id": "a-phone-launch-event",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "A Phone Launch Event",
+  "sentences": [
+   {
+    "text": "Apple is a famous company from the United States.",
+    "translationRu": "Apple - известная компания из Соединенных Штатов."
+   },
+   {
+    "text": "It makes popular products like the iPhone.",
+    "translationRu": "Она производит популярные продукты, такие как iPhone."
+   },
+   {
+    "text": "Every year, Apple launches a new iPhone model.",
+    "translationRu": "Каждый год Apple выпускает новую модель iPhone."
+   },
+   {
+    "text": "This event is very popular.",
+    "translationRu": "Это событие очень популярно."
+   },
+   {
+    "text": "Many people watch the launch online.",
+    "translationRu": "Многие люди смотрят запуск онлайн."
+   },
+   {
+    "text": "The launch shows the new features of the iPhone.",
+    "translationRu": "Запуск демонстрирует новые функции iPhone."
+   },
+   {
+    "text": "Apple creates a big show for the launch.",
+    "translationRu": "Apple устраивает большое шоу на запуске."
+   },
+   {
+    "text": "There is music and videos.",
+    "translationRu": "Там есть музыка и видеоролики."
+   },
+   {
+    "text": "Famous people sometimes speak at the event.",
+    "translationRu": "Иногда на мероприятии выступают знаменитости."
+   },
+   {
+    "text": "Apple wants to surprise people with new technology.",
+    "translationRu": "Apple хочет удивить людей новой технологией."
+   },
+   {
+    "text": "The event takes place in California.",
+    "translationRu": "Мероприятие проходит в Калифорнии."
+   },
+   {
+    "text": "Many journalists and tech fans attend the event.",
+    "translationRu": "Многие журналисты и поклонники технологий посещают мероприятие."
+   },
+   {
+    "text": "They write articles and take photos.",
+    "translationRu": "Они пишут статьи и делают фотографии."
+   },
+   {
+    "text": "Apple's event is important for the company.",
+    "translationRu": "Мероприятие Apple важно для компании."
+   },
+   {
+    "text": "It helps to sell more phones.",
+    "translationRu": "Это помогает продать больше телефонов."
+   },
+   {
+    "text": "People get excited about the new iPhone.",
+    "translationRu": "Люди волнуются за новый iPhone."
+   },
+   {
+    "text": "Many people want to buy the phone after the launch.",
+    "translationRu": "Многие хотят купить телефон после запуска."
+   },
+   {
+    "text": "Apple's launch is also on television.",
+    "translationRu": "Запуск Apple также идет по телевизору."
+   },
+   {
+    "text": "Thousands of people watch it live.",
+    "translationRu": "Тысячи людей смотрят его в прямом эфире."
+   },
+   {
+    "text": "The event makes the iPhone more popular.",
+    "translationRu": "Мероприятие делает iPhone более популярным."
+   },
+   {
+    "text": "People talk about the new phone on social media.",
+    "translationRu": "Люди говорят о новом телефоне в социальных сетях."
+   },
+   {
+    "text": "Apple's event is a big part of their marketing.",
+    "translationRu": "Мероприятие Apple - большая часть их маркетинга."
+   },
+   {
+    "text": "The event helps to show Apple's innovation.",
+    "translationRu": "Мероприятие помогает показать инновации Apple."
+   },
+   {
+    "text": "Innovation means using new ideas and technology.",
+    "translationRu": "Инновация означает использование новых идей и технологий."
+   },
+   {
+    "text": "Every year, the event is a little different.",
+    "translationRu": "Каждый год мероприятие немного отличается."
+   },
+   {
+    "text": "But it always focuses on new technology.",
+    "translationRu": "Но оно всегда сосредоточено на новых технологиях."
+   },
+   {
+    "text": "Apple shows new features in an exciting way.",
+    "translationRu": "Apple показывает новые функции захватывающе."
+   },
+   {
+    "text": "Their events are famous around the world.",
+    "translationRu": "Их мероприятия знамениты по всему миру."
+   },
+   {
+    "text": "Apple continues to surprise people every year.",
+    "translationRu": "Apple продолжает удивлять людей каждый год."
+   }
+  ],
+  "glossary": {
+   "launch": {
+    "translation": "запуск",
+    "partOfSpeech": "noun"
+   },
+   "feature": {
+    "translation": "функция",
+    "partOfSpeech": "noun"
+   },
+   "surprise": {
+    "translation": "удивлять",
+    "partOfSpeech": "verb"
+   },
+   "journalist": {
+    "translation": "журналист",
+    "partOfSpeech": "noun"
+   },
+   "innovation": {
+    "translation": "инновация",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Where does Apple's launch event take place?",
+    "options": [
+     "New York",
+     "California",
+     "London",
+     "Tokyo"
+    ],
+    "answer": 1,
+    "explanation": "The text states that the event takes place in California."
+   },
+   {
+    "id": "q2",
+    "question": "What do people do after watching the launch?",
+    "options": [
+     "Forget about the phone",
+     "Buy the old model",
+     "Get excited and want to buy",
+     "Stop using phones"
+    ],
+    "answer": 2,
+    "explanation": "The text mentions many people get excited and want to buy the phone after the launch."
+   },
+   {
+    "id": "q3",
+    "question": "Why is the launch event important for Apple?",
+    "options": [
+     "It gives phones for free",
+     "It is a competition",
+     "It helps sell more phones",
+     "It stops other companies"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that the event helps to sell more phones."
+   }
+  ]
+ },
+ {
+  "id": "why-film-series-succeed",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Why Film Series Succeed",
+  "sentences": [
+   {
+    "text": "A film franchise is a series of films with the same characters or story.",
+    "translationRu": "Франшиза - это серия фильмов с одинаковыми персонажами или историей."
+   },
+   {
+    "text": "One famous film franchise is about fast cars and heists.",
+    "translationRu": "Одна известная франшиза рассказывает о быстрых машинах и ограблениях."
+   },
+   {
+    "text": "It keeps making new movies even after many films.",
+    "translationRu": "Она продолжает выпускать новые фильмы даже после многих частей."
+   },
+   {
+    "text": "Each movie has exciting action and interesting characters.",
+    "translationRu": "Каждый фильм содержит захватывающие действия и интересных персонажей."
+   },
+   {
+    "text": "People like to see familiar faces in the films.",
+    "translationRu": "Людям нравится видеть знакомые лица в фильмах."
+   },
+   {
+    "text": "The story sometimes changes, but the main theme stays the same.",
+    "translationRu": "История иногда меняется, но основная тема остается той же."
+   },
+   {
+    "text": "New actors often join the franchise.",
+    "translationRu": "Новые актеры часто присоединяются к франшизе."
+   },
+   {
+    "text": "This keeps the films fresh and exciting.",
+    "translationRu": "Это делает фильмы свежими и захватывающими."
+   },
+   {
+    "text": "The franchise also uses new technology in the films.",
+    "translationRu": "Франшиза также использует новые технологии в фильмах."
+   },
+   {
+    "text": "Special effects often improve with each movie.",
+    "translationRu": "Спецэффекты часто улучшаются с каждым фильмом."
+   },
+   {
+    "text": "Many people enjoy watching the films in cinemas.",
+    "translationRu": "Многим людям нравится смотреть фильмы в кинотеатрах."
+   },
+   {
+    "text": "Others watch them at home with family and friends.",
+    "translationRu": "Другие смотрят их дома с семьей и друзьями."
+   },
+   {
+    "text": "The franchise often releases a new film every few years.",
+    "translationRu": "Франшиза часто выпускает новый фильм каждые несколько лет."
+   },
+   {
+    "text": "This keeps the audience interested.",
+    "translationRu": "Это поддерживает интерес зрителей."
+   },
+   {
+    "text": "Fans collect merchandise from the films.",
+    "translationRu": "Фанаты собирают сувениры из фильмов."
+   },
+   {
+    "text": "There are toys, clothes, and posters.",
+    "translationRu": "Существуют игрушки, одежда и постеры."
+   },
+   {
+    "text": "The films also inspire video games and books.",
+    "translationRu": "Фильмы также вдохновляют на создание видеоигр и книг."
+   },
+   {
+    "text": "A successful film franchise can last many years.",
+    "translationRu": "Успешная франшиза может длиться много лет."
+   },
+   {
+    "text": "This shows the power of storytelling and creativity.",
+    "translationRu": "Это показывает силу повествования и креативности."
+   }
+  ],
+  "glossary": {
+   "franchise": {
+    "translation": "франшиза",
+    "partOfSpeech": "noun"
+   },
+   "heists": {
+    "translation": "ограбления",
+    "partOfSpeech": "noun"
+   },
+   "characters": {
+    "translation": "персонажи",
+    "partOfSpeech": "noun"
+   },
+   "technology": {
+    "translation": "технологии",
+    "partOfSpeech": "noun"
+   },
+   "merchandise": {
+    "translation": "сувениры",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is a film franchise?",
+    "options": [
+     "A series of films with the same characters or story.",
+     "A single film with many actors.",
+     "A play shown in theaters.",
+     "A book series turned into movies."
+    ],
+    "answer": 0,
+    "explanation": "A film franchise is described in the text as a series of films with the same characters or story."
+   },
+   {
+    "id": "q2",
+    "question": "How does the franchise keep the films fresh?",
+    "options": [
+     "Using the same actors each time.",
+     "By having no new movies.",
+     "By adding new actors and technology.",
+     "By stopping all special effects."
+    ],
+    "answer": 2,
+    "explanation": "The text explains that the franchise keeps the films fresh by adding new actors and using new technology."
+   },
+   {
+    "id": "q3",
+    "question": "What do fans collect from the films?",
+    "options": [
+     "Old tickets and scripts.",
+     "Merchandise like toys and clothes.",
+     "Nothing from the films.",
+     "Only video games."
+    ],
+    "answer": 1,
+    "explanation": "Fans collect merchandise such as toys and clothes, as mentioned in the text."
+   }
+  ]
+ },
+ {
+  "id": "success-of-animated-series",
+  "level": "A1-A2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Success of Animated Series",
+  "sentences": [
+   {
+    "text": "An animated series is a TV show where characters are drawn or made with computers.",
+    "translationRu": "Мультсериал - это телешоу, где персонажи нарисованы или созданы с помощью компьютеров."
+   },
+   {
+    "text": "One famous animated series is about a family in a small town.",
+    "translationRu": "Один известный мультсериал рассказывает о семье в маленьком городке."
+   },
+   {
+    "text": "This series started many years ago.",
+    "translationRu": "Этот сериал начался много лет назад."
+   },
+   {
+    "text": "It is still popular today.",
+    "translationRu": "Он популярен и сегодня."
+   },
+   {
+    "text": "The series has funny and lovable characters.",
+    "translationRu": "В сериале есть смешные и милые персонажи."
+   },
+   {
+    "text": "Each character has a unique personality.",
+    "translationRu": "У каждого персонажа уникальная личность."
+   },
+   {
+    "text": "The show often includes jokes about everyday life.",
+    "translationRu": "Шоу часто включает шутки о повседневной жизни."
+   },
+   {
+    "text": "This makes it relatable to many people.",
+    "translationRu": "Это делает его близким многим людям."
+   },
+   {
+    "text": "The series also has catchy music.",
+    "translationRu": "В сериале есть запоминающаяся музыка."
+   },
+   {
+    "text": "Viewers remember the theme song and sing along.",
+    "translationRu": "Зрители помнят главную песню и подпевать."
+   },
+   {
+    "text": "The animation style is simple but effective.",
+    "translationRu": "Стиль анимации простой, но эффективный."
+   },
+   {
+    "text": "This helps the show reach many audiences.",
+    "translationRu": "Это помогает шоу привлекать разную аудиторию."
+   },
+   {
+    "text": "The creators keep the story fresh by adding new situations.",
+    "translationRu": "Авторы поддерживают свежесть истории, добавляя новые ситуации."
+   },
+   {
+    "text": "New episodes often have current events.",
+    "translationRu": "Новые эпизоды часто содержат текущие события."
+   },
+   {
+    "text": "Fans like seeing their favorite family in new adventures.",
+    "translationRu": "Фанаты любят видеть свою любимую семью в новых приключениях."
+   },
+   {
+    "text": "The series also comments on society.",
+    "translationRu": "Сериал также комментирует общество."
+   },
+   {
+    "text": "This makes it interesting for adults too.",
+    "translationRu": "Это делает его интересным и для взрослых."
+   },
+   {
+    "text": "The show wins many awards.",
+    "translationRu": "Шоу выигрывает много наград."
+   },
+   {
+    "text": "It is one of the longest-running animated series.",
+    "translationRu": "Это один из самых долгоиграющих мультсериалов."
+   }
+  ],
+  "glossary": {
+   "animated": {
+    "translation": "анимированный",
+    "partOfSpeech": "adjective"
+   },
+   "characters": {
+    "translation": "персонажи",
+    "partOfSpeech": "noun"
+   },
+   "relatable": {
+    "translation": "близкий",
+    "partOfSpeech": "adjective"
+   },
+   "catchy": {
+    "translation": "запоминающийся",
+    "partOfSpeech": "adjective"
+   },
+   "society": {
+    "translation": "общество",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What is an animated series?",
+    "options": [
+     "A live-action show with real actors.",
+     "A TV show with drawn or computer-made characters.",
+     "A musical about a town.",
+     "A documentary series."
+    ],
+    "answer": 1,
+    "explanation": "An animated series is defined in the text as a TV show where characters are drawn or made with computers."
+   },
+   {
+    "id": "q2",
+    "question": "What keeps the animated series fresh?",
+    "options": [
+     "Only using characters with no personality.",
+     "Having the same story every time.",
+     "Adding new situations and current events.",
+     "Removing all jokes."
+    ],
+    "answer": 2,
+    "explanation": "The text states that the series remains fresh by adding new situations and current events."
+   },
+   {
+    "id": "q3",
+    "question": "Why do adults find the series interesting?",
+    "options": [
+     "Because it has no music.",
+     "It comments on society.",
+     "It has no characters.",
+     "Because it is only for children."
+    ],
+    "answer": 1,
+    "explanation": "Adults find the series interesting because it comments on society, as mentioned in the text."
    }
   ]
  }

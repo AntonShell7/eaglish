@@ -175,7 +175,10 @@
     "personalTopicPlaceholder": "American football · why ships float · the strongest currencies",
     "personalPageTitle": "Write a text of your own",
     "personalRandom": "Pick a subject for me",
-    "personalMine": "Your texts"
+    "personalMine": "Your texts",
+    "stateDone": "Done",
+    "stateStarted": "Started",
+    "crownWhy": "Holds the most words you are due to review"
   },
   "writing": {
     "grammar": "Grammar",
