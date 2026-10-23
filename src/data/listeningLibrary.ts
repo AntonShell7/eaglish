@@ -15,6 +15,7 @@ import batch16 from "./listening/batch16.json";
 import batch17 from "./listening/batch17.json";
 import batch18 from "./listening/batch18.json";
 import batch19 from "./listening/batch19.json";
+import batch20 from "./listening/batch20.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -68,6 +69,10 @@ export const listeningTexts = [
   ...batch17,
   ...batch18,
   ...batch19,
+  // Written rather than hand-written, under a brief of its own: see
+  // scripts/generate-listening.mjs. The fragment ceiling is what makes these
+  // typable, and it is enforced by throwing away the lines that break it.
+  ...batch20,
 ] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
