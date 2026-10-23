@@ -287,6 +287,32 @@ const ADVANCED_ANGLES = [
   "why forecasts are wrong in the same direction",
   "how taste is learned and then denied",
   "what a map leaves out on purpose",
+
+  /* The second twenty: named, popular, and the reason somebody opens a text
+     instead of scrolling past it. The register is the same — idiom, literary
+     vocabulary, an argument that turns — and the subject is something the
+     reader already half-knows. An essay about a streaming empire can be as
+     well written as an essay about boredom, and far more people finish it. */
+  "why a two-second pit stop takes twenty people",
+  "how an animation studio built a century on the same few stories",
+  "what American college sport actually funds",
+  "why one children's network sounded different from all the others",
+  "how a creator turned giving money away into a format",
+  "why a streamer's live reaction became the product",
+  "what a pop star's quiet singing did to recording",
+  "how a footballer's body becomes a career strategy",
+  "why Formula 1 rules change every few years on purpose",
+  "what a superhero franchise borrowed from serialised television",
+  "how a university endowment actually works",
+  "why American football stops the clock so often",
+  "what a film score does that the script cannot",
+  "how a fashion house survives its founder",
+  "why an animated film outlives the children who saw it first",
+  "what a late-night format is really selling",
+  "how a game studio turned a delay into trust",
+  "why some sequels are remakes in disguise",
+  "what a stadium costs a city after the final whistle",
+  "how a magazine cover decided who was famous",
 ];
 
 /* ── Groq ─────────────────────────────────────────────────────────────────── */
@@ -400,6 +426,9 @@ HARD RULES
 - Never invent a quotation, a date, a transfer fee, a chart position, a box-office figure or a statistic. If you are not certain of a number, write the sentence without it — "one of the most-watched finals" is true and safe where a made-up viewing figure is neither.
 - Nothing about anybody's private life, health, family, finances or opinions. Nothing a person could reasonably object to. Public work, public record, public events only.
 - Do not reproduce wording from an article, an interview, a song or a book. Every sentence is your own.
+- No invented evidence of any kind. Do not write "data from X shows", "studies suggest", "research indicates", "surveys found" or anything of that shape — not even about unnamed sources. Describe the mechanism instead; a sentence that needs a statistic to stand up is a sentence to rewrite.
+- Do not invent a quotation, including from an unnamed business, report or expert. A sentence like 'a studio in London advertises "the sound of a candlelit confession"' is fabrication even though it names nobody.
+- Never present a phrase as "the idiom X" unless it is genuinely established English that a dictionary would list. Inventing an idiom in a text written for learners teaches somebody to say a thing nobody says, which is the worst single failure this file can produce.
 - Each text is self-contained and ends on a real closing thought, not a cliffhanger.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
 
@@ -465,6 +494,9 @@ HARD RULES
 - Never invent a quotation, a date, a transfer fee, a chart position, a box-office figure or a statistic. If you are not certain of a number, write the sentence without it — "one of the most-watched finals" is true and safe where a made-up viewing figure is neither.
 - Nothing about anybody's private life, health, family, finances or opinions. Nothing a person could reasonably object to. Public work, public record, public events only.
 - Do not reproduce wording from an article, an interview, a song or a book. Every sentence is your own.
+- No invented evidence of any kind. Do not write "data from X shows", "studies suggest", "research indicates", "surveys found" or anything of that shape — not even about unnamed sources. Describe the mechanism instead; a sentence that needs a statistic to stand up is a sentence to rewrite.
+- Do not invent a quotation, including from an unnamed business, report or expert. A sentence like 'a studio in London advertises "the sound of a candlelit confession"' is fabrication even though it names nobody.
+- Never present a phrase as "the idiom X" unless it is genuinely established English that a dictionary would list. Inventing an idiom in a text written for learners teaches somebody to say a thing nobody says, which is the worst single failure this file can produce.
 - Each text is self-contained and ends on a real closing thought, not a cliffhanger.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 24).join("; ") || "(none yet)"}.
 - These idioms and words are already used elsewhere on this shelf. Do not use any of them: ${avoidPhrases.slice(0, 120).join("; ") || "(none yet)"}.
@@ -677,7 +709,12 @@ async function main() {
         band: "advanced",
         level: "C2",
         advanced: true,
-        angles: ADVANCED_ANGLES.slice(have.length + i, have.length + Math.min(i + BATCH, want)),
+        /* Wrapped, not sliced off the end. The list used to be indexed from
+           however many texts the shelf already held, so the first top-up
+           after it filled asked for texts about nothing at all. */
+        angles: Array.from({ length: Math.min(BATCH, want - i) }, (_, k) =>
+          ADVANCED_ANGLES[(have.length + i + k) % ADVANCED_ANGLES.length],
+        ),
       });
     }
   }
