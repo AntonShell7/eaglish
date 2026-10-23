@@ -24,6 +24,7 @@
  *   node scripts/generate-reading.mjs                     # fill every topic to TARGET_PER_LEVEL
  *   node scripts/generate-reading.mjs --topic sport --count 2
  *   node scripts/generate-reading.mjs --advanced          # fill the Advanced shelf
+ *   node scripts/generate-reading.mjs --advanced --openai # same, paid, no daily cap
  *   node scripts/generate-reading.mjs --dry               # one text, printed, nothing written
  */
 
@@ -313,6 +314,31 @@ const ADVANCED_ANGLES = [
   "why some sequels are remakes in disguise",
   "what a stadium costs a city after the final whistle",
   "how a magazine cover decided who was famous",
+
+  /* A third twenty. The list is the ceiling on how large this shelf can get:
+     with forty angles and forty texts, the next run wrapped onto subjects
+     already written and produced fifteen near-duplicates — the same essay
+     under a different title. Every top-up needs its own angles. */
+  "why a theme park is designed as a film set",
+  "how a sports documentary changes the sport it films",
+  "what a country gains from hosting a tournament it cannot afford",
+  "why luxury watches survived the phone",
+  "how a comedian's timing is actually built",
+  "what a flagship store sells besides the product",
+  "why a long-running sitcom gets funnier on rewatch",
+  "how a transfer window distorts a whole season",
+  "what an awards ceremony is really deciding",
+  "why cooking shows became competitions",
+  "how a brand recovers from a disaster of its own making",
+  "what makes a stadium atmosphere impossible to export",
+  "why a streaming platform cancels a popular show",
+  "how an athlete's second career begins before the first one ends",
+  "what a trailer gives away and what it hides",
+  "why some musicians refuse to tour",
+  "how a league decides where to put a new team",
+  "what a reality format exports when it is sold abroad",
+  "why a sequel costs more than the original",
+  "how a sports rivalry outlives everyone who started it",
 ];
 
 /* ── Groq ─────────────────────────────────────────────────────────────────── */
@@ -359,6 +385,56 @@ async function respectBudget() {
     tokensLeft = Infinity;
     resetInMs = 0;
   }
+}
+
+/*
+ * The other engine.
+ *
+ * Groq is free and fast and has a daily token ceiling that a full shelf runs
+ * straight into — twice now, both times in the middle of a batch. OpenAI has
+ * no such cliff and costs money, which makes it the right tool for topping a
+ * shelf up rather than for building one. Same prompt, same JSON, so a text is
+ * no different for having come from here; only the bill is.
+ */
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o";
+
+async function openai(prompt) {
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) throw new Error("OPENAI_API_KEY missing — put it in .env.local");
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      temperature: 0.9,
+      max_tokens: 6000,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            "You write graded reading material for an English-learning app, and you answer with JSON only.",
+        },
+        { role: "user", content: prompt },
+      ],
+    }),
+  });
+
+  if (response.status === 429) {
+    await sleep(8000);
+    throw new Error("openai rate limited");
+  }
+  if (!response.ok) throw new Error(`OpenAI ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  const data = await response.json();
+  return JSON.parse(data.choices[0].message.content);
+}
+
+/** Which engine this run uses. Set once from the command line. */
+let engine = "groq";
+
+function ask(prompt) {
+  return engine === "openai" ? openai(prompt) : groq(prompt);
 }
 
 async function groq(prompt) {
@@ -670,7 +746,7 @@ async function generateBatch(job, existing) {
   // model response — giving up there would leave holes in the library.
   for (let attempt = 1; attempt <= 4; attempt++) {
     try {
-      const raw = await groq(prompt);
+      const raw = await ask(prompt);
       const list = Array.isArray(raw?.texts) ? raw.texts : [raw];
       const kept = [];
       for (const candidate of list) {
@@ -696,6 +772,9 @@ async function main() {
   const count = args.includes("--count") ? Number(args[args.indexOf("--count") + 1]) : null;
   const dry = args.includes("--dry");
   const advanced = args.includes("--advanced");
+  /* --openai tops a shelf up when Groq's daily ceiling is spent. Same prompt,
+     same output; it simply costs money instead of waiting until tomorrow. */
+  if (args.includes("--openai")) engine = "openai";
 
   const topics = only ? [only] : Object.keys(TOPICS);
   const jobs = [];
@@ -709,9 +788,14 @@ async function main() {
         band: "advanced",
         level: "C2",
         advanced: true,
-        /* Wrapped, not sliced off the end. The list used to be indexed from
-           however many texts the shelf already held, so the first top-up
-           after it filled asked for texts about nothing at all. */
+        /* Wrapped, not sliced off the end — the list used to be indexed from
+           however many texts the shelf already held, so the first top-up after
+           it filled asked for texts about nothing at all.
+
+           Wrapping is a guard, not a plan. Going round a second time asks for
+           subjects already written, and the model obliges: fifteen texts came
+           back as the same essays under new titles. The warning below is the
+           only thing standing between a top-up and a shelf of twins. */
         angles: Array.from({ length: Math.min(BATCH, want - i) }, (_, k) =>
           ADVANCED_ANGLES[(have.length + i + k) % ADVANCED_ANGLES.length],
         ),
@@ -741,8 +825,19 @@ async function main() {
     return;
   }
 
+  if (advanced) {
+    const have = readBand("advanced").length;
+    const wantNow = count ?? Math.max(0, 20 - have);
+    if (have + wantNow > ADVANCED_ANGLES.length) {
+      console.warn(
+        `  ! ${have} texts and ${wantNow} more wanted, but only ${ADVANCED_ANGLES.length} angles exist.\n` +
+          "    The surplus will repeat subjects already on the shelf. Add angles first.",
+      );
+    }
+  }
+
   const wanted = jobs.reduce((sum, job) => sum + job.angles.length, 0);
-  console.log(`${wanted} texts in ${jobs.length} requests, model ${MODEL}`);
+  console.log(`${wanted} texts in ${jobs.length} requests, model ${engine === "openai" ? OPENAI_MODEL : MODEL}`);
   let done = 0;
   let kept = 0;
 

@@ -20,6 +20,16 @@ export interface ComprehensionQuestion {
 export interface ReadingText {
   id: string;
   level: "A1-A2" | "B1-B2" | "C1-C2";
+  /**
+   * Shown first on its shelf.
+   *
+   * The library grew in waves, and the newest wave is the one written about
+   * things a reader already half-knows — clubs, studios, phone launches. Those
+   * are what somebody opens; the older general texts are good and are not what
+   * gets clicked first. So the shelf leads with them rather than leaving the
+   * order to how the files happened to be written.
+   */
+  featured?: boolean;
   /** Topic id in the library taxonomy; the six curated texts still use labels. */
   topic: string;
   /** True for machine-generated texts, so they can be audited or replaced. */

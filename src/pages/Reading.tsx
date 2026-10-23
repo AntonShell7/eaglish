@@ -264,7 +264,14 @@ function TextList({
         return { text, coverage, recycled };
       })
       .sort((a, b) => {
-        // The learner's own band first when they are browsing everything:
+        /* The newest wave first, whatever else is true. They are the texts
+           written about things a reader already half-knows, and on a shelf of
+           fifty the thing that decides whether anybody reads one at all is
+           which four are visible without scrolling. */
+        const fresh = Number(Boolean(b.text.featured)) - Number(Boolean(a.text.featured));
+        if (fresh !== 0) return fresh;
+
+        // The learner's own band next when they are browsing everything:
         // a shelf that opens on C2 for an A2 reader is a shelf they close.
         if (!level && profileBand) {
           const mine = Number(b.text.level === profileBand) - Number(a.text.level === profileBand);

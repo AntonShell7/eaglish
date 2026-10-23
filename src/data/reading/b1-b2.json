@@ -1,5 +1,835 @@
 [
  {
+  "id": "barcelona-s-tiki-taka-legacy",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Barcelona's Tiki‑taka Legacy",
+  "sentences": [
+   {
+    "text": "In the early 2000s Barcelona began to play a brand of football that attracted worldwide attention.",
+    "translationRu": "В начале 2000‑х годов Барселона начала играть в стиль футбола, который привлёк внимание всего мира."
+   },
+   {
+    "text": "The team relied on short, quick passes rather than long balls.",
+    "translationRu": "Команда полагалась на короткие, быстрые передачи вместо длинных пасов."
+   },
+   {
+    "text": "Coach Pep Guardiola refined this approach after taking charge in 2008.",
+    "translationRu": "Тренер Пеп Гвардиола усовершенствовал этот подход после того, как стал главным в 2008 году."
+   },
+   {
+    "text": "He emphasized possession, meaning the players tried to keep the ball as long as possible.",
+    "translationRu": "Он подчёркивал владение, то есть игроки пытались держать мяч как можно дольше."
+   },
+   {
+    "text": "Midfielders like Xavi and Andres Iniesta acted as the engine, constantly moving the ball forward.",
+    "translationRu": "Полузащитники, такие как Чави и Андрес Иньеста, выступали в роли двигателя, постоянно перемещая мяч вперёд."
+   },
+   {
+    "text": "Their ability to read each other’s movements made the passing flow almost effortless.",
+    "translationRu": "Их способность читать движения друг друга делала передачу почти без усилий."
+   },
+   {
+    "text": "Opponents found it hard to press because the ball rarely stayed in one place for long.",
+    "translationRu": "Противникам было трудно оказывать прессинг, потому что мяч редко оставался в одном месте надолго."
+   },
+   {
+    "text": "Barcelona also trained younger players in the same philosophy, creating a pipeline of talent.",
+    "translationRu": "Барселона также тренировала молодых игроков в той же философии, создавая поток талантов."
+   },
+   {
+    "text": "When the club won the Champions League in 2009, the world took notice.",
+    "translationRu": "Когда клуб выиграл Лигу чемпионов в 2009 году, мир обратил на это внимание."
+   },
+   {
+    "text": "Other clubs started to copy the short‑passing game, hoping to replicate the success.",
+    "translationRu": "Другие клубы начали копировать игру короткими передачами, надеясь повторить успех."
+   },
+   {
+    "text": "Manchester City and Bayern Munich, among others, adopted similar training drills.",
+    "translationRu": "Манчестер Сити и Бавария, среди прочих, внедрили похожие тренировочные упражнения."
+   },
+   {
+    "text": "Even national teams, like Spain, built their tactics around the same principles.",
+    "translationRu": "Даже национальные сборные, такие как Испания, построили тактику на тех же принципах."
+   },
+   {
+    "text": "The media praised the style as beautiful and intelligent.",
+    "translationRu": "СМИ хвалили стиль как красивый и умный."
+   },
+   {
+    "text": "Fans appreciated the constant movement and the low number of wasted chances.",
+    "translationRu": "Болельщики оценили постоянное движение и небольшое количество упущенных возможностей."
+   },
+   {
+    "text": "Critics argued that it could become predictable if overused.",
+    "translationRu": "Критики утверждали, что стиль может стать предсказуемым при чрезмерном использовании."
+   },
+   {
+    "text": "Nevertheless, the approach forced coaches worldwide to rethink their tactics.",
+    "translationRu": "Тем не менее, подход заставил тренеров по всему миру пересмотреть свою тактику."
+   },
+   {
+    "text": "Academies now teach players to prioritize quick, accurate passing over physical strength.",
+    "translationRu": "В академиях теперь учат игроков отдавать приоритет быстрым, точным передачам, а не физической силе."
+   },
+   {
+    "text": "The success also boosted Barcelona’s brand, leading to more merchandise sales.",
+    "translationRu": "Успех также укрепил бренд Барселоны, что привело к росту продаж мерча."
+   },
+   {
+    "text": "Young players grew up watching the matches and trying to imitate their heroes.",
+    "translationRu": "Молодые игроки росли, смотря матчи и пытаясь подражать своим героям."
+   },
+   {
+    "text": "As a result, the style spread beyond Europe, reaching clubs in Asia and the Americas.",
+    "translationRu": "В результате стиль распространился за пределы Европы, достигнув клубов в Азии и Америке."
+   },
+   {
+    "text": "Today, the influence of Barcelona’s tiki‑taka can be seen in many modern teams.",
+    "translationRu": "Сегодня влияние тики‑такa Барселоны видно во многих современных командах."
+   },
+   {
+    "text": "While tactics continue to evolve, the legacy of that era remains a benchmark for excellence.",
+    "translationRu": "Хотя тактика продолжает развиваться, наследие той эпохи остаётся эталоном совершенства."
+   }
+  ],
+  "glossary": {
+   "tiki‑taka": {
+    "translation": "тики‑така (стиль коротких пасов)",
+    "partOfSpeech": "noun"
+   },
+   "press": {
+    "translation": "окаживать прессинг, оказывать давление",
+    "partOfSpeech": "verb"
+   },
+   "pipeline": {
+    "translation": "поток, система подготовки",
+    "partOfSpeech": "noun"
+   },
+   "benchmark": {
+    "translation": "эталон, образец",
+    "partOfSpeech": "noun"
+   },
+   "rethink": {
+    "translation": "пересмотреть, переосмыслить",
+    "partOfSpeech": "verb"
+   },
+   "drill": {
+    "translation": "упражнение, тренировка",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Which coach is credited with refining Barcelona’s short‑passing style?",
+    "options": [
+     "Luis Enrique",
+     "Pep Guardiola",
+     "Jürgen Klopp",
+     "Zinedine Zidane"
+    ],
+    "answer": 1,
+    "explanation": "The text states that Pep Guardiola refined the approach after taking charge in 2008."
+   },
+   {
+    "id": "q2",
+    "question": "What was one result of Barcelona’s success mentioned in the text?",
+    "options": [
+     "A decline in ticket sales",
+     "More merchandise sales",
+     "A ban on short passes",
+     "A change in stadium location"
+    ],
+    "answer": 1,
+    "explanation": "The text notes that the success boosted Barcelona’s brand, leading to more merchandise sales."
+   },
+   {
+    "id": "q3",
+    "question": "According to the passage, how did other clubs react to Barcelona’s style?",
+    "options": [
+     "They ignored it completely",
+     "They copied the short‑passing game",
+     "They focused on defensive tactics only",
+     "They stopped playing in Europe"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that other clubs started to copy the short‑passing game hoping to replicate the success."
+   }
+  ],
+  "featured": true
+ },
+ {
+  "id": "how-netflix-picks-new-shows",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "How Netflix Picks New Shows",
+  "sentences": [
+   {
+    "text": "Netflix starts every new season by looking at the data it has collected from millions of viewers.",
+    "translationRu": "Netflix начинает каждый новый сезон, анализируя данные, собранные от миллионов зрителей."
+   },
+   {
+    "text": "The company examines which genres get the most hours watched and which countries show the strongest interest.",
+    "translationRu": "Компания изучает, какие жанры собирают наибольшее количество часов просмотра и в каких странах интерес наиболее высок."
+   },
+   {
+    "text": "It also checks how often people finish a series versus dropping it after a few episodes.",
+    "translationRu": "Также проверяется, как часто люди заканчивают сериал, а как часто бросают его после нескольких эпизодов."
+   },
+   {
+    "text": "These patterns help the analysts spot trends that are rising, like sci‑fi thrillers or period dramas.",
+    "translationRu": "Эти модели помогают аналитикам заметить растущие тренды, такие как научно‑фантастические триллеры или исторические драмы."
+   },
+   {
+    "text": "When a trend looks solid, the content team begins to brainstorm ideas that fit the theme.",
+    "translationRu": "Когда тренд кажется надёжным, команда контента начинает придумывать идеи, соответствующие теме."
+   },
+   {
+    "text": "Writers are then invited to pitch concepts, and the best pitches move forward to a pilot stage.",
+    "translationRu": "Писателей приглашают представить свои концепции, а лучшие из них переходят к созданию пилотного эпизода."
+   },
+   {
+    "text": "The pilot is produced on a small budget so the studio can see whether the story works in practice.",
+    "translationRu": "Пилотный эпизод снимается с небольшим бюджетом, чтобы студия могла увидеть, насколько идея работает на практике."
+   },
+   {
+    "text": "If test audiences react positively, the project gets a green light for a full season.",
+    "translationRu": "Если тестовая аудитория реагирует положительно, проект получает разрешение на полный сезон."
+   },
+   {
+    "text": "Throughout this process, the data team continues to feed fresh numbers back to the creators.",
+    "translationRu": "В течение всего процесса команда аналитиков продолжает передавать создателям новые данные."
+   },
+   {
+    "text": "They might suggest adding a character that appeals to a specific demographic that is currently under‑served.",
+    "translationRu": "Они могут предложить добавить персонажа, который будет привлекателен для определённой демографической группы, которой сейчас не хватает."
+   },
+   {
+    "text": "Marketing also plays a role by testing trailer snippets on social media to gauge interest.",
+    "translationRu": "Маркетинг также играет роль, тестируя фрагменты трейлеров в соцсетях, чтобы измерить интерес."
+   },
+   {
+    "text": "When the response is strong, the promotional budget is increased.",
+    "translationRu": "Когда отклик сильный, рекламный бюджет увеличивается."
+   },
+   {
+    "text": "The final decision to order a series is a mix of numbers, creative gut feeling, and strategic goals.",
+    "translationRu": "Окончательное решение о заказе сериала – это смесь цифр, творческого чутья и стратегических целей."
+   },
+   {
+    "text": "Netflix also looks at its own catalogue to avoid duplicating shows it already offers.",
+    "translationRu": "Netflix также проверяет свой каталог, чтобы не дублировать уже существующие шоу."
+   },
+   {
+    "text": "Sometimes a show is cancelled early if the viewership drops sharply after the first weeks.",
+    "translationRu": "Иногда шоу отменяют рано, если количество зрителей резко падает после первых недель."
+   },
+   {
+    "text": "Conversely, a modestly‑performing series can be renewed if it attracts a loyal fan base.",
+    "translationRu": "И наоборот, умеренно успешный сериал может быть продлен, если у него есть преданная аудитория."
+   },
+   {
+    "text": "The company also invests in local productions to strengthen its presence in each market.",
+    "translationRu": "Компания также инвестирует в местные проекты, чтобы укрепить своё присутствие на каждом рынке."
+   },
+   {
+    "text": "These local shows often incorporate cultural references that resonate with regional viewers.",
+    "translationRu": "Эти местные шоу часто включают культурные отсылки, которые находят отклик у региональных зрителей."
+   },
+   {
+    "text": "Overall, the decision‑making cycle repeats every few months, constantly adapting to new viewing habits.",
+    "translationRu": "В целом, цикл принятия решений повторяется каждые несколько месяцев, постоянно адаптируясь к новым привычкам просмотра."
+   },
+   {
+    "text": "The result is a constantly refreshed library that aims to keep subscribers engaged.",
+    "translationRu": "В результате библиотека постоянно обновляется, чтобы удерживать подписчиков."
+   },
+   {
+    "text": "By listening to data and staying flexible, Netflix tries to stay ahead of the competition.",
+    "translationRu": "Слушая данные и оставаясь гибким, Netflix старается опережать конкурентов."
+   },
+   {
+    "text": "That is why new titles appear on the platform almost every week.",
+    "translationRu": "Именно поэтому новые названия появляются на платформе почти каждую неделю."
+   }
+  ],
+  "glossary": {
+   "pilot": {
+    "translation": "пилотный эпизод",
+    "partOfSpeech": "noun"
+   },
+   "demographic": {
+    "translation": "демографическая группа",
+    "partOfSpeech": "noun"
+   },
+   "renew": {
+    "translation": "продлить",
+    "partOfSpeech": "verb"
+   },
+   "catalogue": {
+    "translation": "каталог",
+    "partOfSpeech": "noun"
+   },
+   "flexible": {
+    "translation": "гибкий",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What does Netflix do after a pilot receives a positive test audience reaction?",
+    "options": [
+     "Cancel the project",
+     "Increase the marketing budget",
+     "Order a full season",
+     "Change the genre"
+    ],
+    "answer": 2,
+    "explanation": "The text states that a positive test audience leads to a green light for a full season."
+   },
+   {
+    "id": "q2",
+    "question": "Why does Netflix invest in local productions?",
+    "options": [
+     "To copy foreign shows",
+     "To strengthen its presence in each market",
+     "To lower costs",
+     "Because local shows are always cheaper"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that local productions help strengthen Netflix's presence in each market."
+   },
+   {
+    "id": "q3",
+    "question": "Which factor is NOT mentioned as part of the final decision to order a series?",
+    "options": [
+     "Strategic goals",
+     "Creative gut feeling",
+     "Actor salaries",
+     "Numbers"
+    ],
+    "answer": 2,
+    "explanation": "Actor salaries are not listed; the text mentions numbers, gut feeling, and strategic goals."
+   }
+  ],
+  "featured": true
+ },
+ {
+  "id": "messi-s-influence-on-the-false-nine",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Messi’s Influence on the False Nine",
+  "sentences": [
+   {
+    "text": "Lionel Messi has broken many scoring records during his career with Barcelona and the Argentina national team.",
+    "translationRu": "Лионель Месси сломал множество рекордных показателей по голам за свою карьеру в «Барселоне» и сборной Аргентины."
+   },
+   {
+    "text": "Beyond the numbers, analysts often talk about how he changed the way the forward position is played.",
+    "translationRu": "Помимо цифр, аналитики часто говорят о том, как он изменил стиль игры форварда."
+   },
+   {
+    "text": "When Messi arrived at Barcelona, the team traditionally used a classic centre‑forward who stayed high up the pitch.",
+    "translationRu": "Когда Месси пришёл в «Барселону», команда обычно использовала классического центрального форварда, который держался высоко в атаке."
+   },
+   {
+    "text": "Instead, Messi preferred to drop deeper into midfield, linking up with the wingers and midfielders.",
+    "translationRu": "Вместо этого Месси предпочитал опускаться глубже в полузащиту, связываясь с крайними нападающими и полузащитниками."
+   },
+   {
+    "text": "This movement created space for teammates like David Villa and later Luis Suárez to make runs behind the defence.",
+    "translationRu": "Это движение создавало пространство для таких товарищей, как Дэвид Вилья и позже Луис Суарес, которые могли делать забеги за оборону."
+   },
+   {
+    "text": "Coaches noticed that the opposition struggled to mark a player who was simultaneously a scorer and a playmaker.",
+    "translationRu": "Тренеры заметили, что сопернику трудно было отмечать игрока, который одновременно был бомбардиром и разыгрывающим."
+   },
+   {
+    "text": "Pep Guardiola formalised this role, calling it the ‘false nine’ because the player pretends to be a traditional striker.",
+    "translationRu": "Пеп Гвардиола формализовал эту роль, назвав её «ложным девяткой», потому что игрок притворяется традиционным нападающим."
+   },
+   {
+    "text": "Messi’s ability to dribble in tight spaces made the false nine a viable tactic for many teams.",
+    "translationRu": "Способность Месси дриблинговать в тесных пространствах сделала «ложную девятку» применимой тактикой для многих команд."
+   },
+   {
+    "text": "After he moved to Paris Saint‑Germain, other clubs began experimenting with similar forward setups.",
+    "translationRu": "После перехода в «Пари Сен‑Жермен» другие клубы начали экспериментировать с похожими схемами форвардов."
+   },
+   {
+    "text": "The role also influenced national teams, with coaches giving their star forwards more freedom to roam.",
+    "translationRu": "Эта роль также повлияла на сборные, тренеры стали давать своим звёздным форвардам больше свободы передвижения."
+   },
+   {
+    "text": "Because of Messi, the line between striker and attacking midfielder has become blurred.",
+    "translationRu": "Благодаря Месси граница между нападающим и атакующим полузащитником стала размыта."
+   },
+   {
+    "text": "You can see this in the way younger players are trained to be comfortable both scoring and assisting.",
+    "translationRu": "Это видно в том, как молодых игроков учат быть комфортными и в забивании, и в ассистах."
+   },
+   {
+    "text": "The false nine does not stay fixed; it reacts to the flow of the game.",
+    "translationRu": "«Ложная девятка» не остаётся на месте; она реагирует на ход игры."
+   },
+   {
+    "text": "Opponents now often deploy a defensive midfielder specifically to track such roaming forwards.",
+    "translationRu": "Противники теперь часто используют опорного полузащитника, специально следящего за такими свободно передвигающимися форвардами."
+   },
+   {
+    "text": "This tactical arms race shows how a single player's style can reshape an entire position.",
+    "translationRu": "Эта тактическая гонка вооружений показывает, как стиль одного игрока может изменить целую позицию."
+   },
+   {
+    "text": "Messi’s influence is evident in matches where the forward drops back to collect the ball and then accelerates forward.",
+    "translationRu": "Влияние Месси заметно в матчах, где форвард опускается, чтобы принять мяч, а затем ускоряется вперёд."
+   },
+   {
+    "text": "Even after his retirement from international football, coaches still reference his movement patterns.",
+    "translationRu": "Даже после завершения международной карьеры тренеры продолжают ссылаться на его схемы передвижения."
+   },
+   {
+    "text": "The false nine is now a standard option in many modern formations.",
+    "translationRu": "«Ложная девятка» теперь является стандартным вариантом во многих современных схемах."
+   },
+   {
+    "text": "It gives teams flexibility to switch between a target man and a creator during a game.",
+    "translationRu": "Она даёт командам гибкость переключаться между целевым нападающим и креатором во время матча."
+   },
+   {
+    "text": "Messi’s legacy, therefore, is not only about goals but also about how the forward role evolved.",
+    "translationRu": "Таким образом, наследие Месси — это не только голы, но и эволюция роли форварда."
+   },
+   {
+    "text": "Future stars will likely build on his ideas and add their own twists.",
+    "translationRu": "Будущие звёзды, вероятно, будут развивать его идеи и добавлять свои особенности."
+   },
+   {
+    "text": "The game continues to change, but the impact of Messi’s style remains a cornerstone of modern tactics.",
+    "translationRu": "Игра продолжает меняться, но влияние стиля Месси остаётся краеугольным камнем современных тактик."
+   }
+  ],
+  "glossary": {
+   "false nine": {
+    "translation": "ложная девятка",
+    "partOfSpeech": "phrase"
+   },
+   "playmaker": {
+    "translation": "разыгрывающий",
+    "partOfSpeech": "noun"
+   },
+   "dribble": {
+    "translation": "дриблинг",
+    "partOfSpeech": "verb"
+   },
+   "roam": {
+    "translation": "скитаться",
+    "partOfSpeech": "verb"
+   },
+   "tactic": {
+    "translation": "тактика",
+    "partOfSpeech": "noun"
+   },
+   "formation": {
+    "translation": "схема",
+    "partOfSpeech": "noun"
+   },
+   "legacy": {
+    "translation": "наследие",
+    "partOfSpeech": "noun"
+   },
+   "flexibility": {
+    "translation": "гибкость",
+    "partOfSpeech": "noun"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What role did Messi popularise at Barcelona?",
+    "options": [
+     "Target man",
+     "False nine",
+     "Sweeper",
+     "Wing back"
+    ],
+    "answer": 1,
+    "explanation": "The text states that Messi’s movement created the ‘false nine’ role."
+   },
+   {
+    "id": "q2",
+    "question": "According to the text, why do opponents sometimes use a defensive midfielder against a false nine?",
+    "options": [
+     "To score more goals",
+     "To mark the roaming forward",
+     "To increase possession",
+     "To defend set pieces"
+    ],
+    "answer": 1,
+    "explanation": "The text explains that a defensive midfielder is deployed specifically to track roaming forwards."
+   },
+   {
+    "id": "q3",
+    "question": "What does the text say about the future of the forward position?",
+    "options": [
+     "It will return to classic centre‑forwards only",
+     "It will disappear from modern football",
+     "Future stars will build on Messi’s ideas",
+     "It will become less flexible"
+    ],
+    "answer": 2,
+    "explanation": "The final sentences note that future stars will likely build on Messi’s ideas and add their own twists."
+   }
+  ],
+  "featured": true
+ },
+ {
+  "id": "apple-turns-iphone-launch-into-event",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Apple Turns iPhone Launch Into Event",
+  "sentences": [
+   {
+    "text": "When Apple announced the new iPhone, it chose to stage a live show in San Francisco.",
+    "translationRu": "Когда Apple объявила о новом iPhone, она решила провести живое шоу в Сан-Франциско."
+   },
+   {
+    "text": "The venue was the historic Moscone Center, which usually hosts tech conferences.",
+    "translationRu": "Местом проведения стал исторический центр Москон, где обычно проходят техконференции."
+   },
+   {
+    "text": "Instead of a simple press release, the company invited journalists, developers and fans.",
+    "translationRu": "Вместо простого пресс‑релиза компания пригласила журналистов, разработчиков и поклонников."
+   },
+   {
+    "text": "The audience was seated in rows, while giant screens displayed the product’s features.",
+    "translationRu": "Зрители рассаживались рядами, а огромные экраны показывали функции продукта."
+   },
+   {
+    "text": "Apple’s CEO started with a short story about how the phone was designed.",
+    "translationRu": "Генеральный директор Apple начал с короткой истории о том, как разрабатывался телефон."
+   },
+   {
+    "text": "He highlighted the new camera system, the faster chip and the improved battery life.",
+    "translationRu": "Он подчеркнул новую камеру, более быстрый процессор и улучшенную ёмкость батареи."
+   },
+   {
+    "text": "During the demo, a photographer took pictures in low light, showing the night‑mode capability.",
+    "translationRu": "Во время демонстрации фотограф сделал снимки при слабом освещении, показывая функцию ночного режима."
+   },
+   {
+    "text": "The crowd reacted with applause, and the social media feed lit up instantly.",
+    "translationRu": "Толпа отреагировала аплодисментами, а лента в соцсетях мгновенно вспыхнула."
+   },
+   {
+    "text": "Apple then invited a popular YouTuber to test the phone on stage.",
+    "translationRu": "Затем Apple пригласила известного ютубера протестировать телефон на сцене."
+   },
+   {
+    "text": "He tried the new AR app, and the audience could see the virtual objects in real time.",
+    "translationRu": "Он попробовал новое AR‑приложение, и зрители смогли увидеть виртуальные объекты в реальном времени."
+   },
+   {
+    "text": "After the live segment, the lights dimmed and a video montage ran, showing the design process.",
+    "translationRu": "После живого сегмента свет приглушился, и пошёл видеомонтаж, показывающий процесс разработки."
+   },
+   {
+    "text": "The montage included footage from the factory floor, reminding viewers of the engineering work.",
+    "translationRu": "Монтаж включал кадры с производственной линии, напоминая зрителям о инженерных трудах."
+   },
+   {
+    "text": "When the show ended, Apple announced that pre‑orders would open the next morning.",
+    "translationRu": "Когда шоу закончилось, Apple объявила, что предзаказы откроются на следующее утро."
+   },
+   {
+    "text": "The company also released a teaser video on its website, encouraging people to share it.",
+    "translationRu": "Компания также выпустила тизерное видео на своём сайте, призывая людей делиться им."
+   },
+   {
+    "text": "Within an hour, the hashtag #iPhoneLaunch was trending worldwide.",
+    "translationRu": "В течение часа хэштег #iPhoneLaunch стал трендом по всему миру."
+   },
+   {
+    "text": "Tech blogs wrote live blogs, and fans streamed the event on various platforms.",
+    "translationRu": "Техноблоги писали живые блоги, а фанаты стримили событие на разных платформах."
+   },
+   {
+    "text": "Apple’s marketing team later said the event helped create a shared experience.",
+    "translationRu": "Маркетинговая команда Apple позже сказала, что событие помогло создать общую атмосферу."
+   },
+   {
+    "text": "Because people felt part of something bigger, they were more likely to buy the phone.",
+    "translationRu": "Поскольку люди почувствовали себя частью чего‑то большего, они с большей вероятностью купили телефон."
+   },
+   {
+    "text": "The launch also generated a lot of earned media, saving the company advertising costs.",
+    "translationRu": "Запуск также создал много бесплатных медиа‑упоминаний, экономя рекламные расходы компании."
+   },
+   {
+    "text": "Overall, turning a product launch into a live event turned the announcement into a cultural moment.",
+    "translationRu": "В целом, превращение запуска продукта в живое событие превратило объявление в культурный момент."
+   },
+   {
+    "text": "The strategy shows how a tech brand can build excitement without relying on a simple press note.",
+    "translationRu": "Эта стратегия показывает, как технологический бренд может создавать ажиотаж без простого пресс‑релиза."
+   }
+  ],
+  "glossary": {
+   "launch": {
+    "translation": "запуск",
+    "partOfSpeech": "noun"
+   },
+   "venue": {
+    "translation": "место проведения",
+    "partOfSpeech": "noun"
+   },
+   "highlight": {
+    "translation": "выделять, подчеркивать",
+    "partOfSpeech": "verb"
+   },
+   "teaser": {
+    "translation": "тизер, короткое рекламное видео",
+    "partOfSpeech": "noun"
+   },
+   "earned": {
+    "translation": "полученный без оплаты",
+    "partOfSpeech": "adjective"
+   },
+   "trend": {
+    "translation": "тенденция, тренд",
+    "partOfSpeech": "noun"
+   },
+   "share": {
+    "translation": "делиться",
+    "partOfSpeech": "verb"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "Where did Apple hold the live iPhone launch show?",
+    "options": [
+     "Apple Park",
+     "Moscone Center",
+     "Times Square",
+     "Walt Disney Studios"
+    ],
+    "answer": 1,
+    "explanation": "The text says the venue was the historic Moscone Center."
+   },
+   {
+    "id": "q2",
+    "question": "What did the YouTuber demonstrate on stage?",
+    "options": [
+     "Battery life",
+     "AR app",
+     "New keyboard",
+     "Wireless charger"
+    ],
+    "answer": 0,
+    "explanation": "The text states he tried the new AR app."
+   },
+   {
+    "id": "q3",
+    "question": "Why did the marketing team consider the event successful?",
+    "options": [
+     "It reduced production cost",
+     "It created a shared experience",
+     "It lowered the phone price",
+     "It avoided social media"
+    ],
+    "answer": 2,
+    "explanation": "The text says the event helped create a shared experience, making people more likely to buy."
+   }
+  ],
+  "featured": true
+ },
+ {
+  "id": "marvel-keeps-the-mcu-going-strong",
+  "level": "B1-B2",
+  "topic": "famous",
+  "generated": true,
+  "title": "Marvel Keeps the MCU Going Strong",
+  "sentences": [
+   {
+    "text": "The Marvel Cinematic Universe started in 2008 with Iron Man and has released more than a dozen films since.",
+    "translationRu": "Кинематографическая вселенная Marvel началась в 2008 году с «Железного человека» и с тех пор выпустила более десятка фильмов."
+   },
+   {
+    "text": "One reason the franchise stays popular is the careful planning of story arcs across movies.",
+    "translationRu": "Одна из причин, почему франшиза остаётся популярной, — тщательное планирование сюжетных арок между фильмами."
+   },
+   {
+    "text": "Each film introduces new characters while building on earlier events.",
+    "translationRu": "Каждый фильм представляет новых персонажей, одновременно развивая события предыдущих."
+   },
+   {
+    "text": "Fans can see how a small detail from a early movie becomes important later.",
+    "translationRu": "Зрители могут увидеть, как небольшая деталь из раннего фильма становится важной позже."
+   },
+   {
+    "text": "The writers use a mix of humor, drama and spectacular action.",
+    "translationRu": "Сценаристы используют смесь юмора, драмы и зрелищного экшена."
+   },
+   {
+    "text": "Because the tone stays familiar, audiences feel comfortable returning to the theater.",
+    "translationRu": "Поскольку тон остаётся знакомым, зрители чувствуют себя комфортно, возвращаясь в кинотеатр."
+   },
+   {
+    "text": "Marvel also keeps the cast together for several installments, creating continuity.",
+    "translationRu": "Marvel также удерживает актёров в нескольких частях, создавая непрерывность."
+   },
+   {
+    "text": "When an actor leaves, the studio usually writes the character out or introduces a new hero.",
+    "translationRu": "Когда актёр уходит, студия обычно пишет персонажа в отставку или вводит нового героя."
+   },
+   {
+    "text": "The studio balances big blockbuster spectacles with smaller, character‑driven stories.",
+    "translationRu": "Студия балансирует большие блокбастеры со скромными, ориентированными на персонажей историями."
+   },
+   {
+    "text": "For example, Guardians of the Galaxy focused on a rag‑tag crew, while Avengers assembled them all.",
+    "translationRu": "Например, «Стражи Галактики» сосредоточились на разношёрстной команде, а «Мстители» собрали их всех вместе."
+   },
+   {
+    "text": "This variety prevents the series from feeling repetitive.",
+    "translationRu": "Это разнообразие предотвращает ощущение повторения серии."
+   },
+   {
+    "text": "Another factor is the use of post‑credit scenes that tease future movies.",
+    "translationRu": "Другим фактором являются пост‑крэдит сцены, намекающие на будущие фильмы."
+   },
+   {
+    "text": "These teasers give fans something to discuss online, keeping the buzz alive.",
+    "translationRu": "Эти тизеры дают фанатам материал для обсуждения в интернете, поддерживая ажиотаж."
+   },
+   {
+    "text": "Social media platforms amplify the speculation, turning each release into a global conversation.",
+    "translationRu": "Социальные сети усиливают спекуляции, превращая каждый релиз в глобальный разговор."
+   },
+   {
+    "text": "Marvel also collaborates with talented directors who bring their own style.",
+    "translationRu": "Marvel также сотрудничает с талантливыми режиссёрами, которые привносят свой стиль."
+   },
+   {
+    "text": "When a director changes, the film may feel fresh while still fitting the overall narrative.",
+    "translationRu": "Когда меняется режиссёр, фильм может ощущаться свежим, но всё равно вписываться в общую историю."
+   },
+   {
+    "text": "The franchise invests heavily in visual effects, ensuring each sequel looks better than the last.",
+    "translationRu": "Франшиза вкладывает большие средства в визуальные эффекты, гарантируя, что каждый сиквел выглядит лучше предыдущего."
+   },
+   {
+    "text": "Audiences notice the improvement and come back for the spectacle.",
+    "translationRu": "Зрители замечают улучшения и возвращаются за зрелищем."
+   },
+   {
+    "text": "Merchandise, from action figures to video games, expands the world beyond the screen.",
+    "translationRu": "Товары, от фигурок до видеоигр, расширяют мир за пределы экрана."
+   },
+   {
+    "text": "Fans who own a collectible often feel more attached to the characters.",
+    "translationRu": "Фанаты, владеющие коллекционными предметами, часто чувствуют большую привязанность к персонажам."
+   },
+   {
+    "text": "The consistent release schedule, usually one film per year, builds anticipation.",
+    "translationRu": "Постоянный график релизов, обычно один фильм в год, создает ожидание."
+   },
+   {
+    "text": "Because the studio announces dates far in advance, fans can plan their visits to theaters.",
+    "translationRu": "Поскольку студия объявляет даты заранее, фанаты могут планировать посещение кинотеатров."
+   },
+   {
+    "text": "All these elements combine to keep the MCU alive and thriving after many years.",
+    "translationRu": "Все эти элементы объединяются, чтобы поддерживать MCU живым и процветающим спустя многие годы."
+   },
+   {
+    "text": "The formula shows that careful storytelling and fan engagement can sustain a long‑running franchise.",
+    "translationRu": "Эта формула показывает, что продуманный сюжет и взаимодействие с фанатами могут поддерживать долгосрочную франшизу."
+   }
+  ],
+  "glossary": {
+   "franchise": {
+    "translation": "франшиза",
+    "partOfSpeech": "noun"
+   },
+   "arc": {
+    "translation": "сюжетная арка",
+    "partOfSpeech": "noun"
+   },
+   "continuity": {
+    "translation": "непрерывность",
+    "partOfSpeech": "noun"
+   },
+   "teaser": {
+    "translation": "тизер",
+    "partOfSpeech": "noun"
+   },
+   "spectacle": {
+    "translation": "зрелище",
+    "partOfSpeech": "noun"
+   },
+   "anticipation": {
+    "translation": "ожидание",
+    "partOfSpeech": "noun"
+   },
+   "engagement": {
+    "translation": "вовлечённость",
+    "partOfSpeech": "noun"
+   },
+   "visual": {
+    "translation": "визуальный",
+    "partOfSpeech": "adjective"
+   }
+  },
+  "questions": [
+   {
+    "id": "q1",
+    "question": "What helps keep the Marvel franchise from feeling repetitive?",
+    "options": [
+     "Using the same director for every film",
+     "Balancing blockbusters with character‑driven stories",
+     "Releasing all movies at once",
+     "Avoiding post‑credit scenes"
+    ],
+    "answer": 1,
+    "explanation": "The text says the studio balances big spectacles with smaller, character‑driven stories to prevent repetition."
+   },
+   {
+    "id": "q2",
+    "question": "Why do post‑credit scenes matter according to the text?",
+    "options": [
+     "They showcase new visual effects",
+     "They give fans something to discuss online",
+     "They shorten the movie length",
+     "They replace the main storyline"
+    ],
+    "answer": 0,
+    "explanation": "The text states that post‑credit scenes tease future movies and give fans discussion material."
+   },
+   {
+    "id": "q3",
+    "question": "How does Marvel’s release schedule affect fans?",
+    "options": [
+     "It confuses them with irregular dates",
+     "It lets them plan theater visits",
+     "It reduces the number of movies",
+     "It forces them to buy merchandise"
+    ],
+    "answer": 2,
+    "explanation": "The text explains that announcing dates far in advance lets fans plan their visits to theaters."
+   }
+  ],
+  "featured": true
+ },
+ {
   "id": "why-cities-are-hotter",
   "level": "B1",
   "topic": "environment",
@@ -9376,831 +10206,6 @@
     ],
     "answer": 1,
     "explanation": "The closing sentence."
-   }
-  ]
- },
- {
-  "id": "barcelona-s-tiki-taka-legacy",
-  "level": "B1-B2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Barcelona's Tiki‑taka Legacy",
-  "sentences": [
-   {
-    "text": "In the early 2000s Barcelona began to play a brand of football that attracted worldwide attention.",
-    "translationRu": "В начале 2000‑х годов Барселона начала играть в стиль футбола, который привлёк внимание всего мира."
-   },
-   {
-    "text": "The team relied on short, quick passes rather than long balls.",
-    "translationRu": "Команда полагалась на короткие, быстрые передачи вместо длинных пасов."
-   },
-   {
-    "text": "Coach Pep Guardiola refined this approach after taking charge in 2008.",
-    "translationRu": "Тренер Пеп Гвардиола усовершенствовал этот подход после того, как стал главным в 2008 году."
-   },
-   {
-    "text": "He emphasized possession, meaning the players tried to keep the ball as long as possible.",
-    "translationRu": "Он подчёркивал владение, то есть игроки пытались держать мяч как можно дольше."
-   },
-   {
-    "text": "Midfielders like Xavi and Andres Iniesta acted as the engine, constantly moving the ball forward.",
-    "translationRu": "Полузащитники, такие как Чави и Андрес Иньеста, выступали в роли двигателя, постоянно перемещая мяч вперёд."
-   },
-   {
-    "text": "Their ability to read each other’s movements made the passing flow almost effortless.",
-    "translationRu": "Их способность читать движения друг друга делала передачу почти без усилий."
-   },
-   {
-    "text": "Opponents found it hard to press because the ball rarely stayed in one place for long.",
-    "translationRu": "Противникам было трудно оказывать прессинг, потому что мяч редко оставался в одном месте надолго."
-   },
-   {
-    "text": "Barcelona also trained younger players in the same philosophy, creating a pipeline of talent.",
-    "translationRu": "Барселона также тренировала молодых игроков в той же философии, создавая поток талантов."
-   },
-   {
-    "text": "When the club won the Champions League in 2009, the world took notice.",
-    "translationRu": "Когда клуб выиграл Лигу чемпионов в 2009 году, мир обратил на это внимание."
-   },
-   {
-    "text": "Other clubs started to copy the short‑passing game, hoping to replicate the success.",
-    "translationRu": "Другие клубы начали копировать игру короткими передачами, надеясь повторить успех."
-   },
-   {
-    "text": "Manchester City and Bayern Munich, among others, adopted similar training drills.",
-    "translationRu": "Манчестер Сити и Бавария, среди прочих, внедрили похожие тренировочные упражнения."
-   },
-   {
-    "text": "Even national teams, like Spain, built their tactics around the same principles.",
-    "translationRu": "Даже национальные сборные, такие как Испания, построили тактику на тех же принципах."
-   },
-   {
-    "text": "The media praised the style as beautiful and intelligent.",
-    "translationRu": "СМИ хвалили стиль как красивый и умный."
-   },
-   {
-    "text": "Fans appreciated the constant movement and the low number of wasted chances.",
-    "translationRu": "Болельщики оценили постоянное движение и небольшое количество упущенных возможностей."
-   },
-   {
-    "text": "Critics argued that it could become predictable if overused.",
-    "translationRu": "Критики утверждали, что стиль может стать предсказуемым при чрезмерном использовании."
-   },
-   {
-    "text": "Nevertheless, the approach forced coaches worldwide to rethink their tactics.",
-    "translationRu": "Тем не менее, подход заставил тренеров по всему миру пересмотреть свою тактику."
-   },
-   {
-    "text": "Academies now teach players to prioritize quick, accurate passing over physical strength.",
-    "translationRu": "В академиях теперь учат игроков отдавать приоритет быстрым, точным передачам, а не физической силе."
-   },
-   {
-    "text": "The success also boosted Barcelona’s brand, leading to more merchandise sales.",
-    "translationRu": "Успех также укрепил бренд Барселоны, что привело к росту продаж мерча."
-   },
-   {
-    "text": "Young players grew up watching the matches and trying to imitate their heroes.",
-    "translationRu": "Молодые игроки росли, смотря матчи и пытаясь подражать своим героям."
-   },
-   {
-    "text": "As a result, the style spread beyond Europe, reaching clubs in Asia and the Americas.",
-    "translationRu": "В результате стиль распространился за пределы Европы, достигнув клубов в Азии и Америке."
-   },
-   {
-    "text": "Today, the influence of Barcelona’s tiki‑taka can be seen in many modern teams.",
-    "translationRu": "Сегодня влияние тики‑такa Барселоны видно во многих современных командах."
-   },
-   {
-    "text": "While tactics continue to evolve, the legacy of that era remains a benchmark for excellence.",
-    "translationRu": "Хотя тактика продолжает развиваться, наследие той эпохи остаётся эталоном совершенства."
-   }
-  ],
-  "glossary": {
-   "tiki‑taka": {
-    "translation": "тики‑така (стиль коротких пасов)",
-    "partOfSpeech": "noun"
-   },
-   "press": {
-    "translation": "окаживать прессинг, оказывать давление",
-    "partOfSpeech": "verb"
-   },
-   "pipeline": {
-    "translation": "поток, система подготовки",
-    "partOfSpeech": "noun"
-   },
-   "benchmark": {
-    "translation": "эталон, образец",
-    "partOfSpeech": "noun"
-   },
-   "rethink": {
-    "translation": "пересмотреть, переосмыслить",
-    "partOfSpeech": "verb"
-   },
-   "drill": {
-    "translation": "упражнение, тренировка",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Which coach is credited with refining Barcelona’s short‑passing style?",
-    "options": [
-     "Luis Enrique",
-     "Pep Guardiola",
-     "Jürgen Klopp",
-     "Zinedine Zidane"
-    ],
-    "answer": 1,
-    "explanation": "The text states that Pep Guardiola refined the approach after taking charge in 2008."
-   },
-   {
-    "id": "q2",
-    "question": "What was one result of Barcelona’s success mentioned in the text?",
-    "options": [
-     "A decline in ticket sales",
-     "More merchandise sales",
-     "A ban on short passes",
-     "A change in stadium location"
-    ],
-    "answer": 1,
-    "explanation": "The text notes that the success boosted Barcelona’s brand, leading to more merchandise sales."
-   },
-   {
-    "id": "q3",
-    "question": "According to the passage, how did other clubs react to Barcelona’s style?",
-    "options": [
-     "They ignored it completely",
-     "They copied the short‑passing game",
-     "They focused on defensive tactics only",
-     "They stopped playing in Europe"
-    ],
-    "answer": 1,
-    "explanation": "The text explains that other clubs started to copy the short‑passing game hoping to replicate the success."
-   }
-  ]
- },
- {
-  "id": "how-netflix-picks-new-shows",
-  "level": "B1-B2",
-  "topic": "famous",
-  "generated": true,
-  "title": "How Netflix Picks New Shows",
-  "sentences": [
-   {
-    "text": "Netflix starts every new season by looking at the data it has collected from millions of viewers.",
-    "translationRu": "Netflix начинает каждый новый сезон, анализируя данные, собранные от миллионов зрителей."
-   },
-   {
-    "text": "The company examines which genres get the most hours watched and which countries show the strongest interest.",
-    "translationRu": "Компания изучает, какие жанры собирают наибольшее количество часов просмотра и в каких странах интерес наиболее высок."
-   },
-   {
-    "text": "It also checks how often people finish a series versus dropping it after a few episodes.",
-    "translationRu": "Также проверяется, как часто люди заканчивают сериал, а как часто бросают его после нескольких эпизодов."
-   },
-   {
-    "text": "These patterns help the analysts spot trends that are rising, like sci‑fi thrillers or period dramas.",
-    "translationRu": "Эти модели помогают аналитикам заметить растущие тренды, такие как научно‑фантастические триллеры или исторические драмы."
-   },
-   {
-    "text": "When a trend looks solid, the content team begins to brainstorm ideas that fit the theme.",
-    "translationRu": "Когда тренд кажется надёжным, команда контента начинает придумывать идеи, соответствующие теме."
-   },
-   {
-    "text": "Writers are then invited to pitch concepts, and the best pitches move forward to a pilot stage.",
-    "translationRu": "Писателей приглашают представить свои концепции, а лучшие из них переходят к созданию пилотного эпизода."
-   },
-   {
-    "text": "The pilot is produced on a small budget so the studio can see whether the story works in practice.",
-    "translationRu": "Пилотный эпизод снимается с небольшим бюджетом, чтобы студия могла увидеть, насколько идея работает на практике."
-   },
-   {
-    "text": "If test audiences react positively, the project gets a green light for a full season.",
-    "translationRu": "Если тестовая аудитория реагирует положительно, проект получает разрешение на полный сезон."
-   },
-   {
-    "text": "Throughout this process, the data team continues to feed fresh numbers back to the creators.",
-    "translationRu": "В течение всего процесса команда аналитиков продолжает передавать создателям новые данные."
-   },
-   {
-    "text": "They might suggest adding a character that appeals to a specific demographic that is currently under‑served.",
-    "translationRu": "Они могут предложить добавить персонажа, который будет привлекателен для определённой демографической группы, которой сейчас не хватает."
-   },
-   {
-    "text": "Marketing also plays a role by testing trailer snippets on social media to gauge interest.",
-    "translationRu": "Маркетинг также играет роль, тестируя фрагменты трейлеров в соцсетях, чтобы измерить интерес."
-   },
-   {
-    "text": "When the response is strong, the promotional budget is increased.",
-    "translationRu": "Когда отклик сильный, рекламный бюджет увеличивается."
-   },
-   {
-    "text": "The final decision to order a series is a mix of numbers, creative gut feeling, and strategic goals.",
-    "translationRu": "Окончательное решение о заказе сериала – это смесь цифр, творческого чутья и стратегических целей."
-   },
-   {
-    "text": "Netflix also looks at its own catalogue to avoid duplicating shows it already offers.",
-    "translationRu": "Netflix также проверяет свой каталог, чтобы не дублировать уже существующие шоу."
-   },
-   {
-    "text": "Sometimes a show is cancelled early if the viewership drops sharply after the first weeks.",
-    "translationRu": "Иногда шоу отменяют рано, если количество зрителей резко падает после первых недель."
-   },
-   {
-    "text": "Conversely, a modestly‑performing series can be renewed if it attracts a loyal fan base.",
-    "translationRu": "И наоборот, умеренно успешный сериал может быть продлен, если у него есть преданная аудитория."
-   },
-   {
-    "text": "The company also invests in local productions to strengthen its presence in each market.",
-    "translationRu": "Компания также инвестирует в местные проекты, чтобы укрепить своё присутствие на каждом рынке."
-   },
-   {
-    "text": "These local shows often incorporate cultural references that resonate with regional viewers.",
-    "translationRu": "Эти местные шоу часто включают культурные отсылки, которые находят отклик у региональных зрителей."
-   },
-   {
-    "text": "Overall, the decision‑making cycle repeats every few months, constantly adapting to new viewing habits.",
-    "translationRu": "В целом, цикл принятия решений повторяется каждые несколько месяцев, постоянно адаптируясь к новым привычкам просмотра."
-   },
-   {
-    "text": "The result is a constantly refreshed library that aims to keep subscribers engaged.",
-    "translationRu": "В результате библиотека постоянно обновляется, чтобы удерживать подписчиков."
-   },
-   {
-    "text": "By listening to data and staying flexible, Netflix tries to stay ahead of the competition.",
-    "translationRu": "Слушая данные и оставаясь гибким, Netflix старается опережать конкурентов."
-   },
-   {
-    "text": "That is why new titles appear on the platform almost every week.",
-    "translationRu": "Именно поэтому новые названия появляются на платформе почти каждую неделю."
-   }
-  ],
-  "glossary": {
-   "pilot": {
-    "translation": "пилотный эпизод",
-    "partOfSpeech": "noun"
-   },
-   "demographic": {
-    "translation": "демографическая группа",
-    "partOfSpeech": "noun"
-   },
-   "renew": {
-    "translation": "продлить",
-    "partOfSpeech": "verb"
-   },
-   "catalogue": {
-    "translation": "каталог",
-    "partOfSpeech": "noun"
-   },
-   "flexible": {
-    "translation": "гибкий",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What does Netflix do after a pilot receives a positive test audience reaction?",
-    "options": [
-     "Cancel the project",
-     "Increase the marketing budget",
-     "Order a full season",
-     "Change the genre"
-    ],
-    "answer": 2,
-    "explanation": "The text states that a positive test audience leads to a green light for a full season."
-   },
-   {
-    "id": "q2",
-    "question": "Why does Netflix invest in local productions?",
-    "options": [
-     "To copy foreign shows",
-     "To strengthen its presence in each market",
-     "To lower costs",
-     "Because local shows are always cheaper"
-    ],
-    "answer": 1,
-    "explanation": "The text explains that local productions help strengthen Netflix's presence in each market."
-   },
-   {
-    "id": "q3",
-    "question": "Which factor is NOT mentioned as part of the final decision to order a series?",
-    "options": [
-     "Strategic goals",
-     "Creative gut feeling",
-     "Actor salaries",
-     "Numbers"
-    ],
-    "answer": 2,
-    "explanation": "Actor salaries are not listed; the text mentions numbers, gut feeling, and strategic goals."
-   }
-  ]
- },
- {
-  "id": "messi-s-influence-on-the-false-nine",
-  "level": "B1-B2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Messi’s Influence on the False Nine",
-  "sentences": [
-   {
-    "text": "Lionel Messi has broken many scoring records during his career with Barcelona and the Argentina national team.",
-    "translationRu": "Лионель Месси сломал множество рекордных показателей по голам за свою карьеру в «Барселоне» и сборной Аргентины."
-   },
-   {
-    "text": "Beyond the numbers, analysts often talk about how he changed the way the forward position is played.",
-    "translationRu": "Помимо цифр, аналитики часто говорят о том, как он изменил стиль игры форварда."
-   },
-   {
-    "text": "When Messi arrived at Barcelona, the team traditionally used a classic centre‑forward who stayed high up the pitch.",
-    "translationRu": "Когда Месси пришёл в «Барселону», команда обычно использовала классического центрального форварда, который держался высоко в атаке."
-   },
-   {
-    "text": "Instead, Messi preferred to drop deeper into midfield, linking up with the wingers and midfielders.",
-    "translationRu": "Вместо этого Месси предпочитал опускаться глубже в полузащиту, связываясь с крайними нападающими и полузащитниками."
-   },
-   {
-    "text": "This movement created space for teammates like David Villa and later Luis Suárez to make runs behind the defence.",
-    "translationRu": "Это движение создавало пространство для таких товарищей, как Дэвид Вилья и позже Луис Суарес, которые могли делать забеги за оборону."
-   },
-   {
-    "text": "Coaches noticed that the opposition struggled to mark a player who was simultaneously a scorer and a playmaker.",
-    "translationRu": "Тренеры заметили, что сопернику трудно было отмечать игрока, который одновременно был бомбардиром и разыгрывающим."
-   },
-   {
-    "text": "Pep Guardiola formalised this role, calling it the ‘false nine’ because the player pretends to be a traditional striker.",
-    "translationRu": "Пеп Гвардиола формализовал эту роль, назвав её «ложным девяткой», потому что игрок притворяется традиционным нападающим."
-   },
-   {
-    "text": "Messi’s ability to dribble in tight spaces made the false nine a viable tactic for many teams.",
-    "translationRu": "Способность Месси дриблинговать в тесных пространствах сделала «ложную девятку» применимой тактикой для многих команд."
-   },
-   {
-    "text": "After he moved to Paris Saint‑Germain, other clubs began experimenting with similar forward setups.",
-    "translationRu": "После перехода в «Пари Сен‑Жермен» другие клубы начали экспериментировать с похожими схемами форвардов."
-   },
-   {
-    "text": "The role also influenced national teams, with coaches giving their star forwards more freedom to roam.",
-    "translationRu": "Эта роль также повлияла на сборные, тренеры стали давать своим звёздным форвардам больше свободы передвижения."
-   },
-   {
-    "text": "Because of Messi, the line between striker and attacking midfielder has become blurred.",
-    "translationRu": "Благодаря Месси граница между нападающим и атакующим полузащитником стала размыта."
-   },
-   {
-    "text": "You can see this in the way younger players are trained to be comfortable both scoring and assisting.",
-    "translationRu": "Это видно в том, как молодых игроков учат быть комфортными и в забивании, и в ассистах."
-   },
-   {
-    "text": "The false nine does not stay fixed; it reacts to the flow of the game.",
-    "translationRu": "«Ложная девятка» не остаётся на месте; она реагирует на ход игры."
-   },
-   {
-    "text": "Opponents now often deploy a defensive midfielder specifically to track such roaming forwards.",
-    "translationRu": "Противники теперь часто используют опорного полузащитника, специально следящего за такими свободно передвигающимися форвардами."
-   },
-   {
-    "text": "This tactical arms race shows how a single player's style can reshape an entire position.",
-    "translationRu": "Эта тактическая гонка вооружений показывает, как стиль одного игрока может изменить целую позицию."
-   },
-   {
-    "text": "Messi’s influence is evident in matches where the forward drops back to collect the ball and then accelerates forward.",
-    "translationRu": "Влияние Месси заметно в матчах, где форвард опускается, чтобы принять мяч, а затем ускоряется вперёд."
-   },
-   {
-    "text": "Even after his retirement from international football, coaches still reference his movement patterns.",
-    "translationRu": "Даже после завершения международной карьеры тренеры продолжают ссылаться на его схемы передвижения."
-   },
-   {
-    "text": "The false nine is now a standard option in many modern formations.",
-    "translationRu": "«Ложная девятка» теперь является стандартным вариантом во многих современных схемах."
-   },
-   {
-    "text": "It gives teams flexibility to switch between a target man and a creator during a game.",
-    "translationRu": "Она даёт командам гибкость переключаться между целевым нападающим и креатором во время матча."
-   },
-   {
-    "text": "Messi’s legacy, therefore, is not only about goals but also about how the forward role evolved.",
-    "translationRu": "Таким образом, наследие Месси — это не только голы, но и эволюция роли форварда."
-   },
-   {
-    "text": "Future stars will likely build on his ideas and add their own twists.",
-    "translationRu": "Будущие звёзды, вероятно, будут развивать его идеи и добавлять свои особенности."
-   },
-   {
-    "text": "The game continues to change, but the impact of Messi’s style remains a cornerstone of modern tactics.",
-    "translationRu": "Игра продолжает меняться, но влияние стиля Месси остаётся краеугольным камнем современных тактик."
-   }
-  ],
-  "glossary": {
-   "false nine": {
-    "translation": "ложная девятка",
-    "partOfSpeech": "phrase"
-   },
-   "playmaker": {
-    "translation": "разыгрывающий",
-    "partOfSpeech": "noun"
-   },
-   "dribble": {
-    "translation": "дриблинг",
-    "partOfSpeech": "verb"
-   },
-   "roam": {
-    "translation": "скитаться",
-    "partOfSpeech": "verb"
-   },
-   "tactic": {
-    "translation": "тактика",
-    "partOfSpeech": "noun"
-   },
-   "formation": {
-    "translation": "схема",
-    "partOfSpeech": "noun"
-   },
-   "legacy": {
-    "translation": "наследие",
-    "partOfSpeech": "noun"
-   },
-   "flexibility": {
-    "translation": "гибкость",
-    "partOfSpeech": "noun"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What role did Messi popularise at Barcelona?",
-    "options": [
-     "Target man",
-     "False nine",
-     "Sweeper",
-     "Wing back"
-    ],
-    "answer": 1,
-    "explanation": "The text states that Messi’s movement created the ‘false nine’ role."
-   },
-   {
-    "id": "q2",
-    "question": "According to the text, why do opponents sometimes use a defensive midfielder against a false nine?",
-    "options": [
-     "To score more goals",
-     "To mark the roaming forward",
-     "To increase possession",
-     "To defend set pieces"
-    ],
-    "answer": 1,
-    "explanation": "The text explains that a defensive midfielder is deployed specifically to track roaming forwards."
-   },
-   {
-    "id": "q3",
-    "question": "What does the text say about the future of the forward position?",
-    "options": [
-     "It will return to classic centre‑forwards only",
-     "It will disappear from modern football",
-     "Future stars will build on Messi’s ideas",
-     "It will become less flexible"
-    ],
-    "answer": 2,
-    "explanation": "The final sentences note that future stars will likely build on Messi’s ideas and add their own twists."
-   }
-  ]
- },
- {
-  "id": "apple-turns-iphone-launch-into-event",
-  "level": "B1-B2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Apple Turns iPhone Launch Into Event",
-  "sentences": [
-   {
-    "text": "When Apple announced the new iPhone, it chose to stage a live show in San Francisco.",
-    "translationRu": "Когда Apple объявила о новом iPhone, она решила провести живое шоу в Сан-Франциско."
-   },
-   {
-    "text": "The venue was the historic Moscone Center, which usually hosts tech conferences.",
-    "translationRu": "Местом проведения стал исторический центр Москон, где обычно проходят техконференции."
-   },
-   {
-    "text": "Instead of a simple press release, the company invited journalists, developers and fans.",
-    "translationRu": "Вместо простого пресс‑релиза компания пригласила журналистов, разработчиков и поклонников."
-   },
-   {
-    "text": "The audience was seated in rows, while giant screens displayed the product’s features.",
-    "translationRu": "Зрители рассаживались рядами, а огромные экраны показывали функции продукта."
-   },
-   {
-    "text": "Apple’s CEO started with a short story about how the phone was designed.",
-    "translationRu": "Генеральный директор Apple начал с короткой истории о том, как разрабатывался телефон."
-   },
-   {
-    "text": "He highlighted the new camera system, the faster chip and the improved battery life.",
-    "translationRu": "Он подчеркнул новую камеру, более быстрый процессор и улучшенную ёмкость батареи."
-   },
-   {
-    "text": "During the demo, a photographer took pictures in low light, showing the night‑mode capability.",
-    "translationRu": "Во время демонстрации фотограф сделал снимки при слабом освещении, показывая функцию ночного режима."
-   },
-   {
-    "text": "The crowd reacted with applause, and the social media feed lit up instantly.",
-    "translationRu": "Толпа отреагировала аплодисментами, а лента в соцсетях мгновенно вспыхнула."
-   },
-   {
-    "text": "Apple then invited a popular YouTuber to test the phone on stage.",
-    "translationRu": "Затем Apple пригласила известного ютубера протестировать телефон на сцене."
-   },
-   {
-    "text": "He tried the new AR app, and the audience could see the virtual objects in real time.",
-    "translationRu": "Он попробовал новое AR‑приложение, и зрители смогли увидеть виртуальные объекты в реальном времени."
-   },
-   {
-    "text": "After the live segment, the lights dimmed and a video montage ran, showing the design process.",
-    "translationRu": "После живого сегмента свет приглушился, и пошёл видеомонтаж, показывающий процесс разработки."
-   },
-   {
-    "text": "The montage included footage from the factory floor, reminding viewers of the engineering work.",
-    "translationRu": "Монтаж включал кадры с производственной линии, напоминая зрителям о инженерных трудах."
-   },
-   {
-    "text": "When the show ended, Apple announced that pre‑orders would open the next morning.",
-    "translationRu": "Когда шоу закончилось, Apple объявила, что предзаказы откроются на следующее утро."
-   },
-   {
-    "text": "The company also released a teaser video on its website, encouraging people to share it.",
-    "translationRu": "Компания также выпустила тизерное видео на своём сайте, призывая людей делиться им."
-   },
-   {
-    "text": "Within an hour, the hashtag #iPhoneLaunch was trending worldwide.",
-    "translationRu": "В течение часа хэштег #iPhoneLaunch стал трендом по всему миру."
-   },
-   {
-    "text": "Tech blogs wrote live blogs, and fans streamed the event on various platforms.",
-    "translationRu": "Техноблоги писали живые блоги, а фанаты стримили событие на разных платформах."
-   },
-   {
-    "text": "Apple’s marketing team later said the event helped create a shared experience.",
-    "translationRu": "Маркетинговая команда Apple позже сказала, что событие помогло создать общую атмосферу."
-   },
-   {
-    "text": "Because people felt part of something bigger, they were more likely to buy the phone.",
-    "translationRu": "Поскольку люди почувствовали себя частью чего‑то большего, они с большей вероятностью купили телефон."
-   },
-   {
-    "text": "The launch also generated a lot of earned media, saving the company advertising costs.",
-    "translationRu": "Запуск также создал много бесплатных медиа‑упоминаний, экономя рекламные расходы компании."
-   },
-   {
-    "text": "Overall, turning a product launch into a live event turned the announcement into a cultural moment.",
-    "translationRu": "В целом, превращение запуска продукта в живое событие превратило объявление в культурный момент."
-   },
-   {
-    "text": "The strategy shows how a tech brand can build excitement without relying on a simple press note.",
-    "translationRu": "Эта стратегия показывает, как технологический бренд может создавать ажиотаж без простого пресс‑релиза."
-   }
-  ],
-  "glossary": {
-   "launch": {
-    "translation": "запуск",
-    "partOfSpeech": "noun"
-   },
-   "venue": {
-    "translation": "место проведения",
-    "partOfSpeech": "noun"
-   },
-   "highlight": {
-    "translation": "выделять, подчеркивать",
-    "partOfSpeech": "verb"
-   },
-   "teaser": {
-    "translation": "тизер, короткое рекламное видео",
-    "partOfSpeech": "noun"
-   },
-   "earned": {
-    "translation": "полученный без оплаты",
-    "partOfSpeech": "adjective"
-   },
-   "trend": {
-    "translation": "тенденция, тренд",
-    "partOfSpeech": "noun"
-   },
-   "share": {
-    "translation": "делиться",
-    "partOfSpeech": "verb"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "Where did Apple hold the live iPhone launch show?",
-    "options": [
-     "Apple Park",
-     "Moscone Center",
-     "Times Square",
-     "Walt Disney Studios"
-    ],
-    "answer": 1,
-    "explanation": "The text says the venue was the historic Moscone Center."
-   },
-   {
-    "id": "q2",
-    "question": "What did the YouTuber demonstrate on stage?",
-    "options": [
-     "Battery life",
-     "AR app",
-     "New keyboard",
-     "Wireless charger"
-    ],
-    "answer": 0,
-    "explanation": "The text states he tried the new AR app."
-   },
-   {
-    "id": "q3",
-    "question": "Why did the marketing team consider the event successful?",
-    "options": [
-     "It reduced production cost",
-     "It created a shared experience",
-     "It lowered the phone price",
-     "It avoided social media"
-    ],
-    "answer": 2,
-    "explanation": "The text says the event helped create a shared experience, making people more likely to buy."
-   }
-  ]
- },
- {
-  "id": "marvel-keeps-the-mcu-going-strong",
-  "level": "B1-B2",
-  "topic": "famous",
-  "generated": true,
-  "title": "Marvel Keeps the MCU Going Strong",
-  "sentences": [
-   {
-    "text": "The Marvel Cinematic Universe started in 2008 with Iron Man and has released more than a dozen films since.",
-    "translationRu": "Кинематографическая вселенная Marvel началась в 2008 году с «Железного человека» и с тех пор выпустила более десятка фильмов."
-   },
-   {
-    "text": "One reason the franchise stays popular is the careful planning of story arcs across movies.",
-    "translationRu": "Одна из причин, почему франшиза остаётся популярной, — тщательное планирование сюжетных арок между фильмами."
-   },
-   {
-    "text": "Each film introduces new characters while building on earlier events.",
-    "translationRu": "Каждый фильм представляет новых персонажей, одновременно развивая события предыдущих."
-   },
-   {
-    "text": "Fans can see how a small detail from a early movie becomes important later.",
-    "translationRu": "Зрители могут увидеть, как небольшая деталь из раннего фильма становится важной позже."
-   },
-   {
-    "text": "The writers use a mix of humor, drama and spectacular action.",
-    "translationRu": "Сценаристы используют смесь юмора, драмы и зрелищного экшена."
-   },
-   {
-    "text": "Because the tone stays familiar, audiences feel comfortable returning to the theater.",
-    "translationRu": "Поскольку тон остаётся знакомым, зрители чувствуют себя комфортно, возвращаясь в кинотеатр."
-   },
-   {
-    "text": "Marvel also keeps the cast together for several installments, creating continuity.",
-    "translationRu": "Marvel также удерживает актёров в нескольких частях, создавая непрерывность."
-   },
-   {
-    "text": "When an actor leaves, the studio usually writes the character out or introduces a new hero.",
-    "translationRu": "Когда актёр уходит, студия обычно пишет персонажа в отставку или вводит нового героя."
-   },
-   {
-    "text": "The studio balances big blockbuster spectacles with smaller, character‑driven stories.",
-    "translationRu": "Студия балансирует большие блокбастеры со скромными, ориентированными на персонажей историями."
-   },
-   {
-    "text": "For example, Guardians of the Galaxy focused on a rag‑tag crew, while Avengers assembled them all.",
-    "translationRu": "Например, «Стражи Галактики» сосредоточились на разношёрстной команде, а «Мстители» собрали их всех вместе."
-   },
-   {
-    "text": "This variety prevents the series from feeling repetitive.",
-    "translationRu": "Это разнообразие предотвращает ощущение повторения серии."
-   },
-   {
-    "text": "Another factor is the use of post‑credit scenes that tease future movies.",
-    "translationRu": "Другим фактором являются пост‑крэдит сцены, намекающие на будущие фильмы."
-   },
-   {
-    "text": "These teasers give fans something to discuss online, keeping the buzz alive.",
-    "translationRu": "Эти тизеры дают фанатам материал для обсуждения в интернете, поддерживая ажиотаж."
-   },
-   {
-    "text": "Social media platforms amplify the speculation, turning each release into a global conversation.",
-    "translationRu": "Социальные сети усиливают спекуляции, превращая каждый релиз в глобальный разговор."
-   },
-   {
-    "text": "Marvel also collaborates with talented directors who bring their own style.",
-    "translationRu": "Marvel также сотрудничает с талантливыми режиссёрами, которые привносят свой стиль."
-   },
-   {
-    "text": "When a director changes, the film may feel fresh while still fitting the overall narrative.",
-    "translationRu": "Когда меняется режиссёр, фильм может ощущаться свежим, но всё равно вписываться в общую историю."
-   },
-   {
-    "text": "The franchise invests heavily in visual effects, ensuring each sequel looks better than the last.",
-    "translationRu": "Франшиза вкладывает большие средства в визуальные эффекты, гарантируя, что каждый сиквел выглядит лучше предыдущего."
-   },
-   {
-    "text": "Audiences notice the improvement and come back for the spectacle.",
-    "translationRu": "Зрители замечают улучшения и возвращаются за зрелищем."
-   },
-   {
-    "text": "Merchandise, from action figures to video games, expands the world beyond the screen.",
-    "translationRu": "Товары, от фигурок до видеоигр, расширяют мир за пределы экрана."
-   },
-   {
-    "text": "Fans who own a collectible often feel more attached to the characters.",
-    "translationRu": "Фанаты, владеющие коллекционными предметами, часто чувствуют большую привязанность к персонажам."
-   },
-   {
-    "text": "The consistent release schedule, usually one film per year, builds anticipation.",
-    "translationRu": "Постоянный график релизов, обычно один фильм в год, создает ожидание."
-   },
-   {
-    "text": "Because the studio announces dates far in advance, fans can plan their visits to theaters.",
-    "translationRu": "Поскольку студия объявляет даты заранее, фанаты могут планировать посещение кинотеатров."
-   },
-   {
-    "text": "All these elements combine to keep the MCU alive and thriving after many years.",
-    "translationRu": "Все эти элементы объединяются, чтобы поддерживать MCU живым и процветающим спустя многие годы."
-   },
-   {
-    "text": "The formula shows that careful storytelling and fan engagement can sustain a long‑running franchise.",
-    "translationRu": "Эта формула показывает, что продуманный сюжет и взаимодействие с фанатами могут поддерживать долгосрочную франшизу."
-   }
-  ],
-  "glossary": {
-   "franchise": {
-    "translation": "франшиза",
-    "partOfSpeech": "noun"
-   },
-   "arc": {
-    "translation": "сюжетная арка",
-    "partOfSpeech": "noun"
-   },
-   "continuity": {
-    "translation": "непрерывность",
-    "partOfSpeech": "noun"
-   },
-   "teaser": {
-    "translation": "тизер",
-    "partOfSpeech": "noun"
-   },
-   "spectacle": {
-    "translation": "зрелище",
-    "partOfSpeech": "noun"
-   },
-   "anticipation": {
-    "translation": "ожидание",
-    "partOfSpeech": "noun"
-   },
-   "engagement": {
-    "translation": "вовлечённость",
-    "partOfSpeech": "noun"
-   },
-   "visual": {
-    "translation": "визуальный",
-    "partOfSpeech": "adjective"
-   }
-  },
-  "questions": [
-   {
-    "id": "q1",
-    "question": "What helps keep the Marvel franchise from feeling repetitive?",
-    "options": [
-     "Using the same director for every film",
-     "Balancing blockbusters with character‑driven stories",
-     "Releasing all movies at once",
-     "Avoiding post‑credit scenes"
-    ],
-    "answer": 1,
-    "explanation": "The text says the studio balances big spectacles with smaller, character‑driven stories to prevent repetition."
-   },
-   {
-    "id": "q2",
-    "question": "Why do post‑credit scenes matter according to the text?",
-    "options": [
-     "They showcase new visual effects",
-     "They give fans something to discuss online",
-     "They shorten the movie length",
-     "They replace the main storyline"
-    ],
-    "answer": 0,
-    "explanation": "The text states that post‑credit scenes tease future movies and give fans discussion material."
-   },
-   {
-    "id": "q3",
-    "question": "How does Marvel’s release schedule affect fans?",
-    "options": [
-     "It confuses them with irregular dates",
-     "It lets them plan theater visits",
-     "It reduces the number of movies",
-     "It forces them to buy merchandise"
-    ],
-    "answer": 2,
-    "explanation": "The text explains that announcing dates far in advance lets fans plan their visits to theaters."
    }
   ]
  }
