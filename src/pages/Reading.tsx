@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import type { ReadingText } from "@/data/readingTexts";
 import { bandOf, loadLevelTexts, readingLevels, wordCount } from "@/data/readingLibrary";
 import { LevelFilter } from "@/components/LevelFilter";
+import { CrownMark } from "@/components/reading/CrownMark";
 import { levelOf, type Cefr } from "@/lib/textLevel";
 import { ReadingTextView } from "@/components/reading/ReadingTextView";
 import { ComprehensionQuiz } from "@/components/reading/ComprehensionQuiz";
@@ -35,56 +36,9 @@ function minutesFor(text: ReadingText) {
 
 /* ── Stage 1: pick a level ──────────────────────────────────────────────── */
 
-function LevelGrid({
-  onPick,
-  onPersonal,
-  onOpenText,
-}: {
-  onPick: (id: string) => void;
-  onPersonal: () => void;
-  onOpenText: (text: ReadingText) => void;
-}) {
+function LevelGrid({ onPick, onPersonal }: { onPick: (id: string) => void; onPersonal: () => void }) {
   const { t } = useTranslation();
-
-  /*
-   * The desk: three texts written around the words this learner saved most
-   * recently, turning over once a day.
-   *
-   * This is the half of Reading that justifies it being here at all. A card
-   * can show a word ten times; a paragraph is where a learner finds out what
-   * the word is *for* — what it sits next to, what work it does, why it
-   * exists beyond its translation.
-   *
-   * It used to search the fixed library for texts containing saved words,
-   * which produced the thing it was supposed to prevent: a four-hundred-word
-   * text offered for one match, because the library is the library and it has
-   * whatever it has. Writing the text instead means every one of them carries
-   * four to seven of the learner's own words.
-   */
-  const { user } = useAuth();
   const profile = getLearnerProfile();
-  const [desk, setDesk] = useState<DeskEntry[]>([]);
-  const [deskState, setDeskState] = useState<DeskStatus["kind"] | "loading">("loading");
-
-  useEffect(() => {
-    let live = true;
-    void refreshDesk({
-      level: profile?.level ?? "B1-B2",
-      topics: profile?.interests ?? [],
-      userId: user?.id,
-      // The page fills in as each text lands rather than waiting for all three.
-      onProgress: (entries) => live && setDesk(entries),
-    }).then((status) => {
-      if (!live) return;
-      setDeskState(status.kind);
-      if (status.kind !== "tooFewWords") setDesk(status.entries);
-    });
-    return () => {
-      live = false;
-    };
-    // Once per mount. A refresh is a day boundary, not a render.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   /* The learner's own band first, then the shelf in order. The profile exists
      to make this page shorter, not longer — and at four cards, "shorter" means
@@ -111,51 +65,15 @@ function LevelGrid({
         {t("reading.tagline")}
       </p>
 
-      {/* Today's three, and the way to ask for a fourth.
-          The door used to be a full-width black slab of its own under the
-          desk, which made the optional thing the largest object on the page
-          and pushed the shelf below the fold. It is a card in the same row
-          now, the same size as what it produces — which is also what it is:
-          one more of these, on a subject you choose. */}
-      <section className="mt-8">
-        <h2 className="rd-deskTitle">{t("reading.deskTitle")}</h2>
-        <div data-stagger className="rd-deskRow mt-3">
-          {desk.map(({ text, read }) => (
-            <button
-              key={text.id}
-              type="button"
-              onClick={() => onOpenText(text)}
-              className={read ? "rd-desk card card--interactive is-read" : "rd-desk card card--interactive"}
-            >
-              <span className="rd-desk__top">
-                <span className="level">
-                  {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
-                </span>
-                {/* Finished texts are replaced tomorrow, and saying so is
-                    what stops "it disappeared" reading as a bug. */}
-                {read && <span className="rd-desk__done">{t("reading.deskRead")}</span>}
-              </span>
-              <span className="rd-desk__title">{text.title}</span>
-            </button>
-          ))}
-
-          {/* Placeholders while the rest of today's desk is being written. */}
-          {deskState === "loading" &&
-            Array.from({ length: Math.max(0, 3 - desk.length) }).map((_, i) => (
-              <span key={`skeleton-${i}`} className="rd-desk rd-desk--pending card" aria-hidden />
-            ))}
-
-          <button type="button" onClick={onPersonal} className="rd-desk rd-desk--make card card--interactive">
-            <span className="rd-desk__top">
-              <span className="rd-desk__plus" aria-hidden>
-                +
-              </span>
-            </span>
-            <span className="rd-desk__title">{t("reading.personalTitle")}</span>
-            <span className="rd-desk__sub">{t("reading.personalTeaser")}</span>
-          </button>
-        </div>
-      </section>
+      {/* The one thing on this page that writes something rather than listing
+          it. Today's three texts used to sit beside it here; they belong with
+          the thing that made them, which is where they are now. What is left
+          is a door, and a door does not need to be the largest object on a
+          page whose job is to show four shelves. */}
+      <button type="button" onClick={onPersonal} className="forge forge--door forge--slim mt-8 w-full text-left">
+        <span className="forge__door-h">{t("reading.personalTitle")} →</span>
+        <span className="forge__door-p">{t("reading.personalTeaser")}</span>
+      </button>
 
       <div data-stagger className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {ordered.map((level) => {
@@ -353,7 +271,7 @@ function TextList({
                 <span className="level flex-none">{measured[text.id] ?? text.level}</span>
                 {crowned && (
                   <span className="rd-row__crown" title={t("reading.crownWhy")} aria-label={t("reading.crownWhy")}>
-                    ♛
+                    <CrownMark />
                   </span>
                 )}
                 {done && (
@@ -501,6 +419,39 @@ function PersonalTexts({
 
   const rollSubject = () => setSubject(nextSubject(i18n.language));
 
+  /*
+   * Today's three, moved here from the reading shelf.
+   *
+   * They were written around this learner's own words, by the control on this
+   * page, and they were being shown two screens away from it — beside four
+   * cards about CEFR bands, which is the one place on the site where they are
+   * not what the reader came for. Everything the app has written is in one
+   * place now: today's at the top, everything older underneath.
+   */
+  const { user } = useAuth();
+  const [desk, setDesk] = useState<DeskEntry[]>([]);
+  const [deskState, setDeskState] = useState<DeskStatus["kind"] | "loading">("loading");
+
+  useEffect(() => {
+    let live = true;
+    void refreshDesk({
+      level: profile?.level ?? "B1-B2",
+      topics: profile?.interests ?? [],
+      userId: user?.id,
+      // Fills in as each text lands rather than waiting for all three.
+      onProgress: (entries) => live && setDesk(entries),
+    }).then((status) => {
+      if (!live) return;
+      setDeskState(status.kind);
+      if (status.kind !== "tooFewWords") setDesk(status.entries);
+    });
+    return () => {
+      live = false;
+    };
+    // Once per mount. A refresh is a day boundary, not a render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const make = async () => {
     setBusy(true);
     setError(null);
@@ -554,7 +505,6 @@ function PersonalTexts({
                 value={subject}
                 maxLength={120}
                 onChange={(e) => setSubject(e.target.value)}
-                placeholder={t("reading.personalTopicPlaceholder")}
                 disabled={busy}
               />
             </label>
@@ -577,6 +527,38 @@ function PersonalTexts({
           list used to begin with no heading at all, which left two English
           titles sitting under the generator with nothing saying whose they
           were or where they came from. */}
+      {(desk.length > 0 || deskState === "loading") && (
+        <section className="mt-7">
+          <h2 className="forge__shelfTitle">{t("reading.deskTitle")}</h2>
+          <div data-stagger className="rd-list mt-3">
+            {desk.map(({ text, read }) => (
+              <button
+                key={text.id}
+                type="button"
+                onClick={() => onPick(text)}
+                className={`card card--interactive card--accent rd-row text-left${read ? " is-done" : ""}`}
+              >
+                <span className="rd-row__top">
+                  <span className="level flex-none">
+                    {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
+                  </span>
+                  {read && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}
+                </span>
+                <span className="min-w-0">
+                  <span className="rd-row__title">{text.title}</span>
+                  <span className="rd-row__meta">{t("reading.words", { count: wordCount(text) })}</span>
+                </span>
+              </button>
+            ))}
+
+            {deskState === "loading" &&
+              Array.from({ length: Math.max(0, 3 - desk.length) }).map((_, i) => (
+                <span key={`skeleton-${i}`} className="rd-row rd-desk--pending card" aria-hidden />
+              ))}
+          </div>
+        </section>
+      )}
+
       {texts.length > 0 && <h2 className="forge__shelfTitle">{t("reading.personalMine")}</h2>}
 
       {/* The same cards as everywhere else, in the same grid: these are texts
@@ -711,7 +693,6 @@ export default function Reading() {
     <LevelGrid
       onPick={(id: string) => navigate(`/reading/${id}`)}
       onPersonal={() => navigate("/reading/personal")}
-      onOpenText={(text: ReadingText) => navigate(`/reading/${bandOf(text.level)}/${text.id}`)}
     />
   );
 }

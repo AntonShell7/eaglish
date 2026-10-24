@@ -113,6 +113,12 @@
      different hue, so the two never read as the same signal. */
   --color-sky: #2f7fd1;
   --color-sky-soft: rgba(47, 127, 209, 0.12);
+
+  /* Two more, and they are not decoration: they mark the two things in the
+     product that are supposed to feel earned — the hardest shelf, and the
+     crown on the text worth reading today. */
+  --gold: #b8860b;
+  --violet: #6d4bb8;
   --color-accent-ink: #0b5647;
   --color-danger: #c0392b;
   --color-success: #0f6f5c;
@@ -270,6 +276,11 @@
   /* Lifted for a black ground: the light-theme blue goes muddy on it. */
   --color-sky: #6aa9e9;
   --color-sky-soft: rgba(106, 169, 233, 0.14);
+
+  /* Lifted off black, where the light-theme gold goes to mud and the violet
+     disappears. */
+  --gold: #e0b659;
+  --violet: #a98ae0;
   --color-accent-ink: #a3e3cd;
   --color-danger: #e38377;
   --color-success: #7fd0b4;

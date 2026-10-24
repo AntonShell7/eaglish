@@ -42,6 +42,22 @@
 /* The same panel used as a door: the shelf's entry to the generator, which
    has to be the loudest object on a page whose other objects are four level
    cards. Same ground, so pressing it leads somewhere that looks like it. */
+/* The slim door: what is left on the shelf once today's texts moved to the
+   page that makes them. A button, not a billboard. */
+.forge--slim {
+  padding: 18px 20px;
+}
+
+.forge--slim .forge__door-h {
+  margin-top: 0;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.forge--slim .forge__door-p {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
 .forge--door {
   display: block;
   transition:
@@ -501,21 +517,16 @@
  * people learn to ignore.
  */
 .rd-row.is-crowned {
-  border-color: color-mix(in srgb, var(--color-sky) 60%, var(--color-border));
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--color-border));
   background:
-    linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--color-sky) 9%, transparent),
-      transparent 62%
-    ),
+    linear-gradient(150deg, color-mix(in srgb, var(--gold) 10%, transparent), transparent 62%),
     var(--color-surface);
 }
 
 .rd-row__crown {
+  display: inline-flex;
   margin-left: auto;
-  font-size: 0.95rem;
-  line-height: 1;
-  color: var(--color-sky);
+  color: var(--gold);
 }
 
 .rd-row__state {
@@ -530,37 +541,79 @@
 /* ── The four bands ───────────────────────────────────────────────────── */
 
 /*
- * A colour per band, and it is a ramp rather than decoration.
+ * A material per band rather than a colour per band.
  *
- * The shelf was four identical dark rectangles whose only difference was the
- * text inside them, which makes "which one am I" a reading task every single
- * visit. Difficulty is the one thing these cards differ by, so it is the one
- * thing worth colouring: blue at the start, mint in the middle, amber at C,
- * violet for the register that sits outside the scale. The tint is a wash in
- * the corner and a coloured heading — enough to tell them apart at a glance,
- * not enough to turn the page into a paint chart.
+ * The first version tinted each card and coloured its heading, which told them
+ * apart and looked like a paint chart — four flat washes, and the two that are
+ * supposed to feel like an achievement looked exactly as cheap as the two that
+ * are not. These are surfaces instead: a dark glass plate, a diagonal sheen
+ * across it, and a rim that catches at the top edge the way an edge of metal
+ * does. The hue still carries the ramp; the finish carries the worth.
+ *
+ * Everything is built from one token per band, so the difference between gold
+ * and violet is one line and not a theme.
  */
 .lvl-card {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
+  border-color: color-mix(in srgb, var(--lvl-ink) 26%, var(--color-border));
+  background:
+    /* The sheen: a narrow diagonal band of light across the upper third, the
+       thing that makes a flat rectangle read as a polished surface. */
+    linear-gradient(
+      118deg,
+      transparent 18%,
+      color-mix(in srgb, var(--lvl-ink) 7%, transparent) 38%,
+      color-mix(in srgb, var(--lvl-ink) 2%, transparent) 52%,
+      transparent 70%
+    ),
+    /* The body: the band's colour pooled in the lower corner and nowhere else. */
+    radial-gradient(
+      120% 90% at 85% 115%,
+      color-mix(in srgb, var(--lvl-ink) 17%, transparent),
+      transparent 68%
+    ),
+    var(--color-surface);
+  transition:
+    transform var(--dur-2) var(--ease),
+    border-color var(--dur-2) var(--ease),
+    box-shadow var(--dur-2) var(--ease);
 }
 
-.lvl-card::after {
+/* The rim, brightest along the top edge, as a bevel would be. */
+.lvl-card::before {
   content: "";
   position: absolute;
-  inset: auto -30% -60% auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: var(--lvl-tint);
-  filter: blur(34px);
-  opacity: 0.5;
-  pointer-events: none;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--lvl-ink) 65%, transparent),
+    transparent 46%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.55;
   transition: opacity var(--dur-2) var(--ease);
 }
 
-.lvl-card:hover::after {
-  opacity: 0.85;
+.lvl-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--lvl-ink) 48%, var(--color-border));
+  box-shadow: 0 16px 34px -22px color-mix(in srgb, var(--lvl-ink) 70%, transparent);
+}
+
+.lvl-card:hover::before {
+  opacity: 0.9;
 }
 
 .lvl-card__h {
@@ -570,25 +623,39 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  color: var(--lvl-ink);
+  /* The heading is the metal: a gradient across the glyphs themselves, which
+     is what separates "gold" from "yellow". */
+  background: linear-gradient(
+    104deg,
+    var(--lvl-ink) 0%,
+    color-mix(in srgb, var(--lvl-ink) 55%, #ffffff) 44%,
+    var(--lvl-ink) 78%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .lvl-card:hover {
+    transform: none;
+  }
+}
+
+/* Blue at the start, mint in the middle, gold at C, violet for the register
+   that sits outside the scale. */
 .lvl-card--a1-a2 {
-  --lvl-tint: var(--color-sky);
   --lvl-ink: var(--color-sky);
 }
 
 .lvl-card--b1-b2 {
-  --lvl-tint: var(--color-primary);
   --lvl-ink: var(--color-primary);
 }
 
 .lvl-card--c1-c2 {
-  --lvl-tint: #e0ab5c;
-  --lvl-ink: #e0ab5c;
+  --lvl-ink: var(--gold);
 }
 
 .lvl-card--advanced {
-  --lvl-tint: #a98ae0;
-  --lvl-ink: #a98ae0;
+  --lvl-ink: var(--violet);
 }
