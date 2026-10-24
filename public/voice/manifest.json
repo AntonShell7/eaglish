@@ -1,7 +1,7 @@
 {
- "voice": "nova,fable",
- "model": "tts-1",
+ "voice": "cedar",
+ "model": "gpt-4o-mini-tts-2025-12-15",
  "count": 7954,
- "bytes": 127527267,
+ "bytes": 245986074,
  "generated": "2026-10-24"
 }

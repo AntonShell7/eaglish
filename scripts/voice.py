@@ -100,20 +100,45 @@ PROVIDERS = {
         "format": "wav",
     },
     # The newer model, and the reason to bother with it is the voices rather
-    # than the price: five more of them, and they carry more character than the
+    # than the price: seven more of them, and they carry more character than the
     # original six. Confirmed available on this account by asking for each.
+    #
+    # The snapshot is pinned rather than left on the gpt-4o-mini-tts alias. The
+    # alias currently serves this same snapshot — checked by generating the same
+    # line on both and getting byte-identical lengths — but it will move, and a
+    # library voiced over several months through a moving alias is a library
+    # whose texts do not sound like each other. The March snapshot is audibly a
+    # different model, faster and flatter, which is what the alias used to be.
     "openai-hd": {
         "endpoint": "https://api.openai.com/v1/audio/speech",
-        "model": "gpt-4o-mini-tts",
+        "model": "gpt-4o-mini-tts-2025-12-15",
         "key_env": "OPENAI_API_KEY",
         "max_chars": 4096,
         "price_per_million": 12.0,
+        # marin and cedar are not in OpenAI's documented list and are not
+        # refused either: they are the voices ChatGPT's own voice mode uses,
+        # and they are the best this endpoint has. Found by asking for fifteen
+        # names from that voice mode one at a time; exactly these two answered.
+        # Undocumented means unpromised, so if a run starts failing on them
+        # this is the first place to look.
         "voices": [
             "alloy", "echo", "fable", "onyx", "nova", "shimmer",
             "ash", "ballad", "coral", "sage", "verse",
+            "marin", "cedar",
         ],
-        "default_voice": "ballad",
+        "default_voice": "cedar",
         "format": "wav",
+        # What the voice is told about its delivery. This model takes direction
+        # and the direction is most of the difference: the same voice without it
+        # reads like an announcer reading a notice. Dictation wants the opposite
+        # — slow enough to be written down, and ordinary enough that the learner
+        # is listening to English rather than to a performance.
+        "instructions": (
+            "Speak as a calm, warm native English teacher reading a passage "
+            "aloud for dictation. Natural conversational rhythm, unhurried, "
+            "clear consonants, real breaths between sentences. Not "
+            "announcer-like, not cheerful, not robotic."
+        ),
     },
 }
 
@@ -210,14 +235,15 @@ def split(text: str) -> list[str]:
 
 def speak(chunk: str, voice: str, api_key: str) -> bytes:
     """One request, with the retries a rate-limited endpoint requires."""
-    body = json.dumps(
-        {
-            "model": P["model"],
-            "input": chunk,
-            "voice": voice,
-            "response_format": P["format"],
-        }
-    ).encode()
+    payload = {
+        "model": P["model"],
+        "input": chunk,
+        "voice": voice,
+        "response_format": P["format"],
+    }
+    if P.get("instructions"):
+        payload["instructions"] = P["instructions"]
+    body = json.dumps(payload).encode()
 
     for attempt in range(6):
         request = urllib.request.Request(
@@ -289,13 +315,22 @@ def join(chunks: list[bytes]) -> bytes:
             paths.append(path)
 
         out = pathlib.Path(tmp) / "joined.wav"
+        # The three fields that have to match, set one at a time rather than
+        # copied over with setparams. A streamed WAV arrives with a placeholder
+        # length — Groq sends nframes = 2147483647, meaning "until it stops" —
+        # and carrying that into the writer makes it compute a header length
+        # that will not fit in the 32-bit field, which fails on close with a
+        # struct error about the number being too large. Reading is bounded the
+        # same way: the declared frame count is not to be trusted either.
         with wave.open(str(paths[0]), "rb") as first:
-            params = first.getparams()
+            channels, width, rate = first.getnchannels(), first.getsampwidth(), first.getframerate()
         with wave.open(str(out), "wb") as writer:
-            writer.setparams(params)
+            writer.setnchannels(channels)
+            writer.setsampwidth(width)
+            writer.setframerate(rate)
             for path in paths:
                 with wave.open(str(path), "rb") as reader:
-                    writer.writeframes(reader.readframes(reader.getnframes()))
+                    writer.writeframes(reader.readframes(rate * 600))
         return out.read_bytes()
 
 
@@ -304,15 +339,20 @@ def compress(wav: bytes, destination: pathlib.Path) -> None:
     WAV to AAC, via the converter macOS already has.
 
     Four hours of 24 kHz WAV is around 700 MB, which cannot live in a
-    repository. The same audio at 32 kbps mono is around 55 MB and is speech
-    that nobody will describe as compressed.
+    repository. The same audio at 64 kbps mono is around 210 MB.
+
+    It was 32 kbps, which is where speech compression starts being audible on
+    sibilants, and the whole point of this section is a learner straining to
+    hear which consonant was said. Doubling the rate costs about 70 MB in a
+    repository that already carries this audio and nothing on the server, which
+    has nineteen gigabytes free.
     """
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
         tmp.write(wav)
         source = tmp.name
     try:
         subprocess.run(
-            ["afconvert", "-f", "m4af", "-d", "aac", "-b", "32000",
+            ["afconvert", "-f", "m4af", "-d", "aac", "-b", "64000",
              "--mix", "-c", "1", source, str(destination)],
             check=True, capture_output=True,
         )
