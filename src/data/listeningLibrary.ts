@@ -16,6 +16,7 @@ import batch17 from "./listening/batch17.json";
 import batch18 from "./listening/batch18.json";
 import batch19 from "./listening/batch19.json";
 import batch20 from "./listening/batch20.json";
+import batch21 from "./listening/batch21.json";
 import type { ReadingText } from "./readingTexts";
 
 /**
@@ -73,6 +74,9 @@ export const listeningTexts = [
   // scripts/generate-listening.mjs. The fragment ceiling is what makes these
   // typable, and it is enforced by throwing away the lines that break it.
   ...batch20,
+  // The Advanced shelf: a register rather than a band, so these carry
+  // `register: "advanced"` and are filed by it rather than by their level.
+  ...batch21,
 ] as ReadingText[];
 
 export const listeningCount = listeningTexts.length;
@@ -96,12 +100,24 @@ export function bandOfLevel(level: string): ListeningBand {
   return "c1-c2";
 }
 
+/**
+ * Which shelf a lesson belongs on.
+ *
+ * Advanced is a register and not a level — idiom and literary vocabulary
+ * inside sentences short enough to type from memory — so it cannot be derived
+ * from a CEFR band. A lesson written for that shelf says so, and everything
+ * else is filed by its level as before.
+ */
+export function bandOfText(text: { level: string; register?: string }): ListeningBand {
+  return text.register === "advanced" ? "advanced" : bandOfLevel(text.level);
+}
+
 /** How many lessons each band holds, and at which levels inside it. */
 export function listeningShelf() {
   const out = new Map<string, { total: number; counts: Record<string, number> }>();
   for (const band of listeningBands) out.set(band, { total: 0, counts: {} });
   for (const text of listeningTexts) {
-    const entry = out.get(bandOfLevel(text.level));
+    const entry = out.get(bandOfText(text));
     if (!entry) continue;
     entry.total += 1;
     entry.counts[text.level] = (entry.counts[text.level] ?? 0) + 1;

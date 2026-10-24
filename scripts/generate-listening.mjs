@@ -90,6 +90,63 @@ const SUBJECTS = [
   "what a film editor throws away",
 ];
 
+/*
+ * The Advanced shelf, and the only brief in this file that Anton specified
+ * himself — ten subjects put to him, all ten chosen, and what they have in
+ * common is the whole instruction: a mechanism explained concretely, a named
+ * thing somebody already half-knows, and a fact at the end that pays for the
+ * forty lines it took to type.
+ *
+ * The register is hard words in easy syntax. That is not a compromise forced
+ * by the fragment ceiling, it is the point: a learner who can follow the
+ * grammar is free to spend all their attention on the vocabulary, which is
+ * the part they came for.
+ */
+const ADVANCED_SUBJECTS = [
+  "why a Formula 1 pit stop takes twenty people and two seconds",
+  "what a film's sound team records when the screen is silent",
+  "how one basketball endorsement built a sportswear empire",
+  "how a creator works out whether a video pays before filming it",
+  "why you recognise a song in half a second",
+  "how a stadium is built so the pitch can be driven out of it",
+  "why one animation studio tells the same story for a century",
+  "what happens inside a boxer's body across three minutes",
+  "why Formula 1 rewrites its rules so nobody wins too long",
+  "why the most expensive watches keep worse time than cheap ones",
+  "what a football club's medical staff know by Tuesday",
+  "how a concert tour decides which cities it can afford",
+  "what a cinema projectionist did that nobody replaced",
+  "why a goalkeeper's gloves are replaced every few matches",
+  "how a streaming service prices a country it is losing money in",
+  "what a stunt coordinator negotiates before a single take",
+  "why a sprinter's start is decided before the gun",
+  "how a luxury brand decides what never goes on sale",
+  "what a video game studio does with a delayed release",
+  "why a marathon course is measured by bicycle",
+  "how an orchestra tunes to one note and why that note",
+  "what a Formula 1 driver's neck is trained to survive",
+  "why a film is edited to music that will not be used",
+  "how a football transfer fee is actually paid",
+];
+
+const ADVANCED_SPEC = {
+  count: "40 to 48",
+  guidance:
+    "Rich, exact vocabulary inside very short sentences. The difficulty is the words, never the syntax: a confident B1 reader should follow every sentence and still meet English no coursebook prints. Name the real thing — the club, the studio, the brand — and say only what is public and checkable.",
+  /* Counted requirements rather than described ones. The first run came back
+     with "pit stops are a marvel" and "their timing must be impeccable",
+     which is a B2 text with three nice adjectives in it: asking for an
+     advanced register in the abstract gets ordinary English written
+     confidently. These are the floor. */
+  extra: `ADVANCED MEANS THIS, COUNTABLY
+- At least 12 sentences must carry a word or phrase an intermediate learner would not produce themselves. Precise verbs (hoist, slot, brace, shear, taper), exact nouns (clearance, tolerance, margin, cadence, sequence), and the vocabulary of the trade being described.
+- At least 5 idioms or figurative expressions, spread through the lesson, never two in a row, never explained.
+- Never a sentence whose only content is an adjective of praise. "It is a marvel", "their timing is impeccable", "it is truly remarkable" — these are padding and they are banned. If a sentence does not add a fact, a step or a reason, cut it.
+
+HOW IT OPENS
+On the thing itself, mid-action, with a concrete detail. Not "Formula 1 pit stops are a marvel" but "The car stops within a painted box." Never open by announcing the subject or by praising it.`,
+};
+
 const SPEC = {
   A1: { count: "34 to 40", guidance: "Present simple and past simple only. The most common 800 words. No subordinate clauses." },
   A2: { count: "36 to 42", guidance: "Present, past and going-to future. Common words only. At most one short subordinate clause per sentence." },
@@ -99,9 +156,9 @@ const SPEC = {
   C2: { count: "40 to 48", guidance: "Rich vocabulary and confident phrasing inside very short sentences. The difficulty is the words, never the syntax." },
 };
 
-function buildPrompt({ level, subject, avoidTitles }) {
-  const spec = SPEC[level];
-  return `Write one dictation lesson for a Russian speaker learning English at CEFR ${level}.
+function buildPrompt({ level, subject, avoidTitles, advanced }) {
+  const spec = advanced ? ADVANCED_SPEC : SPEC[level];
+  return `Write one dictation lesson for a Russian speaker learning English${advanced ? " at an advanced level" : ` at CEFR ${level}`}.
 
 SUBJECT: ${subject}
 
@@ -109,14 +166,19 @@ THE ONE RULE THAT MATTERS
 Every sentence will be heard once and typed from memory. So each one is SHORT: 25 to 50 characters, never more than 56, one idea each. Count the characters. A sentence a learner cannot hold in their head is a sentence they cannot type, and the whole lesson fails on it.
 
 SHAPE: ${spec.count} sentences, in order, telling one connected story about the subject. ${spec.guidance}
+${spec.extra ?? ""}
 
 MAKE IT WORTH FORTY SENTENCES
 Somebody is going to type every one of these. Give them something they want to hear the end of: the detail that is stranger than expected, the reason behind a thing everybody has seen, the number that changes how it looks. Not a description — a small piece of knowledge that arrives.
+
+HOW TO BUILD IT
+Open on the thing itself, not on context. Then take it apart: who does what, in what order, and why it has to be that order. Name the real club, studio or brand where there is one. End on the fact that reframes the rest — the part a listener repeats to somebody else the next day. Never pad: forty short sentences is a lot of typing and every one has to earn itself.
 
 HARD RULES
 - Real people, teams, films and companies may be named, and nothing may be invented about them. Public, checkable facts only: no invented quotations, dates, figures or private life.
 - No invented evidence: never "studies show", "data suggests" or anything of that shape.
 - No wording taken from an article, a book or an interview. Every sentence is your own.
+- Rules and practices change, and a detail that was true once is not true now. The first draft of this very brief had a Formula 1 crew refuelling during a pit stop, which has been banned since 2010. If you are not certain a detail is current, leave it out: the lesson loses one sentence and keeps its credibility.
 - Do not reuse any of these titles: ${avoidTitles.slice(0, 30).join("; ") || "(none yet)"}.
 
 Return JSON exactly like this:
@@ -180,7 +242,7 @@ const MAX_CHARS = 56;
  * learner cannot type — so the long ones are dropped rather than shipped, and
  * a lesson left too short by that is dropped whole.
  */
-function validate(raw, level, subject) {
+function validate(raw, level, subject, advanced) {
   const title = String(raw?.title ?? "").trim();
   if (!title) return { problems: ["no title"] };
 
@@ -207,6 +269,7 @@ function validate(raw, level, subject) {
       topic: subject.split(" ").slice(0, 2).join("-").replace(/[^a-z-]/g, "") || "general",
       title,
       generated: true,
+      ...(advanced ? { register: "advanced" } : {}),
       sentences,
     },
     overlong,
@@ -244,17 +307,38 @@ async function main() {
     return;
   }
 
-  const levels = onlyLevel ? [onlyLevel] : LEVELS;
+  const advanced = args.includes("--advanced");
   const jobs = [];
-  let pick = existing.length;
-  for (const level of levels) {
+
+  if (advanced) {
+    /* The shelf's own subjects, in order, so a top-up continues the list
+       instead of going round it. */
+    const have = existing.filter((t) => t.register === "advanced").length;
+    if (have + count > ADVANCED_SUBJECTS.length) {
+      console.warn(
+        `  ! ${have} lessons and ${count} more wanted, but only ${ADVANCED_SUBJECTS.length} subjects exist.`,
+      );
+    }
     for (let i = 0; i < count; i++) {
-      jobs.push({ level, subject: SUBJECTS[pick % SUBJECTS.length] });
-      pick++;
+      jobs.push({
+        level: i % 2 === 0 ? "C1" : "C2",
+        advanced: true,
+        subject: ADVANCED_SUBJECTS[(have + i) % ADVANCED_SUBJECTS.length],
+      });
+    }
+  } else {
+    const levels = onlyLevel ? [onlyLevel] : LEVELS;
+    let pick = existing.length;
+    for (const level of levels) {
+      for (let i = 0; i < count; i++) {
+        jobs.push({ level, subject: SUBJECTS[pick % SUBJECTS.length] });
+        pick++;
+      }
     }
   }
 
-  console.log(`${jobs.length} lessons, model ${engine === "openai" ? OPENAI_MODEL : GROQ_MODEL}`);
+  const outFile = advanced ? "batch21.json" : "batch20.json";
+  console.log(`${jobs.length} lessons → ${outFile}, model ${engine === "openai" ? OPENAI_MODEL : GROQ_MODEL}`);
   const made = [];
   let refusals = 0;
 
@@ -274,7 +358,7 @@ async function main() {
     }
     refusals = 0;
 
-    const result = validate(raw, job.level, job.subject);
+    const result = validate(raw, job.level, job.subject, job.advanced);
     if (result.problems.length > 0) {
       console.warn(`  ✗ ${job.level} — ${result.problems.join(", ")}`);
     } else if (ids.has(result.text.id)) {
@@ -285,12 +369,12 @@ async function main() {
       made.push(result.text);
       const note = result.overlong > 0 ? ` (${result.overlong} dropped as too long)` : "";
       console.log(`  ✓ [${made.length}] ${job.level} — ${result.text.title}, ${result.text.sentences.length} lines${note}`);
-      writeFileSync(join(OUT_DIR, "batch20.json"), `${JSON.stringify(made, null, 1)}\n`);
+      writeFileSync(join(OUT_DIR, outFile), `${JSON.stringify(made, null, 1)}\n`);
     }
     if (engine !== "openai") await sleep(MIN_GAP_MS);
   }
 
-  console.log(`\n${made.length} lessons written to batch20.json`);
+  console.log(`\n${made.length} lessons written to ${outFile}`);
   console.log("next: python3 scripts/voice.py --voice tara   # speaks only the new lines");
 }
 

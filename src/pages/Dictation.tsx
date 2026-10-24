@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import { DictationRunner } from "@/components/dictation/DictationRunner";
-import { listeningTexts, listeningShelf, bandOfLevel } from "@/data/listeningLibrary";
+import { listeningTexts, listeningShelf, bandOfText } from "@/data/listeningLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { LevelFilter } from "@/components/LevelFilter";
@@ -74,7 +74,7 @@ export default function Dictation() {
 
   /** Texts in the open subject. The shelf is never shown undivided. */
   const inTopic = useMemo(
-    () => (topic ? texts.filter((text) => bandOfLevel(text.level) === topic) : []),
+    () => (topic ? texts.filter((text) => bandOfText(text) === topic) : []),
     [texts, topic],
   );
 

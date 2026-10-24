@@ -30,6 +30,15 @@ export interface ReadingText {
    * order to how the files happened to be written.
    */
   featured?: boolean;
+  /**
+   * Written to a register rather than to a band.
+   *
+   * "Advanced" is not a CEFR level: it is idiom and literary vocabulary, which
+   * a confident B1 reader gets as much from as a C2 one. Carried beside the
+   * level rather than inside it, because flattening the two loses the half
+   * that matters — these are hard words in easy syntax.
+   */
+  register?: "advanced";
   /** Topic id in the library taxonomy; the six curated texts still use labels. */
   topic: string;
   /** True for machine-generated texts, so they can be audited or replaced. */
