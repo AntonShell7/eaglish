@@ -938,10 +938,6 @@
     "skeletonHint": "Dots cover what didn't match — one per letter. Listen again and try once more.",
     "tryAgain": "Try again",
     "showAnswer": "Show the answer",
-    "mode": {
-      "voice": "Ready texts",
-      "video": "Your own video"
-    },
     "resume": "started · {{percent}}%",
     "openOnYouTube": "open on YouTube",
     "topics": {

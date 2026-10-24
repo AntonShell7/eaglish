@@ -1,13 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useSegmented } from "@/lib/useSegmented";
 import { SectionHero } from "@/components/SectionHero";
 import { DictationRunner } from "@/components/dictation/DictationRunner";
-import { VideoDictation } from "@/components/dictation/VideoDictation";
-import { AddVideo } from "@/components/dictation/AddVideo";
-import { getVideoExercises, removeVideoExercise } from "@/lib/videoStore";
-import type { VideoExercise } from "@/lib/videoDictation";
 import { listeningTexts, listeningShelf, bandOfLevel } from "@/data/listeningLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
@@ -34,7 +29,7 @@ import { ensureLexicon } from "@/lib/lexicon";
  * each, levels inside.
  */
 export default function Dictation() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   /* Subject and lesson come from the address, for the same reasons reading
      does: the back button should go up a level rather than out of the
      section, a reload should land where it left — reloading mid-lesson used
@@ -47,11 +42,6 @@ export default function Dictation() {
   const [loading, setLoading] = useState(false);
   const [picked, setPicked] = useState<Cefr | null>(null);
   const topic = topicParam ?? null;
-  const [mode, setMode] = useState<"voice" | "video">("voice");
-  const [videos, setVideos] = useState<VideoExercise[]>(() => getVideoExercises());
-  const [adding, setAdding] = useState(false);
-  const [openVideo, setOpenVideo] = useState<VideoExercise | null>(null);
-  const { ref, style } = useSegmented(mode);
 
   const [levels, setLevels] = useState<Record<string, Cefr>>({});
 
@@ -110,14 +100,6 @@ export default function Dictation() {
     return <Navigate to={`/dictation/${topic}`} replace />;
   }
 
-  if (openVideo) {
-    return (
-      <div className="mx-auto max-w-6xl px-5 py-10">
-        <VideoDictation key={openVideo.id} exercise={openVideo} onExit={() => setOpenVideo(null)} />
-      </div>
-    );
-  }
-
   if (open) {
     return (
       <div className="mx-auto max-w-6xl px-5 py-10">
@@ -136,75 +118,11 @@ export default function Dictation() {
      opened by saying its own name twice in a row. */
   return (
     <SectionHero title={t("nav.dictation")} description={t("dictation.intro")}>
-      <div className="segmented mt-8" ref={ref} style={style}>
-        {(["voice", "video"] as const).map((key) => (
-          <button
-            key={key}
-            type="button"
-            className={`segmented__item${mode === key ? " is-active" : ""}`}
-            onClick={() => setMode(key)}
-          >
-            {t(`dictation.mode.${key}`)}
-          </button>
-        ))}
-      </div>
-
-      {mode === "video" ? (
-        adding ? (
-          <div className="mt-6">
-            <AddVideo
-              onAdded={() => {
-                setVideos(getVideoExercises());
-                setAdding(false);
-              }}
-              onCancel={() => setAdding(false)}
-            />
-          </div>
-        ) : (
-          <div className="mt-6">
-            <button type="button" className="btn btn--primary" onClick={() => setAdding(true)}>
-              + {t("video.addTitle")}
-            </button>
-
-            {videos.length === 0 ? (
-              <p className="mt-6 max-w-xl text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                {t("video.empty")}
-              </p>
-            ) : (
-              <div data-stagger className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {videos.map((video) => (
-                  <div key={video.id} className="card flex h-full flex-col p-5">
-                    <span className="chip chip--brand self-start">{video.level}</span>
-                    <h3 className="page-title mt-3 text-base leading-snug">{video.title}</h3>
-                    <p className="mt-1 text-xs" style={{ color: "var(--color-text-muted)" }}>
-                      {video.channel}
-                    </p>
-                    <p className="mt-2 flex-1 text-xs" style={{ color: "var(--color-text-faint)" }}>
-                      {t("dictation.sentenceCount", { count: video.segments.length })}
-                    </p>
-                    <div className="mt-4 flex gap-2">
-                      <button type="button" className="btn btn--primary btn--sm" onClick={() => setOpenVideo(video)}>
-                        {t("video.start")}
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn--quiet btn--sm"
-                        onClick={() => {
-                          removeVideoExercise(video.id);
-                          setVideos(getVideoExercises());
-                        }}
-                      >
-                        {t("vocabulary.remove")}
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )
-      ) : (
-        <>
+      {/* One mode. "Your own video" sat beside this as a second tab and was
+          a promise the product could not keep: it asked a learner to paste a
+          YouTube link and produce their own transcript, which is work nobody
+          does, so the tab existed to be opened once and closed. The shelf is
+          the section. */}
           {/* Stage one: the level. Same shape as reading, because the two
               shelves are browsed by the same person and a section that
               rearranges itself between visits is a section people stop
@@ -217,11 +135,9 @@ export default function Dictation() {
                   type="button"
                   onClick={() => navigate(`/dictation/${entry.id}`)}
                   disabled={entry.total === 0}
-                  className="card card--interactive card--accent flex h-full flex-col p-5 text-left disabled:opacity-50"
+                  className={`card card--interactive card--accent lvl-card lvl-card--${entry.id} flex h-full flex-col p-5 text-left disabled:opacity-50`}
                 >
-                  <h2 className="page-title text-xl leading-snug">
-                    {t(`reading.levels.${entry.id}.h`)}
-                  </h2>
+                  <h2 className="lvl-card__h">{t(`reading.levels.${entry.id}.h`)}</h2>
                   <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                     {t(`reading.levels.${entry.id}.p`)}
                   </p>
@@ -265,11 +181,13 @@ export default function Dictation() {
               <div className="skeleton h-20 rounded-[var(--radius-lg)]" />
             </div>
           ) : !topic ? null : (
-            /* A list, not a grid of tiles. Same as reading, and for the same
-               reason: titles are the thing being scanned, and a three-column
-               grid sets each one in a narrow column where a six-word title
-               wraps to three lines. Down the page, one row each, level first. */
-            <div data-stagger className="mt-5 space-y-2">
+            /* The same cards as reading, in the same grid. These two shelves
+               are browsed by the same person on the same evening, and until
+               now one was square cards three to a row and the other was
+               full-width strips — which reads as two products. Progress shows
+               as "started" or "done" rather than as a bar and a percentage:
+               what a reader needs from a shelf is which ones are left. */
+            <div data-stagger className="rd-list mt-5">
               {ordered.length === 0 && (
                 <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
                   {t("levels.empty")}
@@ -277,62 +195,36 @@ export default function Dictation() {
               )}
               {ordered.map((text) => {
                 const done = progressOf(text.id, text.sentences.length);
+                const finished = done >= 0.999;
                 return (
                   <button
                     key={text.id}
                     type="button"
-                    className="card card--interactive card--accent flex w-full items-center gap-4 px-4 py-3.5 text-left"
+                    className={`card card--interactive card--accent rd-row text-left${finished ? " is-done" : ""}`}
                     onClick={() => navigate(`/dictation/${topic}/${text.id}`)}
                   >
-                    {/* The same badge reading uses. Two sections showing the
-                        level in two different colours is how an app starts
-                        looking assembled rather than designed. */}
-                    <span className="level flex-none">{levels[text.id] ?? text.level}</span>
-
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-semibold">{text.title}</span>
-                      <span className="mt-0.5 block truncate text-xs" style={{ color: "var(--color-text-muted)" }}>
-                        {t("dictation.sentenceCount", { count: text.sentences.length })} ·{" "}
-                        {i18n.language.startsWith("ru")
-                          ? text.sentences[0]?.translationRu
-                          : text.sentences[0]?.text}
-                      </span>
-
-                      {/* Started but unfinished is the common state for a long
-                          dictation, and the shelf should say so rather than
-                          making every text look untouched. */}
-                      {done > 0 && (
-                        <span
-                          className="mt-2 block h-1 w-full max-w-xs overflow-hidden rounded-full"
-                          style={{ background: "var(--color-surface-3)" }}
-                        >
-                          <span
-                            className="block h-full rounded-full"
-                            style={{
-                              width: `${done * 100}%`,
-                              background: "var(--color-accent)",
-                              transition: "width var(--dur-4) var(--ease)",
-                            }}
-                          />
-                        </span>
+                    <span className="rd-row__top">
+                      {/* The same badge reading uses. Two sections showing the
+                          level in two different colours is how an app starts
+                          looking assembled rather than designed. */}
+                      <span className="level flex-none">{levels[text.id] ?? text.level}</span>
+                      {finished && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}
+                      {!finished && done > 0 && (
+                        <span className="rd-row__state">{Math.round(done * 100)}%</span>
                       )}
                     </span>
 
-                    {done > 0 && (
-                      <span
-                        className="flex-none text-xs font-bold"
-                        style={{ color: "var(--color-accent-ink)" }}
-                      >
-                        {Math.round(done * 100)}%
+                    <span className="min-w-0">
+                      <span className="rd-row__title">{text.title}</span>
+                      <span className="rd-row__meta">
+                        {t("dictation.sentenceCount", { count: text.sentences.length })}
                       </span>
-                    )}
+                    </span>
                   </button>
                 );
               })}
             </div>
           )}
-        </>
-      )}
 
     </SectionHero>
   );

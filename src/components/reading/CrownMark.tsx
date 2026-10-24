@@ -1,30 +1,28 @@
 /**
- * The crown.
+ * The mark on the best text for this reader today.
  *
- * It marks at most two texts on a shelf — the ones carrying the most words
- * this reader is due to review — and it was a typographic ♛, which at this
- * size is a blob with a serif on it and inherits whatever colour it is given.
- * Drawn instead: three points, a band, and nothing else, at the one size it
- * is used. Gold, because gold is what a crown is; blue was the colour of
- * "where you got to", and the two were saying different things in one hue.
+ * At most two texts on a shelf carry it, and they are the ones holding the
+ * most words this reader is due to review — meeting a word inside a sentence
+ * is worth more than meeting it on a card.
+ *
+ * It was a crown, twice: once as a typographic ♛, which at fifteen pixels is a
+ * blob with a serif on it, and once drawn as an outline, which at the same
+ * size is a zigzag. A star reads as a star at any size — it is the one shape
+ * that survives being small — and filled rather than hollow, because a gold
+ * outline on a dark card is a thin scratch and a gold solid is a mark.
  */
 export function CrownMark({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 24 20"
+      viewBox="0 0 24 24"
       width="15"
-      height="13"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.9"
-      strokeLinejoin="round"
-      strokeLinecap="round"
+      height="15"
+      fill="currentColor"
+      stroke="none"
       aria-hidden="true"
     >
-      {/* One stroke: up to the left point, down to the dip, up to the centre,
-          down again, up to the right point, and along the band. */}
-      <path d="M3 5.4 L5.9 12.2 L9 6.4 L12 12.6 L15 6.4 L18.1 12.2 L21 5.4 L19.4 16.4 H4.6 Z" />
+      <path d="M12 1.9l3.09 6.26 6.91 1-5 4.87 1.18 6.87L12 17.67l-6.18 3.25 1.18-6.87-5-4.87 6.91-1z" />
     </svg>
   );
 }

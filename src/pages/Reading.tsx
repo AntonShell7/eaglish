@@ -14,6 +14,7 @@ import { ReadingProgress } from "@/components/reading/ReadingProgress";
 import {
   generatePersonalText,
   getPersonalTexts,
+  targetsPresent,
   pickTargets,
   type PersonalText,
 } from "@/lib/personalText";
@@ -295,15 +296,7 @@ function TextList({
                     used to sit on every row carrying its own top margin, which
                     is most of why the shelf felt crowded. */}
                 {recycled > 0 && (
-                  <span
-                    className="mt-1.5 inline-flex rounded-full px-2 py-0.5 text-[10px] font-bold"
-                    style={{
-                      background: "color-mix(in srgb, var(--color-accent) 14%, transparent)",
-                      color: "var(--color-accent-ink)",
-                    }}
-                  >
-                    {t("reading.recycled", { count: recycled })}
-                  </span>
+                  <span className="rd-row__recycled">{t("reading.recycled", { count: recycled })}</span>
                 )}
               </span>
             </button>
@@ -547,6 +540,11 @@ function PersonalTexts({
                 <span className="min-w-0">
                   <span className="rd-row__title">{text.title}</span>
                   <span className="rd-row__meta">{t("reading.words", { count: wordCount(text) })}</span>
+                  {targetsPresent(text).length > 0 && (
+                    <span className="rd-row__recycled">
+                      {t("reading.recycled", { count: targetsPresent(text).length })}
+                    </span>
+                  )}
                 </span>
               </button>
             ))}

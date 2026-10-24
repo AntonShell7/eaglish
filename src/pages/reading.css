@@ -472,6 +472,20 @@
   color: var(--color-text);
 }
 
+/* How many words in this text the reader is due to review. The same badge on
+   every shelf, including today's row, which is the one place it matters most:
+   those texts exist for exactly this number. */
+.rd-row__recycled {
+  display: inline-flex;
+  margin-top: 7px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--color-accent-ink);
+}
+
 .rd-row__meta {
   display: block;
   margin-top: 6px;
