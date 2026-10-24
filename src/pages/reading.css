@@ -673,3 +673,23 @@
 .lvl-card--advanced {
   --lvl-ink: var(--violet);
 }
+
+/* Which shelf you are standing in, in that shelf's own colour.
+   Three clicks from the front page the heading said only the section's name,
+   so the one thing just chosen was the one thing not on screen. */
+.lvl-here {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  background: linear-gradient(
+    104deg,
+    var(--lvl-ink) 0%,
+    color-mix(in srgb, var(--lvl-ink) 55%, #ffffff) 44%,
+    var(--lvl-ink) 78%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

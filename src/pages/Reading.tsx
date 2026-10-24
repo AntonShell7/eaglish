@@ -247,7 +247,7 @@ function TextList({
       </button>
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="page-title text-3xl">{t(`reading.levels.${bandId}.h`)}</h1>
+        <h1 className={`lvl-here lvl-card--${bandId}`}>{t(`reading.levels.${bandId}.h`)}</h1>
 
         <LevelFilter value={level} counts={counts} onChange={setLevel} />
       </div>
@@ -269,7 +269,9 @@ function TextList({
                   before the subject. Measured where the frequency list has
                   loaded, published band until then — never absent. */}
               <span className="rd-row__top">
-                <span className="level flex-none">{measured[text.id] ?? text.level}</span>
+                <span className={`level level--${(measured[text.id] ?? text.level).toLowerCase()} flex-none`}>
+                  {measured[text.id] ?? text.level}
+                </span>
                 {crowned && (
                   <span className="rd-row__crown" title={t("reading.crownWhy")} aria-label={t("reading.crownWhy")}>
                     <CrownMark />
@@ -532,7 +534,9 @@ function PersonalTexts({
                 className={`card card--interactive card--accent rd-row text-left${read ? " is-done" : ""}`}
               >
                 <span className="rd-row__top">
-                  <span className="level flex-none">
+                  <span
+                    className={`level level--${text.register === "advanced" ? "adv" : text.level.toLowerCase()} flex-none`}
+                  >
                     {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
                   </span>
                   {read && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}
@@ -572,7 +576,9 @@ function PersonalTexts({
             className={`card card--interactive card--accent rd-row text-left${done ? " is-done" : ""}`}
           >
             <span className="rd-row__top">
-              <span className="level flex-none">
+              <span
+                className={`level level--${text.register === "advanced" ? "adv" : text.level.toLowerCase()} flex-none`}
+              >
                 {text.register === "advanced" ? t("reading.levels.advanced.h") : text.level}
               </span>
               {done && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}

@@ -3,7 +3,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
 import { DictationRunner } from "@/components/dictation/DictationRunner";
-import { listeningTexts, listeningShelf, bandOfText } from "@/data/listeningLibrary";
+import { listeningTexts, listeningShelf, bandOfText, bandOfLevel } from "@/data/listeningLibrary";
 import type { ReadingText } from "@/data/readingTexts";
 import { getLearnerProfile } from "@/lib/learnerProfile";
 import { LevelFilter } from "@/components/LevelFilter";
@@ -70,7 +70,14 @@ export default function Dictation() {
   }, []);
 
   /** The eight subjects and what each one holds. Fixed data, computed once. */
-  const shelf = useMemo(() => listeningShelf(), []);
+  /* The learner's own band first and labelled, as the reading shelf does.
+     Four cards is not many, so "shorter" here means putting the right one
+     under the cursor rather than hiding the other three. */
+  const myBand = bandOfLearner ? bandOfLevel(bandOfLearner.slice(0, 2)) : null;
+  const shelf = useMemo(
+    () => [...listeningShelf()].sort((a, b) => Number(b.id === myBand) - Number(a.id === myBand)),
+    [myBand],
+  );
 
   /** Texts in the open subject. The shelf is never shown undivided. */
   const inTopic = useMemo(
@@ -136,8 +143,16 @@ export default function Dictation() {
                   onClick={() => navigate(`/dictation/${entry.id}`)}
                   disabled={entry.total === 0}
                   className={`card card--interactive card--accent lvl-card lvl-card--${entry.id} flex h-full flex-col p-5 text-left disabled:opacity-50`}
+                  style={entry.id === myBand ? { borderColor: "var(--color-primary)" } : undefined}
                 >
-                  <h2 className="lvl-card__h">{t(`reading.levels.${entry.id}.h`)}</h2>
+                  <div className="flex items-start justify-between gap-3">
+                    <h2 className="lvl-card__h">{t(`reading.levels.${entry.id}.h`)}</h2>
+                    {entry.id === myBand && (
+                      <span className="flex-none text-[10px] font-bold" style={{ color: "var(--color-primary)" }}>
+                        {t("reading.yourLevel")}
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                     {t(`reading.levels.${entry.id}.p`)}
                   </p>
@@ -158,8 +173,15 @@ export default function Dictation() {
             </div>
           )}
 
+          {/* Which shelf this is, in the shelf's own colour. Three clicks in,
+              the page said "Английский на слух" and nothing else, so the one
+              thing that had just been chosen was the one thing not on screen. */}
           {topic && (
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
+            <h2 className={`lvl-here lvl-card--${topic} mt-6`}>{t(`reading.levels.${topic}.h`)}</h2>
+          )}
+
+          {topic && (
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
               <button
                 type="button"
                 onClick={() => {
@@ -207,7 +229,9 @@ export default function Dictation() {
                       {/* The same badge reading uses. Two sections showing the
                           level in two different colours is how an app starts
                           looking assembled rather than designed. */}
-                      <span className="level flex-none">{levels[text.id] ?? text.level}</span>
+                      <span className={`level level--${text.register === "advanced" ? "adv" : (levels[text.id] ?? text.level).toLowerCase()} flex-none`}>
+                        {text.register === "advanced" ? t("reading.levels.advanced.h") : (levels[text.id] ?? text.level)}
+                      </span>
                       {finished && <span className="rd-row__state is-done">✓ {t("reading.stateDone")}</span>}
                       {!finished && done > 0 && (
                         <span className="rd-row__state">{Math.round(done * 100)}%</span>

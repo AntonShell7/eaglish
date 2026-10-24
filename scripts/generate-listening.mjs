@@ -127,6 +127,35 @@ const ADVANCED_SUBJECTS = [
   "what a Formula 1 driver's neck is trained to survive",
   "why a film is edited to music that will not be used",
   "how a football transfer fee is actually paid",
+
+  /* A second set, same shape: a mechanism taken apart, a named thing
+     somebody already half-knows, and a fact at the end worth repeating. */
+  "what a Premier League groundsman does on a Monday",
+  "how a film trailer is cut before the film is finished",
+  "why a tennis player changes racket mid-match",
+  "what an airline does with a plane overnight",
+  "how a record label decides which song is the single",
+  "why a Michelin inspector eats alone",
+  "what a Formula 1 wind tunnel is actually measuring",
+  "how a video game is tested by people paid to break it",
+  "why a boxing weigh-in happens the day before",
+  "what a museum conservator does to a painting nobody sees",
+  "how an NBA team decides who to trade at the deadline",
+  "why a skyscraper is designed to sway",
+  "what a sommelier is doing when they swirl the glass",
+  "how a Disney park moves a crowd without it noticing",
+  "why a football kit is redesigned every season",
+  "what a submarine crew does about sound",
+  "how an auction house sets a reserve price",
+  "why a marathon's final mile is the one that breaks people",
+  "what a concert's front-of-house engineer controls",
+  "how a watch brand decides a model will be discontinued",
+  "why an Olympic pool is deeper than a normal one",
+  "what a football scout writes down",
+  "how a theatre handles an actor falling ill at the interval",
+  "why a Grand Slam court is resurfaced between tournaments",
+  "what a chef does with a dish that keeps coming back",
+  "how a stadium decides what the air smells like",
 ];
 
 const ADVANCED_SPEC = {
@@ -338,8 +367,17 @@ async function main() {
   }
 
   const outFile = advanced ? "batch21.json" : "batch20.json";
+  /*
+   * What is already in the file this run writes to.
+   *
+   * The run used to write out only what it had just made, which is correct
+   * for the first run of a batch and destroys the previous twenty-four on the
+   * second. The file is the shelf, not the session.
+   */
+  const outPath = join(OUT_DIR, outFile);
+  const made = existsSync(outPath) ? JSON.parse(readFileSync(outPath, "utf8")) : [];
+  const before = made.length;
   console.log(`${jobs.length} lessons → ${outFile}, model ${engine === "openai" ? OPENAI_MODEL : GROQ_MODEL}`);
-  const made = [];
   let refusals = 0;
 
   for (const job of jobs) {
@@ -368,13 +406,13 @@ async function main() {
       titles.push(result.text.title);
       made.push(result.text);
       const note = result.overlong > 0 ? ` (${result.overlong} dropped as too long)` : "";
-      console.log(`  ✓ [${made.length}] ${job.level} — ${result.text.title}, ${result.text.sentences.length} lines${note}`);
-      writeFileSync(join(OUT_DIR, outFile), `${JSON.stringify(made, null, 1)}\n`);
+      console.log(`  ✓ [${made.length - before}] ${job.level} — ${result.text.title}, ${result.text.sentences.length} lines${note}`);
+      writeFileSync(outPath, `${JSON.stringify(made, null, 1)}\n`);
     }
     if (engine !== "openai") await sleep(MIN_GAP_MS);
   }
 
-  console.log(`\n${made.length} lessons written to ${outFile}`);
+  console.log(`\n${made.length - before} new lessons, ${made.length} in ${outFile}`);
   console.log("next: python3 scripts/voice.py --voice tara   # speaks only the new lines");
 }
 

@@ -237,6 +237,43 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
+/*
+ * A1 is not A2 at a glance.
+ *
+ * Every badge was the same white chip, which is correct for "this is a level"
+ * and useless for "which". On a shelf of fifty, where half the point of the
+ * filter is telling two neighbouring levels apart, two identical chips make
+ * the reader read the letters every time. So the pair inside each band is
+ * split: the easier one stays the plain chip, the harder one takes the band's
+ * own colour. Nothing new is introduced — it is the ramp the shelf already
+ * uses, one step down.
+ */
+.level--a2,
+.level--b2,
+.level--c2,
+.level--adv {
+  border-color: color-mix(in srgb, var(--level-tone) 55%, transparent);
+  background: color-mix(in srgb, var(--level-tone) 16%, var(--color-surface));
+  color: var(--level-tone);
+}
+
+.level--a2 {
+  --level-tone: var(--color-sky);
+}
+
+.level--b2 {
+  --level-tone: var(--color-primary);
+}
+
+.level--c2 {
+  --level-tone: var(--gold);
+}
+
+.level--adv {
+  --level-tone: var(--violet);
+  letter-spacing: 0.04em;
+}
+
 .level--lg {
   min-width: 42px;
   height: 26px;
