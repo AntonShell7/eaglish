@@ -7,17 +7,19 @@ import "./track.css";
 /**
  * One lesson, one screen at a time.
  *
- * The shape is Duolingo's because Duolingo's shape is right: a thin progress
- * bar, one question filling the screen, and a footer that answers it. What is
- * different is what is being taught. Duolingo drills words and can show a
- * picture; nothing here has a picture, because "brb" does not look like
- * anything. The pictures are replaced by the place the expression lives — a
- * messenger thread — and by the question of which room you can say it in,
- * which is the mistake learners of this register actually make.
+ * The frame is a thin rule filling along the top, one question holding the
+ * screen, and a footer that answers it. What is deliberately not here is the
+ * quiz-template furniture that came with the first draft: a tick in a green
+ * circle, the whole footer flooding with colour, a red button, and a shake on
+ * a wrong answer. Those are the gestures of a free game, and this is a thing
+ * somebody paid for. A hairline changing colour and three characters of small
+ * capitals say the same word with none of the noise — and the sentence under
+ * them, set in the caption face with a measure, is the part that teaches.
  *
- * Every screen judges the same way: the footer slides up, says right or wrong
- * and why, and the same button that checked now continues. One button in one
- * place for both jobs, so the hand never has to look for it.
+ * What is being taught has no pictures. "brb" does not look like anything, so
+ * in place of Duolingo's picture there are two formats that are ours: the
+ * expression quoted inside a real exchange, and the question of which room it
+ * belongs in, which is the mistake people in this register actually make.
  */
 
 type Judged = "right" | "wrong" | null;
@@ -34,19 +36,17 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   /*
    * The running order, built once.
    *
-   * Steps the learner saw several lessons ago are mixed in here rather than
-   * added at the end, and nothing on screen says they are revision. The whole
-   * effect depends on an old expression turning up unannounced in the middle
-   * of a new lesson — "wait, that was four lessons ago" — which an announced
-   * revision block cannot produce. A review lesson is exempt: it is already
-   * all revision.
+   * Steps from several lessons ago are mixed in here rather than added at the
+   * end, and nothing on screen says they are revision. The effect depends on
+   * an old expression turning up unannounced in the middle of a new lesson —
+   * "wait, that was four lessons ago" — which an announced revision block
+   * cannot produce. A review lesson is exempt: it is already all revision.
    */
   const steps = useMemo<Step[]>(() => {
     if (lesson.review) return lesson.steps;
     const back = resurfacedSteps(lesson.id);
     if (back.length === 0) return lesson.steps;
     const out = [...lesson.steps];
-    // After the teaching is done, before the lesson's own drilling ends.
     let at = out.findIndex((step) => step.kind !== "rule" && step.kind !== "chat") + 1;
     for (const step of back) {
       at = Math.min(at + 2, out.length);
@@ -54,6 +54,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     }
     return out;
   }, [lesson]);
+
+  const asked = steps.filter((step) => step.kind !== "rule" && step.kind !== "chat").length;
 
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
@@ -64,13 +66,12 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const step = steps[index];
   const last = index >= steps.length - 1;
 
-  /** Reset per-step answer state. Each exercise owns its own shape. */
+  /** Per-step answer state. Each exercise owns its own shape. */
   const [picked, setPicked] = useState<number | null>(null);
   const [typed, setTyped] = useState("");
   const [built, setBuilt] = useState<number[]>([]);
   const [joined, setJoined] = useState<string[]>([]);
   const [leftPick, setLeftPick] = useState<string | null>(null);
-  const [miss, setMiss] = useState<string | null>(null);
   const [rooms, setRooms] = useState<Record<number, boolean>>({});
 
   const fieldRef = useRef<HTMLInputElement>(null);
@@ -83,21 +84,18 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     setLeftPick(null);
     setRooms({});
     setJudged(null);
-    // A step that wants typing should not also want a click on the field.
     if (step && (step.kind === "type" || step.kind === "gap")) {
       window.setTimeout(() => fieldRef.current?.focus(), 60);
     }
   }, [index, step]);
 
-  /* ── the pairs game judges itself as you play ──────────────────────────── */
+  /* ── pairs judge themselves as they are played ─────────────────────────── */
 
   const matchPairs = step?.kind === "match" ? step.pairs : [];
   /*
-   * The right-hand column, shuffled from the step's id rather than from
-   * Math.random, and memoised on the id rather than on the pairs.
-   *
-   * Both of those are the same bug found twice. `step.pairs` is a fresh array
-   * on every render, so a memo keyed on it is no memo at all, and a random
+   * Shuffled from the step's id, and memoised on the id rather than on the
+   * pairs. Both halves of that are the same bug found twice: `step.pairs` is a
+   * fresh array every render, so a memo keyed on it is no memo, and a random
    * shuffle inside it re-dealt the column on every keystroke — the answers
    * moved under the cursor mid-game.
    */
@@ -110,14 +108,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const tapRight = (value: string) => {
     if (!leftPick || joined.includes(value)) return;
     const pair = matchPairs.find(([a]) => a === leftPick);
-    if (pair && pair[1] === value) {
-      setJoined((was) => [...was, leftPick, value]);
-      setLeftPick(null);
-    } else {
-      setMiss(value);
-      window.setTimeout(() => setMiss(null), 420);
-      setLeftPick(null);
-    }
+    if (pair && pair[1] === value) setJoined((was) => [...was, leftPick, value]);
+    setLeftPick(null);
   };
 
   /* ── can this be checked, and is it right ──────────────────────────────── */
@@ -138,14 +130,13 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "gap":
         return typed.trim().length > 0;
       case "register":
-        /* Leaving a row alone now means "not here", so there is nothing to
-           wait for: the question can be submitted as soon as it is on screen.
-           Requiring at least one tick would be a hint. */
+        /* Leaving a row alone means "not here", so there is nothing to wait
+           for. Requiring at least one tick would itself be a hint. */
         return true;
     }
   })();
 
-  /** Loose on purpose: case, spacing and a trailing full stop are not the skill. */
+  /** Loose on purpose: case, spacing and a trailing stop are not the skill. */
   const same = (a: string, b: string) =>
     a.trim().toLowerCase().replace(/[.!?,]+$/, "").replace(/\s+/g, " ") ===
     b.trim().toLowerCase().replace(/[.!?,]+$/, "").replace(/\s+/g, " ");
@@ -171,13 +162,17 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     }
   };
 
+  /* check() turns the page itself on the screens that ask nothing, and advance
+     is declared below it. A ref rather than a reorder, because moving advance
+     above check would only move the same problem the other way. */
+  const advanceRef = useRef<(() => void) | null>(null);
+
   const check = useCallback(() => {
     if (!ready || judged) return;
-    /* A rule and a chat asked nothing, so there is nothing to mark. They used
-       to run through the same path and the footer congratulated the learner
-       for reading — which also counted towards the score, so a lesson could
-       end eight correct out of six. The button on those screens just turns
-       the page. */
+    /* A rule and a thread asked nothing, so there is nothing to mark. They
+       used to run through the same path, and the footer congratulated the
+       learner for reading — which also counted, so a six-question lesson
+       could end eight correct out of six. */
     if (step.kind === "rule" || step.kind === "chat") {
       advanceRef.current?.();
       return;
@@ -186,11 +181,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     if (ok) setRight((was) => was + 1);
     setJudged(ok ? "right" : "wrong");
   }, [ready, judged, step, picked, typed, built, joined, rooms]);
-
-  /* check() turns the page itself on the screens that ask nothing, and advance
-     is declared below it. A ref rather than a reorder, because moving advance
-     above check would only move the same problem the other way. */
-  const advanceRef = useRef<(() => void) | null>(null);
 
   const advance = useCallback(() => {
     if (last) {
@@ -205,14 +195,14 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     window.setTimeout(() => {
       setIndex((was) => was + 1);
       setLeaving(false);
-    }, 150);
+    }, 140);
   }, [last, lesson]);
 
   advanceRef.current = advance;
 
-  /* Enter checks, then Enter continues. Number keys pick an option. The whole
-     lesson is playable without the mouse, which is how anybody doing this
-     every evening will end up playing it. */
+  /* Enter checks, then Enter continues; number keys pick an option. The whole
+     lesson is playable without the mouse, which is how anybody doing one every
+     evening will end up playing it. */
   useEffect(() => {
     if (over) return;
     const onKey = (event: KeyboardEvent) => {
@@ -224,8 +214,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       }
       if (judged || !step) return;
       const n = Number(event.key);
-      if (!Number.isNaN(n) && n >= 1) {
-        if (step.kind === "choice" && n <= step.options.length) setPicked(n - 1);
+      if (!Number.isNaN(n) && n >= 1 && step.kind === "choice" && n <= step.options.length) {
+        setPicked(n - 1);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -235,21 +225,12 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   if (over) {
     return (
       <div className="tk-done">
-        <div className="tk-done__ring">{lesson.review ? "✦" : "✓"}</div>
-        <h2 className="tk-done__h">{t("track.finish")}</h2>
-        <p className="tk-done__p">{lesson.titleRu}</p>
-        <div className="tk-score">
-          <div className="tk-score__cell">
-            <div className="tk-score__n">
-              {right}/{steps.filter((s) => s.kind !== "rule" && s.kind !== "chat").length}
-            </div>
-            <div className="tk-score__l">{t("track.scoreRight")}</div>
-          </div>
-          <div className="tk-score__cell">
-            <div className="tk-score__n">{steps.length}</div>
-            <div className="tk-score__l">{t("track.scoreSteps")}</div>
-          </div>
+        <div className="tk-done__n">
+          {right}
+          <span className="tk-done__of">/{asked}</span>
         </div>
+        <span className="tk-done__h">{t("track.finish")}</span>
+        <p className="tk-done__p">{lesson.titleRu}</p>
         <button type="button" className="tk-go" onClick={onExit}>
           {t("track.toPath")}
         </button>
@@ -259,16 +240,11 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   if (!step) return null;
 
-  const kicker =
-    index === 0 && !lesson.review
-      ? { text: t("track.newThing"), className: "tk-kicker tk-kicker--new" }
-      : { text: t(`track.kind.${step.kind}`), className: "tk-kicker" };
-
   return (
     <div className="tk-player">
       <div className="tk-top">
-        <button type="button" className="tk-close" onClick={onExit} aria-label={t("track.leave")}>
-          ✕
+        <button type="button" className="tk-leave" onClick={onExit}>
+          {t("track.leave")}
         </button>
         <div className="tk-bar">
           <div
@@ -278,8 +254,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <div className={`tk-stage ${leaving ? "tk-slide-out" : "tk-slide-in"}`} key={index}>
-        <span className={kicker.className}>{kicker.text}</span>
+      <div className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index}>
+        <span className="tk-kicker">{t(`track.kind.${step.kind}`)}</span>
         <StepBody
           step={step}
           judged={judged}
@@ -292,7 +268,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           joined={joined}
           leftPick={leftPick}
           setLeftPick={setLeftPick}
-          miss={miss}
           tapRight={tapRight}
           rightColumn={rightColumn}
           rooms={rooms}
@@ -302,19 +277,12 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         />
       </div>
 
-      <Foot
-        judged={judged}
-        ready={ready}
-        step={step}
-        onCheck={check}
-        onNext={advance}
-        last={last}
-      />
+      <Foot judged={judged} ready={ready} step={step} onCheck={check} onNext={advance} last={last} />
     </div>
   );
 }
 
-/* ── the footer ──────────────────────────────────────────────────────────── */
+/* ── the verdict ─────────────────────────────────────────────────────────── */
 
 function Foot({
   judged,
@@ -352,22 +320,15 @@ function Foot({
   return (
     <div className={`tk-foot tk-foot--${judged}`}>
       <div className="tk-foot__in">
-        <span className="tk-foot__mark">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            {judged === "right" ? <path d="M5 13l4 4L19 7" /> : <path d="M7 7l10 10M17 7L7 17" />}
-          </svg>
-        </span>
         <span className="tk-foot__said">
           <span className="tk-foot__h">
             {judged === "right" ? t("track.right") : t("track.wrong")}
           </span>
           {why && <span className="tk-foot__why">{why}</span>}
         </span>
-        <button
-          type="button"
-          className={`tk-go${judged === "wrong" ? " tk-go--wrong" : ""}`}
-          onClick={onNext}
-        >
+        {/* The same ink button, whatever the verdict. A red "continue" marks
+            the way forward as an error, and it is not one. */}
+        <button type="button" className="tk-go" onClick={onNext}>
           {last ? t("track.finishBtn") : t("track.next")}
         </button>
       </div>
@@ -378,15 +339,14 @@ function Foot({
 /**
  * What is said under the verdict.
  *
- * A wrong answer always gets the right one, because the single worst thing a
- * drill can do is mark somebody wrong and move on. A right answer gets the
- * explanation only when there is one worth reading — praise with nothing
- * under it trains people to stop reading the footer.
+ * A wrong answer always gets the right one, because the worst thing a drill
+ * can do is mark somebody wrong and move on. A right answer gets the
+ * explanation only where there is one worth reading — praise with nothing
+ * under it teaches people to stop reading the footer.
  */
 function whyOf(step: Step, judged: Judged): string | null {
   switch (step.kind) {
     case "choice":
-      return step.whyRu;
     case "register":
       return step.whyRu;
     case "assemble":
@@ -402,7 +362,7 @@ function whyOf(step: Step, judged: Judged): string | null {
 /* ── one body per kind ───────────────────────────────────────────────────── */
 
 /**
- * Shuffle, but the same way every time for a given step.
+ * Shuffle, the same way every time for a given step.
  *
  * Seeded from the step id rather than from Math.random, so a re-render — and
  * there is one on every keystroke — cannot deal the tiles again underneath
@@ -437,7 +397,6 @@ interface BodyProps {
   joined: string[];
   leftPick: string | null;
   setLeftPick: (s: string | null) => void;
-  miss: string | null;
   tapRight: (s: string) => void;
   rightColumn: string[];
   rooms: Record<number, boolean>;
@@ -454,12 +413,6 @@ function StepBody(p: BodyProps) {
     case "rule":
       return (
         <div className="tk-rule">
-          {/* A quiet rule on top of the screen rather than a badge with
-              letters in it. The badge was a gradient tile with "TQ" written
-              on it — which is what every generated app icon looks like, and
-              it competed with the title for the one thing the eye lands on
-              first. The title is the lesson; nothing should outshout it. */}
-          <span className="tk-rule__mark" aria-hidden="true" />
           <h2 className="tk-rule__h">{step.titleRu}</h2>
           {step.bodyRu.split("\n\n").map((para) => (
             <p className="tk-rule__p" key={para.slice(0, 24)}>
@@ -486,29 +439,20 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.titleRu}</h2>
-          <div className="tk-chat">
-            <div className="tk-chat__top">
-              <span className="tk-chat__face">{step.withWhom.slice(0, 1)}</span>
-              <span>
-                <span className="tk-chat__who">{step.withWhom}</span>
-                <span className="tk-chat__state"> · online</span>
-              </span>
-            </div>
-            <div className="tk-chat__body">
-              {step.lines.map((line, i) => (
-                <div className={`tk-msg${line.me ? " tk-msg--me" : ""}`} key={i}>
-                  <div
-                    className="tk-msg__bubble"
-                    style={{ animationDelay: `${0.12 + i * 0.16}s` }}
-                  >
-                    {line.text}
-                  </div>
-                  <div className="tk-msg__at">{line.at}</div>
-                  {line.glossRu && <div className="tk-msg__gloss">{line.glossRu}</div>}
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* A quoted exchange, not a drawing of a phone. The names carry who
+              is speaking; a right-hand alignment and a coloured bubble would
+              be borrowing somebody else's interface to say the same thing. */}
+          <blockquote className="tk-thread">
+            {step.lines.map((line, i) => (
+              <div className={`tk-msg${line.me ? " tk-msg--me" : ""}`} key={i}>
+                <span className="tk-msg__who">{line.me ? t("track.you") : step.withWhom}</span>
+                <span className="tk-msg__text" style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
+                  {line.text}
+                </span>
+                {line.glossRu && <span className="tk-msg__gloss">{line.glossRu}</span>}
+              </div>
+            ))}
+          </blockquote>
         </>
       );
 
@@ -516,23 +460,24 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
-          {step.quote && <div className="tk-quote">{step.quote}</div>}
+          {step.quote && <p className="tk-quote">{step.quote}</p>}
           <div className="tk-opts">
             {step.options.map((option, i) => {
               let state = "";
               if (judged) {
                 if (i === step.answer) state = " tk-opt--right";
-                else if (i === p.picked) state = " tk-opt--wrong";
-              } else if (i === p.picked) state = " tk-opt--picked";
+                else if (i === p.picked) state = " tk-opt--miss";
+              } else if (i === p.picked) state = " tk-opt--on";
               return (
                 <button
                   type="button"
                   key={option}
                   className={`tk-opt${state}`}
-                  onClick={() => !judged && p.setPicked(i)}
+                  disabled={judged !== null}
+                  onClick={() => p.setPicked(i)}
                 >
-                  <span className="tk-opt__key">{i + 1}</span>
-                  {option}
+                  <span className="tk-opt__n">{i + 1}</span>
+                  <span className="tk-opt__text">{option}</span>
                 </button>
               );
             })}
@@ -545,39 +490,35 @@ function StepBody(p: BodyProps) {
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
           <div className="tk-pairs">
-            <div className="tk-opts">
+            <div>
               {step.pairs.map(([left]) => (
                 <button
                   type="button"
                   key={left}
                   className={`tk-pair${
                     p.joined.includes(left)
-                      ? " tk-pair--joined"
+                      ? " tk-pair--done"
                       : p.leftPick === left
-                        ? " tk-pair--picked"
+                        ? " tk-pair--on"
                         : ""
                   }`}
-                  onClick={() => !p.joined.includes(left) && p.setLeftPick(left)}
+                  disabled={p.joined.includes(left)}
+                  onClick={() => p.setLeftPick(left)}
                 >
                   {left}
                 </button>
               ))}
             </div>
-            <div className="tk-opts">
-              {p.rightColumn.map((rightValue) => (
+            <div>
+              {p.rightColumn.map((value) => (
                 <button
                   type="button"
-                  key={rightValue}
-                  className={`tk-pair${
-                    p.joined.includes(rightValue)
-                      ? " tk-pair--joined"
-                      : p.miss === rightValue
-                        ? " tk-pair--miss"
-                        : ""
-                  }`}
-                  onClick={() => p.tapRight(rightValue)}
+                  key={value}
+                  className={`tk-pair${p.joined.includes(value) ? " tk-pair--done" : ""}`}
+                  disabled={p.joined.includes(value)}
+                  onClick={() => p.tapRight(value)}
                 >
-                  {rightValue}
+                  {value}
                 </button>
               ))}
             </div>
@@ -590,14 +531,15 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
-          {step.quote && <div className="tk-quote">{step.quote}</div>}
+          {step.quote && <p className="tk-quote">{step.quote}</p>}
           <div className="tk-line">
             {p.built.map((tileIndex, slot) => (
               <button
                 type="button"
                 key={`${tileIndex}-${slot}`}
                 className="tk-tile"
-                onClick={() => !judged && p.setBuilt((was) => was.filter((_, i) => i !== slot))}
+                disabled={judged !== null}
+                onClick={() => p.setBuilt((was) => was.filter((_, i) => i !== slot))}
               >
                 {tiles[tileIndex]}
               </button>
@@ -611,7 +553,6 @@ function StepBody(p: BodyProps) {
                 className={`tk-tile${p.built.includes(i) ? " tk-tile--spent" : ""}`}
                 disabled={p.built.includes(i) || judged !== null}
                 onClick={() => p.setBuilt((was) => [...was, i])}
-                style={{ animationDelay: `${i * 0.04}s` }}
               >
                 {tile}
               </button>
@@ -625,7 +566,7 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
-          {step.quote && <div className="tk-quote">{step.quote}</div>}
+          {step.quote && <p className="tk-quote">{step.quote}</p>}
           <input
             ref={p.fieldRef}
             className="tk-field"
@@ -644,7 +585,7 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
-          <div className="tk-gap">
+          <p className="tk-gap">
             <span>{step.before}</span>
             <input
               ref={p.fieldRef}
@@ -657,41 +598,37 @@ function StepBody(p: BodyProps) {
               aria-label={step.promptRu}
             />
             <span>{step.after}</span>
-          </div>
+          </p>
         </>
       );
 
     case "register":
       return (
         <>
-          <h2 className="tk-ask">
-            {t("track.roomsAsk", { phrase: step.phrase })}
-          </h2>
-          {/* One tick per room, not a tick and a cross. Two buttons a row
-              meant eight taps to answer a four-line question, and it made the
-              learner state the obvious half as explicitly as the interesting
-              half. Ticking what fits and leaving the rest blank is quicker
-              and closer to how the question is actually thought about. */}
+          <h2 className="tk-ask">{t("track.roomsAsk", { phrase: step.phrase })}</h2>
+          {/* One tick per room, not a tick and a cross. Two buttons a row was
+              eight taps for a four-line question, and it made the learner
+              state the obvious half as explicitly as the interesting half. */}
           <div className="tk-rooms">
             {step.rooms.map((room, i) => {
               const ticked = p.rooms[i] === true;
-              let state = "";
-              if (judged) state = ticked === room.ok ? " tk-room--right" : " tk-room--wrong";
+              let state = ticked ? " tk-room--on" : "";
+              if (judged) state += ticked === room.ok ? " tk-room--right" : " tk-room--miss";
               return (
                 <button
                   type="button"
-                  className={`tk-room${ticked ? " tk-room--on" : ""}${state}`}
+                  className={`tk-room${state}`}
                   key={room.labelRu}
                   aria-pressed={ticked}
                   disabled={judged !== null}
                   onClick={() => p.setRooms((was) => ({ ...was, [i]: !was[i] }))}
                 >
                   <span className="tk-room__box" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
-                  <span className="tk-room__name">{room.labelRu}</span>
+                  <span>{room.labelRu}</span>
                 </button>
               );
             })}

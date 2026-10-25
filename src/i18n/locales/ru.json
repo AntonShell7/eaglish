@@ -1096,7 +1096,7 @@
     "decline": "Отклонить"
   },
   "slangModule": {
-    "intro": "Английский вне учебника",
+    "intro": "Как пишут и говорят на самом деле",
     "shelfMeta": "{{dialogues}} диалогов, {{expressions}} выражений. Все разговоры написаны для Eaglish.",
     "cardMeta": "{{count}} выражений",
     "backToList": "К диалогам",
@@ -1497,9 +1497,9 @@
     "finishBtn": "Завершить",
     "right": "Верно",
     "wrong": "Не совсем",
-    "leave": "Выйти из урока",
-    "typeHere": "Напишите ответ",
-    "roomsAsk": "Отметьте, где уместно написать «{{phrase}}»",
+    "leave": "Выйти",
+    "typeHere": "Напиши ответ",
+    "roomsAsk": "Отметь, где уместно написать «{{phrase}}»",
     "newThing": "Разбор",
     "finish": "Урок пройден",
     "scoreRight": "верных ответов",
@@ -1514,6 +1514,17 @@
       "type": "Напишите",
       "gap": "Пропущенное слово",
       "register": "Уместность"
-    }
+    },
+    "moduleN": "Модуль {{n}}",
+    "progress": "{{done}} из {{total}}",
+    "stepCount_one": "{{count}} шаг",
+    "stepCount_few": "{{count}} шага",
+    "stepCount_many": "{{count}} шагов",
+    "minutes": "~{{count}} мин",
+    "passed": "пройден",
+    "opensAfter": "откроется после {{n}}-го",
+    "again": "Пройти заново",
+    "againSure": "Точно стереть?",
+    "you": "Ты"
   }
 }

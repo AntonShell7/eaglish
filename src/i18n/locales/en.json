@@ -1062,7 +1062,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "English beyond the textbook",
+    "intro": "How people actually write and talk",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",
@@ -1453,7 +1453,7 @@
     "finishBtn": "Finish",
     "right": "Correct",
     "wrong": "Not quite",
-    "leave": "Leave the lesson",
+    "leave": "Leave",
     "typeHere": "Type your answer",
     "roomsAsk": "Tick where “{{phrase}}” belongs",
     "newThing": "Explainer",
@@ -1470,6 +1470,16 @@
       "type": "Type it",
       "gap": "Missing word",
       "register": "Where it fits"
-    }
+    },
+    "moduleN": "Module {{n}}",
+    "progress": "{{done}} of {{total}}",
+    "stepCount_one": "{{count}} step",
+    "stepCount_other": "{{count}} steps",
+    "minutes": "~{{count}} min",
+    "passed": "done",
+    "opensAfter": "opens after {{n}}",
+    "again": "Start over",
+    "againSure": "Erase it?",
+    "you": "You"
   }
 }

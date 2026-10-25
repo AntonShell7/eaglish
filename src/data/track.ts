@@ -31,6 +31,18 @@ import type { Register } from "./slangDialogues";
  * No analogies that need unpacking. An explanation that arrives as a riddle —
  * "примерно как сказать «благодарю вас» приятелю" — costs more attention than
  * the point it was carrying.
+ *
+ * And one thought, not a list of reasons. The draft said "знать их стоит по
+ * двум причинам", then gave two sentences that did not touch each other. A
+ * reader does not want the case for learning something made to them in
+ * bullet form; they want to be shown what it is like on the other side of
+ * knowing it. So each explanation starts where the learner is now and ends
+ * with the moment the knowledge pays — a native carrying on at the same speed
+ * without once noticing they are writing to a foreigner.
+ *
+ * Second person throughout, and it is "ты". Half the module addressed the
+ * learner as "вы" and half as "ты" — inside one lesson, which is the kind of
+ * seam that makes a product feel assembled from pieces.
  */
 
 /** A step is one screen. Eight kinds, each doing a job the others cannot. */
@@ -179,18 +191,18 @@ export interface TrackModule {
 
 const thanks: TrackLesson = {
   id: "thanks",
-  title: "How people write thanks",
-  titleRu: "Как носители пишут спасибо",
+  title: "Writing thanks like a native",
+  titleRu: "Писать спасибо как носитель",
   subtitleRu: "tq · thx · tysm · np",
   steps: [
     {
       kind: "rule",
       id: "thanks-rule",
-      title: "Thanks is almost always shortened",
-      titleRu: "Спасибо в чате почти всегда сокращают",
+      title: "Thanks fits into two letters here",
+      titleRu: "Спасибо здесь укладывается в две буквы",
       body: "Thank you is rarely written out in a message. Two or three letters take its place, and everybody writes that way.",
       bodyRu:
-        "Thank you целиком в сообщениях пишут редко — вместо него две-три буквы, и так пишут все: школьники, студенты, коллеги по работе.\n\nЗнать их стоит по двум причинам. Без них чужие сообщения наполовину превращаются в набор букв. А когда начинаешь писать так сам, разница слышна сразу: с человеком говорят на его языке, а не переводят ему каждую фразу.",
+        "Thank you целиком в сообщениях почти не пишут — вместо него две-три буквы, и так пишут все: школьники, коллеги, клиенты. Разберёшь их — и чужой чат перестанет быть набором согласных.\n\nА когда ответишь своим thx вместо длинного Thank you very much, собеседник даже не задумается, что пишет не носителю: просто продолжит разговор в том же темпе. Четыре коротких слова — и переписка идёт на равных.",
       forms: [
         { short: "tq", long: "thank you", noteRu: "Q читается как «кью» и стоит вместо целого слова you." },
         { short: "thx · thnx · tnx", long: "thanks", noteRu: "Встречается чаще остальных." },
@@ -227,7 +239,7 @@ const thanks: TrackLesson = {
     {
       kind: "match",
       id: "thanks-match",
-      promptRu: "Соедините сокращение и его расшифровку",
+      promptRu: "Соедини сокращение и его расшифровку",
       pairs: [
         ["tq", "thank you"],
         ["thx", "thanks"],
@@ -239,7 +251,7 @@ const thanks: TrackLesson = {
     {
       kind: "gap",
       id: "thanks-gap",
-      promptRu: "Вставьте пропущенное слово",
+      promptRu: "Вставь пропущенное слово",
       before: "got it, ",
       after: " for sending the photos",
       answers: ["thx", "thnx", "tnx", "tq", "thanks"],
@@ -265,18 +277,18 @@ const thanks: TrackLesson = {
 
 const replies: TrackLesson = {
   id: "replies",
-  title: "Answering thanks",
-  titleRu: "Что отвечают на спасибо",
+  title: "Answering thanks without thinking",
+  titleRu: "Отвечать на спасибо не задумываясь",
   subtitleRu: "np · yw · no worries · anytime",
   steps: [
     {
       kind: "rule",
       id: "replies-rule",
-      title: "Four answers, and the difference is audible",
-      titleRu: "Ответов четыре, и они не взаимозаменяемы",
+      title: "You're welcome has four shades here",
+      titleRu: "У «пожалуйста» четыре разных оттенка",
       body: "There is no single you're welcome in English chat. The four replies differ in how much the favour is being played down.",
       bodyRu:
-        "Одного «пожалуйста» в английской переписке нет. Есть четыре ответа, и отличаются они тем, насколько сильно ты отмахиваешься от услуги: от «не вопрос» до «обращайся ещё».\n\nYou're welcome тоже никуда не делось, но звучит заметно строже и взрослее. В переписке друзей его почти не увидишь.",
+        "На спасибо в английском не отвечают одним словом на все случаи. np — «не вопрос», yw — ровное «пожалуйста», no worries — «да брось», anytime — «обращайся ещё».\n\nРазница слышна: ответил np на мелочь — и разговор идёт дальше легко; ответил yw — и прозвучал чуть официальнее, чем хотел. Выберешь нужное из четырёх — и собеседник почувствует ровно то, что ты имел в виду.",
       forms: [
         { short: "np", long: "no problem", noteRu: "Самый частый. Дословно — «не проблема»." },
         { short: "yw", long: "you're welcome", noteRu: "Нейтральный, чуть строже остальных." },
@@ -303,17 +315,17 @@ const replies: TrackLesson = {
       kind: "choice",
       id: "replies-q1",
       prompt: "She writes tysm. What do you reply?",
-      promptRu: "Вам написали tysm. Что ответить?",
+      promptRu: "Тебе написали tysm. Что ответишь?",
       options: ["anytime", "thank you too", "of course not", "yes please"],
       answer: 0,
       whyRu:
-        "anytime — «обращайся». А thank you too выглядит так, будто вы не поняли, за что вас благодарят, и на всякий случай поблагодарили в ответ.",
+        "anytime — «обращайся». А thank you too выглядит так, будто ты не понял, за что тебя благодарят, и на всякий случай поблагодарил в ответ.",
       teaches: ["anytime"],
     },
     {
       kind: "assemble",
       id: "replies-assemble",
-      promptRu: "Соберите ответ: «да не за что вообще»",
+      promptRu: "Собери ответ: «да не за что вообще»",
       answer: ["no", "worries", "at", "all"],
       extra: ["not", "any"],
       teaches: ["no worries"],
@@ -321,7 +333,7 @@ const replies: TrackLesson = {
     {
       kind: "type",
       id: "replies-type",
-      promptRu: "Напишите «не проблема» двумя буквами",
+      promptRu: "Напиши «не проблема» двумя буквами",
       hint: "n",
       answers: ["np"],
       teaches: ["np"],
@@ -329,7 +341,7 @@ const replies: TrackLesson = {
     {
       kind: "match",
       id: "replies-match",
-      promptRu: "Соедините ответ и то, что он на самом деле значит",
+      promptRu: "Соедини ответ и то, что он на самом деле значит",
       pairs: [
         ["np", "не проблема"],
         ["yw", "пожалуйста"],
@@ -343,18 +355,18 @@ const replies: TrackLesson = {
 
 const goodbyes: TrackLesson = {
   id: "goodbyes",
-  title: "Leaving a conversation",
-  titleRu: "Как выходят из разговора",
+  title: "Leaving a chat in one line",
+  titleRu: "Выходить из чата одной строкой",
   subtitleRu: "brb · gtg · ttyl · cya",
   steps: [
     {
       kind: "rule",
       id: "goodbyes-rule",
-      title: "Two of these are goodbye and one is not",
-      titleRu: "Два из них — прощание, а одно нет",
+      title: "brb is not goodbye",
+      titleRu: "brb — это не прощание",
       body: "brb means somebody stepped away and is coming back. Reading it as goodbye and leaving is the mistake everybody makes once.",
       bodyRu:
-        "brb значит, что человек отошёл на минуту и вернётся. Прочитать его как «пока» и уйти — ошибка, которую делают ровно один раз: собеседник возвращается через две минуты, пишет «back», а тебя уже нет.\n\nОстальные три — настоящие прощания, от короткого «увидимся» до «спишемся позже».",
+        "brb значит, что человек отошёл на минуту и вернётся. Прочитать его как «пока» и уйти — ошибка, которую делают ровно один раз: собеседник возвращается, пишет back, а тебя уже нет.\n\nОстальные три — настоящие прощания, и выбор между ними говорит, когда разговор продолжится: cya — «увидимся», ttyl — «спишемся позже», gtg — «всё, бегу». Одна строка на выходе, и чат закрыт так же ровно, как закрыл бы носитель.",
       forms: [
         { short: "brb", long: "be right back", noteRu: "Отошёл, скоро вернусь. Отвечать «пока» не нужно." },
         { short: "gtg · g2g", long: "got to go", noteRu: "Всё, убегаю. Вот это уже прощание." },
@@ -398,7 +410,7 @@ const goodbyes: TrackLesson = {
     {
       kind: "match",
       id: "goodbyes-match",
-      promptRu: "Соедините сокращение и его расшифровку",
+      promptRu: "Соедини сокращение и его расшифровку",
       pairs: [
         ["brb", "be right back"],
         ["gtg", "got to go"],
@@ -410,7 +422,7 @@ const goodbyes: TrackLesson = {
     {
       kind: "gap",
       id: "goodbyes-gap",
-      promptRu: "Вам пора. Вставьте пропущенное слово",
+      promptRu: "Тебе пора. Вставь пропущенное слово",
       before: "ok I ",
       after: ", my bus is here",
       answers: ["gtg", "g2g", "got to go", "gotta go"],
@@ -436,15 +448,15 @@ const goodbyes: TrackLesson = {
 
 const check: TrackLesson = {
   id: "chat-check",
-  title: "What stayed",
-  titleRu: "Проверим, что осталось",
+  title: "No prompts this time",
+  titleRu: "Переписка без подсказок",
   subtitleRu: "Весь модуль вперемешку",
   review: true,
   steps: [
     {
       kind: "match",
       id: "check-match",
-      promptRu: "Соедините сокращение и его расшифровку",
+      promptRu: "Соедини сокращение и его расшифровку",
       pairs: [
         ["tysm", "thank you so much"],
         ["np", "no problem"],
@@ -466,7 +478,7 @@ const check: TrackLesson = {
     {
       kind: "gap",
       id: "check-gap",
-      promptRu: "Вас поблагодарили. Вставьте пропущенное слово",
+      promptRu: "Тебя поблагодарили. Вставь пропущенное слово",
       before: "tysm for the help! — ",
       after: ", glad it worked",
       answers: ["np", "yw", "anytime", "no worries", "no problem"],
@@ -475,7 +487,7 @@ const check: TrackLesson = {
     {
       kind: "type",
       id: "check-type",
-      promptRu: "Напишите сокращение от talk to you later",
+      promptRu: "Напиши сокращение от talk to you later",
       hint: "t",
       answers: ["ttyl"],
       teaches: ["ttyl"],
@@ -483,7 +495,7 @@ const check: TrackLesson = {
     {
       kind: "assemble",
       id: "check-assemble",
-      promptRu: "Соберите фразу: «убегаю, спишемся позже»",
+      promptRu: "Собери фразу: «убегаю, спишемся позже»",
       answer: ["gtg,", "ttyl"],
       extra: ["brb,", "cya"],
       teaches: ["gtg", "ttyl"],

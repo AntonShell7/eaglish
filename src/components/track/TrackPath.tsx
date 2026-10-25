@@ -1,103 +1,138 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { trackModules } from "@/data/track";
-import { currentLessonId, isDone } from "@/lib/trackProgress";
+import { trackModules, type TrackLesson } from "@/data/track";
+import { currentLessonId, doneLessons, resetTrack } from "@/lib/trackProgress";
 import "./track.css";
 
 /**
- * The track, as a path.
+ * A module's contents.
  *
- * A list of lessons and a path hold identical information and are not the
- * same object. A list invites you to look at all of it and decide; a path has
- * one place you can be, and the only question it asks is whether you are
- * doing today's one. That is the right question for a section somebody is
- * meant to open every evening, and the wrong one for a library — which is why
- * reading and listening stay shelves and this does not.
+ * This was a winding path of circles, and the circles were the problem — not
+ * because they were badly drawn but because they were Duolingo's, and a
+ * borrowed shape arrives with the reputation of what it was borrowed from.
+ * On a product people pay for, that is expensive.
  *
- * Locked nodes are shown rather than hidden. Seeing four more circles below
- * the one you are on is most of why anybody does the one you are on.
+ * What the path got right is kept whole: exactly one lesson is open, and only
+ * that one has a button. That is the single question worth asking a learner
+ * who comes back in the evening — are you doing today's one — and a numbered
+ * list asks it just as well as a map does, while looking like the rest of
+ * this product rather than like somebody else's.
+ *
+ * Locked lessons are listed rather than hidden. Seeing what is ahead is most
+ * of the reason anybody does what is in front of them.
  */
-/**
- * What sits inside a node.
- *
- * It used to be the lesson's first abbreviation — "np" drawn inside the
- * circle — and that read as the lesson's name, so the path announced a lesson
- * called "np". A shape says "a lesson" without claiming to be a title, and the
- * title is already written underneath. A tick for what is behind you, a star
- * for the check at the end of a module, a speech bubble for the rest.
- */
-function NodeMark({ done, review }: { done: boolean; review?: boolean }) {
-  if (done) {
-    return (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M5 13l4 4L19 7" />
-      </svg>
-    );
-  }
-  if (review) {
-    return (
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-        <path d="M12 2.6l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.42l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95z" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M20.5 11.3c0 3.9-3.8 7.1-8.5 7.1-1 0-2-.15-2.9-.42L4 19.6l1.35-3.6C4.2 14.75 3.5 13.1 3.5 11.3c0-3.93 3.8-7.1 8.5-7.1s8.5 3.17 8.5 7.1z" />
-    </svg>
-  );
-}
-
 export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const { t } = useTranslation();
   const current = currentLessonId();
+  /* Read once per render rather than per row: isDone() parses the same JSON
+     every time it is called, and a module of eight lessons would parse it
+     eight times to draw one list. */
+  const done = new Set(doneLessons());
+  const [asking, setAsking] = useState(false);
+  const [, bump] = useState(0);
+
+  /** Six screens is about four minutes, and a round number is honest enough. */
+  const minutesOf = (lesson: TrackLesson) => Math.max(2, Math.round(lesson.steps.length * 0.7));
 
   return (
     <div>
-      {trackModules.map((module) => (
-        <section className={`tk-module tk-module--${module.tone}`} key={module.id}>
-          <header className="tk-band">
-            <h2 className="tk-band__h">{module.titleRu}</h2>
-            <p className="tk-band__p">{module.subtitleRu}</p>
-            {module.lessons.length > 0 && (
-              <span className="tk-band__count">
-                {t("track.lessonCount", { count: module.lessons.length })}
-              </span>
-            )}
-          </header>
+      {trackModules.map((module, moduleIndex) => {
+        const finished = module.lessons.filter((lesson) => done.has(lesson.id)).length;
+        return (
+          <section className={`tk-module tk-module--${module.tone}`} key={module.id}>
+            <p className="eyebrow">
+              <span className="tk-module__n">{t("track.moduleN", { n: moduleIndex + 1 })}</span>
+              {module.lessons.length > 0 && (
+                <> · {t("track.lessonCount", { count: module.lessons.length })}</>
+              )}
+            </p>
+            <h2 className="tk-module__h">{module.titleRu}</h2>
+            <p className="tk-module__p">{module.subtitleRu}</p>
 
-          {module.soon ? (
-            <p className="tk-soon">{t("track.soon")}</p>
-          ) : (
-            <div className="tk-path">
-              {module.lessons.map((lesson) => {
-                const done = isDone(lesson.id);
-                const here = current === lesson.id;
-                const locked = !done && !here;
-                return (
-                  <div className="tk-step" key={lesson.id}>
-                    {here && <span className="tk-start">{t("track.start")}</span>}
-                    <button
-                      type="button"
-                      className={`tk-node ${
-                        done ? "tk-node--done" : here ? "tk-node--current" : "tk-node--locked"
-                      }`}
-                      disabled={locked}
-                      onClick={() => !locked && onOpen(lesson.id)}
-                      aria-label={lesson.titleRu}
+            {module.lessons.length > 0 && (
+              <div className="tk-module__state">
+                <span className="tk-ticks" aria-hidden="true">
+                  {module.lessons.map((lesson) => (
+                    <span
+                      className={`tk-tick${done.has(lesson.id) ? " tk-tick--on" : ""}`}
+                      key={lesson.id}
+                    />
+                  ))}
+                </span>
+                <span className="tabular">
+                  {t("track.progress", { done: finished, total: module.lessons.length })}
+                </span>
+                {finished > 0 && (
+                  /* Two taps rather than a browser confirm box, which is the
+                     one dialog nobody reads and the only one that looks like
+                     a different application. */
+                  <button
+                    type="button"
+                    className="tk-reset"
+                    onClick={() => {
+                      if (!asking) {
+                        setAsking(true);
+                        return;
+                      }
+                      resetTrack();
+                      setAsking(false);
+                      bump((n) => n + 1);
+                    }}
+                    onBlur={() => setAsking(false)}
+                  >
+                    {asking ? t("track.againSure") : t("track.again")}
+                  </button>
+                )}
+              </div>
+            )}
+
+            {module.soon ? (
+              <p className="tk-soon">{t("track.soon")}</p>
+            ) : (
+              <ol className="tk-list">
+                {module.lessons.map((lesson, index) => {
+                  const isPast = done.has(lesson.id);
+                  const here = current === lesson.id;
+                  const locked = !isPast && !here;
+                  const open = isPast || here;
+                  return (
+                    <li
+                      className={`tk-row${here ? " tk-row--here" : ""}${
+                        locked ? " tk-row--locked" : ""
+                      }${open ? " tk-row--go" : ""}`}
+                      key={lesson.id}
+                      onClick={open ? () => onOpen(lesson.id) : undefined}
                     >
-                      <NodeMark done={done} review={lesson.review} />
-                    </button>
-                    <span className="tk-label">
-                      {lesson.titleRu}
-                      <small>{lesson.subtitleRu}</small>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </section>
-      ))}
+                      <span className="tk-row__n">{index + 1}</span>
+
+                      <div>
+                        <h3 className="tk-row__h">{lesson.titleRu}</h3>
+                        {/* Only the open lesson says what is inside it. A
+                            finished one has already said it, and a locked one
+                            has nothing to promise yet. */}
+                        {here && <p className="tk-row__p">{lesson.subtitleRu}</p>}
+                        {here && (
+                          <button type="button" className="tk-go" onClick={() => onOpen(lesson.id)}>
+                            {t("track.start")}
+                          </button>
+                        )}
+                      </div>
+
+                      <span className="tk-row__meta">
+                        {locked
+                          ? t("track.opensAfter", { n: index })
+                          : `${t("track.stepCount", { count: lesson.steps.length })}${
+                              isPast ? ` · ${t("track.passed")}` : ` · ${t("track.minutes", { count: minutesOf(lesson) })}`
+                            }`}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 }

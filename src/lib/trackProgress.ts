@@ -149,6 +149,26 @@ export function resurfacedSteps(skipLessonId: string, limit = 2): Step[] {
   return pool.slice(0, limit);
 }
 
+/**
+ * Start the track over.
+ *
+ * Both halves go, not just the ticks: leaving the review queue behind would
+ * mean the first lesson of a fresh run immediately ambushing somebody with
+ * revision of expressions they have not been taught yet in this run.
+ *
+ * Replaying a single finished lesson never needed this — a done node stays
+ * open, and finishing it again only moves its expressions on to the next,
+ * longer gap. This is for wiping the module and walking it from the start.
+ */
+export function resetTrack(): void {
+  try {
+    localStorage.removeItem(DONE_KEY);
+    localStorage.removeItem(SEEN_KEY);
+  } catch {
+    /* nothing to reset if there is nothing to read */
+  }
+}
+
 /** For the header: how much of the whole track is behind you. */
 export function trackStanding(): { done: number; total: number } {
   return { done: doneLessons().length, total: trackLessons().length };
