@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { DialogueRunner } from "@/components/slang/DialogueRunner";
 import { LessonRunner } from "@/components/everyday/LessonRunner";
 import { slangDialogues, slangShelf, type Dialogue, type SlangTopic } from "@/data/slangDialogues";
@@ -9,6 +9,9 @@ import { everydayLessons, type Lesson } from "@/data/everydayLessons";
 import { getSlangResults } from "@/lib/slangProgress";
 import { getLessonResults, type LessonResult } from "@/lib/lessonProgress";
 import { rankLessons } from "@/lib/learnerProfile";
+import { TrackPath } from "@/components/track/TrackPath";
+import { LessonPlayer } from "@/components/track/LessonPlayer";
+import { findLesson } from "@/data/track";
 import "@/components/slang/slang.css";
 
 /*
@@ -67,7 +70,11 @@ export default function Slang() {
   const { topic: topicParam, id: itemId } = useParams<{ topic?: string; id?: string }>();
   const navigate = useNavigate();
 
-  const topic = (topicParam as SlangTopic | undefined) ?? null;
+  /* The track rides on the section's own routing rather than a new route:
+     "track" is not one of the nine subjects, so everything below that filters
+     by topic simply finds nothing, and the two early returns here take over. */
+  const onTrack = topicParam === "track";
+  const topic = onTrack ? null : ((topicParam as SlangTopic | undefined) ?? null);
   const [lessonResults, setLessonResults] = useState<Record<string, LessonResult>>({});
 
   const open = itemId ? (slangDialogues.find((d) => d.id === itemId) ?? null) : null;
@@ -146,13 +153,45 @@ export default function Slang() {
     );
   }
 
+  /* A track lesson takes the whole page: no hero, no section title, nothing
+     above the progress bar. Everything that is not the question is a reason
+     to look away from the question. */
+  if (onTrack && itemId) {
+    const found = findLesson(itemId);
+    if (!found) return <Navigate to="/slang" replace />;
+    return (
+      <div className="mx-auto max-w-3xl px-5 py-8">
+        <LessonPlayer
+          key={found.lesson.id}
+          module={found.module}
+          lesson={found.lesson}
+          onExit={() => navigate("/slang")}
+        />
+      </div>
+    );
+  }
+
   return (
     <SectionHero title={t("nav.slang")} description={t("slangModule.intro")}>
-      {/* Stage one: the subject. Same shape as reading and dictation, because
-          the three shelves are browsed by the same person and a section that
-          rearranges itself between visits is one people stop trusting. */}
+      {/* The path comes first, because it is what this section is for now.
+          Colloquial English is not browsed, it is accumulated: one short
+          lesson at a time, with what was learnt coming back a few lessons
+          later. The subject shelf below is the old shape, kept while the
+          path is four lessons long — forty-two written items are not worth
+          throwing away to make a point about navigation. */}
+      {!topic && <TrackPath onOpen={(id) => navigate(`/slang/track/${id}`)} />}
+
       {!topic && (
-        <div data-stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14">
+          <h2 className="page-title text-lg">{t("track.oldShelf")}</h2>
+          <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
+            {t("track.oldShelfNote")}
+          </p>
+        </div>
+      )}
+
+      {!topic && (
+        <div data-stagger className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shelf.map((entry) => (
             <button
               key={entry.id}

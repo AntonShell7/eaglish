@@ -1,0 +1,889 @@
+/*
+ * The track: path and player.
+ *
+ * Almost everything here is about motion, and that is not decoration. A quiz
+ * that swaps one screen for another in a single frame reads as a form being
+ * submitted; the same quiz where the answered screen leaves and the next one
+ * arrives reads as progress. The difference is about two hundred milliseconds
+ * and it changes whether anybody does a second lesson.
+ *
+ * Durations come from the tokens in index.css so this section moves at the
+ * same speed as the rest of the app. Everything is disabled wholesale at the
+ * bottom for anyone who has asked for less motion — for some people this kind
+ * of movement is not pleasant, it is nausea.
+ */
+
+/* ── the path ────────────────────────────────────────────────────────────── */
+
+.tk-module {
+  --tone: var(--color-primary);
+  margin-top: 40px;
+}
+.tk-module--sky { --tone: var(--color-sky); }
+.tk-module--gold { --tone: var(--gold); }
+.tk-module--violet { --tone: var(--violet); }
+
+/* The module's own band, in its own colour: the same device the reading and
+   listening shelves use, so three sections name themselves the same way. */
+.tk-band {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--tone) 32%, transparent);
+  background: color-mix(in srgb, var(--tone) 9%, var(--color-surface));
+}
+.tk-band__h {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--tone);
+}
+.tk-band__p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+.tk-band__count {
+  margin-left: auto;
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+}
+
+.tk-path {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 26px 0 10px;
+}
+
+/* No connector line. One was drawn down the middle at first and it was wrong
+   in a way that is only visible once it is there: the nodes are offset from
+   the centre, so the line joined nothing and ran straight through the labels.
+   The offsets alone say "path" — Duolingo draws no line either. */
+
+.tk-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+/*
+ * The winding. Six positions round a cycle rather than four, because four
+ * read as a diagonal: each node sat further right than the last and the shelf
+ * looked like a staircase. Six goes out, comes back through the middle, out
+ * the other side and back — which is the shape people recognise as a path.
+ */
+.tk-step:nth-child(6n + 1) { transform: translateX(0); }
+.tk-step:nth-child(6n + 2) { transform: translateX(72px); }
+.tk-step:nth-child(6n + 3) { transform: translateX(96px); }
+.tk-step:nth-child(6n + 4) { transform: translateX(0); }
+.tk-step:nth-child(6n + 5) { transform: translateX(-72px); }
+.tk-step:nth-child(6n + 6) { transform: translateX(-96px); }
+
+.tk-node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--tone) 16%, var(--color-surface));
+  color: var(--tone);
+  /* The lip underneath: the one thing that makes a flat circle feel like a
+     physical button, and the thing that makes pressing it feel like pressing. */
+  box-shadow:
+    0 6px 0 color-mix(in srgb, var(--tone) 30%, transparent),
+    var(--shadow-1);
+  transition:
+    transform var(--dur-1) var(--ease-spring),
+    box-shadow var(--dur-1) var(--ease),
+    background var(--dur-2) var(--ease);
+}
+.tk-node:hover { transform: translateY(-2px); }
+.tk-node:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--tone) 30%, transparent);
+}
+
+.tk-node--done {
+  background: var(--tone);
+  color: var(--color-on-primary);
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--tone) 55%, #000), var(--shadow-1);
+}
+.tk-node--locked {
+  background: var(--color-surface-2);
+  color: var(--color-text-faint);
+  box-shadow: 0 5px 0 var(--color-border);
+  cursor: not-allowed;
+}
+.tk-node--locked:hover { transform: none; }
+
+/* The current node breathes. Slowly — a ring that pulses once every two and a
+   half seconds reads as "here"; anything faster reads as an alert. */
+.tk-node--current::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--tone);
+  animation: tk-breathe 2.4s var(--ease) infinite;
+}
+@keyframes tk-breathe {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.07); }
+}
+
+.tk-start {
+  position: absolute;
+  bottom: calc(100% - 2px);
+  padding: 5px 13px;
+  border-radius: var(--radius-full);
+  background: var(--tone);
+  color: var(--color-on-primary);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  animation: tk-hop 1.6s var(--ease) infinite;
+}
+.tk-start::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--tone);
+}
+@keyframes tk-hop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.tk-label {
+  margin-top: 9px;
+  max-width: 180px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.tk-label small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-faint);
+}
+
+/* Nodes arrive one after another instead of all at once. Six hundredths of a
+   second apart is below the threshold where it feels like waiting and above
+   the one where it looks like a glitch. */
+.tk-step { animation: tk-pop var(--dur-3) var(--ease-spring) backwards; }
+.tk-step:nth-child(1) { animation-delay: 0.02s; }
+.tk-step:nth-child(2) { animation-delay: 0.08s; }
+.tk-step:nth-child(3) { animation-delay: 0.14s; }
+.tk-step:nth-child(4) { animation-delay: 0.2s; }
+.tk-step:nth-child(5) { animation-delay: 0.26s; }
+.tk-step:nth-child(6) { animation-delay: 0.32s; }
+@keyframes tk-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.86); }
+}
+/* The horizontal offset is on the same property the animation ends on, so
+   each one restores its own place when the animation finishes. */
+.tk-step:nth-child(6n + 1) { animation-name: tk-pop-0; }
+.tk-step:nth-child(6n + 2) { animation-name: tk-pop-r1; }
+.tk-step:nth-child(6n + 3) { animation-name: tk-pop-r2; }
+.tk-step:nth-child(6n + 4) { animation-name: tk-pop-0; }
+.tk-step:nth-child(6n + 5) { animation-name: tk-pop-l1; }
+.tk-step:nth-child(6n + 6) { animation-name: tk-pop-l2; }
+@keyframes tk-pop-0 { from { opacity: 0; transform: translate(0, 14px) scale(0.86); } }
+@keyframes tk-pop-r1 { from { opacity: 0; transform: translate(72px, 14px) scale(0.86); } }
+@keyframes tk-pop-r2 { from { opacity: 0; transform: translate(96px, 14px) scale(0.86); } }
+@keyframes tk-pop-l1 { from { opacity: 0; transform: translate(-72px, 14px) scale(0.86); } }
+@keyframes tk-pop-l2 { from { opacity: 0; transform: translate(-96px, 14px) scale(0.86); } }
+
+.tk-soon {
+  margin-top: 14px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-border-strong);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+}
+
+/* ── the player ──────────────────────────────────────────────────────────── */
+
+.tk-player {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(78vh, 680px);
+}
+
+.tk-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+}
+.tk-close {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-faint);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+.tk-close:hover { background: var(--color-surface-2); color: var(--color-text); }
+
+.tk-bar {
+  flex: 1;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+  overflow: hidden;
+}
+.tk-bar__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  /* Slower than everything else on purpose. The bar is the one element that
+     should be seen moving rather than found already moved. */
+  transition: width var(--dur-3) var(--ease);
+}
+
+.tk-stage {
+  flex: 1;
+  padding-bottom: 130px;
+}
+
+/* The transition between steps. Leaving goes left and fades; arriving comes
+   from the right. Both are short — this is a hinge, not a scene change. */
+.tk-slide-in {
+  animation: tk-in var(--dur-2) var(--ease) backwards;
+}
+.tk-slide-out {
+  animation: tk-out 150ms var(--ease-out) forwards;
+}
+@keyframes tk-in {
+  from { opacity: 0; transform: translateX(26px); }
+}
+@keyframes tk-out {
+  to { opacity: 0; transform: translateX(-22px); }
+}
+
+.tk-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.tk-kicker--new { color: var(--violet); }
+
+.tk-ask {
+  margin: 0 0 22px;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.tk-quote {
+  display: inline-block;
+  margin: -8px 0 20px;
+  padding: 11px 16px;
+  border-radius: 18px 18px 18px 5px;
+  background: var(--color-surface-2);
+  font-size: 0.95rem;
+}
+
+/* ── rule screen ─────────────────────────────────────────────────────────── */
+
+.tk-rule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* The badge is the screen's one piece of theatre: it lands a beat before the
+   text it belongs to, which is what makes a teaching screen feel presented
+   rather than printed. */
+.tk-rule__glyph {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 28px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  box-shadow: var(--shadow-3);
+  animation: tk-badge 520ms var(--ease-spring) backwards;
+}
+@keyframes tk-badge {
+  from { opacity: 0; transform: scale(0.4) rotate(-14deg); }
+}
+.tk-rule__h {
+  margin: 20px 0 10px;
+  font-size: clamp(1.3rem, 3.4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+.tk-rule__p {
+  margin: 0 auto;
+  max-width: 46ch;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.tk-forms {
+  margin: 26px 0 0;
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+}
+.tk-form {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: left;
+  animation: tk-rise 420ms var(--ease) backwards;
+}
+.tk-form:nth-child(1) { animation-delay: 0.12s; }
+.tk-form:nth-child(2) { animation-delay: 0.19s; }
+.tk-form:nth-child(3) { animation-delay: 0.26s; }
+.tk-form:nth-child(4) { animation-delay: 0.33s; }
+.tk-form:nth-child(5) { animation-delay: 0.4s; }
+@keyframes tk-rise {
+  from { opacity: 0; transform: translateY(12px); }
+}
+.tk-form__short {
+  flex: none;
+  min-width: 68px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+.tk-form__long { font-size: 0.92rem; }
+.tk-form__note {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+/* ── chat screen ─────────────────────────────────────────────────────────── */
+
+.tk-chat {
+  margin: 0 auto;
+  max-width: 420px;
+  border-radius: 26px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+.tk-chat__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+.tk-chat__face {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.tk-chat__who { font-size: 0.88rem; font-weight: 700; }
+.tk-chat__state { font-size: 0.68rem; color: var(--color-text-faint); }
+
+.tk-chat__body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px 14px 20px;
+}
+.tk-msg { max-width: 78%; align-self: flex-start; }
+.tk-msg--me { align-self: flex-end; }
+
+/* Messages land in sequence, as though the conversation were happening. It is
+   the single most-noticed thing in this whole section and it costs one line. */
+.tk-msg__bubble {
+  padding: 9px 14px;
+  border-radius: 18px 18px 18px 5px;
+  background: var(--color-surface-2);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  animation: tk-msg 380ms var(--ease-spring) backwards;
+}
+.tk-msg--me .tk-msg__bubble {
+  border-radius: 18px 18px 5px 18px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+@keyframes tk-msg {
+  from { opacity: 0; transform: translateY(10px) scale(0.94); }
+}
+.tk-msg__at {
+  margin-top: 3px;
+  font-size: 0.64rem;
+  color: var(--color-text-faint);
+}
+.tk-msg--me .tk-msg__at { text-align: right; }
+.tk-msg__gloss {
+  margin-top: 4px;
+  padding-left: 10px;
+  border-left: 2px solid var(--color-primary);
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+/* ── options, tiles, pairs ───────────────────────────────────────────────── */
+
+.tk-opts { display: grid; gap: 10px; max-width: 560px; }
+
+.tk-opt {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 17px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  font-family: inherit;
+  font-size: 0.97rem;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--color-border);
+  transition:
+    transform var(--dur-1) var(--ease-spring),
+    border-color var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease);
+}
+.tk-opt:hover { background: var(--color-surface-2); }
+.tk-opt:active { transform: translateY(3px); box-shadow: none; }
+.tk-opt__key {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+}
+.tk-opt--picked {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+.tk-opt--picked .tk-opt__key {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.tk-opt--right {
+  border-color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 11%, var(--color-surface));
+}
+.tk-opt--wrong {
+  border-color: var(--color-danger);
+  background: color-mix(in srgb, var(--color-danger) 10%, var(--color-surface));
+  animation: tk-shake 400ms var(--ease);
+}
+@keyframes tk-shake {
+  10%, 90% { transform: translateX(-2px); }
+  30%, 70% { transform: translateX(4px); }
+  50% { transform: translateX(-4px); }
+}
+
+/* The assembled line, and the bank underneath it. The dashed rule under the
+   answer is what tells you there is a slot waiting even when it is empty. */
+.tk-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+  min-height: 62px;
+  padding: 12px 4px;
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+}
+.tk-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 26px;
+}
+.tk-tile {
+  padding: 10px 15px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease-spring), box-shadow var(--dur-1) var(--ease);
+  animation: tk-pop-in 280ms var(--ease-spring) backwards;
+}
+.tk-tile:active { transform: translateY(3px); box-shadow: none; }
+.tk-tile--spent {
+  background: var(--color-surface-2);
+  border-color: transparent;
+  box-shadow: none;
+  color: transparent;
+  cursor: default;
+}
+@keyframes tk-pop-in {
+  from { opacity: 0; transform: scale(0.8); }
+}
+
+.tk-pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+  max-width: 560px;
+}
+.tk-pair {
+  padding: 14px 15px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
+  font-family: inherit;
+  font-size: 0.93rem;
+  cursor: pointer;
+  transition:
+    transform var(--dur-1) var(--ease-spring),
+    opacity var(--dur-2) var(--ease),
+    border-color var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease);
+}
+.tk-pair:active { transform: translateY(3px); box-shadow: none; }
+.tk-pair--picked {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+.tk-pair--joined {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--color-success) 12%, var(--color-surface));
+  box-shadow: none;
+  color: var(--color-success);
+  cursor: default;
+  animation: tk-join 340ms var(--ease-spring);
+}
+@keyframes tk-join {
+  40% { transform: scale(1.05); }
+}
+.tk-pair--miss { animation: tk-shake 400ms var(--ease); }
+
+.tk-field {
+  width: 100%;
+  max-width: 440px;
+  height: var(--field-h);
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.tk-field:focus { outline: none; border-color: var(--color-primary); box-shadow: var(--ring); }
+
+.tk-gap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 18px 18px 18px 5px;
+  background: var(--color-surface-2);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.tk-gap input {
+  width: 9ch;
+  padding: 2px 8px;
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+.tk-gap input:focus { outline: none; background: var(--color-primary-softer); }
+
+/* Where can you say it: four rooms, two taps each. */
+.tk-rooms { display: grid; gap: 10px; max-width: 520px; }
+.tk-room {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+}
+.tk-room__name { flex: 1; }
+.tk-room__pick {
+  flex: none;
+  width: 42px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease-spring), border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
+}
+.tk-room__pick:active { transform: scale(0.92); }
+.tk-room__pick[aria-pressed="true"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary-softer);
+}
+.tk-room--right { border-color: var(--color-success); }
+.tk-room--wrong { border-color: var(--color-danger); animation: tk-shake 400ms var(--ease); }
+
+/* ── the footer ──────────────────────────────────────────────────────────── */
+
+.tk-foot {
+  position: sticky;
+  /* Clear of the cookie bar when there is one. The bar is fixed to the window
+     and the footer is sticky, so without this the one button in the lesson
+     sits underneath it on a first visit — which is every new learner. */
+  bottom: 0;
+  margin: 0 calc(var(--gutter, 20px) * -1);
+  padding: 18px var(--gutter, 20px) calc(18px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+.tk-foot--right { background: color-mix(in srgb, var(--color-success) 10%, var(--color-bg)); }
+.tk-foot--wrong { background: color-mix(in srgb, var(--color-danger) 9%, var(--color-bg)); }
+.tk-foot--right,
+.tk-foot--wrong { animation: tk-foot 280ms var(--ease-spring); }
+@keyframes tk-foot {
+  from { transform: translateY(100%); }
+}
+
+.tk-foot__in {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 820px;
+}
+.tk-foot__mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  color: #fff;
+}
+.tk-foot--wrong .tk-foot__mark { background: var(--color-danger); }
+/* The tick draws itself rather than appearing. Three hundred milliseconds of
+   a line being drawn is the difference between "correct" and "well done". */
+.tk-foot__mark path {
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+  animation: tk-draw 340ms var(--ease) 60ms forwards;
+}
+@keyframes tk-draw { to { stroke-dashoffset: 0; } }
+
+.tk-foot__said { flex: 1; min-width: 0; }
+.tk-foot__h { font-size: 1rem; font-weight: 800; color: var(--color-success); }
+.tk-foot--wrong .tk-foot__h { color: var(--color-danger); }
+.tk-foot__why {
+  margin-top: 3px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.tk-go {
+  flex: none;
+  min-width: 160px;
+  height: var(--control-h);
+  padding: 0 26px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 55%, #000);
+  transition: transform var(--dur-1) var(--ease-spring), box-shadow var(--dur-1) var(--ease), opacity var(--dur-2) var(--ease);
+}
+.tk-go:active { transform: translateY(4px); box-shadow: none; }
+.tk-go:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: 0 4px 0 var(--color-border);
+  background: var(--color-surface-3);
+  color: var(--color-text-faint);
+}
+.tk-go--wrong { background: var(--color-danger); box-shadow: 0 4px 0 color-mix(in srgb, var(--color-danger) 55%, #000); }
+
+/* ── the end ─────────────────────────────────────────────────────────────── */
+
+.tk-done {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0;
+  text-align: center;
+}
+.tk-done__ring {
+  display: grid;
+  place-items: center;
+  width: 118px;
+  height: 118px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-3);
+  animation: tk-badge 560ms var(--ease-spring) backwards;
+}
+.tk-done__h {
+  margin: 24px 0 8px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.tk-done__p { margin: 0; color: var(--color-text-muted); }
+.tk-score {
+  display: flex;
+  gap: 12px;
+  margin: 26px 0 30px;
+}
+.tk-score__cell {
+  min-width: 118px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  animation: tk-rise 420ms var(--ease) backwards;
+}
+.tk-score__cell:nth-child(2) { animation-delay: 0.08s; }
+.tk-score__n { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; }
+.tk-score__l { font-size: 0.72rem; color: var(--color-text-faint); }
+
+@media (max-width: 560px) {
+  .tk-step:nth-child(6n + 2) { transform: translateX(48px); }
+  .tk-step:nth-child(6n + 3) { transform: translateX(66px); }
+  .tk-step:nth-child(6n + 5) { transform: translateX(-48px); }
+  .tk-step:nth-child(6n + 6) { transform: translateX(-66px); }
+  @keyframes tk-pop-r1 { from { opacity: 0; transform: translate(48px, 14px) scale(0.86); } }
+  @keyframes tk-pop-r2 { from { opacity: 0; transform: translate(66px, 14px) scale(0.86); } }
+  @keyframes tk-pop-l1 { from { opacity: 0; transform: translate(-48px, 14px) scale(0.86); } }
+  @keyframes tk-pop-l2 { from { opacity: 0; transform: translate(-66px, 14px) scale(0.86); } }
+  .tk-pairs { grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  .tk-foot__in { gap: 11px; }
+  .tk-go { min-width: 0; padding: 0 20px; }
+  .tk-foot__mark { display: none; }
+}
+
+/*
+ * For anyone who has asked their system for less movement. Everything above
+ * still happens, it just happens instantly — nothing here carries meaning
+ * that only the animation conveys, which is the test a decorative animation
+ * has to pass.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .tk-step,
+  .tk-node--current::after,
+  .tk-start,
+  .tk-slide-in,
+  .tk-slide-out,
+  .tk-rule__glyph,
+  .tk-form,
+  .tk-msg__bubble,
+  .tk-tile,
+  .tk-pair--joined,
+  .tk-opt--wrong,
+  .tk-room--wrong,
+  .tk-pair--miss,
+  .tk-foot--right,
+  .tk-foot--wrong,
+  .tk-foot__mark path,
+  .tk-done__ring,
+  .tk-score__cell {
+    animation: none !important;
+  }
+  .tk-foot__mark path { stroke-dashoffset: 0; }
+  .tk-step:nth-child(6n + 2) { transform: translateX(72px); }
+  .tk-step:nth-child(6n + 3) { transform: translateX(96px); }
+  .tk-step:nth-child(6n + 5) { transform: translateX(-72px); }
+  .tk-step:nth-child(6n + 6) { transform: translateX(-96px); }
+}
+
+/* The consent bar owns the bottom of the window until it is dismissed. */
+.has-consent-bar .tk-foot {
+  bottom: 74px;
+}
+@media (max-width: 720px) {
+  .has-consent-bar .tk-foot {
+    bottom: 118px;
+  }
+}

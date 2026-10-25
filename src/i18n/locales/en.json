@@ -1437,5 +1437,41 @@
   "offer": {
     "draftTitle": "This is a draft, not a contract in force",
     "draftBody": "The requisites are still blank: the provider's name and tax number are not filled in. Until they are, this document cannot be shown to a payment provider and no money can be taken under it."
+  },
+  "track": {
+    "start": "START",
+    "soon": "This module is still being written. The path continues here.",
+    "lessonCount_one": "{{count}} lesson",
+    "lessonCount_other": "{{count}} lessons",
+    "standing": "{{done}} of {{total}} lessons",
+    "intro": "Short lessons on how people actually talk and text. One lesson is five minutes.",
+    "oldShelf": "By subject",
+    "oldShelfNote": "The dialogues and lessons that used to live here. They stay until the path outgrows them.",
+    "check": "CHECK",
+    "next": "CONTINUE",
+    "gotIt": "GOT IT",
+    "finishBtn": "FINISH",
+    "right": "Correct",
+    "wrong": "Not quite",
+    "leave": "Leave the lesson",
+    "typeHere": "Type your answer",
+    "roomsAsk": "Where can you write “{{phrase}}”?",
+    "yes": "yes",
+    "no": "no",
+    "newThing": "NEW",
+    "finish": "Lesson done",
+    "scoreRight": "correct",
+    "scoreSteps": "screens",
+    "toPath": "BACK TO THE PATH",
+    "kind": {
+      "rule": "rule",
+      "chat": "how it looks",
+      "choice": "choose the answer",
+      "match": "match the pairs",
+      "assemble": "build the phrase",
+      "type": "type it",
+      "gap": "fill the gap",
+      "register": "where it works"
+    }
   }
 }
