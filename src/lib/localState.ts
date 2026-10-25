@@ -38,6 +38,8 @@ export const PROGRESS_KEYS = [
   "dailyDesk",
   "deskSlotMinutes",
   "everydayLessonProgress",
+  "trackDone",
+  "trackSeen",
   "personalTexts",
   "writingDrafts",
   "writingHistory",
