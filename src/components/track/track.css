@@ -154,9 +154,9 @@
   border-radius: var(--radius-full);
   background: var(--tone);
   color: var(--color-on-primary);
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   animation: tk-hop 1.6s var(--ease) infinite;
 }
@@ -298,13 +298,12 @@
   align-items: center;
   gap: 7px;
   margin-bottom: 10px;
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
 }
-.tk-kicker--new { color: var(--violet); }
+.tk-kicker--new { color: var(--color-primary); }
 
 .tk-ask {
   margin: 0 0 22px;
@@ -331,39 +330,38 @@
   align-items: center;
   text-align: center;
 }
-/* The badge is the screen's one piece of theatre: it lands a beat before the
-   text it belongs to, which is what makes a teaching screen feel presented
-   rather than printed. */
-.tk-rule__glyph {
-  display: grid;
-  place-items: center;
-  width: 92px;
-  height: 92px;
-  border-radius: 28px;
-  background: var(--gradient-brand);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  box-shadow: var(--shadow-3);
-  animation: tk-badge 520ms var(--ease-spring) backwards;
+/* A rule, drawn. It replaced a gradient tile with the abbreviation written
+   inside it — which is what every generated app icon looks like, and it took
+   the eye before the title did. This is the oldest mark in print for "a new
+   thought starts here" and it asks for nothing. */
+.tk-rule__mark {
+  display: block;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  transform-origin: center;
+  animation: tk-draw-rule 420ms var(--ease) backwards;
 }
-@keyframes tk-badge {
-  from { opacity: 0; transform: scale(0.4) rotate(-14deg); }
+@keyframes tk-draw-rule {
+  from { transform: scaleX(0); opacity: 0; }
 }
 .tk-rule__h {
-  margin: 20px 0 10px;
-  font-size: clamp(1.3rem, 3.4vw, 1.75rem);
+  margin: 22px 0 14px;
+  max-width: 24ch;
+  font-size: clamp(1.35rem, 3.6vw, 1.8rem);
   font-weight: 800;
+  line-height: 1.22;
   letter-spacing: -0.025em;
 }
 .tk-rule__p {
   margin: 0 auto;
-  max-width: 46ch;
-  font-size: 0.97rem;
-  line-height: 1.6;
+  max-width: 44ch;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--color-text-muted);
 }
+.tk-rule__p + .tk-rule__p { margin-top: 13px; }
 
 .tk-forms {
   margin: 26px 0 0;
@@ -663,36 +661,50 @@
 }
 .tk-gap input:focus { outline: none; background: var(--color-primary-softer); }
 
-/* Where can you say it: four rooms, two taps each. */
+/* Where it fits: one tick per row, the whole row being the target. */
 .tk-rooms { display: grid; gap: 10px; max-width: 520px; }
 .tk-room {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 13px 16px;
+  gap: 13px;
+  width: 100%;
+  padding: 14px 17px;
   border-radius: var(--radius-md);
   border: 2px solid var(--color-border);
   background: var(--color-surface);
+  box-shadow: 0 3px 0 var(--color-border);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.97rem;
   text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--dur-1) var(--ease-spring),
+    border-color var(--dur-1) var(--ease),
+    background var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease);
+}
+.tk-room:active { transform: translateY(3px); box-shadow: none; }
+.tk-room__box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  border: 2px solid var(--color-border-strong);
+  color: transparent;
+  transition: border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
 .tk-room__name { flex: 1; }
-.tk-room__pick {
-  flex: none;
-  width: 42px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  border: 2px solid var(--color-border);
-  background: var(--color-surface);
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: transform var(--dur-1) var(--ease-spring), border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
-}
-.tk-room__pick:active { transform: scale(0.92); }
-.tk-room__pick[aria-pressed="true"] {
+.tk-room--on {
   border-color: var(--color-primary);
   background: var(--color-primary-softer);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+.tk-room--on .tk-room__box {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
 .tk-room--right { border-color: var(--color-success); }
 .tk-room--wrong { border-color: var(--color-danger); animation: tk-shake 400ms var(--ease); }
@@ -765,10 +777,12 @@
   background: var(--color-primary);
   color: var(--color-on-primary);
   font-family: inherit;
-  font-size: 0.86rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  /* Sentence case. Every button on the screen was set in spaced capitals,
+     which is a template's way of looking confident and reads as a template.
+     A word in its ordinary shape is what a person would have typed. */
+  font-size: 0.97rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   cursor: pointer;
   box-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 55%, #000);
   transition: transform var(--dur-1) var(--ease-spring), box-shadow var(--dur-1) var(--ease), opacity var(--dur-2) var(--ease);
@@ -803,7 +817,10 @@
   font-size: 2.3rem;
   font-weight: 800;
   box-shadow: var(--shadow-3);
-  animation: tk-badge 560ms var(--ease-spring) backwards;
+  animation: tk-ring 560ms var(--ease-spring) backwards;
+}
+@keyframes tk-ring {
+  from { opacity: 0; transform: scale(0.5); }
 }
 .tk-done__h {
   margin: 24px 0 8px;
@@ -852,11 +869,12 @@
  */
 @media (prefers-reduced-motion: reduce) {
   .tk-step,
+  .tk-rule__mark,
   .tk-node--current::after,
   .tk-start,
   .tk-slide-in,
   .tk-slide-out,
-  .tk-rule__glyph,
+  .tk-ring,
   .tk-form,
   .tk-msg__bubble,
   .tk-tile,

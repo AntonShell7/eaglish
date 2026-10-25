@@ -138,7 +138,10 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "gap":
         return typed.trim().length > 0;
       case "register":
-        return Object.keys(rooms).length === step.rooms.length;
+        /* Leaving a row alone now means "not here", so there is nothing to
+           wait for: the question can be submitted as soon as it is on screen.
+           Requiring at least one tick would be a hint. */
+        return true;
     }
   })();
 
@@ -164,7 +167,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "gap":
         return step.answers.some((answer) => same(typed, answer));
       case "register":
-        return step.rooms.every((room, i) => rooms[i] === room.ok);
+        return step.rooms.every((room, i) => (rooms[i] === true) === room.ok);
     }
   };
 
@@ -451,9 +454,18 @@ function StepBody(p: BodyProps) {
     case "rule":
       return (
         <div className="tk-rule">
-          <div className="tk-rule__glyph">{step.glyph}</div>
+          {/* A quiet rule on top of the screen rather than a badge with
+              letters in it. The badge was a gradient tile with "TQ" written
+              on it — which is what every generated app icon looks like, and
+              it competed with the title for the one thing the eye lands on
+              first. The title is the lesson; nothing should outshout it. */}
+          <span className="tk-rule__mark" aria-hidden="true" />
           <h2 className="tk-rule__h">{step.titleRu}</h2>
-          <p className="tk-rule__p">{step.bodyRu}</p>
+          {step.bodyRu.split("\n\n").map((para) => (
+            <p className="tk-rule__p" key={para.slice(0, 24)}>
+              {para}
+            </p>
+          ))}
           {step.forms && (
             <div className="tk-forms">
               {step.forms.map((form) => (
@@ -655,33 +667,32 @@ function StepBody(p: BodyProps) {
           <h2 className="tk-ask">
             {t("track.roomsAsk", { phrase: step.phrase })}
           </h2>
+          {/* One tick per room, not a tick and a cross. Two buttons a row
+              meant eight taps to answer a four-line question, and it made the
+              learner state the obvious half as explicitly as the interesting
+              half. Ticking what fits and leaving the rest blank is quicker
+              and closer to how the question is actually thought about. */}
           <div className="tk-rooms">
             {step.rooms.map((room, i) => {
-              const answered = p.rooms[i];
+              const ticked = p.rooms[i] === true;
               let state = "";
-              if (judged) state = answered === room.ok ? " tk-room--right" : " tk-room--wrong";
+              if (judged) state = ticked === room.ok ? " tk-room--right" : " tk-room--wrong";
               return (
-                <div className={`tk-room${state}`} key={room.labelRu}>
+                <button
+                  type="button"
+                  className={`tk-room${ticked ? " tk-room--on" : ""}${state}`}
+                  key={room.labelRu}
+                  aria-pressed={ticked}
+                  disabled={judged !== null}
+                  onClick={() => p.setRooms((was) => ({ ...was, [i]: !was[i] }))}
+                >
+                  <span className="tk-room__box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
                   <span className="tk-room__name">{room.labelRu}</span>
-                  <button
-                    type="button"
-                    className="tk-room__pick"
-                    aria-pressed={answered === true}
-                    aria-label={`${room.labelRu}: ${t("track.yes")}`}
-                    onClick={() => !judged && p.setRooms((was) => ({ ...was, [i]: true }))}
-                  >
-                    ✓
-                  </button>
-                  <button
-                    type="button"
-                    className="tk-room__pick"
-                    aria-pressed={answered === false}
-                    aria-label={`${room.labelRu}: ${t("track.no")}`}
-                    onClick={() => !judged && p.setRooms((was) => ({ ...was, [i]: false }))}
-                  >
-                    ✕
-                  </button>
-                </div>
+                </button>
               );
             })}
           </div>

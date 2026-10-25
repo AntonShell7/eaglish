@@ -14,8 +14,23 @@ import type { Register } from "./slangDialogues";
  * real message — and then met again two and five lessons later without being
  * announced. A module ends with a check over everything it taught.
  *
- * The content is data. Adding a module is writing one object; nothing in the
- * player or the path knows what is in them.
+ * ── On the writing ──────────────────────────────────────────────────────────
+ *
+ * Every line of Russian in this file is read by somebody who is mid-lesson and
+ * wants to get on with it, so it is written to be understood at the speed it
+ * is glanced at. Three rules came out of getting it wrong the first time:
+ *
+ * A title says what you will be able to do, not what the thing is called.
+ * "Короткое спасибо" is a label on a drawer — it makes the reader stop and
+ * work out what the drawer holds. "Как носители пишут спасибо" is the lesson.
+ *
+ * No vocabulary the lesson has not taught. The first draft explained chat
+ * abbreviations with the phrase "так звучит сам регистр", which asks a learner
+ * to already know a linguistics term in order to be told about "thx".
+ *
+ * No analogies that need unpacking. An explanation that arrives as a riddle —
+ * "примерно как сказать «благодарю вас» приятелю" — costs more attention than
+ * the point it was carrying.
  */
 
 /** A step is one screen. Eight kinds, each doing a job the others cannot. */
@@ -24,15 +39,13 @@ export type Step =
    * The teaching screen, and the only one that does not ask for anything.
    *
    * Duolingo drills first and explains in a tooltip, which works when the
-   * thing being taught is a word with a picture. "TQ" has no picture and the
-   * rule is one sentence long — withholding it to make the learner guess
+   * thing being taught is a word with a picture. "thx" has no picture and the
+   * rule is two sentences long — withholding it to make the learner guess
    * wastes the one screen where they are actually paying attention.
    */
   | {
       kind: "rule";
       id: string;
-      /** Two or three characters drawn as the badge. Not an emoji. */
-      glyph: string;
       title: string;
       titleRu: string;
       body: string;
@@ -44,8 +57,8 @@ export type Step =
    * The expression where it lives: a messenger thread.
    *
    * An abbreviation explained in a definition box is a fact; the same
-   * abbreviation at the end of someone's reply about homework is the thing
-   * being learnt. This is the screen the section exists for.
+   * abbreviation at the end of someone's reply is the thing being learnt. This
+   * is the screen the section exists for.
    */
   | {
       kind: "chat";
@@ -117,18 +130,23 @@ export type Step =
       teaches?: string[];
     }
   /**
-   * Where you can say it — the question learners actually get wrong.
+   * Where you can say it — the question learners of this register get wrong.
    *
    * The phrase is usually right and the room is wrong: "gtg" to a friend is
    * normal and "gtg" to a client is a small disaster. Every expression in this
    * app already carries a register, so this format costs nothing to write and
    * no competitor has it.
+   *
+   * Only the rooms where it fits are ticked. There were crosses as well at
+   * first — eight taps to answer a four-line question, and the learner had to
+   * state the obvious half as explicitly as the interesting half. Ticking what
+   * fits and leaving the rest alone is both quicker and closer to how the
+   * question is actually thought about.
    */
   | {
       kind: "register";
       id: string;
       phrase: string;
-      /** Each room, and whether the phrase belongs in it. */
       rooms: { labelRu: string; ok: boolean }[];
       whyRu: string;
       register: Register;
@@ -141,8 +159,6 @@ export interface TrackLesson {
   titleRu: string;
   /** One line under the title on the path bubble. */
   subtitleRu: string;
-  /** The character drawn in the node. */
-  glyph: string;
   /** A check over the whole module: no new rules, everything mixed. */
   review?: boolean;
   steps: Step[];
@@ -159,90 +175,88 @@ export interface TrackModule {
   soon?: boolean;
 }
 
-/* ── Module one ──────────────────────────────────────────────────────────── */
+/* ── Module one: the abbreviations other people's messages are made of ───── */
 
 const thanks: TrackLesson = {
   id: "thanks",
-  title: "Thank you in three letters",
-  titleRu: "Спасибо в три буквы",
-  subtitleRu: "TQ, THX, TY, TYSM",
-  glyph: "TQ",
+  title: "How people write thanks",
+  titleRu: "Как носители пишут спасибо",
+  subtitleRu: "tq · thx · tysm · np",
   steps: [
     {
       kind: "rule",
       id: "thanks-rule",
-      glyph: "TQ",
-      title: "Short thanks",
-      titleRu: "Короткое спасибо",
-      body: "In chat, thank you is almost never written out. It is shortened, and the shortening is not lazy — it is what the register sounds like.",
+      title: "Thanks is almost always shortened",
+      titleRu: "Спасибо в чате почти всегда сокращают",
+      body: "Thank you is rarely written out in a message. Two or three letters take its place, and everybody writes that way.",
       bodyRu:
-        "В переписке thank you почти никогда не пишут целиком. Его сокращают, и это не лень, а то, как звучит сам регистр. Написать полностью «Thank you very much» другу в чате — примерно как сказать «благодарю вас» приятелю.",
+        "Thank you целиком в сообщениях пишут редко — вместо него две-три буквы, и так пишут все: школьники, студенты, коллеги по работе.\n\nЗнать их стоит по двум причинам. Без них чужие сообщения наполовину превращаются в набор букв. А когда начинаешь писать так сам, разница слышна сразу: с человеком говорят на его языке, а не переводят ему каждую фразу.",
       forms: [
-        { short: "TQ", long: "thank you", note: "The Q is the sound, not a letter of the word.", noteRu: "Q — это звук «кью», а не буква из слова." },
-        { short: "THX · THNX · TNX", long: "thanks", noteRu: "Самое частое из всех." },
-        { short: "TY", long: "thank you" },
-        { short: "TYSM", long: "thank you so much", noteRu: "Когда правда выручили." },
+        { short: "tq", long: "thank you", noteRu: "Q читается как «кью» и стоит вместо целого слова you." },
+        { short: "thx · thnx · tnx", long: "thanks", noteRu: "Встречается чаще остальных." },
+        { short: "tysm", long: "thank you so much", noteRu: "Когда действительно сильно выручили." },
+        { short: "np", long: "no problem", noteRu: "Это уже ответ на спасибо — то же, что «не вопрос»." },
       ],
     },
     {
       kind: "chat",
       id: "thanks-chat",
-      title: "What was the maths homework?",
-      titleRu: "Что задали по математике",
+      title: "How it looks in a real thread",
+      titleRu: "Так это выглядит в переписке",
       withWhom: "Sam",
       withWhomRu: "Сэм",
       lines: [
-        { text: "hey, do you know what we got for maths?", at: "19:04" },
-        { me: true, text: "page 5, number 3", at: "19:06" },
-        { me: true, text: "and the two tables on page 6", at: "19:06" },
-        { text: "tq!! you saved me", at: "19:07", glossRu: "tq = thank you" },
-        { me: true, text: "np", at: "19:07", glossRu: "np = no problem" },
+        { text: "hey do you have the link for tomorrow?", at: "19:04" },
+        { me: true, text: "yeah, one sec", at: "19:06" },
+        { me: true, text: "just sent it to you", at: "19:06" },
+        { text: "tq!! you saved me", at: "19:07", glossRu: "tq — thank you" },
+        { me: true, text: "np", at: "19:07", glossRu: "np — no problem, то же, что «да не за что»" },
       ],
     },
     {
       kind: "choice",
       id: "thanks-q1",
-      prompt: "What does TQ mean?",
-      promptRu: "Что значит TQ?",
+      prompt: "What does tq mean?",
+      promptRu: "Что значит tq?",
       quote: "tq!! you saved me",
       options: ["thank you", "take care", "that's quick", "the question"],
       answer: 0,
-      whyRu: "Q читается как «кью» и заменяет всё слово you. Буквы из thank you тут только T.",
+      whyRu: "Q читается как «кью» и стоит вместо целого слова you. От thank you осталась одна буква.",
       teaches: ["tq"],
     },
     {
       kind: "match",
       id: "thanks-match",
-      promptRu: "Соедините сокращение и то, что за ним стоит",
+      promptRu: "Соедините сокращение и его расшифровку",
       pairs: [
-        ["TQ", "thank you"],
-        ["THX", "thanks"],
-        ["TYSM", "thank you so much"],
-        ["NP", "no problem"],
+        ["tq", "thank you"],
+        ["thx", "thanks"],
+        ["tysm", "thank you so much"],
+        ["np", "no problem"],
       ],
       teaches: ["tq", "thx", "tysm", "np"],
     },
     {
       kind: "gap",
       id: "thanks-gap",
-      promptRu: "Допишите сообщение",
+      promptRu: "Вставьте пропущенное слово",
       before: "got it, ",
       after: " for sending the photos",
-      answers: ["thx", "thnx", "tnx", "ty", "tq", "thanks"],
+      answers: ["thx", "thnx", "tnx", "tq", "thanks"],
       teaches: ["thx"],
     },
     {
       kind: "register",
       id: "thanks-register",
-      phrase: "TQ",
+      phrase: "tq",
       rooms: [
         { labelRu: "Друг в мессенджере", ok: true },
-        { labelRu: "Одноклассник", ok: true },
+        { labelRu: "Чат одногруппников", ok: true },
         { labelRu: "Письмо начальнику", ok: false },
         { labelRu: "Резюме", ok: false },
       ],
       whyRu:
-        "TQ — это регистр чата. В рабочей почте оно читается как небрежность, даже если отношения хорошие. Там пишут Thanks — целиком, одним словом.",
+        "tq живёт в чатах. В рабочем письме оно выглядит небрежно, даже если отношения с человеком хорошие: там пишут Thanks, целиком.",
       register: "veryCasual",
       teaches: ["tq"],
     },
@@ -252,39 +266,37 @@ const thanks: TrackLesson = {
 const replies: TrackLesson = {
   id: "replies",
   title: "Answering thanks",
-  titleRu: "Ответ на спасибо",
-  subtitleRu: "np, yw, anytime",
-  glyph: "np",
+  titleRu: "Что отвечают на спасибо",
+  subtitleRu: "np · yw · no worries · anytime",
   steps: [
     {
       kind: "rule",
       id: "replies-rule",
-      glyph: "np",
-      title: "You're welcome, shortened",
-      titleRu: "Пожалуйста, короткое",
-      body: "There is no single reply to thanks in English chat. There are four, and they differ in how much the favour is being played down.",
+      title: "Four answers, and the difference is audible",
+      titleRu: "Ответов четыре, и они не взаимозаменяемы",
+      body: "There is no single you're welcome in English chat. The four replies differ in how much the favour is being played down.",
       bodyRu:
-        "Единого «пожалуйста» в английском чате нет. Их четыре, и отличаются они тем, насколько сильно отмахиваешься от услуги. You're welcome — самое нейтральное и самое «взрослое»; в переписке подростков его почти не встретить.",
+        "Одного «пожалуйста» в английской переписке нет. Есть четыре ответа, и отличаются они тем, насколько сильно ты отмахиваешься от услуги: от «не вопрос» до «обращайся ещё».\n\nYou're welcome тоже никуда не делось, но звучит заметно строже и взрослее. В переписке друзей его почти не увидишь.",
       forms: [
-        { short: "np", long: "no problem", noteRu: "Самое частое. Дословно «не проблема»." },
-        { short: "yw", long: "you're welcome", noteRu: "Нейтральное, чуть более formal." },
+        { short: "np", long: "no problem", noteRu: "Самый частый. Дословно — «не проблема»." },
+        { short: "yw", long: "you're welcome", noteRu: "Нейтральный, чуть строже остальных." },
         { short: "no worries", long: "no worries", noteRu: "Британское и австралийское, очень тёплое." },
-        { short: "anytime", long: "anytime", noteRu: "«Обращайся». Намёк, что готов помочь ещё." },
+        { short: "anytime", long: "anytime", noteRu: "«Обращайся». Намёк, что поможешь и в следующий раз." },
       ],
     },
     {
       kind: "chat",
       id: "replies-chat",
-      title: "Thanks for the charger",
-      titleRu: "Спасибо за зарядку",
+      title: "And this is how people answer",
+      titleRu: "А так на него отвечают",
       withWhom: "Mia",
       withWhomRu: "Мия",
       lines: [
         { text: "thanks for lending me your charger yesterday", at: "08:12" },
         { text: "my phone was on 2%", at: "08:12" },
-        { me: true, text: "no worries, I had a spare", at: "08:20", glossRu: "no worries = не за что" },
+        { me: true, text: "no worries, I had a spare", at: "08:20", glossRu: "no worries — не за что, пустяки" },
         { text: "still, tysm", at: "08:21" },
-        { me: true, text: "anytime", at: "08:21", glossRu: "anytime = обращайся" },
+        { me: true, text: "anytime", at: "08:21", glossRu: "anytime — обращайся" },
       ],
     },
     {
@@ -295,7 +307,7 @@ const replies: TrackLesson = {
       options: ["anytime", "thank you too", "of course not", "yes please"],
       answer: 0,
       whyRu:
-        "Anytime — «обращайся». Thank you too выглядит так, будто вы не поняли, за что вас благодарят, и благодарите в ответ на всякий случай.",
+        "anytime — «обращайся». А thank you too выглядит так, будто вы не поняли, за что вас благодарят, и на всякий случай поблагодарили в ответ.",
       teaches: ["anytime"],
     },
     {
@@ -317,11 +329,11 @@ const replies: TrackLesson = {
     {
       kind: "match",
       id: "replies-match",
-      promptRu: "Соедините ответ и его смысл",
+      promptRu: "Соедините ответ и то, что он на самом деле значит",
       pairs: [
         ["np", "не проблема"],
         ["yw", "пожалуйста"],
-        ["anytime", "обращайся"],
+        ["anytime", "обращайся ещё"],
         ["no worries", "да брось, пустяки"],
       ],
       teaches: ["np", "yw", "anytime", "no worries"],
@@ -331,23 +343,21 @@ const replies: TrackLesson = {
 
 const goodbyes: TrackLesson = {
   id: "goodbyes",
-  title: "Leaving a chat",
-  titleRu: "Как попрощаться",
-  subtitleRu: "brb, gtg, ttyl, cya",
-  glyph: "cya",
+  title: "Leaving a conversation",
+  titleRu: "Как выходят из разговора",
+  subtitleRu: "brb · gtg · ttyl · cya",
   steps: [
     {
       kind: "rule",
       id: "goodbyes-rule",
-      glyph: "brb",
-      title: "Going, and coming back",
-      titleRu: "Ухожу и вернусь",
-      body: "Two of these mean goodbye and one does not. Reading brb as goodbye and disappearing is the mistake everyone makes once.",
+      title: "Two of these are goodbye and one is not",
+      titleRu: "Два из них — прощание, а одно нет",
+      body: "brb means somebody stepped away and is coming back. Reading it as goodbye and leaving is the mistake everybody makes once.",
       bodyRu:
-        "Два из них значат «пока», а одно — нет. Прочитать brb как прощание и уйти — ошибка, которую делают один раз. Brb значит, что человек отошёл на минуту и вернётся, и ответ на него — не «пока», а ничего или «ok».",
+        "brb значит, что человек отошёл на минуту и вернётся. Прочитать его как «пока» и уйти — ошибка, которую делают ровно один раз: собеседник возвращается через две минуты, пишет «back», а тебя уже нет.\n\nОстальные три — настоящие прощания, от короткого «увидимся» до «спишемся позже».",
       forms: [
-        { short: "brb", long: "be right back", noteRu: "Отошёл, вернусь. Не прощание!" },
-        { short: "gtg · g2g", long: "got to go", noteRu: "Всё, убегаю. Вот это прощание." },
+        { short: "brb", long: "be right back", noteRu: "Отошёл, скоро вернусь. Отвечать «пока» не нужно." },
+        { short: "gtg · g2g", long: "got to go", noteRu: "Всё, убегаю. Вот это уже прощание." },
         { short: "ttyl", long: "talk to you later", noteRu: "Спишемся позже." },
         { short: "cya · see ya", long: "see you", noteRu: "Увидимся. Самое лёгкое из всех." },
       ],
@@ -355,16 +365,16 @@ const goodbyes: TrackLesson = {
     {
       kind: "chat",
       id: "goodbyes-chat",
-      title: "Someone is at the door",
-      titleRu: "Кто-то в дверь",
+      title: "How a thread ends",
+      titleRu: "Так разговор заканчивается",
       withWhom: "Jack",
       withWhomRu: "Джек",
       lines: [
         { text: "so are you coming on saturday or not", at: "21:30" },
         { me: true, text: "yeah I think so", at: "21:31" },
-        { text: "brb someone's at the door", at: "21:31", glossRu: "brb = сейчас вернусь" },
+        { text: "brb someone's at the door", at: "21:31", glossRu: "brb — сейчас вернусь" },
         { text: "ok back", at: "21:36" },
-        { text: "anyway I gtg, early start tomorrow. ttyl", at: "21:38", glossRu: "gtg = убегаю · ttyl = спишемся" },
+        { text: "anyway I gtg, early start tomorrow. ttyl", at: "21:38", glossRu: "gtg — убегаю · ttyl — спишемся позже" },
         { me: true, text: "cya", at: "21:38" },
       ],
     },
@@ -372,7 +382,7 @@ const goodbyes: TrackLesson = {
       kind: "choice",
       id: "goodbyes-q1",
       prompt: "Your friend writes brb. What happened?",
-      promptRu: "Друг написал brb. Что произошло?",
+      promptRu: "Друг написал brb. Что это значит?",
       quote: "brb someone's at the door",
       options: [
         "Отошёл на минуту и вернётся",
@@ -382,13 +392,13 @@ const goodbyes: TrackLesson = {
       ],
       answer: 0,
       whyRu:
-        "Be right back — «сейчас вернусь». Отвечать на него «bye» не нужно: человек никуда не делся, он через минуту напишет «back».",
+        "be right back — «сейчас вернусь». Прощаться в ответ не нужно: человек никуда не делся и через минуту напишет «back».",
       teaches: ["brb"],
     },
     {
       kind: "match",
       id: "goodbyes-match",
-      promptRu: "Соедините сокращение и расшифровку",
+      promptRu: "Соедините сокращение и его расшифровку",
       pairs: [
         ["brb", "be right back"],
         ["gtg", "got to go"],
@@ -400,7 +410,7 @@ const goodbyes: TrackLesson = {
     {
       kind: "gap",
       id: "goodbyes-gap",
-      promptRu: "Вам пора. Допишите сообщение",
+      promptRu: "Вам пора. Вставьте пропущенное слово",
       before: "ok I ",
       after: ", my bus is here",
       answers: ["gtg", "g2g", "got to go", "gotta go"],
@@ -412,12 +422,12 @@ const goodbyes: TrackLesson = {
       phrase: "gtg",
       rooms: [
         { labelRu: "Друг в мессенджере", ok: true },
-        { labelRu: "Чат игры", ok: true },
-        { labelRu: "Клиент по работе", ok: false },
-        { labelRu: "Рабочий созвон в чате", ok: false },
+        { labelRu: "Чат в игре", ok: true },
+        { labelRu: "Переписка с клиентом", ok: false },
+        { labelRu: "Рабочий чат с руководством", ok: false },
       ],
       whyRu:
-        "С клиентом то же самое пишется целиком и с причиной: «Sorry, I have to run — I'll come back to you this afternoon.» Gtg там читается как «мне некогда с вами разговаривать».",
+        "Клиенту то же самое пишут целиком и с причиной: «Sorry, I have to run — I'll come back to you this afternoon». gtg там читается как «мне некогда с вами разговаривать».",
       register: "veryCasual",
       teaches: ["gtg"],
     },
@@ -426,18 +436,17 @@ const goodbyes: TrackLesson = {
 
 const check: TrackLesson = {
   id: "chat-check",
-  title: "Module check",
-  titleRu: "Срез по модулю",
-  subtitleRu: "Всё, что было в модуле",
-  glyph: "✦",
+  title: "What stayed",
+  titleRu: "Проверим, что осталось",
+  subtitleRu: "Весь модуль вперемешку",
   review: true,
   steps: [
     {
       kind: "match",
       id: "check-match",
-      promptRu: "Соедините сокращение и расшифровку",
+      promptRu: "Соедините сокращение и его расшифровку",
       pairs: [
-        ["TYSM", "thank you so much"],
+        ["tysm", "thank you so much"],
         ["np", "no problem"],
         ["ttyl", "talk to you later"],
         ["brb", "be right back"],
@@ -447,26 +456,26 @@ const check: TrackLesson = {
     {
       kind: "choice",
       id: "check-q1",
-      prompt: "Which of these is not goodbye?",
+      prompt: "Which one is not goodbye?",
       promptRu: "Что из этого не прощание?",
       options: ["brb", "gtg", "ttyl", "cya"],
       answer: 0,
-      whyRu: "Brb — «сейчас вернусь». Остальные три — прощания разной степени окончательности.",
+      whyRu: "brb — «сейчас вернусь». Остальные три прощания, просто разной степени окончательности.",
       teaches: ["brb"],
     },
     {
       kind: "gap",
       id: "check-gap",
-      promptRu: "Вас поблагодарили. Ответьте одним словом",
-      before: "— tysm for the help!\n— ",
-      after: "",
+      promptRu: "Вас поблагодарили. Вставьте пропущенное слово",
+      before: "tysm for the help! — ",
+      after: ", glad it worked",
       answers: ["np", "yw", "anytime", "no worries", "no problem"],
       teaches: ["np", "yw", "anytime"],
     },
     {
       kind: "type",
       id: "check-type",
-      promptRu: "Напишите сокращение от «talk to you later»",
+      promptRu: "Напишите сокращение от talk to you later",
       hint: "t",
       answers: ["ttyl"],
       teaches: ["ttyl"],
@@ -474,7 +483,7 @@ const check: TrackLesson = {
     {
       kind: "assemble",
       id: "check-assemble",
-      promptRu: "Соберите: «убегаю, спишемся позже»",
+      promptRu: "Соберите фразу: «убегаю, спишемся позже»",
       answer: ["gtg,", "ttyl"],
       extra: ["brb,", "cya"],
       teaches: ["gtg", "ttyl"],
@@ -482,7 +491,7 @@ const check: TrackLesson = {
     {
       kind: "register",
       id: "check-register",
-      phrase: "TYSM",
+      phrase: "tysm",
       rooms: [
         { labelRu: "Подруга", ok: true },
         { labelRu: "Чат курса", ok: true },
@@ -490,7 +499,7 @@ const check: TrackLesson = {
         { labelRu: "Сопроводительное письмо", ok: false },
       ],
       whyRu:
-        "Чем официальнее комната, тем длиннее спасибо. В письме — «Thank you very much for your help», и это не вежливее, это просто другой язык.",
+        "Чем официальнее переписка, тем длиннее спасибо. В письме это Thank you very much for your help — и дело не в вежливости, это просто другой язык.",
       register: "veryCasual",
       teaches: ["tysm"],
     },
@@ -501,14 +510,14 @@ export const trackModules: TrackModule[] = [
   {
     id: "chat",
     titleRu: "Переписка",
-    subtitleRu: "Сокращения, без которых чат не читается",
+    subtitleRu: "Сокращения, без которых чужие сообщения не читаются",
     tone: "mint",
     lessons: [thanks, replies, goodbyes, check],
   },
   {
     id: "idioms",
     titleRu: "Идиомы",
-    subtitleRu: "Длинные обороты: по три за урок",
+    subtitleRu: "Длинные обороты — по три за урок",
     tone: "gold",
     soon: true,
     lessons: [],
@@ -516,7 +525,7 @@ export const trackModules: TrackModule[] = [
   {
     id: "street",
     titleRu: "Живая речь",
-    subtitleRu: "Как говорят, когда не стараются",
+    subtitleRu: "Как говорят, когда не стараются говорить правильно",
     tone: "violet",
     soon: true,
     lessons: [],

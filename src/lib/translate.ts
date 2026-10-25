@@ -1,6 +1,7 @@
 import { askModel, AiError, type AiFailure, type AiMessage, type AiRequest } from "./aiClient";
 import { getCachedLookup, putCachedLookup } from "./lookupCache";
 import { offlineTranslation } from "./offlineDictionary";
+import { chatSpeakFor } from "@/data/chatSpeak";
 
 export interface GlossaryLike {
   [word: string]: { translation: string; partOfSpeech?: string };
@@ -123,6 +124,22 @@ export async function lookupWord(
     return { word: cleaned, translation: entry.translation, partOfSpeech: entry.partOfSpeech, isLive: false };
   }
 
+  /* Chat shorthand before anything else, including the text's own glossary.
+     These are the words a model cannot be asked cold — "np" is a chemical
+     element, "tq" is a ticker symbol, "cya" is nothing — and it answers
+     confidently anyway, which is worse than silence because the learner
+     cannot tell. The note is the point as much as the translation: knowing
+     that "gtg" is chat shorthand is what stops it being written to a client. */
+  const shorthand = chatSpeakFor(cleaned);
+  if (shorthand) {
+    return {
+      word: cleaned,
+      translation: shorthand.ru,
+      note: shorthand.long ? `${shorthand.note}, от ${shorthand.long}` : shorthand.note,
+      isLive: false,
+    };
+  }
+
   const cached = getCachedLookup(cleaned, options.sentence);
   if (cached) {
     return {
@@ -150,7 +167,7 @@ export async function lookupWord(
             role: "system",
             content:
               'Translate an English word or short phrase into Russian. The translation MUST be in Russian, written in Cyrillic — never an English definition, never a transliteration. Use the surrounding sentence for context when given. ' +
-              'note: two to four Russian words saying what the thing IS, and ONLY when the Russian translation is itself a term an ordinary reader might not know — a chemical, a legal or medical term, a piece of jargon, a loanword. For "полиэтилен" that is "вид пластика"; for "вертлужная впадина" it is "часть тазовой кости". For ordinary words like "стол" or "бежать" return an empty string: a gloss on a word everybody knows is noise. Never repeat the translation inside the note, and never write it in English. ' +
+              'note: two to four Russian words saying what the thing IS, and ONLY when the Russian translation is itself a term an ordinary reader might not know — a chemical, a legal or medical term, a piece of jargon, a loanword. For "полиэтилен" that is "вид пластика"; for "вертлужная впадина" it is "часть тазовой кости". For ordinary words like "стол" or "бежать" return an empty string: a gloss on a word everybody knows is noise. Never repeat the translation inside the note, and never write it in English. Also use note when the English itself is slang, chat shorthand or markedly informal — write "разговорное", "сленг" or "сокращение в переписке" — because a learner needs to know they cannot put it in a work email. ' +
               'Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string, "note": string}',
           },
           {
@@ -367,6 +384,18 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
     russian: "",
   };
 
+  const shorthand = fromRussian ? null : chatSpeakFor(source);
+  if (shorthand) {
+    return {
+      ...empty,
+      primary: shorthand.ru,
+      english: source,
+      russian: shorthand.ru,
+      definition: shorthand.long,
+      note: shorthand.long ? `${shorthand.note}, от ${shorthand.long}` : shorthand.note,
+    };
+  }
+
   const brief = fromRussian
     ? "The learner typed Russian and wants the English. Give the commonest English equivalent, then up to two further ones that mean something genuinely different."
     : "The learner typed English and wants the Russian. Give the commonest Russian equivalent, then up to two further senses that mean something genuinely different — not synonyms of the first.";
@@ -384,7 +413,7 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
             brief,
             "Only list a further sense when the word really has one: most words have a single meaning, and inventing a second is worse than giving one.",
             "definition: a short English definition of the commonest sense, under fifteen words.",
-            'note: two to four Russian words saying what the thing IS, and only when the Russian equivalent is itself a term an ordinary reader might not know — a chemical, a legal or medical term, jargon, a loanword. For "полиэтилен" that is "вид пластика". For ordinary words return an empty string. Never in English, never repeating the translation.',
+            'note: two to four Russian words saying what the thing IS, and only when the Russian equivalent is itself a term an ordinary reader might not know — a chemical, a legal or medical term, jargon, a loanword. For "полиэтилен" that is "вид пластика". For ordinary words return an empty string. Never in English, never repeating the translation. Use it too when the English is slang, chat shorthand or markedly informal: "разговорное", "сленг", "сокращение в переписке".',
             `example: one English sentence using the word in that sense. ${EXAMPLE_RULE}`,
             "partOfSpeech: in English, lowercase.",
             'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string, "note": string}',
