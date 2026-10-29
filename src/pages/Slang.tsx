@@ -160,7 +160,11 @@ export default function Slang() {
     const found = findLesson(itemId);
     if (!found) return <Navigate to="/slang" replace />;
     return (
-      <div className="mx-auto max-w-3xl px-5 py-8">
+      /* No container of its own: the player sets its own width, because the
+         one that used to be here was max-w-3xl — 768px, where every other
+         screen in the section gets 1152. Pressing "начать" narrowed the page
+         by 384px, which is most of why the lesson looked marooned. */
+      <div className="py-8">
         <LessonPlayer
           key={found.lesson.id}
           module={found.module}

@@ -25,6 +25,63 @@
  * margin as the only marker of "you are here".
  */
 
+
+/* ── the press ───────────────────────────────────────────────────────────── */
+
+/*
+ * One mechanic, used by every pressable thing in the section.
+ *
+ * Measured off Duolingo, because theirs is the version that feels right and
+ * the reason is specific. The solid lip under a control is not a border and
+ * not a second box: it is `box-shadow: 0 Npx 0 0` on a ::before, while the
+ * element itself reserves the lip's height with a transparent bottom border.
+ * Pressing moves the element down by exactly that height and removes the
+ * shadow, so the control sinks into its own socket and the block's outer
+ * height never changes — nothing below it twitches.
+ *
+ * Two further things come from the same measurement and are worth keeping:
+ *
+ * Disabled is drawn as already pressed. A greyed-out button still reads as a
+ * button that cannot be lifted, rather than as a button with its colour
+ * taken away, and it needs no visual language of its own.
+ *
+ * The lip's colour is the element's own colour with 20% black laid over it,
+ * drawn as two shadows at the same offset. One colour per control instead of
+ * a colour and a matching shade, and it stays correct in the dark theme
+ * without a second set of tokens.
+ */
+.tk-press {
+  position: relative;
+  border: none;
+  border-bottom: var(--lip, 4px) solid transparent;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 80ms var(--ease-out), filter var(--dur-1) var(--ease);
+}
+.tk-press::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--fill, var(--color-surface));
+  box-shadow:
+    0 var(--lip, 4px) 0 0 rgba(0, 0, 0, 0.2),
+    0 var(--lip, 4px) 0 0 var(--fill, var(--color-surface));
+  transition: background var(--dur-1) var(--ease), box-shadow 80ms var(--ease-out);
+}
+/* One filter serves every colour, which is why there is no hover token for
+   any of them. */
+.tk-press:hover:not(:disabled) { filter: brightness(1.08); }
+.tk-press:active:not(:disabled) { transform: translateY(var(--lip, 4px)); }
+.tk-press:active:not(:disabled)::before { box-shadow: none; }
+.tk-press:disabled {
+  transform: translateY(var(--lip, 4px));
+  cursor: default;
+}
+.tk-press:disabled::before { box-shadow: none; }
+
 /* ── module ──────────────────────────────────────────────────────────────── */
 
 .tk-module {
@@ -38,10 +95,6 @@
 .tk-module--gold { --tone: var(--gold); }
 .tk-module--violet { --tone: var(--violet); }
 
-/* The module's colour appears exactly twice in a module: on its number up
-   here, and on the stroke beside the open lesson. A tinted panel behind the
-   heading — which is what was here before — is a component-kit device, and
-   the reading shelves it claimed to match do not use one either. */
 .tk-module__n { color: var(--tone); }
 
 .tk-module__h {
@@ -52,7 +105,6 @@
   letter-spacing: -0.03em;
   line-height: 1.12;
 }
-
 .tk-module__p {
   margin: 8px 0 0;
   max-width: 56ch;
@@ -61,7 +113,6 @@
   line-height: 1.55;
   color: var(--color-text-muted);
 }
-
 .tk-module__state {
   display: flex;
   align-items: center;
@@ -70,18 +121,15 @@
   font-size: 0.78rem;
   color: var(--color-text-faint);
 }
-
-/* Four strokes, one per lesson. A filled pill reads as something loading;
-   this is a table of contents, and it is finished. */
 .tk-ticks { display: flex; gap: 5px; }
 .tk-tick {
   width: 18px;
-  height: 2px;
-  border-radius: 1px;
+  height: 3px;
+  border-radius: 2px;
   background: var(--color-border-strong);
   transition: background var(--dur-2) var(--ease);
 }
-.tk-tick--on { background: var(--color-text); }
+.tk-tick--on { background: var(--tone); }
 
 .tk-reset {
   margin-left: auto;
@@ -105,202 +153,321 @@
   color: var(--color-text-faint);
 }
 
-/* ── the lessons ─────────────────────────────────────────────────────────── */
-
-.tk-list {
-  margin: 24px 0 0;
-  padding: 0;
-  max-width: 680px;
-  list-style: none;
-}
-
-.tk-row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 44px 1fr auto;
-  gap: 0 20px;
-  align-items: baseline;
-  padding: 18px 0 20px;
-  border-top: 1px solid var(--color-border);
-}
-.tk-row:last-child { border-bottom: 1px solid var(--color-border); }
-
-/* The whole row is the target where there is somewhere to go. A button
-   element would bring its own baseline and its own focus box; this keeps the
-   row a row and lets :focus-visible from index.css do the rest. */
-.tk-row--go { cursor: pointer; }
-.tk-row--go:hover {
-  margin-inline: -16px;
-  padding-inline: 16px;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-}
-.tk-row--go:active { background: var(--color-surface-3); }
-
-/* Exactly one stroke in the margin says "here". It replaced a pulsing ring,
-   a hopping tooltip with a CSS triangle, and a coloured node — three markers
-   for one fact, two of them borrowed from 2012. */
-.tk-row--here::before {
-  content: "";
-  position: absolute;
-  left: -16px;
-  top: 18px;
-  bottom: 20px;
-  width: 2px;
-  border-radius: 1px;
-  background: var(--tone);
-}
-
-/* The numeral stays a numeral in every state: no ticks, no padlocks. What it
-   is doing is said by its colour, which is the whole device the landing page
-   uses for the same job. */
-.tk-row__n {
-  padding-top: 3px;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-faint);
-  transition: color var(--dur-1) var(--ease);
-}
-.tk-row--here .tk-row__n { color: var(--color-text); }
-.tk-row--locked .tk-row__n { color: var(--color-border-strong); }
-.tk-row--go:hover .tk-row__n { color: var(--tone); }
-
-.tk-row__h {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.12rem, 1.8vw, 1.3rem);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  color: var(--color-text-muted);
-  transition: color var(--dur-1) var(--ease);
-}
-.tk-row--here .tk-row__h {
-  font-size: clamp(1.2rem, 2vw, 1.42rem);
-  font-weight: 750;
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-}
-.tk-row--locked .tk-row__h { color: var(--color-text-faint); }
-.tk-row--go:hover .tk-row__h { color: var(--color-text); }
-
-.tk-row__p {
-  margin: 6px 0 0;
-  max-width: 52ch;
-  font-family: var(--font-caption);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
-}
-
-.tk-row__meta {
-  text-align: right;
-  font-size: 0.72rem;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-text-faint);
-  white-space: nowrap;
-}
+/* ── the path ────────────────────────────────────────────────────────────── */
 
 /*
- * The one filled thing on the screen, and it belongs to the lesson you can
- * start. Ink rather than the brand colour, for the reason index.css gives
- * where the token is defined: one unmistakable thing to press and restraint
- * everywhere else is most of what makes an interface look expensive.
+ * The lessons, as a path of circles.
+ *
+ * This was briefly a numbered list, on the argument that a list carries the
+ * same information with none of the borrowed brand. The information, yes —
+ * but not the pull: a row of type is something you read, and a node is
+ * something you press. Anton was right that the idea was good and the
+ * drawing was not, so what changed is the drawing.
+ *
+ * The geometry is measured rather than guessed. The node is 70 wide and 65
+ * tall with the circle filling all but the bottom 8, which makes it a very
+ * slightly flattened ellipse rather than a circle — that is what stops it
+ * reading as a sticker. The 8px under it is the lip from .tk-press. The
+ * zigzag runs 0, −45, −70, −45, 0, +45, +70, +45 with a vertical step of
+ * about 88, so the column breathes instead of marching.
  */
-.tk-go {
-  display: inline-flex;
+.tk-path {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: var(--control-h);
-  margin-top: 16px;
-  padding: 0 26px;
-  border: none;
-  border-radius: var(--radius-full);
-  background: var(--color-ink);
-  color: var(--color-on-ink);
-  font-family: inherit;
-  font-size: 0.97rem;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  cursor: pointer;
-  transition: background var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
+  width: 100%;
+  max-width: 592px;
+  margin: 34px auto 0;
 }
-.tk-go:hover { background: var(--color-ink-hover); transform: translateY(-2px); }
-.tk-go:active { transform: translateY(0) scale(0.985); }
-.tk-go:disabled {
-  background: var(--color-surface-3);
+
+.tk-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+/* Room for the badge over the current node, so it does not land on the label
+   of the node above it. Duolingo gets this for free by having no labels; we
+   need them, so the gap is paid for explicitly. */
+.tk-step--here { padding-top: 54px; }
+
+.tk-node-wrap { position: relative; }
+.tk-step:nth-child(8n + 1) { transform: translateX(0); }
+.tk-step:nth-child(8n + 2) { transform: translateX(-45px); }
+.tk-step:nth-child(8n + 3) { transform: translateX(-70px); }
+.tk-step:nth-child(8n + 4) { transform: translateX(-45px); }
+.tk-step:nth-child(8n + 5) { transform: translateX(0); }
+.tk-step:nth-child(8n + 6) { transform: translateX(45px); }
+.tk-step:nth-child(8n + 7) { transform: translateX(70px); }
+.tk-step:nth-child(8n + 8) { transform: translateX(45px); }
+
+.tk-node {
+  --lip: 8px;
+  --fill: var(--tone);
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 65px;
+  border-radius: 50%;
+  color: var(--color-on-primary);
+}
+/* The ellipse is the ::before from .tk-press; it has to lose the inherited
+   radius and take the node's own, or the lip squares off at the corners. */
+.tk-node::before { border-radius: 50%; }
+.tk-node--locked {
+  --fill: var(--color-surface-3);
   color: var(--color-text-faint);
   cursor: default;
-  transform: none;
 }
+.tk-node--done { --fill: color-mix(in srgb, var(--tone) 62%, var(--color-bg)); }
+.tk-node svg { position: relative; z-index: 1; }
+
+/* The badge over the lesson you can start. White with a hairline and a
+   rotated square for a tail, bobbing once a second — the one piece of
+   movement on this screen, and the one thing it has to say. */
+.tk-start {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% + 10px);
+  padding: 9px 14px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--tone);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: tk-bob 1000ms var(--ease-out) infinite alternate;
+}
+.tk-start::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border: 2px solid var(--color-border-strong);
+  border-top: none;
+  border-left: none;
+  border-radius: 0 0 2px 0;
+  background: var(--color-surface);
+  transform: rotate(45deg);
+}
+@keyframes tk-bob {
+  from { transform: translate(-50%, 0); }
+  to { transform: translate(-50%, -8px); }
+}
+
+.tk-label {
+  margin-top: 12px;
+  max-width: 190px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.tk-step--locked .tk-label { color: var(--color-text-faint); }
+.tk-label small {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-caption);
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: var(--color-text-faint);
+}
+
+/* Nodes arrive one after another. 70ms apart is under the threshold where it
+   feels like waiting and over the one where it looks like a glitch. */
+.tk-step { animation: tk-rise var(--dur-3) var(--ease-spring) backwards; }
+.tk-step:nth-child(1) { animation-delay: 0.02s; }
+.tk-step:nth-child(2) { animation-delay: 0.09s; }
+.tk-step:nth-child(3) { animation-delay: 0.16s; }
+.tk-step:nth-child(4) { animation-delay: 0.23s; }
+.tk-step:nth-child(5) { animation-delay: 0.3s; }
+.tk-step:nth-child(6) { animation-delay: 0.37s; }
+.tk-step:nth-child(7) { animation-delay: 0.44s; }
+.tk-step:nth-child(8) { animation-delay: 0.51s; }
+@keyframes tk-rise { from { opacity: 0; } }
 
 /* ── the player ──────────────────────────────────────────────────────────── */
 
+/*
+ * The lesson column.
+ *
+ * 920px rather than the 768 it inherited, and rather than fluid. Fluid past
+ * about 960 only moves the right-hand emptiness from outside the container to
+ * inside it, because a question, a paragraph and a quoted thread all have a
+ * real limit in characters. 920 reads as a page at 1280 and leaves 136px of
+ * margin at 1440, instead of 212px of nothing on each side.
+ *
+ * svh, not vh: on a phone vh is the height with the browser chrome hidden, so
+ * a 100vh column is always taller than the screen and always hides its own
+ * floor — the same reason landing.css uses svh.
+ *
+ * The six steps are the vertical rhythm. There is no spacing scale in
+ * index.css, and this file had sixteen different gaps picked by eye.
+ */
 .tk-player {
+  --gutter: clamp(20px, 2.5vw, 32px);
+  --s1: 6px;
+  --s2: 12px;
+  --s3: 20px;
+  --s4: 32px;
+  --s5: 48px;
+  --s6: 72px;
   display: flex;
   flex-direction: column;
-  min-height: min(78vh, 680px);
+  width: min(920px, 100%);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  min-height: calc(100svh - 150px);
 }
 
+/*
+ * The lesson's own header: a way back, what this lesson is, where you are in
+ * it — and the progress bar as the rule under all of it.
+ *
+ * What was here was a 13px grey word reading "Выйти", with no padding, no
+ * surface and no icon, beside a 3px hairline floating in the middle of the
+ * row. Nothing about it said "press me", the word reads as "sign out" in a
+ * product with accounts, and the bar read as grit. The learner also had no
+ * way of knowing which lesson they were in, since the player drops the page
+ * hero.
+ */
 .tk-top {
   display: flex;
   align-items: center;
   gap: 18px;
-  padding-bottom: 26px;
+  height: 56px;
 }
 .tk-leave {
-  flex: none;
-  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--control-h-sm);
+  margin-left: -10px;
+  padding-inline: 10px;
   border: none;
+  border-radius: var(--radius-full);
   background: none;
   font-family: inherit;
-  font-size: 0.82rem;
-  color: var(--color-text-faint);
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--color-text-muted);
   cursor: pointer;
-  transition: color var(--dur-1) var(--ease);
+  transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
-.tk-leave:hover { color: var(--color-text); }
+.tk-leave:hover { background: var(--color-surface-2); color: var(--color-text); }
+.tk-leave svg { flex: none; }
+
+.tk-where {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tk-count {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-faint);
+}
 
 /* Three pixels. Twelve is a health bar; this is the rule that runs along the
    top of a long read and fills as you go. */
+/*
+ * A proper bar: 16 tall, fully rounded, with a white highlight inset 4px on
+ * every side at 20% opacity. The highlight is three lines of CSS and it is
+ * the whole difference between a flat strip and something with a surface.
+ *
+ * It was a 3px hairline for one version, on the theory that a thin rule is
+ * more tasteful. It is — and it reads as a scratch rather than as progress,
+ * which is what a progress bar has one job to do.
+ */
 .tk-bar {
+  position: relative;
   flex: 1;
-  height: 3px;
-  background: var(--color-border);
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
   overflow: hidden;
 }
 .tk-bar__fill {
+  position: relative;
   height: 100%;
-  background: var(--color-ink);
-  transition: width var(--dur-3) var(--ease);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  transition: width 400ms ease;
+}
+.tk-bar__fill::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  opacity: 0.22;
 }
 
-.tk-stage { flex: 1; padding-bottom: 150px; }
+/*
+ * The question sits optically in the middle of what is left, and the footer
+ * stands on the floor. `margin-block: auto` on the inner wrapper rather than
+ * `justify-content: center` on the column: centred flex content whose height
+ * exceeds the box pushes its own top above the scroll origin, where it cannot
+ * be reached. With auto margins a tall screen simply resolves them to zero.
+ *
+ * The 150px of padding that used to be here was a reserve for a floating
+ * footer. This footer is in the flow, so it takes its own space, and the
+ * reserve was 150px of nothing at the end of every scroll.
+ */
+.tk-stage {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding-block: var(--s4) var(--s3);
+}
+.tk-stage__in { width: 100%; margin-block: auto; }
 
 /* One transition between steps, and one only. The file used to carry seven
    different kinds of motion — a pulse, a hop, a shake, two different scale
    pops, a drawn tick and a slide — which is a count, and the count itself is
    the tell. The rest of the app moves one way: fade and rise. */
-.tk-in { animation: fade-up var(--dur-2) var(--ease) backwards; }
-.tk-out { animation: tk-out 140ms var(--ease-out) forwards; }
-@keyframes tk-out { to { opacity: 0; transform: translateY(-8px); } }
+/* The screen that is leaving goes left and the one arriving comes from the
+   right, both 100px over 400ms. It reads as moving forward through a course
+   rather than as a form being redrawn. */
+.tk-in { animation: tk-in 400ms ease-out backwards; }
+.tk-out { animation: tk-out 400ms ease-out forwards; }
+@keyframes tk-in { from { opacity: 0; transform: translateX(100px); } }
+@keyframes tk-out { to { opacity: 0; transform: translateX(-100px); } }
 
+/* Named, not whispered. Duolingo labels every exercise this way and it
+   works; what did not work was a third pale grey thing in a row under two
+   other pale grey things, which is why the header above now carries weight
+   of its own and this carries colour. */
 .tk-kicker {
   display: block;
-  margin-bottom: 12px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  margin-bottom: var(--s2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-faint);
+  color: var(--color-primary);
 }
 
 .tk-ask {
-  margin: 0 0 26px;
-  max-width: 28ch;
+  margin: 0 0 var(--s4);
+  max-width: 34ch;
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.8vw, 1.6rem);
   font-weight: 750;
@@ -310,7 +477,7 @@
 
 /* A line being asked about, quoted the way prose quotes anything. */
 .tk-quote {
-  margin: -14px 0 24px;
+  margin: 0 0 var(--s4);
   padding-left: 16px;
   border-left: 2px solid var(--color-border-strong);
   max-width: 48ch;
@@ -320,7 +487,10 @@
 
 /* ── the explainer ───────────────────────────────────────────────────────── */
 
-.tk-rule { max-width: 46ch; }
+/* The measure belongs to the prose, not to the screen. It was on the wrapper,
+   so it throttled the grid of forms underneath as well — which is how four
+   short rows ended up 440px wide inside an 856px column. */
+.tk-rule { max-width: none; }
 .tk-rule__h {
   margin: 0 0 16px;
   font-family: var(--font-display);
@@ -331,237 +501,301 @@
 }
 .tk-rule__p {
   margin: 0;
+  max-width: 62ch;
   font-family: var(--font-caption);
   font-size: 1.02rem;
   line-height: 1.62;
   color: var(--color-text-muted);
 }
-.tk-rule__p + .tk-rule__p { margin-top: 14px; }
+.tk-rule__p + .tk-rule__p { margin-top: var(--s3); }
 
-.tk-forms { margin: 28px 0 0; }
-.tk-form {
+/*
+ * Two by two.
+ *
+ * Four items in one column was a 440×270 ribbon with 530px of nothing beside
+ * it. Two columns is the only balanced grid four things have, and stacking
+ * the code above its expansion removes the column that otherwise has to be
+ * wide enough for "thx · thnx · tnx" and then wastes that width on "np".
+ */
+.tk-forms {
   display: grid;
-  grid-template-columns: minmax(96px, auto) 1fr;
-  gap: 0 20px;
-  align-items: baseline;
-  padding: 13px 0;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 0 var(--s5);
+  align-content: start;
+  margin-top: var(--s5);
+  border-bottom: 1px solid var(--color-border);
+}
+.tk-form {
+  padding: 16px 0;
   border-top: 1px solid var(--color-border);
 }
-.tk-form:last-child { border-bottom: 1px solid var(--color-border); }
 .tk-form__short {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--color-text);
 }
-.tk-form__long { font-size: 0.97rem; color: var(--color-text-muted); }
+.tk-form__long {
+  display: block;
+  margin-top: var(--s1);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
 .tk-form__note {
   display: block;
-  margin-top: 3px;
+  margin-top: var(--s1);
+  max-width: 34ch;
   font-family: var(--font-caption);
   font-size: 0.86rem;
   line-height: 1.45;
   color: var(--color-text-faint);
 }
 
-/* ── a thread, quoted ────────────────────────────────────────────────────── */
+/* ── the thread ──────────────────────────────────────────────────────────── */
 
 /*
- * Not a mock-up of a phone.
+ * The messenger, and it earns its place.
  *
- * There was one: a rounded frame with a shadow, a gradient avatar, "· online"
- * hardcoded in Latin inside a Russian interface, and a timestamp under every
- * line. All of it was a picture of somebody else's app, and the one piece of
- * it that claimed something — online — was not even true. What the lesson
- * needs is the words and who said them.
+ * An abbreviation in a definition box is a fact; the same abbreviation at the
+ * end of somebody's reply is the thing being learnt, and the reason it lands
+ * is that the learner recognises the shape of the window it arrives in. This
+ * screen was briefly reduced to a quotation with speaker names, which was
+ * tidier and taught less.
+ *
+ * What is not here is the part that was somebody else's: a gradient avatar
+ * with a letter in it, and a hardcoded "· online" in Latin inside a Russian
+ * interface that was also not true. The frame, the sides, the tails and the
+ * timestamps stay, because those are what make it read as a chat.
  */
 .tk-thread {
+  width: 100%;
+  max-width: 480px;
   margin: 0;
-  padding-left: 18px;
-  border-left: 2px solid var(--color-border);
-  max-width: 56ch;
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
 }
-.tk-msg + .tk-msg { margin-top: 16px; }
-.tk-msg__who {
+.tk-thread__top {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+.tk-thread__face {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--tone, var(--color-primary)) 18%, var(--color-surface));
+  color: var(--tone, var(--color-primary));
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+.tk-thread__who { font-size: 0.9rem; font-weight: 700; }
+.tk-thread__sub {
   display: block;
-  margin-bottom: 3px;
+  margin-top: 1px;
   font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
   color: var(--color-text-faint);
 }
-.tk-msg--me .tk-msg__who { color: var(--color-ink); }
-.tk-msg__text {
-  /* Blocks, not spans. They were inline, so the Russian gloss ran on from the
-     end of the English line it was glossing — which is the one place in the
-     lesson where the two languages must not touch. */
-  display: block;
-  font-size: 1.02rem;
-  line-height: 1.6;
-  /* Lines in an English thread stay in Latin whatever the interface is set
-     to, so they get the sans the rest of the app reads English in. */
-  font-family: var(--font-sans);
-  animation: fade-up var(--dur-3) var(--ease) backwards;
+
+.tk-thread__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 16px 22px;
 }
-.tk-msg--me .tk-msg__text { font-weight: 600; }
-.tk-msg__gloss {
-  display: block;
-  margin-top: 4px;
-  font-family: var(--font-caption);
-  font-size: 0.85rem;
+.tk-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 82%;
+}
+.tk-msg--me { align-self: flex-end; align-items: flex-end; }
+/* Consecutive messages from the same side sit closer, the way they do in a
+   real client — the gap is what groups them. */
+.tk-msg + .tk-msg { margin-top: 2px; }
+.tk-msg--turn { margin-top: 12px; }
+
+.tk-msg__bubble {
+  padding: 10px 15px;
+  border-radius: 20px 20px 20px 7px;
+  background: var(--color-surface-2);
+  font-size: 0.95rem;
   line-height: 1.45;
+  animation: tk-say 420ms var(--ease-spring) backwards;
+}
+.tk-msg--me .tk-msg__bubble {
+  border-radius: 20px 20px 7px 20px;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+@keyframes tk-say {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+}
+
+.tk-msg__at {
+  margin-top: 3px;
+  padding-inline: 4px;
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-faint);
+}
+/* The Russian gloss belongs to the lesson, not to the conversation, so it
+   sits outside the bubble and in the caption face. */
+.tk-msg__gloss {
+  margin-top: 5px;
+  padding-left: 10px;
+  border-left: 2px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+  max-width: 38ch;
+  font-family: var(--font-caption);
+  font-size: 0.82rem;
+  line-height: 1.4;
   color: var(--color-text-muted);
+}
+.tk-msg--me .tk-msg__gloss {
+  padding-left: 0;
+  padding-right: 10px;
+  border-left: none;
+  border-right: 2px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+  text-align: right;
 }
 
 /* ── choosing ────────────────────────────────────────────────────────────── */
 
 /*
- * An option is a line of a list, not a button with a lip under it.
+ * An answer is a card with a socket under it, not a line of a list.
  *
- * Four near-identical classes used to carry the same 2px border, the same
- * radius and the same 3px coloured shadow — an option, a tile, half of a
- * pair and a room — so every exercise looked the same whatever it was
- * asking. They share one base now, and the differences between them are the
- * differences that matter.
+ * It was briefly a row on a hairline, and that was the wrong lesson learnt
+ * from "make it less template-like": stripping an element is not the same as
+ * designing it. What makes these feel good is the press — 2px of lip, and
+ * the card sinking into it — and the number badge, which gives the keyboard
+ * shortcut somewhere to live.
  */
-.tk-opts { max-width: 560px; }
+.tk-opts { display: grid; gap: 10px; max-width: 720px; }
 
 .tk-opt {
-  position: relative;
+  --lip: 2px;
+  --fill: var(--color-surface);
   display: grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 30px 1fr;
   gap: 0 16px;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
-  padding: 14px 0;
-  border: none;
-  border-top: 1px solid var(--color-border);
-  background: none;
-  font-family: inherit;
-  font-size: 1rem;
+  min-height: 60px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1.05rem;
   color: var(--color-text);
   text-align: left;
-  cursor: pointer;
-  transition: background var(--dur-1) var(--ease);
 }
-.tk-opt:last-child { border-bottom: 1px solid var(--color-border); }
-.tk-opt:hover:not(:disabled) {
-  margin-inline: -14px;
-  padding-inline: 14px;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-}
-.tk-opt:disabled { cursor: default; }
+.tk-opt::before { border: 2px solid var(--color-border-strong); }
+.tk-opt:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
 
 .tk-opt__n {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 8px;
+  font-size: 0.86rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  font-variant-numeric: tabular-nums;
   color: var(--color-text-faint);
-  transition: color var(--dur-1) var(--ease);
+  transition: border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
 
-/* The same stroke that marks the open lesson marks the chosen answer. One
-   sign for "this one" across the whole product. */
-.tk-opt::before {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 12px;
-  bottom: 12px;
-  width: 2px;
-  border-radius: 1px;
-  background: transparent;
-  transition: background var(--dur-1) var(--ease);
-}
-.tk-opt--on::before { background: var(--color-ink); }
-.tk-opt--on .tk-opt__n { color: var(--color-ink); }
-.tk-opt--on .tk-opt__text { font-weight: 700; }
+/* Chosen, right and wrong are the same construction in three tints: the fill,
+   the border and the type all move together, so none of them has to shout. */
+.tk-opt--on { --fill: var(--color-primary-softer); color: var(--color-primary); }
+.tk-opt--on::before { border-color: var(--color-primary); }
+.tk-opt--on .tk-opt__n { border-color: var(--color-primary); color: var(--color-primary); }
 
-.tk-opt--right::before { background: var(--color-success); }
-.tk-opt--right .tk-opt__n { color: var(--color-success); }
-.tk-opt--right .tk-opt__text { font-weight: 700; }
-.tk-opt--miss::before { background: var(--color-danger); }
-.tk-opt--miss .tk-opt__n { color: var(--color-danger); }
+.tk-opt--right { --fill: color-mix(in srgb, var(--color-success) 13%, var(--color-surface)); color: var(--color-success); }
+.tk-opt--right::before { border-color: var(--color-success); }
+.tk-opt--right .tk-opt__n { border-color: var(--color-success); color: var(--color-success); }
+
+.tk-opt--miss { --fill: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface)); color: var(--color-danger); }
+.tk-opt--miss::before { border-color: var(--color-danger); }
+.tk-opt--miss .tk-opt__n { border-color: var(--color-danger); color: var(--color-danger); }
+.tk-opt--miss { animation: tk-shake 420ms var(--ease); }
+
+@keyframes tk-shake {
+  10%, 90% { transform: translateX(-2px); }
+  30%, 70% { transform: translateX(5px); }
+  50% { transform: translateX(-5px); }
+}
 
 /* ── pairs ───────────────────────────────────────────────────────────────── */
 
 .tk-pairs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 24px;
-  max-width: 560px;
+  gap: 0 clamp(24px, 6vw, 72px);
+  max-width: 760px;
 }
+.tk-pairs > div { display: grid; gap: 10px; align-content: start; }
+
 .tk-pair {
-  display: block;
+  --lip: 2px;
+  --fill: var(--color-surface);
   width: 100%;
-  padding: 14px 0;
-  border: none;
-  border-top: 1px solid var(--color-border);
-  background: none;
-  font-family: inherit;
-  font-size: 0.98rem;
+  min-height: 56px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1.02rem;
   color: var(--color-text);
   text-align: left;
-  cursor: pointer;
-  transition: background var(--dur-1) var(--ease), color var(--dur-2) var(--ease);
 }
-.tk-pair:last-child { border-bottom: 1px solid var(--color-border); }
-.tk-pair:hover:not(:disabled) {
-  margin-inline: -12px;
-  padding-inline: 12px;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-}
-.tk-pair--on { font-weight: 700; }
+.tk-pair::before { border: 2px solid var(--color-border-strong); }
+.tk-pair:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
+.tk-pair--on { --fill: var(--color-primary-softer); color: var(--color-primary); }
+.tk-pair--on::before { border-color: var(--color-primary); }
+/* A joined pair becomes an empty socket rather than vanishing: the column
+   keeps its shape and the eye keeps its place. */
 .tk-pair--done {
-  color: var(--color-text-faint);
-  text-decoration: line-through;
-  text-decoration-color: var(--color-border-strong);
-  cursor: default;
+  --fill: var(--color-surface-2);
+  color: transparent;
 }
+.tk-pair--done::before { border-color: transparent; }
+.tk-pair--miss { animation: tk-shake 420ms var(--ease); }
 
 /* ── tiles ───────────────────────────────────────────────────────────────── */
 
-/*
- * The one place an object is right: a tile is picked up and put down, so it
- * should look like a thing rather than a line. It keeps a border and a
- * surface; what it loses is the coloured lip underneath, which was a mobile
- * game's idea of weight.
- */
 .tk-line {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  gap: 8px;
-  min-height: 60px;
-  padding: 10px 0 14px;
-  border-bottom: 1px solid var(--color-border-strong);
+  gap: 10px;
+  min-height: 96px;
+  padding: 10px 0 18px;
+  border-bottom: 2px solid var(--color-border);
 }
-.tk-bank { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+.tk-bank { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s5); }
+
 .tk-tile {
-  padding: 10px 15px;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  font-family: inherit;
-  font-size: 0.97rem;
+  --lip: 2px;
+  --fill: var(--color-surface);
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 1.05rem;
   color: var(--color-text);
-  cursor: pointer;
-  transition: transform var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
 }
-.tk-tile:hover:not(:disabled) { background: var(--color-surface-2); }
-.tk-tile:active { transform: scale(0.96); }
+.tk-tile::before { border: 2px solid var(--color-border-strong); }
+.tk-tile:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
+/* A spent tile is a pressed-in socket of the same size, not a gap. */
 .tk-tile--spent {
-  border-color: transparent;
-  background: var(--color-surface-2);
-  cursor: default;
-  /* Hidden rather than transparent: the slot keeps its width either way, and
-     a transparent colour comes back in forced-colours mode. */
-  visibility: hidden;
+  --fill: var(--color-surface-2);
+  color: transparent;
 }
+.tk-tile--spent::before { border-color: transparent; }
 
 /* ── typing ──────────────────────────────────────────────────────────────── */
 
@@ -608,118 +842,148 @@
 
 /* ── where it fits ───────────────────────────────────────────────────────── */
 
-.tk-rooms { max-width: 520px; }
-.tk-room {
-  position: relative;
+.tk-rooms {
   display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 0 16px;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 10px var(--s5);
+  max-width: 760px;
+}
+.tk-room {
+  --lip: 2px;
+  --fill: var(--color-surface);
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 0 14px;
   align-items: center;
   width: 100%;
-  padding: 14px 0;
-  border: none;
-  border-top: 1px solid var(--color-border);
-  background: none;
-  font-family: inherit;
-  font-size: 1rem;
+  min-height: 56px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1.02rem;
   color: var(--color-text);
   text-align: left;
-  cursor: pointer;
-  transition: background var(--dur-1) var(--ease);
 }
-.tk-room:last-child { border-bottom: 1px solid var(--color-border); }
-.tk-room:hover:not(:disabled) {
-  margin-inline: -14px;
-  padding-inline: 14px;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-2);
-}
-.tk-room:disabled { cursor: default; }
+.tk-room::before { border: 2px solid var(--color-border-strong); }
+.tk-room:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
 .tk-room__box {
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-sm);
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 8px;
   color: transparent;
   transition: border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
+.tk-room--on { --fill: var(--color-primary-softer); color: var(--color-primary); }
+.tk-room--on::before { border-color: var(--color-primary); }
 .tk-room--on .tk-room__box {
-  border-color: var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-on-ink);
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
-.tk-room--right::before,
-.tk-room--miss::before {
-  content: "";
-  position: absolute;
-  left: -14px;
-  top: 12px;
-  bottom: 12px;
-  width: 2px;
-  border-radius: 1px;
-}
-.tk-room--right::before { background: var(--color-success); }
-.tk-room--miss::before { background: var(--color-danger); }
+.tk-room--right::before { border-color: var(--color-success); }
+.tk-room--miss::before { border-color: var(--color-danger); }
+.tk-room--miss { animation: tk-shake 420ms var(--ease); }
 
 /* ── the verdict ─────────────────────────────────────────────────────────── */
 
 /*
- * A rule and a word, not a coloured drawer with a tick in a circle.
- *
- * The circle was already hidden on phones, which was the answer: an element
- * that can be dropped on half the devices with nothing lost is not carrying
- * anything on the other half either. What carries the verdict is the colour
- * of one hairline and three characters of small capitals; what carries the
- * teaching is the sentence underneath, which is why it is set in the caption
- * face and given a measure rather than run full width.
+ * The panel grows out of the floor, and its contents arrive with a slight
+ * overshoot a beat later. Two separate movements rather than one — measured
+ * off Duolingo, where the panel is a 300ms max-height and the contents are
+ * 200ms on a curve whose second control point is above 1, so they overrun
+ * their mark and settle. That pair is most of what people mean when they say
+ * an app feels good.
  */
 .tk-foot {
   position: sticky;
   bottom: 0;
-  margin: 0 calc(var(--gutter, 20px) * -1);
-  padding: 20px var(--gutter, 20px) calc(20px + env(safe-area-inset-bottom));
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 22px var(--gutter) calc(22px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--color-border);
   background: var(--color-bg);
 }
-.tk-foot--right { border-top: 2px solid var(--color-success); }
-.tk-foot--wrong { border-top: 2px solid var(--color-danger); }
+.tk-foot--right {
+  border-top-color: transparent;
+  background: color-mix(in srgb, var(--color-success) 14%, var(--color-bg));
+}
+.tk-foot--wrong {
+  border-top-color: transparent;
+  background: color-mix(in srgb, var(--color-danger) 13%, var(--color-bg));
+}
 
 .tk-foot__in {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin: 0 auto;
-  max-width: 820px;
+  gap: 18px;
+  min-height: var(--control-h);
 }
-.tk-foot__said {
-  flex: 1;
-  min-width: 0;
-  animation: fade-up var(--dur-2) var(--ease) backwards;
+.tk-foot__mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-success);
 }
+.tk-foot--wrong .tk-foot__mark { color: var(--color-danger); }
+.tk-foot__said { flex: 1; min-width: 0; }
 .tk-foot__h {
   display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
   color: var(--color-success);
 }
 .tk-foot--wrong .tk-foot__h { color: var(--color-danger); }
 .tk-foot__why {
   display: block;
-  margin-top: 5px;
+  margin-top: 4px;
   max-width: 64ch;
   font-family: var(--font-caption);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--color-text) 78%, transparent);
 }
+
+/* The two movements. */
+.tk-foot--right .tk-foot__in,
+.tk-foot--wrong .tk-foot__in {
+  animation: tk-land 200ms cubic-bezier(0.35, 1.8, 0.35, 0.83) backwards;
+}
+@keyframes tk-land {
+  from { opacity: 0; transform: translateY(14px); }
+}
+
+/* ── the button ──────────────────────────────────────────────────────────── */
+
+.tk-go {
+  --lip: 4px;
+  --fill: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: var(--control-h);
+  padding: 0 24px;
+  border-radius: 16px;
+  color: var(--color-on-primary);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tk-go:disabled { --fill: var(--color-surface-3); color: var(--color-text-faint); }
+.tk-foot--wrong .tk-go { --fill: var(--color-danger); color: #fff; }
+.tk-done .tk-go { margin-top: 28px; }
 
 /* ── the end ─────────────────────────────────────────────────────────────── */
 
-.tk-done { padding: 56px 0; max-width: 520px; }
+.tk-done { max-width: 560px; }
 .tk-done__n {
   font-family: var(--font-display);
   font-size: clamp(3rem, 10vw, 5rem);
@@ -749,20 +1013,37 @@
 
 /* ── narrow ──────────────────────────────────────────────────────────────── */
 
+/* Breakpoint blocks live at the end of the file. CSS order beats specificity,
+   and a media query placed above the rule it overrides silently loses — the
+   project has been bitten by that before. */
+@media (max-width: 760px) {
+  .tk-forms,
+  .tk-rooms {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* Back to code-on-the-left on a phone, where vertical space is cheap. */
+  .tk-form {
+    display: grid;
+    grid-template-columns: minmax(92px, auto) 1fr;
+    gap: 0 18px;
+    align-items: baseline;
+  }
+  .tk-form__long { margin-top: 0; }
+}
+
 @media (max-width: 640px) {
-  .tk-row {
-    grid-template-columns: 32px 1fr;
-    gap: 0 14px;
-  }
-  /* The meta column moves under the title rather than squeezing the title. */
-  .tk-row__meta {
-    grid-column: 2;
-    margin-top: 8px;
-    text-align: left;
-  }
-  .tk-row--go:hover { margin-inline: -12px; padding-inline: 12px; }
-  .tk-row--here::before { left: -10px; }
+  /* The zigzag narrows so the labels of adjacent nodes stop colliding. */
+  .tk-step:nth-child(8n + 2),
+  .tk-step:nth-child(8n + 4) { transform: translateX(-30px); }
+  .tk-step:nth-child(8n + 3) { transform: translateX(-48px); }
+  .tk-step:nth-child(8n + 6),
+  .tk-step:nth-child(8n + 8) { transform: translateX(30px); }
+  .tk-step:nth-child(8n + 7) { transform: translateX(48px); }
+  .tk-label { max-width: 150px; }
   .tk-pairs { gap: 0 14px; }
+  .tk-top { height: 46px; }
+  .tk-where { display: none; }
   .tk-foot__in { gap: 14px; }
   .tk-go { padding: 0 20px; }
 }
@@ -781,9 +1062,14 @@
 @media (prefers-reduced-motion: reduce) {
   .tk-in,
   .tk-out,
-  .tk-msg__text,
-  .tk-foot__said {
+  .tk-msg__bubble,
+  .tk-step,
+  .tk-start,
+  .tk-opt--miss,
+  .tk-pair--miss,
+  .tk-room--miss,
+  .tk-foot--right .tk-foot__in,
+  .tk-foot--wrong .tk-foot__in {
     animation: none !important;
   }
-  .tk-go:hover { transform: none; }
 }

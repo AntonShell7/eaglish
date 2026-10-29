@@ -65,6 +65,12 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   const step = steps[index];
   const last = index >= steps.length - 1;
+  /* How many questions are behind us. The header used to divide by the number
+     of screens while the result divided by the number of questions, so one
+     lesson was two different lengths depending which end you read. */
+  const answered = steps
+    .slice(0, index + (judged ? 1 : 0))
+    .filter((s) => s.kind !== "rule" && s.kind !== "chat").length;
 
   /** Per-step answer state. Each exercise owns its own shape. */
   const [picked, setPicked] = useState<number | null>(null);
@@ -195,7 +201,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     window.setTimeout(() => {
       setIndex((was) => was + 1);
       setLeaving(false);
-    }, 140);
+    }, 180);
   }, [last, lesson]);
 
   advanceRef.current = advance;
@@ -231,7 +237,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
         <span className="tk-done__h">{t("track.finish")}</span>
         <p className="tk-done__p">{lesson.titleRu}</p>
-        <button type="button" className="tk-go" onClick={onExit}>
+        <button type="button" className="tk-press tk-go" onClick={onExit}>
           {t("track.toPath")}
         </button>
       </div>
@@ -242,20 +248,32 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   return (
     <div className="tk-player">
+      {/* Back, where you are, how far in — and the bar as the rule under all
+          three. The learner used to have none of this: the player drops the
+          page hero, so without a title here there was nothing on screen
+          saying which lesson was open. */}
       <div className="tk-top">
         <button type="button" className="tk-leave" onClick={onExit}>
-          {t("track.leave")}
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7" />
+          </svg>
+          {t("track.toPath")}
         </button>
+        <span className="tk-where">{lesson.titleRu}</span>
+        <span className="tk-count">
+          {Math.min(answered + 1, asked)} / {asked}
+        </span>
         <div className="tk-bar">
           <div
             className="tk-bar__fill"
-            style={{ width: `${((index + (judged ? 1 : 0)) / steps.length) * 100}%` }}
+            style={{ width: `${(answered / Math.max(asked, 1)) * 100}%` }}
           />
         </div>
       </div>
 
       <div className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index}>
         <span className="tk-kicker">{t(`track.kind.${step.kind}`)}</span>
+        <div className="tk-stage__in">
         <StepBody
           step={step}
           judged={judged}
@@ -275,6 +293,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           fieldRef={fieldRef}
           tone={module.tone}
         />
+        </div>
       </div>
 
       <Foot judged={judged} ready={ready} step={step} onCheck={check} onNext={advance} last={last} />
@@ -307,7 +326,7 @@ function Foot({
       <div className="tk-foot">
         <div className="tk-foot__in">
           <span className="tk-foot__said" />
-          <button type="button" className="tk-go" disabled={!ready} onClick={onCheck}>
+          <button type="button" className="tk-press tk-go" disabled={!ready} onClick={onCheck}>
             {silent ? t("track.gotIt") : t("track.check")}
           </button>
         </div>
@@ -320,6 +339,11 @@ function Foot({
   return (
     <div className={`tk-foot tk-foot--${judged}`}>
       <div className="tk-foot__in">
+        <span className="tk-foot__mark">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            {judged === "right" ? <path d="M5 13l4 4L19 7" /> : <path d="M7 7l10 10M17 7L7 17" />}
+          </svg>
+        </span>
         <span className="tk-foot__said">
           <span className="tk-foot__h">
             {judged === "right" ? t("track.right") : t("track.wrong")}
@@ -328,7 +352,7 @@ function Foot({
         </span>
         {/* The same ink button, whatever the verdict. A red "continue" marks
             the way forward as an error, and it is not one. */}
-        <button type="button" className="tk-go" onClick={onNext}>
+        <button type="button" className="tk-press tk-go" onClick={onNext}>
           {last ? t("track.finishBtn") : t("track.next")}
         </button>
       </div>
@@ -439,20 +463,38 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.titleRu}</h2>
-          {/* A quoted exchange, not a drawing of a phone. The names carry who
-              is speaking; a right-hand alignment and a coloured bubble would
-              be borrowing somebody else's interface to say the same thing. */}
-          <blockquote className="tk-thread">
-            {step.lines.map((line, i) => (
-              <div className={`tk-msg${line.me ? " tk-msg--me" : ""}`} key={i}>
-                <span className="tk-msg__who">{line.me ? t("track.you") : step.withWhom}</span>
-                <span className="tk-msg__text" style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
-                  {line.text}
-                </span>
-                {line.glossRu && <span className="tk-msg__gloss">{line.glossRu}</span>}
-              </div>
-            ))}
-          </blockquote>
+          {/* The window itself, because recognising the window is half of why
+              the expression lands. What it does not have is a gradient avatar
+              or a hardcoded "online" — those were somebody else's interface
+              and the second one was not even true. */}
+          <div className="tk-thread">
+            <div className="tk-thread__top">
+              <span className="tk-thread__face">{step.withWhom.slice(0, 1)}</span>
+              <span>
+                <span className="tk-thread__who">{step.withWhom}</span>
+                <span className="tk-thread__sub">{t("track.threadSub")}</span>
+              </span>
+            </div>
+            <div className="tk-thread__body">
+              {step.lines.map((line, i) => (
+                <div
+                  className={`tk-msg${line.me ? " tk-msg--me" : ""}${
+                    i > 0 && Boolean(step.lines[i - 1].me) !== Boolean(line.me) ? " tk-msg--turn" : ""
+                  }`}
+                  key={i}
+                >
+                  <span
+                    className="tk-msg__bubble"
+                    style={{ animationDelay: `${0.12 + i * 0.16}s` }}
+                  >
+                    {line.text}
+                  </span>
+                  <span className="tk-msg__at">{line.at}</span>
+                  {line.glossRu && <span className="tk-msg__gloss">{line.glossRu}</span>}
+                </div>
+              ))}
+            </div>
+          </div>
         </>
       );
 
@@ -472,12 +514,12 @@ function StepBody(p: BodyProps) {
                 <button
                   type="button"
                   key={option}
-                  className={`tk-opt${state}`}
+                  className={`tk-press tk-opt${state}`}
                   disabled={judged !== null}
                   onClick={() => p.setPicked(i)}
                 >
                   <span className="tk-opt__n">{i + 1}</span>
-                  <span className="tk-opt__text">{option}</span>
+                  <span>{option}</span>
                 </button>
               );
             })}
@@ -495,7 +537,7 @@ function StepBody(p: BodyProps) {
                 <button
                   type="button"
                   key={left}
-                  className={`tk-pair${
+                  className={`tk-press tk-pair${
                     p.joined.includes(left)
                       ? " tk-pair--done"
                       : p.leftPick === left
@@ -514,7 +556,7 @@ function StepBody(p: BodyProps) {
                 <button
                   type="button"
                   key={value}
-                  className={`tk-pair${p.joined.includes(value) ? " tk-pair--done" : ""}`}
+                  className={`tk-press tk-pair${p.joined.includes(value) ? " tk-pair--done" : ""}`}
                   disabled={p.joined.includes(value)}
                   onClick={() => p.tapRight(value)}
                 >
@@ -537,7 +579,7 @@ function StepBody(p: BodyProps) {
               <button
                 type="button"
                 key={`${tileIndex}-${slot}`}
-                className="tk-tile"
+                className="tk-press tk-tile"
                 disabled={judged !== null}
                 onClick={() => p.setBuilt((was) => was.filter((_, i) => i !== slot))}
               >
@@ -550,7 +592,7 @@ function StepBody(p: BodyProps) {
               <button
                 type="button"
                 key={`${tile}-${i}`}
-                className={`tk-tile${p.built.includes(i) ? " tk-tile--spent" : ""}`}
+                className={`tk-press tk-tile${p.built.includes(i) ? " tk-tile--spent" : ""}`}
                 disabled={p.built.includes(i) || judged !== null}
                 onClick={() => p.setBuilt((was) => [...was, i])}
               >
@@ -617,7 +659,7 @@ function StepBody(p: BodyProps) {
               return (
                 <button
                   type="button"
-                  className={`tk-room${state}`}
+                  className={`tk-press tk-room${state}`}
                   key={room.labelRu}
                   aria-pressed={ticked}
                   disabled={judged !== null}

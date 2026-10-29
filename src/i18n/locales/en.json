@@ -1062,7 +1062,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "How people actually write and talk",
+    "intro": "English from chats and conversations",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",
@@ -1440,7 +1440,7 @@
   },
   "track": {
     "start": "Start",
-    "soon": "This module is still being written. The path continues here.",
+    "soon": "This module is still being written — it opens later.",
     "lessonCount_one": "{{count}} lesson",
     "lessonCount_other": "{{count}} lessons",
     "standing": "{{done}} of {{total}} lessons",
@@ -1462,14 +1462,14 @@
     "scoreSteps": "screens",
     "toPath": "Back to the path",
     "kind": {
-      "rule": "Explainer",
+      "rule": "New shorthand",
       "chat": "A real thread",
-      "choice": "Question",
-      "match": "Pairs",
+      "choice": "Pick an answer",
+      "match": "Match the pairs",
       "assemble": "Build the phrase",
-      "type": "Type it",
-      "gap": "Missing word",
-      "register": "Where it fits"
+      "type": "Type it yourself",
+      "gap": "Fill the gap",
+      "register": "Where it is written"
     },
     "moduleN": "Module {{n}}",
     "progress": "{{done}} of {{total}}",
@@ -1479,7 +1479,7 @@
     "passed": "done",
     "opensAfter": "opens after {{n}}",
     "again": "Start over",
-    "againSure": "Erase it?",
-    "you": "You"
+    "againSure": "Reset progress?",
+    "threadSub": "in a messenger"
   }
 }

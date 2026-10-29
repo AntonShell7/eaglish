@@ -40,6 +40,14 @@ import type { Register } from "./slangDialogues";
  * with the moment the knowledge pays — a native carrying on at the same speed
  * without once noticing they are writing to a foreigner.
  *
+ * A heading names the subject, not the conclusion. It is written for somebody
+ * seeing the screen for the first time, who does not yet know the topic:
+ * "Спасибо здесь укладывается в две буквы" is what you understand *after*
+ * reading the screen, which makes it a caption on the ending rather than a
+ * way in. The test is to read the heading with everything else covered and
+ * answer "what is this about" — if the answer is "I am about to find out",
+ * it gets rewritten and the clever line moves into the first sentence.
+ *
  * Second person throughout, and it is "ты". Half the module addressed the
  * learner as "вы" and half as "ты" — inside one lesson, which is the kind of
  * seam that makes a product feel assembled from pieces.
@@ -191,15 +199,15 @@ export interface TrackModule {
 
 const thanks: TrackLesson = {
   id: "thanks",
-  title: "Writing thanks like a native",
-  titleRu: "Писать спасибо как носитель",
+  title: "Writing thanks in two characters",
+  titleRu: "Писать спасибо в два символа",
   subtitleRu: "tq · thx · tysm · np",
   steps: [
     {
       kind: "rule",
       id: "thanks-rule",
       title: "Thanks fits into two letters here",
-      titleRu: "Спасибо здесь укладывается в две буквы",
+      titleRu: "Как в чатах пишут спасибо",
       body: "Thank you is rarely written out in a message. Two or three letters take its place, and everybody writes that way.",
       bodyRu:
         "Thank you целиком в сообщениях почти не пишут — вместо него две-три буквы, и так пишут все: школьники, коллеги, клиенты. Разберёшь их — и чужой чат перестанет быть набором согласных.\n\nА когда ответишь своим thx вместо длинного Thank you very much, собеседник даже не задумается, что пишет не носителю: просто продолжит разговор в том же темпе. Четыре коротких слова — и переписка идёт на равных.",
@@ -285,7 +293,7 @@ const replies: TrackLesson = {
       kind: "rule",
       id: "replies-rule",
       title: "You're welcome has four shades here",
-      titleRu: "У «пожалуйста» четыре разных оттенка",
+      titleRu: "Четыре ответа на спасибо",
       body: "There is no single you're welcome in English chat. The four replies differ in how much the favour is being played down.",
       bodyRu:
         "На спасибо в английском не отвечают одним словом на все случаи. np — «не вопрос», yw — ровное «пожалуйста», no worries — «да брось», anytime — «обращайся ещё».\n\nРазница слышна: ответил np на мелочь — и разговор идёт дальше легко; ответил yw — и прозвучал чуть официальнее, чем хотел. Выберешь нужное из четырёх — и собеседник почувствует ровно то, что ты имел в виду.",
@@ -363,7 +371,7 @@ const goodbyes: TrackLesson = {
       kind: "rule",
       id: "goodbyes-rule",
       title: "brb is not goodbye",
-      titleRu: "brb — это не прощание",
+      titleRu: "Уйти на минуту и уйти совсем",
       body: "brb means somebody stepped away and is coming back. Reading it as goodbye and leaving is the mistake everybody makes once.",
       bodyRu:
         "brb значит, что человек отошёл на минуту и вернётся. Прочитать его как «пока» и уйти — ошибка, которую делают ровно один раз: собеседник возвращается, пишет back, а тебя уже нет.\n\nОстальные три — настоящие прощания, и выбор между ними говорит, когда разговор продолжится: cya — «увидимся», ttyl — «спишемся позже», gtg — «всё, бегу». Одна строка на выходе, и чат закрыт так же ровно, как закрыл бы носитель.",
@@ -448,8 +456,8 @@ const goodbyes: TrackLesson = {
 
 const check: TrackLesson = {
   id: "chat-check",
-  title: "No prompts this time",
-  titleRu: "Переписка без подсказок",
+  title: "Check yourself",
+  titleRu: "Проверить себя",
   subtitleRu: "Весь модуль вперемешку",
   review: true,
   steps: [
@@ -522,7 +530,7 @@ export const trackModules: TrackModule[] = [
   {
     id: "chat",
     titleRu: "Переписка",
-    subtitleRu: "Сокращения, без которых чужие сообщения не читаются",
+    subtitleRu: "Сокращения, которые встречаются в любом чате",
     tone: "mint",
     lessons: [thanks, replies, goodbyes, check],
   },
