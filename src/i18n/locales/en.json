@@ -14,7 +14,7 @@
     "signUp": "Sign up",
     "listeningSoon": "Listening · soon",
     "dictation": "Listening",
-    "slang": "Real English",
+    "slang": "Slang",
     "more": "More",
     "dictationShort": "Listening",
     "moreTitle": "More sections",
@@ -111,7 +111,7 @@
       "writing": "Get short writing prompts and structured feedback on grammar and style.",
       "vocabulary": "Every word you save comes back for review, right when you need it.",
       "dictation": "Listen and write it down. A word you miss collects itself, with the sentence it appeared in.",
-      "slang": "Native dialogues: slang, idioms and expressions that do not translate word by word."
+      "slang": "English beyond the textbook"
     }
   },
   "reading": {
@@ -414,7 +414,7 @@
     "section": {
       "reading": "Reading",
       "listening": "Listening",
-      "slang": "Real English",
+      "slang": "Slang",
       "vocabulary": "Vocabulary",
       "writing": "Use your words",
       "other": "Elsewhere"
@@ -585,7 +585,7 @@
     "heroSub": "Everything you need to use English with confidence, in one place: boost your vocabulary, become more well-read, improve your English listening skills, and learn new words and phrases by methods that have evidence behind them. Find your freedom in English — like an eagle in the sky 🦅",
     "indexReading": "Reading",
     "indexListening": "Listening",
-    "indexSlang": "Real English",
+    "indexSlang": "Slang",
     "indexVocabulary": "Vocabulary"
   },
   "dashboard": {
@@ -1062,7 +1062,7 @@
     "decline": "Decline"
   },
   "slangModule": {
-    "intro": "English from chats and conversations",
+    "intro": "English beyond the textbook",
     "shelfMeta": "{{dialogues}} dialogues, {{expressions}} expressions. Every conversation was written for Eaglish.",
     "cardMeta": "{{count}} expressions",
     "backToList": "Back to the dialogues",
@@ -1303,7 +1303,7 @@
     "choice": {
       "reading": "Text",
       "listening": "Dictation",
-      "slang": "Real English"
+      "slang": "Slang"
     },
     "reviewNothingYet": "Nothing to review yet — words arrive once you start saving them.",
     "reviewNameNew": "First review of your new words",
@@ -1440,13 +1440,12 @@
   },
   "track": {
     "start": "Start",
-    "soon": "This module is still being written — it opens later.",
-    "lessonCount_one": "{{count}} lesson",
-    "lessonCount_other": "{{count}} lessons",
+    "pathEyebrow": "Your path · 3 formats",
+    "pathTitle": "From messages to natural speech",
+    "pathNote": "Every three lessons make a new cycle: chat shorthand, idioms and natural reactions. Each cycle ends with a check and no new rules.",
+    "formatsLabel": "The three lesson formats",
+    "completed": "completed",
     "standing": "{{done}} of {{total}} lessons",
-    "intro": "Short lessons on how people actually talk and text. One lesson is five minutes.",
-    "oldShelf": "By subject",
-    "oldShelfNote": "The dialogues and lessons that used to live here. They stay until the path outgrows them.",
     "check": "Check",
     "next": "Continue",
     "gotIt": "Got it",
@@ -1462,22 +1461,23 @@
     "scoreSteps": "screens",
     "toPath": "Back to the path",
     "kind": {
-      "rule": "New shorthand",
-      "chat": "A real thread",
+      "rule": "New expressions",
+      "chat": "An example in context",
       "choice": "Pick an answer",
       "match": "Match the pairs",
       "assemble": "Build the phrase",
       "type": "Type it yourself",
       "gap": "Fill the gap",
-      "register": "Where it is written"
+      "register": "Where it belongs"
     },
-    "moduleN": "Module {{n}}",
-    "progress": "{{done}} of {{total}}",
-    "stepCount_one": "{{count}} step",
-    "stepCount_other": "{{count}} steps",
+    "lessonKind": {
+      "chat": "Messaging",
+      "idiom": "Idioms",
+      "speech": "Natural speech",
+      "review": "Check yourself"
+    },
     "minutes": "~{{count}} min",
     "passed": "done",
-    "opensAfter": "opens after {{n}}",
     "again": "Start over",
     "againSure": "Reset progress?",
     "threadSub": "in a messenger"
