@@ -40,13 +40,13 @@ const gapTranslations: Record<string, string> = {
   "get under someone's skin": "Его постоянные жалобы действительно действуют мне на нервы.",
   "I'm dead": "Это видео было уморительным. Я умираю со смеху.",
   "no way": "Он снова выиграл? Не может быть!",
-  "that's wild": "Она за одну ночь переехала в другую страну? Это невероятно.",
+  "that's wild": "Она за одну ночь переехала в другую страну? Вот это да!",
   wyd: "Чем занимаешься сегодня вечером?",
   lmk: "Дай мне знать, если сможешь прийти.",
-  nvm: "Неважно, я нашёл это.",
+  nvm: "Неважно, я уже всё понял.",
   "on the same page": "Давай обсудим ещё раз, чтобы убедиться, что мы одинаково понимаем план.",
   "off the hook": "Тебе больше не нужно помогать. Ты свободен от этой обязанности.",
-  "fair enough": "Тебе не понравилось? Логично, принято.",
+  "fair enough": "Тебе не понравилось? Справедливо, принято.",
   dude: "Чувак, это было потрясающе.",
   kinda: "Шоу было немного скучным.",
   fr: "Я уже заплатил, серьёзно.",
@@ -57,8 +57,8 @@ const gapTranslations: Record<string, string> = {
   "you wish": "Думаешь, что выиграешь? Мечтай.",
   "give me a break": "Ты ждёшь, что я в это поверю? Да брось.",
   rn: "Я прямо сейчас на работе.",
-  ikr: "Здесь дорого. Да уж, вот именно.",
-  smh: "Он снова нам солгал, ну и ну.",
+  ikr: "Дэн такой неорганизованный. Да уж, вот именно.",
+  smh: "Он снова нам солгал. Ну и ну.",
   "over the moon": "Услышав новость, она была на седьмом небе от счастья.",
   "on cloud nine": "После свадьбы он был в полном восторге.",
   "chill out": "С нами всё в порядке. Просто успокойся.",
@@ -66,9 +66,9 @@ const gapTranslations: Record<string, string> = {
   bitching: "Хватит ныть о погоде.",
   ngl: "Если честно, я не ожидал победить.",
   irl: "Мы познакомились онлайн, но ни разу не встречались в реальной жизни.",
-  aka: "Майя, также известная как девушка из моего класса, уже здесь.",
+  aka: "Майя, также известная как Мэй, уже здесь.",
   "on edge": "Я всё утро на нервах.",
-  "butterflies in my stomach": "Перед свиданием я всегда чувствую трепет и волнение внутри.",
+  "butterflies in my stomach": "Перед свиданием у меня всегда бабочки в животе.",
   gonna: "Я собираюсь позвонить ей сегодня вечером.",
   wanna: "Хочешь посмотреть фильм?",
   gotta: "Сначала мне нужно это закончить.",
@@ -98,6 +98,12 @@ const gapTranslations: Record<string, string> = {
   bullshit: "Его объяснение — полная чушь.",
 };
 
+const gapAnswerOverrides: Record<string, string[]> = {
+  "get under someone's skin": ["get under my skin"],
+  "change my mind": ["changed my mind"],
+  "kick someone's butt": ["kick their butt"],
+};
+
 function e(
   short: string,
   meaningRu: string,
@@ -117,6 +123,7 @@ function e(
     before,
     after,
     gapRu: gapTranslations[short],
+    gapAnswers: gapAnswerOverrides[short],
     translationRu,
     translationEn,
     aliases,
@@ -142,14 +149,14 @@ const chatHonesty: LessonSpec = {
   expressions: [
     e("thx", "спасибо", "Th — начало thanks, а x передаёт звук «кс» в конце слова.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
     e("tbh", "честно говоря", "Первая буква каждого слова: to be honest. Вводит откровенное мнение.", ["кстати", "я не знаю"], "", ", the ending surprised me.", "Честно говоря, мне понравился фильм.", ["tbh, I liked the movie", "tbh I liked the movie", "to be honest, I liked the movie"], ["to be honest"]),
-    e("tq", "спасибо", "T — thank, а q — you: название буквы q звучит как you. Встречается реже, чем thx.", ["кстати", "пожалуйста"], "", " for the notes!", "Спасибо, что прислал ссылку!", ["tq for sending the link", "thank you for sending the link"], ["thank you"]),
+    e("tq", "спасибо", "T — thank, а q обозначает you по созвучию: /kjuː/ заканчивается тем же звуком, что /juː/. Встречается реже, чем thx.", ["кстати", "пожалуйста"], "", " for the notes!", "Спасибо, что прислал ссылку!", ["tq for sending the link", "thank you for sending the link"], ["thank you"]),
   ],
   scenario: {
-    promptRu: "Как поблагодарить и добавить честное мнение?",
-    quote: "Друг прислал тебе фильм и хочет узнать, понравился ли он.",
-    options: ["thx! tbh, I loved it.", "btw! idk, I loved it.", "idgaf! nvm, I loved it."],
+    promptRu: "Выбери сообщение с благодарностью и честным мнением",
+    quote: "Друг прислал фильм. Поблагодари его через thx и честно скажи через tbh, что фильм тебе понравился.",
+    options: ["thx! tbh, I loved it.", "tbh, I loved it.", "thx! I loved it."],
     answer: 0,
-    whyRu: "Thx — короткое «спасибо», а tbh — «честно говоря». Оба уместны в дружеской переписке.",
+    whyRu: "Thx — короткое «спасибо», а tbh — «честно говоря». В правильном сообщении есть оба сокращения.",
   },
 };
 
@@ -169,14 +176,14 @@ const idiomBasics: LessonSpec = {
     { me: true, text: "No, it's a piece of cake.", at: "10:56", glossRu: "a piece of cake — проще простого" },
   ],
   expressions: [
-    e("break a leg", "удачи, ни пуха ни пера", "Традиционное пожелание удачи, особенно перед выступлением.", ["сломай ногу", "отдохни немного"], "Your performance starts now. ", "!", "Удачи на выступлении!", ["break a leg on stage", "break a leg"]),
+    e("break a leg", "удачи, ни пуха ни пера", "Традиционное пожелание удачи, особенно перед выступлением.", ["сломай ногу", "отдохни немного"], "Your performance starts now. ", "!", "Удачи на выступлении!", ["break a leg"]),
     e("a piece of cake", "проще простого", "Так называют задачу, которую легко выполнить.", ["кусок торта", "очень сложная задача"], "Don't worry about the test. It's ", ".", "Этот тест — проще простого.", ["this test is a piece of cake", "the test is a piece of cake"]),
   ],
   reviewPairs: [["tbh", "честно говоря"]],
   scenario: {
     promptRu: "Что ответить другу перед выступлением?",
     quote: "«Я ужасно нервничаю. Через минуту выхожу на сцену».",
-    options: ["Break a leg!", "You're off the hook.", "I'm all ears."],
+    options: ["Break a leg!", "It's a piece of cake.", "thx!"],
     answer: 0,
     whyRu: "Break a leg — естественное пожелание удачи перед выступлением.",
   },
@@ -189,7 +196,7 @@ const speechTeasing: LessonSpec = {
   titleRu: "Поддеть друга и пожаловаться на вещь",
   subtitleRu: "dumbass · piece of shit",
   ruleTitleRu: "Живой сленг с сильным оттенком",
-  introRu: "Dumbass называет человека идиотом. A piece of shit может описывать ужасную вещь, а про человека звучит как очень сильное оскорбление. Оба выражения грубые.",
+  introRu: "Dumbass — грубое название или описание человека, включая самого себя. A piece of shit может описывать ужасную вещь, а про человека звучит как очень сильное оскорбление. Оба выражения грубые.",
   withWhomRu: "Бен",
   lines: [
     { text: "Bro, you walked right past the exit.", at: "18:20" },
@@ -198,14 +205,14 @@ const speechTeasing: LessonSpec = {
     { me: true, text: "Because it's a piece of shit.", at: "18:21", glossRu: "a piece of shit — отвратительная вещь" },
   ],
   expressions: [
-    e("dumbass", "идиот, тупица", "Грубое обращение к человеку. Между друзьями может звучать как поддразнивание, но легко обидеть.", ["гений", "храбрец"], "I forgot my own password. I'm such a ", ".", "Я забыл ключи. Ну я и идиот.", ["I forgot my keys. I'm such a dumbass", "I forgot my keys, I'm such a dumbass"]),
+    e("dumbass", "идиот, тупица", "Грубое название или описание человека; так можно поддеть и самого себя. Между друзьями иногда звучит шутливо, но легко обидеть.", ["гений", "храбрец"], "I forgot my own password. I'm such a ", ".", "Я забыл ключи. Ну я и идиот.", ["I forgot my keys. I'm such a dumbass"]),
     e("piece of shit", "отвратительная вещь, д*рьмо", "О вещи — «полное д*рьмо». О человеке — крайне оскорбительно.", ["отличная вещь", "кусок торта"], "This cheap mouse is a ", ".", "Этот ноутбук — полное д*рьмо.", ["this laptop is a piece of shit", "the laptop is a piece of shit"], ["a piece of shit"]),
   ],
   reviewPairs: [["a piece of cake", "проще простого"]],
   scenario: {
     promptRu: "Выбери выражение, которое подходит именно вещи",
     quote: "«Эта мышь постоянно отключается. Она просто ужасная».",
-    options: ["It's a piece of shit.", "It's a dumbass.", "It's all ears."],
+    options: ["It's a piece of shit.", "It's a dumbass.", "It's a piece of cake."],
     answer: 0,
     whyRu: "A piece of shit может описывать неработающую вещь. Dumbass относится к человеку.",
   },
@@ -227,7 +234,7 @@ const chatNotes: LessonSpec = {
     { me: true, text: "idgaf. btw, I'm already home.", at: "12:12", glossRu: "idgaf — мне совершенно плевать; очень грубо. btw — кстати" },
   ],
   expressions: [
-    e("idk", "я не знаю", "Первая буква каждого слова: I don't know. Одно из самых частых сокращений в личных сообщениях.", ["мне всё равно", "я согласен"], "", ", where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
+    e("idk", "я не знаю", "Первая буква каждого слова: I don't know. Одно из самых частых сокращений в личных сообщениях.", ["мне всё равно", "я согласен"], "", " where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
     e("idgaf", "мне совершенно плевать", "Первая буква каждого слова: I don't give a fuck. Очень грубо — только для близких друзей, не для работы и незнакомых людей.", ["я не понимаю", "мне очень нравится"], "He can hate my posts. ", "", "Мне совершенно плевать, что он думает.", ["idgaf what he thinks", "I don't give a fuck what he thinks"], ["I don't give a fuck"]),
     e("btw", "кстати", "Первая буква каждого слова: by the way. Вводит дополнительную или слегка меняющую тему мысль.", ["честно говоря", "прямо сейчас"], "", ", are you free tomorrow?", "Кстати, ты свободен сегодня вечером?", ["btw, are you free tonight", "btw are you free tonight", "by the way, are you free tonight"], ["by the way"]),
   ],
@@ -248,7 +255,7 @@ const idiomActions: LessonSpec = {
   titleRu: "Слушать внимательно и действовать на нервы",
   subtitleRu: "all ears · get under someone's skin",
   ruleTitleRu: "Внимание и раздражение — без дословного перевода",
-  introRu: "I'm all ears означает полную готовность слушать. If something gets under your skin, оно раздражает сильнее, чем ты хотел бы показать.",
+  introRu: "I'm all ears означает полную готовность слушать. If something gets under your skin, оно сильно или постоянно раздражает либо беспокоит тебя.",
   withWhomRu: "Ник",
   lines: [
     { text: "Can I tell you what happened yesterday?", at: "09:15" },
@@ -264,7 +271,7 @@ const idiomActions: LessonSpec = {
   scenario: {
     promptRu: "Что сказать, если ты готов выслушать историю?",
     quote: "Подруга: «У меня есть для тебя новость. Ты сейчас можешь поговорить?»",
-    options: ["I'm all ears.", "I'm on edge.", "I'm off the hook."],
+    options: ["I'm all ears.", "Break a leg!", "idk."],
     answer: 0,
     whyRu: "I'm all ears — дружелюбный способ сказать «рассказывай, я слушаю».",
   },
@@ -286,15 +293,15 @@ const speechReactions: LessonSpec = {
     { me: true, text: "I'm dead. That's wild.", at: "14:03", glossRu: "I'm dead — я умираю со смеху; that's wild — ну и невероятно" },
   ],
   expressions: [
-    e("I'm dead", "я умираю со смеху", "В сообщениях и разговоре — реакция на что-то очень смешное, а не сообщение об опасности.", ["я устал", "мне грустно"], "That video was hilarious. ", ".", "Я умираю со смеху, это так смешно.", ["I'm dead, that's so funny", "I'm dead. That's so funny"]),
+    e("I'm dead", "я умираю со смеху", "В сообщениях и разговоре — реакция на что-то очень смешное, а не сообщение об опасности.", ["я устал", "мне грустно"], "That video was hilarious. ", ".", "Я умираю со смеху, это так смешно.", ["I'm dead. That's so funny"]),
     e("no way", "не может быть, да ладно", "Может выражать удивление или категоричный отказ — интонация решает многое.", ["конечно", "я знал"], "He won again? ", "!", "Он сказал это тебе? Да ладно!", ["he told you that? No way", "he told you that? no way!"]),
-    e("that's wild", "это невероятно, вот это да", "Реакция на странную, шокирующую или неожиданную ситуацию.", ["это скучно", "это нормально"], "She moved to another country overnight? ", ".", "Он купил пять котов? Это невероятно.", ["he bought five cats? That's wild", "he bought five cats? that's wild"]),
+    e("that's wild", "вот это да, невероятно", "Реакция на странную, шокирующую или неожиданную ситуацию.", ["это скучно", "это нормально"], "She moved to another country overnight? ", ".", "Он купил пять котов? Вот это да!", ["he bought five cats? That's wild", "he bought five cats? that's wild"]),
   ],
   reviewPairs: [["idk", "я не знаю"], ["dumbass", "идиот, тупица"]],
   scenario: {
     promptRu: "Выбери реакцию на очень смешное видео",
     quote: "Друг прислал ролик, из-за которого ты буквально не можешь перестать смеяться.",
-    options: ["I'm dead.", "I'm all ears.", "I'm off the hook."],
+    options: ["I'm dead.", "Break a leg!", "idk."],
     answer: 0,
     whyRu: "В разговорном английском I'm dead часто означает «я умираю со смеху».",
   },
@@ -316,7 +323,7 @@ const chatBasics: LessonSpec = {
     { me: true, text: "nvm, they were in my bag.", at: "17:32", glossRu: "nvm — неважно, помощь уже не нужна" },
   ],
   expressions: [
-    e("wyd", "чем занимаешься", "What are you doing. Короткий вопрос другу, часто служит началом разговора.", ["куда идёшь", "что случилось"], "", " tonight?", "Чем занимаешься сейчас?", ["wyd rn", "wyd", "what are you doing right now"], ["what are you doing"]),
+    e("wyd", "чем занимаешься", "What are you doing. Короткий вопрос другу, часто служит началом разговора.", ["куда идёшь", "что случилось"], "", " tonight?", "Чем занимаешься сегодня вечером?", ["wyd tonight", "what are you doing tonight"], ["what are you doing"]),
     e("lmk", "дай мне знать", "Let me know. Просьба сообщить решение или новость позже.", ["не говори мне", "позвони мне"], "", " if you can come.", "Дай мне знать, если освободишься.", ["lmk if you're free", "let me know if you're free"], ["let me know"]),
     e("nvm", "неважно, уже не нужно", "Never mind. Отменяет предыдущий вопрос или просьбу, а не выражает «ничего страшного» в любой ситуации.", ["спасибо", "никогда"], "", ", I found it.", "Неважно, я уже всё понял.", ["nvm, I figured it out", "never mind, I figured it out"], ["never mind"]),
   ],
@@ -347,7 +354,7 @@ const idiomPeople: LessonSpec = {
   ],
   expressions: [
     e("on the same page", "одинаково понимать ситуацию или план", "Часто используется с be: we're on the same page.", ["читать одну книгу", "спорить о плане"], "Let's talk again to make sure we're ", ".", "Хорошо, что мы понимаем план одинаково.", ["good, we're on the same page", "it's good that we're on the same page"]),
-    e("off the hook", "свободен от обязанности или ответственности", "You're off the hook — тебе больше не нужно это делать или отвечать за это.", ["на телефоне", "в неприятностях"], "You don't have to help anymore. You're ", ".", "Тебе не нужно приходить, ты свободен от этой обязанности.", ["you don't have to come, you're off the hook", "you don't have to come. You're off the hook"]),
+    e("off the hook", "свободен от обязанности или ответственности", "You're off the hook — тебе больше не нужно это делать или отвечать за это.", ["на телефоне", "в неприятностях"], "You don't have to help anymore. You're ", ".", "Тебе не нужно приходить. Ты свободен от этой обязанности.", ["You don't have to come. You're off the hook"]),
   ],
   reviewPairs: [["lmk", "дай мне знать"], ["all ears", "внимательно слушаю, весь во внимании"]],
   scenario: {
@@ -374,7 +381,7 @@ const speechAgreement: LessonSpec = {
     { text: "You always defend the movies you choose, dude.", at: "22:11", glossRu: "dude — чувак, братан" },
   ],
   expressions: [
-    e("fair enough", "логично, справедливо, принято", "Признание, что чужой аргумент разумен, даже если твоё мнение не изменилось.", ["это нечестно", "я полностью согласен"], "You didn't like it? ", ".", "Логично, я понимаю твою точку зрения.", ["fair enough, I see your point", "fair enough. I see your point"]),
+    e("fair enough", "справедливо, принято", "Признание, что чужой аргумент разумен, даже если твоё мнение не изменилось.", ["это нечестно", "я полностью согласен"], "You didn't like it? ", ".", "Справедливо, я понимаю твою точку зрения.", ["fair enough, I see your point", "fair enough. I see your point"]),
     e("dude", "чувак, братан", "Неформальное обращение к человеку, обычно к знакомому. В дружелюбной речи может не зависеть от пола.", ["сэр", "малыш"], "", ", that was awesome.", "Чувак, это было невероятно.", ["dude, that was insane", "dude that was insane"]),
     e("kinda", "немного, слегка, вроде", "Разговорное kind of. Смягчает оценку или описание.", ["точно", "очень сильно"], "The show was ", " boring.", "Фильм был немного странным.", ["the movie was kinda weird", "the film was kinda weird"], ["kind of"]),
   ],
@@ -382,9 +389,9 @@ const speechAgreement: LessonSpec = {
   scenario: {
     promptRu: "Как признать аргумент собеседника разумным?",
     quote: "Ты не полностью согласен, но понимаешь логику другого человека.",
-    options: ["Fair enough.", "No way.", "You wish."],
+    options: ["Fair enough.", "kinda.", "nvm."],
     answer: 0,
-    whyRu: "Fair enough означает «логично, принимаю твой аргумент», а не обязательно полное согласие.",
+    whyRu: "Fair enough означает «справедливо, принимаю твой аргумент», а не обязательно полное согласие.",
   },
 };
 
@@ -407,11 +414,11 @@ const chatPlans: LessonSpec = {
     e("bet", "договорились, окей", "В переписке часто заменяет okay или sure, а не означает буквальную ставку.", ["отказаться", "спорить"], "See you at eight. ", ".", "Договорились, увидимся завтра.", ["bet, see you tomorrow", "bet. See you tomorrow"]),
     e("ofc", "конечно", "Of course. Быстрый дружелюбный ответ в неформальной переписке.", ["вряд ли", "не знаю"], "Can you help me? ", ".", "Конечно, я помогу.", ["ofc, I'll help", "of course, I'll help"], ["of course"]),
   ],
-  reviewPairs: [["fair enough", "логично, справедливо, принято"]],
+  reviewPairs: [["fair enough", "справедливо, принято"]],
   scenario: {
     promptRu: "Как коротко ответить «договорились»?",
     quote: "Друг предлагает встретиться у кинотеатра в восемь. Тебя всё устраивает.",
-    options: ["Bet.", "smh.", "idk."],
+    options: ["Bet.", "kinda.", "nvm."],
     answer: 0,
     whyRu: "Bet здесь означает «окей, договорились», а не «делаю ставку».",
   },
@@ -462,7 +469,7 @@ const speechBoundaries: LessonSpec = {
   ],
   expressions: [
     e("you wish", "мечтай, вряд ли", "Дразнящий ответ на завышенные ожидания. Может звучать игриво или снисходительно.", ["я тоже хочу", "поздравляю"], "You think you'll win? ", ".", "Думаешь, я извинюсь? Мечтай.", ["you think I'll apologize? You wish", "you think I'll apologize? you wish"]),
-    e("give me a break", "да брось, хватит нести ерунду", "Выражает раздражение или недоверие. Интонация определяет, шутка это или конфликт.", ["помоги мне", "поздравляю"], "You expect me to believe that? ", ".", "Да брось, это неправда.", ["give me a break, that's not true", "give me a break. That's not true"]),
+    e("give me a break", "да брось, хватит нести ерунду", "Выражает раздражение или недоверие. Интонация определяет, шутка это или конфликт.", ["помоги мне", "поздравляю"], "You expect me to believe that? ", ".", "Да брось. Это неправда.", ["Give me a break. That's not true"]),
   ],
   reviewPairs: [["fr", "правда, серьёзно"], ["kinda", "немного, слегка, вроде"]],
   scenario: {
@@ -485,21 +492,21 @@ const chatReactions: LessonSpec = {
   withWhomRu: "Ким",
   lines: [
     { text: "Are you busy rn?", at: "13:12", glossRu: "rn — прямо сейчас" },
-    { me: true, text: "Yeah, Dan forgot the documents again.", at: "13:12" },
-    { text: "ikr, he does this every week. smh.", at: "13:13", glossRu: "ikr — да уж, понимаю; smh — ну и ну" },
+    { me: true, text: "Yeah, Dan is so disorganized. He forgot the documents again.", at: "13:12" },
+    { text: "ikr, he does this every week. smh.", at: "13:13", glossRu: "ikr — да уж, вот именно; smh — ну и ну" },
   ],
   expressions: [
     e("rn", "прямо сейчас", "Right now. Показывает, что действие происходит в текущий момент.", ["завтра", "недавно"], "I'm at work ", ".", "Я прямо сейчас читаю твоё сообщение.", ["I'm reading your message rn", "I am reading your message rn"], ["right now"]),
-    e("ikr", "да уж, вот именно, понимаю", "I know, right. Согласие с реакцией собеседника, а не просто сообщение о знании.", ["я не знал", "ты не прав"], "This place is expensive. ", "?", "Да уж, это было странно.", ["ikr, that was weird", "I know, right? That was weird"], ["I know, right", "I know right"]),
-    e("smh", "ну и ну, качая головой", "Shaking my head. Разочарование, недоумение или осуждение чужого поступка.", ["я смеюсь", "я счастлив"], "He lied to us again, ", ".", "Он опять всё забыл. Ну и ну.", ["he forgot everything again, smh", "he forgot everything again smh"], ["shaking my head"]),
+    e("ikr", "да уж, вот именно, понимаю", "I know, right. Согласие с реакцией собеседника, а не просто сообщение о знании.", ["я не знал", "ты не прав"], "Yeah, Dan is so disorganized. He forgot the documents again. ", "?", "Да уж, это было странно.", ["ikr, that was weird", "I know, right? That was weird"], ["I know, right", "I know right"]),
+    e("smh", "ну и ну; буквально «качаю головой»", "Shaking my head. Разочарование, недоумение или осуждение чужого поступка.", ["я смеюсь", "я счастлив"], "He lied to us again, ", ".", "Он опять всё забыл. Ну и ну.", ["he forgot everything again, smh", "he forgot everything again smh"], ["shaking my head"]),
   ],
   reviewPairs: [["give me a break", "да брось, хватит нести ерунду"]],
   scenario: {
     promptRu: "Как отреагировать на безответственный поступок?",
     quote: "Коллега третий раз подряд забыл документы, и ты обсуждаешь это с другом.",
-    options: ["smh.", "bet.", "aka."],
+    options: ["smh.", "bet.", "kinda."],
     answer: 0,
-    whyRu: "Smh передаёт разочарование: «ну и ну, просто качая головой».",
+    whyRu: "Smh передаёт разочарование: «ну и ну», а буквально — «качаю головой».",
   },
 };
 
@@ -525,7 +532,7 @@ const idiomFeelings: LessonSpec = {
   scenario: {
     promptRu: "Как описать радость друга?",
     quote: "Друг получил работу мечты и улыбается весь день.",
-    options: ["He's over the moon.", "He's on edge.", "He's off the hook."],
+    options: ["He's over the moon.", "He's all ears.", "He's off the hook."],
     answer: 0,
     whyRu: "Over the moon означает сильную радость и восторг.",
   },
@@ -538,7 +545,7 @@ const speechComplaints: LessonSpec = {
   titleRu: "Жаловаться, злиться и успокаивать",
   subtitleRu: "chill out · moron · bitching",
   ruleTitleRu: "Когда разговор становится эмоциональным",
-  introRu: "Chill out — просьба успокоиться. Moron — грубое «идиот». Bitching — нытьё и жалобы; не путай с bitchin', которое означает «офигенно».",
+  introRu: "Chill out — просьба успокоиться. Moron — грубое «идиот». Bitching — нытьё и жалобы.",
   withWhomRu: "Дэн",
   lines: [
     { text: "Some moron cut me off on the way home!", at: "18:50", glossRu: "moron — идиот, придурок" },
@@ -546,17 +553,17 @@ const speechComplaints: LessonSpec = {
     { text: "I'm not bitching, he almost hit my car!", at: "18:51", glossRu: "bitching — нытьё, жалобы" },
   ],
   expressions: [
-    e("chill out", "успокойся, расслабься", "Неформальная просьба снизить эмоциональный накал. На обиженного человека может действовать раздражающе.", ["разволнуйся", "поторопись"], "We're fine. Just ", ".", "Успокойся, всё в порядке.", ["chill out, everything is fine", "chill out. Everything is fine"], ["chill"]),
+    e("chill out", "успокойся, расслабься", "Неформальная просьба снизить эмоциональный накал. На обиженного человека может действовать раздражающе.", ["разволнуйся", "поторопись"], "We're fine. Just ", ".", "Успокойся. Всё в порядке.", ["Chill out. Everything is fine"], ["chill"]),
     e("moron", "идиот, придурок", "Оскорбление человека. Грубее, чем просто silly, и не подходит для нейтрального описания.", ["гений", "друг"], "Some ", " parked across two spaces.", "Этот идиот опять кричит.", ["this moron is shouting again", "that moron is shouting again"]),
-    e("bitching", "нытьё, жалобы", "Глагол bitch в значении «жаловаться». Не означает «офигенно» — это bitchin'.", ["похвала", "молчание"], "Stop ", " about the weather.", "Хватит ныть о работе.", ["stop bitching about work", "stop your bitching about work"]),
+    e("bitching", "нытьё, жалобы", "Глагол bitch в значении «жаловаться». Описывает жалобы и недовольство, а не похвалу.", ["похвала", "молчание"], "Stop ", " about the weather.", "Хватит ныть о работе.", ["stop bitching about work", "stop your bitching about work"]),
   ],
-  reviewPairs: [["over the moon", "на седьмом небе от счастья"], ["smh", "ну и ну, качая головой"]],
+  reviewPairs: [["over the moon", "на седьмом небе от счастья"], ["smh", "ну и ну; буквально «качаю головой»"]],
   scenario: {
     promptRu: "Выбери правильное значение bitching",
     quote: "Друг уже десять минут жалуется на холод, очередь и плохой кофе.",
-    options: ["He's bitching.", "He's bitchin'.", "He's all ears."],
+    options: ["He's bitching.", "He's over the moon.", "He's all ears."],
     answer: 0,
-    whyRu: "Bitching — нытьё и жалобы. Bitchin' без g в разговорном сленге может значить «офигенный».",
+    whyRu: "Bitching — нытьё и жалобы, именно это делает герой ситуации.",
   },
 };
 
@@ -578,7 +585,7 @@ const chatContext: LessonSpec = {
   expressions: [
     e("ngl", "если честно, не буду врать", "Not gonna lie. Вводит откровенное мнение или признание.", ["кстати", "я шучу"], "", ", I didn't expect to win.", "Если честно, мне это нравится.", ["ngl, I like it", "not gonna lie, I like it"], ["not gonna lie"]),
     e("irl", "в реальной жизни", "In real life. Противопоставляет реальность интернету, игре или онлайн-образу.", ["в интернете", "в игре"], "We met online, but we've never met ", ".", "Мы впервые встретились в реальной жизни.", ["we met irl for the first time", "we met in real life for the first time"], ["in real life"]),
-    e("aka", "также известный как", "Also known as. Ставится перед вторым именем, прозвищем или пояснением.", ["кстати", "например"], "Maya, ", " the girl from my class, is here.", "Макс, также известный как наш лучший игрок, уже здесь.", ["Max, aka our best player, is here", "Max aka our best player is here"], ["also known as"]),
+    e("aka", "также известный как", "Also known as. Ставится перед вторым именем, прозвищем или пояснением.", ["кстати", "например"], "Maya, ", " May, is here.", "Майя, также известная как Мэй, уже здесь.", ["Maya, aka May, is here", "Maya aka May is here"], ["also known as"]),
   ],
   reviewPairs: [["chill out", "успокойся, расслабься"]],
   scenario: {
@@ -603,11 +610,11 @@ const idiomNerves: LessonSpec = {
     { text: "Why are you checking your phone every second?", at: "17:45" },
     { me: true, text: "I'm on edge about the interview.", at: "17:45", glossRu: "on edge — напряжён, на нервах" },
     { text: "You'll be fine. Nervous?", at: "17:46" },
-    { me: true, text: "Yeah, I have butterflies in my stomach.", at: "17:46", glossRu: "butterflies in my stomach — волнительный трепет" },
+    { me: true, text: "Yeah, I have butterflies in my stomach.", at: "17:46", glossRu: "butterflies in my stomach — бабочки в животе, трепетное волнение" },
   ],
   expressions: [
     e("on edge", "на нервах, напряжён", "Be on edge — находиться в напряжении, легко вздрагивать или раздражаться.", ["спокоен", "счастлив"], "I've been ", " all morning.", "Я весь день на нервах.", ["I've been on edge all day", "I have been on edge all day"]),
-    e("butterflies in my stomach", "трепет и волнение внутри", "Меняется местоимение: butterflies in your / his / her stomach.", ["боль в животе", "голод"], "I always get ", " before a date.", "Перед выступлением у меня всё сжимается от волнения.", ["I have butterflies in my stomach before the performance", "I get butterflies in my stomach before a performance"], ["butterflies in my stomach"]),
+    e("butterflies in my stomach", "бабочки в животе, трепетное волнение", "Меняется местоимение: butterflies in your / his / her stomach.", ["боль в животе", "голод"], "I always get ", " before a date.", "Перед выступлением у меня бабочки в животе.", ["I have butterflies in my stomach before the performance", "I get butterflies in my stomach before a performance"], ["butterflies in my stomach"]),
   ],
   reviewPairs: [["ngl", "если честно, не буду врать"], ["on cloud nine", "в полном восторге, на седьмом небе"]],
   scenario: {
@@ -866,11 +873,11 @@ const idiomConfrontation: LessonSpec = {
     { text: "The seller claims these tickets cost a thousand dollars.", at: "18:30" },
     { me: true, text: "Stop selling me that crap.", at: "18:30", glossRu: "stop selling me that crap — не рассказывай мне эту чушь" },
     { text: "But look, they're the best seats in the house!", at: "18:31", glossRu: "the best seats in the house — лучшие места в зале" },
-    { me: true, text: "Fine. Let's go kick their butt.", at: "18:31", glossRu: "kick their butt — разгромить их" },
+    { me: true, text: "Fine. Let's go watch our team kick some butt.", at: "18:31", glossRu: "kick some butt — разгромить соперников, показать класс" },
   ],
   expressions: [
     e("the best seats in the house", "лучшие места в зале", "House здесь означает зал или площадку, а не частный дом.", ["худшие места", "места возле дома"], "We got ", "!", "У нас лучшие места в зале.", ["we have the best seats in the house", "we've got the best seats in the house"]),
-    e("stop selling me that crap", "не рассказывай мне эту чушь", "Очень резкое недоверие к словам продавца или собеседника, не нейтральная просьба.", ["расскажи подробнее", "продай мне это"], "", ". I know you're lying.", "Не рассказывай мне эту чушь, я тебе не верю.", ["stop selling me that crap, I don't believe you", "stop selling me that crap. I don't believe you"]),
+    e("stop selling me that crap", "не рассказывай мне эту чушь", "Очень резкое недоверие к словам продавца или собеседника, не нейтральная просьба.", ["расскажи подробнее", "продай мне это"], "", ". I know you're lying.", "Не рассказывай мне эту чушь. Я тебе не верю.", ["Stop selling me that crap. I don't believe you"]),
     e("kick someone's butt", "разгромить кого-то, надрать кому-то зад", "В спорте обычно означает уверенно победить. Буквально — угроза драки, поэтому контекст важен.", ["проиграть", "помочь кому-то"], "We're going to ", " tonight.", "Мы разгромим их в этой игре.", ["we're going to kick their butt in this game", "we're gonna kick their butt in this game"], ["kick their butt", "kick your butt"]),
   ],
   reviewPairs: [["pissed off", "очень зол, взбешён"], ["leave me alone", "оставь меня в покое"]],

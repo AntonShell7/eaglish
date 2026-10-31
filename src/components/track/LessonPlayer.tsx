@@ -25,6 +25,7 @@ import "./track.css";
  */
 
 type Judged = "right" | "wrong" | null;
+type PairPick = { side: "left" | "right"; value: string } | null;
 
 interface Props {
   module: TrackModule;
@@ -79,7 +80,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const [typed, setTyped] = useState("");
   const [assembled, setAssembled] = useState<number[]>([]);
   const [joined, setJoined] = useState<string[]>([]);
-  const [leftPick, setLeftPick] = useState<string | null>(null);
+  const [pairPick, setPairPick] = useState<PairPick>(null);
   const [missedPair, setMissedPair] = useState<string[]>([]);
   const [rooms, setRooms] = useState<Record<number, boolean>>({});
 
@@ -87,6 +88,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const nextRef = useRef<HTMLButtonElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const advanceTimer = useRef<number | null>(null);
+  const pairTimer = useRef<number | null>(null);
   const advancing = useRef(false);
 
   useEffect(() => {
@@ -94,10 +96,11 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     setTyped("");
     setAssembled([]);
     setJoined([]);
-    setLeftPick(null);
+    setPairPick(null);
     setMissedPair([]);
     setRooms({});
     setJudged(null);
+    if (pairTimer.current !== null) window.clearTimeout(pairTimer.current);
     const headingTimer = window.setTimeout(() => {
       const heading = stageRef.current?.querySelector<HTMLElement>("h2");
       if (heading) {
@@ -122,6 +125,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   useEffect(() => () => {
     if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current);
+    if (pairTimer.current !== null) window.clearTimeout(pairTimer.current);
   }, []);
 
   /* ── pairs judge themselves as they are played ─────────────────────────── */
@@ -159,18 +163,38 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   /* Joined stores left expressions only. Several expressions may share one
      translation (thx and tq both mean «спасибо»), and the same right card must
-     stay available until every matching left expression has used it. */
-  const tapRight = (value: string) => {
-    if (!leftPick || joined.includes(leftPick)) return;
-    const pair = matchPairs.find(([a]) => a === leftPick);
-    if (pair && pair[1] === value) {
-      setJoined((was) => [...was, leftPick]);
-      setMissedPair([]);
-    } else {
-      setMissedPair([leftPick, value]);
-      window.setTimeout(() => setMissedPair([]), 420);
+     stay available until every matching left expression has used it. Either
+     column can be selected first; the pair is canonicalized before checking. */
+  const tapPair = (side: "left" | "right", value: string) => {
+    if (!pairPick) {
+      setPairPick({ side, value });
+      return;
     }
-    setLeftPick(null);
+    if (pairPick.side === side) {
+      setPairPick(pairPick.value === value ? null : { side, value });
+      return;
+    }
+
+    const left = side === "left" ? value : pairPick.value;
+    const right = side === "right" ? value : pairPick.value;
+    setPairPick(null);
+    if (pairTimer.current !== null) window.clearTimeout(pairTimer.current);
+
+    if (matchPairs.some(([a, b]) => a === left && b === right)) {
+      const nextJoined = [...joined, left];
+      setJoined(nextJoined);
+      setMissedPair([]);
+      if (nextJoined.length === matchPairs.length) {
+        setJudged("right");
+      } else {
+        window.requestAnimationFrame(() => {
+          stageRef.current?.querySelector<HTMLElement>("[data-pair-left]:not(:disabled), [data-pair-right]:not(:disabled)")?.focus({ preventScroll: true });
+        });
+      }
+    } else {
+      setMissedPair([left, right]);
+      pairTimer.current = window.setTimeout(() => setMissedPair([]), 360);
+    }
   };
 
   /* ── can this be checked, and is it right ──────────────────────────────── */
@@ -191,7 +215,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "assemble":
         return tileBank.length > 0 && assembled.length === tileBank.length;
       case "register":
-        return true;
+        return Object.values(rooms).some(Boolean);
     }
   })();
 
@@ -252,7 +276,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       return;
     }
     setLeaving(true);
-    advanceTimer.current = window.setTimeout(move, 240);
+    advanceTimer.current = window.setTimeout(move, 160);
   }, [last, lesson]);
 
   advanceRef.current = advance;
@@ -296,7 +320,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           <p className="tk-done__lesson">{lesson.titleRu}</p>
           <p className="tk-done__p">{t("track.finishNote")}</p>
           <button type="button" className="tk-press tk-go tk-done__go" onClick={onExit} autoFocus>
-            <span>{t("track.next")}</span>
+            <span>К дорожке</span>
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
@@ -307,6 +331,11 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   }
 
   if (!step) return null;
+
+  const questionOrdinal = steps
+    .slice(0, index + 1)
+    .filter((item) => item.kind !== "rule" && item.kind !== "chat").length;
+  const reading = step.kind === "rule" || step.kind === "chat";
 
   return (
     <div className="tk-player">
@@ -319,9 +348,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           {t("track.toPath")}
         </button>
         <span className="tk-where">{lesson.titleRu}</span>
-        <span className="tk-count">
-          {Math.min(answered + 1, asked)} / {asked}
-        </span>
+        {!reading && <span className="tk-count">{questionOrdinal} / {asked}</span>}
         <div
           className="tk-bar"
           role="progressbar"
@@ -352,10 +379,9 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           addTile={addTile}
           removeTile={removeTile}
           joined={joined}
-          leftPick={leftPick}
-          setLeftPick={setLeftPick}
+          pairPick={pairPick}
           missedPair={missedPair}
-          tapRight={tapRight}
+          tapPair={tapPair}
           rightColumn={rightColumn}
           rooms={rooms}
           setRooms={setRooms}
@@ -437,8 +463,8 @@ function Foot({
   );
 }
 
-/** Typed and assembled answers always show the canonical written form. */
-function whyOf(step: Step, _judged: Judged): string | null {
+/** Show the canonical written form only when correction is useful. */
+function whyOf(step: Step, judged: Judged): string | null {
   switch (step.kind) {
     case "choice":
     case "register":
@@ -446,7 +472,7 @@ function whyOf(step: Step, _judged: Judged): string | null {
     case "type":
     case "gap":
     case "assemble":
-      return `Правильный вариант: ${step.answers[0]}`;
+      return judged === "wrong" ? `Правильный вариант: ${step.answers[0]}` : null;
     default:
       return null;
   }
@@ -479,10 +505,9 @@ interface BodyProps {
   addTile: (id: number) => void;
   removeTile: (id: number) => void;
   joined: string[];
-  leftPick: string | null;
-  setLeftPick: (s: string | null) => void;
+  pairPick: PairPick;
   missedPair: string[];
-  tapRight: (s: string) => void;
+  tapPair: (side: "left" | "right", value: string) => void;
   rightColumn: string[];
   rooms: Record<number, boolean>;
   setRooms: (f: (was: Record<number, boolean>) => Record<number, boolean>) => void;
@@ -594,28 +619,32 @@ function StepBody(p: BodyProps) {
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
           <div className="tk-pairs">
-            <div>
+            <div role="group" aria-label="Английские выражения">
+              <span className="tk-pair-group__label">Английские выражения</span>
               {step.pairs.map(([left]) => (
                 <button
                   type="button"
                   key={left}
+                  data-pair-left
                   className={`tk-press tk-pair${
                     p.joined.includes(left)
                       ? " tk-pair--done"
                       : p.missedPair.includes(left)
                         ? " tk-pair--miss"
-                        : p.leftPick === left
+                        : p.pairPick?.side === "left" && p.pairPick.value === left
                           ? " tk-pair--on"
                           : ""
                   }`}
+                  aria-pressed={p.pairPick?.side === "left" && p.pairPick.value === left}
                   disabled={p.joined.includes(left)}
-                  onClick={() => p.setLeftPick(left)}
+                  onClick={() => p.tapPair("left", left)}
                 >
                   {left}
                 </button>
               ))}
             </div>
-            <div>
+            <div role="group" aria-label="Русские переводы">
+              <span className="tk-pair-group__label">Русские переводы</span>
               {p.rightColumn.map((value) => {
                 const done = step.pairs
                   .filter(([, right]) => right === value)
@@ -624,15 +653,19 @@ function StepBody(p: BodyProps) {
                   <button
                     type="button"
                     key={value}
+                    data-pair-right
                     className={`tk-press tk-pair${
                       done
                         ? " tk-pair--done"
                         : p.missedPair.includes(value)
                           ? " tk-pair--miss"
-                          : ""
+                          : p.pairPick?.side === "right" && p.pairPick.value === value
+                            ? " tk-pair--on"
+                            : ""
                     }`}
+                    aria-pressed={p.pairPick?.side === "right" && p.pairPick.value === value}
                     disabled={done}
-                    onClick={() => p.tapRight(value)}
+                    onClick={() => p.tapPair("right", value)}
                   >
                     {value}
                   </button>
@@ -747,7 +780,7 @@ function StepBody(p: BodyProps) {
     case "register":
       return (
         <>
-          <h2 className="tk-ask">{t("track.roomsAsk", { phrase: step.phrase })}</h2>
+          <h2 className="tk-ask">Отметь все ситуации, где уместно «{step.phrase}»</h2>
           {/* One tick per room, not a tick and a cross. Two buttons a row was
               eight taps for a four-line question, and it made the learner
               state the obvious half as explicitly as the interesting half. */}

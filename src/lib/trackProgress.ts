@@ -128,14 +128,17 @@ export function dueItems(): string[] {
  * surprise return should be a question. Shuffled so the same pair does not
  * come back in the same order every time.
  */
-export function resurfacedSteps(skipLessonId: string, limit = 2): Step[] {
+export function resurfacedSteps(skipLessonId: string, limit = 1): Step[] {
   const due = new Set(dueItems());
   if (due.size === 0) return [];
   const done = new Set(doneLessons());
+  const ordered = trackLessons();
+  const targetIndex = ordered.findIndex(({ lesson }) => lesson.id === skipLessonId);
+  if (targetIndex <= 0) return [];
 
   const pool: Step[] = [];
-  for (const { lesson } of trackLessons()) {
-    if (lesson.id === skipLessonId || !done.has(lesson.id)) continue;
+  for (const [sourceIndex, { lesson }] of ordered.entries()) {
+    if (sourceIndex >= targetIndex || !done.has(lesson.id)) continue;
     for (const step of lesson.steps) {
       if (step.kind === "rule" || step.kind === "chat") continue;
       if ((step.teaches ?? []).some((item) => due.has(item))) pool.push(step);

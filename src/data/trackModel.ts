@@ -172,8 +172,8 @@ function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: strin
     id,
     "Выбери пропущенное выражение",
     `${expression.before}_____${expression.after}\nПеревод всего предложения: ${expression.gapRu}`,
-    expression.short,
-    pool.map((item) => item.short),
+    expression.gapAnswers?.[0] ?? expression.short,
+    pool.map((item) => item.gapAnswers?.[0] ?? item.short),
     `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
     [expression.short],
   );
@@ -193,15 +193,24 @@ function sentenceAssembly(expression: ExpressionSpec, id: string): Extract<Step,
   };
 }
 
+const neutralExpressions = new Set([
+  "on the same page",
+  "by the book",
+  "on edge",
+  "change my mind",
+  "the best seats in the house",
+]);
+
 /** Usage matters as much as meaning: a correct phrase in the wrong room is
    still the wrong phrase. These are selection tasks, not typed judgements. */
 function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id: string): Extract<Step, { kind: "register" }> {
+  const neutral = neutralExpressions.has(expression.short);
   const rooms = kind === "idiom"
     ? [
         { labelRu: "Разговор с другом", ok: true },
         { labelRu: "Неформальная беседа с коллегами", ok: true },
         { labelRu: "Личная переписка", ok: true },
-        { labelRu: "Официальный документ или заявление", ok: false },
+        { labelRu: "Официальный документ или заявление", ok: neutral },
       ]
     : [
         { labelRu: "Личный чат с другом", ok: true },
@@ -215,7 +224,7 @@ function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id
     phrase: expression.short,
     rooms,
     whyRu: `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
-    register: kind === "speech" ? "veryCasual" : "casual",
+    register: neutral ? "neutral" : expression.short === "fair enough" ? "casual" : kind === "speech" ? "veryCasual" : "casual",
     teaches: [expression.short],
   };
 }
@@ -321,7 +330,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
       {
         kind: "match",
         id: `${id}-match-b`,
-        promptRu: "Теперь ещё несколько пар",
+        promptRu: "Соедини оставшиеся выражения и значения",
         pairs: expressions.slice(middle).map((item): [string, string] => [item.short, item.meaningRu]),
         teaches: expressions.slice(middle).map((item) => item.short),
       },
