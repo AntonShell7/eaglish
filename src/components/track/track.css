@@ -850,6 +850,76 @@
 }
 .tk-gap input:focus { outline: none; }
 
+/* ── sentence builder ───────────────────────────────────────────────────── */
+
+.tk-builder { max-width: 720px; }
+.tk-build-answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 132px;
+  padding: 18px 4px;
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+  transition: border-color var(--dur-1) var(--ease), background var(--dur-1) var(--ease);
+}
+.tk-build-answer--right {
+  border-color: color-mix(in srgb, var(--color-success) 58%, var(--color-border));
+  background: color-mix(in srgb, var(--color-success) 6%, transparent);
+}
+.tk-build-answer--wrong {
+  border-color: color-mix(in srgb, var(--color-danger) 58%, var(--color-border));
+  background: color-mix(in srgb, var(--color-danger) 5%, transparent);
+}
+.tk-build-answer__empty {
+  align-self: center;
+  width: 100%;
+  padding-block: 22px;
+  color: var(--color-text-faint);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.tk-builder__hint {
+  margin: 14px 0 18px;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.tk-bank {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+}
+.tk-tile,
+.tk-tile-slot {
+  min-height: 50px;
+  max-width: 100%;
+  padding: 10px 17px;
+  border-radius: 14px;
+  font-size: 1rem;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.tk-tile {
+  --lip: 3px;
+  --fill: var(--color-surface);
+  isolation: isolate;
+  color: var(--color-text);
+  animation: tk-tile-in 220ms var(--ease-spring) backwards;
+}
+.tk-tile::before { border: 2px solid var(--color-border-strong); }
+.tk-tile:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
+.tk-tile:focus-visible { outline: 3px solid var(--color-primary-soft); outline-offset: 4px; }
+.tk-tile--placed { --fill: var(--color-primary-softer); color: var(--color-primary); }
+.tk-tile--placed::before { border-color: var(--color-primary); }
+.tk-tile-slot { visibility: hidden; pointer-events: none; }
+@keyframes tk-tile-in {
+  from { opacity: 0; transform: translateY(7px) scale(0.94); }
+}
+
 /* ── where it fits ───────────────────────────────────────────────────────── */
 
 .tk-rooms {
@@ -1242,7 +1312,21 @@
 }
 .tk-go[aria-busy="true"] { cursor: wait; }
 
+.tk-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.slang-lesson { padding-top: 24px; }
+
 .tk-foot {
+  z-index: 20;
   padding-top: 18px;
   background: color-mix(in srgb, var(--color-bg) 94%, transparent);
   backdrop-filter: blur(12px);
@@ -1252,6 +1336,17 @@
 .tk-foot__in { max-width: 720px; margin-inline: auto; }
 .tk-go { min-height: 50px; }
 .tk-quote { white-space: pre-line; }
+
+/* A lesson is immersive on phones: nothing covers its text or actions. */
+.tk-stage h2:focus { outline: none; }
+body.slang-lesson-open .tr-tab,
+body.slang-lesson-open .fb-launch { display: none; }
+@media (max-width: 1023px) {
+  body.slang-lesson-open .tabbar { display: none; }
+  body.slang-lesson-open .shell__main { padding-bottom: 0; }
+  .slang-lesson { padding-top: 0; }
+  .slang-lesson .tk-player { min-height: calc(100svh - 64px); }
+}
 
 /* ── narrow ──────────────────────────────────────────────────────────────── */
 
@@ -1287,8 +1382,14 @@
   .tk-field,
   .tk-gap input { font-size: 1rem; }
   .tk-gap { padding: 14px; }
-  .tk-top { height: 46px; }
+  .tk-top { height: 48px; }
+  .tk-leave { min-height: 44px; margin-left: -8px; }
   .tk-where { display: none; }
+  .tk-build-answer { min-height: 118px; padding: 14px 2px; gap: 8px; }
+  .tk-bank { gap: 8px; }
+  .tk-tile,
+  .tk-tile-slot { min-height: 48px; padding: 9px 13px; font-size: 0.95rem; }
+  .tk-builder__hint { margin: 12px 0 16px; }
   .tk-foot__in { gap: 14px; }
   .tk-go { padding: 0 20px; }
   .tk-done { padding: 24px 12px; }
@@ -1297,16 +1398,28 @@
 }
 
 @media (max-width: 560px) {
+  .tk-foot { padding-top: 14px; padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
   .tk-foot__in { flex-wrap: wrap; gap: 12px; }
   .tk-foot__said:empty { display: none; }
   .tk-foot__mark { width: 44px; height: 44px; }
+  .tk-foot__why { max-height: 112px; overflow-y: auto; }
   .tk-foot .tk-go { width: 100%; }
+}
+
+@media (max-width: 360px) {
+  .tk-leave { gap: 4px; font-size: 0.76rem; }
+  .tk-count { font-size: 0.7rem; }
+  .tk-build-answer { min-height: 108px; }
 }
 
 /* The consent bar owns the bottom of the window until it is dismissed. */
 .has-consent-bar .tk-foot { bottom: 74px; }
 @media (max-width: 720px) {
   .has-consent-bar .tk-foot { bottom: 118px; }
+}
+body.slang-lesson-open .consent-bar { bottom: 0; }
+.has-consent-bar.slang-lesson-open .tk-foot {
+  bottom: var(--consent-bar-height, 118px);
 }
 
 /*
@@ -1323,6 +1436,7 @@
   .tk-opt--miss,
   .tk-pair--miss,
   .tk-room--miss,
+  .tk-tile,
   .tk-foot--right .tk-foot__in,
   .tk-foot--wrong .tk-foot__in,
   .tk-done__card,

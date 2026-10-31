@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { BrandLogo } from "@/components/brand/BrandLogo";
@@ -32,6 +32,7 @@ export function ConsentSheet() {
   const [open, setOpen] = useState(false);
   const [details, setDetails] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  const barRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const stored = getConsent();
@@ -66,6 +67,21 @@ export function ConsentSheet() {
     return () => document.body.classList.remove("has-consent-bar");
   }, [open, details]);
 
+  // The lesson's sticky action bar uses the strip's measured height, including
+  // wrapped text and safe-area padding, rather than a fragile fixed offset.
+  useEffect(() => {
+    if (!open || details || !barRef.current) return;
+    const bar = barRef.current;
+    const measure = () => document.body.style.setProperty("--consent-bar-height", `${bar.offsetHeight}px`);
+    const observer = new ResizeObserver(measure);
+    observer.observe(bar);
+    measure();
+    return () => {
+      observer.disconnect();
+      document.body.style.removeProperty("--consent-bar-height");
+    };
+  }, [open, details]);
+
   // Escape closes the details view the same way the "back" button does.
   useEffect(() => {
     if (!details) return;
@@ -88,7 +104,7 @@ export function ConsentSheet() {
      reader the opposite. */
   if (!details) {
     return (
-      <section className="consent-bar" aria-label={t("consent.title")}>
+      <section ref={barRef} className="consent-bar" aria-label={t("consent.title")}>
         <p className="consent-bar__text">{t("consent.barText")}</p>
         <div className="consent-bar__actions">
           <button type="button" className="consent-bar__ok" onClick={() => decide(false)}>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { SectionHero } from "@/components/SectionHero";
@@ -11,13 +12,19 @@ export default function Slang() {
   const { t } = useTranslation();
   const { topic, id } = useParams<{ topic?: string; id?: string }>();
   const navigate = useNavigate();
+  const playing = topic === "track" && Boolean(id);
+
+  useEffect(() => {
+    document.body.classList.toggle("slang-lesson-open", playing);
+    return () => document.body.classList.remove("slang-lesson-open");
+  }, [playing]);
 
   if (topic === "track" && id) {
     const found = findLesson(id);
     if (!found) return <Navigate to="/slang" replace />;
 
     return (
-      <div className="py-8">
+      <div className="slang-lesson">
         <LessonPlayer
           key={found.lesson.id}
           module={found.module}

@@ -1,6 +1,7 @@
 import type { Register } from "./slangDialogues";
+import { sameWordBank } from "../lib/assembly";
 
-/** One screen in a lesson. Word-tile assembly is deliberately not a format. */
+/** One screen in a lesson. */
 export type Step =
   | {
       kind: "rule";
@@ -44,6 +45,15 @@ export type Step =
       promptRu: string;
       quote?: string;
       hint?: string;
+      answers: string[];
+      teaches?: string[];
+    }
+  | {
+      kind: "assemble";
+      id: string;
+      promptRu: string;
+      quote: string;
+      /** Every accepted order uses exactly the words in the first answer. */
       answers: string[];
       teaches?: string[];
     }
@@ -169,16 +179,18 @@ function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: strin
   );
 }
 
-function translationChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
-  return choiceStep(
+function sentenceAssembly(expression: ExpressionSpec, id: string): Extract<Step, { kind: "assemble" }> {
+  const canonical = expression.translationEn[0];
+  return {
+    kind: "assemble",
     id,
-    "Выбери правильный перевод",
-    `«${expression.translationRu}»`,
-    expression.translationEn[0],
-    pool.map((item) => item.translationEn[0]),
-    `Правильный вариант: ${expression.translationEn[0]}`,
-    [expression.short],
-  );
+    promptRu: "Собери предложение из слов",
+    quote: `«${expression.translationRu}»`,
+    // Keep genuine word-order and punctuation variants. Alternatives that
+    // need different vocabulary belong to another tile bank, not this one.
+    answers: expression.translationEn.filter((answer) => sameWordBank(canonical, answer)),
+    teaches: [expression.short],
+  };
 }
 
 /** Usage matters as much as meaning: a correct phrase in the wrong room is
@@ -246,12 +258,14 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       gapChoice(second, expressions, `${spec.id}-gap`),
       {
         kind: "type",
-        id: `${spec.id}-translate`,
-        promptRu: "Переведи фразу на английский",
-        quote: `«${third.translationRu}»`,
-        answers: third.translationEn,
-        teaches: [third.short],
+        id: `${spec.id}-recall`,
+        promptRu: "Напиши выражение по его значению",
+        quote: `«${second.meaningRu}»`,
+        hint: "Одно выражение",
+        answers: [second.short, ...(second.aliases ?? [])],
+        teaches: [second.short],
       },
+      sentenceAssembly(third, `${spec.id}-assemble`),
       {
         kind: "match",
         id: `${spec.id}-match`,
@@ -311,7 +325,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         pairs: expressions.slice(middle).map((item): [string, string] => [item.short, item.meaningRu]),
         teaches: expressions.slice(middle).map((item) => item.short),
       },
-      translationChoice(first, expressions, `${id}-translate`),
+      sentenceAssembly(first, `${id}-assemble`),
       meaningChoice(last, `${id}-last`),
     ],
   };

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Step, TrackLesson, TrackModule } from "@/data/track";
 import { judgeTypedAnswer } from "@/lib/trackAnswer";
+import { assemblyTokens, sameAssembly } from "@/lib/assembly";
 import { finishLesson, resurfacedSteps } from "@/lib/trackProgress";
 import "./track.css";
 
@@ -76,25 +77,52 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   /** Per-step answer state. Each exercise owns its own shape. */
   const [picked, setPicked] = useState<number | null>(null);
   const [typed, setTyped] = useState("");
+  const [assembled, setAssembled] = useState<number[]>([]);
   const [joined, setJoined] = useState<string[]>([]);
   const [leftPick, setLeftPick] = useState<string | null>(null);
   const [missedPair, setMissedPair] = useState<string[]>([]);
   const [rooms, setRooms] = useState<Record<number, boolean>>({});
 
   const fieldRef = useRef<HTMLInputElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const advanceTimer = useRef<number | null>(null);
+  const advancing = useRef(false);
 
   useEffect(() => {
     setPicked(null);
     setTyped("");
+    setAssembled([]);
     setJoined([]);
     setLeftPick(null);
     setMissedPair([]);
     setRooms({});
     setJudged(null);
-    if (step && (step.kind === "type" || step.kind === "gap")) {
-      window.setTimeout(() => fieldRef.current?.focus(), 60);
-    }
+    const headingTimer = window.setTimeout(() => {
+      const heading = stageRef.current?.querySelector<HTMLElement>("h2");
+      if (heading) {
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      }
+    }, index === 0 ? 0 : 260);
+    // A phone keyboard should open only after an intentional tap on the field.
+    const desktop = window.matchMedia("(min-width: 761px) and (pointer: fine)").matches;
+    const timer = step && desktop && (step.kind === "type" || step.kind === "gap")
+      ? window.setTimeout(() => fieldRef.current?.focus(), 360)
+      : null;
+    return () => {
+      window.clearTimeout(headingTimer);
+      if (timer !== null) window.clearTimeout(timer);
+    };
   }, [index, step]);
+
+  useEffect(() => {
+    if (judged) nextRef.current?.focus({ preventScroll: true });
+  }, [judged]);
+
+  useEffect(() => () => {
+    if (advanceTimer.current !== null) window.clearTimeout(advanceTimer.current);
+  }, []);
 
   /* ── pairs judge themselves as they are played ─────────────────────────── */
 
@@ -104,6 +132,30 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [step?.kind === "match" ? step.id : null],
   );
+
+  const tileBank = useMemo(
+    () => step?.kind === "assemble"
+      ? shuffled(assemblyTokens(step.answers[0]).map((text, id) => ({ id, text })), step.id)
+      : [],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [step?.kind === "assemble" ? step.id : null],
+  );
+
+  const addTile = (id: number) => {
+    if (assembled.includes(id)) return;
+    const next = tileBank.find((tile) => tile.id !== id && !assembled.includes(tile.id));
+    setAssembled((was) => [...was, id]);
+    window.requestAnimationFrame(() => {
+      const selector = next ? `[data-bank-tile="${next.id}"]` : `[data-placed-tile="${id}"]`;
+      document.querySelector<HTMLElement>(selector)?.focus({ preventScroll: true });
+    });
+  };
+  const removeTile = (id: number) => {
+    setAssembled((was) => was.filter((tileId) => tileId !== id));
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>(`[data-bank-tile="${id}"]`)?.focus({ preventScroll: true });
+    });
+  };
 
   /* Joined stores left expressions only. Several expressions may share one
      translation (thx and tq both mean «спасибо»), and the same right card must
@@ -136,6 +188,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "type":
       case "gap":
         return typed.trim().length > 0;
+      case "assemble":
+        return tileBank.length > 0 && assembled.length === tileBank.length;
       case "register":
         return true;
     }
@@ -153,15 +207,19 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "type":
       case "gap":
         return judgeTypedAnswer(step, typed);
+      case "assemble": {
+        const selected = assembled.map((id) => tileBank.find((tile) => tile.id === id)?.text ?? "");
+        return step.answers.some((answer) => sameAssembly(selected, answer));
+      }
       case "register":
         return step.rooms.every((room, i) => (rooms[i] === true) === room.ok);
     }
-  }, [step, picked, typed, rooms]);
+  }, [step, picked, typed, assembled, tileBank, rooms]);
 
   const advanceRef = useRef<(() => void) | null>(null);
 
   const check = useCallback(async () => {
-    if (!ready || judged || checking) return;
+    if (!ready || judged || checking || advancing.current) return;
     if (step.kind === "rule" || step.kind === "chat") {
       advanceRef.current?.();
       return;
@@ -176,33 +234,42 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   }, [ready, judged, checking, step, correct]);
 
   const advance = useCallback(() => {
+    if (advancing.current) return;
+    advancing.current = true;
     if (last) {
       finishLesson(lesson);
       setOver(true);
       return;
     }
-    setLeaving(true);
-    window.setTimeout(() => {
+    const move = () => {
       setIndex((was) => was + 1);
       setLeaving(false);
-    }, 240);
+      advancing.current = false;
+      window.scrollTo({ top: 0, behavior: "auto" });
+    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      move();
+      return;
+    }
+    setLeaving(true);
+    advanceTimer.current = window.setTimeout(move, 240);
   }, [last, lesson]);
 
   advanceRef.current = advance;
 
-  /* Enter checks, then Enter continues; number keys pick an option. The whole
-     lesson is playable without the mouse, which is how anybody doing one every
-     evening will end up playing it. */
+  /* Keyboard shortcuts never steal Enter or Space from a focused button. */
   useEffect(() => {
     if (over) return;
     const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
       if (event.key === "Enter") {
+        if (target?.closest("button, a, textarea, select, [contenteditable=true]")) return;
         event.preventDefault();
         if (judged) advance();
         else check();
         return;
       }
-      if (judged || !step) return;
+      if (judged || !step || target?.closest("input, textarea, select, [contenteditable=true]")) return;
       const n = Number(event.key);
       if (!Number.isNaN(n) && n >= 1 && step.kind === "choice" && n <= step.options.length) {
         setPicked(n - 1);
@@ -243,10 +310,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   return (
     <div className="tk-player">
-      {/* Back, where you are, how far in — and the bar as the rule under all
-          three. The learner used to have none of this: the player drops the
-          page hero, so without a title here there was nothing on screen
-          saying which lesson was open. */}
+      <h1 className="tk-sr-only">{lesson.titleRu}</h1>
       <div className="tk-top">
         <button type="button" className="tk-leave" onClick={onExit}>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -258,7 +322,14 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         <span className="tk-count">
           {Math.min(answered + 1, asked)} / {asked}
         </span>
-        <div className="tk-bar">
+        <div
+          className="tk-bar"
+          role="progressbar"
+          aria-label={lesson.titleRu}
+          aria-valuemin={0}
+          aria-valuemax={asked}
+          aria-valuenow={answered}
+        >
           <div
             className="tk-bar__fill"
             style={{ width: `${(answered / Math.max(asked, 1)) * 100}%` }}
@@ -266,7 +337,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <div className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking}>
+      <div ref={stageRef} className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking || leaving}>
         <span className="tk-kicker">{t(`track.kind.${step.kind}`)}</span>
         <div className="tk-stage__in">
         <StepBody
@@ -276,6 +347,10 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           setPicked={setPicked}
           typed={typed}
           setTyped={setTyped}
+          tiles={tileBank}
+          assembled={assembled}
+          addTile={addTile}
+          removeTile={removeTile}
           joined={joined}
           leftPick={leftPick}
           setLeftPick={setLeftPick}
@@ -290,7 +365,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <Foot judged={judged} ready={ready} checking={checking} step={step} onCheck={check} onNext={advance} last={last} />
+      <Foot judged={judged} ready={ready} checking={checking} step={step} onCheck={check} onNext={advance} last={last} nextRef={nextRef} />
     </div>
   );
 }
@@ -305,6 +380,7 @@ function Foot({
   onCheck,
   onNext,
   last,
+  nextRef,
 }: {
   judged: Judged;
   ready: boolean;
@@ -313,6 +389,7 @@ function Foot({
   onCheck: () => void;
   onNext: () => void;
   last: boolean;
+  nextRef: React.RefObject<HTMLButtonElement | null>;
 }) {
   const { t } = useTranslation();
   const silent = step.kind === "rule" || step.kind === "chat";
@@ -339,7 +416,7 @@ function Foot({
   const why = whyOf(step, judged);
 
   return (
-    <div className={`tk-foot tk-foot--${judged}`}>
+    <div className={`tk-foot tk-foot--${judged}`} role="status" aria-live="polite" aria-atomic="true">
       <div className="tk-foot__in">
         <span className="tk-foot__mark">
           <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -352,9 +429,7 @@ function Foot({
           </span>
           {why && <span className="tk-foot__why">{why}</span>}
         </span>
-        {/* The same ink button, whatever the verdict. A red "continue" marks
-            the way forward as an error, and it is not one. */}
-        <button type="button" className="tk-press tk-go" onClick={onNext}>
+        <button ref={nextRef} type="button" className="tk-press tk-go" onClick={onNext}>
           {last ? t("track.finishBtn") : t("track.next")}
         </button>
       </div>
@@ -362,12 +437,7 @@ function Foot({
   );
 }
 
-/**
- * What is said under the verdict.
- *
- * Typed answers always show the canonical spelling. A missing apostrophe or
- * lowercase "i" still passes, but the learner sees the standard written form.
- */
+/** Typed and assembled answers always show the canonical written form. */
 function whyOf(step: Step, _judged: Judged): string | null {
   switch (step.kind) {
     case "choice":
@@ -375,6 +445,7 @@ function whyOf(step: Step, _judged: Judged): string | null {
       return step.whyRu;
     case "type":
     case "gap":
+    case "assemble":
       return `Правильный вариант: ${step.answers[0]}`;
     default:
       return null;
@@ -384,7 +455,7 @@ function whyOf(step: Step, _judged: Judged): string | null {
 /* ── one body per kind ───────────────────────────────────────────────────── */
 
 /** A stable deal: a re-render must never move answers under the cursor. */
-function shuffled(values: string[], id: string): string[] {
+function shuffled<T>(values: T[], id: string): T[] {
   let seed = 0;
   for (const ch of id) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
   const out = [...values];
@@ -403,6 +474,10 @@ interface BodyProps {
   setPicked: (n: number) => void;
   typed: string;
   setTyped: (s: string) => void;
+  tiles: { id: number; text: string }[];
+  assembled: number[];
+  addTile: (id: number) => void;
+  removeTile: (id: number) => void;
   joined: string[];
   leftPick: string | null;
   setLeftPick: (s: string | null) => void;
@@ -579,11 +654,67 @@ function StepBody(p: BodyProps) {
             value={p.typed}
             disabled={judged !== null}
             placeholder={step.hint ? `${step.hint}…` : t("track.typeHere")}
+            aria-label={step.promptRu}
             onChange={(event) => p.setTyped(event.target.value)}
             autoComplete="off"
             autoCapitalize="none"
             spellCheck={false}
           />
+        </>
+      );
+
+    case "assemble":
+      return (
+        <>
+          <h2 className="tk-ask">{step.promptRu}</h2>
+          <p className="tk-quote">{step.quote}</p>
+          <div className="tk-builder">
+            <div
+              className={`tk-build-answer${judged ? ` tk-build-answer--${judged}` : ""}`}
+              role="group"
+              aria-label="Твоё предложение"
+            >
+              {p.assembled.length === 0 && (
+                <span className="tk-build-answer__empty">Здесь появится твоё предложение</span>
+              )}
+              {p.assembled.map((id, position) => {
+                const tile = p.tiles.find((item) => item.id === id);
+                if (!tile) return null;
+                return (
+                  <button
+                    type="button"
+                    key={id}
+                    data-placed-tile={id}
+                    className="tk-press tk-tile tk-tile--placed"
+                    style={{ animationDelay: `${Math.min(position * 35, 280)}ms` }}
+                    disabled={judged !== null}
+                    onClick={() => p.removeTile(id)}
+                    aria-label={`Убрать слово ${tile.text}`}
+                  >
+                    {tile.text}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="tk-builder__hint">Нажимай на слова по порядку. Ошибся — нажми на слово выше, чтобы вернуть его.</p>
+            <div className="tk-bank" role="group" aria-label="Слова для предложения">
+              {p.tiles.map((tile) => p.assembled.includes(tile.id) ? (
+                <span className="tk-tile-slot" key={tile.id} aria-hidden="true">{tile.text}</span>
+              ) : (
+                <button
+                  type="button"
+                  key={tile.id}
+                  data-bank-tile={tile.id}
+                  className="tk-press tk-tile"
+                  disabled={judged !== null}
+                  onClick={() => p.addTile(tile.id)}
+                  aria-label={`Добавить слово ${tile.text}`}
+                >
+                  {tile.text}
+                </button>
+              ))}
+            </div>
+          </div>
         </>
       );
 

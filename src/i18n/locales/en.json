@@ -1469,6 +1469,7 @@
       "choice": "Pick an answer",
       "match": "Match the pairs",
       "type": "Type it yourself",
+      "assemble": "Build the sentence",
       "gap": "Fill the gap",
       "register": "Where it belongs"
     },
