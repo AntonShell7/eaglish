@@ -118,6 +118,79 @@
   font-size: 0.7rem;
 }
 
+/* ── clearly separated learning blocks ───────────────────────────────────── */
+.tk-blocks {
+  display: grid;
+  gap: 28px;
+  margin-top: 32px;
+}
+.tk-block {
+  padding: 26px 28px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--color-surface) 72%, var(--color-bg));
+  box-shadow: var(--shadow-1);
+}
+.tk-block--done { border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border)); }
+.tk-block__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.tk-block__eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.tk-block__head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+.tk-block__head p {
+  max-width: 58ch;
+  margin: 7px 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.tk-block__count {
+  flex: none;
+  min-width: 46px;
+  padding: 7px 11px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-softer);
+  color: var(--color-primary);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.tk-block__bar {
+  height: 5px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+}
+.tk-block__bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transition: width 400ms var(--ease-out);
+}
+.tk-block .tk-path { margin-top: 18px; }
+.tk-step--review .tk-card { --fill: var(--color-primary-softer); }
+.tk-step--review .tk-card::before { border-color: color-mix(in srgb, var(--color-primary) 60%, var(--color-border)); }
+
 /* ── connected lesson path ───────────────────────────────────────────────── */
 .tk-path {
   position: relative;
@@ -306,6 +379,11 @@
   .tk-track { margin-top: 30px; }
   .tk-track__head { align-items: flex-start; gap: 16px; }
   .tk-track__standing strong { font-size: 1.65rem; }
+  .tk-blocks { gap: 18px; margin-top: 24px; }
+  .tk-block { padding: 20px 14px 4px; border-radius: 24px; }
+  .tk-block__head { gap: 12px; }
+  .tk-block__head h3 { font-size: 1.15rem; }
+  .tk-block .tk-path { margin-top: 12px; }
   .tk-path { margin-top: 24px; }
   .tk-path::before { left: 31px; }
   .tk-step {
@@ -477,17 +555,11 @@
 }
 .tk-stage__in { width: 100%; margin-block: auto; }
 
-/* One transition between steps, and one only. The file used to carry seven
-   different kinds of motion — a pulse, a hop, a shake, two different scale
-   pops, a drawn tick and a slide — which is a count, and the count itself is
-   the tell. The rest of the app moves one way: fade and rise. */
-/* The screen that is leaving goes left and the one arriving comes from the
-   right, both 100px over 400ms. It reads as moving forward through a course
-   rather than as a form being redrawn. */
-.tk-in { animation: tk-in 400ms ease-out backwards; }
-.tk-out { animation: tk-out 400ms ease-out forwards; }
-@keyframes tk-in { from { opacity: 0; transform: translateX(100px); } }
-@keyframes tk-out { to { opacity: 0; transform: translateX(-100px); } }
+/* A short, soft turn between questions rather than a full-page slide. */
+.tk-in { animation: tk-in 280ms var(--ease-out) backwards; }
+.tk-out { animation: tk-out 240ms ease-in forwards; }
+@keyframes tk-in { from { opacity: 0; transform: translateX(34px); } }
+@keyframes tk-out { to { opacity: 0; transform: translateX(-26px); } }
 
 /* Named, not whispered. Duolingo labels every exercise this way and it
    works; what did not work was a third pale grey thing in a row under two
@@ -796,44 +868,19 @@
 .tk-pair:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
 .tk-pair--on { --fill: var(--color-primary-softer); color: var(--color-primary); }
 .tk-pair--on::before { border-color: var(--color-primary); }
-/* A joined pair becomes an empty socket rather than vanishing: the column
-   keeps its shape and the eye keeps its place. */
 .tk-pair--done {
-  --fill: var(--color-surface-2);
-  color: transparent;
+  --fill: color-mix(in srgb, var(--color-success) 9%, var(--color-surface));
+  color: var(--color-text-faint);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
 }
-.tk-pair--done::before { border-color: transparent; }
-.tk-pair--miss { animation: tk-shake 420ms var(--ease); }
-
-/* ── tiles ───────────────────────────────────────────────────────────────── */
-
-.tk-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 10px;
-  min-height: 96px;
-  padding: 10px 0 18px;
-  border-bottom: 2px solid var(--color-border);
+.tk-pair--done::before { border-color: color-mix(in srgb, var(--color-success) 35%, transparent); }
+.tk-pair--miss {
+  --fill: color-mix(in srgb, var(--color-danger) 12%, var(--color-surface));
+  color: var(--color-danger);
+  animation: tk-shake 420ms var(--ease);
 }
-.tk-bank { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s5); }
-
-.tk-tile {
-  --lip: 2px;
-  --fill: var(--color-surface);
-  padding: 11px 16px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  color: var(--color-text);
-}
-.tk-tile::before { border: 2px solid var(--color-border-strong); }
-.tk-tile:hover:not(:disabled) { --fill: var(--color-surface-2); filter: none; }
-/* A spent tile is a pressed-in socket of the same size, not a gap. */
-.tk-tile--spent {
-  --fill: var(--color-surface-2);
-  color: transparent;
-}
-.tk-tile--spent::before { border-color: transparent; }
+.tk-pair--miss::before { border-color: var(--color-danger); }
 
 /* ── typing ──────────────────────────────────────────────────────────────── */
 
@@ -866,6 +913,8 @@
 }
 .tk-gap input {
   width: 9ch;
+  min-width: 6ch;
+  max-width: 100%;
   padding: 0 6px;
   border: none;
   border-bottom: 2px solid var(--color-ink);
@@ -1071,7 +1120,14 @@
 }
 
 @media (max-width: 640px) {
-  .tk-pairs { gap: 0 14px; }
+  .tk-pairs { gap: 0 10px; }
+  .tk-pair {
+    min-height: 52px;
+    padding: 10px;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+  .tk-gap { padding-left: 12px; }
   .tk-top { height: 46px; }
   .tk-where { display: none; }
   .tk-foot__in { gap: 14px; }

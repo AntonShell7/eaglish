@@ -1440,12 +1440,13 @@
   },
   "track": {
     "start": "Start",
-    "pathEyebrow": "Your path · 3 formats",
+    "pathEyebrow": "Your path · 4 formats",
     "pathTitle": "From messages to natural speech",
-    "pathNote": "Every three lessons make a new cycle: chat shorthand, idioms and natural reactions. Each cycle ends with a check and no new rules.",
-    "formatsLabel": "The three lesson formats",
+    "pathNote": "Each block has three short lessons and a review with no new expressions: messaging, idioms, then natural speech.",
+    "formatsLabel": "The four lesson formats",
     "completed": "completed",
     "standing": "{{done}} of {{total}} lessons",
+    "block": "Block {{number}}",
     "check": "Check",
     "next": "Continue",
     "gotIt": "Got it",
@@ -1465,7 +1466,6 @@
       "chat": "An example in context",
       "choice": "Pick an answer",
       "match": "Match the pairs",
-      "assemble": "Build the phrase",
       "type": "Type it yourself",
       "gap": "Fill the gap",
       "register": "Where it belongs"
@@ -1474,7 +1474,7 @@
       "chat": "Messaging",
       "idiom": "Idioms",
       "speech": "Natural speech",
-      "review": "Check yourself"
+      "review": "Review"
     },
     "minutes": "~{{count}} min",
     "passed": "done",

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { trackLessons, type TrackKind, type TrackLesson } from "@/data/track";
+import { trackLessons, trackModules, type TrackKind, type TrackLesson } from "@/data/track";
 import { currentLessonId, doneLessons, resetTrack } from "@/lib/trackProgress";
 import "./track.css";
 
@@ -14,7 +14,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const [asking, setAsking] = useState(false);
   const [, bump] = useState(0);
 
-  const minutesOf = (lesson: TrackLesson) => Math.max(2, Math.round(lesson.steps.length * 0.7));
+  const minutesOf = (lesson: TrackLesson) => Math.max(2, Math.round(lesson.steps.length * 0.55));
   const progress = lessons.length ? (finished / lessons.length) * 100 : 0;
 
   return (
@@ -36,7 +36,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
       </div>
 
       <div className="tk-formats" aria-label={t("track.formatsLabel")}>
-        {(["chat", "idiom", "speech"] as const).map((kind, index) => (
+        {(["chat", "idiom", "speech", "review"] as const).map((kind, index) => (
           <span key={kind}>
             <b>{index + 1}</b>
             {t(`track.lessonKind.${kind}`)}
@@ -44,40 +44,62 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
         ))}
       </div>
 
-      <div className="tk-path">
-        {lessons.map(({ lesson }, index) => {
-          const isPast = done.has(lesson.id);
-          const here = current === lesson.id;
-          const locked = !isPast && !here;
-          const title = ru ? lesson.titleRu : lesson.title;
+      <div className="tk-blocks">
+        {trackModules.map((module, moduleIndex) => {
+          const blockDone = module.lessons.filter((lesson) => done.has(lesson.id)).length;
           return (
-            <button
-              type="button"
-              className={`tk-step${locked ? " tk-step--locked" : ""}${here ? " tk-step--here" : ""}${isPast ? " tk-step--done" : ""}`}
-              key={lesson.id}
-              disabled={locked}
-              onClick={() => onOpen(lesson.id)}
-              aria-label={`${index + 1}. ${title}`}
-            >
-              <span className="tk-node-wrap">
-                <span className={`tk-press tk-node${isPast ? " tk-node--done" : locked ? " tk-node--locked" : ""}`}>
-                  <NodeMark done={isPast} kind={lesson.kind} locked={locked} />
-                </span>
-              </span>
+            <section className={`tk-block${blockDone === module.lessons.length ? " tk-block--done" : ""}`} key={module.id}>
+              <header className="tk-block__head">
+                <div>
+                  <span className="tk-block__eyebrow">{t("track.block", { number: moduleIndex + 1 })}</span>
+                  <h3>{ru ? module.titleRu : module.title}</h3>
+                  <p>{ru ? module.subtitleRu : module.subtitle}</p>
+                </div>
+                <span className="tk-block__count">{blockDone}/{module.lessons.length}</span>
+              </header>
+              <div className="tk-block__bar" aria-hidden="true">
+                <span style={{ width: `${(blockDone / module.lessons.length) * 100}%` }} />
+              </div>
 
-              <span className="tk-press tk-card">
-                <span className="tk-card__top">
-                  <span className="tk-card__kind">{t(`track.lessonKind.${lesson.kind}`)}</span>
-                  <span className="tk-card__number">{String(index + 1).padStart(2, "0")}</span>
-                </span>
-                <strong className="tk-card__title">{title}</strong>
-                <span className="tk-card__subtitle">{lesson.subtitleRu}</span>
-                <span className="tk-card__meta">
-                  <span>{isPast ? `✓ ${t("track.passed")}` : t("track.minutes", { count: minutesOf(lesson) })}</span>
-                  {here && <span className="tk-start">{t("track.start")} →</span>}
-                </span>
-              </span>
-            </button>
+              <div className="tk-path">
+                {module.lessons.map((lesson) => {
+                  const index = lessons.findIndex((entry) => entry.lesson.id === lesson.id);
+                  const isPast = done.has(lesson.id);
+                  const here = current === lesson.id;
+                  const locked = !isPast && !here;
+                  const title = ru ? lesson.titleRu : lesson.title;
+                  return (
+                    <button
+                      type="button"
+                      className={`tk-step${locked ? " tk-step--locked" : ""}${here ? " tk-step--here" : ""}${isPast ? " tk-step--done" : ""}${lesson.review ? " tk-step--review" : ""}`}
+                      key={lesson.id}
+                      disabled={locked}
+                      onClick={() => onOpen(lesson.id)}
+                      aria-label={`${index + 1}. ${title}`}
+                    >
+                      <span className="tk-node-wrap">
+                        <span className={`tk-press tk-node${isPast ? " tk-node--done" : locked ? " tk-node--locked" : ""}`}>
+                          <NodeMark done={isPast} kind={lesson.kind} locked={locked} />
+                        </span>
+                      </span>
+
+                      <span className="tk-press tk-card">
+                        <span className="tk-card__top">
+                          <span className="tk-card__kind">{t(`track.lessonKind.${lesson.kind}`)}</span>
+                          <span className="tk-card__number">{String(index + 1).padStart(2, "0")}</span>
+                        </span>
+                        <strong className="tk-card__title">{title}</strong>
+                        <span className="tk-card__subtitle">{lesson.subtitleRu}</span>
+                        <span className="tk-card__meta">
+                          <span>{isPast ? `✓ ${t("track.passed")}` : t("track.minutes", { count: minutesOf(lesson) })}</span>
+                          {here && <span className="tk-start">{t("track.start")} →</span>}
+                        </span>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
           );
         })}
       </div>

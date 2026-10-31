@@ -24,6 +24,17 @@ import "./track.css";
 
 type Judged = "right" | "wrong" | null;
 
+/** Case, apostrophe style, spacing and trailing punctuation are not the skill. */
+function sameAnswer(a: string, b: string): boolean {
+  const normalize = (value: string) => value
+    .trim()
+    .toLowerCase()
+    .replace(/[’‘]/g, "'")
+    .replace(/[.!?,]+$/, "")
+    .replace(/\s+/g, " ");
+  return normalize(a) === normalize(b);
+}
+
 interface Props {
   module: TrackModule;
   lesson: TrackLesson;
@@ -75,9 +86,9 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   /** Per-step answer state. Each exercise owns its own shape. */
   const [picked, setPicked] = useState<number | null>(null);
   const [typed, setTyped] = useState("");
-  const [built, setBuilt] = useState<number[]>([]);
   const [joined, setJoined] = useState<string[]>([]);
   const [leftPick, setLeftPick] = useState<string | null>(null);
+  const [missedPair, setMissedPair] = useState<string[]>([]);
   const [rooms, setRooms] = useState<Record<number, boolean>>({});
 
   const fieldRef = useRef<HTMLInputElement>(null);
@@ -85,9 +96,9 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   useEffect(() => {
     setPicked(null);
     setTyped("");
-    setBuilt([]);
     setJoined([]);
     setLeftPick(null);
+    setMissedPair([]);
     setRooms({});
     setJudged(null);
     if (step && (step.kind === "type" || step.kind === "gap")) {
@@ -98,13 +109,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   /* ── pairs judge themselves as they are played ─────────────────────────── */
 
   const matchPairs = step?.kind === "match" ? step.pairs : [];
-  /*
-   * Shuffled from the step's id, and memoised on the id rather than on the
-   * pairs. Both halves of that are the same bug found twice: `step.pairs` is a
-   * fresh array every render, so a memo keyed on it is no memo, and a random
-   * shuffle inside it re-dealt the column on every keystroke — the answers
-   * moved under the cursor mid-game.
-   */
   const rightColumn = useMemo(
     () => (step?.kind === "match" ? shuffled(step.pairs.map(([, b]) => b), step.id) : []),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -114,7 +118,13 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const tapRight = (value: string) => {
     if (!leftPick || joined.includes(value)) return;
     const pair = matchPairs.find(([a]) => a === leftPick);
-    if (pair && pair[1] === value) setJoined((was) => [...was, leftPick, value]);
+    if (pair && pair[1] === value) {
+      setJoined((was) => [...was, leftPick, value]);
+      setMissedPair([]);
+    } else {
+      setMissedPair([leftPick, value]);
+      window.setTimeout(() => setMissedPair([]), 420);
+    }
     setLeftPick(null);
   };
 
@@ -130,24 +140,15 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         return picked !== null;
       case "match":
         return joined.length === matchPairs.length * 2;
-      case "assemble":
-        return built.length > 0;
       case "type":
       case "gap":
         return typed.trim().length > 0;
       case "register":
-        /* Leaving a row alone means "not here", so there is nothing to wait
-           for. Requiring at least one tick would itself be a hint. */
         return true;
     }
   })();
 
-  /** Loose on purpose: case, spacing and a trailing stop are not the skill. */
-  const same = (a: string, b: string) =>
-    a.trim().toLowerCase().replace(/[.!?,]+$/, "").replace(/\s+/g, " ") ===
-    b.trim().toLowerCase().replace(/[.!?,]+$/, "").replace(/\s+/g, " ");
-
-  const correct = (): boolean => {
+  const correct = useCallback((): boolean => {
     if (!step) return false;
     switch (step.kind) {
       case "rule":
@@ -156,29 +157,18 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         return true;
       case "choice":
         return picked === step.answer;
-      case "assemble": {
-        const tiles = assembleTiles(step);
-        return same(built.map((i) => tiles[i]).join(" "), step.answer.join(" "));
-      }
       case "type":
       case "gap":
-        return step.answers.some((answer) => same(typed, answer));
+        return step.answers.some((answer) => sameAnswer(typed, answer));
       case "register":
         return step.rooms.every((room, i) => (rooms[i] === true) === room.ok);
     }
-  };
+  }, [step, picked, typed, rooms]);
 
-  /* check() turns the page itself on the screens that ask nothing, and advance
-     is declared below it. A ref rather than a reorder, because moving advance
-     above check would only move the same problem the other way. */
   const advanceRef = useRef<(() => void) | null>(null);
 
   const check = useCallback(() => {
     if (!ready || judged) return;
-    /* A rule and a thread asked nothing, so there is nothing to mark. They
-       used to run through the same path, and the footer congratulated the
-       learner for reading — which also counted, so a six-question lesson
-       could end eight correct out of six. */
     if (step.kind === "rule" || step.kind === "chat") {
       advanceRef.current?.();
       return;
@@ -186,7 +176,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     const ok = correct();
     if (ok) setRight((was) => was + 1);
     setJudged(ok ? "right" : "wrong");
-  }, [ready, judged, step, picked, typed, built, joined, rooms]);
+  }, [ready, judged, step, correct]);
 
   const advance = useCallback(() => {
     if (last) {
@@ -194,14 +184,11 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       setOver(true);
       return;
     }
-    /* The outgoing screen is given its exit before the incoming one is built.
-       Without the pause they cross-fade in place, which looks like a flicker
-       rather than a turn of the page. */
     setLeaving(true);
     window.setTimeout(() => {
       setIndex((was) => was + 1);
       setLeaving(false);
-    }, 180);
+    }, 240);
   }, [last, lesson]);
 
   advanceRef.current = advance;
@@ -281,11 +268,10 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           setPicked={setPicked}
           typed={typed}
           setTyped={setTyped}
-          built={built}
-          setBuilt={setBuilt}
           joined={joined}
           leftPick={leftPick}
           setLeftPick={setLeftPick}
+          missedPair={missedPair}
           tapRight={tapRight}
           rightColumn={rightColumn}
           rooms={rooms}
@@ -373,8 +359,6 @@ function whyOf(step: Step, judged: Judged): string | null {
     case "choice":
     case "register":
       return step.whyRu;
-    case "assemble":
-      return judged === "wrong" ? step.answer.join(" ") : null;
     case "type":
     case "gap":
       return judged === "wrong" ? step.answers[0] : null;
@@ -385,13 +369,7 @@ function whyOf(step: Step, judged: Judged): string | null {
 
 /* ── one body per kind ───────────────────────────────────────────────────── */
 
-/**
- * Shuffle, the same way every time for a given step.
- *
- * Seeded from the step id rather than from Math.random, so a re-render — and
- * there is one on every keystroke — cannot deal the tiles again underneath
- * the hand that is using them.
- */
+/** A stable deal: a re-render must never move answers under the cursor. */
 function shuffled(values: string[], id: string): string[] {
   let seed = 0;
   for (const ch of id) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
@@ -404,11 +382,6 @@ function shuffled(values: string[], id: string): string[] {
   return out;
 }
 
-/** The bank for an assemble step: the answer plus its distractors. */
-function assembleTiles(step: Extract<Step, { kind: "assemble" }>): string[] {
-  return shuffled([...step.answer, ...step.extra], step.id);
-}
-
 interface BodyProps {
   step: Step;
   judged: Judged;
@@ -416,11 +389,10 @@ interface BodyProps {
   setPicked: (n: number) => void;
   typed: string;
   setTyped: (s: string) => void;
-  built: number[];
-  setBuilt: (f: (was: number[]) => number[]) => void;
   joined: string[];
   leftPick: string | null;
   setLeftPick: (s: string | null) => void;
+  missedPair: string[];
   tapRight: (s: string) => void;
   rightColumn: string[];
   rooms: Record<number, boolean>;
@@ -540,9 +512,11 @@ function StepBody(p: BodyProps) {
                   className={`tk-press tk-pair${
                     p.joined.includes(left)
                       ? " tk-pair--done"
-                      : p.leftPick === left
-                        ? " tk-pair--on"
-                        : ""
+                      : p.missedPair.includes(left)
+                        ? " tk-pair--miss"
+                        : p.leftPick === left
+                          ? " tk-pair--on"
+                          : ""
                   }`}
                   disabled={p.joined.includes(left)}
                   onClick={() => p.setLeftPick(left)}
@@ -556,7 +530,13 @@ function StepBody(p: BodyProps) {
                 <button
                   type="button"
                   key={value}
-                  className={`tk-press tk-pair${p.joined.includes(value) ? " tk-pair--done" : ""}`}
+                  className={`tk-press tk-pair${
+                    p.joined.includes(value)
+                      ? " tk-pair--done"
+                      : p.missedPair.includes(value)
+                        ? " tk-pair--miss"
+                        : ""
+                  }`}
                   disabled={p.joined.includes(value)}
                   onClick={() => p.tapRight(value)}
                 >
@@ -567,42 +547,6 @@ function StepBody(p: BodyProps) {
           </div>
         </>
       );
-
-    case "assemble": {
-      const tiles = assembleTiles(step);
-      return (
-        <>
-          <h2 className="tk-ask">{step.promptRu}</h2>
-          {step.quote && <p className="tk-quote">{step.quote}</p>}
-          <div className="tk-line">
-            {p.built.map((tileIndex, slot) => (
-              <button
-                type="button"
-                key={`${tileIndex}-${slot}`}
-                className="tk-press tk-tile"
-                disabled={judged !== null}
-                onClick={() => p.setBuilt((was) => was.filter((_, i) => i !== slot))}
-              >
-                {tiles[tileIndex]}
-              </button>
-            ))}
-          </div>
-          <div className="tk-bank">
-            {tiles.map((tile, i) => (
-              <button
-                type="button"
-                key={`${tile}-${i}`}
-                className={`tk-press tk-tile${p.built.includes(i) ? " tk-tile--spent" : ""}`}
-                disabled={p.built.includes(i) || judged !== null}
-                onClick={() => p.setBuilt((was) => [...was, i])}
-              >
-                {tile}
-              </button>
-            ))}
-          </div>
-        </>
-      );
-    }
 
     case "type":
       return (
@@ -638,6 +582,7 @@ function StepBody(p: BodyProps) {
               autoCapitalize="none"
               spellCheck={false}
               aria-label={step.promptRu}
+              style={{ width: `${Math.min(34, Math.max(7, ...step.answers.map((answer) => answer.length + 2)))}ch` }}
             />
             <span>{step.after}</span>
           </p>
