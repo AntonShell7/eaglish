@@ -15,35 +15,9 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const [, bump] = useState(0);
 
   const minutesOf = (lesson: TrackLesson) => Math.max(2, Math.round(lesson.steps.length * 0.55));
-  const progress = lessons.length ? (finished / lessons.length) * 100 : 0;
 
   return (
     <div className="tk-track">
-      <header className="tk-track__head">
-        <div>
-          <p className="eyebrow">{t("track.pathEyebrow")}</p>
-          <h2 className="tk-track__title">{t("track.pathTitle")}</h2>
-          <p className="tk-track__note">{t("track.pathNote")}</p>
-        </div>
-        <div className="tk-track__standing" aria-label={t("track.standing", { done: finished, total: lessons.length })}>
-          <strong>{finished}<span>/{lessons.length}</span></strong>
-          <small>{t("track.completed")}</small>
-        </div>
-      </header>
-
-      <div className="tk-track__bar" aria-hidden="true">
-        <span style={{ width: `${progress}%` }} />
-      </div>
-
-      <div className="tk-formats" aria-label={t("track.formatsLabel")}>
-        {(["chat", "idiom", "speech", "review"] as const).map((kind, index) => (
-          <span key={kind}>
-            <b>{index + 1}</b>
-            {t(`track.lessonKind.${kind}`)}
-          </span>
-        ))}
-      </div>
-
       <div className="tk-blocks">
         {trackModules.map((module, moduleIndex) => {
           const blockDone = module.lessons.filter((lesson) => done.has(lesson.id)).length;

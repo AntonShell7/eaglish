@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Step, TrackLesson, TrackModule } from "@/data/track";
+import { judgeTypedAnswer } from "@/lib/trackAnswer";
 import { finishLesson, resurfacedSteps } from "@/lib/trackProgress";
 import "./track.css";
 
@@ -23,17 +24,6 @@ import "./track.css";
  */
 
 type Judged = "right" | "wrong" | null;
-
-/** Case, apostrophes, spacing and trailing punctuation are not the skill. */
-function sameAnswer(a: string, b: string): boolean {
-  const normalize = (value: string) => value
-    .trim()
-    .toLowerCase()
-    .replace(/['’‘ʼ`´]/g, "")
-    .replace(/[.!?,;:]+$/g, "")
-    .replace(/\s+/g, " ");
-  return normalize(a) === normalize(b);
-}
 
 interface Props {
   module: TrackModule;
@@ -71,6 +61,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const [index, setIndex] = useState(0);
   const [leaving, setLeaving] = useState(false);
   const [judged, setJudged] = useState<Judged>(null);
+  const [checking, setChecking] = useState(false);
   const [right, setRight] = useState(0);
   const [over, setOver] = useState(false);
 
@@ -110,16 +101,19 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   const matchPairs = step?.kind === "match" ? step.pairs : [];
   const rightColumn = useMemo(
-    () => (step?.kind === "match" ? shuffled(step.pairs.map(([, b]) => b), step.id) : []),
+    () => (step?.kind === "match" ? shuffled([...new Set(step.pairs.map(([, b]) => b))], step.id) : []),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [step?.kind === "match" ? step.id : null],
   );
 
+  /* Joined stores left expressions only. Several expressions may share one
+     translation (thx and tq both mean «спасибо»), and the same right card must
+     stay available until every matching left expression has used it. */
   const tapRight = (value: string) => {
-    if (!leftPick || joined.includes(value)) return;
+    if (!leftPick || joined.includes(leftPick)) return;
     const pair = matchPairs.find(([a]) => a === leftPick);
     if (pair && pair[1] === value) {
-      setJoined((was) => [...was, leftPick, value]);
+      setJoined((was) => [...was, leftPick]);
       setMissedPair([]);
     } else {
       setMissedPair([leftPick, value]);
@@ -139,7 +133,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       case "choice":
         return picked !== null;
       case "match":
-        return joined.length === matchPairs.length * 2;
+        return joined.length === matchPairs.length;
       case "type":
       case "gap":
         return typed.trim().length > 0;
@@ -148,7 +142,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     }
   })();
 
-  const correct = useCallback((): boolean => {
+  const correct = useCallback(async (): Promise<boolean> => {
     if (!step) return false;
     switch (step.kind) {
       case "rule":
@@ -159,7 +153,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         return picked === step.answer;
       case "type":
       case "gap":
-        return step.answers.some((answer) => sameAnswer(typed, answer));
+        return judgeTypedAnswer(step, typed);
       case "register":
         return step.rooms.every((room, i) => (rooms[i] === true) === room.ok);
     }
@@ -167,16 +161,21 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   const advanceRef = useRef<(() => void) | null>(null);
 
-  const check = useCallback(() => {
-    if (!ready || judged) return;
+  const check = useCallback(async () => {
+    if (!ready || judged || checking) return;
     if (step.kind === "rule" || step.kind === "chat") {
       advanceRef.current?.();
       return;
     }
-    const ok = correct();
-    if (ok) setRight((was) => was + 1);
-    setJudged(ok ? "right" : "wrong");
-  }, [ready, judged, step, correct]);
+    setChecking(true);
+    try {
+      const ok = await correct();
+      if (ok) setRight((was) => was + 1);
+      setJudged(ok ? "right" : "wrong");
+    } finally {
+      setChecking(false);
+    }
+  }, [ready, judged, checking, step, correct]);
 
   const advance = useCallback(() => {
     if (last) {
@@ -258,7 +257,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <div className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index}>
+      <div className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking}>
         <span className="tk-kicker">{t(`track.kind.${step.kind}`)}</span>
         <div className="tk-stage__in">
         <StepBody
@@ -282,7 +281,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <Foot judged={judged} ready={ready} step={step} onCheck={check} onNext={advance} last={last} />
+      <Foot judged={judged} ready={ready} checking={checking} step={step} onCheck={check} onNext={advance} last={last} />
     </div>
   );
 }
@@ -292,6 +291,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 function Foot({
   judged,
   ready,
+  checking,
   step,
   onCheck,
   onNext,
@@ -299,6 +299,7 @@ function Foot({
 }: {
   judged: Judged;
   ready: boolean;
+  checking: boolean;
   step: Step;
   onCheck: () => void;
   onNext: () => void;
@@ -312,8 +313,14 @@ function Foot({
       <div className="tk-foot">
         <div className="tk-foot__in">
           <span className="tk-foot__said" />
-          <button type="button" className="tk-press tk-go" disabled={!ready} onClick={onCheck}>
-            {silent ? t("track.gotIt") : t("track.check")}
+          <button
+            type="button"
+            className="tk-press tk-go"
+            disabled={!ready || checking}
+            aria-busy={checking}
+            onClick={onCheck}
+          >
+            {checking ? "Проверяю…" : silent ? t("track.gotIt") : t("track.check")}
           </button>
         </div>
       </div>
@@ -525,23 +532,28 @@ function StepBody(p: BodyProps) {
               ))}
             </div>
             <div>
-              {p.rightColumn.map((value) => (
-                <button
-                  type="button"
-                  key={value}
-                  className={`tk-press tk-pair${
-                    p.joined.includes(value)
-                      ? " tk-pair--done"
-                      : p.missedPair.includes(value)
-                        ? " tk-pair--miss"
-                        : ""
-                  }`}
-                  disabled={p.joined.includes(value)}
-                  onClick={() => p.tapRight(value)}
-                >
-                  {value}
-                </button>
-              ))}
+              {p.rightColumn.map((value) => {
+                const done = step.pairs
+                  .filter(([, right]) => right === value)
+                  .every(([left]) => p.joined.includes(left));
+                return (
+                  <button
+                    type="button"
+                    key={value}
+                    className={`tk-press tk-pair${
+                      done
+                        ? " tk-pair--done"
+                        : p.missedPair.includes(value)
+                          ? " tk-pair--miss"
+                          : ""
+                    }`}
+                    disabled={done}
+                    onClick={() => p.tapRight(value)}
+                  >
+                    {value}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </>
@@ -570,6 +582,10 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
+          <p className="tk-quote tk-gap__context">
+            <span>Перевод всего предложения</span>
+            {step.quote}
+          </p>
           <p className="tk-gap">
             <span>{step.before}</span>
             <input

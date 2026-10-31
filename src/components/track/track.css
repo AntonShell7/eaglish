@@ -34,95 +34,11 @@
   width: min(900px, 100%);
   margin: 38px auto 0;
 }
-.tk-track__head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 28px;
-}
-.tk-track__title {
-  margin: 10px 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  font-weight: 750;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
-}
-.tk-track__note {
-  max-width: 58ch;
-  margin: 10px 0 0;
-  font-family: var(--font-caption);
-  font-size: 0.98rem;
-  line-height: 1.55;
-  color: var(--color-text-muted);
-}
-.tk-track__standing { flex: none; text-align: right; }
-.tk-track__standing strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 750;
-  letter-spacing: -0.05em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.tk-track__standing strong span { color: var(--color-text-faint); font-size: 1.15rem; }
-.tk-track__standing small {
-  display: block;
-  margin-top: 7px;
-  font-size: 0.72rem;
-  color: var(--color-text-faint);
-}
-.tk-track__bar {
-  height: 8px;
-  margin-top: 24px;
-  border-radius: var(--radius-full);
-  background: var(--color-surface-3);
-  overflow: hidden;
-}
-.tk-track__bar span {
-  display: block;
-  height: 100%;
-  min-width: 0;
-  border-radius: inherit;
-  background: var(--color-primary);
-  transition: width 400ms var(--ease-out);
-}
-.tk-formats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 20px;
-}
-.tk-formats > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 34px;
-  padding: 5px 13px 5px 6px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  background: var(--color-surface);
-  font-size: 0.78rem;
-  font-weight: 650;
-  color: var(--color-text-muted);
-}
-.tk-formats b {
-  display: grid;
-  place-items: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-  font-size: 0.7rem;
-}
 
 /* ── clearly separated learning blocks ───────────────────────────────────── */
 .tk-blocks {
   display: grid;
   gap: 28px;
-  margin-top: 32px;
 }
 .tk-block {
   padding: 26px 28px 10px;
@@ -556,11 +472,17 @@
 }
 .tk-stage__in { width: 100%; margin-block: auto; }
 
-/* A short, soft turn between questions rather than a full-page slide. */
-.tk-in { animation: tk-in 280ms var(--ease-out) backwards; }
-.tk-out { animation: tk-out 240ms ease-in forwards; }
-@keyframes tk-in { from { opacity: 0; transform: translateX(34px); } }
-@keyframes tk-out { to { opacity: 0; transform: translateX(-26px); } }
+/* A soft settle between questions: enough travel to feel continuous, never
+   enough to make the learner chase the exercise across the screen. */
+.tk-in { animation: tk-in 340ms cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.tk-out { animation: tk-out 220ms ease-in forwards; }
+@keyframes tk-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.992); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes tk-out {
+  to { opacity: 0; transform: translateY(-8px) scale(0.996); }
+}
 
 /* Named, not whispered. Duolingo labels every exercise this way and it
    works; what did not work was a third pale grey thing in a row under two
@@ -1208,6 +1130,16 @@
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-soft);
 }
+.tk-gap__context > span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-text-faint);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.tk-go[aria-busy="true"] { cursor: wait; }
 
 .tk-foot {
   padding-top: 18px;

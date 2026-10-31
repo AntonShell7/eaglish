@@ -51,6 +51,8 @@ export type Step =
       kind: "gap";
       id: string;
       promptRu: string;
+      /** Full Russian context, so the missing expression is unambiguous. */
+      quote: string;
       before: string;
       after: string;
       answers: string[];
@@ -95,6 +97,7 @@ export interface ExpressionSpec {
   wrong: [string, string];
   before: string;
   after: string;
+  gapRu: string;
   gapAnswers?: string[];
   translationRu: string;
   translationEn: string[];
@@ -180,6 +183,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         kind: "gap",
         id: `${spec.id}-gap`,
         promptRu: "Вставь подходящее выражение",
+        quote: `«${second.gapRu}»`,
         before: second.before,
         after: second.after,
         answers: second.gapAnswers ?? [second.short],
@@ -255,6 +259,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         kind: "gap",
         id: `${id}-gap`,
         promptRu: "Вставь пропущенное выражение",
+        quote: `«${third.gapRu}»`,
         before: third.before,
         after: third.after,
         answers: third.gapAnswers ?? [third.short],
