@@ -24,13 +24,13 @@ import "./track.css";
 
 type Judged = "right" | "wrong" | null;
 
-/** Case, apostrophe style, spacing and trailing punctuation are not the skill. */
+/** Case, apostrophes, spacing and trailing punctuation are not the skill. */
 function sameAnswer(a: string, b: string): boolean {
   const normalize = (value: string) => value
     .trim()
     .toLowerCase()
-    .replace(/[’‘]/g, "'")
-    .replace(/[.!?,]+$/, "")
+    .replace(/['’‘ʼ`´]/g, "")
+    .replace(/[.!?,;:]+$/g, "")
     .replace(/\s+/g, " ");
   return normalize(a) === normalize(b);
 }
@@ -349,19 +349,17 @@ function Foot({
 /**
  * What is said under the verdict.
  *
- * A wrong answer always gets the right one, because the worst thing a drill
- * can do is mark somebody wrong and move on. A right answer gets the
- * explanation only where there is one worth reading — praise with nothing
- * under it teaches people to stop reading the footer.
+ * Typed answers always show the canonical spelling. A missing apostrophe or
+ * lowercase "i" still passes, but the learner sees the standard written form.
  */
-function whyOf(step: Step, judged: Judged): string | null {
+function whyOf(step: Step, _judged: Judged): string | null {
   switch (step.kind) {
     case "choice":
     case "register":
       return step.whyRu;
     case "type":
     case "gap":
-      return judged === "wrong" ? step.answers[0] : null;
+      return `Правильный вариант: ${step.answers[0]}`;
     default:
       return null;
   }
@@ -422,6 +420,7 @@ function StepBody(p: BodyProps) {
                   <span className="tk-form__short">{form.short}</span>
                   <span className="tk-form__long">
                     {form.long}
+                    {form.fullForm && <span className="tk-form__full">{form.fullForm}</span>}
                     {form.noteRu && <span className="tk-form__note">{form.noteRu}</span>}
                   </span>
                 </div>

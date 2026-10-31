@@ -7,9 +7,9 @@ import { CONTACT_EMAIL } from "@/data/legal";
 import "./footer.css";
 
 const LINKS: { key: string; to: string }[] = [
+  { key: "nav.slang", to: "/slang" },
   { key: "nav.reading", to: "/reading" },
   { key: "nav.dictation", to: "/dictation" },
-  { key: "nav.slang", to: "/slang" },
   { key: "nav.vocabulary", to: "/vocabulary" },
   { key: "nav.writing", to: "/writing" },
   { key: "nav.progress", to: "/progress" },

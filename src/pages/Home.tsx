@@ -4,7 +4,6 @@ import { useAuth } from "@/context/AuthContext";
 import { getLearnerProfile, isOnboardingDeferred } from "@/lib/learnerProfile";
 import { syncSettled, whenSynced } from "@/lib/sync";
 import Landing from "./Landing";
-import Dashboard from "./Dashboard";
 
 /**
  * "/" means two different things.
@@ -60,5 +59,5 @@ export default function Home() {
     return <Navigate to="/onboarding" replace />;
   }
 
-  return user ? <Dashboard /> : <Landing />;
+  return user ? <Navigate to="/slang" replace /> : <Landing />;
 }

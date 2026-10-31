@@ -443,6 +443,7 @@
   flex-direction: column;
   width: min(920px, 100%);
   margin-inline: auto;
+  overflow-x: clip;
   padding-inline: var(--gutter);
   min-height: calc(100svh - 150px);
 }
@@ -795,7 +796,7 @@
   --lip: 2px;
   --fill: var(--color-surface);
   display: grid;
-  grid-template-columns: 30px 1fr;
+  grid-template-columns: 30px minmax(0, 1fr);
   gap: 0 16px;
   align-items: center;
   width: 100%;
@@ -1098,6 +1099,135 @@
 }
 .tk-done .tk-go { margin-top: 28px; }
 
+/* ── soft lesson surfaces ────────────────────────────────────────────────── */
+
+/* One compact working area: the exercise is the hero, not the empty page. */
+.tk-player { width: min(840px, 100%); }
+.tk-stage__in { max-width: 720px; margin-inline: auto; }
+.tk-top { gap: 14px; }
+.tk-bar { height: 14px; }
+
+/* Theory is a set of readable cards, with the abbreviation and its full form
+   visible at a glance rather than hidden inside a long paragraph. */
+.tk-forms {
+  gap: 14px;
+  margin-top: var(--s4);
+  border-bottom: 0;
+}
+.tk-form {
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+.tk-form__short {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+.tk-form__long {
+  margin-top: 7px;
+  color: var(--color-text);
+  font-weight: 650;
+}
+.tk-form__full {
+  display: block;
+  margin-top: 5px;
+  color: var(--color-primary);
+  font-size: 0.94rem;
+  font-weight: 750;
+}
+.tk-form__note {
+  max-width: none;
+  margin-top: 8px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.tk-thread {
+  max-width: 540px;
+  margin-inline: auto;
+  border-radius: 26px;
+}
+.tk-thread__top { padding: 16px 20px; }
+.tk-msg__bubble { padding: 11px 16px; }
+
+.tk-quote {
+  max-width: 560px;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface-2);
+}
+
+.tk-opt,
+.tk-pair,
+.tk-room {
+  --lip: 3px;
+  border-radius: 16px;
+}
+.tk-opt {
+  min-height: 64px;
+  padding: 14px 18px;
+}
+.tk-opt__n { border-radius: 9px; }
+.tk-pair,
+.tk-room { min-height: 60px; }
+
+.tk-field {
+  max-width: 560px;
+  height: 58px;
+  padding: 0 18px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 16px;
+  background: var(--color-surface);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.tk-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+.tk-gap {
+  max-width: 620px;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface-2);
+}
+.tk-gap input {
+  min-height: 42px;
+  padding: 2px 10px;
+  border: 2px solid var(--color-border-strong);
+  border-radius: 10px;
+  background: var(--color-surface);
+  transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.tk-gap input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.tk-foot {
+  padding-top: 18px;
+  background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+.tk-foot--right { background: color-mix(in srgb, var(--color-success) 12%, var(--color-bg)); }
+.tk-foot--wrong { background: color-mix(in srgb, var(--color-danger) 10%, var(--color-bg)); }
+.tk-foot__in { max-width: 720px; margin-inline: auto; }
+.tk-go { min-height: 50px; }
+.tk-done {
+  margin-block: 40px;
+  padding: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+  text-align: center;
+}
+
 /* ── narrow ──────────────────────────────────────────────────────────────── */
 
 /* Breakpoint blocks live at the end of the file. CSS order beats specificity,
@@ -1107,31 +1237,43 @@
   .tk-forms,
   .tk-rooms {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 12px;
   }
-  /* Back to code-on-the-left on a phone, where vertical space is cheap. */
-  .tk-form {
-    display: grid;
-    grid-template-columns: minmax(92px, auto) 1fr;
-    gap: 0 18px;
-    align-items: baseline;
-  }
-  .tk-form__long { margin-top: 0; }
+  .tk-form { display: block; padding: 16px; }
+  .tk-form__long { margin-top: 7px; }
 }
 
 @media (max-width: 640px) {
+  .tk-player { --gutter: 16px; }
+  .tk-stage { padding-block: 24px 16px; }
   .tk-pairs { gap: 0 10px; }
   .tk-pair {
-    min-height: 52px;
+    min-height: 54px;
     padding: 10px;
     font-size: 0.9rem;
     overflow-wrap: anywhere;
   }
-  .tk-gap { padding-left: 12px; }
+  .tk-ask { margin-bottom: 24px; }
+  .tk-forms { margin-top: 24px; }
+  .tk-thread { border-radius: 22px; }
+  .tk-thread__body { padding: 16px 12px 18px; }
+  .tk-msg { max-width: 90%; }
+  .tk-opt { min-height: 60px; padding: 12px 14px; }
+  .tk-field,
+  .tk-gap input { font-size: 1rem; }
+  .tk-gap { padding: 14px; }
   .tk-top { height: 46px; }
   .tk-where { display: none; }
   .tk-foot__in { gap: 14px; }
   .tk-go { padding: 0 20px; }
+  .tk-done { margin-block: 24px; padding: 26px 20px; }
+}
+
+@media (max-width: 560px) {
+  .tk-foot__in { flex-wrap: wrap; gap: 12px; }
+  .tk-foot__said:empty { display: none; }
+  .tk-foot__mark { width: 44px; height: 44px; }
+  .tk-foot .tk-go { width: 100%; }
 }
 
 /* The consent bar owns the bottom of the window until it is dismissed. */

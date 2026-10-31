@@ -9,7 +9,7 @@ export type Step =
       titleRu: string;
       body: string;
       bodyRu: string;
-      forms?: { short: string; long: string; note?: string; noteRu?: string }[];
+      forms?: { short: string; long: string; fullForm?: string; note?: string; noteRu?: string }[];
     }
   | {
       kind: "chat";
@@ -99,6 +99,7 @@ export interface ExpressionSpec {
   translationRu: string;
   translationEn: string[];
   aliases?: string[];
+  fullForm?: string;
 }
 
 export interface LessonSpec {
@@ -161,6 +162,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         forms: expressions.map((item) => ({
           short: item.short,
           long: item.meaningRu,
+          fullForm: item.fullForm,
           noteRu: item.noteRu,
         })),
       },

@@ -1,17 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/context/AuthContext";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import {
-  IconHome,
   IconBook,
   IconHeadphones,
   IconQuotes,
   IconBookmark,
   IconPen,
   IconChart,
-  IconMore,
   IconUser,
 } from "@/components/brand/icons";
 import { StatsStrip } from "./StatsStrip";
@@ -43,19 +41,12 @@ import "./shell.css";
  * places for one subject. It is an entrance inside the vocabulary now.
  */
 const PRACTICE = [
+  { to: "/slang", key: "slang", Icon: IconQuotes },
   { to: "/reading", key: "reading", Icon: IconBook },
   { to: "/dictation", key: "dictation", Icon: IconHeadphones },
-  { to: "/slang", key: "slang", Icon: IconQuotes },
 ] as const;
 
-/*
- * Words: the collection, and the drill that proves you have them.
- *
- * "Use your words" lives here rather than under practice — it is not a way of
- * meeting words but a way of showing you hold them — but it had no entry in
- * the navigation at all, reachable only through a tab inside the vocabulary.
- * A whole section with no door in the rail is a section nobody finds.
- */
+/* Words: the collection, and the drill that proves you have them. */
 const WORDS = [
   { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
   { to: "/writing", key: "writing", Icon: IconPen },
@@ -66,30 +57,12 @@ const YOU = [
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
-/*
- * Five slots, and the fifth is a door rather than a destination.
- *
- * A phone bar with more than five targets stops being hittable, and the app
- * has seven places to go. Spending the last slot on Profile meant three
- * sections — Real English, Use your words, Progress — could not be reached
- * from a phone at all without going via the dashboard. "More" costs one tap
- * and reaches all of them, which is cheaper than a section being invisible.
- *
- * The label for dictation is the short one here: "Английский на слух" wraps
- * to two lines in a 75px column and pushes the bar out of shape.
- */
+/* Five direct destinations, with Slang first and Profile always one tap away. */
 const TABS = [
-  { to: "/", key: "home", Icon: IconHome },
+  { to: "/slang", key: "slang", Icon: IconQuotes },
   { to: "/reading", key: "reading", Icon: IconBook },
   { to: "/dictation", key: "dictationShort", Icon: IconHeadphones },
   { to: "/vocabulary", key: "vocabulary", Icon: IconBookmark },
-] as const;
-
-/** What sits behind "More". */
-const MORE = [
-  { to: "/slang", key: "slang", Icon: IconQuotes },
-  { to: "/writing", key: "writing", Icon: IconPen },
-  { to: "/progress", key: "progress", Icon: IconChart },
   { to: "/profile", key: "profile", Icon: IconUser },
 ] as const;
 
@@ -106,11 +79,6 @@ export function Layout() {
      experience than being told beforehand, and this is the cheapest possible
      way to tell. Nothing is shown to someone who has paid. */
   const locked = (to: string) => !isPro && sectionOf(to) !== null;
-  const [more, setMore] = useState(false);
-
-  /* The sheet belongs to the page it was opened on. Leaving that page with it
-     still up would reopen it over the destination. */
-  useEffect(() => setMore(false), [pathname]);
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {
@@ -133,18 +101,13 @@ export function Layout() {
   return (
     <div className={user ? "shell" : "shell shell--guest"}>
       <aside className="rail">
-        <NavLink to="/" className="rail__brand">
+        <NavLink to={user ? "/slang" : "/"} className="rail__brand">
           <BrandLogo variant="chip" className="h-7 w-7" />
           {t("brand")}
         </NavLink>
 
         {user ? (
           <>
-            <NavLink to="/" end className={({ isActive }) => `rail__link ${isActive ? "rail__link--active" : ""}`}>
-              <IconHome />
-              {t("nav.home")}
-            </NavLink>
-
             <p className="rail__label">{t("shell.practice")}</p>
             <nav className="rail__group">
               {PRACTICE.map(({ to, key, Icon }) => (
@@ -211,7 +174,7 @@ export function Layout() {
 
       <div className="flex min-w-0 flex-col">
         <header className={scrolled ? "topline is-scrolled" : "topline"}>
-          <NavLink to="/" className="topline__brand">
+          <NavLink to={user ? "/slang" : "/"} className="topline__brand">
             <BrandLogo variant="chip" className="h-7 w-7" />
             {t("brand")}
           </NavLink>
@@ -267,7 +230,6 @@ export function Layout() {
             <NavLink
               key={to}
               to={to}
-              end={to === "/"}
               className={({ isActive }) => `tabbar__link ${isActive ? "tabbar__link--active" : ""}`}
             >
               <Icon />
@@ -275,41 +237,7 @@ export function Layout() {
               {locked(to) && <span className="tabbar__lock" aria-hidden="true" />}
             </NavLink>
           ))}
-
-          <button
-            type="button"
-            className={`tabbar__link ${more ? "tabbar__link--active" : ""}`}
-            aria-expanded={more}
-            onClick={() => setMore((v) => !v)}
-          >
-            <IconMore />
-            {t("nav.more")}
-          </button>
         </nav>
-      )}
-
-      {/* The rest of the app, one tap from the bar. It closes on choosing
-          something, and on tapping away — a sheet that only closes by its own
-          button is a sheet people get stuck in. */}
-      {user && more && (
-        <>
-          <div className="moresheet__scrim" onClick={() => setMore(false)} aria-hidden />
-          <div className="moresheet" role="dialog" aria-label={t("nav.moreTitle")}>
-            <p className="moresheet__h">{t("nav.moreTitle")}</p>
-            {MORE.map(({ to, key, Icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) => `moresheet__link ${isActive ? "is-active" : ""}`}
-                onClick={() => setMore(false)}
-              >
-                <Icon />
-                {t(`nav.${key}`)}
-                {locked(to) && <span className="moresheet__lock" aria-hidden="true" />}
-              </NavLink>
-            ))}
-          </div>
-        </>
       )}
 
       <SelectionLookup />

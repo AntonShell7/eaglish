@@ -31,8 +31,8 @@ export default function App() {
       </Route>
 
       <Route element={<Layout />}>
-        {/* Home decides for itself: a landing page when signed out, the
-            dashboard when signed in. */}
+        {/* The public landing stays at the root; signed-in learners go
+            straight to Slang, the product's main learning path. */}
         <Route index element={<Home />} />
 
         {/* Everything that writes progress needs an account to write it to. */}
