@@ -126,20 +126,84 @@ export interface LessonSpec {
   };
 }
 
-function meaningChoice(expression: ExpressionSpec, id: string): Extract<Step, { kind: "choice" }> {
+type ChoiceStep = Extract<Step, { kind: "choice" }>;
+
+function choiceStep(
+  id: string,
+  promptRu: string,
+  quote: string | undefined,
+  correct: string,
+  distractors: string[],
+  whyRu: string,
+  teaches: string[],
+): ChoiceStep {
+  const options = [...new Set([correct, ...distractors.filter((item) => item !== correct)])].slice(0, 4);
   const seed = [...id].reduce((sum, char) => sum + char.charCodeAt(0), 0);
-  const answer = seed % 3;
-  const options = [expression.meaningRu, ...expression.wrong];
-  const offset = (3 - answer) % 3;
+  const answer = seed % options.length;
+  const offset = (options.length - answer) % options.length;
   const rotated = options.map((_, index) => options[(index + offset) % options.length]);
-  return {
-    kind: "choice",
+  return { kind: "choice", id, prompt: promptRu, promptRu, quote, options: rotated, answer, whyRu, teaches };
+}
+
+function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
+  return choiceStep(
     id,
-    prompt: `What does ${expression.short} mean?`,
-    promptRu: `Что значит «${expression.short}»?`,
-    options: rotated,
-    answer,
+    `Что значит «${expression.short}»?`,
+    undefined,
+    expression.meaningRu,
+    expression.wrong,
+    `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    [expression.short],
+  );
+}
+
+function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
+  return choiceStep(
+    id,
+    "Выбери пропущенное выражение",
+    `${expression.before}_____${expression.after}\nПеревод всего предложения: ${expression.gapRu}`,
+    expression.short,
+    pool.map((item) => item.short),
+    `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    [expression.short],
+  );
+}
+
+function translationChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
+  return choiceStep(
+    id,
+    "Выбери правильный перевод",
+    `«${expression.translationRu}»`,
+    expression.translationEn[0],
+    pool.map((item) => item.translationEn[0]),
+    `Правильный вариант: ${expression.translationEn[0]}`,
+    [expression.short],
+  );
+}
+
+/** Usage matters as much as meaning: a correct phrase in the wrong room is
+   still the wrong phrase. These are selection tasks, not typed judgements. */
+function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id: string): Extract<Step, { kind: "register" }> {
+  const rooms = kind === "idiom"
+    ? [
+        { labelRu: "Разговор с другом", ok: true },
+        { labelRu: "Неформальная беседа с коллегами", ok: true },
+        { labelRu: "Личная переписка", ok: true },
+        { labelRu: "Официальный документ или заявление", ok: false },
+      ]
+    : [
+        { labelRu: "Личный чат с другом", ok: true },
+        { labelRu: "Разговор с близким человеком", ok: true },
+        { labelRu: "Официальное письмо в университет", ok: false },
+        { labelRu: "Деловое письмо незнакомому человеку", ok: false },
+      ];
+  return {
+    kind: "register",
+    id,
+    phrase: expression.short,
+    rooms,
     whyRu: `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    register: kind === "speech" ? "veryCasual" : "casual",
     teaches: [expression.short],
   };
 }
@@ -179,16 +243,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         lines: spec.lines,
       },
       meaningChoice(first, `${spec.id}-meaning`),
-      {
-        kind: "gap",
-        id: `${spec.id}-gap`,
-        promptRu: "Вставь подходящее выражение",
-        quote: `«${second.gapRu}»`,
-        before: second.before,
-        after: second.after,
-        answers: second.gapAnswers ?? [second.short],
-        teaches: [second.short],
-      },
+      gapChoice(second, expressions, `${spec.id}-gap`),
       {
         kind: "type",
         id: `${spec.id}-translate`,
@@ -219,14 +274,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         answer: spec.scenario.answer,
         whyRu: spec.scenario.whyRu,
       },
-      {
-        kind: "type",
-        id: `${spec.id}-recall`,
-        promptRu: "Вспомни выражение и напиши его по-английски",
-        quote: `«${first.meaningRu}»`,
-        answers: [first.short, ...(first.aliases ?? [])],
-        teaches: [first.short],
-      },
+      registerChoice(first, spec.kind, `${spec.id}-register`),
     ],
   };
 }
@@ -255,16 +303,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         teaches: expressions.slice(0, middle).map((item) => item.short),
       },
       meaningChoice(second, `${id}-meaning`),
-      {
-        kind: "gap",
-        id: `${id}-gap`,
-        promptRu: "Вставь пропущенное выражение",
-        quote: `«${third.gapRu}»`,
-        before: third.before,
-        after: third.after,
-        answers: third.gapAnswers ?? [third.short],
-        teaches: [third.short],
-      },
+      gapChoice(third, expressions, `${id}-gap`),
       {
         kind: "match",
         id: `${id}-match-b`,
@@ -272,14 +311,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         pairs: expressions.slice(middle).map((item): [string, string] => [item.short, item.meaningRu]),
         teaches: expressions.slice(middle).map((item) => item.short),
       },
-      {
-        kind: "type",
-        id: `${id}-translate`,
-        promptRu: "Переведи фразу без подсказок",
-        quote: `«${first.translationRu}»`,
-        answers: first.translationEn,
-        teaches: [first.short],
-      },
+      translationChoice(first, expressions, `${id}-translate`),
       meaningChoice(last, `${id}-last`),
     ],
   };

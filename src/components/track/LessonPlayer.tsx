@@ -62,7 +62,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const [leaving, setLeaving] = useState(false);
   const [judged, setJudged] = useState<Judged>(null);
   const [checking, setChecking] = useState(false);
-  const [right, setRight] = useState(0);
   const [over, setOver] = useState(false);
 
   const step = steps[index];
@@ -170,7 +169,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     setChecking(true);
     try {
       const ok = await correct();
-      if (ok) setRight((was) => was + 1);
       setJudged(ok ? "right" : "wrong");
     } finally {
       setChecking(false);
@@ -217,15 +215,26 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   if (over) {
     return (
       <div className="tk-done">
-        <div className="tk-done__n">
-          {right}
-          <span className="tk-done__of">/{asked}</span>
+        <div className="tk-done__confetti" aria-hidden="true">
+          {Array.from({ length: 16 }, (_, i) => <span key={i} />)}
         </div>
-        <span className="tk-done__h">{t("track.finish")}</span>
-        <p className="tk-done__p">{lesson.titleRu}</p>
-        <button type="button" className="tk-press tk-go" onClick={onExit}>
-          {t("track.toPath")}
-        </button>
+        <div className="tk-done__card">
+          <div className="tk-done__mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="52" height="52" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 33l11 11 23-25" />
+            </svg>
+          </div>
+          <span className="tk-done__h">{t("track.finish")}</span>
+          <h2 className="tk-done__title">{t("track.finishTitle")}</h2>
+          <p className="tk-done__lesson">{lesson.titleRu}</p>
+          <p className="tk-done__p">{t("track.finishNote")}</p>
+          <button type="button" className="tk-press tk-go tk-done__go" onClick={onExit} autoFocus>
+            <span>{t("track.next")}</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
       </div>
     );
   }

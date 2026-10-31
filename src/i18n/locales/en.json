@@ -1458,6 +1458,8 @@
     "roomsAsk": "Tick where “{{phrase}}” belongs",
     "newThing": "Explainer",
     "finish": "Lesson done",
+    "finishTitle": "Great work!",
+    "finishNote": "One more step towards natural English.",
     "scoreRight": "correct",
     "scoreSteps": "screens",
     "toPath": "Back to the path",
