@@ -141,7 +141,12 @@ type ChoiceStep = Extract<Step, { kind: "choice" }>;
 /* The theory card may show nearby variants. Practice uses one stable meaning,
    so a learner is never asked to choose between two equally valid synonyms. */
 const primaryMeaningOverrides: Record<string, string> = {
+  "a blessing in disguise": "неприятность, которая обернулась благом",
   "built different": "не такой, как все",
+  "come again?": "повтори, пожалуйста",
+  "go out on a limb": "рискнуть, высказав мнение или поддержав кого-то",
+  lemme: "позволь мне",
+  "maybe some other time": "может, в другой раз",
   fr: "серьёзно",
   highkey: "очень",
   "I don't think so": "думаю, что нет",

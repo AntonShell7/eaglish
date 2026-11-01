@@ -1,4 +1,5 @@
 import { cycle, type ExpressionSpec, type LessonSpec } from "./trackModel";
+import { trackExpansionModules } from "./trackExpansionContent";
 
 const fullForms: Record<string, string> = {
   thx: "thanks",
@@ -1216,4 +1217,5 @@ export const trackModules = [
   cycle("cycle-ten", "Full Send", "Full Send", "Easy replies, strong impressions and bold energy.", "Лёгкие ответы, яркие впечатления и смелая энергия.", chatReassurance, idiomImpressions, speechBoldEnergy),
   cycle("cycle-eleven", "Out of Pocket", "Out of Pocket", "Subtle hints, story moments and unfiltered reactions.", "Скрытые намёки, сюжетные повороты и реакции без фильтров.", chatEmphasis, idiomStory, speechUnfiltered),
   cycle("cycle-twelve", "Native Mode", "Native Mode", "Honest emphasis, natural confidence and high praise.", "Честные акценты, естественная уверенность и восторженные комплименты.", chatTruth, idiomConfidence, speechPraise),
+  ...trackExpansionModules,
 ];
