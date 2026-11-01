@@ -535,7 +535,6 @@ function StepBody(p: BodyProps) {
     case "rule":
       return (
         <div className="tk-rule">
-          <h2 className="tk-rule__h">{step.titleRu}</h2>
           {!step.forms && step.bodyRu.split("\n\n").map((para) => (
             <p className="tk-rule__p" key={para.slice(0, 24)}>
               {para}
