@@ -163,9 +163,9 @@ const chatHonesty: LessonSpec = {
   withWhomRu: "Майя",
   lines: [
     { text: "I can send you my notes from class.", at: "21:04" },
-    { me: true, text: "thx! That would really help.", at: "21:04", glossRu: "thx = thanks — спасибо, благодарю" },
+    { me: true, text: "thx! That would really help.", at: "21:04", glossRu: "thx — спасибо" },
     { text: "Sent them. Did you like the ending?", at: "21:05" },
-    { me: true, text: "tq! tbh, I didn't expect that ending.", at: "21:05", glossRu: "tq = thank you — спасибо, благодарю; tbh = to be honest — честно говоря, если честно" },
+    { me: true, text: "tq! tbh, I didn't expect that ending.", at: "21:05", glossRu: "tq — спасибо; tbh — честно говоря" },
   ],
   expressions: [
     e("thx", "спасибо, благодарю", "Неформальный вариант thanks для личной переписки.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
@@ -192,9 +192,9 @@ const idiomBasics: LessonSpec = {
   withWhomRu: "Лена",
   lines: [
     { text: "My presentation starts in five minutes!", at: "10:55" },
-    { me: true, text: "Break a leg! You'll be great.", at: "10:55", glossRu: "Break a leg! — Удачи!" },
+    { me: true, text: "Break a leg! You'll be great.", at: "10:55", glossRu: "break a leg — удачи" },
     { text: "Thanks! Is the demo difficult?", at: "10:56" },
-    { me: true, text: "No, it's a piece of cake.", at: "10:56", glossRu: "a piece of cake — проще простого, раз плюнуть" },
+    { me: true, text: "No, it's a piece of cake.", at: "10:56", glossRu: "a piece of cake — проще простого" },
   ],
   expressions: [
     e("break a leg", "удачи, ни пуха ни пера", "Традиционное пожелание удачи, особенно перед выступлением.", ["сломай ногу", "отдохни немного"], "Your performance starts now. ", "!", "Удачи на выступлении!", ["break a leg"]),
@@ -221,9 +221,9 @@ const speechTeasing: LessonSpec = {
   withWhomRu: "Бен",
   lines: [
     { text: "Bro, you walked right past the exit.", at: "18:20" },
-    { me: true, text: "I'm such a dumbass. I didn't see it.", at: "18:20", glossRu: "dumbass — идиот; здесь говорящий поддевает сам себя" },
+    { me: true, text: "I'm such a dumbass. I didn't see it.", at: "18:20", glossRu: "dumbass — идиот" },
     { text: "And why does your controller keep disconnecting?", at: "18:21" },
-    { me: true, text: "Because it's a piece of shit.", at: "18:21", glossRu: "a piece of shit — отвратительная вещь" },
+    { me: true, text: "Because it's a piece of shit.", at: "18:21", glossRu: "a piece of shit — полное д*рьмо" },
   ],
   expressions: [
     e("dumbass", "идиот, тупица", "Грубое название или описание человека; так можно поддеть и самого себя. Между друзьями иногда звучит шутливо, но легко обидеть.", ["гений", "храбрец"], "I forgot my own password. I'm such a ", ".", "Я забыл ключи. Ну я и идиот.", ["I forgot my keys. I'm such a dumbass"]),
@@ -250,9 +250,9 @@ const chatNotes: LessonSpec = {
   withWhomRu: "Алекс",
   lines: [
     { text: "Do you know where Sam is?", at: "12:10" },
-    { me: true, text: "idk. He didn't answer me.", at: "12:11", glossRu: "idk = I don't know — я не знаю" },
+    { me: true, text: "idk. He didn't answer me.", at: "12:11", glossRu: "idk — я не знаю" },
     { text: "He's annoyed that you left.", at: "12:11" },
-    { me: true, text: "idgaf. btw, I'm already home.", at: "12:12", glossRu: "idgaf — мне совершенно плевать, мне пох*й; очень грубо. btw — кстати, если что" },
+    { me: true, text: "idgaf. btw, I'm already home.", at: "12:12", glossRu: "idgaf — мне совершенно плевать; btw — кстати" },
   ],
   expressions: [
     e("idk", "я не знаю", "Сокращение от I don't know для личных сообщений.", ["мне всё равно", "я согласен"], "", " where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
@@ -282,7 +282,7 @@ const idiomActions: LessonSpec = {
     { text: "Can I tell you what happened yesterday?", at: "09:15" },
     { me: true, text: "Sure, I'm all ears.", at: "09:15", glossRu: "I'm all ears — я внимательно слушаю" },
     { text: "It's about Dan's constant humming.", at: "09:16" },
-    { me: true, text: "Oh, that gets under my skin too.", at: "09:16", glossRu: "get under my skin — действовать мне на нервы" },
+    { me: true, text: "Oh, that gets under my skin too.", at: "09:16", glossRu: "gets under my skin — действует мне на нервы" },
   ],
   expressions: [
     e("all ears", "внимательно слушаю, весь во внимании", "Обычно говорят I'm all ears в ответ на предложение что-то рассказать.", ["не слушаю", "оглох"], "Tell me everything. I'm ", ".", "Рассказывай, я внимательно слушаю.", ["tell me, I'm all ears", "go ahead, I'm all ears"]),
@@ -309,9 +309,9 @@ const speechReactions: LessonSpec = {
   withWhomRu: "Оскар",
   lines: [
     { text: "Our teacher came to class in a dinosaur costume.", at: "14:02" },
-    { me: true, text: "No way!", at: "14:02", glossRu: "No way! — Не может быть!" },
+    { me: true, text: "No way!", at: "14:02", glossRu: "no way — не может быть" },
     { text: "And he roared instead of saying hello.", at: "14:03" },
-    { me: true, text: "I'm dead. That's wild.", at: "14:03", glossRu: "I'm dead — я умираю со смеху; that's wild — ну и невероятно" },
+    { me: true, text: "I'm dead. That's wild.", at: "14:03", glossRu: "I'm dead — я умираю со смеху; that's wild — вот это да" },
   ],
   expressions: [
     e("I'm dead", "я умираю со смеху", "В сообщениях и разговоре — реакция на что-то очень смешное, а не сообщение об опасности.", ["я устал", "мне грустно"], "That video was hilarious. ", ".", "Я умираю со смеху, это так смешно.", ["I'm dead. That's so funny"]),
@@ -338,10 +338,10 @@ const chatBasics: LessonSpec = {
   introRu: "Wyd спрашивает, чем человек занят. Lmk просит сообщить ответ позже. Nvm отменяет предыдущую просьбу или вопрос, когда они больше не нужны.",
   withWhomRu: "Сэм",
   lines: [
-    { text: "wyd?", at: "17:30", glossRu: "wyd — чем занимаешься, что делаешь?" },
+    { text: "wyd?", at: "17:30", glossRu: "wyd — чем занимаешься" },
     { me: true, text: "Trying to find my keys.", at: "17:30" },
-    { text: "lmk if you need help.", at: "17:31", glossRu: "lmk — дай мне знать, сообщи мне" },
-    { me: true, text: "nvm, they were in my bag.", at: "17:32", glossRu: "nvm — неважно, помощь уже не нужна" },
+    { text: "lmk if you need help.", at: "17:31", glossRu: "lmk — дай мне знать" },
+    { me: true, text: "nvm, they were in my bag.", at: "17:32", glossRu: "nvm — неважно" },
   ],
   expressions: [
     e("wyd", "чем занимаешься, что делаешь", "What are you doing. Короткий вопрос другу, часто служит началом разговора.", ["куда идёшь", "что случилось"], "", " tonight?", "Чем занимаешься сегодня вечером?", ["wyd tonight", "what are you doing tonight"], ["what are you doing"]),
@@ -369,7 +369,7 @@ const idiomPeople: LessonSpec = {
   withWhomRu: "Анна",
   lines: [
     { text: "So we present at ten and answer questions after?", at: "08:40" },
-    { me: true, text: "Exactly. Just making sure we're on the same page.", at: "08:40", glossRu: "on the same page — на одной волне, одинаково понимаем план" },
+    { me: true, text: "Exactly. Just making sure we're on the same page.", at: "08:40", glossRu: "on the same page — на одной волне" },
     { text: "Do I need to bring the cables?", at: "08:41" },
     { me: true, text: "No, Sam has them. You're off the hook.", at: "08:41", glossRu: "off the hook — тебе это делать не нужно" },
   ],
@@ -397,9 +397,9 @@ const speechAgreement: LessonSpec = {
   introRu: "Fair enough признаёт чужую точку зрения разумной. Dude — неформальное обращение. Kinda смягчает оценку: «немного», «вроде».",
   withWhomRu: "Марк",
   lines: [
-    { text: "The movie was kinda slow.", at: "22:10", glossRu: "kinda — немного, слегка" },
-    { me: true, text: "Fair enough. I liked the ending though.", at: "22:10", glossRu: "fair enough — логично, справедливо" },
-    { text: "You always defend the movies you choose, dude.", at: "22:11", glossRu: "dude — чувак, братан" },
+    { text: "The movie was kinda slow.", at: "22:10", glossRu: "kinda — немного" },
+    { me: true, text: "Fair enough. I liked the ending though.", at: "22:10", glossRu: "fair enough — справедливо" },
+    { text: "You always defend the movies you choose, dude.", at: "22:11", glossRu: "dude — чувак" },
   ],
   expressions: [
     e("fair enough", "справедливо, принято", "Признание, что чужой аргумент разумен, даже если твоё мнение не изменилось.", ["это нечестно", "я полностью согласен"], "You didn't like it? ", ".", "Справедливо, я понимаю твою точку зрения.", ["fair enough, I see your point", "fair enough. I see your point"]),
@@ -427,8 +427,8 @@ const chatPlans: LessonSpec = {
   withWhomRu: "Джей",
   lines: [
     { text: "Are you coming at seven?", at: "16:05" },
-    { me: true, text: "ofc. I already bought the tickets, fr.", at: "16:05", glossRu: "ofc — конечно, само собой; fr — правда, серьёзно" },
-    { text: "Bet. See you outside the cinema.", at: "16:06", glossRu: "Bet — договорились, окей" },
+    { me: true, text: "ofc. I already bought the tickets, fr.", at: "16:05", glossRu: "ofc — конечно; fr — серьёзно" },
+    { text: "Bet. See you outside the cinema.", at: "16:06", glossRu: "bet — договорились" },
   ],
   expressions: [
     e("fr", "правда, серьёзно", "For real. Подтверждает искренность или усиливает утверждение.", ["шучу", "возможно"], "I already paid, ", ".", "Я правда всё сделал.", ["I did everything, fr", "I did everything fr", "for real, I did everything"], ["for real"]),
@@ -457,7 +457,7 @@ const idiomRules: LessonSpec = {
   lines: [
     { text: "Why is this report taking so long?", at: "11:20" },
     { me: true, text: "I'm doing everything by the book.", at: "11:20", glossRu: "by the book — строго по правилам" },
-    { text: "Good. Don't cut corners this time.", at: "11:21", glossRu: "cut corners — схалтурить, сэкономить за счёт качества" },
+    { text: "Good. Don't cut corners this time.", at: "11:21", glossRu: "cut corners — схалтурить" },
   ],
   expressions: [
     e("by the book", "строго по правилам", "Do something by the book — выполнить задачу так, как предписано.", ["без правил", "по книге в буквальном смысле"], "The accountant does everything ", ".", "Мы сделали всё строго по правилам.", ["we did everything by the book", "we did it by the book"]),
@@ -484,9 +484,9 @@ const speechBoundaries: LessonSpec = {
   withWhomRu: "Том",
   lines: [
     { text: "One day I'll beat you at this game.", at: "19:40" },
-    { me: true, text: "You wish.", at: "19:40", glossRu: "You wish — мечтай, вряд ли" },
+    { me: true, text: "You wish.", at: "19:40", glossRu: "you wish — мечтай" },
     { text: "Hey, I almost won last time!", at: "19:41" },
-    { me: true, text: "Give me a break. I wasn't even trying.", at: "19:41", glossRu: "Give me a break — да брось" },
+    { me: true, text: "Give me a break. I wasn't even trying.", at: "19:41", glossRu: "give me a break — да брось" },
   ],
   expressions: [
     e("you wish", "мечтай, вряд ли", "Дразнящий ответ на завышенные ожидания. Может звучать игриво или снисходительно.", ["я тоже хочу", "поздравляю"], "You think you'll win? ", ".", "Думаешь, я извинюсь? Мечтай.", ["you think I'll apologize? You wish", "you think I'll apologize? you wish"]),
@@ -514,7 +514,7 @@ const chatReactions: LessonSpec = {
   lines: [
     { text: "Are you busy rn?", at: "13:12", glossRu: "rn — прямо сейчас" },
     { me: true, text: "Yeah, Dan is so disorganized. He forgot the documents again.", at: "13:12" },
-    { text: "ikr, he does this every week. smh.", at: "13:13", glossRu: "ikr — да уж, вот именно; smh — ну и ну" },
+    { text: "ikr, he does this every week. smh.", at: "13:13", glossRu: "ikr — да уж; smh — ну и ну" },
   ],
   expressions: [
     e("rn", "прямо сейчас", "Right now. Показывает, что действие происходит в текущий момент.", ["завтра", "недавно"], "I'm at work ", ".", "Я прямо сейчас читаю твоё сообщение.", ["I'm reading your message rn", "I am reading your message rn"], ["right now"]),
@@ -542,7 +542,7 @@ const idiomFeelings: LessonSpec = {
   withWhomRu: "Полина",
   lines: [
     { text: "I got the job!", at: "15:08" },
-    { me: true, text: "Congratulations! You must be over the moon.", at: "15:08", glossRu: "over the moon — на седьмом небе от счастья, в полном восторге" },
+    { me: true, text: "Congratulations! You must be over the moon.", at: "15:08", glossRu: "over the moon — на седьмом небе от счастья" },
     { text: "I am. I've been on cloud nine all day.", at: "15:09", glossRu: "on cloud nine — в полном восторге" },
   ],
   expressions: [
@@ -569,9 +569,9 @@ const speechComplaints: LessonSpec = {
   introRu: "Chill out — просьба успокоиться. Moron — грубое «идиот». Bitching — нытьё и жалобы.",
   withWhomRu: "Дэн",
   lines: [
-    { text: "Some moron cut me off on the way home!", at: "18:50", glossRu: "moron — идиот, придурок" },
+    { text: "Some moron cut me off on the way home!", at: "18:50", glossRu: "moron — идиот" },
     { me: true, text: "Chill out. You're home safely now.", at: "18:50", glossRu: "chill out — успокойся" },
-    { text: "I'm not bitching, he almost hit my car!", at: "18:51", glossRu: "bitching — нытьё, жалобы" },
+    { text: "I'm not bitching, he almost hit my car!", at: "18:51", glossRu: "bitching — ною" },
   ],
   expressions: [
     e("chill out", "успокойся, расслабься", "Неформальная просьба снизить эмоциональный накал. На обиженного человека может действовать раздражающе.", ["разволнуйся", "поторопись"], "We're fine. Just ", ".", "Успокойся. Всё в порядке.", ["Chill out. Everything is fine"], ["chill"]),
@@ -599,9 +599,9 @@ const chatContext: LessonSpec = {
   withWhomRu: "Мия",
   lines: [
     { text: "His profile says he's a professional chef.", at: "20:12" },
-    { me: true, text: "irl he only knows how to make pasta.", at: "20:12", glossRu: "irl = in real life — в реальной жизни, в реале" },
-    { text: "You mean Max, aka the pasta chef?", at: "20:13", glossRu: "aka = also known as — также известный как, он же" },
-    { me: true, text: "Exactly. ngl, that's basically me too.", at: "20:13", glossRu: "ngl = not gonna lie — если честно" },
+    { me: true, text: "irl he only knows how to make pasta.", at: "20:12", glossRu: "irl — в реальной жизни" },
+    { text: "You mean Max, aka the pasta chef?", at: "20:13", glossRu: "aka — он же" },
+    { me: true, text: "Exactly. ngl, that's basically me too.", at: "20:13", glossRu: "ngl — если честно" },
   ],
   expressions: [
     e("ngl", "если честно, не буду врать", "Not gonna lie. Вводит откровенное мнение или признание.", ["кстати", "я шучу"], "", ", I didn't expect to win.", "Если честно, мне это нравится.", ["ngl, I like it", "not gonna lie, I like it"], ["not gonna lie"]),
@@ -629,9 +629,9 @@ const idiomNerves: LessonSpec = {
   withWhomRu: "Ева",
   lines: [
     { text: "Why are you checking your phone every second?", at: "17:45" },
-    { me: true, text: "I'm on edge about the interview.", at: "17:45", glossRu: "on edge — напряжён, на нервах" },
+    { me: true, text: "I'm on edge about the interview.", at: "17:45", glossRu: "on edge — напряжён" },
     { text: "You'll be fine. Nervous?", at: "17:46" },
-    { me: true, text: "Yeah, I have butterflies in my stomach.", at: "17:46", glossRu: "butterflies in my stomach — бабочки в животе, трепетное волнение" },
+    { me: true, text: "Yeah, I have butterflies in my stomach.", at: "17:46", glossRu: "butterflies in my stomach — бабочки в животе" },
   ],
   expressions: [
     e("on edge", "на нервах, напряжён", "Be on edge — находиться в напряжении, легко вздрагивать или раздражаться.", ["спокоен", "счастлив"], "I've been ", " all morning.", "Я весь день на нервах.", ["I've been on edge all day", "I have been on edge all day"]),
@@ -658,7 +658,7 @@ const speechReductions: LessonSpec = {
   withWhomRu: "Лиам",
   lines: [
     { text: "I'm gonna head out. Do you wanna come?", at: "16:20", glossRu: "gonna — собираюсь; wanna — хочешь" },
-    { me: true, text: "I can't. I gotta study.", at: "16:20", glossRu: "gotta — мне нужно, я должен" },
+    { me: true, text: "I can't. I gotta study.", at: "16:20", glossRu: "gotta — мне нужно" },
     { text: "Okay, next time.", at: "16:21" },
   ],
   expressions: [
@@ -718,7 +718,7 @@ const idiomLowKey: LessonSpec = {
     { text: "Are you coming to the party?", at: "12:40" },
     { me: true, text: "No, I'm a bit under the weather.", at: "12:40", glossRu: "under the weather — плохо себя чувствую" },
     { text: "Got it. Rest today.", at: "12:41" },
-    { me: true, text: "Yeah, I'm going to lie low all weekend.", at: "12:41", glossRu: "lie low — отсидеться тихо, никуда не высовываться" },
+    { me: true, text: "Yeah, I'm going to lie low all weekend.", at: "12:41", glossRu: "lie low — отсидеться тихо" },
   ],
   expressions: [
     e("under the weather", "нездоров, плохо себя чувствую", "Обычно о лёгком недомогании, а не о серьёзной болезни.", ["под дождём", "в отличной форме"], "I'm feeling a bit ", " today.", "Я немного нездоров сегодня.", ["I'm a bit under the weather today", "I am a bit under the weather today"]),
@@ -745,8 +745,8 @@ const speechLabels: LessonSpec = {
   withWhomRu: "Зои",
   lines: [
     { text: "Mia built her own computer in one night.", at: "21:15" },
-    { me: true, text: "She's a total nerd, and honestly, she's badass.", at: "21:15", glossRu: "nerd — ботаник, увлечённый техникой человек; badass — очень крутая" },
-    { text: "And the lighting on it looks bitchin'.", at: "21:16", glossRu: "bitchin' — офигенно выглядит" },
+    { me: true, text: "She's a total nerd, and honestly, she's badass.", at: "21:15", glossRu: "nerd — ботаник; badass — очень крутая" },
+    { text: "And the lighting on it looks bitchin'.", at: "21:16", glossRu: "bitchin' — офигенно" },
   ],
   expressions: [
     e("badass", "крутой, дерзкий, бесстрашный", "Неформальный комплимент человеку или поступку. Может быть и существительным, и прилагательным.", ["слабый", "скучный"], "She fought for her team. She's a ", ".", "Этот трюк был очень крутым.", ["that trick was badass", "the trick was badass"]),
@@ -774,9 +774,9 @@ const chatBoundaries: LessonSpec = {
   withWhomRu: "Джош",
   lines: [
     { text: "Are you still upset?", at: "22:30" },
-    { me: true, text: "What are you talking about? I wasn't upset.", at: "22:30", glossRu: "What are you talking about? — О чём ты вообще?" },
-    { text: "Okay, never mind.", at: "22:31", glossRu: "Never mind — неважно, забудь" },
-    { me: true, text: "Just leave me alone for a bit.", at: "22:31", glossRu: "Leave me alone — оставь меня в покое, отстань от меня" },
+    { me: true, text: "What are you talking about? I wasn't upset.", at: "22:30", glossRu: "what are you talking about — о чём ты вообще?" },
+    { text: "Okay, never mind.", at: "22:31", glossRu: "never mind — неважно" },
+    { me: true, text: "Just leave me alone for a bit.", at: "22:31", glossRu: "leave me alone — оставь меня в покое" },
   ],
   expressions: [
     e("never mind", "неважно, забудь", "Закрывает предыдущий вопрос или просьбу. Не универсальный ответ на извинение.", ["помни всегда", "я согласен"], "", ", it doesn't matter anymore.", "Неважно, я уже решил проблему.", ["never mind, I solved the problem", "never mind. I solved the problem"]),
@@ -804,7 +804,7 @@ const idiomDecisions: LessonSpec = {
   withWhomRu: "Кейт",
   lines: [
     { text: "Are you still not talking to Dan?", at: "19:10" },
-    { me: true, text: "I need to cool off first.", at: "19:10", glossRu: "cool off — остыть, успокоиться" },
+    { me: true, text: "I need to cool off first.", at: "19:10", glossRu: "cool off — остыть" },
     { text: "Are you cancelling the trip too?", at: "19:11" },
     { me: true, text: "Maybe I'll change my mind tomorrow.", at: "19:11", glossRu: "change my mind — передумать" },
   ],
@@ -832,10 +832,10 @@ const speechInsults: LessonSpec = {
   introRu: "Douchebag — неприятный, самодовольный человек. Jackass — идиот или человек, ведущий себя глупо. Bastard — очень грубое оскорбление жестокого или подлого человека.",
   withWhomRu: "Макс",
   lines: [
-    { text: "That douchebag pushed past the whole queue.", at: "17:05", glossRu: "douchebag — м*дак, неприятный тип" },
-    { me: true, text: "What a jackass.", at: "17:05", glossRu: "jackass — придурок, идиот" },
+    { text: "That douchebag pushed past the whole queue.", at: "17:05", glossRu: "douchebag — м*дак" },
+    { me: true, text: "What a jackass.", at: "17:05", glossRu: "jackass — придурок" },
     { text: "Then he laughed at the woman who fell.", at: "17:06" },
-    { me: true, text: "He sounds like a real bastard.", at: "17:06", glossRu: "bastard — подлец, м*дак; очень грубо" },
+    { me: true, text: "He sounds like a real bastard.", at: "17:06", glossRu: "bastard — подлец" },
   ],
   expressions: [
     e("douchebag", "м*дак, неприятный самодовольный тип", "Сильное оскорбление поведения и характера, не просто нейтральное «глупый».", ["приятный человек", "скромный человек"], "He acted like a total ", ".", "Он вёл себя как настоящий м*дак.", ["he acted like a total douchebag", "he was a total douchebag"]),
@@ -862,8 +862,8 @@ const chatAnger: LessonSpec = {
   introRu: "Damn передаёт досаду или удивление. What the hell усиливает вопрос. Pissed off — очень зол или раздражён; более грубо, чем angry.",
   withWhomRu: "Нина",
   lines: [
-    { text: "What the hell happened to your car?", at: "08:15", glossRu: "What the hell — что, чёрт возьми, случилось" },
-    { me: true, text: "Someone hit it and drove away. Damn.", at: "08:15", glossRu: "Damn — чёрт, вот блин" },
+    { text: "What the hell happened to your car?", at: "08:15", glossRu: "what the hell — что, чёрт возьми" },
+    { me: true, text: "Someone hit it and drove away. Damn.", at: "08:15", glossRu: "damn — чёрт" },
     { text: "You must be pissed off.", at: "08:16", glossRu: "pissed off — очень зол" },
   ],
   expressions: [
@@ -894,7 +894,7 @@ const idiomConfrontation: LessonSpec = {
     { text: "The seller claims these tickets cost a thousand dollars.", at: "18:30" },
     { me: true, text: "Stop selling me that crap.", at: "18:30", glossRu: "stop selling me that crap — не рассказывай мне эту чушь" },
     { text: "But look, they're the best seats in the house!", at: "18:31", glossRu: "the best seats in the house — лучшие места в зале" },
-    { me: true, text: "Fine. Let's go watch our team kick some butt.", at: "18:31", glossRu: "kick some butt — разгромить соперников, показать класс" },
+    { me: true, text: "Fine. Let's go watch our team kick some butt.", at: "18:31", glossRu: "kick some butt — разгромить соперников" },
   ],
   expressions: [
     e("the best seats in the house", "лучшие места в зале", "House здесь означает зал или площадку, а не частный дом.", ["худшие места", "места возле дома"], "We got ", "!", "У нас лучшие места в зале.", ["we have the best seats in the house", "we've got the best seats in the house"]),
@@ -921,8 +921,8 @@ const speechProfanity: LessonSpec = {
   introRu: "Asshole и son of a bitch оскорбляют человека. Bullshit называет слова чушью, враньём или несправедливостью. Все три выражения очень грубые.",
   withWhomRu: "Эмма",
   lines: [
-    { text: "That asshole hit my car and blamed me.", at: "16:55", glossRu: "asshole — м*дак; очень грубо" },
-    { me: true, text: "That's bullshit.", at: "16:55", glossRu: "That's bullshit — это чушь, это несправедливо" },
+    { text: "That asshole hit my car and blamed me.", at: "16:55", glossRu: "asshole — м*дак" },
+    { me: true, text: "That's bullshit.", at: "16:55", glossRu: "that's bullshit — это чушь" },
     { text: "And then he drove away, the son of a bitch.", at: "16:56", glossRu: "son of a bitch — с*кин сын" },
   ],
   expressions: [
@@ -951,9 +951,9 @@ const chatReassurance: LessonSpec = {
   withWhomRu: "Алекс",
   lines: [
     { text: "I'll pick you up at seven and bring your charger.", at: "18:05" },
-    { me: true, text: "Say less. See you at seven.", at: "18:05", glossRu: "say less — всё понял, договорились" },
+    { me: true, text: "Say less. See you at seven.", at: "18:05", glossRu: "say less — всё понял" },
     { text: "Sorry, I forgot your coffee.", at: "18:06" },
-    { me: true, text: "No biggie. It's all good.", at: "18:06", glossRu: "no biggie — ничего страшного, не проблема; all good — всё нормально" },
+    { me: true, text: "No biggie. It's all good.", at: "18:06", glossRu: "no biggie — ничего страшного; all good — всё нормально" },
   ],
   expressions: [
     e("say less", "всё понял, договорились", "Показывает согласие или понимание: дальше объяснять не нужно.", ["я не понял", "продолжай объяснять"], "I'll handle everything. ", "!", "Договорились, я всё понял.", ["say less, I get it", "say less. I get it"]),
@@ -980,9 +980,9 @@ const idiomImpressions: LessonSpec = {
   introRu: "On point описывает безупречный результат или точный ответ. Hits different означает, что вещь или момент вызывает особенно сильные, необычные ощущения.",
   withWhomRu: "Софи",
   lines: [
-    { text: "Your presentation was on point.", at: "13:20", glossRu: "on point — безупречно, прямо в точку" },
+    { text: "Your presentation was on point.", at: "13:20", glossRu: "on point — безупречно" },
     { me: true, text: "Thanks! Did you like the song I used?", at: "13:20" },
-    { text: "Yeah, it hits different at night.", at: "13:21", glossRu: "hits different — ощущается совершенно иначе, особенно сильно" },
+    { text: "Yeah, it hits different at night.", at: "13:21", glossRu: "hits different — ощущается совершенно иначе" },
   ],
   expressions: [
     e("on point", "безупречный, прямо в точку", "Подходит для образа, выступления, ответа или другого точного результата.", ["совсем мимо", "небрежный"], "Your outfit is ", ".", "Твой ответ был прямо в точку.", ["your answer was on point"]),
@@ -1009,9 +1009,9 @@ const speechBoldEnergy: LessonSpec = {
   withWhomRu: "Джейк",
   lines: [
     { text: "Are you nervous about the final?", at: "09:10" },
-    { me: true, text: "No. I'm going full send.", at: "09:10", glossRu: "full send — на полную, без колебаний" },
+    { me: true, text: "No. I'm going full send.", at: "09:10", glossRu: "full send — на полную" },
     { text: "You stayed calm through all that?", at: "09:11" },
-    { me: true, text: "I'm built different.", at: "09:11", glossRu: "built different — не такой, как все, особенный" },
+    { me: true, text: "I'm built different.", at: "09:11", glossRu: "built different — не такой, как все" },
   ],
   expressions: [
     e("full send", "на полную, без колебаний", "Очень неформальное выражение о решительном действии без сдерживания.", ["наполовину", "без интереса"], "We're going ", " tonight.", "Давай выкладываться на полную.", ["let's go full send"]),
@@ -1038,8 +1038,8 @@ const chatEmphasis: LessonSpec = {
   withWhomRu: "Крис",
   lines: [
     { text: "Did you like the party?", at: "23:40" },
-    { me: true, text: "I lowkey loved it.", at: "23:40", glossRu: "lowkey — слегка, по-тихому; здесь — не афишируя своего восторга" },
-    { text: "I could tell. You were highkey dancing all night.", at: "23:41", glossRu: "highkey — явно, открыто, очень" },
+    { me: true, text: "I lowkey loved it.", at: "23:40", glossRu: "lowkey — втайне" },
+    { text: "I could tell. You were highkey dancing all night.", at: "23:41", glossRu: "highkey — вовсю" },
     { me: true, text: "Okay, maybe I was.", at: "23:41" },
   ],
   expressions: [
@@ -1067,7 +1067,7 @@ const idiomStory: LessonSpec = {
   withWhomRu: "Ник",
   lines: [
     { text: "Why is Mia wearing sunglasses indoors?", at: "20:25" },
-    { me: true, text: "She thinks she's the main character.", at: "20:25", glossRu: "main character — главный герой, центр истории" },
+    { me: true, text: "She thinks she's the main character.", at: "20:25", glossRu: "main character — главный герой" },
     { text: "And guess who arrived with her?", at: "20:26" },
     { me: true, text: "Plot twist: her ex is here.", at: "20:26", glossRu: "plot twist — неожиданный поворот" },
   ],
@@ -1097,8 +1097,8 @@ const speechUnfiltered: LessonSpec = {
   lines: [
     { text: "Did you hear what Ben said to the teacher?", at: "11:15" },
     { me: true, text: "He has zero filter.", at: "11:15", glossRu: "zero filter — говорит всё прямо, без внутренней цензуры" },
-    { text: "That joke was completely out of pocket.", at: "11:16", glossRu: "out of pocket — неуместно, за гранью" },
-    { me: true, text: "Yeah, he's acting unhinged today.", at: "11:16", glossRu: "unhinged — безбашенный, будто вышедший из-под контроля" },
+    { text: "That joke was completely out of pocket.", at: "11:16", glossRu: "out of pocket — неуместно" },
+    { me: true, text: "Yeah, he's acting unhinged today.", at: "11:16", glossRu: "unhinged — безбашенный" },
   ],
   expressions: [
     e("zero filter", "без фильтров, без внутренней цензуры", "О человеке, который сразу говорит то, что думает, даже если это неловко или грубо.", ["очень тактичный", "молчаливый"], "He says whatever he thinks. He has ", ".", "Она говорит всё без фильтров.", ["she has zero filter"]),
@@ -1126,7 +1126,7 @@ const chatTruth: LessonSpec = {
   withWhomRu: "Джордан",
   lines: [
     { text: "You really moved to New York?", at: "14:05" },
-    { me: true, text: "Deadass. I got here yesterday.", at: "14:05", glossRu: "deadass — серьёзно, без шуток" },
+    { me: true, text: "Deadass. I got here yesterday.", at: "14:05", glossRu: "deadass — серьёзно" },
     { text: "How's it going?", at: "14:06" },
     { me: true, text: "Real talk, it's hard. But I love it here, no cap.", at: "14:06", glossRu: "real talk — если серьёзно; no cap — без вранья" },
   ],
@@ -1157,7 +1157,7 @@ const idiomConfidence: LessonSpec = {
   lines: [
     { text: "You've done this interview before, right?", at: "10:30" },
     { me: true, text: "Yeah, I know the drill.", at: "10:30", glossRu: "know the drill — знаю, что и как делать" },
-    { text: "And you can talk the talk in English now.", at: "10:31", glossRu: "talk the talk — говорить уверенно и как свои" },
+    { text: "And you can talk the talk in English now.", at: "10:31", glossRu: "talk the talk — говорить как свои" },
     { me: true, text: "I'm ready.", at: "10:31" },
   ],
   expressions: [
@@ -1185,7 +1185,7 @@ const speechPraise: LessonSpec = {
   withWhomRu: "Майя",
   lines: [
     { text: "Have you heard Maya's new track?", at: "22:10" },
-    { me: true, text: "Yeah, it's straight fire.", at: "22:10", glossRu: "straight fire — просто огонь, потрясающе" },
+    { me: true, text: "Yeah, it's straight fire.", at: "22:10", glossRu: "straight fire — просто огонь" },
     { text: "She wrote it in one night.", at: "22:11" },
     { me: true, text: "She's a different breed.", at: "22:11", glossRu: "different breed — совсем другой уровень" },
   ],

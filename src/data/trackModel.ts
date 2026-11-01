@@ -143,29 +143,15 @@ type ChoiceStep = Extract<Step, { kind: "choice" }>;
 const primaryMeaningOverrides: Record<string, string> = {
   "built different": "не такой, как все",
   fr: "серьёзно",
+  highkey: "очень",
+  "I don't think so": "думаю, что нет",
   "know the drill": "знать, что и как делать",
+  "off the hook": "свободен от обязанности",
+  "piece of shit": "полное д*рьмо",
 };
 
 function primaryMeaning(expression: Pick<ExpressionSpec, "short" | "meaningRu">): string {
   return primaryMeaningOverrides[expression.short] ?? expression.meaningRu.split(/[;,]/, 1)[0].trim();
-}
-
-const primaryGlossOverrides: Record<string, string> = {
-  "built different — не такой, как все, особенный": "не такой, как все",
-  "know the drill — знаю, что и как делать": "знаю, что и как делать",
-  "ofc — конечно, само собой; fr — правда, серьёзно": "конечно; серьёзно",
-  "What the hell — что, чёрт возьми, случилось": "что, чёрт возьми, случилось",
-  "lowkey — слегка, по-тихому; здесь — не афишируя своего восторга": "по-тихому",
-};
-
-function primaryGloss(gloss: string | undefined): string | undefined {
-  if (!gloss) return undefined;
-  if (primaryGlossOverrides[gloss]) return primaryGlossOverrides[gloss];
-  return gloss.split(";").map((part) => {
-    const separator = part.lastIndexOf("—");
-    if (separator === -1) return "";
-    return part.slice(separator + 1).trim().split(/[;,]/, 1)[0].trim();
-  }).filter(Boolean).join("; ");
 }
 
 function choiceStep(
@@ -198,12 +184,20 @@ function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
 }
 
 function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
+  const happinessPair = new Set(["over the moon", "on cloud nine"]);
+  const distractors = pool
+    .filter((item) => item.short !== expression.short)
+    .filter((item) => !(happinessPair.has(expression.short) && happinessPair.has(item.short)))
+    .map((item) => item.gapAnswers?.[0] ?? item.short);
+  if (distractors.length === 0 && happinessPair.has(expression.short)) {
+    distractors.push("break a leg", "chill out");
+  }
   return choiceStep(
     id,
     "Вставь пропущенное выражение",
     `${expression.before}_____${expression.after}\n«${expression.gapRu}»`,
     expression.gapAnswers?.[0] ?? expression.short,
-    pool.map((item) => item.gapAnswers?.[0] ?? item.short),
+    distractors,
     `${expression.short} — ${primaryMeaning(expression)}. ${expression.noteRu}`,
     [expression.short],
   );
@@ -290,7 +284,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         titleRu: "Выражения в переписке",
         withWhom: spec.withWhomRu,
         withWhomRu: spec.withWhomRu,
-        lines: spec.lines.map((line) => ({ ...line, glossRu: primaryGloss(line.glossRu) })),
+        lines: spec.lines,
       },
       meaningChoice(first, `${spec.id}-meaning`),
       gapChoice(second, expressions, `${spec.id}-gap`),

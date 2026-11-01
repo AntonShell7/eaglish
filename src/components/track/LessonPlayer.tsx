@@ -484,12 +484,6 @@ function whyOf(step: Step, judged: Judged): string | null {
   }
 }
 
-/** The bubble already contains the expression; the gloss only translates it. */
-function conciseGloss(gloss: string): string {
-  const separator = gloss.indexOf(" — ");
-  return separator === -1 ? gloss : gloss.slice(separator + 3);
-}
-
 /* ── one body per kind ───────────────────────────────────────────────────── */
 
 /** A stable deal: a re-render must never move answers under the cursor. */
@@ -579,7 +573,7 @@ function StepBody(p: BodyProps) {
                   >
                     {line.text}
                   </span>
-                  {line.glossRu && <span className="tk-msg__gloss">{conciseGloss(line.glossRu)}</span>}
+                  {line.glossRu && <span className="tk-msg__gloss">{line.glossRu}</span>}
                 </div>
               ))}
             </div>
