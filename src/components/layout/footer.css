@@ -71,6 +71,18 @@
   }
 }
 
+/* The fixed mobile navigation follows the footer, not the main content. Leave
+   the same space after the last link so it remains visible at maximum scroll. */
+@media (max-width: 1023px) {
+  .ft {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+
+  .has-consent-bar .ft {
+    padding-bottom: calc(78px + var(--consent-bar-height, 104px) + env(safe-area-inset-bottom));
+  }
+}
+
 /* The owner's way in: a small dot after the copyright, which is invisible to
    anyone it is not drawn for and unremarkable to anyone who does see it. */
 .ft__admin {

@@ -39,10 +39,12 @@ export function Translator() {
   const [explanation, setExplanation] = useState<string | null>(null);
   const field = useRef<HTMLInputElement>(null);
 
-  /* Opening it should not also require a click into the field: the only
-     reason anyone opens this is to type. */
+  /* Desktop users can type immediately. On a phone, opening the panel first
+     leaves the field untouched so the keyboard appears only after a second tap. */
   useEffect(() => {
-    if (open) field.current?.focus();
+    if (open && window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches) {
+      field.current?.focus();
+    }
   }, [open]);
 
   const toggle = useCallback(() => setOpen((was) => !was), []);

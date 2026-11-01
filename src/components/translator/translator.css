@@ -29,30 +29,17 @@
 @media (max-width: 1023px) {
   .has-consent-bar .tr-tab,
   .has-consent-bar .tr {
-    bottom: calc(132px + 118px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
+    bottom: calc(84px + 118px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
   }
 }
 
-/* Clear of the tab bar.
-   At 18px from the bottom this sat exactly on top of the bar's fifth slot —
-   the same 75px column, the same rows — so on a phone a tap meant for the
-   last tab opened the translator instead. It went unnoticed while that slot
-   held Profile, which is reachable elsewhere; it stopped being survivable
-   when the slot became "More" and three sections hung off it. The feedback
-   button has always cleared the bar this way; this one simply never did. */
-/*
- * Above the feedback launcher, not on top of it.
- *
- * Both controls live in the same corner and both were positioned against the
- * bottom of the window alone: 80px for this one, 84px for that one, which on
- * a phone put a 36px circle four pixels from a 38px circle — two round buttons
- * in a stack, and the lower one unpressable. The corner is a column now and
- * this is the slot above: the launcher's 84, its own height, and a gap.
- */
+/* The translator takes the former feedback button's slot directly above the
+   mobile tab bar. There is only one floating control in this corner now. */
 @media (max-width: 1023px) {
   .tr-tab,
   .tr {
-    bottom: calc(132px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
+    right: 14px;
+    bottom: calc(84px + env(safe-area-inset-bottom) + var(--tr-lift, 0px));
   }
 }
 

@@ -37,6 +37,13 @@
   font-weight: 800;
 }
 
+/* Mobile keeps just the translator in this corner; desktop feedback is unchanged. */
+@media (max-width: 1023px) {
+  .fb-launch {
+    display: none;
+  }
+}
+
 /* It stays a glyph on every screen now. Spelled out, it was a permanent
    banner asking people to find fault with a page they had not finished
    reading — and on the way down it collided with the footer links, which is
