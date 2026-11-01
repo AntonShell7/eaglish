@@ -39,6 +39,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [mode]);
 
   useEffect(() => {
+    document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+      ?.setAttribute("content", resolvedTheme === "dark" ? "#000000" : "#ffffff");
+  }, [resolvedTheme]);
+
+  useEffect(() => {
     if (mode !== "system") return;
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = () => {

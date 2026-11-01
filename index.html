@@ -10,11 +10,9 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=3" />
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png?v=3" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
-    <!-- Colours the browser's own chrome on a phone. It was still the old
-         brand violet, so the app opened inside a violet frame it no longer has
-         anywhere. One value per theme, matching the ground the page paints. -->
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f4" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131210" />
+    <!-- Start with the app's default dark ground. ThemeContext keeps this in
+         sync with the chosen site theme rather than the phone's system theme. -->
+    <meta name="theme-color" content="#000000" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Eaglish — английский через чтение, аудирование и слова, которые возвращаются на повторение сами." />
 
