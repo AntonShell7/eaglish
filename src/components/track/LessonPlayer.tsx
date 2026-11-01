@@ -301,6 +301,13 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       if (event.key === "Enter") {
+        const placedTile = target?.closest("[data-placed-tile]");
+        if (step?.kind === "assemble" && placedTile && (ready || judged)) {
+          event.preventDefault();
+          if (judged) advance();
+          else check();
+          return;
+        }
         if (target?.closest("button, a, textarea, select, [contenteditable=true]")) return;
         event.preventDefault();
         if (judged) advance();
@@ -315,7 +322,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [over, judged, step, advance, check]);
+  }, [over, judged, ready, step, advance, check]);
 
   if (over) {
     return (

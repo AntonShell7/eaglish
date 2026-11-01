@@ -59,7 +59,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
                       data-current-lesson={here ? lesson.id : undefined}
                       disabled={locked}
                       onClick={() => onOpen(lesson.id)}
-                      aria-label={`${index + 1}. ${title}`}
+                      aria-label={`${index + 1}. ${lesson.review ? title : lesson.subtitleRu}`}
                     >
                       <span className="tk-node-wrap">
                         <span className={`tk-press tk-node${isPast ? " tk-node--done" : locked ? " tk-node--locked" : ""}`}>
@@ -72,8 +72,14 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
                           <span className="tk-card__kind">{t(`track.lessonKind.${lesson.kind}`)}</span>
                           <span className="tk-card__number">{String(index + 1).padStart(2, "0")}</span>
                         </span>
-                        <strong className="tk-card__title">{title}</strong>
-                        <span className="tk-card__subtitle">{lesson.subtitleRu}</span>
+                        {lesson.review ? (
+                          <>
+                            <strong className="tk-card__title">{title}</strong>
+                            <span className="tk-card__subtitle">{lesson.subtitleRu}</span>
+                          </>
+                        ) : (
+                          <strong className="tk-card__expressions">{lesson.subtitleRu}</strong>
+                        )}
                         <span className="tk-card__meta">
                           <span>{isPast ? `✓ ${t("track.passed")}` : t("track.minutes", { count: minutesOf(lesson) })}</span>
                           {here && <span className="tk-start">{t("track.start")} →</span>}
