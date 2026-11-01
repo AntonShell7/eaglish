@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { trackLessons, trackModules, type TrackKind, type TrackLesson } from "@/data/track";
 import { currentLessonId, doneLessons, resetTrack } from "@/lib/trackProgress";
@@ -13,6 +13,15 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const finished = lessons.filter(({ lesson }) => done.has(lesson.id)).length;
   const [asking, setAsking] = useState(false);
   const [, bump] = useState(0);
+
+  useEffect(() => {
+    if (!current) return;
+    const frame = window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>(`[data-current-lesson="${current}"]`)
+        ?.scrollIntoView({ block: "center", behavior: "auto" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [current]);
 
   const minutesOf = (lesson: TrackLesson) => Math.max(2, Math.round(lesson.steps.length * 0.55));
 
@@ -47,6 +56,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
                       type="button"
                       className={`tk-step${locked ? " tk-step--locked" : ""}${here ? " tk-step--here" : ""}${isPast ? " tk-step--done" : ""}${lesson.review ? " tk-step--review" : ""}`}
                       key={lesson.id}
+                      data-current-lesson={here ? lesson.id : undefined}
                       disabled={locked}
                       onClick={() => onOpen(lesson.id)}
                       aria-label={`${index + 1}. ${title}`}

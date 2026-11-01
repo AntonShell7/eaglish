@@ -170,8 +170,8 @@ function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
 function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
   return choiceStep(
     id,
-    "Выбери пропущенное выражение",
-    `${expression.before}_____${expression.after}\nПеревод всего предложения: ${expression.gapRu}`,
+    "Вставь пропущенное выражение",
+    `${expression.before}_____${expression.after}\n«${expression.gapRu}»`,
     expression.gapAnswers?.[0] ?? expression.short,
     pool.map((item) => item.gapAnswers?.[0] ?? item.short),
     `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
@@ -251,14 +251,13 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
           short: item.short,
           long: item.meaningRu,
           fullForm: item.fullForm,
-          noteRu: item.noteRu,
         })),
       },
       {
         kind: "chat",
         id: `${spec.id}-chat`,
         title: "Expressions in context",
-        titleRu: "Выражения в контексте",
+        titleRu: "Посмотри переписку",
         withWhom: spec.withWhomRu,
         withWhomRu: spec.withWhomRu,
         lines: spec.lines,
@@ -268,9 +267,8 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       {
         kind: "type",
         id: `${spec.id}-recall`,
-        promptRu: "Напиши выражение по его значению",
+        promptRu: "Напиши выражение",
         quote: `«${second.meaningRu}»`,
-        hint: "Одно выражение",
         answers: [second.short, ...(second.aliases ?? [])],
         teaches: [second.short],
       },
@@ -278,9 +276,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       {
         kind: "match",
         id: `${spec.id}-match`,
-        promptRu: spec.reviewPairs?.length
-          ? "Соедини пары — среди них есть выражения из прошлых уроков"
-          : "Соедини выражения и их значения",
+        promptRu: "Соедини пары",
         pairs: [
           ...expressions.map((item): [string, string] => [item.short, item.meaningRu]),
           ...(spec.reviewPairs ?? []),

@@ -120,7 +120,21 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   }, [index, step]);
 
   useEffect(() => {
-    if (judged) nextRef.current?.focus({ preventScroll: true });
+    if (!judged) return;
+    nextRef.current?.focus({ preventScroll: true });
+    const frame = window.requestAnimationFrame(() => {
+      const content = stageRef.current?.querySelector<HTMLElement>(".tk-stage__in");
+      const footer = nextRef.current?.closest<HTMLElement>(".tk-foot");
+      if (!content || !footer) return;
+      const overlap = content.getBoundingClientRect().bottom - footer.getBoundingClientRect().top + 20;
+      if (overlap > 0) {
+        window.scrollBy({
+          top: overlap,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        });
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [judged]);
 
   useEffect(() => () => {
@@ -332,23 +346,15 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
   if (!step) return null;
 
-  const questionOrdinal = steps
-    .slice(0, index + 1)
-    .filter((item) => item.kind !== "rule" && item.kind !== "chat").length;
-  const reading = step.kind === "rule" || step.kind === "chat";
-
   return (
     <div className="tk-player">
       <h1 className="tk-sr-only">{lesson.titleRu}</h1>
       <div className="tk-top">
-        <button type="button" className="tk-leave" onClick={onExit}>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M15 5l-7 7 7 7" />
+        <button type="button" className="tk-leave" onClick={onExit} aria-label={t("track.toPath")} title={t("track.toPath")}>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
           </svg>
-          {t("track.toPath")}
         </button>
-        <span className="tk-where">{lesson.titleRu}</span>
-        {!reading && <span className="tk-count">{questionOrdinal} / {asked}</span>}
         <div
           className="tk-bar"
           role="progressbar"
@@ -365,7 +371,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       </div>
 
       <div ref={stageRef} className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking || leaving}>
-        <span className="tk-kicker">{t(`track.kind.${step.kind}`)}</span>
         <div className="tk-stage__in">
         <StepBody
           step={step}
@@ -463,8 +468,9 @@ function Foot({
   );
 }
 
-/** Show the canonical written form only when correction is useful. */
+/** A correct answer needs no paragraph; an incorrect one gets one useful clue. */
 function whyOf(step: Step, judged: Judged): string | null {
+  if (judged !== "wrong") return null;
   switch (step.kind) {
     case "choice":
     case "register":
@@ -472,10 +478,16 @@ function whyOf(step: Step, judged: Judged): string | null {
     case "type":
     case "gap":
     case "assemble":
-      return judged === "wrong" ? `Правильный вариант: ${step.answers[0]}` : null;
+      return step.answers[0];
     default:
       return null;
   }
+}
+
+/** The bubble already contains the expression; the gloss only translates it. */
+function conciseGloss(gloss: string): string {
+  const separator = gloss.indexOf(" — ");
+  return separator === -1 ? gloss : gloss.slice(separator + 3);
 }
 
 /* ── one body per kind ───────────────────────────────────────────────────── */
@@ -524,7 +536,7 @@ function StepBody(p: BodyProps) {
       return (
         <div className="tk-rule">
           <h2 className="tk-rule__h">{step.titleRu}</h2>
-          {step.bodyRu.split("\n\n").map((para) => (
+          {!step.forms && step.bodyRu.split("\n\n").map((para) => (
             <p className="tk-rule__p" key={para.slice(0, 24)}>
               {para}
             </p>
@@ -537,7 +549,6 @@ function StepBody(p: BodyProps) {
                   <span className="tk-form__long">
                     {form.long}
                     {form.fullForm && <span className="tk-form__full">{form.fullForm}</span>}
-                    {form.noteRu && <span className="tk-form__note">{form.noteRu}</span>}
                   </span>
                 </div>
               ))}
@@ -550,17 +561,10 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.titleRu}</h2>
-          {/* The window itself, because recognising the window is half of why
-              the expression lands. What it does not have is a gradient avatar
-              or a hardcoded "online" — those were somebody else's interface
-              and the second one was not even true. */}
           <div className="tk-thread">
             <div className="tk-thread__top">
               <span className="tk-thread__face">{step.withWhom.slice(0, 1)}</span>
-              <span>
-                <span className="tk-thread__who">{step.withWhom}</span>
-                <span className="tk-thread__sub">{t("track.threadSub")}</span>
-              </span>
+              <span className="tk-thread__who">{step.withWhom}</span>
             </div>
             <div className="tk-thread__body">
               {step.lines.map((line, i) => (
@@ -576,8 +580,7 @@ function StepBody(p: BodyProps) {
                   >
                     {line.text}
                   </span>
-                  <span className="tk-msg__at">{line.at}</span>
-                  {line.glossRu && <span className="tk-msg__gloss">{line.glossRu}</span>}
+                  {line.glossRu && <span className="tk-msg__gloss">{conciseGloss(line.glossRu)}</span>}
                 </div>
               ))}
             </div>
@@ -620,7 +623,6 @@ function StepBody(p: BodyProps) {
           <h2 className="tk-ask">{step.promptRu}</h2>
           <div className="tk-pairs">
             <div role="group" aria-label="Английские выражения">
-              <span className="tk-pair-group__label">Английские выражения</span>
               {step.pairs.map(([left]) => (
                 <button
                   type="button"
@@ -644,7 +646,6 @@ function StepBody(p: BodyProps) {
               ))}
             </div>
             <div role="group" aria-label="Русские переводы">
-              <span className="tk-pair-group__label">Русские переводы</span>
               {p.rightColumn.map((value) => {
                 const done = step.pairs
                   .filter(([, right]) => right === value)
@@ -707,9 +708,6 @@ function StepBody(p: BodyProps) {
               role="group"
               aria-label="Твоё предложение"
             >
-              {p.assembled.length === 0 && (
-                <span className="tk-build-answer__empty">Здесь появится твоё предложение</span>
-              )}
               {p.assembled.map((id, position) => {
                 const tile = p.tiles.find((item) => item.id === id);
                 if (!tile) return null;
@@ -729,7 +727,6 @@ function StepBody(p: BodyProps) {
                 );
               })}
             </div>
-            <p className="tk-builder__hint">Нажимай на слова по порядку. Ошибся — нажми на слово выше, чтобы вернуть его.</p>
             <div className="tk-bank" role="group" aria-label="Слова для предложения">
               {p.tiles.map((tile) => p.assembled.includes(tile.id) ? (
                 <span className="tk-tile-slot" key={tile.id} aria-hidden="true">{tile.text}</span>
@@ -755,10 +752,7 @@ function StepBody(p: BodyProps) {
       return (
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
-          <p className="tk-quote tk-gap__context">
-            <span>Перевод всего предложения</span>
-            {step.quote}
-          </p>
+          <p className="tk-quote tk-gap__context">«{step.quote}»</p>
           <p className="tk-gap">
             <span>{step.before}</span>
             <input
@@ -780,7 +774,7 @@ function StepBody(p: BodyProps) {
     case "register":
       return (
         <>
-          <h2 className="tk-ask">Отметь все ситуации, где уместно «{step.phrase}»</h2>
+          <h2 className="tk-ask">Где можно использовать «{step.phrase}»?</h2>
           {/* One tick per room, not a tick and a cross. Two buttons a row was
               eight taps for a four-line question, and it made the learner
               state the obvious half as explicitly as the interesting half. */}
@@ -788,7 +782,7 @@ function StepBody(p: BodyProps) {
             {step.rooms.map((room, i) => {
               const ticked = p.rooms[i] === true;
               let state = ticked ? " tk-room--on" : "";
-              if (judged) state += ticked === room.ok ? " tk-room--right" : " tk-room--miss";
+              if (judged && ticked) state += room.ok ? " tk-room--right" : " tk-room--miss";
               return (
                 <button
                   type="button"

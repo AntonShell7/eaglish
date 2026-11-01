@@ -147,9 +147,9 @@ const chatHonesty: LessonSpec = {
     { me: true, text: "tq! tbh, I didn't expect that ending.", at: "21:05", glossRu: "tq = thank you; tbh = to be honest — честно говоря" },
   ],
   expressions: [
-    e("thx", "спасибо", "Th — начало thanks, а x передаёт звук «кс» в конце слова.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
-    e("tbh", "честно говоря", "Первая буква каждого слова: to be honest. Вводит откровенное мнение.", ["кстати", "я не знаю"], "", ", the ending surprised me.", "Честно говоря, мне понравился фильм.", ["tbh, I liked the movie", "tbh I liked the movie", "to be honest, I liked the movie"], ["to be honest"]),
-    e("tq", "спасибо", "T — thank, а q обозначает you по созвучию: /kjuː/ заканчивается тем же звуком, что /juː/. Встречается реже, чем thx.", ["кстати", "пожалуйста"], "", " for the notes!", "Спасибо, что прислал ссылку!", ["tq for sending the link", "thank you for sending the link"], ["thank you"]),
+    e("thx", "спасибо", "Неформальный вариант thanks для личной переписки.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
+    e("tbh", "честно говоря", "Сокращение от to be honest. Так вводят честное мнение.", ["кстати", "я не знаю"], "", ", the ending surprised me.", "Честно говоря, мне понравился фильм.", ["tbh, I liked the movie", "tbh I liked the movie", "to be honest, I liked the movie"], ["to be honest"]),
+    e("tq", "спасибо", "Сокращение от thank you. Встречается реже, чем thx.", ["кстати", "пожалуйста"], "", " for the notes!", "Спасибо, что прислал ссылку!", ["tq for sending the link", "thank you for sending the link"], ["thank you"]),
   ],
   scenario: {
     promptRu: "Выбери сообщение с благодарностью и честным мнением",
@@ -234,9 +234,9 @@ const chatNotes: LessonSpec = {
     { me: true, text: "idgaf. btw, I'm already home.", at: "12:12", glossRu: "idgaf — мне совершенно плевать; очень грубо. btw — кстати" },
   ],
   expressions: [
-    e("idk", "я не знаю", "Первая буква каждого слова: I don't know. Одно из самых частых сокращений в личных сообщениях.", ["мне всё равно", "я согласен"], "", " where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
-    e("idgaf", "мне совершенно плевать", "Первая буква каждого слова: I don't give a fuck. Очень грубо — только для близких друзей, не для работы и незнакомых людей.", ["я не понимаю", "мне очень нравится"], "He can hate my posts. ", "", "Мне совершенно плевать, что он думает.", ["idgaf what he thinks", "I don't give a fuck what he thinks"], ["I don't give a fuck"]),
-    e("btw", "кстати", "Первая буква каждого слова: by the way. Вводит дополнительную или слегка меняющую тему мысль.", ["честно говоря", "прямо сейчас"], "", ", are you free tomorrow?", "Кстати, ты свободен сегодня вечером?", ["btw, are you free tonight", "btw are you free tonight", "by the way, are you free tonight"], ["by the way"]),
+    e("idk", "я не знаю", "Сокращение от I don't know для личных сообщений.", ["мне всё равно", "я согласен"], "", " where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
+    e("idgaf", "мне совершенно плевать", "Сокращение от I don't give a fuck. Очень грубо: только для близких друзей.", ["я не понимаю", "мне очень нравится"], "He can hate my posts. ", "", "Мне совершенно плевать, что он думает.", ["idgaf what he thinks", "I don't give a fuck what he thinks"], ["I don't give a fuck"]),
+    e("btw", "кстати", "Сокращение от by the way. Так добавляют новую мысль.", ["честно говоря", "прямо сейчас"], "", ", are you free tomorrow?", "Кстати, ты свободен сегодня вечером?", ["btw, are you free tonight", "btw are you free tonight", "by the way, are you free tonight"], ["by the way"]),
   ],
   reviewPairs: [["thx", "спасибо"], ["tbh", "честно говоря"]],
   scenario: {
