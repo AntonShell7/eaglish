@@ -138,6 +138,36 @@ export interface LessonSpec {
 
 type ChoiceStep = Extract<Step, { kind: "choice" }>;
 
+/* The theory card may show nearby variants. Practice uses one stable meaning,
+   so a learner is never asked to choose between two equally valid synonyms. */
+const primaryMeaningOverrides: Record<string, string> = {
+  "built different": "не такой, как все",
+  fr: "серьёзно",
+  "know the drill": "знать, что и как делать",
+};
+
+function primaryMeaning(expression: Pick<ExpressionSpec, "short" | "meaningRu">): string {
+  return primaryMeaningOverrides[expression.short] ?? expression.meaningRu.split(/[;,]/, 1)[0].trim();
+}
+
+const primaryGlossOverrides: Record<string, string> = {
+  "built different — не такой, как все, особенный": "не такой, как все",
+  "know the drill — знаю, что и как делать": "знаю, что и как делать",
+  "ofc — конечно, само собой; fr — правда, серьёзно": "конечно; серьёзно",
+  "What the hell — что, чёрт возьми, случилось": "что, чёрт возьми, случилось",
+  "lowkey — слегка, по-тихому; здесь — не афишируя своего восторга": "по-тихому",
+};
+
+function primaryGloss(gloss: string | undefined): string | undefined {
+  if (!gloss) return undefined;
+  if (primaryGlossOverrides[gloss]) return primaryGlossOverrides[gloss];
+  return gloss.split(";").map((part) => {
+    const separator = part.lastIndexOf("—");
+    if (separator === -1) return "";
+    return part.slice(separator + 1).trim().split(/[;,]/, 1)[0].trim();
+  }).filter(Boolean).join("; ");
+}
+
 function choiceStep(
   id: string,
   promptRu: string,
@@ -160,9 +190,9 @@ function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
     id,
     `Что значит «${expression.short}»?`,
     undefined,
-    expression.meaningRu,
+    primaryMeaning(expression),
     expression.wrong,
-    `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    `${expression.short} — ${primaryMeaning(expression)}. ${expression.noteRu}`,
     [expression.short],
   );
 }
@@ -174,7 +204,7 @@ function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: strin
     `${expression.before}_____${expression.after}\n«${expression.gapRu}»`,
     expression.gapAnswers?.[0] ?? expression.short,
     pool.map((item) => item.gapAnswers?.[0] ?? item.short),
-    `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    `${expression.short} — ${primaryMeaning(expression)}. ${expression.noteRu}`,
     [expression.short],
   );
 }
@@ -223,7 +253,7 @@ function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id
     id,
     phrase: expression.short,
     rooms,
-    whyRu: `${expression.short} — ${expression.meaningRu}. ${expression.noteRu}`,
+    whyRu: `${expression.short} — ${primaryMeaning(expression)}. ${expression.noteRu}`,
     register: neutral ? "neutral" : expression.short === "fair enough" ? "casual" : kind === "speech" ? "veryCasual" : "casual",
     teaches: [expression.short],
   };
@@ -257,10 +287,10 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         kind: "chat",
         id: `${spec.id}-chat`,
         title: "Expressions in context",
-        titleRu: "Посмотри переписку",
+        titleRu: "Выражения в переписке",
         withWhom: spec.withWhomRu,
         withWhomRu: spec.withWhomRu,
-        lines: spec.lines,
+        lines: spec.lines.map((line) => ({ ...line, glossRu: primaryGloss(line.glossRu) })),
       },
       meaningChoice(first, `${spec.id}-meaning`),
       gapChoice(second, expressions, `${spec.id}-gap`),
@@ -268,7 +298,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         kind: "type",
         id: `${spec.id}-recall`,
         promptRu: "Напиши выражение",
-        quote: `«${second.meaningRu}»`,
+        quote: `«${primaryMeaning(second)}»`,
         answers: [second.short, ...(second.aliases ?? [])],
         teaches: [second.short],
       },
@@ -278,8 +308,8 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         id: `${spec.id}-match`,
         promptRu: "Соедини пары",
         pairs: [
-          ...expressions.map((item): [string, string] => [item.short, item.meaningRu]),
-          ...(spec.reviewPairs ?? []),
+          ...expressions.map((item): [string, string] => [item.short, primaryMeaning(item)]),
+          ...(spec.reviewPairs ?? []).map(([short, meaningRu]): [string, string] => [short, primaryMeaning({ short, meaningRu })]),
         ],
         teaches: expressions.map((item) => item.short),
       },
@@ -318,7 +348,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         kind: "match",
         id: `${id}-match-a`,
         promptRu: "Соедини выражения и их значения",
-        pairs: expressions.slice(0, middle).map((item): [string, string] => [item.short, item.meaningRu]),
+        pairs: expressions.slice(0, middle).map((item): [string, string] => [item.short, primaryMeaning(item)]),
         teaches: expressions.slice(0, middle).map((item) => item.short),
       },
       meaningChoice(second, `${id}-meaning`),
@@ -327,7 +357,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
         kind: "match",
         id: `${id}-match-b`,
         promptRu: "Соедини оставшиеся выражения и значения",
-        pairs: expressions.slice(middle).map((item): [string, string] => [item.short, item.meaningRu]),
+        pairs: expressions.slice(middle).map((item): [string, string] => [item.short, primaryMeaning(item)]),
         teaches: expressions.slice(middle).map((item) => item.short),
       },
       sentenceAssembly(first, `${id}-assemble`),
