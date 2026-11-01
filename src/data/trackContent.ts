@@ -96,6 +96,27 @@ const gapTranslations: Record<string, string> = {
   "son of a bitch": "Он украл мои деньги, этот с*кин сын.",
   asshole: "Перестань вести себя как м*дак.",
   bullshit: "Его объяснение — полная чушь.",
+  "say less": "Я всё сделаю. Договорились!",
+  "no biggie": "Ты забыл ручку? Ничего страшного.",
+  "all good": "Не переживай. Всё нормально.",
+  "on point": "Твой образ безупречен.",
+  "hits different": "Эта песня поздно ночью ощущается совершенно иначе.",
+  "full send": "Сегодня мы выкладываемся на полную.",
+  "built different": "Она тренировалась каждый день. Она не такая, как все.",
+  lowkey: "Я слегка хочу домой.",
+  highkey: "Мне очень нравится эта песня.",
+  "main character": "Она ведёт себя как главный герой.",
+  "plot twist": "В фильме был очень неожиданный поворот.",
+  "zero filter": "Он говорит всё, что думает. У него совсем нет фильтров.",
+  "out of pocket": "Это замечание было совершенно неуместным.",
+  unhinged: "Сегодня он ведёт себя совершенно безбашенно.",
+  deadass: "Ты выиграл в лотерею? Серьёзно?",
+  "real talk": "Если серьёзно, мне нужен перерыв.",
+  "no cap": "Это был лучший концерт в моей жизни, без вранья.",
+  "talk the talk": "Он знает сленг и умеет говорить как свои.",
+  "know the drill": "Я уже делал это раньше. Я знаю, что и как делать.",
+  "straight fire": "Её новый альбом — просто огонь.",
+  "different breed": "Он выигрывает каждую игру. Он совсем другого уровня.",
 };
 
 const gapAnswerOverrides: Record<string, string[]> = {
@@ -919,14 +940,280 @@ const speechProfanity: LessonSpec = {
   },
 };
 
+const chatReassurance: LessonSpec = {
+  id: "chat-reassurance",
+  kind: "chat",
+  title: "Agree and reassure in a chat",
+  titleRu: "Согласиться и успокоить в переписке",
+  subtitleRu: "say less · no biggie · all good",
+  ruleTitleRu: "Три коротких ответа без лишних слов",
+  introRu: "Say less показывает согласие и понимание. No biggie и all good успокаивают собеседника: проблемы нет, всё нормально.",
+  withWhomRu: "Алекс",
+  lines: [
+    { text: "I'll pick you up at seven and bring your charger.", at: "18:05" },
+    { me: true, text: "Say less. See you at seven.", at: "18:05", glossRu: "say less — всё понял, договорились" },
+    { text: "Sorry, I forgot your coffee.", at: "18:06" },
+    { me: true, text: "No biggie. It's all good.", at: "18:06", glossRu: "no biggie — ничего страшного; all good — всё нормально" },
+  ],
+  expressions: [
+    e("say less", "всё понял, договорились", "Показывает согласие или понимание: дальше объяснять не нужно.", ["я не понял", "продолжай объяснять"], "I'll handle everything. ", "!", "Договорились, я всё понял.", ["say less, I get it", "say less. I get it"]),
+    e("no biggie", "ничего страшного", "Неформальный ответ на извинение или небольшую ошибку.", ["большая проблема", "очень важно"], "You forgot your pen? ", ".", "Ничего страшного, я не злюсь.", ["no biggie, I'm not mad", "no biggie. I'm not mad"]),
+    e("all good", "всё нормально, всё в порядке", "Успокаивает собеседника или подтверждает, что проблемы нет.", ["всё плохо", "всё закончено"], "Don't worry. It's ", ".", "Не переживай, всё в порядке.", ["don't worry, it's all good", "don't worry. it's all good"]),
+  ],
+  reviewPairs: [["fair enough", "справедливо, принято"]],
+  scenario: {
+    promptRu: "Как ответить на извинение друга?",
+    quote: "Друг забыл твой кофе и извинился. Ты не злишься.",
+    options: ["No biggie. It's all good.", "I'm pissed off.", "You wish."],
+    answer: 0,
+    whyRu: "No biggie и all good естественно показывают, что из-за маленькой ошибки переживать не нужно.",
+  },
+};
+
+const idiomImpressions: LessonSpec = {
+  id: "idiom-impressions",
+  kind: "idiom",
+  title: "Praise precision and special impressions",
+  titleRu: "Похвалить точность и особенное впечатление",
+  subtitleRu: "on point · hits different",
+  ruleTitleRu: "Когда что-то безупречно или особенно заходит",
+  introRu: "On point описывает безупречный результат или точный ответ. Hits different означает, что вещь или момент вызывает особенно сильные, необычные ощущения.",
+  withWhomRu: "Софи",
+  lines: [
+    { text: "Your presentation was on point.", at: "13:20", glossRu: "on point — безупречно, прямо в точку" },
+    { me: true, text: "Thanks! Did you like the song I used?", at: "13:20" },
+    { text: "Yeah, it hits different at night.", at: "13:21", glossRu: "hits different — ощущается совершенно иначе, особенно сильно" },
+  ],
+  expressions: [
+    e("on point", "безупречный, прямо в точку", "Подходит для образа, выступления, ответа или другого точного результата.", ["совсем мимо", "небрежный"], "Your outfit is ", ".", "Твой ответ был прямо в точку.", ["your answer was on point"]),
+    e("hits different", "ощущается совершенно иначе, особенно сильно", "Обычно о положительном или эмоционально особенном впечатлении.", ["ничем не отличается", "совсем не нравится"], "This song ", " late at night.", "Этот фильм вечером ощущается совершенно иначе.", ["this movie hits different in the evening"]),
+  ],
+  reviewPairs: [["over the moon", "в полном восторге, на седьмом небе"]],
+  scenario: {
+    promptRu: "Как похвалить безупречный образ?",
+    quote: "Друг отлично подобрал одежду, и тебе всё в нём нравится.",
+    options: ["Your outfit is on point.", "Your outfit is a piece of cake.", "Your outfit is on cloud nine."],
+    answer: 0,
+    whyRu: "On point — естественный комплимент безупречному образу или результату.",
+  },
+};
+
+const speechBoldEnergy: LessonSpec = {
+  id: "speech-bold-energy",
+  kind: "speech",
+  title: "Go all in and praise confidence",
+  titleRu: "Выложиться на полную и похвалить уверенность",
+  subtitleRu: "full send · built different",
+  ruleTitleRu: "Смелое действие и особенный характер",
+  introRu: "Full send — действовать на полную, не сдерживаясь. Built different — комплимент человеку, который выделяется способностями, характером или мышлением.",
+  withWhomRu: "Джейк",
+  lines: [
+    { text: "Are you nervous about the final?", at: "09:10" },
+    { me: true, text: "No. I'm going full send.", at: "09:10", glossRu: "full send — на полную, без колебаний" },
+    { text: "You stayed calm through all that?", at: "09:11" },
+    { me: true, text: "I'm built different.", at: "09:11", glossRu: "built different — не такой, как все, особенный" },
+  ],
+  expressions: [
+    e("full send", "на полную, без колебаний", "Очень неформальное выражение о решительном действии без сдерживания.", ["наполовину", "без интереса"], "We're going ", " tonight.", "Давай выкладываться на полную.", ["let's go full send"]),
+    e("built different", "не такой, как все, особенный", "Неформальный комплимент способностям, характеру или необычному мышлению.", ["совсем обычный", "без способностей"], "She trained every day. She's ", ".", "Он не такой, как все.", ["he's built different", "he is built different"]),
+  ],
+  reviewPairs: [["badass", "крутой, дерзкий, бесстрашный"], ["bitchin'", "офигенный, потрясающий"]],
+  scenario: {
+    promptRu: "Как сказать, что ты действуешь на максимум?",
+    quote: "Ты не сомневаешься и готов полностью выложиться.",
+    options: ["I'm going full send.", "I'm going to lie low.", "I'm under the weather."],
+    answer: 0,
+    whyRu: "Go full send означает действовать решительно и выкладываться на полную.",
+  },
+};
+
+const chatEmphasis: LessonSpec = {
+  id: "chat-emphasis",
+  kind: "chat",
+  title: "Soften or strengthen an opinion",
+  titleRu: "Смягчить или усилить мнение",
+  subtitleRu: "lowkey · highkey",
+  ruleTitleRu: "Два противоположных усилителя для живой речи",
+  introRu: "Lowkey смягчает мысль: слегка, втайне или не особенно афишируя. Highkey делает её сильнее: явно, открыто, очень.",
+  withWhomRu: "Крис",
+  lines: [
+    { text: "Did you like the party?", at: "23:40" },
+    { me: true, text: "I lowkey loved it.", at: "23:40", glossRu: "lowkey — слегка, по-тихому; здесь — не афишируя своего восторга" },
+    { text: "I could tell. You were highkey dancing all night.", at: "23:41", glossRu: "highkey — явно, открыто, очень" },
+    { me: true, text: "Okay, maybe I was.", at: "23:41" },
+  ],
+  expressions: [
+    e("lowkey", "слегка, по-тихому, не афишируя", "Смягчает мысль или показывает, что чувство не выставляют напоказ.", ["открыто и явно", "совсем не"], "I ", " want to go home.", "Я слегка устал.", ["I'm lowkey tired", "I am lowkey tired"]),
+    e("highkey", "явно, открыто, очень", "Усиливает мысль и противоположно lowkey по оттенку.", ["слегка", "втайне"], "I ", " love this song.", "Мне очень нравится это место.", ["I highkey love this place"]),
+  ],
+  reviewPairs: [["kinda", "немного, слегка"]],
+  scenario: {
+    promptRu: "Как сказать, что тебе немного неловко?",
+    quote: "Ты не хочешь делать из этого большую проблему.",
+    options: ["I'm lowkey embarrassed.", "I'm highkey embarrassed.", "I'm on point."],
+    answer: 0,
+    whyRu: "Lowkey смягчает признание, а highkey наоборот делает его более сильным и явным.",
+  },
+};
+
+const idiomStory: LessonSpec = {
+  id: "idiom-story",
+  kind: "idiom",
+  title: "Describe a story and an unexpected turn",
+  titleRu: "Описать героя и неожиданный поворот",
+  subtitleRu: "main character · plot twist",
+  ruleTitleRu: "Два выражения из языка историй и мемов",
+  introRu: "Main character — главный герой; в разговоре так описывают человека, который ведёт себя как центр истории. Plot twist — неожиданный поворот сюжета или событий.",
+  withWhomRu: "Ник",
+  lines: [
+    { text: "Why is Mia wearing sunglasses indoors?", at: "20:25" },
+    { me: true, text: "She thinks she's the main character.", at: "20:25", glossRu: "main character — главный герой, центр истории" },
+    { text: "And guess who arrived with her?", at: "20:26" },
+    { me: true, text: "Plot twist: her ex is here.", at: "20:26", glossRu: "plot twist — неожиданный поворот" },
+  ],
+  expressions: [
+    e("main character", "главный герой, центр истории", "Может быть буквальным или шутливым описанием человека, который ведёт себя как герой фильма.", ["статист", "зритель"], "She acts like the ", ".", "Он ведёт себя как главный герой.", ["he acts like the main character"]),
+    e("plot twist", "неожиданный поворот", "Подходит для сюжета фильма, книги или неожиданного события в жизни.", ["предсказуемый финал", "главный герой"], "The movie had a huge ", ".", "Неожиданный поворот: они оказались братьями.", ["plot twist: they were brothers", "plot twist, they were brothers"]),
+  ],
+  reviewPairs: [["no way", "не может быть, вот это да"]],
+  scenario: {
+    promptRu: "Как назвать неожиданную развязку?",
+    quote: "В конце фильма главный герой внезапно оказался злодеем.",
+    options: ["What a plot twist.", "What a main character.", "What a nerd."],
+    answer: 0,
+    whyRu: "Plot twist — это неожиданный поворот событий или сюжета.",
+  },
+};
+
+const speechUnfiltered: LessonSpec = {
+  id: "speech-unfiltered",
+  kind: "speech",
+  title: "Describe unfiltered and inappropriate behavior",
+  titleRu: "Описать прямолинейность и неуместное поведение",
+  subtitleRu: "zero filter · out of pocket · unhinged",
+  ruleTitleRu: "Когда человек говорит или ведёт себя за гранью",
+  introRu: "Zero filter — без внутренней цензуры. Out of pocket — неуместно или за гранью. Unhinged — безбашенно, непредсказуемо, будто без контроля; часто с юмористическим оттенком.",
+  withWhomRu: "Бен",
+  lines: [
+    { text: "Did you hear what Ben said to the teacher?", at: "11:15" },
+    { me: true, text: "He has zero filter.", at: "11:15", glossRu: "zero filter — говорит всё прямо, без внутренней цензуры" },
+    { text: "That joke was completely out of pocket.", at: "11:16", glossRu: "out of pocket — неуместно, за гранью" },
+    { me: true, text: "Yeah, he's acting unhinged today.", at: "11:16", glossRu: "unhinged — безбашенный, будто вышедший из-под контроля" },
+  ],
+  expressions: [
+    e("zero filter", "без фильтров, без внутренней цензуры", "О человеке, который сразу говорит то, что думает, даже если это неловко или грубо.", ["очень тактичный", "молчаливый"], "He says whatever he thinks. He has ", ".", "Она говорит всё без фильтров.", ["she has zero filter"]),
+    e("out of pocket", "неуместный, за гранью", "Современный сленг о шутке, замечании или поведении, которые нарушают границы.", ["очень уместный", "идеально вежливый"], "That comment was completely ", ".", "Его шутка была совсем неуместной.", ["his joke was totally out of pocket"]),
+    e("unhinged", "безбашенный, вышедший из-под контроля", "Может описывать шокирующее или хаотичное поведение; среди друзей часто звучит шутливо.", ["спокойный и собранный", "предсказуемый"], "He's acting completely ", " today.", "Она сегодня ведёт себя безбашенно.", ["she's acting unhinged today", "she is acting unhinged today"]),
+  ],
+  reviewPairs: [["what the hell", "что за чёрт, что вообще происходит"], ["that's wild", "вот это да, просто безумие"]],
+  scenario: {
+    promptRu: "Как отреагировать на жестокую неуместную шутку?",
+    quote: "Друг пошутил над чужой внешностью за официальным ужином.",
+    options: ["That was out of pocket.", "That was on point.", "That was a piece of cake."],
+    answer: 0,
+    whyRu: "Out of pocket описывает замечание или поступок, который был неуместным и перешёл границу.",
+  },
+};
+
+const chatTruth: LessonSpec = {
+  id: "chat-truth",
+  kind: "chat",
+  title: "Emphasize that you are serious",
+  titleRu: "Подчеркнуть серьёзность и честность",
+  subtitleRu: "deadass · real talk · no cap",
+  ruleTitleRu: "Три способа сказать «я серьёзно»",
+  introRu: "Deadass усиливает серьёзность. Real talk вводит откровенную мысль. No cap подчёркивает, что говорящий не врёт и не преувеличивает.",
+  withWhomRu: "Джордан",
+  lines: [
+    { text: "You really moved to New York?", at: "14:05" },
+    { me: true, text: "Deadass. I got here yesterday.", at: "14:05", glossRu: "deadass — серьёзно, без шуток" },
+    { text: "How's it going?", at: "14:06" },
+    { me: true, text: "Real talk, it's hard. But I love it here, no cap.", at: "14:06", glossRu: "real talk — если серьёзно; no cap — без вранья" },
+  ],
+  expressions: [
+    e("deadass", "серьёзно, абсолютно серьёзно", "Очень неформальный сленг. Может быть утверждением или вопросом «Deadass?» — «Серьёзно?».", ["я шучу", "понятия не имею"], "You won the lottery? ", "?", "Я абсолютно серьёзен.", ["I'm deadass serious", "I am deadass serious"]),
+    e("real talk", "если серьёзно, без прикрас", "Вводит искреннее мнение или серьёзную часть разговора.", ["пошутим", "неважно"], "", ", I need a break.", "Если серьёзно, мне нужен отдых.", ["real talk, I need a break"]),
+    e("no cap", "без вранья, честно", "Ставится в начале или конце утверждения, чтобы подчеркнуть его правдивость.", ["я вру", "может быть"], "That was the best concert ever, ", ".", "Это лучший фильм, без вранья.", ["this is the best movie, no cap", "this is the best movie no cap"]),
+  ],
+  reviewPairs: [["fr", "серьёзно, реально"], ["ngl", "если честно, не буду врать"]],
+  scenario: {
+    promptRu: "Как подчеркнуть, что ты не врёшь?",
+    quote: "Ты действительно видел его там и хочешь добавить «без вранья».",
+    options: ["I saw him there, no cap.", "I saw him there, nvm.", "I saw him there, btw."],
+    answer: 0,
+    whyRu: "No cap добавляет утверждению оттенок «честно, без вранья».",
+  },
+};
+
+const idiomConfidence: LessonSpec = {
+  id: "idiom-confidence",
+  kind: "idiom",
+  title: "Sound confident and know the routine",
+  titleRu: "Говорить уверенно и знать порядок действий",
+  subtitleRu: "talk the talk · know the drill",
+  ruleTitleRu: "Уверенная речь и знакомая процедура",
+  introRu: "Talk the talk — говорить уверенно и как человек, который разбирается в теме. Know the drill — знать знакомый порядок действий, что и как нужно делать.",
+  withWhomRu: "Эми",
+  lines: [
+    { text: "You've done this interview before, right?", at: "10:30" },
+    { me: true, text: "Yeah, I know the drill.", at: "10:30", glossRu: "know the drill — знаю, что и как делать" },
+    { text: "And you can talk the talk in English now.", at: "10:31", glossRu: "talk the talk — говорить уверенно и как свои" },
+    { me: true, text: "I'm ready.", at: "10:31" },
+  ],
+  expressions: [
+    e("talk the talk", "говорить как свои, уверенно говорить о теме", "О речи человека, который звучит знающе. Само по себе это ещё не доказывает реальных навыков.", ["совсем не разбираться", "молчать"], "He knows slang and can ", ".", "Она уже говорит как свои.", ["she can talk the talk now"]),
+    e("know the drill", "знать, что и как делать", "О знакомой процедуре или порядке действий, который объяснять уже не нужно.", ["не знать порядок", "делать всё впервые"], "I've done this before. I ", ".", "Ты знаешь, что делать.", ["you know the drill"]),
+  ],
+  reviewPairs: [["break a leg", "удачи, ни пуха ни пера"], ["on the same page", "одинаково понимать ситуацию, быть на одной волне"]],
+  scenario: {
+    promptRu: "Что сказать перед знакомой процедурой?",
+    quote: "Ты уже много раз проходил регистрацию и знаешь все шаги.",
+    options: ["I know the drill.", "I talk the talk.", "I have no idea."],
+    answer: 0,
+    whyRu: "Know the drill означает, что порядок действий уже знаком и объяснения не нужны.",
+  },
+};
+
+const speechPraise: LessonSpec = {
+  id: "speech-praise",
+  kind: "speech",
+  title: "Give strong praise",
+  titleRu: "Восторженно похвалить",
+  subtitleRu: "straight fire · different breed",
+  ruleTitleRu: "Два ярких комплимента",
+  introRu: "Straight fire — восторженное «просто огонь» о музыке, образе или выступлении. Different breed описывает человека совсем другого уровня; оттенок зависит от контекста.",
+  withWhomRu: "Майя",
+  lines: [
+    { text: "Have you heard Maya's new track?", at: "22:10" },
+    { me: true, text: "Yeah, it's straight fire.", at: "22:10", glossRu: "straight fire — просто огонь, потрясающе" },
+    { text: "She wrote it in one night.", at: "22:11" },
+    { me: true, text: "She's a different breed.", at: "22:11", glossRu: "different breed — совсем другой уровень" },
+  ],
+  expressions: [
+    e("straight fire", "просто огонь, потрясающе", "Очень неформальный восторг, особенно о музыке, образах и выступлениях.", ["полный провал", "очень скучно"], "Her new album is ", ".", "Этот трек — просто огонь.", ["this track is straight fire"]),
+    e("different breed", "совсем другой уровень, не такой как остальные", "О человеке, который сильно выделяется. Часто это комплимент, но оттенок зависит от контекста.", ["совсем обычный", "точная копия"], "He wins every game. He's a ", ".", "Она совсем другого уровня.", ["she's a different breed", "she is a different breed"]),
+  ],
+  reviewPairs: [["bitchin'", "офигенный, потрясающий"], ["built different", "не такой, как все, особенный"]],
+  scenario: {
+    promptRu: "Как восторженно оценить новый трек?",
+    quote: "Песня тебе очень понравилась, и ты хочешь сказать «просто огонь».",
+    options: ["It's straight fire.", "It's under the weather.", "It's a piece of cake."],
+    answer: 0,
+    whyRu: "Straight fire — очень неформальный способ сказать, что что-то потрясающее.",
+  },
+};
+
 export const trackModules = [
-  cycle("cycle-one", "No formalities", "Без формальностей", "Direct messages, useful idioms and bold slang.", "Прямые сообщения, полезные идиомы и смелый сленг.", chatHonesty, idiomBasics, speechTeasing),
-  cycle("cycle-two", "Messages and reactions", "Сообщения и реакции", "Chat shorthand and natural reactions.", "Сокращения из чатов и естественные реакции.", chatNotes, idiomActions, speechReactions),
-  cycle("cycle-three", "Plans and agreements", "Планы и договорённости", "Make plans and respond without sounding formal.", "Договаривайся и отвечай без лишней формальности.", chatBasics, idiomPeople, speechAgreement),
-  cycle("cycle-four", "Quick answers", "Быстрые ответы", "Confirm, follow rules and answer teasing.", "Подтверждай, говори о правилах и отвечай на подколы.", chatPlans, idiomRules, speechBoundaries),
-  cycle("cycle-five", "Emotions out loud", "Эмоции наружу", "React to news, happiness and annoying situations.", "Реагируй на новости, радость и раздражающие ситуации.", chatReactions, idiomFeelings, speechComplaints),
-  cycle("cycle-six", "Real life, real speech", "Реальная жизнь и речь", "Honest messages, nerves and fast spoken English.", "Честные сообщения, волнение и быстрая живая речь.", chatContext, idiomNerves, speechReductions),
-  cycle("cycle-seven", "People and low-key days", "Люди и спокойные дни", "Uncertainty, rest and expressive descriptions.", "Неопределённость, отдых и яркие описания людей.", chatUncertainty, idiomLowKey, speechLabels),
-  cycle("cycle-eight", "Boundaries and conflict", "Границы и конфликт", "Close a topic, cool off and understand insults.", "Закрывай тему, остывай и понимай жёсткие оскорбления.", chatBoundaries, idiomDecisions, speechInsults),
-  cycle("cycle-nine", "Bold English", "Смелый английский", "Anger, confrontation and strong profanity.", "Злость, противостояние и сильная грубая речь.", chatAnger, idiomConfrontation, speechProfanity),
+  cycle("cycle-one", "The Warm-Up", "The Warm-Up", "Direct messages, useful idioms and bold slang.", "Прямые сообщения, полезные идиомы и смелый сленг.", chatHonesty, idiomBasics, speechTeasing),
+  cycle("cycle-two", "Lowkey", "Lowkey", "Chat shorthand and natural reactions.", "Сокращения из чатов и естественные реакции.", chatNotes, idiomActions, speechReactions),
+  cycle("cycle-three", "Big Mood", "Big Mood", "Make plans and respond without sounding formal.", "Договаривайся и отвечай без лишней формальности.", chatBasics, idiomPeople, speechAgreement),
+  cycle("cycle-four", "No Cap", "No Cap", "Confirm, follow rules and answer teasing.", "Подтверждай, говори о правилах и отвечай на подколы.", chatPlans, idiomRules, speechBoundaries),
+  cycle("cycle-five", "Say Less", "Say Less", "React to news, happiness and annoying situations.", "Реагируй на новости, радость и раздражающие ситуации.", chatReactions, idiomFeelings, speechComplaints),
+  cycle("cycle-six", "Hits Different", "Hits Different", "Honest messages, nerves and fast spoken English.", "Честные сообщения, волнение и быстрая живая речь.", chatContext, idiomNerves, speechReductions),
+  cycle("cycle-seven", "Straight Fire", "Straight Fire", "Uncertainty, rest and expressive descriptions.", "Неопределённость, отдых и яркие описания людей.", chatUncertainty, idiomLowKey, speechLabels),
+  cycle("cycle-eight", "Zero Filter", "Zero Filter", "Close a topic, cool off and understand insults.", "Закрывай тему, остывай и понимай жёсткие оскорбления.", chatBoundaries, idiomDecisions, speechInsults),
+  cycle("cycle-nine", "Built Different", "Built Different", "Anger, confrontation and strong profanity.", "Злость, противостояние и сильная грубая речь.", chatAnger, idiomConfrontation, speechProfanity),
+  cycle("cycle-ten", "Full Send", "Full Send", "Easy replies, strong impressions and bold energy.", "Лёгкие ответы, яркие впечатления и смелая энергия.", chatReassurance, idiomImpressions, speechBoldEnergy),
+  cycle("cycle-eleven", "Out of Pocket", "Out of Pocket", "Subtle hints, story moments and unfiltered reactions.", "Скрытые намёки, сюжетные повороты и реакции без фильтров.", chatEmphasis, idiomStory, speechUnfiltered),
+  cycle("cycle-twelve", "Native Mode", "Native Mode", "Honest emphasis, natural confidence and high praise.", "Честные акценты, естественная уверенность и восторженные комплименты.", chatTruth, idiomConfidence, speechPraise),
 ];
