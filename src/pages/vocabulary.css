@@ -114,3 +114,49 @@
   text-transform: uppercase;
   color: var(--color-text-faint);
 }
+
+/* Shared vocabulary workspace: the same mint and neutral surfaces as the shell. */
+.vocabulary-page, .writing-page { padding-top: 22px; }
+.vocabulary-page > header > p, .writing-page > header > p { max-width: none; margin-top: 8px; }
+.vocabulary-page .vocab-tabs { margin-top: 20px; border-bottom: 2px solid var(--color-primary-soft); padding-bottom: 12px; }
+.vocabulary-page .vocab-tabs .segmented { display: flex; width: 100%; padding: 5px; }
+.vocabulary-page .vocab-tabs .segmented__item { flex: 1; min-height: 54px; padding: 13px 20px; font-size: 1rem; }
+.vocabulary-page .segmented::before { background: var(--color-primary-soft); border: 1px solid color-mix(in srgb, var(--color-primary) 35%, transparent); box-shadow: none; }
+.vocabulary-page .segmented .segmented__item.is-active { color: var(--color-primary); background: transparent; }
+.vocabulary-page .segmented__item { min-height: 42px; }
+.vocabulary-page .vocab-tabs__n { opacity: 1; padding: 2px 8px; border-radius: 8px; background: var(--color-primary-softer); color: var(--color-primary); }
+.vocabulary-page .btn--primary, .writing-page .btn--primary { background: var(--color-primary); color: var(--color-on-primary); border-color: transparent; }
+.vocabulary-page .btn--primary:hover, .writing-page .btn--primary:hover { background: var(--color-primary-hover); }
+.vocabulary-page .wl { margin-top: 26px; }
+.vocabulary-page .wl__arrange { gap: 8px; flex-wrap: wrap; }
+.vocabulary-page .wl__arrangeBtn { padding: 10px 16px; border-radius: 10px; }
+.vocabulary-page .wl__arrangeBtn.is-on { color: var(--color-primary); background: var(--color-primary-soft); }
+.vocabulary-page .wl__create { justify-self: start; margin: 2px 0 8px; }
+.vocabulary-page .wl__count { background: var(--color-primary-soft); color: var(--color-primary); }
+.vocabulary-page .wl__drill--loud { color: var(--color-primary); background: var(--color-primary-softer); }
+.vocabulary-page .wl__drill:disabled { opacity: .4; cursor: default; }
+.vocabulary-page .wl__headRow { flex-wrap: wrap; }
+.vocabulary-page .wl__dot { background: var(--color-primary); }
+.folder-editor { padding: 24px; display: grid; gap: 16px; border-color: color-mix(in srgb, var(--color-primary) 35%, transparent); }
+.folder-editor__label { display: grid; gap: 8px; font-size: .85rem; font-weight: 600; }
+.folder-editor__hint { color: var(--color-text-muted); font-size: .82rem; line-height: 1.6; }
+.folder-editor__words { max-height: 320px; overflow-y: auto; border-block: 1px solid var(--color-border); }
+.folder-editor__word { display: flex; align-items: center; gap: 12px; padding: 12px 4px; border-bottom: 1px solid var(--color-border); cursor: pointer; }
+.folder-editor__word input { width: 18px; height: 18px; accent-color: var(--color-primary); flex: none; }
+.folder-editor__word strong { display: block; font-size: .95rem; }
+.folder-editor__word small { color: var(--color-text-muted); }
+.folder-editor__origin { margin-left: auto; font-size: .72rem; color: var(--color-primary); overflow-wrap: anywhere; }
+.folder-editor__actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px; }
+.folder-editor__actions > span { margin-right: auto; color: var(--color-text-muted); font-size: .8rem; }
+.folder-editor__error { color: var(--color-danger); font-size: .85rem; }
+.writing-page > header > p { padding: 16px 20px; border-left: 2px solid var(--color-primary); border-radius: 0 12px 12px 0; background: var(--color-primary-softer); font-size: .9rem; line-height: 1.7; }
+.writing-page .activation-summary { border-color: color-mix(in srgb, var(--color-primary) 25%, var(--color-border)); }
+.writing-page .activation-summary .text-4xl { color: var(--color-primary); }
+.writing-page .activation-summary .max-w-md { max-width: none; }
+.writing-page .activation-sets { margin-top: 48px; }
+.writing-page .eyebrow { color: var(--color-primary); }
+@media (max-width: 640px) {
+  .vocabulary-page, .writing-page { padding-top: 16px; }
+  .vocabulary-page .vocab-tabs .segmented__item { white-space: normal; font-size: .85rem; padding: 10px; }
+  .folder-editor { padding: 18px; }
+}

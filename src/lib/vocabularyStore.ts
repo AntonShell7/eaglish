@@ -501,3 +501,20 @@ export function dissolveFolder(name: string) {
   }
   writeAll(words);
 }
+
+/** Move selected words into a set; unselected members return to the shared set.
+ * Only folder metadata changes: review history and scheduling stay intact. */
+export function setFolderWords(name: string, selectedIds: string[]) {
+  const selected = new Set(selectedIds);
+  const words = readAll();
+  const changed: VocabularyWord[] = [];
+  for (const word of words) {
+    if (word.deletedAt) continue;
+    const target = selected.has(word.id) ? name : word.folder === name ? undefined : word.folder;
+    if (target === word.folder) continue;
+    word.folder = target;
+    changed.push(word);
+  }
+  writeAll(words);
+  changed.forEach(pushVocabularyWord);
+}

@@ -233,6 +233,18 @@
     "translatorGo": "Translate"
   },
   "vocabulary": {
+    "setEditor": {
+      "create": "Create set",
+      "edit": "Edit set",
+      "name": "Set name",
+      "save": "Save",
+      "selected": "Selected: {{count}}",
+      "moveHint": "Selected words move to this set. Deselected members return to the shared set.",
+      "invalid": "Enter a name between 1 and 80 characters.",
+      "duplicate": "A set with this name already exists.",
+      "saveError": "Could not save this set. Check browser storage access.",
+      "empty": "This set is empty. Add words using “Edit set”."
+    },
     "clickToReveal": "Click to reveal",
     "again": "Again",
     "hard": "Hard",
@@ -344,7 +356,7 @@
     "runDoneBody": "{{count}} still in the queue. Carry on, or come back later.",
     "carryOn": "Carry on ({{count}})",
     "enoughForToday": "That's enough for today",
-    "mainFolder": "All words",
+    "mainFolder": "Unfiled",
     "rename": "Rename",
     "renameFolder": "Set name",
     "writeThis": "Write this word in English",

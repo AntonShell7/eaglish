@@ -15,8 +15,6 @@ import { WordList } from "@/components/vocabulary/WordList";
 import { BulkAdd } from "@/components/vocabulary/BulkAdd";
 import { Drill } from "@/components/vocabulary/Drill";
 import { DueSession } from "@/components/vocabulary/DueSession";
-import { ActiveVocabulary } from "@/components/activation/ActiveVocabulary";
-import { activatedCount } from "@/lib/activation";
 import { backfillTranslations } from "@/lib/backfill";
 import { useSegmented } from "@/lib/useSegmented";
 import "./vocabulary.css";
@@ -102,21 +100,10 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
   );
 }
 
-/**
- * The three rooms of the vocabulary.
- *
- * They used to be three cards you clicked into and then had to come back out
- * of, which is a menu pretending to be a section: every move between the
- * review queue and the shelf cost two clicks and a full change of screen. They
- * are tabs now, so switching is instant and the section reads as one place
- * with three views rather than three places.
- *
- * `drill` is not a tab — it is what a tab hands you off to, from the queue or
- * from any folder on the shelf.
- */
-type Tab = "due" | "all" | "active";
+/** Review and collection share a workspace; sentence practice has its own route. */
+type Tab = "due" | "all";
 
-const TABS: Tab[] = ["due", "all", "active"];
+const TABS: Tab[] = ["due", "all"];
 
 export default function Vocabulary() {
   const { t } = useTranslation();
@@ -201,14 +188,14 @@ export default function Vocabulary() {
   };
 
   const count = (key: Tab) =>
-    key === "due" ? due.length : key === "all" ? words.length : activatedCount();
+    key === "due" ? due.length : words.length;
 
   /* Nothing in the queue has ever been reviewed, so calling the tab "you may
      have forgotten these" is false: they were saved, not forgotten. */
   const dueAllNew = due.length > 0 && due.every((w) => w.reviewCount === 0);
 
   return (
-    <SectionHero title={t("nav.vocabulary")} description={t("home.descriptions.vocabulary")}>
+    <SectionHero className="vocabulary-page" title={t("nav.vocabulary")} description={t("home.descriptions.vocabulary")}>
       {/* The switcher stays put while a drill runs, so leaving one is a single
           tap onto wherever you actually wanted to be. */}
       <div className="vocab-tabs">
@@ -302,7 +289,7 @@ export default function Vocabulary() {
             </div>
           )}
 
-          {tab === "active" && <ActiveVocabulary />}
+
         </>
       )}
     </SectionHero>

@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { MAIN_FOLDER, removeVocabularyWord, renameFolder, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
+import { MAIN_FOLDER, removeVocabularyWord, getFolders, wordStrength, type VocabularyWord } from "@/lib/vocabularyStore";
 import "./word-list.css";
+import { useAuth } from "@/context/AuthContext";
+import { readFolderNames } from "@/lib/folderNames";
+import { FolderEditor } from "./FolderEditor";
 
 type Group = "shaky" | "settling" | "held";
 type Arrange = "strength" | "folder" | "date";
@@ -46,6 +49,11 @@ export function WordList({
   onDrill: (words: VocabularyWord[], title: string) => void;
 }) {
   const { t, i18n } = useTranslation();
+  const { user } = useAuth();
+  const userId = user?.id ?? "guest";
+  const [names, setNames] = useState(() => readFolderNames(userId));
+  const [editor, setEditor] = useState<{ original: string | null } | null>(null);
+  useEffect(() => { setNames(readFolderNames(userId)); setEditor(null); }, [userId]);
   /*
    * Three ways to arrange the same shelf.
    *
@@ -55,7 +63,7 @@ export function WordList({
    * one tap at a time while reading. By the day it was collected, which needs
    * no building at all: every word already knows when it arrived.
    */
-  const [arrange, setArrange] = useState<Arrange>("strength");
+  const [arrange, setArrange] = useState<Arrange>("folder");
   /*
    * Which date folders are open.
    *
@@ -95,10 +103,9 @@ export function WordList({
     return [...out.entries()].sort((a, b) => b[0].localeCompare(a[0]));
   }, [words]);
 
-  /* The sets, built from the words themselves. A folder with nothing left in
-     it is not a set, it is a leftover, so there is no list of names to tidy. */
+  /* Keep named empty sets visible alongside the folders carried by words. */
   const byFolder = useMemo(() => {
-    const out = new Map<string, VocabularyWord[]>();
+    const out = new Map<string, VocabularyWord[]>([MAIN_FOLDER, ...names, ...getFolders().map(f => f.name)].map(name => [name, []]));
     for (const word of words) {
       const key = word.folder?.trim() || MAIN_FOLDER;
       const list = out.get(key) ?? [];
@@ -110,7 +117,7 @@ export function WordList({
       if (b[0] === MAIN_FOLDER) return 1;
       return (b[1][0]?.addedAt ?? 0) - (a[1][0]?.addedAt ?? 0);
     });
-  }, [words]);
+  }, [words, names]);
 
   const dateFormat = useMemo(
     () =>
@@ -212,11 +219,12 @@ export function WordList({
   return (
     <div className="wl">
       <div className="wl__arrange">
-        {(["strength", "folder", "date"] as Arrange[]).map((option) => (
+        {(["folder", "date", "strength"] as Arrange[]).map((option) => (
           <button
             key={option}
             type="button"
             className={arrange === option ? "wl__arrangeBtn is-on" : "wl__arrangeBtn"}
+            aria-pressed={arrange === option}
             onClick={() => setArrange(option)}
           >
             {t(`vocabulary.arrange.${option}`)}
@@ -224,6 +232,13 @@ export function WordList({
         ))}
       </div>
 
+      {arrange === "folder" && <button type="button" className="btn btn--primary wl__create" onClick={() => setEditor({original: null})}>+ {t("vocabulary.setEditor.create")}</button>}
+      {editor && <FolderEditor key={`${userId}:${editor.original ?? "new"}`} original={editor.original}
+        names={[...new Set([...names, ...getFolders().map(f => f.name)])]} userId={userId}
+        onCancel={() => setEditor(null)} onSaved={(next, name) => {
+          setNames(next); setEditor(null); onChanged();
+          setOpenDays(current => new Set([...(current ?? []), `f:${name}`]));
+        }} />}
       {arrange === "folder" &&
         byFolder.map(([name, list]) => {
           const label = name === MAIN_FOLDER ? t("vocabulary.mainFolder") : name;
@@ -252,23 +267,17 @@ export function WordList({
                   <button
                     type="button"
                     className="wl__drill"
-                    onClick={() => {
-                      const next = window.prompt(t("vocabulary.renameFolder"), name);
-                      if (next) {
-                        renameFolder(name, next);
-                        onChanged();
-                      }
-                    }}
+                    onClick={() => setEditor({ original: name })}
                   >
-                    {t("vocabulary.rename")}
+                    {t("vocabulary.setEditor.edit")}
                   </button>
                 )}
 
-                <button type="button" className="wl__drill wl__drill--loud" onClick={() => onDrill(list, label)}>
+                <button type="button" className="wl__drill wl__drill--loud" disabled={list.length === 0} onClick={() => onDrill(list, label)}>
                   {t("vocabulary.practiseFolder")}
                 </button>
               </div>
-              {isOpen && rows(list, `f:${name}`)}
+              {isOpen && (list.length ? rows(list, `f:${name}`) : <p className="folder-editor__hint px-5 pb-4">{t("vocabulary.setEditor.empty")}</p>)}
             </section>
           );
         })}

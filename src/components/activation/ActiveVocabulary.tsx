@@ -11,23 +11,8 @@ import "@/components/activation/activation.css";
 /** A short run, so the session has an end that arrives. */
 const RUN = 5;
 
-/**
- * The active vocabulary, without a page around it.
- *
- * It used to be a page, reachable only from a card in the vocabulary. That was
- * one click too many for the thing it does: proving a word is yours draws on
- * exactly the collection you are already looking at, so it now lives as one of
- * the vocabulary's three tabs. The component keeps its own route as well,
- * because the old address is in people's history.
- *
- * The problem it solves is narrow and very common. A word you can translate on
- * a card and have never produced lives in recognition memory: it answers when
- * prompted and stays silent in the half-second that speech allows. You know
- * perfectly well what a marsh is, and out loud you say "wet place", because
- * the word has never once had a path out of your head. No amount of further
- * card review fixes that — card review rehearses the direction that works.
- */
-export function ActiveVocabulary() {
+/** Sentence practice, independently accessible from the sidebar. */
+export function ActiveVocabulary({ showExplanation = true }: { showExplanation?: boolean }) {
   const { t } = useTranslation();
   const { finish } = useTaskDone();
 
@@ -94,7 +79,7 @@ export function ActiveVocabulary() {
       {/* The one number this section is responsible for. Words known and words
           usable are different counts, and showing only the first is how every
           other app hides this gap. */}
-      <section className="card mt-8 p-6 sm:p-8">
+      <section className="activation-summary card mt-8 p-6 sm:p-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="eyebrow">{t("activation.activeLabel")}</p>
@@ -105,9 +90,9 @@ export function ActiveVocabulary() {
                 / {words.length}
               </span>
             </p>
-            <p className="mt-3 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
+            {showExplanation && <p className="mt-3 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
               {t("activation.activeExplain")}
-            </p>
+            </p>}
           </div>
 
           <button
@@ -134,7 +119,7 @@ export function ActiveVocabulary() {
           came from and the week it arrived; asking a learner to re-enter that
           as folders would be asking them to do the filing this app abolishes. */}
       {grouped.length > 0 && (
-        <section className="mt-10">
+        <section className="activation-sets mt-10">
           <p className="eyebrow">{t("activation.setsTitle")}</p>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {grouped.map((set) => (

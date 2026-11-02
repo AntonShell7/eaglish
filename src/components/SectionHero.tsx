@@ -8,7 +8,8 @@ interface SectionHeroProps {
    */
   kicker?: string;
   title: string;
-  description: string;
+  description?: string;
+  className?: string;
   children?: ReactNode;
 }
 
@@ -21,9 +22,9 @@ interface SectionHeroProps {
  * directly on the ground, the way editorial layouts and every serious product
  * UI handle it. Cards are reserved for things you can act on.
  */
-export function SectionHero({ kicker, title, description, children }: SectionHeroProps) {
+export function SectionHero({ kicker, title, description, children, className = "" }: SectionHeroProps) {
   return (
-    <div className="mx-auto max-w-6xl px-5 py-10">
+    <div className={`mx-auto max-w-6xl px-5 py-10 ${className}`}>
       <header>
         {kicker && <p className="eyebrow">{kicker}</p>}
         {/* Sized through the token rather than a utility class, so it keeps
@@ -35,9 +36,9 @@ export function SectionHero({ kicker, title, description, children }: SectionHer
         >
           {title}
         </h1>
-        <p className="mt-3 max-w-xl text-base leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+        {description && <p className="mt-3 max-w-xl text-base leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
           {description}
-        </p>
+        </p>}
       </header>
       {children}
     </div>
