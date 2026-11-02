@@ -10,5 +10,12 @@
     {
       "path": "./tsconfig.api.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "strict": true,
+    "skipLibCheck": true
+  }
 }
