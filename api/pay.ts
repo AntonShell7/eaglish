@@ -123,10 +123,11 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 
   /* Now the two records know about each other, and the webhook — which only
      ever receives a provider id — can find this row. */
-  await serviceFetch(config, `/rest/v1/payments?id=eq.${rowId}`, {
+  const linked = await serviceFetch(config, `/rest/v1/payments?id=eq.${rowId}`, {
     method: "PATCH",
     body: { provider_payment_id: payment.id },
   });
+  if (!linked?.ok) return send(res, 503, { error: "unavailable" });
 
   send(res, 200, { url: payment.confirmationUrl });
 }

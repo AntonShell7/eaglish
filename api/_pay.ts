@@ -100,7 +100,11 @@ export async function createPayment(
     }),
   });
 
-  if (!response.ok) return null;
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({})) as { code?: string; parameter?: string };
+    console.error("yookassa_request_failed", { status: response.status, code: error.code, parameter: error.parameter });
+    return null;
+  }
 
   const data = (await response.json()) as {
     id?: string;
@@ -138,7 +142,11 @@ export async function getPayment(env: NodeJS.ProcessEnv, id: string): Promise<Pr
     headers: { Authorization: `Basic ${auth}` },
   });
 
-  if (!response.ok) return null;
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({})) as { code?: string; parameter?: string };
+    console.error("yookassa_request_failed", { status: response.status, code: error.code, parameter: error.parameter });
+    return null;
+  }
 
   const data = (await response.json()) as {
     id?: string;
@@ -189,7 +197,11 @@ export async function whoIs(
     return null;
   }
 
-  if (!response.ok) return null;
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({})) as { code?: string; parameter?: string };
+    console.error("payment_auth_failed", { status: response.status, code: error.code, parameter: error.parameter });
+    return null;
+  }
 
   const user = (await response.json()) as { id?: string; email?: string };
   return user.id ? { id: user.id, email: user.email ?? null } : null;
