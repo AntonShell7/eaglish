@@ -94,7 +94,7 @@ export function YearGrid({ days }: { days: GridDay[] }) {
         <div className="ygrid__scroll">
           <div className="ygrid__months" aria-hidden>
             {months.map((m) => (
-              <span key={m.key} style={{ left: `${m.week * 18}px` }}>
+              <span key={m.key} style={{ left: `calc(${m.week} * var(--calendar-step, 18px))` }}>
                 {m.label}
               </span>
             ))}

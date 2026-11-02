@@ -11,14 +11,15 @@ import { getActivity, getStreak, getBestStreak, totalForDay } from "@/lib/activi
 import { minutesByDay, timeBySection, totalMinutes, type TimeSection } from "@/lib/timeStore";
 import "@/components/charts/charts.css";
 import "@/components/charts/progress.css";
+import "./progress.css";
 
 const SECTION_COLOR: Record<TimeSection, string> = {
-  reading: "var(--color-primary)",
-  listening: "var(--color-accent)",
-  slang: "color-mix(in srgb, var(--color-primary) 55%, var(--color-accent))",
-  vocabulary: "color-mix(in srgb, var(--color-primary) 45%, transparent)",
-  writing: "color-mix(in srgb, var(--color-accent) 55%, transparent)",
-  other: "var(--color-surface-3)",
+  reading: "#78f4dc",
+  listening: "#a99aff",
+  slang: "#ffb870",
+  vocabulary: "#74c7ff",
+  writing: "#f590cf",
+  other: "#748199",
 };
 
 /** The last `n` days as dates, oldest first. */
@@ -129,21 +130,24 @@ export default function Progress() {
   }, [words, daysStudied]);
 
   return (
-    <div className="pg mx-auto max-w-5xl px-5 py-8">
-      <h1 className="page-title text-3xl">{t("progress.title")}</h1>
+    <div className="pg pg-cosmos mx-auto max-w-5xl px-5 py-8">
+      <header className="pg-masthead">
+        <h1 className="page-title text-3xl">{t("progress.title")}</h1>
+        <span className="pg-orbit-mark" aria-hidden="true"><i /><i /><i /></span>
+      </header>
 
-      <section className="pg-card" data-reveal style={{ marginTop: 24 }}>
+      <section className="pg-card pg-hero">
         <DayLine days={words} unit={t("progress.wordsUnit")} delta={delta} />
       </section>
 
-      <section className="pg-section" data-reveal>
+      <section className="pg-section">
         <div className="pg-head">
           <p className="pg-eyebrow">{t("progress.timeTitle")}</p>
           <p className="pg-note">{t("progress.lastThirty")}</p>
         </div>
 
         <div className="pg-grid pg-grid--aside">
-          <div className="pg-card">
+          <div className="pg-card pg-time">
             <Donut
               slices={split}
               centre={String(minutes)}
@@ -169,7 +173,7 @@ export default function Progress() {
             * calendar, and says so in a line instead of occupying a tile
             * with nothing in it.
             */}
-          <div className="pg-grid">
+          <div className="pg-grid pg-figures">
             <Figure label={t("progress.daysStudied")} value={String(daysStudied)} />
             <Figure label={t("progress.newPerWeek")} value={perWeek} />
             {quiz.total > 0 ? (
@@ -185,20 +189,20 @@ export default function Progress() {
         </div>
       </section>
 
-      <section className="pg-section" data-reveal>
+      <section className="pg-section">
         <div className="pg-head">
           <p className="pg-eyebrow">{t("progress.calendarTitle")}</p>
           <p className="pg-note">
             {t("progress.streakNow", { count: streak })} · {t("progress.bestStreak", { count: best })}
           </p>
         </div>
-        <div className="pg-card">
+        <div className="pg-card pg-calendar">
           <YearGrid days={calendar} />
         </div>
       </section>
 
       {scores.length > 1 && (
-        <section className="pg-section" data-reveal>
+        <section className="pg-section">
           <div className="pg-head">
             <p className="pg-eyebrow">{t("progress.scoresTitle")}</p>
           </div>

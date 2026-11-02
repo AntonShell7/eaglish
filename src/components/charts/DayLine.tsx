@@ -91,6 +91,7 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
           {line && (
           <path
             d={line}
+            pathLength={1}
             fill="none"
             stroke="var(--color-primary)"
             strokeWidth="2"
