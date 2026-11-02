@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
@@ -11,14 +11,16 @@ import { getStreak, getBestStreak } from "@/lib/activityStore";
 import { getReadingHistory } from "@/lib/readingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
-import { deleteAccount, downloadJson, exportMyData } from "@/lib/account";
+import { deleteAccount } from "@/lib/account";
 import "@/components/charts/charts.css";
+import "./profile.css";
 
 
 export default function Profile() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user, signOut } = useAuth();
-  const { plan, isPro, expiresAt } = useAccess();
+  const { plan, isPro, expiresAt, loading: accessLoading } = useAccess();
+  const dateLabel = (date: string) => new Date(date).toLocaleDateString(i18n.language, { day: "numeric", month: "long", year: "numeric" });
   const navigate = useNavigate();
 
   const [streak, setStreak] = useState(0);
@@ -39,11 +41,11 @@ export default function Profile() {
 
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-8">
+    <div className="profile-page mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
 
       {/* Identity + level */}
-      <section className="card viz mt-6 p-6">
+      <section className="profile-identity card viz mt-6 p-6">
         <div className="flex flex-wrap items-center gap-5">
           <div
             className="flex h-16 w-16 flex-none items-center justify-center rounded-full"
@@ -57,6 +59,7 @@ export default function Profile() {
             <p className="truncate text-sm" style={{ color: "var(--color-text-muted)" }}>
               {user ? `${t("profile.signedInAs")} ${user.email}` : t("profile.notSignedIn")}
             </p>
+            {user?.created_at && Number.isFinite(Date.parse(user.created_at)) && <p className="profile-member">{t("profile.memberSince")} {dateLabel(user.created_at)}</p>}
           </div>
 
           {user ? (
@@ -67,7 +70,7 @@ export default function Profile() {
                 navigate("/");
               }}
               className="rounded-full border px-4 py-2 text-sm font-semibold"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-danger)" }}
+              style={{ borderColor: "var(--color-border)", color: "var(--color-text-muted)" }}
             >
               {t("nav.logOut")}
             </button>
@@ -89,36 +92,36 @@ export default function Profile() {
           somebody who was sent a code comes looking for the box to type it
           into, having found nothing on the dashboard. */}
       {user && (
-        <section className="card mt-5 p-5">
+        <section className="profile-plan card mt-5 p-5">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="min-w-0">
               <p className="eyebrow">{t("profile.plan")}</p>
               <p className="mt-1 text-lg font-extrabold">
-                {t(`pricing.plans.${plan}.name`)}
+                {accessLoading ? t("profile.planLoading") : t(`pricing.plans.${plan}.name`)}
               </p>
               <p className="mt-0.5 text-sm" style={{ color: "var(--color-text-muted)" }}>
-                {isPro
+                {accessLoading ? t("profile.planLoading") : isPro
                   ? expiresAt
                     ? t("pricing.have.until", {
-                        date: new Date(expiresAt).toLocaleDateString(undefined, {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        }),
+                        date: dateLabel(expiresAt),
                       })
                     : t("pricing.have.forever")
                   : t("profile.planFreeHint")}
               </p>
             </div>
 
-            {!isPro && (
+            {!accessLoading && (
               <Link to="/pricing" className="btn btn--primary">
                 {t("profile.seePlans")}
               </Link>
             )}
           </div>
 
-          {!isPro && (
+          {!accessLoading && <div className="profile-entitlements">
+            <span className="profile-status"><i aria-hidden="true" />{t(isPro ? "profile.proActive" : "profile.freeActive")}</span>
+            <ul>{(isPro ? ["reading", "vocabulary", "dictation", "writing", "slang"] : ["reading", "vocabulary", "progress"]).map(section => <li key={section}>{t(`nav.${section}`)}</li>)}</ul>
+          </div>}
+          {!accessLoading && !isPro && (
             <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--color-border)" }}>
               <p className="eyebrow">{t("pricing.code.haveOne")}</p>
               <RedeemCode compact />
@@ -198,101 +201,56 @@ export default function Profile() {
         </div>
       </section>
 
-      <DataControls />
+      <AccountControls />
     </div>
   );
 }
 
-/**
- * Your data, and the door out.
- *
- * Kept at the bottom and kept plain. These are not features to be sold — they
- * are the two things the privacy policy already promises, and a policy whose
- * promises have no buttons behind them is a sentence rather than a commitment.
- *
- * Deleting asks twice, and the second ask spells out exactly what goes,
- * because this is the one action in the app that cannot be undone.
- */
-function DataControls() {
+/** The first button only opens the dialog. Deletion needs a separate acknowledgement. */
+function AccountControls() {
   const { t } = useTranslation();
-  const { user } = useAuth();
   const navigate = useNavigate();
-  const [confirming, setConfirming] = useState(false);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  const submitting = useRef(false);
+  const [acknowledged, setAcknowledged] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const save = () => {
-    const stamp = new Date().toISOString().slice(0, 10);
-    downloadJson(exportMyData(user?.email ?? null), `eaglish-${stamp}.json`);
-  };
-
   const remove = async () => {
+    if (!acknowledged || submitting.current || !dialog.current?.open) return;
+    submitting.current = true;
     setBusy(true);
     setError(null);
-    const outcome = await deleteAccount();
-    setBusy(false);
-
-    if (outcome === "ok") {
-      navigate("/", { replace: true });
-      return;
-    }
-    setError(outcome === "not-signed-in" ? t("account.deleteNotSignedIn") : t("account.deleteFailed"));
+    try {
+      const outcome = await deleteAccount();
+      if (outcome === "ok") { dialog.current?.close(); navigate("/", { replace: true }); return; }
+      setError(outcome === "not-signed-in" ? t("account.deleteNotSignedIn") : t("account.deleteFailed"));
+    } catch { setError(t("account.deleteFailed")); }
+    finally { submitting.current = false; setBusy(false); }
   };
 
   return (
-    <section className="mt-12">
-      <p className="eyebrow">{t("account.title")}</p>
-
-      <div className="card mt-4 p-5">
-        <p className="text-sm font-semibold">{t("account.exportTitle")}</p>
-        <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
-          {t("account.exportBody")}
-        </p>
-        <button type="button" className="btn btn--ghost btn--sm mt-4" onClick={save}>
-          {t("account.exportButton")}
-        </button>
-      </div>
-
-      <div className="card mt-4 p-5" style={{ borderColor: confirming ? "var(--color-danger)" : undefined }}>
-        <p className="text-sm font-semibold">{t("account.deleteTitle")}</p>
-        <p className="mt-1 text-sm" style={{ color: "var(--color-text-muted)" }}>
-          {confirming ? t("account.deleteConfirmBody") : t("account.deleteBody")}
-        </p>
-
-        {error && (
-          <p className="mt-3 text-sm font-medium" style={{ color: "var(--color-danger)" }}>
-            {error}
-          </p>
-        )}
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {confirming ? (
-            <>
-              <button
-                type="button"
-                className="btn btn--sm"
-                style={{ background: "var(--color-danger)", color: "#fff" }}
-                onClick={remove}
-                disabled={busy}
-              >
-                {busy ? t("account.deleting") : t("account.deleteConfirm")}
-              </button>
-              <button
-                type="button"
-                className="btn btn--quiet btn--sm"
-                onClick={() => setConfirming(false)}
-                disabled={busy}
-              >
-                {t("common.cancel")}
-              </button>
-            </>
-          ) : (
-            <button type="button" className="btn btn--ghost btn--sm" onClick={() => setConfirming(true)}>
-              {t("account.deleteButton")}
-            </button>
-          )}
+    <section className="profile-account">
+      <div><h2>{t("account.deleteTitle")}</h2><p>{t("account.deleteBody")}</p></div>
+      <button ref={trigger} type="button" className="btn btn--ghost btn--sm" onClick={() => {
+        setAcknowledged(false); setError(null); dialog.current?.showModal();
+      }}>{t("account.deleteButton")}</button>
+      <dialog ref={dialog} className="profile-delete" aria-labelledby="delete-title" aria-describedby="delete-description"
+        onCancel={event => { if (submitting.current) event.preventDefault(); }}
+        onClose={() => { setAcknowledged(false); trigger.current?.focus(); }}>
+        <h2 id="delete-title">{t("account.deleteTitle")}</h2>
+        <p id="delete-description">{t("account.deleteConfirmBody")}</p>
+        <label className="profile-delete__ack"><input type="checkbox" checked={acknowledged} disabled={busy}
+          onChange={event => setAcknowledged(event.target.checked)} />{t("account.deleteAcknowledge")}</label>
+        {error && <p role="alert" className="profile-delete__error">{error}</p>}
+        <div className="profile-delete__actions">
+          <button autoFocus type="button" className="btn btn--ghost" disabled={busy} onClick={() => dialog.current?.close()}>{t("common.cancel")}</button>
+          <button type="button" className="btn profile-delete__confirm" disabled={busy || !acknowledged} onClick={remove}>
+            {busy ? t("account.deleting") : t("account.deleteConfirm")}
+          </button>
         </div>
-      </div>
+      </dialog>
     </section>
   );
 }

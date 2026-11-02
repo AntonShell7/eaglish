@@ -12,10 +12,6 @@ function load(file) {
  vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,context);
  return exports;
 }
-const visits=load('src/lib/writingVisits.ts');
-assert.deepEqual(Array.from({length:4},()=>visits.recordWritingVisit(storage,'a')),[true,true,false,false]);
-assert.equal(visits.recordWritingVisit(storage,'b'),true);
-assert.equal(visits.recordWritingVisit({getItem(){throw Error()},setItem(){}},'a'),true);
 const folders=load('src/lib/folderNames.ts');
 folders.writeFolderNames('a',['Travel']);assert.equal(folders.readFolderNames('a')[0],'Travel');assert.equal(folders.readFolderNames('b').length,0);
 const store=load('src/lib/vocabularyStore.ts');
@@ -27,4 +23,4 @@ assert.equal(after[0].folder,'Travel');assert.equal(after[1].folder,undefined);a
 for(let i=0;i<words.length;i++){const {folder,...old}=words[i]; const {folder:_,...next}=after[i];assert.deepEqual(next,old);}
 assert.equal(pushed.length,2);
 store.renameFolder('Travel','Journey');assert.equal(JSON.parse(storage.getItem('vocabularyWords'))[0].folder,'Journey');
-console.log('PASS: first two visits only, per-account metadata, word moves, unassignment, review preservation, sync calls, rename.');
+console.log('PASS: per-account metadata, word moves, unassignment, review preservation, sync calls, rename.');

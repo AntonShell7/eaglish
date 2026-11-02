@@ -12,7 +12,7 @@ import "@/components/activation/activation.css";
 const RUN = 5;
 
 /** Sentence practice, independently accessible from the sidebar. */
-export function ActiveVocabulary({ showExplanation = true }: { showExplanation?: boolean }) {
+export function ActiveVocabulary() {
   const { t } = useTranslation();
   const { finish } = useTaskDone();
 
@@ -76,43 +76,28 @@ export function ActiveVocabulary({ showExplanation = true }: { showExplanation?:
 
   return (
     <>
-      {/* The one number this section is responsible for. Words known and words
-          usable are different counts, and showing only the first is how every
-          other app hides this gap. */}
-      <section className="activation-summary card mt-8 p-6 sm:p-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="eyebrow">{t("activation.activeLabel")}</p>
-            <p className="tabular mt-2 text-4xl font-bold leading-none">
-              {activated}
-              <span className="text-lg font-medium" style={{ color: "var(--color-text-faint)" }}>
-                {" "}
-                / {words.length}
-              </span>
-            </p>
-            {showExplanation && <p className="mt-3 max-w-md text-sm" style={{ color: "var(--color-text-muted)" }}>
-              {t("activation.activeExplain")}
-            </p>}
-          </div>
-
-          <button
-            type="button"
-            className="btn btn--primary btn--lg shrink-0"
-            onClick={() => all && start(all)}
-            disabled={!all}
-          >
-            {t("activation.startAll")}
-          </button>
+      <section className="smart-session card" aria-label={t("activation.title")}>
+        <div className="smart-session__ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" className="smart-session__track" />
+            <circle cx="60" cy="60" r="52" className="smart-session__fill" pathLength="100"
+              strokeDasharray={`${words.length ? Math.min(100, activated / words.length * 100) : 0} 100`} />
+          </svg>
+          <p className="smart-session__number tabular">{activated}<span>/ {words.length}</span></p>
         </div>
-
-        {words.length === 0 && (
-          <p className="mt-5 text-sm" style={{ color: "var(--color-text-muted)" }}>
-            {t("activation.emptyNoWords")}{" "}
-            <Link to="/reading" style={{ color: "var(--color-primary)" }}>
-              {t("activation.emptyLink")}
-            </Link>
-          </p>
-        )}
+        <h2 className="smart-session__label">{t("activation.activeLabel")}</h2>
+        <p className="smart-session__explain">{t("activation.activeExplain")}</p>
+        {all && <ul className="smart-session__words" aria-label={t("activation.nextWords")}>
+          {orderForPractice(all.words).slice(0, RUN).map(word => <li key={word.id}>{word.word}</li>)}
+        </ul>}
+        <button type="button" className="btn btn--primary btn--lg smart-session__start"
+          onClick={() => all && start(all)} disabled={!all}>
+          {t("activation.startAll")} <span aria-hidden="true">→</span>
+        </button>
+        {all && <p className="smart-session__size">{t("activation.runSize", {count: Math.min(RUN, all.words.length)})}</p>}
+        {words.length === 0 && <p className="smart-session__explain">
+          {t("activation.emptyNoWords")} <Link to="/reading">{t("activation.emptyLink")}</Link>
+        </p>}
       </section>
 
       {/* Sets, which nobody had to create. Every word already knows the text it

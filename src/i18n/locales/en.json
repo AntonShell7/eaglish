@@ -3,7 +3,7 @@
   "nav": {
     "home": "Home",
     "reading": "Reading",
-    "writing": "Use your words",
+    "writing": "Smart repetition",
     "listening": "Listening",
     "vocabulary": "Vocabulary",
     "progress": "Progress",
@@ -306,7 +306,7 @@
     "doorDueEmpty": "Nothing to revisit today. It is all holding.",
     "doorAll": "All words",
     "doorAllBody": "The whole collection — by the day you collected them, or by how firmly each one is held.",
-    "doorActive": "Use your words",
+    "doorActive": "Smart repetition",
     "doorActiveBody": "How many of your words you have actually put to work.",
     "style": {
       "typed": "Type it",
@@ -341,7 +341,7 @@
     "tabs": {
       "due": "You have probably forgotten these",
       "all": "All words",
-      "active": "Use your words",
+      "active": "Smart repetition",
       "dueNew": "New words"
     },
     "expandAll": "Expand all",
@@ -428,7 +428,7 @@
       "listening": "Listening",
       "slang": "Slang",
       "vocabulary": "Vocabulary",
-      "writing": "Use your words",
+      "writing": "Smart repetition",
       "other": "Elsewhere"
     },
     "calendarTitle": "Days worked",
@@ -469,6 +469,9 @@
     "words": "Words"
   },
   "profile": {
+    "planLoading": "Checking subscription…",
+    "proActive": "Pro active",
+    "freeActive": "Free access",
     "title": "Your profile",
     "level": "Level {{level}}",
     "xpToNext": "{{current}} / {{target}} XP to level {{next}}",
@@ -989,10 +992,12 @@
     "yours": "yours"
   },
   "activation": {
-    "title": "Use your words",
+    "nextWords": "Words for your next session",
+    "runSize": "{{count}} words per session",
+    "title": "Smart repetition",
     "intro": "A word you have never said or written lives in recognition memory: it answers when asked and stays silent in the half-second speech allows. Here you build a sentence with it and get judged on that word alone.",
     "activeLabel": "Words you have actually used",
-    "activeExplain": "Knowing a word and being able to reach for it are different things. The second number only moves when you build a sentence yourself.",
+    "activeExplain": "Knowing a word and being able to reach for it are different things. This count only grows when you build a sentence yourself.",
     "stop": "Finish",
     "useThis": "Write a sentence with this word",
     "placeholder": "Your own sentence with “{{word}}”",
@@ -1015,7 +1020,7 @@
     "yoursTitle": "Your sentences",
     "emptyNoWords": "Collect some words first — they appear on their own while you read or take dictation.",
     "emptyLink": "open reading",
-    "startAll": "Go through all words",
+    "startAll": "Start repetition",
     "setsTitle": "Sets",
     "setFromText": "from a text",
     "setFromWeek": "by when",
@@ -1123,13 +1128,14 @@
     }
   },
   "account": {
+    "deleteAcknowledge": "I understand that my account and data will be permanently deleted.",
     "title": "Your data",
     "exportTitle": "Download everything we hold",
     "exportBody": "One file with all of it: vocabulary, your sentences, study history, progress. Plain JSON — it opens in a text editor, and nothing is encrypted or hidden.",
     "exportButton": "Download the file",
     "deleteTitle": "Delete account",
     "deleteBody": "The account and everything attached to it go for good.",
-    "deleteConfirmBody": "This removes the account, every word, every sentence you wrote and your whole study history — from the server and from this browser. It cannot be undone. If you want a copy, download the file above first.",
+    "deleteConfirmBody": "Your account, vocabulary, written sentences and study history will be deleted. The account and this data cannot be restored.",
     "deleteButton": "Delete account",
     "deleteConfirm": "Yes, delete permanently",
     "deleting": "Deleting…",
