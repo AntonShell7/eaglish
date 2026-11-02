@@ -54,7 +54,7 @@ export function sectionOf(pathname: string): ProSection | null {
  */
 /** Base prices displayed alongside the current launch offer. */
 export const STANDARD_PRICES = {
-  monthly: 390,
+  monthly: 399,
   yearly: 2900,
 } as const;
 
@@ -67,22 +67,8 @@ export const PRICES = {
 /** How much the yearly plan saves, as a whole-rouble figure, for the badge. */
 export const YEARLY_SAVING = PRICES.monthly * 12 - PRICES.yearly;
 
-/**
- * Whether money can actually be taken yet.
- *
- * It cannot: that needs a registered sole trader, a published offer, a payment
- * provider's moderation and automatic receipts under 54-ФЗ. Weeks, not days.
- *
- * The page exists before any of that for two reasons. A provider will not even
- * review a site that has no prices, no offer and no contacts — so this has to
- * be live *before* the application, not after. And the people arriving first
- * have codes, which need somewhere to be typed.
- *
- * So the prices are shown and stated as what they will be, with no button that
- * pretends to charge. Flip this to true when the provider is connected and the
- * page turns itself into a real checkout.
- */
-export const PAYMENTS_LIVE = false;
+/** Live checkout is enabled after verifying the payment provider connection. */
+export const PAYMENTS_LIVE = true;
 
 /**
  * The model allowance each plan gets per day.
