@@ -52,9 +52,16 @@ export function sectionOf(pathname: string): ProSection | null {
  * learning is the unit that actually works and a month is the unit that gets
  * abandoned in week three.
  */
-export const PRICES = {
+/** Base prices displayed alongside the current launch offer. */
+export const STANDARD_PRICES = {
   monthly: 390,
   yearly: 2900,
+} as const;
+
+/** Launch prices apply to all purchases while the offer is published. */
+export const PRICES = {
+  monthly: 199,
+  yearly: 1999,
 } as const;
 
 /** How much the yearly plan saves, as a whole-rouble figure, for the badge. */

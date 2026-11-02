@@ -1355,13 +1355,13 @@
   "pricing": {
     "eyebrow": "Plans",
     "title": "Everyday English with Eaglish Pro",
-    "lede": "Slang, modern expressions and dialogues are at the heart of Pro. Listening and Smart repetition are included. Reading, Vocabulary and standard reviews are free.",
+    "lede": "Slang, modern expressions and dialogues are at the heart of Pro. Listening and Smart repetition are included. Early users get a launch discount on full access.",
     "cycleLabel": "Billing period",
     "cycle": {
       "monthly": "Monthly",
       "yearly": "Yearly"
     },
-    "saving": "Save {{amount}} ₽",
+    "saving": "Save {{amount}} ₽ vs 12 separate months",
     "per": {
       "monthly": "per month",
       "yearly": "per year"
@@ -1425,7 +1425,7 @@
       "eyebrow": "Subscription section",
       "stillFree": "Nothing is lost",
       "stillFreeBody": "Every word you saved, the review schedule and all of Reading stay free. A subscription takes nothing away — it adds.",
-      "see": "See the plans — from {{price}} ₽",
+      "see": "Full access — {{price}} ₽/month at launch",
       "toReading": "Back to reading",
       "dictation": {
         "title": "English by ear",
@@ -1450,6 +1450,11 @@
         "unavailable": "The payment service is unavailable right now. Try again in a few minutes.",
         "failed": "Could not start the payment. Try again."
       }
+    },
+    "launch": {
+      "badge": "Early-user offer",
+      "base": "Base price",
+      "note": "Full access at the launch price. The discount applies automatically to your selected period."
     }
   },
   "offer": {

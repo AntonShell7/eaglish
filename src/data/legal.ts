@@ -8,7 +8,7 @@
  * because a policy that describes a different product is worse than none.
  */
 
-import { PRICES } from "@/lib/plans";
+import { PRICES, STANDARD_PRICES } from "@/lib/plans";
 
 /**
  * The address a reader can actually write to: it appears in both documents as
@@ -431,6 +431,8 @@ export const OPERATOR_READY = !OPERATOR.fullName.startsWith("—") && !OPERATOR.
 
 const MONTHLY = PRICES.monthly.toLocaleString("ru-RU");
 const YEARLY = PRICES.yearly.toLocaleString("ru-RU");
+const STANDARD_MONTHLY = STANDARD_PRICES.monthly.toLocaleString("ru-RU");
+const STANDARD_YEARLY = STANDARD_PRICES.yearly.toLocaleString("ru-RU");
 
 /**
  * The public offer.
@@ -496,7 +498,8 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "price",
         h: "Стоимость и оплата",
         p: [
-          `Стоимость подписки: ${MONTHLY} ₽ за один месяц доступа или ${YEARLY} ₽ за один год доступа.`,
+          `Стартовая цена полного доступа Pro для первых пользователей: ${MONTHLY} ₽ за месяц или ${YEARLY} ₽ за год. Базовая цена — ${STANDARD_MONTHLY} ₽ за месяц или ${STANDARD_YEARLY} ₽ за год.`,
+          "Стартовое предложение доступно пользователям, оформляющим подписку, пока оно опубликовано на странице «Тарифы». Скидка применяется автоматически к выбранному периоду, промокод не нужен. Для следующей покупки действует цена, указанная на момент её оформления; автопродления нет.",
           "Цены указаны в рублях Российской Федерации и включают все применимые налоги. Исполнитель применяет специальный налоговый режим «Налог на профессиональный доход», НДС не облагается.",
           "Оплата производится через платёжный сервис. Исполнитель не получает и не хранит данные банковских карт Пользователя.",
           "После оплаты Исполнитель формирует чек в соответствии с Федеральным законом № 422-ФЗ и направляет его на адрес электронной почты, указанный при оплате.",
@@ -596,7 +599,8 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "price",
         h: "Price and payment",
         p: [
-          `${MONTHLY} ₽ for one month of access, or ${YEARLY} ₽ for one year.`,
+          `Launch offer for early users: full Pro access for ${MONTHLY} ₽ for one month or ${YEARLY} ₽ for one year. Base prices are ${STANDARD_MONTHLY} ₽ per month or ${STANDARD_YEARLY} ₽ per year.`,
+          "The launch offer is available to users purchasing a subscription while it is displayed on Plans. The discount applies automatically to the selected period; no promo code is required. A later purchase uses the price displayed at that time. There is no automatic renewal.",
           "Prices are in Russian roubles and include all applicable taxes. Payment is handled by a payment service; we never receive or store your card details.",
           "A receipt is issued after payment and sent to the email address given at checkout.",
         ],

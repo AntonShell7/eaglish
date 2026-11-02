@@ -27,8 +27,8 @@
  * one bug in this file worth being afraid of.
  */
 export const PRICES: Record<Cycle, number> = {
-  monthly: 390,
-  yearly: 2900,
+  monthly: 199,
+  yearly: 1999,
 };
 
 export type Cycle = "monthly" | "yearly";

@@ -7,7 +7,7 @@ import { RedeemCode } from "@/components/access/RedeemCode";
 import { CONTACT_EMAIL } from "@/data/legal";
 import { useSegmented } from "@/lib/useSegmented";
 import { startCheckout, type CheckoutError } from "@/lib/checkout";
-import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, PRICES, YEARLY_SAVING } from "@/lib/plans";
+import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, PRICES, STANDARD_PRICES, YEARLY_SAVING } from "@/lib/plans";
 import "./pricing.css";
 
 type Cycle = "monthly" | "yearly";
@@ -132,6 +132,11 @@ export default function Pricing() {
 
         <section className="pr__card pr__card--pro">
           <p className="pr__name">{t("pricing.plans.pro.name")}</p>
+          <p className="pr__launch"><span>{t("pricing.launch.badge")}</span></p>
+          <p className="pr__old-price">
+            <span>{t("pricing.launch.base")}</span>{" "}
+            <s>{STANDARD_PRICES[cycle].toLocaleString("ru-RU")} ₽ {t(`pricing.per.${cycle}`)}</s>
+          </p>
 
           <p className="pr__price">
             <span className="pr__amount tabular">{price.toLocaleString("ru-RU")}</span>{" "}
@@ -142,6 +147,8 @@ export default function Pricing() {
               ? t("pricing.plans.pro.perMonth", { amount: perMonth })
               : t("pricing.plans.pro.note")}
           </p>
+
+          <p className="pr__launch-note">{t("pricing.launch.note")}</p>
 
           <ul className="pr__list pr__list--pro">
             {PLAN_FEATURES.pro.map((key) => (
