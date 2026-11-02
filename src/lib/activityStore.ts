@@ -1,3 +1,4 @@
+import { calculateStreak } from "./streak";
 import { pushActivityDay } from "./sync";
 export type ActivityKind = "reading" | "listening" | "writing" | "vocabulary" | "quiz" | "slang";
 
@@ -105,6 +106,7 @@ export function mergeRemoteActivity(remote: DayActivity[]) {
     }
   }
   writeAll([...byDay.values()]);
+  window.dispatchEvent(new Event(ACTIVITY_EVENT));
 }
 
 export function getActivity(): DayActivity[] {
@@ -136,43 +138,13 @@ function shiftDays(date: Date, delta: number): Date {
   return copy;
 }
 
-/**
- * Counts consecutive days ending today. Yesterday still counts as "alive" —
- * the streak only breaks once a full day has been missed.
- */
-export function getStreak(): number {
-  const done = new Set(readAll().filter((d) => totalForDay(d) > 0).map((d) => d.date));
-  if (done.size === 0) return 0;
-
-  const today = new Date();
-  let cursor = done.has(todayKey(today)) ? today : shiftDays(today, -1);
-  if (!done.has(todayKey(cursor))) return 0;
-
-  let streak = 0;
-  while (done.has(todayKey(cursor))) {
-    streak++;
-    cursor = shiftDays(cursor, -1);
-  }
-  return streak;
+/** The same freeze-aware result is used by the header, profile and progress. */
+export function getStreakState() {
+  return calculateStreak(readAll().filter(day => totalForDay(day) > 0).map(day => day.date), todayKey());
 }
 
-export function getBestStreak(): number {
-  const dates = readAll()
-    .filter((d) => totalForDay(d) > 0)
-    .map((d) => d.date)
-    .sort();
-  if (dates.length === 0) return 0;
-
-  let best = 1;
-  let run = 1;
-  for (let i = 1; i < dates.length; i++) {
-    const prev = new Date(dates[i - 1]);
-    const expected = todayKey(shiftDays(prev, 1));
-    run = dates[i] === expected ? run + 1 : 1;
-    if (run > best) best = run;
-  }
-  return best;
-}
+export function getStreak(): number { return getStreakState().current; }
+export function getBestStreak(): number { return getStreakState().best; }
 
 /** Most recent `days` calendar days, oldest first, for the activity strip. */
 export function getRecentDays(days = 14): { date: string; count: number }[] {

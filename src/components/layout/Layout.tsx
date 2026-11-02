@@ -180,14 +180,14 @@ export function Layout() {
           </NavLink>
 
           {user ? (
-            <span className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               {demo && (
                 <span className="chip" title={t("shell.demoMode")}>
                   demo
                 </span>
               )}
               <StatsStrip routeKey={pathname} />
-            </span>
+            </div>
           ) : (
             <div className="topline__guest">
               <NavLink to="/register" className="guest-btn guest-btn--go">

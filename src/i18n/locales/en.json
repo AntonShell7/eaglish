@@ -1502,5 +1502,13 @@
     "again": "Start over",
     "againSure": "Reset progress?",
     "threadSub": "in a messenger"
+  },
+  "streak": {
+    "days_one": "{{count}} day in your streak",
+    "days_other": "{{count}} days in your streak",
+    "todayDone": "Today’s practice is complete.",
+    "todayPending": "Complete one task today to continue your streak.",
+    "freezes": "Freezes: {{count}} of {{max}}",
+    "rules": "One freeze automatically protects one missed day without adding it to your streak. Earn one every {{days}} practice days, up to {{max}}."
   }
 }
