@@ -99,7 +99,7 @@ export const DAILY_AI_CALLS: Record<PlanId, number> = {
  */
 export const PLAN_FEATURES: Record<PlanId, readonly string[]> = {
   free: ["readingAll", "vocabulary", "schedule", "progress", "aiFree"],
-  pro: ["everythingFree", "listening", "writing", "slang", "handwriting", "aiPro"],
+  pro: ["slang", "listening", "writing", "everythingFree", "handwriting", "aiPro"],
 } as const;
 
 /** Whether a plan is still in force. `null` expiry means it never runs out. */

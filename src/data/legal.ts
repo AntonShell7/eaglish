@@ -18,7 +18,7 @@ import { PRICES } from "@/lib/plans";
  */
 export const CONTACT_EMAIL = "eaglish@yandex.ru";
 
-export const LAST_UPDATED = "2026-10-20";
+export const LAST_UPDATED = "2026-11-02";
 
 export interface LegalSection {
   id: string;
@@ -37,99 +37,91 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
   ru: {
     title: "Политика конфиденциальности",
     summary: [
-      "Мы храним только то, без чего сервис не работает: аккаунт и твой учебный прогресс.",
-      "Мы не продаём данные, не показываем рекламу и не ставим трекеры.",
-      "Тексты, которые ты отправляешь на проверку, и слова, которые ты переводишь, уходят в стороннюю ИИ-модель — иначе проверить и перевести их нечем.",
+      "Аккаунт и учебный прогресс используются для работы Eaglish.",
+      "Мы не продаём персональные данные и не используем рекламные трекеры.",
+      "Управлять аккаунтом можно в профиле, а обратиться по вопросам данных — по электронной почте."
     ],
     sections: [
       {
         id: "who",
-        h: "Кто обрабатывает данные",
+        h: "Оператор данных",
         p: [
-          "Оператор персональных данных — Шелудько Антон Павлович, самозанятый, ИНН 253715678005.",
-          `По любым вопросам о данных пиши на ${CONTACT_EMAIL}: это тот же адрес, по которому можно потребовать удалить аккаунт.`,
+          "Оператор — Шелудько Антон Павлович, самозанятый, ИНН 253715678005.",
+          "Контакт по вопросам обработки данных: eaglish@yandex.ru."
         ],
       },
       {
         id: "what",
-        h: "Какие данные мы собираем",
+        h: "Какие данные обрабатываются",
         p: [
-          "Данные аккаунта: адрес электронной почты и пароль. Пароль мы не видим — он хранится в виде хеша.",
-          "Если ты входишь через Google, Google передаёт нам имя и ссылку на фотографию профиля вместе с адресом почты. Это происходит один раз, при первом входе, и отказаться от передачи этих полей, оставив вход через Google, нельзя. Регистрация по почте их не требует.",
-          "Учебные данные: сохранённые слова и расписание их повторений, отправленные тексты и оценки к ним, открытые тексты и результаты вопросов, ежедневная активность и настройки из онбординга (уровень, цель, темы, дневная норма).",
-          "Когда ты сообщаешь о проблеме, вместе с сообщением сохраняется страница, с которой оно отправлено, и строка с описанием браузера — без них отчёт невозможно воспроизвести.",
-          "Локальные настройки в браузере: тема оформления, язык интерфейса, согласие на этой странице и копия учебного прогресса, чтобы приложение работало без интернета.",
-          "Если ты оформляешь подписку, мы сохраняем запись о платеже: сумму, оплаченный период, дату и адрес почты для чека. Данные банковской карты в сервис не попадают — их принимает платёжный сервис, и мы их не видим и не храним.",
-          "Мы не собираем возраст, номер телефона и не запрашиваем доступ к камере, микрофону или геолокации.",
+          "Аккаунт: электронная почта, идентификатор, даты регистрации и входа. Пароль хранится в виде хеша. При входе через Google могут передаваться имя и изображение профиля.",
+          "Учебные данные: слова и наборы, история повторений, предложения и результаты заданий, активность и время занятий, настройки обучения. Стрик и заморозки рассчитываются по истории занятий.",
+          "Технические данные: IP-адрес, сведения о браузере, сессия входа и журналы запросов. В поддержку передаются текст обращения и сведения для разбора проблемы.",
+          "При оплате обрабатываются сумма, статус платежа, период доступа и сведения для чека. Данные банковской карты обрабатывает платёжный сервис."
         ],
       },
       {
         id: "why",
-        h: "Зачем",
+        h: "Цели и основания",
         p: [
-          "Аккаунт нужен, чтобы прогресс переезжал между устройствами и не терялся при чистке браузера. Учебные данные нужны самому обучению: без истории повторений интервальные повторения не работают, а без результатов не построить статистику.",
-          "Юридическое основание для этого — исполнение договора с тобой: ты просишь сервис учить тебя английскому, и без этих данных он этого сделать не может.",
+          "Данные нужны для регистрации, предоставления доступа, синхронизации прогресса, повторения слов, проверки заданий и поддержки. Основание — заключение и исполнение договора с пользователем.",
+          "Платёжные и учётные сведения также обрабатываются для исполнения обязанностей по закону. Когда требуется согласие, оно оформляется отдельно; принятие оферты не заменяет такое согласие."
         ],
       },
       {
         id: "third-parties",
-        h: "Кому передаются данные",
+        h: "Сервисы обработки",
         p: [
-          "Google — только если ты выбрал вход через Google. Google узнаёт, что ты пользуешься Eaglish, и передаёт нам почту, имя и ссылку на фотографию.",
-          "Groq и OpenAI — обработка текста нейросетью. Туда уходит слово с предложением, в котором ты его встретил, текст, отправленный на проверку письма, и снимок рукописной страницы, если ты пользуешься письмом от руки. Не отправляй в эти поля персональные данные — свои или чужие.",
-          "ЮKassa — приём оплаты, если ты оформляешь подписку. Туда уходит сумма и адрес почты для чека; данные карты ты вводишь на их стороне, к нам они не попадают.",
-          "Хостинг сайта — отдача файлов приложения и техничеcкие журналы запросов у провайдера.",
-          "Больше никому. Мы не передаём данные рекламным сетям, не продаём их и не обмениваем.",
+          "Хостинг-провайдер и Vercel обеспечивают работу сайта и API, обрабатывая технические запросы и данные авторизации. Google участвует при выборе входа через Google.",
+          "API Groq и OpenAI используются для переводов, создания материалов, разбора предложений и распознавания рукописного ввода. Они получают содержимое соответствующего запроса: текст, контекст или изображение. Приложение не добавляет сведения аккаунта как отдельные поля запроса к модели.",
+          "ЮKassa обрабатывает платежи при подключённой оплате и получает сведения для платежа и чека. Мы не продаём данные и не передаём их рекламным сетям."
         ],
       },
       {
         id: "where",
-        h: "Где хранятся данные",
+        h: "Хранение и обработка",
         p: [
-          "База данных находится в России, в дата-центре в Санкт-Петербурге. Там лежат аккаунт, учебный прогресс и всё остальное, что ты сохранил.",
-          "За пределы России уходит только одно: текст, который ты отправляешь нейросети. Это слово с предложением, в котором ты его встретил, текст на проверку письма или снимок рукописной страницы. Серверы Groq и OpenAI находятся за рубежом, и такая передача по закону считается трансграничной.",
-          "Сами по себе эти запросы не содержат твоего имени или адреса почты — уходит только текст. Но текст пишешь ты, поэтому в поля проверки письма не стоит вносить ничего, что ты не готов отправить за границу.",
-          "Ответы нейросети возвращаются и сохраняются уже здесь, в российской базе.",
+          "Основная база аккаунтов и учебного прогресса размещена в России.",
+          "Перечисленные внешние сервисы могут обрабатывать запросы за пределами России. Если запрос содержит персональные данные, применяются требования к трансграничной передаче. Не включайте в учебные задания конфиденциальные сведения и персональные данные третьих лиц."
         ],
       },
       {
         id: "cookies",
         h: "Cookie и хранилище браузера",
         p: [
-          "Аналитики и рекламных cookie у нас нет. Всё, что мы пишем в браузер, — это твоя сессия входа, тема, язык, согласие и копия прогресса. Полный список показан в окне согласия — его можно открыть в любой момент ссылкой в подвале сайта.",
-          "Если аналитика когда-нибудь появится, она будет выключена по умолчанию и включится только твоим переключателем.",
+          "В браузере сохраняются сессия входа, тема, язык, настройки и локальная копия прогресса. Некоторые настройки и названия пустых наборов могут храниться только на текущем устройстве.",
+          "Рекламные трекеры и сторонняя аналитика посещений не подключены. Сведения о локальном хранении доступны через «Настройки cookie» внизу страницы."
         ],
       },
       {
         id: "who-sees",
-        h: "Кто внутри сервиса видит твои данные",
+        h: "Доступ и защита",
         p: [
-          "У Eaglish есть служебная страница, к которой имеет доступ только владелец сервиса. На ней видно: список аккаунтов с адресами почты, дата регистрации и последнего входа, выбранный уровень, сколько слов сохранено и сколько повторений сделано. По отдельному аккаунту можно открыть и сам список сохранённых слов с переводами и датами.",
-          "Это нужно, чтобы понимать, работает ли обучение, и чинить то, что сломалось. Мы не читаем эти данные ради любопытства и не передаём их наружу — ограничения из раздела «Кому передаются данные» действуют и здесь.",
-          "Чего там нет: твоего пароля — он хранится только в виде необратимого хеша, и его не видит никто, включая нас.",
+          "Владелец сервиса может просматривать сведения об аккаунте, учебной активности и сохранённых словах для поддержки и администрирования.",
+          "Используются HTTPS, авторизация и ограничения доступа к данным. Пароли не отображаются в административном интерфейсе."
         ],
       },
       {
         id: "retention",
-        h: "Сколько мы храним данные",
+        h: "Хранение и удаление",
         p: [
-          "Пока существует аккаунт. Напиши нам — и мы удалим аккаунт вместе с учебными данными; это необратимо.",
-          "Локальные данные в браузере ты можешь стереть сам, очистив данные сайта в настройках браузера.",
+          "Учебные данные хранятся для работы аккаунта до его удаления или прекращения соответствующей цели обработки. Сведения, необходимые для исполнения обязанностей по закону, сохраняются на предусмотренные законом сроки.",
+          "Удалить аккаунт можно в профиле после отдельного подтверждения или по запросу на eaglish@yandex.ru. Удаление аккаунта и учебного прогресса необратимо. Локальные копии на других устройствах можно удалить в настройках браузера."
         ],
       },
       {
         id: "rights",
-        h: "Твои права",
+        h: "Права пользователя",
         p: [
-          "Ты можешь запросить копию своих данных, исправить их, удалить аккаунт или отозвать согласие на необязательные цели. Для всего этого достаточно письма на указанный адрес.",
-          "Если тебе меньше 16 лет, пользуйся сервисом с ведома родителей или опекунов.",
+          "Вы можете запросить сведения об обработке и копию данных, потребовать уточнения, ограничения или удаления в предусмотренных законом случаях, а также отозвать согласие на обработку, основанную на согласии. Обращения: eaglish@yandex.ru.",
+          "Для защиты прав можно обратиться в Роскомнадзор или суд."
         ],
       },
       {
         id: "changes",
-        h: "Изменения",
+        h: "Обновления",
         p: [
-          "Если поменяется то, какие данные мы собираем или кому передаём, мы обновим эту страницу и заново спросим согласие там, где оно требуется. Дата последнего изменения указана вверху.",
+          "При изменении обработки мы обновляем политику и дату её редакции. Если для новой цели требуется согласие, оно запрашивается отдельно."
         ],
       },
     ],
@@ -138,99 +130,91 @@ export const privacyDoc: Record<"ru" | "en", LegalDoc> = {
   en: {
     title: "Privacy policy",
     summary: [
-      "We store only what the service needs: your account and your learning progress.",
-      "We don't sell data, run ads, or install trackers.",
-      "Text you submit for assessment and words you look up are sent to a third-party AI model — there is no other way to assess or translate them.",
+      "Your account and learning progress support the Eaglish service.",
+      "We do not sell personal data or use advertising trackers.",
+      "Manage your account in Profile or contact us by email about your data."
     ],
     sections: [
       {
         id: "who",
-        h: "Who handles your data",
+        h: "Data controller",
         p: [
-          "The data controller is Anton Pavlovich Sheludko, registered in Russia under the professional income tax regime, INN 253715678005.",
-          `For anything about your data, write to ${CONTACT_EMAIL} — the same address that deletes an account on request.`,
+          "The controller is Anton Pavlovich Sheludko, registered in Russia under the professional income tax regime, INN 253715678005.",
+          "Data enquiries: eaglish@yandex.ru."
         ],
       },
       {
         id: "what",
-        h: "What we collect",
+        h: "Data we process",
         p: [
-          "Account data: your email address and a password. We never see the password itself; only a hash of it is stored.",
-          "If you sign in with Google, Google passes us your name and a link to your profile picture along with your email address. This happens once, at first sign-in, and there is no way to keep Google sign-in while declining those fields. Signing up with an email address does not involve them.",
-          "Learning data: saved words and their review schedule, submitted texts and their scores, which texts you opened and how you answered their questions, daily activity, and your onboarding answers (level, goal, topics, daily target).",
-          "When you report a problem, the page you sent it from and a line describing your browser are stored with the message — a report cannot be reproduced without them.",
-          "Local settings in your browser: theme, interface language, the consent recorded on this page, and a copy of your progress so the app works offline.",
-          "If you take out a subscription we keep a record of the payment: the amount, the period paid for, the date and the email address the receipt goes to. Card details never reach the service — the payment provider takes them, and we neither see nor store them.",
-          "We do not collect your age or phone number, and we never ask for camera, microphone or location access.",
+          "Account data: email, identifier, registration and sign-in dates. Passwords are stored as hashes. Google sign-in may provide a name and profile image.",
+          "Learning data: words and sets, review history, sentences and exercise results, activity, study time and preferences. Streaks and freezes are calculated from practice history.",
+          "Technical data: IP address, browser information, sign-in session and request logs. Support requests include your message and information needed to investigate the issue.",
+          "Payments involve the amount, status, access period and receipt details. Card details are processed by the payment service."
         ],
       },
       {
         id: "why",
-        h: "Why",
+        h: "Purposes and legal bases",
         p: [
-          "The account exists so progress follows you between devices and survives a cleared browser. The learning data is the learning: spaced repetition cannot schedule anything without a review history, and there are no statistics without results.",
-          "The legal basis is performance of our agreement with you — you asked the service to teach you English, and it cannot do that without this data.",
+          "Data supports registration, access, progress sync, word reviews, exercise feedback and support. The legal basis is entering into and performing our agreement with you.",
+          "Payment and accounting information also serves legal obligations. Where consent is required, it is obtained separately; accepting the offer does not replace consent."
         ],
       },
       {
         id: "third-parties",
-        h: "Who else sees it",
+        h: "Processing services",
         p: [
-          "Google — only if you chose to sign in with Google. Google learns that you use Eaglish, and passes us your email, your name and a link to your picture.",
-          "Groq and OpenAI — AI text processing. A word plus the sentence you met it in is sent for translation, a piece of writing is sent when you ask for an assessment, and an image of a handwritten page is sent if you write by hand. Please don't type personal data — yours or anyone else's — into those fields.",
-          "ЮKassa — taking payment, if you subscribe. It receives the amount and the email address for the receipt; you enter your card details on their side and they never reach us.",
-          "Our hosting provider — serving the application files, plus ordinary request logs.",
-          "Nobody else. We do not share data with ad networks, sell it, or trade it.",
+          "Our hosting provider and Vercel operate the website and API, processing technical requests and authentication data. Google is involved when you choose Google sign-in.",
+          "Groq and OpenAI APIs support translations, material generation, sentence feedback and handwriting recognition. They receive the relevant text, context or image. The app does not add account details as separate fields in model requests.",
+          "YooKassa processes payments when checkout is enabled and receives payment and receipt information. We do not sell data or share it with advertising networks."
         ],
       },
       {
         id: "where",
-        h: "Where the data lives",
+        h: "Storage and processing",
         p: [
-          "The database is in Russia, in a data centre in St Petersburg. Your account, your progress and everything you have saved are there.",
-          "One thing leaves Russia: the text you send to the AI. That is a word with the sentence you met it in, a piece of writing submitted for assessment, or an image of a handwritten page. Groq's and OpenAI's servers are abroad, and under Russian law that counts as a cross-border transfer.",
-          "Those requests do not carry your name or email — only the text. But you write the text, so do not put anything into the writing fields that you would not want sent abroad.",
-          "The AI's answers come back and are stored here, in the Russian database.",
+          "The primary account and learning-progress database is hosted in Russia.",
+          "The listed external services may process requests outside Russia. Cross-border transfer requirements apply where a request contains personal data. Do not include confidential information or other people’s personal data in exercises."
         ],
       },
       {
         id: "cookies",
         h: "Cookies and browser storage",
         p: [
-          "There are no analytics or advertising cookies. What we write to your browser is your sign-in session, theme, language, consent record and a copy of your progress. The full list is shown in the consent panel, which you can reopen any time from the footer.",
-          "If analytics is ever added, it will be off by default and will only run once you switch it on.",
+          "The browser stores your session, theme, language, preferences and a local copy of progress. Some preferences and empty-set names may exist only on the current device.",
+          "Advertising trackers and third-party visitor analytics are not enabled. Local-storage information is available under Cookie settings in the footer."
         ],
       },
       {
         id: "who-sees",
-        h: "Who inside the service can see your data",
+        h: "Access and protection",
         p: [
-          "Eaglish has an internal page that only the owner of the service can open. It shows a list of accounts with their email addresses, sign-up and last sign-in dates, the chosen level, how many words are saved and how many reviews have been done. For an individual account it can also show the saved words themselves, with translations and dates.",
-          "This exists so we can tell whether the teaching works and fix what breaks. We do not read it out of curiosity and we do not pass it on — the limits in the sharing section above apply here too.",
-          "What it does not show: your password. That is held only as an irreversible hash, and nobody sees it, including us.",
+          "The service owner can view account information, learning activity and saved words for support and administration.",
+          "HTTPS, authentication and data-access restrictions are used. Passwords are not displayed in the administration interface."
         ],
       },
       {
         id: "retention",
-        h: "How long we keep it",
+        h: "Retention and deletion",
         p: [
-          "For as long as the account exists. Write to us and we will delete the account together with its learning data; that cannot be undone.",
-          "Local data in your browser is yours to clear at any time through your browser's site-data settings.",
+          "Learning data is retained to operate your account until deletion or the end of its processing purpose. Records needed to meet legal obligations are retained for the legally required periods.",
+          "Delete your account in Profile after a separate confirmation, or request deletion at eaglish@yandex.ru. Account and learning-progress deletion is irreversible. Clear local copies on other devices in browser settings."
         ],
       },
       {
         id: "rights",
         h: "Your rights",
         p: [
-          "You can request a copy of your data, correct it, delete your account, or withdraw consent for optional purposes. An email to the address above is enough for all of it.",
-          "If you are under 16, use the service with the knowledge of a parent or guardian.",
+          "You may request processing information and a copy of your data, ask for correction, restriction or deletion where provided by law, and withdraw consent for consent-based processing. Contact: eaglish@yandex.ru.",
+          "You may contact Roskomnadzor or a court to protect your rights."
         ],
       },
       {
         id: "changes",
-        h: "Changes",
+        h: "Updates",
         p: [
-          "If what we collect or who we share it with changes, we will update this page and ask again where consent is required. The date at the top is the last change.",
+          "We update this policy and its revision date when processing changes. Consent is requested separately where required for a new purpose."
         ],
       },
     ],
@@ -241,19 +225,19 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
   ru: {
     title: "Условия использования",
     summary: [
-      "Чтение, словарь и повторения бесплатны. Аудирование, письмо и живой английский — по подписке.",
-      "Тексты и оценки создаёт нейросеть: они полезны как ориентир, но могут содержать ошибки.",
-      "Отвечай за свой аккаунт и не ломай сервис — остальное на нашей стороне.",
+      "Сленг, английский на слух и умное повторение доступны в Pro.",
+      "Чтение, словарь, обычные повторения и прогресс доступны бесплатно.",
+      "Оплата и возвраты регулируются публичной офертой."
     ],
     sections: [
       {
         id: "service",
-        h: "Что это за сервис",
+        h: "Возможности сервиса",
         p: [
-          "Eaglish — платформа для самостоятельного изучения английского: чтение с переводом по клику, письмо с обратной связью, словарь с интервальными повторениями и уроки разговорного английского.",
-          "Чтение, личный словарь, расписание повторений и статистика доступны бесплатно и без ограничения по времени. Аудирование, письмо с проверкой и раздел живого английского открываются по подписке.",
-          "Это учебный проект, а не аккредитованная образовательная организация: обучение не ведётся по образовательной программе и документ об образовании не выдаётся.",
-          "Мы можем менять состав разделов, добавлять и убирать материалы. Изменение состава бесплатной части не затрагивает уже оплаченные периоды.",
+          "Eaglish — сервис для самостоятельной практики английского. Раздел «Сленг» посвящён современным выражениям, диалогам и их употреблению.",
+          "Pro открывает «Сленг», «Английский на слух» и «Умное повторение»: составление предложений со словами из личного словаря и автоматический разбор.",
+          "Чтение, словарь, создание и редактирование наборов, обычные повторения и статистика доступны бесплатно. Рукописный ввод зависит от устройства и доступности режима.",
+          "Сервис не выдаёт документы об образовании и не гарантирует определённый языковой уровень."
         ],
       },
       {
@@ -266,11 +250,11 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "subscription",
-        h: "Подписка и оплата",
+        h: "Подписка и доступ",
         p: [
-          "Платные разделы открываются подпиской на выбранный срок либо кодом доступа.",
-          "Условия оплаты, сроки, порядок возврата денег и реквизиты исполнителя изложены в публичной оферте — она является договором между тобой и исполнителем и принимается в момент оплаты.",
-          "Подписка не продлевается автоматически: по окончании оплаченного периода аккаунт возвращается к бесплатному доступу. Сохранённые слова, расписание повторений и статистика остаются у тебя полностью.",
+          "Pro предоставляется на оплаченный период или по условиям кода доступа. Стоимость и состав тарифа указаны на странице «Тарифы», условия оплаты и возвратов — в оферте.",
+          "Автопродления и повторных автоматических списаний нет. После окончания Pro бесплатные разделы и сохранённый прогресс остаются доступны.",
+          "Для автоматических функций действуют дневные и технические ограничения, указанные в тарифах и интерфейсе."
         ],
       },
       {
@@ -283,33 +267,33 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "content",
-        h: "Материалы и оценки",
+        h: "Результаты и серия занятий",
         p: [
-          "Большая часть текстов для чтения создана нейросетью и проверена автоматическими правилами: в них возможны неточности, особенно в русских переводах. Тексты не являются справочным источником по описываемым темам.",
-          "Оценка письма — учебный ориентир, а не экзаменационный результат. Она не гарантирует балл на IELTS, TOEFL или школьном экзамене.",
-          "Уровень, определённый тестом, — приблизительная оценка, которую ты можешь изменить вручную.",
+          "Переводы, подсказки и разборы могут создаваться нейросетью и содержать неточности. Результаты заданий и оценка уровня служат для практики и не заменяют экзамен или сертификат.",
+          "Стрик учитывает дни с выполненными заданиями. В запасе две заморозки: одна сохраняет серию за пропущенный день, не увеличивая число дней занятий. За каждые семь дней занятий начисляется одна заморозка, максимум — две. Правила действуют с 2 ноября 2026 года и не восстанавливают ранее прерванные серии."
         ],
       },
       {
         id: "availability",
-        h: "Доступность",
+        h: "Работа сервиса",
         p: [
-          "Сервис предоставляется как есть, без гарантий бесперебойной работы. Мы можем временно останавливать его для обновлений, а также прекратить работу проекта — в этом случае мы постараемся предупредить заранее.",
-          "Мы не отвечаем за убытки, возникшие из-за недоступности сервиса или ошибок в материалах, в пределах, допустимых применимым правом.",
+          "Возможны технические перерывы и обновления. По вопросам недоступности обращайтесь на eaglish@yandex.ru.",
+          "Условия не ограничивают права пользователя и ответственность исполнителя, установленные обязательными нормами закона. Для оплаченного доступа действуют также условия оферты."
         ],
       },
       {
         id: "termination",
         h: "Прекращение доступа",
         p: [
-          "Ты можешь в любой момент попросить удалить аккаунт. Мы можем ограничить доступ, если аккаунт используется для атак на сервис или нарушает эти условия.",
+          "Удалить аккаунт можно в профиле после подтверждения или через поддержку. Для возврата за оплаченный период направьте отдельное обращение по правилам оферты.",
+          "При нарушении правил доступ может быть ограничен с учётом требований закона и прав пользователя на оплаченные услуги."
         ],
       },
       {
         id: "changes",
         h: "Изменения условий",
         p: [
-          "Условия могут меняться вместе с сервисом. Существенные изменения мы отметим на этой странице и обновим дату вверху. Продолжая пользоваться сервисом, ты принимаешь новую редакцию.",
+          "Актуальная редакция публикуется на этой странице. Изменения не ухудшают условия уже оплаченного периода и не отменяют установленные законом права пользователя."
         ],
       },
       {
@@ -323,19 +307,19 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
   en: {
     title: "Terms of use",
     summary: [
-      "Reading, the dictionary and reviews are free. Listening, writing and spoken English need a subscription.",
-      "Texts and scores are produced by an AI model: useful as guidance, but capable of being wrong.",
-      "Look after your account and don't attack the service; the rest is on us.",
+      "Pro includes Slang, Listening and Smart repetition.",
+      "Reading, Vocabulary, standard reviews and Progress are free.",
+      "Payments and refunds are governed by the public offer."
     ],
     sections: [
       {
         id: "service",
-        h: "What this is",
+        h: "Service features",
         p: [
-          "Eaglish is a self-study English platform: reading with tap-to-translate, writing with feedback, a vocabulary trained by spaced repetition, and everyday-English lessons.",
-          "Reading, your own dictionary, the review schedule and the statistics are free, with no time limit. Listening, checked writing and the spoken-English section open with a subscription.",
-          "This is a study project, not an accredited school: it teaches no certified programme and issues no diploma.",
-          "We may change which sections exist and add or remove material. Changing what the free plan contains does not affect periods already paid for.",
+          "Eaglish supports self-study English practice. Slang focuses on modern expressions, dialogues and usage.",
+          "Pro unlocks Slang, Listening and Smart repetition: building sentences with saved words and receiving automatic feedback.",
+          "Reading, Vocabulary, creating and editing sets, standard reviews and statistics are free. Handwriting input depends on the device and available mode.",
+          "The service does not issue educational qualifications or guarantee a particular language level."
         ],
       },
       {
@@ -348,11 +332,11 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "subscription",
-        h: "Subscription and payment",
+        h: "Subscription and access",
         p: [
-          "The paid sections open with a subscription for a chosen period, or with an access code.",
-          "The price, the term, how refunds work and the provider's details are set out in the public offer, which is the contract between you and the provider and is accepted when you pay.",
-          "A subscription does not renew itself: when the paid period ends the account returns to the free plan. Your saved words, review schedule and statistics stay with you in full.",
+          "Pro is provided for the purchased period or under an access code’s terms. Prices and features appear on Plans; payments and refunds are governed by the offer.",
+          "There is no automatic renewal or automatic repeat charge. Free sections and saved progress remain available after Pro expires.",
+          "Automatic features have daily and technical limits shown in the plans and interface."
         ],
       },
       {
@@ -365,33 +349,33 @@ export const termsDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "content",
-        h: "Material and scores",
+        h: "Results and streaks",
         p: [
-          "Most reading texts are machine-generated and checked by automated rules: inaccuracies are possible, particularly in the Russian translations. They are not a reference source on the subjects they describe.",
-          "A writing score is study guidance, not an exam result. It does not predict an IELTS, TOEFL or school exam grade.",
-          "The level from the placement test is an estimate you can override by hand.",
+          "Translations, hints and feedback may be generated by AI and contain inaccuracies. Exercise results and level estimates support practice and do not replace exams or certificates.",
+          "Streaks count days with completed tasks. Two freezes are available initially: one protects a missed day without adding a practice day. Earn one every seven practice days, up to two. These rules apply from 2 November 2026 and do not restore previously broken streaks."
         ],
       },
       {
         id: "availability",
-        h: "Availability",
+        h: "Service availability",
         p: [
-          "The service is provided as is, with no guarantee of uninterrupted operation. We may pause it for updates, and we may stop running the project — in which case we will try to give notice.",
-          "To the extent permitted by applicable law, we are not liable for losses caused by downtime or by errors in the material.",
+          "Technical interruptions and updates may occur. Report access issues to eaglish@yandex.ru.",
+          "These terms do not limit statutory user rights or mandatory provider liability. Paid access is also governed by the offer."
         ],
       },
       {
         id: "termination",
         h: "Ending access",
         p: [
-          "You can ask us to delete your account at any time. We may restrict access to an account used to attack the service or to break these terms.",
+          "Delete your account in Profile after confirmation or contact support. Request a refund for a paid period separately under the offer.",
+          "Access may be restricted for violations, subject to the law and your rights regarding paid services."
         ],
       },
       {
         id: "changes",
         h: "Changes to these terms",
         p: [
-          "Terms change as the service does. We will note material changes on this page and update the date at the top. Continuing to use the service accepts the new version.",
+          "The current version is published on this page. Changes do not reduce the terms of an already paid period or remove statutory user rights."
         ],
       },
       {
@@ -476,9 +460,9 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
   ru: {
     title: "Публичная оферта",
     summary: [
-      "Это договор между тобой и исполнителем. Оплачивая подписку, ты его принимаешь.",
-      "Подписка не продлевается сама: оплатил период — он закончился — доступ вернулся к бесплатному.",
-      "Передумал — напиши на почту, вернём деньги за неиспользованную часть.",
+      "Pro открывает сленг, английский на слух и умное повторение.",
+      "Оплата производится за выбранный период, без автопродления.",
+      "Возврат за неиспользованный период можно запросить по электронной почте."
     ],
     sections: [
       {
@@ -494,9 +478,9 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "subject",
         h: "Предмет договора",
         p: [
-          "Исполнитель предоставляет Пользователю доступ к платным разделам сервиса: упражнениям на восприятие речи на слух, письменным заданиям с автоматической проверкой, материалам разговорного английского и распознаванию рукописного текста.",
-          "Сервис предоставляет материалы и инструменты для самостоятельного изучения английского языка. Это не образовательная организация, обучение не ведётся по образовательной программе, документ об образовании не выдаётся.",
-          "Часть сервиса — чтение, личный словарь, расписание повторений и статистика — доступна бесплатно и не является предметом настоящего договора.",
+          "Исполнитель предоставляет доступ к Pro: разделам «Сленг», «Английский на слух» и «Умное повторение». Они включают практику современных выражений, диктанты и составление предложений со словами из личного словаря с автоматическим разбором.",
+          "Состав тарифа и ограничения функций указаны на странице «Тарифы». Рукописный ввод доступен в поддерживаемых режимах и зависит от устройства.",
+          "Чтение, личный словарь, наборы слов, обычные повторения и статистика доступны бесплатно. Сервис предназначен для самостоятельной практики и не выдаёт документов об образовании."
         ],
       },
       {
@@ -530,41 +514,36 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "refund",
-        h: "Возврат денежных средств",
+        h: "Возврат средств",
         p: [
-          "Пользователь вправе отказаться от договора в любой момент на основании статьи 32 Закона «О защите прав потребителей».",
-          "При отказе Исполнитель возвращает стоимость неиспользованной части подписки, рассчитанную пропорционально оставшимся дням оплаченного периода.",
-          `Для возврата достаточно написать на ${OPERATOR.email} с адреса почты, на который зарегистрирован аккаунт, и указать причину — она нужна нам, чтобы стать лучше, и не влияет на решение.`,
-          "Возврат производится тем же способом, которым была произведена оплата, в течение десяти рабочих дней с момента получения обращения.",
-          "Если сервис не работал по вине Исполнителя более трёх суток подряд, подписка продлевается на срок простоя либо возвращается полностью — по выбору Пользователя.",
+          "Пользователь вправе отказаться от договора в любое время в соответствии со статьёй 32 Закона «О защите прав потребителей».",
+          "По условиям оферты возвращается стоимость неиспользованного периода пропорционально оставшимся дням. Это не ограничивает иные требования пользователя, предусмотренные законом, в том числе при недостатках услуги.",
+          "Направьте запрос на eaglish@yandex.ru с почты аккаунта и укажите платёж. Объяснять причину отказа не требуется. Возврат производится тем же способом в течение десяти календарных дней с получения обращения, если законом не предусмотрен более короткий срок.",
+          "Если сервис не работал по вине Исполнителя более трёх суток подряд, подписка продлевается на срок простоя либо возвращается полностью — по выбору Пользователя."
         ],
       },
       {
         id: "duties",
         h: "Права и обязанности",
         p: [
-          "Исполнитель обязуется обеспечивать работоспособность сервиса, устранять неисправности в разумный срок и уведомлять о плановых работах заранее, когда это возможно.",
-          "Пользователь обязуется не передавать доступ к аккаунту третьим лицам, не копировать и не распространять материалы сервиса, не предпринимать действий, нарушающих его работу.",
-          "Доступ предоставляется одному человеку. При обнаружении одновременного использования аккаунта несколькими лицами Исполнитель вправе приостановить доступ, уведомив Пользователя и вернув стоимость неиспользованной части.",
-          "Исключительные права на материалы сервиса принадлежат Исполнителю. Подписка даёт право пользоваться ими лично, но не передаёт никаких прав на сами материалы.",
+          "Исполнитель обеспечивает предоставление оплаченного доступа и рассматривает обращения. Пользователь соблюдает правила сервиса и использует аккаунт для личного обучения.",
+          "Права на материалы принадлежат Исполнителю или соответствующим правообладателям. Оплата даёт право личного использования сервиса, а не перепродажи или распространения материалов."
         ],
       },
       {
         id: "liability",
-        h: "Ответственность и ограничения",
+        h: "Ответственность",
         p: [
-          "Проверка письменных работ, переводы и часть учебных материалов формируются автоматически с использованием языковых моделей. Они полезны как ориентир, но могут содержать ошибки, и Исполнитель не гарантирует их безошибочность.",
-          "Исполнитель не гарантирует достижения Пользователем конкретного уровня владения языком: результат зависит от регулярности и объёма самостоятельной работы.",
-          "Исполнитель не несёт ответственности за недоступность сервиса, вызванную обстоятельствами вне его контроля: сбоями у хостинг-провайдера, у операторов связи, действиями третьих лиц.",
-          "Ответственность Исполнителя в любом случае ограничена стоимостью оплаченной подписки.",
+          "Автоматические переводы и разборы могут содержать неточности. Результат зависит от самостоятельной практики; определённый уровень или экзаменационный балл не гарантируется.",
+          "Стороны несут ответственность по законодательству Российской Федерации. Оферта не исключает обязательную ответственность Исполнителя и установленные законом права потребителя."
         ],
       },
       {
         id: "data",
         h: "Персональные данные",
         p: [
-          "Обработка персональных данных Пользователя осуществляется в соответствии с политикой конфиденциальности, размещённой на сайте, и Федеральным законом № 152-ФЗ.",
-          "Принимая настоящую оферту, Пользователь подтверждает согласие на обработку своих персональных данных на условиях, изложенных в политике конфиденциальности.",
+          "Цели, состав данных, используемые сервисы и права пользователя описаны в политике конфиденциальности. Обработка для исполнения договора и обязанностей по закону осуществляется на соответствующих основаниях.",
+          "Принятие оферты не заменяет отдельное согласие в случаях, когда оно требуется."
         ],
       },
       {
@@ -591,9 +570,9 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
   en: {
     title: "Public offer",
     summary: [
-      "This is the contract between you and the provider. Paying for a subscription accepts it.",
-      "A subscription does not renew itself: the period you paid for ends, and the account returns to the free plan.",
-      "Changed your mind? Write to us and we refund the part you did not use.",
+      "Pro unlocks Slang, Listening and Smart repetition.",
+      "Pay for a selected period with no automatic renewal.",
+      "Request a refund for the unused period by email."
     ],
     sections: [
       {
@@ -606,11 +585,11 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
       },
       {
         id: "subject",
-        h: "What is being sold",
+        h: "What Pro includes",
         p: [
-          "Access to the paid sections of Eaglish: listening exercises, written work with automatic feedback, spoken-English material and handwriting recognition.",
-          "Eaglish provides materials and tools for studying English on your own. It is not an accredited school, teaches no certified programme and issues no diploma.",
-          "Reading, your own dictionary, the review schedule and the statistics are free and are not covered by this contract.",
+          "Pro provides access to Slang, Listening and Smart repetition: modern-expression practice, dictation and sentence building with saved words and automatic feedback.",
+          "Features and limits are listed on Plans. Handwriting input is available in supported modes and depends on the device.",
+          "Reading, Vocabulary, word sets, standard reviews and statistics are free. The service supports self-study and does not issue educational qualifications."
         ],
       },
       {
@@ -634,19 +613,18 @@ export const offerDoc: Record<"ru" | "en", LegalDoc> = {
         id: "refund",
         h: "Refunds",
         p: [
-          "You may end this contract at any time under article 32 of the Russian consumer protection law.",
-          "We refund the unused part of the subscription, calculated by the days remaining.",
-          `Write to ${OPERATOR.email} from the address your account uses. Refunds are made by the original payment method within ten working days.`,
-          "If the service was down through our fault for more than three days running, we extend the subscription by that time or refund it in full, whichever you prefer.",
+          "You may withdraw at any time under article 32 of the Russian consumer protection law.",
+          "Under this offer, the unused period is refunded in proportion to the days remaining. This does not limit other statutory remedies, including for deficient service.",
+          "Email eaglish@yandex.ru from your account address and identify the payment. No reason is required. Refunds use the original method within ten calendar days of the request, unless the law requires a shorter period.",
+          "If the service was down through our fault for more than three consecutive days, choose an extension covering the outage or a full refund."
         ],
       },
       {
         id: "liability",
-        h: "Limits",
+        h: "Responsibility",
         p: [
-          "Written feedback, translations and some study material are generated automatically by language models. They are useful as a guide and can be wrong.",
-          "We do not promise that you will reach any particular level: that depends on how much work you do.",
-          "Our liability is limited to the amount you paid.",
+          "Automatic translations and feedback may contain inaccuracies. Learning outcomes depend on personal practice; no specific level or exam score is guaranteed.",
+          "The parties are responsible under Russian law. This offer does not exclude mandatory provider liability or statutory consumer rights."
         ],
       },
       {

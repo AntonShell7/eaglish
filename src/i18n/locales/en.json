@@ -74,7 +74,7 @@
     "backToLogin": "Back to log in",
     "checkEmail": "Check your email to confirm your account, then log in.",
     "notConfigured": "Supabase is not connected yet — this won't work until it is.",
-    "acceptLegal": "I accept the <terms>terms of use</terms> and the <privacy>privacy policy</privacy>.",
+    "acceptLegal": "I accept the <terms>terms of use</terms> and have read the <privacy>privacy policy</privacy>.",
     "mustAccept": "Please accept the terms and the privacy policy to create an account.",
     "newPasswordTitle": "New password",
     "newPasswordIntro": "Choose a new password and you are straight in.",
@@ -579,25 +579,25 @@
         "dialogues": "dialogues of real speech"
       },
       "vocabulary": {
-        "h": "Words are remembered for good",
-        "p": "The system is built so the words you study are remembered for good: unknown words go into your dictionary and are learned by spaced repetition."
+        "h": "Build your vocabulary",
+        "p": "Save unfamiliar words, organise them into sets and practise with spaced repetition."
       },
       "recurring": {
         "h": "Words come back in the texts",
         "p": "The words you are studying turn up in texts, and from that the system works out how well you actually remember them."
       },
       "science": {
-        "h": "Based on scientific research",
-        "p": "The learning strategies are built on scientific research that found a 200% increase in the effectiveness of studying material."
+        "h": "Spaced repetition",
+        "p": "Your review schedule uses answer history to help you revisit words for further practice."
       },
       "handy": {
         "h": "Everything within reach",
         "p": "Automatic translation of unknown words and phrases, and cards for learning words that support handwriting input."
       }
     },
-    "closeTitle": "Start today — tomorrow you'll see the first result",
+    "closeTitle": "Start with your first session",
     "heroTitle": "Study smarter, not harder",
-    "heroSub": "Everything you need to use English with confidence, in one place: boost your vocabulary, become more well-read, improve your English listening skills, and learn new words and phrases by methods that have evidence behind them. Find your freedom in English — like an eagle in the sky 🦅",
+    "heroSub": "Slang and modern expressions, reading with translation, your own vocabulary and listening practice. Learn English in context and revisit words with spaced repetition.",
     "indexReading": "Reading",
     "indexListening": "Listening",
     "indexSlang": "Slang",
@@ -803,7 +803,7 @@
   },
   "consent": {
     "title": "What Eaglish keeps",
-    "lede": "Your theme, your language, your sign-in and your progress — stored so the app can work at all. No trackers, no advertising, nothing sold.",
+    "lede": "We store your session, preferences and learning progress. No advertising trackers.",
     "gotIt": "Got it",
     "customise": "See the details",
     "save": "Save choices",
@@ -811,7 +811,7 @@
     "always": "Always on",
     "necessary": {
       "h": "Necessary",
-      "p": "Sign-in session, theme, interface language and your learning progress. Switch these off and there is no app left to use."
+      "p": "Your session, theme, language and local progress support the relevant features."
     },
     "analytics": {
       "h": "Analytics",
@@ -825,7 +825,7 @@
       "progress": "words, activity, results",
       "consent": "this decision"
     },
-    "noThirdParty": "All of it lives in your browser. Nothing on this list is shared with anyone, and none of it is a third-party cookie.",
+    "noThirdParty": "These are site-storage records. Learning data syncs with your account; external processing is described in the privacy policy.",
     "barText": "We store only what the app needs to work. No trackers, no ads."
   },
   "legal": {
@@ -1354,8 +1354,8 @@
   },
   "pricing": {
     "eyebrow": "Plans",
-    "title": "Reading is free. The rest is a subscription.",
-    "lede": "Words come from reading, so reading is open in full and stays that way: every text, your own dictionary and the review schedule. A subscription opens the sections that put those words to work — listening, checked writing, and the English textbooks leave out.",
+    "title": "Everyday English with Eaglish Pro",
+    "lede": "Slang, modern expressions and dialogues are at the heart of Pro. Listening and Smart repetition are included. Reading, Vocabulary and standard reviews are free.",
     "cycleLabel": "Billing period",
     "cycle": {
       "monthly": "Monthly",
@@ -1374,34 +1374,34 @@
     "plans": {
       "free": {
         "name": "Free",
-        "note": "Forever, no card",
+        "note": "No payment or card required",
         "cta": "Create an account",
-        "current": "Your current plan"
+        "current": "Free features are available"
       },
       "pro": {
         "name": "Full access",
-        "note": "Billed monthly, cancel any time",
-        "perMonth": "That is {{amount}} ₽ a month",
+        "note": "One payment for a month, no auto-renewal",
+        "perMonth": "One payment for a year · about {{amount}} ₽/month",
         "cta": "Subscribe",
         "current": "Your current plan"
       }
     },
     "features": {
       "readingAll": "Every text in Reading",
-      "vocabulary": "Your own dictionary: your words, your folders, translation on a tap",
-      "schedule": "The review schedule — it decides what to revisit today",
-      "progress": "Progress and statistics",
-      "aiFree": "{{free}} AI requests a day",
+      "vocabulary": "Personal vocabulary: words, sets and tap-to-translate",
+      "schedule": "Flashcards and typed answers with spaced repetition",
+      "progress": "Study statistics, streaks and freezes",
+      "aiFree": "Up to {{free}} automatic requests daily for translations and hints",
       "everythingFree": "Everything in the free plan",
-      "listening": "Listening: dictation checked word by word",
-      "writing": "Writing with feedback — grammar, vocabulary, coherence",
-      "slang": "English beyond the textbook: slang and real dialogue",
-      "handwriting": "Handwriting recognition — write by hand, the app reads it",
-      "aiPro": "{{pro}} AI requests a day"
+      "listening": "Listening: dictation with mistake feedback",
+      "writing": "Smart repetition: sentences with your words and feedback",
+      "slang": "Slang: modern expressions, dialogues and practice",
+      "handwriting": "Handwriting input in supported modes on compatible devices",
+      "aiPro": "Up to {{pro}} automatic requests daily for translations, hints and feedback"
     },
     "soon": {
-      "title": "Payment opens in the coming weeks",
-      "body": "For now access is granted by code. To join the first group, write to:"
+      "title": "Payments are being connected",
+      "body": "For now, you can activate an access code. For access enquiries:"
     },
     "code": {
       "label": "Access code",
@@ -1429,23 +1429,23 @@
       "toReading": "Back to reading",
       "dictation": {
         "title": "English by ear",
-        "body": "You hear a phrase and write it down. The app compares it word by word and shows not \"wrong\" but which word you missed. It is the one section that trains hearing rather than recognising text on a page."
+        "body": "Listen to phrases, write what you hear and review mistakes. Dictation helps you recognise individual words in connected speech."
       },
       "writing": {
-        "title": "Writing with feedback",
-        "body": "Write a text and get it read for grammar, vocabulary and coherence, with the specific fix named. You can write by hand: the app reads handwriting and checks it the same way."
+        "title": "Smart repetition",
+        "body": "Build sentences with words from your vocabulary. Get usage feedback and track the words you have used."
       },
       "slang": {
-        "title": "English beyond the textbook",
-        "body": "How people actually speak: slang, idioms, real dialogue. Textbooks skip it and conversation is made of it — someone with good grammar can be stopped by three simple words."
+        "title": "Slang",
+        "body": "Modern expressions and everyday English: meanings, context, dialogues and practice exercises."
       }
     },
-    "legal": "Prices are in roubles and include all taxes. Payment becomes available once a payment provider is connected; until then access is granted by code. By subscribing you accept the terms of use and the privacy policy.",
+    "legal": "Prices are in roubles, including applicable taxes. One payment per selected period, no auto-renewal. Payments and refunds are governed by the public offer. Automatic features have daily limits and request-rate limits.",
     "pay": {
       "going": "Taking you to payment…",
       "needAccount": "Create an account and pay",
       "errors": {
-        "payments-off": "Payment is not connected yet. Write to us and we will send an access code.",
+        "payments-off": "Payments are not enabled yet. You can activate an existing access code.",
         "unauthenticated": "Your session ended — sign in again.",
         "unavailable": "The payment service is unavailable right now. Try again in a few minutes.",
         "failed": "Could not start the payment. Try again."

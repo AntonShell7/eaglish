@@ -214,6 +214,10 @@ export default function Pricing() {
       <footer className="pr__legal" data-reveal>
         <p>{t("pricing.legal")}</p>
         <p className="mt-2">
+          <Link to="/offer" className="underline">
+            {t("footer.offer")}
+          </Link>
+          {" · "}
           <Link to="/terms" className="underline">
             {t("footer.terms")}
           </Link>
