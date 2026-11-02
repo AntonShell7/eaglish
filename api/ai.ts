@@ -57,7 +57,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   /* Identity and quota, before the body is even parsed: there is no reason to
      spend anything on a request that is not going to reach the provider. */
   const claim = await claimCall(bearer(header(req, "authorization")), supabaseConfig(process.env));
-  if (!claim.ok) {
+  if (claim.ok === false) {
     if (claim.status === 429) res.setHeader("Retry-After", String(claim.retryAfter));
     return send(res, claim.status, { error: claim.error });
   }
