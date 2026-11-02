@@ -14,12 +14,12 @@ import "@/components/charts/progress.css";
 import "./progress.css";
 
 const SECTION_COLOR: Record<TimeSection, string> = {
-  reading: "#78f4dc",
-  listening: "#a99aff",
-  slang: "#ffb870",
-  vocabulary: "#74c7ff",
-  writing: "#f590cf",
-  other: "#748199",
+  reading: "#7fd0b4",
+  listening: "#a78bfa",
+  slang: "#a3e3cd",
+  vocabulary: "#508f76",
+  writing: "#f5f5f5",
+  other: "#737373",
 };
 
 /** The last `n` days as dates, oldest first. */
