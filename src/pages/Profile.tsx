@@ -11,6 +11,7 @@ import { getStreak, getBestStreak } from "@/lib/activityStore";
 import { getReadingHistory } from "@/lib/readingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getLearnerProfile, type LearnerProfile } from "@/lib/learnerProfile";
+import { whenSynced } from "@/lib/sync";
 import { deleteAccount } from "@/lib/account";
 import "@/components/charts/charts.css";
 import "./profile.css";
@@ -37,7 +38,12 @@ export default function Profile() {
     setLearner(getLearnerProfile());
   };
 
-  useEffect(refresh, []);
+  useEffect(() => {
+    let active = true;
+    refresh();
+    void whenSynced().then(() => { if (active) refresh(); });
+    return () => { active = false; };
+  }, [user?.id]);
 
 
   return (
