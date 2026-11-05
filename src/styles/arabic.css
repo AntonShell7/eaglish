@@ -32,3 +32,10 @@ html[lang="ar"] :is(.drill__word, .drill__yours, .drill__fixText, .drill__altLis
 
 html[lang="ar"] .legal__summary li { padding-left: 0; padding-right: 20px; }
 html[lang="ar"] .legal__summary li::before { left: auto; right: 2px; }
+
+/* Keep both guest actions and the language switch reachable on narrow screens. */
+@media (max-width: 620px) {
+  html[lang="ar"] .topline { flex-wrap: wrap; }
+  html[lang="ar"] .topline__guest { margin-inline-start: auto; gap: 6px; }
+  html[lang="ar"] .topline__guest .guest-btn { padding-inline: 10px; }
+}

@@ -78,3 +78,10 @@ Build with the current VPS Supabase public anon key, `https://db.eaglish.ru`,
 and `VITE_ENABLE_ARABIC=true`. Do not use the retired hosted database in `.env.local`.
 Publish `dist/` to the VPS without deleting existing audio or verification files.
 GitHub alone does not update eaglish.ru; the VPS upload is required.
+
+Production verification: eaglish.ru served matching SHA-256 hashes for the HTML
+and full Arabic content bundle; the main bundle returned HTTP 200. The public
+first-language screen switched to Arabic and the registration/login forms used
+Arabic labels. A narrow-screen guest-header overflow was found and corrected by
+allowing wrapping while keeping the language switch accessible. Vercel's production
+API deployment reached READY for the release commit on main.
