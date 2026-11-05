@@ -39,3 +39,5 @@ html[lang="ar"] .legal__summary li::before { left: auto; right: 2px; }
   html[lang="ar"] .topline__guest { margin-inline-start: auto; gap: 6px; }
   html[lang="ar"] .topline__guest .guest-btn { padding-inline: 10px; }
 }
+html[lang="ar"] .pr__card { min-width: 0; }
+html[lang="ar"] .pr__foot .btn { white-space: normal; text-align: center; height: auto; }
