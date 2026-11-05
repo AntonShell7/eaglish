@@ -1,11 +1,10 @@
-import { localize } from "@/i18n/content";
 import { useTranslation } from "react-i18next";
 
-import { availableLanguages, changeInterfaceLanguage, selectedLanguage, type InterfaceLanguage } from "@/i18n/content";
+import { availableLanguages, firstLanguage, changeInterfaceLanguage, selectedLanguage, type InterfaceLanguage } from "@/i18n/content";
 
 const LANGUAGES: { code: InterfaceLanguage; label: string; name: string }[] = [
   { code: "en", label: "EN", name: "English" },
-  { code: "ru", label: "RU", name: localize("Русский") },
+  { code: "ru", label: "RU", name: "Русский" },
   { code: "ar", label: "AR", name: "العربية" },
 ];
 
@@ -21,7 +20,7 @@ export function LanguageToggle() {
       className="flex items-center gap-0.5 rounded-full border p-0.5"
       style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
     >
-      {LANGUAGES.filter(lang => availableLanguages.includes(lang.code)).map((lang) => {
+      {LANGUAGES.filter(lang => availableLanguages.includes(lang.code) && (lang.code === "en" || lang.code === (firstLanguage() ?? "ru"))).map((lang) => {
         const active = lang.code === current;
         return (
           <button

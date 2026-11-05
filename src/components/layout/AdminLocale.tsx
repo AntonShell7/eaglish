@@ -1,9 +1,17 @@
 import type { ReactNode } from "react";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
+import { createInstance } from "i18next";
+import ru from "@/i18n/locales/ru.json";
 import { isArabic } from "@/i18n/content";
 
-const adminI18n = isArabic() ? i18n.cloneInstance({ lng: "ru", fallbackLng: "ru" }) : i18n;
+// The cloned detector must not persist the console's Russian locale as the
+// learner's preference. Otherwise visiting any page resets Arabic on reload.
+const adminI18n = isArabic() ? createInstance() : i18n;
+if (isArabic()) void adminI18n.init({
+  lng: "ru", fallbackLng: "ru", resources: { ru: { translation: ru } },
+  interpolation: { escapeValue: false }, initAsync: false,
+});
 
 /** The learner's Arabic preference must not translate the owner's console. */
 export function AdminLocale({ children }: { children: ReactNode }) {

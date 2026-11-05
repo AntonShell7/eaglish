@@ -1,4 +1,4 @@
-import { availableLanguages, changeInterfaceLanguage, selectedLanguage } from "@/i18n/content";
+import { firstLanguage, changeInterfaceLanguage, selectedLanguage } from "@/i18n/content";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -76,9 +76,9 @@ export function CommandPalette() {
       {
         id: "language",
         label: t("palette.toggleLanguage"),
-        hint: `${selectedLanguage().toUpperCase()} → ${availableLanguages[(availableLanguages.indexOf(selectedLanguage()) + 1) % availableLanguages.length].toUpperCase()}`,
+        hint: `${selectedLanguage().toUpperCase()} → ${(selectedLanguage() === "en" ? firstLanguage() ?? "ru" : "en").toUpperCase()}`,
         run: () => {
-          const next = availableLanguages[(availableLanguages.indexOf(selectedLanguage()) + 1) % availableLanguages.length];
+          const next = selectedLanguage() === "en" ? firstLanguage() ?? "ru" : "en";
           changeInterfaceLanguage(next);
           setOpen(false);
         },

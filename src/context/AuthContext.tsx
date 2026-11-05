@@ -1,4 +1,4 @@
-import { localize } from "@/i18n/content";
+import { localize, firstLanguage } from "@/i18n/content";
 import { trackVisit } from "@/lib/visitAnalytics";
 import { flushLearning } from "@/lib/learningRecords";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
@@ -55,6 +55,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [demoSignedIn, setDemoSignedIn] = useState(DEMO);
   const [loading, setLoading] = useState(!DEMO && isSupabaseConfigured);
 
+  // Remember the learner's choice for transactional emails as well as the UI.
+  useEffect(() => {
+    const language = firstLanguage();
+    if (!DEMO && supabase && session?.user && language && session.user.user_metadata.first_language !== language) {
+      void supabase.auth.updateUser({ data: { first_language: language } });
+    }
+  }, [session?.user]);
+
   useEffect(() => {
     if (DEMO || !supabase) {
       setLoading(false);
@@ -97,7 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (DEMO) return { error: null, needsConfirmation: false };
     if (!supabase) return { error: "Supabase is not configured yet.", needsConfirmation: false };
     try {
-      const { data, error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({ email, password, options: { data: { first_language: firstLanguage() ?? "ru" } } });
       if (!error && data.user?.identities?.length) trackVisit("signup");
       return { error: error ? authError(error, !i18n.language.startsWith("en")) : null, needsConfirmation: !error && !data.session };
     } catch (error) {

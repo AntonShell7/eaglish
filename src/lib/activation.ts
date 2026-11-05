@@ -1,3 +1,4 @@
+import { learnerLanguage } from "@/i18n/content";
 import { askModel, AiError, type AiFailure } from "./aiClient";
 import type { VocabularyWord } from "./vocabularyStore";
 
@@ -87,7 +88,7 @@ function reasonOf(error: unknown): AiFailure {
  * need is the grammar around the word they are practising.
  */
 export async function checkSentence(word: VocabularyWord, sentence: string): Promise<UsageVerdict> {
-  const prompt = `A Russian-speaking learner is practising one English word by writing a sentence with it.
+  const prompt = `A ${learnerLanguage()}-speaking learner is practising one English word by writing a sentence with it.
 
 WORD: "${word.word}"
 ITS MEANING FOR THEM: "${word.translation}"
@@ -103,9 +104,9 @@ The entry "${word.word}" may be a phrase with a placeholder — "someone", "some
 Judge one thing above all: is "${word.word}" used the way a native speaker would use it — right sense, right grammar around it, natural collocation? A sentence can be clumsy elsewhere and still use the word correctly; say so when that is the case.
 
 - "correct": true only if the target word itself is used naturally.
-- "verdict": ONE sentence in Russian. If correct, say specifically what made it work — the collocation, the preposition, the register. If not, name exactly what is wrong with that word's use and what to say instead.
+- "verdict": ONE sentence in ${learnerLanguage()}. If correct, say specifically what made it work — the collocation, the preposition, the register. If not, name exactly what is wrong with that word's use and what to say instead.
 - "fix": the learner's sentence rewritten with the smallest possible change, or null if nothing needs changing. Keep their idea and their voice.
-- "issues": everything wrong with the sentence APART from the target word, at most three. Each is {"kind": one of "grammar" | "tense" | "preposition" | "article" | "wordChoice" | "typo" | "naturalness", "note": one sentence in Russian naming the concrete fix}. A misspelling is "typo". Ignore punctuation entirely, and ignore a lower-case first letter — that is typing, not English. If the sentence is clean, return an empty array.
+- "issues": everything wrong with the sentence APART from the target word, at most three. Each is {"kind": one of "grammar" | "tense" | "preposition" | "article" | "wordChoice" | "typo" | "naturalness", "note": one sentence in ${learnerLanguage()} naming the concrete fix}. A misspelling is "typo". Ignore punctuation entirely, and ignore a lower-case first letter — that is typing, not English. If the sentence is clean, return an empty array.
 
 Crucially: "correct" is about the target word ALONE. A sentence can be full of tense errors and still use the word perfectly, and it must be reported that way.
 - "alternatives": two short ENGLISH sentences the learner could also have written with "${word.word}". If the word has a clearly different common sense from the one they used, make one of them show that other sense — meeting a word in one context leaves people believing it has one meaning. Natural, everyday sentences; never repeat theirs.
@@ -172,11 +173,11 @@ export async function getHint(word: VocabularyWord, avoid: string[] = []): Promi
       ? `\n\nThey have already written these sentences with it, so both your suggestions must point somewhere clearly different — another situation, another sense of the word:\n${avoid.map((line) => `- ${line}`).join("\n")}`
       : "";
 
-  const prompt = `A Russian-speaking learner is practising the English word "${word.word}" (for them: "${word.translation}").${avoidBlock}
+  const prompt = `A ${learnerLanguage()}-speaking learner is practising the English word "${word.word}" (for them: "${word.translation}").${avoidBlock}
 
 Give two kinds of help.
 
-"toTranslate": one short, natural RUSSIAN sentence whose English version would naturally contain "${word.word}". Everyday situation, 6-10 words, nothing literary. Do not include the English word in it.
+"toTranslate": one short, natural ${learnerLanguage().toUpperCase()} sentence whose English version would naturally contain "${word.word}". Everyday situation, 6-10 words, nothing literary. Do not include the English word in it.
 
 "model": one short, natural ENGLISH sentence using "${word.word}" correctly — the kind of sentence a person would actually say, not a dictionary example.
 

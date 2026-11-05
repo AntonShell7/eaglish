@@ -95,7 +95,7 @@ export async function replyVerdict(step: Extract<Step, { kind: "type" }>, typed:
     ]);
     const result = JSON.parse(content) as { correct?: unknown; feedbackRu?: unknown };
     if (typeof result.correct !== "boolean") throw new Error("Invalid verdict");
-    return { correct: result.correct, feedback: result.correct ? null : localizeTemplate("{{p0}} Пример: {{p1}}", [typeof result.feedbackRu === "string" ? result.feedbackRu.slice(0, 400) : "Попробуй ответить по смыслу сообщения.", step.answers[0]]) };
+    return { correct: result.correct, feedback: result.correct ? null : localizeTemplate("{{p0}} Пример: {{p1}}", [typeof result.feedbackRu === "string" ? result.feedbackRu.slice(0, 400) : localize("Попробуй ответить по смыслу сообщения."), step.answers[0]]) };
   } catch (error) {
     const message = error instanceof AiError && error.reason === "quota"
       ? localize("Достигнут лимит проверки свободных ответов.")

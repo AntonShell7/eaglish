@@ -1,3 +1,4 @@
+import { learnerLanguage } from "@/i18n/content";
 import { askModel, AiError, type AiFailure } from "./aiClient";
 import type { Unavailable } from "./translate";
 
@@ -68,10 +69,10 @@ TARGET WORDS: ${targets.join(", ")}
 For each target word, decide:
 - "used": did it appear at all, in any inflected form?
 - "correct": is it used the way a native speaker would use it — right meaning, right grammar around it, natural collocation? Judge usage, not spelling of the rest of the text.
-- "comment": ONE sentence. If correct, say briefly what made it work. If not, say exactly what to change, with the corrected phrase in quotes. Write the comment in Russian.
+- "comment": ONE sentence. If correct, say briefly what made it work. If not, say exactly what to change, with the corrected phrase in quotes. Write the comment in ${learnerLanguage()}.
 - "quote": the learner's own clause containing the word, verbatim, or an empty string.
 
-Then give 2-3 "notes": the most useful fixes for the rest of the text — grammar or naturalness, not style opinions. In Russian, each naming a concrete fix.
+Then give 2-3 "notes": the most useful fixes for the rest of the text — grammar or naturalness, not style opinions. In ${learnerLanguage()}, each naming a concrete fix.
 
 Finally "improved": their text rewritten minimally — same content, same length, same voice, with the errors fixed and the target words kept. Do not embellish it.
 

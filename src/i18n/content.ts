@@ -2,6 +2,19 @@
 export type InterfaceLanguage = "ru" | "en" | "ar";
 export const arabicEnabled = import.meta.env.DEV || import.meta.env.VITE_ENABLE_ARABIC === "true";
 export const availableLanguages: InterfaceLanguage[] = arabicEnabled ? ["en", "ru", "ar"] : ["en", "ru"];
+export function firstLanguage(): InterfaceLanguage | null {
+  try {
+    const value = localStorage.getItem("firstLanguage");
+    return availableLanguages.includes(value as InterfaceLanguage) ? value as InterfaceLanguage : null;
+  } catch { return null; }
+}
+export function changeFirstLanguage(value: InterfaceLanguage) {
+  try {
+    localStorage.setItem("firstLanguage", value);
+    localStorage.setItem("interfaceLanguage", value);
+  } catch { return; }
+  window.location.reload();
+}
 function readLanguage(): InterfaceLanguage {
   try {
     const value = localStorage.getItem("interfaceLanguage");
@@ -10,15 +23,15 @@ function readLanguage(): InterfaceLanguage {
 }
 const language = readLanguage();
 export const selectedLanguage = () => language;
-export const isArabic = () => selectedLanguage() === "ar";
+export const isArabic = () => (firstLanguage() ?? selectedLanguage()) === "ar";
 export const learnerLanguage = () => isArabic() ? "Arabic" : "Russian";
 let translations: Record<string, string> = {};
 let interfaceTranslations: Record<string, unknown> = {};
 export const arabicInterface = () => interfaceTranslations;
 export async function prepareContent() {
   if (!isArabic()) return;
-  const [content, ui] = await Promise.all([import("./locales/ar-content.json"), import("./locales/ar.json")]);
-  translations = content.default;
+  const [content, ui, legal] = await Promise.all([import("./locales/ar-content.json"), import("./locales/ar.json"), import("./locales/ar-legal.json")]);
+  translations = { ...content.default, ...legal.default };
   interfaceTranslations = ui.default;
 }
 /** Legacy course field names (titleRu, translationRu) remain stable for saved progress. */

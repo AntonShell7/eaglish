@@ -4,9 +4,10 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const ts = require('typescript');
 const root = path.resolve('src');
-function runtime(language) {
+function runtime(language, nativeLanguage) {
   const modules = new Map();
   const storage = new Map([['interfaceLanguage', language]]);
+  if (nativeLanguage) storage.set('firstLanguage', nativeLanguage);
   const context = vm.createContext({ console, localStorage: {getItem:key=>storage.get(key)??null, setItem:(key,value)=>storage.set(key,value)}, window: {}, setTimeout, clearTimeout });
   function load(request, parent = path.join(root, 'main.tsx')) {
     let file = request.startsWith('@/') ? path.join(root,request.slice(2)) : path.resolve(path.dirname(parent),request);
@@ -26,6 +27,22 @@ function runtime(language) {
  await ar.load('@/i18n/content').prepareContent();
  const original=ru.load('@/data/track').trackModules;
  const translated=ar.load('@/data/track').trackModules;
+ function preserveEnglish(before, after, location='course') {
+  if (typeof before==='string' && !/[А-Яа-яЁё]/.test(before)) assert.equal(after,before,`Changed English content: ${location}`);
+  else if (before && typeof before==='object') for (const [key,value] of Object.entries(before)) preserveEnglish(value,after[key],`${location}.${key}`);
+ }
+ preserveEnglish(original,translated);
+ function checkLibraries(dir) {
+  for(const entry of fs.readdirSync(dir,{withFileTypes:true})) {
+   const file=path.join(dir,entry.name);
+   if(entry.isDirectory()) checkLibraries(file);
+   else if(file.endsWith('.json') && !file.includes('offlineDictionary')) {
+    const data=JSON.parse(fs.readFileSync(file,'utf8'));
+    preserveEnglish(data,ar.load('@/i18n/content').localizeData(data),file);
+   }
+  }
+ }
+ checkLibraries(path.join(root,'data'));
  assert.equal(original.length, translated.length);
  for(let i=0;i<original.length;i++) {
   assert.equal(original[i].id,translated[i].id);
@@ -43,6 +60,10 @@ function runtime(language) {
  scan(translated[0]);
  if(missing.size){console.log('First-block untranslated content:',JSON.stringify([...missing],null,2));process.exitCode=1;}else console.log('First block: no Russian; all course IDs, answer indices and English accepted answers unchanged.');
  const c=ar.load('@/i18n/content');assert.equal(c.localizeTemplate('Что значит «{{p0}}»?', ['lmk']),'ما معنى «lmk»؟');
+ const englishUi=runtime('en', 'ar');
+ await englishUi.load('@/i18n/content').prepareContent();
+ assert.equal(englishUi.load('@/i18n/content').selectedLanguage(), 'en');
+ assert.equal(englishUi.load('@/i18n/content').localize('Что значит «{{p0}}»?'), c.localize('Что значит «{{p0}}»?'));
  const cacheRu=ru.load('@/lib/lookupCache'),cacheAr=ar.load('@/lib/lookupCache');
  assert.notEqual(cacheRu.cacheKey('book'),cacheAr.cacheKey('book'));
  const input={messages:[{role:'system',content:'Give feedback in Russian, in Cyrillic.'},{role:'user',content:'Russian is the word I am practising.'}]};

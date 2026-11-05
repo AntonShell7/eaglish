@@ -44,6 +44,7 @@ export const PROGRESS_KEYS = [
   "learningRecords",
   "adminPinned",
   "personalTexts",
+  "personalTexts:ar",
   "writingDrafts",
   "writingHistory",
   "videoExercises",

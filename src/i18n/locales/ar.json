@@ -44,7 +44,10 @@
     "system": "حسب الجهاز"
   },
   "language": {
-    "label": "لغة الواجهة"
+    "label": "لغة الواجهة",
+    "firstTitle": "لغتك الأولى",
+    "firstHint": "اختر لغة الواجهة والشروح والترجمات. عند تغييرها، تُعاد تحميل الصفحة لتطبيق اختيارك في جميع الأقسام.",
+    "englishStays": "تبقى النصوص التعليمية والحوارات والتعبيرات الدارجة والمقاطع الصوتية بالإنجليزية."
   },
   "auth": {
     "logIn": "تسجيل الدخول",
@@ -98,7 +101,13 @@
     "resendEmail": "إعادة إرسال الرسالة",
     "resendIn": "يمكنك إعادة الإرسال بعد {{count}} ثانية",
     "resendSent": "تم إرسال الرسالة مجددًا.",
-    "useGoogleInstead": "استخدام Google بدلًا من ذلك"
+    "useGoogleInstead": "استخدام Google بدلًا من ذلك",
+    "resendIn_zero": "يمكنك إعادة الإرسال الآن",
+    "resendIn_one": "يمكنك إعادة الإرسال بعد ثانية واحدة",
+    "resendIn_two": "يمكنك إعادة الإرسال بعد ثانيتين",
+    "resendIn_few": "يمكنك إعادة الإرسال بعد {{count}} ثوانٍ",
+    "resendIn_many": "يمكنك إعادة الإرسال بعد {{count}} ثانية",
+    "resendIn_other": "يمكنك إعادة الإرسال بعد {{count}} ثانية"
   },
   "home": {
     "kicker": "تعلّم الإنجليزية بمساعدة الذكاء الاصطناعي",
@@ -190,12 +199,18 @@
     "recycled_two": "تعلّمتها مؤخرًا: {{count}}",
     "recycled_few": "تعلّمتها مؤخرًا: {{count}}",
     "recycled_many": "تعلّمتها مؤخرًا: {{count}}",
-    "minRead_zero": "مدة القراءة بالدقائق: {{count}}",
-    "minRead_one": "مدة القراءة بالدقائق: {{count}}",
-    "minRead_two": "مدة القراءة بالدقائق: {{count}}",
-    "minRead_few": "مدة القراءة بالدقائق: {{count}}",
-    "minRead_many": "مدة القراءة بالدقائق: {{count}}",
-    "minRead_other": "مدة القراءة بالدقائق: {{count}}"
+    "minRead_zero": "وقت القراءة: أقل من دقيقة",
+    "minRead_one": "قراءة في دقيقة واحدة",
+    "minRead_two": "قراءة في دقيقتين",
+    "minRead_few": "قراءة في {{count}} دقائق",
+    "minRead_many": "قراءة في {{count}} دقيقة",
+    "minRead_other": "قراءة في {{count}} دقيقة",
+    "workoutDone_zero": "اكتمل التدريب",
+    "workoutDone_one": "أحسنت — تدرّبت على كلمة واحدة في سياقها.",
+    "workoutDone_two": "أحسنت — تدرّبت على كلمتين في سياقهما.",
+    "workoutDone_few": "أحسنت — تدرّبت على {{count}} كلمات في سياقها.",
+    "workoutDone_many": "أحسنت — تدرّبت على {{count}} كلمة في سياقها.",
+    "workoutDone_other": "أحسنت — تدرّبت على {{count}} كلمة في سياقها."
   },
   "writing": {
     "grammar": "القواعد",
@@ -496,7 +511,25 @@
     "activitiesCount_zero": "عدد الأنشطة: {{count}}",
     "activitiesCount_two": "عدد الأنشطة: {{count}}",
     "activitiesCount_few": "عدد الأنشطة: {{count}}",
-    "activitiesCount_many": "عدد الأنشطة: {{count}}"
+    "activitiesCount_many": "عدد الأنشطة: {{count}}",
+    "wordsByDaySub_zero": "اليوم",
+    "wordsByDaySub_one": "خلال اليوم الماضي",
+    "wordsByDaySub_two": "خلال اليومين الماضيين",
+    "wordsByDaySub_few": "خلال آخر {{count}} أيام",
+    "wordsByDaySub_many": "خلال آخر {{count}} يومًا",
+    "wordsByDaySub_other": "خلال آخر {{count}} يوم",
+    "depthNote_zero": "متاح الآن",
+    "depthNote_one": "يظهر بعد يوم واحد من التعلّم",
+    "depthNote_two": "يظهر بعد يومين من التعلّم",
+    "depthNote_few": "يظهر بعد {{count}} أيام من التعلّم",
+    "depthNote_many": "يظهر بعد {{count}} يومًا من التعلّم",
+    "depthNote_other": "يظهر بعد {{count}} يوم من التعلّم",
+    "unlockIn_zero": "متاح الآن",
+    "unlockIn_one": "يتاح بعد يوم واحد",
+    "unlockIn_two": "يتاح بعد يومين",
+    "unlockIn_few": "يتاح بعد {{count}} أيام",
+    "unlockIn_many": "يتاح بعد {{count}} يومًا",
+    "unlockIn_other": "يتاح بعد {{count}} يوم"
   },
   "footer": {
     "privacy": "سياسة الخصوصية",
@@ -716,7 +749,13 @@
     "weekKept_zero": "أيام التعلّم هذا الأسبوع: {{count}}",
     "weekKept_two": "أيام التعلّم هذا الأسبوع: {{count}}",
     "weekKept_few": "أيام التعلّم هذا الأسبوع: {{count}}",
-    "weekKept_many": "أيام التعلّم هذا الأسبوع: {{count}}"
+    "weekKept_many": "أيام التعلّم هذا الأسبوع: {{count}}",
+    "firstStepTitle_zero": "اقرأ نصًا قصيرًا",
+    "firstStepTitle_one": "اقرأ نصًا واحدًا في نحو دقيقة",
+    "firstStepTitle_two": "اقرأ نصًا واحدًا في نحو دقيقتين",
+    "firstStepTitle_few": "اقرأ نصًا واحدًا في نحو {{count}} دقائق",
+    "firstStepTitle_many": "اقرأ نصًا واحدًا في نحو {{count}} دقيقة",
+    "firstStepTitle_other": "اقرأ نصًا واحدًا في نحو {{count}} دقيقة"
   },
   "tasks": {
     "readingDone": "أنهيت النص",
@@ -791,7 +830,13 @@
     "phraseCount_zero": "عدد العبارات: {{count}}",
     "phraseCount_two": "عدد العبارات: {{count}}",
     "phraseCount_few": "عدد العبارات: {{count}}",
-    "phraseCount_many": "عدد العبارات: {{count}}"
+    "phraseCount_many": "عدد العبارات: {{count}}",
+    "minutes_zero": "أقل من دقيقة",
+    "minutes_one": "نحو دقيقة واحدة",
+    "minutes_two": "نحو دقيقتين",
+    "minutes_few": "نحو {{count}} دقائق",
+    "minutes_many": "نحو {{count}} دقيقة",
+    "minutes_other": "نحو {{count}} دقيقة"
   },
   "onboarding": {
     "welcome": "مرحبًا بك في Eaglish",
@@ -1107,7 +1152,13 @@
     "onlyTypos_two": "سمعتَ بشكل صحيح — أخطاء كتابية: {{count}}",
     "onlyTypos_few": "سمعتَ بشكل صحيح — أخطاء كتابية: {{count}}",
     "onlyTypos_many": "سمعتَ بشكل صحيح — أخطاء كتابية: {{count}}",
-    "onlyTypos_other": "سمعتَ بشكل صحيح — أخطاء كتابية: {{count}}"
+    "onlyTypos_other": "سمعتَ بشكل صحيح — أخطاء كتابية: {{count}}",
+    "finishedBody_zero": "لا توجد جمل مكتملة بعد.",
+    "finishedBody_one": "هذه دقّتك في جملة واحدة. الكلمات التي أضفتها تنتظرك في مفرداتك.",
+    "finishedBody_two": "متوسط الدقة في جملتين. الكلمات التي أضفتها تنتظرك في مفرداتك.",
+    "finishedBody_few": "متوسط الدقة في {{count}} جمل. الكلمات التي أضفتها تنتظرك في مفرداتك.",
+    "finishedBody_many": "متوسط الدقة في {{count}} جملة. الكلمات التي أضفتها تنتظرك في مفرداتك.",
+    "finishedBody_other": "متوسط الدقة في {{count}} جملة. الكلمات التي أضفتها تنتظرك في مفرداتك."
   },
   "levels": {
     "label": "المستوى",
@@ -1185,7 +1236,13 @@
     "weekAgo_zero": "الأسابيع منذ الحفظ: {{count}}",
     "weekAgo_two": "الأسابيع منذ الحفظ: {{count}}",
     "weekAgo_few": "الأسابيع منذ الحفظ: {{count}}",
-    "weekAgo_many": "الأسابيع منذ الحفظ: {{count}}"
+    "weekAgo_many": "الأسابيع منذ الحفظ: {{count}}",
+    "runSize_zero": "لا توجد كلمات في الجلسة",
+    "runSize_one": "كلمة واحدة في الجلسة",
+    "runSize_two": "كلمتان في الجلسة",
+    "runSize_few": "{{count}} كلمات في الجلسة",
+    "runSize_many": "{{count}} كلمة في الجلسة",
+    "runSize_other": "{{count}} كلمة في الجلسة"
   },
   "video": {
     "addTitle": "إضافة فيديو",
@@ -1269,7 +1326,13 @@
     "itemCount_zero": "عدد العناصر: {{count}}",
     "itemCount_two": "عدد العناصر: {{count}}",
     "itemCount_few": "عدد العناصر: {{count}}",
-    "itemCount_many": "عدد العناصر: {{count}}"
+    "itemCount_many": "عدد العناصر: {{count}}",
+    "cardMeta_zero": "لا توجد تعبيرات",
+    "cardMeta_one": "تعبير واحد",
+    "cardMeta_two": "تعبيران",
+    "cardMeta_few": "{{count}} تعبيرات",
+    "cardMeta_many": "{{count}} تعبيرًا",
+    "cardMeta_other": "{{count}} تعبير"
   },
   "account": {
     "deleteAcknowledge": "أفهم أن حسابي وبياناتي سيُحذفان نهائيًا.",
@@ -1350,7 +1413,7 @@
     "reviewNote_one": "كلمات يُحتمل أن تنساها: {{count}}",
     "reviewCta": "مراجعة",
     "reviewDone": "راجعت {{count}} كلمة",
-    "reviewDone_one": "الكلمات التي راجعتها: {{count}}",
+    "reviewDone_one": "راجعت كلمة واحدة",
     "practiceName": "تدريب على الإنجليزية",
     "practiceNote": "يكفي اختيار تمرين واحد",
     "practiceDone": "مكتمل",
@@ -1371,11 +1434,11 @@
     "reviewNote_few": "كلمات يُحتمل أن تنساها: {{count}}",
     "reviewNote_many": "كلمات يُحتمل أن تنساها: {{count}}",
     "reviewNote_other": "كلمات يُحتمل أن تنساها: {{count}}",
-    "reviewDone_zero": "الكلمات التي راجعتها: {{count}}",
-    "reviewDone_two": "الكلمات التي راجعتها: {{count}}",
-    "reviewDone_few": "الكلمات التي راجعتها: {{count}}",
-    "reviewDone_many": "الكلمات التي راجعتها: {{count}}",
-    "reviewDone_other": "الكلمات التي راجعتها: {{count}}",
+    "reviewDone_zero": "لم تراجع أي كلمة بعد",
+    "reviewDone_two": "راجعت كلمتين",
+    "reviewDone_few": "راجعت {{count}} كلمات",
+    "reviewDone_many": "راجعت {{count}} كلمة",
+    "reviewDone_other": "راجعت {{count}} كلمة",
     "reviewNoteNew_zero": "كلمات جديدة: {{count}}",
     "reviewNoteNew_two": "كلمات جديدة: {{count}}",
     "reviewNoteNew_few": "كلمات جديدة: {{count}}",
@@ -1398,7 +1461,13 @@
     "cancel": "إلغاء",
     "saved": "تم حفظ {{count}} كلمة",
     "more": "إضافة المزيد",
-    "close": "إغلاق"
+    "close": "إغلاق",
+    "saved_zero": "لم تُحفظ أي كلمة",
+    "saved_one": "تم حفظ كلمة واحدة",
+    "saved_two": "تم حفظ كلمتين",
+    "saved_few": "تم حفظ {{count}} كلمات",
+    "saved_many": "تم حفظ {{count}} كلمة",
+    "saved_other": "تم حفظ {{count}} كلمة"
   },
   "share": {
     "action": "مشاركة",
@@ -1594,7 +1663,13 @@
       "tasks_two": "مهمة مكتملة",
       "tasks_few": "مهمة مكتملة",
       "tasks_many": "مهمة مكتملة"
-    }
+    },
+    "minutes_zero": "أقل من دقيقة",
+    "minutes_one": "نحو دقيقة واحدة",
+    "minutes_two": "نحو دقيقتين",
+    "minutes_few": "نحو {{count}} دقائق",
+    "minutes_many": "نحو {{count}} دقيقة",
+    "minutes_other": "نحو {{count}} دقيقة"
   },
   "streak": {
     "days_one": "أيام في سلسلتك: {{count}}",

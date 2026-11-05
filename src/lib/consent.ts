@@ -72,6 +72,7 @@ export const STORAGE_INVENTORY = [
   { key: "visitBrowser", purpose: "analytics" as const },
   { key: "themeMode", purpose: "theme" as const },
   { key: "interfaceLanguage", purpose: "language" as const },
+  { key: "firstLanguage", purpose: "language" as const },
   { key: "sb-…-auth-token", purpose: "session" as const },
   { key: "vocabularyWords, activityLog, …", purpose: "progress" as const },
   { key: "consent", purpose: "consent" as const },

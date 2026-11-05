@@ -44,7 +44,10 @@
     "system": "System"
   },
   "language": {
-    "label": "Interface language"
+    "label": "Interface language",
+    "firstTitle": "First language",
+    "firstHint": "Choose the language for the interface, explanations and translations. Changing it reloads the site and applies your choice throughout.",
+    "englishStays": "Learning texts, dialogues, slang and audio stay in English."
   },
   "auth": {
     "logIn": "Log in",
@@ -1172,7 +1175,7 @@
     "direct": "Direct / unknown",
     "empty": "No opens in this period yet.",
     "method": "Includes browsers that opted into analytics. Reloads count as opens. Funnel steps must occur in order in the same browser during the selected period. Opening a reading text, dictation or slang lesson counts as a lesson."
-},
+  },
   "admin": {
     "subscriptions": {
       "title": "Users and subscriptions",
@@ -1185,7 +1188,7 @@
       "yearly": "Bought yearly",
       "noPurchases": "No successful purchases yet.",
       "method": "Administrators are excluded. Active Pro includes paid access, codes and grants until expiry, plus lifetime access. Plan percentages use all buyers as the denominator. Each buyer is counted once per plan, so people who purchased both appear in both groups."
-},
+    },
     "title": "Admin",
     "gateTitle": "Access",
     "passcode": "Passcode",

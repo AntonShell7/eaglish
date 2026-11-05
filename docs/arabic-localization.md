@@ -6,21 +6,21 @@ The owner's admin interface stays Russian when the learner language is Arabic.
 
 ## Implemented and checked
 
-- 1,337 Arabic UI values, including the six Arabic plural categories. Coverage
+- Arabic UI values, including the six Arabic plural categories. Coverage
   matches all existing Russian UI keys except admin and visit statistics.
 - Natural Modern Standard Arabic for navigation, authentication, onboarding,
   profile, reading controls, vocabulary, exercises, subscription screens, privacy
   controls, and their accessible labels.
 - 661-entry offline English–Arabic dictionary, with matching English headwords.
-- 269 authored content translations: placement explanations, error messages,
+- Authored content translations: placement explanations, error messages,
   chat abbreviations, common lesson instructions, module descriptions, and the
   first four-lesson Slang block including review.
-- EN / RU / AR selector, language setting in profile, persistent local selection,
+- First-language welcome screen and profile cards; EN / native-language toggle, persistent local selection,
   complete reload when switching, and `lang` / `dir` on the document.
 - Arabic content and interface bundles load only for Arabic sessions, before
   static course modules are evaluated. Existing `titleRu` / `translationRu` field
   names remain stable to preserve progress and data compatibility.
-- Arabic AI instructions adapt only system prompts. English targets, JSON keys,
+- Arabic AI instructions adapt system prompts and authored instruction templates. English targets, JSON keys,
   and learner-submitted text are preserved. Translation validation accepts Arabic;
   lookup caches are separated from Russian. An unlocalized Russian glossary entry
   is not returned as an Arabic translation.
@@ -33,8 +33,10 @@ The owner's admin interface stays Russian when the learner language is Arabic.
 
 ## Remaining before release
 
-The current corpus check finds **17,119 untranslated authored fragments** out of
-17,388. This is separate from the completed UI and offline dictionary counts.
+Bulk Groq translation is in progress, with each completed batch saved locally.
+Run the coverage command for current counts. Legal documents have been manually
+translated separately in `ar-legal.json`. The corpus totals are separate from UI
+and offline dictionary counts.
 Most are sentence translations and glossaries in the reading/listening libraries.
 
 1. Translate the rest of Slang, everyday lessons and their context-sensitive
@@ -48,8 +50,8 @@ Most are sentence translations and glossaries in the reading/listening libraries
 5. Exercise real authenticated AI flows (lookup, two-way translator, explanations,
    sentence feedback, writing, personalized text) against the deployed endpoint.
    Current AI checks verify request adaptation; they are not live model tests.
-6. Localize account confirmation/reset emails using the authentication service's
-   supported templates and language metadata. No auth templates were changed.
+6. Deploy the localized confirmation/reset templates and auth configuration.
+   First-language metadata is passed during registration and updated on sign-in.
 7. Review checkout/provider-hosted language support independently. No payment
    integration, currency, price, or subscription behavior was changed.
 8. Complete desktop/mobile browser walkthroughs for all pages and exercises,
@@ -71,7 +73,7 @@ For a local demo with no real user database, without editing environment files:
 VITE_SUPABASE_URL='' VITE_SUPABASE_ANON_KEY='' VITE_DEMO_MODE=true npm run dev -- --host 127.0.0.1 --port 5174
 ```
 
-Choose AR in onboarding or profile. Demo progress stays local.
+Choose Arabic on the first-language screen or in the profile. Demo progress stays local.
 
 ## Verification
 
@@ -95,6 +97,13 @@ node scripts/check-arabic.mjs --release # intentionally fails until corpus is co
   not a production deployment. Existing large-chunk warnings remain.
 - Lint has existing warnings elsewhere; no unrelated cleanup is included.
 
-No OpenAI batch translations completed: the configured API account reported
-`credit_balance_exhausted`. Arabic text in this checkpoint was authored in the
-assistant session, without further paid translation API requests.
+OpenAI translation was unavailable (`credit_balance_exhausted`). The owner
+authorized Groq translation of authored content, with manual translation in the
+assistant session if Groq quotas are exhausted. No user records or credentials
+are included in the translation corpus.
+
+The first-language/profile flow was checked in the browser. Arabic persists on
+reload; the admin locale uses an isolated i18next instance with no browser-language
+cache. Screenshot: `arabic-preview/profile.jpg`. Runtime checks also preserve all
+English strings in course and reading/listening JSON, and verify that selecting
+English UI does not change an Arabic learner's translation language.

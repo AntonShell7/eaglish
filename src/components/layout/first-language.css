@@ -1,0 +1,24 @@
+.first-language { padding: clamp(22px, 4vw, 38px); }
+.first-language__eyebrow { display: inline-block; color: var(--color-primary); font-size: 11px; font-weight: 750; letter-spacing: .1em; margin-bottom: 10px; }
+.first-language h1, .first-language h2 { font-weight: 750; font-size: clamp(24px, 4vw, 34px); line-height: 1.2; margin: 0 0 12px; }
+.first-language p { color: var(--color-text-muted); line-height: 1.65; max-width: 60ch; }
+.first-language__choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 26px 0 20px; }
+.first-language__choice { position: relative; display: flex; flex-direction: column; align-items: start; text-align: start; gap: 7px; min-height: 145px; padding: 20px; border: 1px solid var(--color-border); border-radius: 18px; background: var(--color-surface-2); transition: border-color .18s, background .18s; cursor: pointer; }
+.first-language__choice:hover, .first-language__choice:focus-visible { border-color: var(--color-primary); outline: 2px solid var(--color-primary-soft); outline-offset: 3px; }
+.first-language__choice.is-selected { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.first-language__code { font-size: 10px; color: var(--color-text-muted); letter-spacing: .1em; }
+.first-language__name { font-size: 21px; font-weight: 700; }
+.first-language__english { font-size: 12px; color: var(--color-text-muted); }
+.first-language__check { position: absolute; inset-inline-end: 17px; top: 17px; color: var(--color-primary); }
+.first-language .first-language__note { font-size: 12px; margin-bottom: 0; }
+.language-welcome { min-height: 100svh; display: grid; align-content: center; gap: 24px; max-width: 740px; margin: auto; padding: 32px 20px; }
+.language-welcome__brand { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 750; font-size: 21px; }
+.language-welcome__native { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 13px; margin-top: 12px; }
+@media(max-width: 520px) {
+ .first-language__choices { grid-template-columns: 1fr; gap: 10px; }
+ .first-language__choice { min-height: 85px; padding: 16px 20px; display: grid; grid-template-columns: 40px 1fr; gap: 2px 12px; align-items: center; }
+ .first-language__code { grid-row: span 2; }
+ .first-language__name { font-size: 20px; }
+ .first-language__english { grid-column: 2; }
+ .language-welcome { padding: 24px 16px; }
+}

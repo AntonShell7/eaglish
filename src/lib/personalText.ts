@@ -143,10 +143,10 @@ Return JSON exactly like this:
 {
   "title": "3-6 words, specific, no colon",
   "sentences": [
-    { "text": "One English sentence.", "translationRu": "Естественный перевод на русский." }
+    { "text": "One English sentence.", "translationRu": "${isArabic() ? "ترجمة عربية طبيعية." : "Естественный перевод на русский."}" }
   ],
   "glossary": {
-    "word": { "translation": "русский перевод", "partOfSpeech": "noun|verb|adjective|adverb|phrase" }
+    "word": { "translation": "${isArabic() ? "الترجمة العربية" : "русский перевод"}", "partOfSpeech": "noun|verb|adjective|adverb|phrase" }
   },
   "questions": [
     {
@@ -158,7 +158,7 @@ Return JSON exactly like this:
   ]
 }
 
-- Every sentence needs a natural Russian translation, meaning for meaning.
+- Every sentence needs a natural ${isArabic() ? "Arabic" : "Russian"} translation, meaning for meaning.
 - glossary: 6 to 10 of the harder words that actually appear, lowercase keys, base form. Include the required words above.
 - questions: exactly 3, four options each, exactly one correct, answerable only from the text. Vary which index is correct.
 - Output nothing but the JSON.`;
