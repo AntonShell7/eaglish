@@ -14,7 +14,7 @@ The owner's admin interface stays Russian when the learner language is Arabic.
 - 661-entry offline English–Arabic dictionary, with matching English headwords.
 - Authored content translations: placement explanations, error messages,
   chat abbreviations, common lesson instructions, module descriptions, and the
-  first four-lesson Slang block including review.
+  complete Slang course and everyday dialogue explanations, including reviews.
 - First-language welcome screen and profile cards; EN / native-language toggle, persistent local selection,
   complete reload when switching, and `lang` / `dir` on the document.
 - Arabic content and interface bundles load only for Arabic sessions, before
@@ -37,20 +37,22 @@ Groq reached its daily token quota. Translation continues manually in the assist
 Run the coverage command for current counts. Legal documents have been manually
 translated separately in `ar-legal.json`. The corpus totals are separate from UI
 and offline dictionary counts.
-Most are sentence translations and glossaries in the reading/listening libraries.
+The remaining fragments are sentence translations and other supporting text in
+the reading/listening libraries. The 2,001-entry pending glossary queue is complete.
 
 1. All TS/TSX-authored supporting text, including the full Slang course and
    everyday dialogue explanations, has been translated. Full-course runtime
    checks find no Russian, with English strings and answer indices unchanged.
-2. Translate reading/listening sentence translations, glossaries, topic pool and
-   the legal documents. English learning texts and correct answers stay English.
+2. Finish reading/listening sentence translations and topic-pool supporting text.
+   Legal documents are translated. English learning texts and correct answers stay English.
 3. Audit hardcoded English UI versus intentional English teaching material.
    The Russian-source coverage checker is not a substitute for that audit.
 4. Review all generated and historical personalized content paths after changing
    language. Existing Arabic/Russian personal libraries are currently separate.
 5. Exercise real authenticated AI flows (lookup, two-way translator, explanations,
    sentence feedback, writing, personalized text) against the deployed endpoint.
-   Current AI checks verify request adaptation; they are not live model tests.
+   Synthetic live checks via the local API handler passed for lookup, hints and
+   sentence feedback; production authentication and remaining flows are not verified.
 6. Deploy the localized confirmation/reset templates and auth configuration.
    First-language metadata is passed during registration and updated on sign-in.
 7. Review checkout/provider-hosted language support independently. No payment
@@ -109,9 +111,13 @@ cache. Screenshot: `arabic-preview/profile.jpg`. Runtime checks also preserve al
 English strings in course and reading/listening JSON, and verify that selecting
 English UI does not change an Arabic learner's translation language.
 
-Checkpoint after manual fallback: 7,961 / 17,388 authored fragments covered;
-9,427 JSON library fragments remain (2,001 glossary entries). 1,923 TS/TSX
-fragments were translated manually after the Groq quota was exhausted.
+Checkpoint after manual fallback: 11,612 / 17,388 authored fragments covered;
+5,776 JSON library fragments remain. Manual fallback completed 1,923 TS/TSX
+fragments plus 3,651 JSON fragments (all 2,001 pending glossary entries and
+1,650 sentence/supporting translations). English source sentences were used
+directly for contextual checking, including correction of inaccurate Russian glosses.
+These counts exclude 1,412 interface values and 661 offline dictionary entries.
+No further bulk API requests were made after the Groq daily quota was exhausted.
 125 contextual glossary overrides distinguish English words that shared one
 Russian gloss. Incomplete numeric-key Groq batches were removed and queued for
 retranslation; subsequent batches used exact source strings as keys.
