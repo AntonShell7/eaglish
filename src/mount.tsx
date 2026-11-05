@@ -9,9 +9,6 @@ import { AuthProvider } from "./context/AuthContext";
 import { AccessProvider } from "./context/AccessContext";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
-import { startVisitAnalytics } from "./lib/visitAnalytics";
-
-startVisitAnalytics();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     {/* Outermost on purpose: a crash inside a provider should still show the
