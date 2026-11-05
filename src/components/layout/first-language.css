@@ -22,3 +22,13 @@
  .first-language__english { grid-column: 2; }
  .language-welcome { padding: 24px 16px; }
 }
+
+/* A small preference switch in the profile; the welcome chooser stays spacious. */
+.first-language--compact { padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px 24px; }
+.first-language--compact h2 { margin: 0; font-size: 13px; line-height: 1.4; color: var(--color-primary); letter-spacing: .02em; }
+.first-language--compact p { margin-top: 3px; font-size: 12px; line-height: 1.5; }
+.first-language--compact .first-language__choices { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.first-language--compact .first-language__choice { display: flex; flex-direction: row; align-items: center; min-height: 38px; padding: 8px 11px; border-radius: 10px; gap: 7px; }
+.first-language--compact .first-language__name { font-size: 12px; }
+.first-language--compact .first-language__code { display: none; }
+.first-language--compact .first-language__english, .first-language--compact .first-language__check { display: none; }

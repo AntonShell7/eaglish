@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { availableLanguages, changeFirstLanguage, firstLanguage, type InterfaceLanguage } from "@/i18n/content";
 import "./first-language.css";
 
@@ -22,12 +21,11 @@ export function LanguageChoices() {
 }
 
 export function FirstLanguageSetting() {
-  const { t } = useTranslation();
-  return <section className="first-language card mt-6" aria-labelledby="first-language-title">
-    <span className="first-language__eyebrow" lang="en" dir="ltr">First language</span>
-    <h2 id="first-language-title">{t("language.firstTitle")}</h2>
-    <p>{t("language.firstHint")}</p>
+  return <section className="first-language first-language--compact card mt-6" aria-labelledby="first-language-title">
+    <div lang="en" dir="ltr">
+      <h2 id="first-language-title">First Language</h2>
+      <p>Choose your language</p>
+    </div>
     <LanguageChoices />
-    <p className="first-language__note">{t("language.englishStays")}</p>
   </section>;
 }

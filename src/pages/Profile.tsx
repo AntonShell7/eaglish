@@ -55,7 +55,6 @@ export default function Profile() {
   return (
     <div className="profile-page mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
-      <FirstLanguageSetting />
 
       {slangAward && <section className="card mt-6 p-6"><strong>🏅 {t("profile.slangExplorer")}</strong><p>{localize("Ты прошёл полный курс Slang. Отличная работа!")}</p></section>}
       {/* Identity + level */}
@@ -215,6 +214,7 @@ export default function Profile() {
         </div>
       </section>
 
+      <FirstLanguageSetting />
       <AccountControls />
     </div>
   );
@@ -247,7 +247,7 @@ function AccountControls() {
   return (
     <section className="profile-account">
       <div><h2>{t("account.deleteTitle")}</h2><p>{t("account.deleteBody")}</p></div>
-      <button ref={trigger} type="button" className="btn btn--ghost btn--sm" onClick={() => {
+      <button ref={trigger} type="button" className="btn btn--sm profile-account__delete" onClick={() => {
         setAcknowledged(false); setError(null); dialog.current?.showModal();
       }}>{t("account.deleteButton")}</button>
       <dialog ref={dialog} className="profile-delete" aria-labelledby="delete-title" aria-describedby="delete-description"

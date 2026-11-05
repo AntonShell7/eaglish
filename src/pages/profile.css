@@ -31,3 +31,6 @@
   .profile-identity > div > .min-w-0 { flex-basis: calc(100% - 80px); }
   .profile-identity > div > button { margin-left: 78px; }
 }
+
+.profile-account__delete { color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 10%, var(--color-surface)); border: 1px solid color-mix(in srgb, var(--color-danger) 35%, transparent); }
+.profile-account__delete:hover { background: color-mix(in srgb, var(--color-danger) 18%, var(--color-surface)); border-color: var(--color-danger); }

@@ -7,7 +7,7 @@ import { RedeemCode } from "@/components/access/RedeemCode";
 import { CONTACT_EMAIL } from "@/data/legal";
 import { useSegmented } from "@/lib/useSegmented";
 import { startCheckout, type CheckoutError } from "@/lib/checkout";
-import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, PRICES, STANDARD_PRICES, YEARLY_SAVING } from "@/lib/plans";
+import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, displayPrices } from "@/lib/plans";
 import "./pricing.css";
 
 type Cycle = "monthly" | "yearly";
@@ -30,7 +30,8 @@ type Cycle = "monthly" | "yearly";
  * checkout costs more trust than an empty one.
  */
 export default function Pricing() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { prices, standard, usd, format } = displayPrices(i18n.language);
   const { user } = useAuth();
   const { isPro, expiresAt } = useAccess();
 
@@ -54,10 +55,10 @@ export default function Pricing() {
     setPayError(result.error);
   };
 
-  const price = cycle === "monthly" ? PRICES.monthly : PRICES.yearly;
+  const price = cycle === "monthly" ? prices.monthly : prices.yearly;
   /* Per month either way, so the two cycles can be compared at a glance
      instead of in the reader's head. */
-  const perMonth = cycle === "monthly" ? PRICES.monthly : Math.round(PRICES.yearly / 12);
+  const perMonth = cycle === "monthly" ? prices.monthly : Math.round(prices.yearly / 12);
 
   return (
     <div className="pr mx-auto max-w-5xl px-5 py-10">
@@ -100,7 +101,7 @@ export default function Pricing() {
             </button>
           ))}
         </div>
-        {cycle === "yearly" && <span className="chip chip--success">{t("pricing.saving", { amount: YEARLY_SAVING })}</span>}
+        {cycle === "yearly" && <span className="chip chip--success">{t("pricing.saving", { amount: usd ? standard.yearly - prices.yearly : prices.monthly * 12 - prices.yearly })}</span>}
       </div>
 
       <div className="pr__grid" data-stagger>
@@ -109,7 +110,7 @@ export default function Pricing() {
         <section className="pr__card">
           <p className="pr__name">{t("pricing.plans.free.name")}</p>
           <p className="pr__price">
-            <span className="pr__amount">0</span> <span className="pr__unit">₽</span>
+            <span className="pr__amount" dir="ltr">{format(0)}</span>
           </p>
           <p className="pr__note">{t("pricing.plans.free.note")}</p>
 
@@ -135,12 +136,13 @@ export default function Pricing() {
           <p className="pr__launch"><span>{t("pricing.launch.badge")}</span></p>
           <p className="pr__old-price">
             <span>{t("pricing.launch.base")}</span>{" "}
-            <s>{STANDARD_PRICES[cycle].toLocaleString("ru-RU")} ₽ {t(`pricing.per.${cycle}`)}</s>
+            <s dir="ltr">{format(standard[cycle])}</s>
+            <span className="pr__discount" dir="ltr">−{Math.round((1 - price / standard[cycle]) * 100)}%</span>
           </p>
 
           <p className="pr__price">
-            <span className="pr__amount tabular">{price.toLocaleString("ru-RU")}</span>{" "}
-            <span className="pr__unit">₽ {t(`pricing.per.${cycle}`)}</span>
+            <span className="pr__amount tabular" dir="ltr">{format(price)}</span>{" "}
+            <span className="pr__unit">{t(`pricing.per.${cycle}`)}</span>
           </p>
           <p className="pr__note">
             {cycle === "yearly"

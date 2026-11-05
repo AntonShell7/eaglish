@@ -47,6 +47,21 @@ export const PRICES = {
   yearly: 1999,
 } as const;
 
+/** Arabic storefront display prices. Checkout remains governed by api/_pay.ts
+ * until the international payment integration is connected. */
+const ARABIC_PRICES = { monthly: 4, yearly: 48 } as const;
+const ARABIC_STANDARD_PRICES = { monthly: 5, yearly: 60 } as const;
+
+export function displayPrices(language: string) {
+  const usd = language.split("-")[0] === "ar";
+  return {
+    prices: usd ? ARABIC_PRICES : PRICES,
+    standard: usd ? ARABIC_STANDARD_PRICES : STANDARD_PRICES,
+    usd,
+    format: (amount: number) => usd ? `$${amount.toLocaleString("en-US")}` : `${amount.toLocaleString("ru-RU")} ₽`,
+  };
+}
+
 /** How much the yearly plan saves, as a whole-rouble figure, for the badge. */
 export const YEARLY_SAVING = PRICES.monthly * 12 - PRICES.yearly;
 
