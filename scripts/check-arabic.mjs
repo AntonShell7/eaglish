@@ -5,7 +5,7 @@ import ts from 'typescript';
 const read = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const ru = read('src/i18n/locales/ru.json');
 const ar = read('src/i18n/locales/ar.json');
-const content = {...read('src/i18n/locales/ar-content.json'), ...read('src/i18n/locales/ar-legal.json')};
+const content = {...read('src/i18n/locales/ar-content.json'), ...read('src/i18n/locales/ar-legal.json'), ...read('src/i18n/locales/ar-reviewed.json')};
 const enDictionary = read('src/data/offlineDictionary.json');
 const arDictionary = read('src/data/offlineDictionary.ar.json');
 const flat = (obj, prefix = '') => Object.assign({}, ...Object.entries(obj).map(([key, value]) => typeof value === 'object' ? flat(value, `${prefix}${key}.`) : { [`${prefix}${key}`]: value }));

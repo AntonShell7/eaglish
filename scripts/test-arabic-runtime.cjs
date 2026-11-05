@@ -57,8 +57,8 @@ function runtime(language, nativeLanguage) {
  }
  const missing=new Set();
  function scan(x){if(typeof x==='string'&&/[А-Яа-яЁё]/.test(x))missing.add(x);else if(x&&typeof x==='object')Object.values(x).forEach(scan)}
- scan(translated[0]);
- if(missing.size){console.log('First-block untranslated content:',JSON.stringify([...missing],null,2));process.exitCode=1;}else console.log('First block: no Russian; all course IDs, answer indices and English accepted answers unchanged.');
+ scan(translated);
+ if(missing.size){console.log('Untranslated course content:',JSON.stringify([...missing],null,2));process.exitCode=1;}else console.log('Full course: no Russian; all course IDs, answer indices and English accepted answers unchanged.');
  const c=ar.load('@/i18n/content');assert.equal(c.localizeTemplate('Что значит «{{p0}}»?', ['lmk']),'ما معنى «lmk»؟');
  const englishUi=runtime('en', 'ar');
  await englishUi.load('@/i18n/content').prepareContent();
