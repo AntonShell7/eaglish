@@ -81,7 +81,7 @@ export interface AdminStats {
   onboarding: OnboardingStats;
   texts: { textId: string; opens: number; readers: number }[];
   roster: RosterRow[];
-  billing: null;
+  billing: { users: number; activePro: number; buyers: number; monthly: number; yearly: number };
 }
 
 export interface UserDetail {

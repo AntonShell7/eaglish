@@ -10,6 +10,10 @@ Interface language is Russian. Code, comments and commit messages are English.
 
 ## Deploying — read this first
 
+Anton requires every completed code change to be committed and pushed to GitHub,
+including changes deployed directly to the VPS. Verify the push before reporting
+completion. This is standing authorization to push completed project changes.
+
 **The site is not served from Vercel any more.** On 20 Oct 2026 `eaglish.ru`
 pointing at a foreign address stopped working from Russian networks: small
 responses arrived, anything over about ten kilobytes died. The identical file

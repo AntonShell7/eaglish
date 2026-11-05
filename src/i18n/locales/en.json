@@ -1174,6 +1174,18 @@
     "method": "Includes browsers that opted into analytics. Reloads count as opens. Funnel steps must occur in order in the same browser during the selected period. Opening a reading text, dictation or slang lesson counts as a lesson."
 },
   "admin": {
+    "subscriptions": {
+      "title": "Users and subscriptions",
+      "users": "Registered users",
+      "active": "Active Pro now",
+      "buyers": "Have purchased a subscription",
+      "proShare": "Pro share of all users",
+      "cycles": "Purchased plans · all time",
+      "monthly": "Bought monthly",
+      "yearly": "Bought yearly",
+      "noPurchases": "No successful purchases yet.",
+      "method": "Administrators are excluded. Active Pro includes paid access, codes and grants until expiry, plus lifetime access. Plan percentages use all buyers as the denominator. Each buyer is counted once per plan, so people who purchased both appear in both groups."
+},
     "title": "Admin",
     "gateTitle": "Access",
     "passcode": "Passcode",

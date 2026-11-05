@@ -447,6 +447,11 @@ Deno.serve(async (req: Request) => {
     })
     .sort((a, b) => b.minutes - a.minutes);
 
+  const billingResult = await admin.rpc("subscription_report", { excluded: allowed });
+  if (billingResult.error) {
+    return new Response(JSON.stringify({ error: "unavailable" }), { status: 503, headers });
+  }
+
   return new Response(
     JSON.stringify({
       generatedAt: new Date().toISOString(),
@@ -462,10 +467,7 @@ Deno.serve(async (req: Request) => {
       onboarding: { answered, goals, interests, levels, dailyGoals, placement },
       texts,
       roster,
-      // No billing system exists, so there is nothing truthful to report about
-      // paying or trialling users. Saying so beats inventing a zero that looks
-      // like a measurement.
-      billing: null,
+      billing: billingResult.data,
     }),
     { status: 200, headers },
   );
