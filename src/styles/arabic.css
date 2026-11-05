@@ -29,3 +29,6 @@ html[lang="ar"] :is(.drill__word, .drill__yours, .drill__fixText, .drill__altLis
   direction: ltr;
   unicode-bidi: isolate;
 }
+
+html[lang="ar"] .legal__summary li { padding-left: 0; padding-right: 20px; }
+html[lang="ar"] .legal__summary li::before { left: auto; right: 2px; }

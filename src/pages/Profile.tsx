@@ -57,7 +57,7 @@ export default function Profile() {
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
       <FirstLanguageSetting />
 
-      {slangAward && <section className="card mt-6 p-6"><strong>🏅 Slang Explorer</strong><p>{localize("Ты прошёл полный курс Slang. Отличная работа!")}</p></section>}
+      {slangAward && <section className="card mt-6 p-6"><strong>🏅 {t("profile.slangExplorer")}</strong><p>{localize("Ты прошёл полный курс Slang. Отличная работа!")}</p></section>}
       {/* Identity + level */}
       <section className="profile-identity card viz mt-6 p-6">
         <div className="flex flex-wrap items-center gap-5">

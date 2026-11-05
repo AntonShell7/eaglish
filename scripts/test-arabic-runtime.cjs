@@ -38,7 +38,15 @@ function runtime(language, nativeLanguage) {
    if(entry.isDirectory()) checkLibraries(file);
    else if(file.endsWith('.json') && !file.includes('offlineDictionary')) {
     const data=JSON.parse(fs.readFileSync(file,'utf8'));
-    preserveEnglish(data,ar.load('@/i18n/content').localizeData(data),file);
+    const localized=ar.load('@/i18n/content').localizeData(data);
+    preserveEnglish(data,localized,file);
+    if(process.argv.includes('--release')) {
+     const check=value=>{
+      if(typeof value==='string') assert(!/[А-Яа-яЁё]/.test(value),`Russian library text remains in ${file}: ${value}`);
+      else if(value&&typeof value==='object') Object.values(value).forEach(check);
+     };
+     check(localized);
+    }
    }
   }
  }

@@ -33,7 +33,7 @@ The owner's admin interface stays Russian when the learner language is Arabic.
 
 ## Remaining before release
 
-Groq reached its daily token quota. Translation continues manually in the assistant session.
+Translation continues through Groq and manually in the assistant session. The strong model has a daily quota; Qwen is running in smaller batches within its output-token limit.
 Run the coverage command for current counts. Legal documents have been manually
 translated separately in `ar-legal.json`. The corpus totals are separate from UI
 and offline dictionary counts.
@@ -53,8 +53,9 @@ the reading/listening libraries. The 2,001-entry pending glossary queue is compl
    sentence feedback, writing, personalized text) against the deployed endpoint.
    Synthetic live checks via the local API handler passed for lookup, hints and
    sentence feedback; production authentication and remaining flows are not verified.
-6. Deploy the localized confirmation/reset templates and auth configuration.
-   First-language metadata is passed during registration and updated on sign-in.
+6. Localized confirmation/reset templates and auth configuration are deployed.
+   Server responses matched local SHA-256 hashes; the recreated auth service is healthy.
+   No email was sent during verification. First-language metadata is passed during registration and updated on sign-in.
 7. Review checkout/provider-hosted language support independently. No payment
    integration, currency, price, or subscription behavior was changed.
 8. Complete desktop/mobile browser walkthroughs for all pages and exercises,
@@ -111,17 +112,22 @@ cache. Screenshot: `arabic-preview/profile.jpg`. Runtime checks also preserve al
 English strings in course and reading/listening JSON, and verify that selecting
 English UI does not change an Arabic learner's translation language.
 
-Checkpoint after manual fallback: 11,612 / 17,388 authored fragments covered;
-5,776 JSON library fragments remain. Manual fallback completed 1,923 TS/TSX
-fragments plus 3,651 JSON fragments (all 2,001 pending glossary entries and
-1,650 sentence/supporting translations). English source sentences were used
-directly for contextual checking, including correction of inaccurate Russian glosses.
-These counts exclude 1,412 interface values and 661 offline dictionary entries.
-No further bulk API requests were made after the Groq daily quota was exhausted.
-125 contextual glossary overrides distinguish English words that shared one
-Russian gloss. Incomplete numeric-key Groq batches were removed and queued for
-retranslation; subsequent batches used exact source strings as keys.
+Current checkpoint: 14,230 / 17,388 authored fragments; 3,158 remaining.
+Counts exclude 1,413 interface values and 661 offline dictionary entries.
+Run the coverage command for the latest live progress. The full release remains gated.
 
-Live local-handler → Groq checks passed for word lookup, Arabic-to-English hint,
-and sentence feedback, using synthetic learning examples. This did not test
-production authentication or OpenAI vision (the OpenAI balance remains empty).
+Additional verification: mobile reading retains English text and comprehension questions;
+word lookup and known sentence translations show Arabic. Dictation retains LTR input,
+with Arabic controls and no horizontal overflow at 390px. The initial language screen
+keeps the public landing content below it, avoiding removal of the site's introduction.
+The release runtime test also scans every localized reading/listening JSON library.
+Screenshot: `arabic-preview/reading.png`.
+
+125 contextual glossary overrides distinguish English words that shared one Russian gloss.
+Incomplete numeric-key translation batches were removed and retranslated. Current API
+batches use immutable source hashes; missing/invalid entries are deferred for manual work.
+Weak-model output was discarded rather than accepted as complete.
+
+Live local-handler → Groq checks previously passed for word lookup, Arabic-to-English hint,
+and sentence feedback with synthetic examples. Production-authenticated AI and OpenAI
+vision are not verified; the OpenAI balance remains empty.

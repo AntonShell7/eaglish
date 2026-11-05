@@ -26,7 +26,12 @@ for (const [key, value] of Object.entries(target)) {
 assert(!ar.admin && !ar.visitStats, 'Admin must remain untranslated');
 assert.deepEqual(Object.keys(arDictionary).sort(), Object.keys(enDictionary).sort(), 'Dictionary coverage');
 for (const [key, value] of Object.entries(arDictionary)) assert(/[\u0600-\u06ff]/.test(value), `Missing Arabic word: ${key}`);
-for (const [key, value] of Object.entries(content)) assert.deepEqual(placeholders(value), placeholders(key), `Course placeholders: ${key}`);
+for (const [key, value] of Object.entries(content)) {
+  assert.equal(typeof value, 'string', `Invalid translation: ${key}`);
+  assert(!/[А-Яа-яЁё]/.test(key.includes('422-ФЗ') ? value.replaceAll('422-ФЗ', '') : value), `Russian remains in translation: ${key}`);
+  if (/[А-Яа-яЁё]/.test(key)) assert(/[\u0600-\u06ff]/.test(value), `Arabic translation is empty or in the wrong language: ${key}`);
+  assert.deepEqual(placeholders(value), placeholders(key), `Course placeholders: ${key}`);
+}
 // A separate full-release gate: unfinished material cannot be mistaken for full localization.
 const required = new Set();
 function scanJson(value) {
@@ -50,5 +55,5 @@ function walk(dir) {
 walk('src');
 const missing = [...required].filter(text => !Object.hasOwn(content, text));
 console.log(`Arabic UI: ${Object.keys(target).length} values; dictionary: ${Object.keys(arDictionary).length}; authored translations: ${Object.keys(content).length}.`);
-console.log(`Course coverage: ${required.size - missing.length}/${required.size}; ${missing.length} untranslated fragments. Arabic remains preview-only.`);
+console.log(`Course coverage: ${required.size - missing.length}/${required.size}; ${missing.length} untranslated fragments. ${missing.length ? 'Full Arabic release blocked.' : 'Full Arabic coverage verified.'}`);
 if (process.argv.includes('--release')) assert.equal(missing.length, 0, 'Full Arabic release blocked by untranslated course material');

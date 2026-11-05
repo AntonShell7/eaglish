@@ -1,13 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "./i18n";
 import { ThemeProvider } from "./context/ThemeContext";
 import { BrandLogo } from "./components/brand/BrandLogo";
 import { LanguageChoices } from "./components/layout/FirstLanguage";
+import Landing from "./pages/Landing";
+import { selectedLanguage } from "./i18n/content";
 
 export function mountLanguageWelcome() {
   document.documentElement.lang = "en";
   document.documentElement.dir = "ltr";
-  createRoot(document.getElementById("root")!).render(<StrictMode><ThemeProvider>
+  createRoot(document.getElementById("root")!).render(<StrictMode><ThemeProvider><BrowserRouter>
     <main className="language-welcome">
       <div className="language-welcome__brand"><BrandLogo variant="chip" className="h-10 w-10" /><span>Eaglish</span></div>
       <section className="first-language card">
@@ -19,5 +23,8 @@ export function mountLanguageWelcome() {
         <p className="first-language__note">You’ll learn English. You can change this choice in your profile.</p>
       </section>
     </main>
-  </ThemeProvider></StrictMode>);
+    {/* Keep the public introduction readable and indexable before a language
+        has been saved. The language choice remains the first screen. */}
+    {location.pathname === "/" && <div lang={selectedLanguage()}><Landing /></div>}
+  </BrowserRouter></ThemeProvider></StrictMode>);
 }

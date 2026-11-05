@@ -5,7 +5,7 @@ import { createInstance } from "i18next";
 import ru from "@/i18n/locales/ru.json";
 import { isArabic } from "@/i18n/content";
 
-// The cloned detector must not persist the console's Russian locale as the
+// The isolated instance must not persist the console's Russian locale as the
 // learner's preference. Otherwise visiting any page resets Arabic on reload.
 const adminI18n = isArabic() ? createInstance() : i18n;
 if (isArabic()) void adminI18n.init({
