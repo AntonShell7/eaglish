@@ -1,3 +1,4 @@
+import { recordLearning } from "./learningRecords";
 import { trackLessons, type Step, type TrackLesson } from "@/data/track";
 
 /**
@@ -47,7 +48,11 @@ function write(key: string, value: unknown) {
 }
 
 export function doneLessons(): string[] {
-  return read<string[]>(DONE_KEY, []);
+  const raw = read<unknown>(DONE_KEY, []);
+  const completed = new Set(Array.isArray(raw) ? raw.filter((id): id is string => typeof id === "string") : []);
+  return trackLessons().filter(({ lesson }) => completed.has(lesson.id) ||
+    (lesson.legacyCompletionIds?.length && lesson.legacyCompletionIds.every((id) => completed.has(id))))
+    .map(({ lesson }) => lesson.id);
 }
 
 export function isDone(id: string): boolean {
@@ -89,14 +94,18 @@ function taught(lesson: TrackLesson): string[] {
  * four should not push its next return out to lesson six — it should move it
  * on to the next, longer gap, which is what a review is for.
  */
-export function finishLesson(lesson: TrackLesson): void {
-  const done = doneLessons();
-  if (!done.includes(lesson.id)) done.push(lesson.id);
+export function finishLesson(lesson: TrackLesson, practicedSteps: Step[] = lesson.steps): void {
+  // Keep the original IDs as migration evidence. Never persist inferred
+  // completions as if the learner had completed the legacy three-item lesson.
+  const raw = read<unknown>(DONE_KEY, []);
+  const done: string[] = Array.isArray(raw) ? raw.filter((id): id is string => typeof id === "string") : [];
+  if (!doneLessons().includes(lesson.id)) done.push(lesson.id);
   write(DONE_KEY, done);
+  recordLearning("slang",lesson.id,{completed:true,completedAt:new Date().toISOString(),draft:null});
 
-  const count = done.length;
+  const count = doneLessons().length;
   const seen = read<Record<string, Seen>>(SEEN_KEY, {});
-  for (const item of taught(lesson)) {
+  for (const item of taught({ ...lesson, steps: practicedSteps })) {
     const previous = seen[item];
     seen[item] = {
       at: count,
@@ -104,6 +113,7 @@ export function finishLesson(lesson: TrackLesson): void {
     };
   }
   write(SEEN_KEY, seen);
+  for(const item of taught({ ...lesson, steps: practicedSteps })) recordLearning("slang-review",item,{...seen[item]});
 }
 
 /**
@@ -167,6 +177,7 @@ export function resetTrack(): void {
   try {
     localStorage.removeItem(DONE_KEY);
     localStorage.removeItem(SEEN_KEY);
+    localStorage.removeItem("trackDraft");
   } catch {
     /* nothing to reset if there is nothing to read */
   }

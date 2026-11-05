@@ -1,3 +1,4 @@
+import { learningSummary } from "./learning.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
 // npm, not jsr. jsr.io does not resolve from the Russian host this now
 // runs on — the request hangs until it times out, and Deno blocks on the
@@ -51,7 +52,7 @@ const dayKey = (d: Date) => d.toISOString().slice(0, 10);
 
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get("origin");
-  const headers = { ...cors(origin), "Content-Type": "application/json" };
+  const headers = { ...cors(origin), "Content-Type": "application/json", "Cache-Control":"no-store, private", "Pragma":"no-cache", "X-Content-Type-Options":"nosniff" };
 
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers });
   if (req.method !== "POST") {
@@ -79,6 +80,7 @@ Deno.serve(async (req: Request) => {
   let body: {
     passcode?: string;
     action?: string;
+    period?: string;
     userId?: string;
     /* Access codes. */
     count?: number;
@@ -92,12 +94,35 @@ Deno.serve(async (req: Request) => {
     /* an empty body simply fails the passcode check below */
   }
 
+  if(body.action==="access") return new Response(JSON.stringify({allowed:true}),{status:200,headers});
   const expected = Deno.env.get("ADMIN_PASSCODE") ?? "";
-  if (!expected || !same(body.passcode ?? "", expected)) {
+  if (!expected || (typeof body.passcode!=="string" || !same(body.passcode, expected))) {
     return new Response(JSON.stringify({ error: "denied" }), { status: 403, headers });
   }
 
   const admin = createClient(url, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+  if (body.action === "visits") {
+    const { data, error } = await admin.rpc("visit_report", { period: body.period });
+    return new Response(JSON.stringify(error ? { error: "unavailable" } : data), { status: error ? 503 : 200, headers });
+  }
+  async function records(userId?:string) {
+    const all=[];
+    for(let offset=0;;offset+=500) {
+      let q=admin.from('learning_records').select('user_id,category,item_id,data,updated_at').order('user_id').order('category').order('item_id').range(offset,offset+499);
+      if(userId) q=q.eq('user_id',userId);
+      const {data,error}=await q;if(error) throw new Error('learning-unavailable');
+      all.push(...(data??[]));if((data?.length??0)<500) return all;
+    }
+  }
+  let learningRows;
+  try { learningRows=await records(body.action==='user'?body.userId:undefined); }
+  catch { return new Response(JSON.stringify({error:'learning-unavailable'}),{status:503,headers}); }
+  const learningByUser=new Map<string,ReturnType<typeof learningSummary>>();
+  const grouped=new Map<string,typeof learningRows>();
+  for(const row of learningRows) {const entries=grouped.get(row.user_id)??[];entries.push(row);grouped.set(row.user_id,entries);}
+  for(const [id,rows] of grouped) learningByUser.set(id,learningSummary(rows));
+  const learningFor=(id:string)=>learningByUser.get(id)??learningSummary([]);
+
 
   /* ── Access codes ───────────────────────────────────────────────────────
    *
@@ -233,6 +258,7 @@ Deno.serve(async (req: Request) => {
     const u = person.data?.user;
     return new Response(
       JSON.stringify({
+        learning:learningFor(id),
         profile: {
           id,
           email: u?.email ?? null,
@@ -255,7 +281,7 @@ Deno.serve(async (req: Request) => {
           minutes: rows.reduce((sum, r) => sum + ((r.minutes as number) ?? 0), 0),
           activeDays: rows.length,
           words: (words.data ?? []).length,
-          texts: new Set((reads.data ?? []).map((r) => r.text_id)).size,
+          texts: learningFor(id).readingCompleted,
           writingPieces: (writing.data ?? []).length,
           quiz: quizTotals,
         },
@@ -276,8 +302,12 @@ Deno.serve(async (req: Request) => {
   const since30 = dayKey(new Date(Date.now() - 30 * DAY));
   const since7 = dayKey(new Date(Date.now() - 7 * DAY));
 
+  async function allUsers() {
+    const users=[];
+    for(let page=1;;page++) {const result=await admin.auth.admin.listUsers({perPage:500,page});if(result.error) throw new Error('users-unavailable');users.push(...result.data.users);if(result.data.users.length<500)return {data:{users}};}
+  }
   const [users, profiles, activity, words, sessions, writing, quizzes] = await Promise.all([
-    admin.auth.admin.listUsers({ perPage: 1000 }),
+    allUsers(),
     admin.from("profiles").select("id, english_level, learner_profile"),
     admin.from("daily_activity").select("user_id, day, minutes, minutes_by_section").gte("day", since30),
     admin.from("vocabulary_words").select("user_id"),
@@ -409,7 +439,8 @@ Deno.serve(async (req: Request) => {
         minutes: u?.minutes ?? 0,
         activeDays: u?.days ?? 0,
         words: u?.words ?? 0,
-        textsRead: u?.texts.size ?? 0,
+        textsRead: learningFor(p.id).readingCompleted,
+        learning:learningFor(p.id),
         goal: intake[p.id]?.goal ?? null,
         level: intake[p.id]?.level ?? null,
       };

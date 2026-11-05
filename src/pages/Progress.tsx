@@ -4,6 +4,9 @@ import { DayLine, type DayCount } from "@/components/charts/DayLine";
 import { Donut, type Slice } from "@/components/charts/Donut";
 import { YearGrid } from "@/components/charts/YearGrid";
 import { TrendLine, type TrendPoint } from "@/components/charts/TrendLine";
+import { doneLessons } from "@/lib/trackProgress";
+import { summarizeTrack } from "@/lib/learningStats";
+import { whenSynced } from "@/lib/sync";
 import { getWritingHistory } from "@/lib/writingHistory";
 import { getVocabulary } from "@/lib/vocabularyStore";
 import { getQuizTotals } from "@/lib/readingHistory";
@@ -53,6 +56,15 @@ function lastDays(n: number): string[] {
  */
 export default function Progress() {
   const { t } = useTranslation();
+  const [achievements, setAchievements] = useState(() => ({ ...summarizeTrack(doneLessons()), savedWords: getVocabulary().length }));
+  useEffect(() => {
+    let active = true;
+    const update = () => { if (active) setAchievements({ ...summarizeTrack(doneLessons()), savedWords: getVocabulary().length }); };
+    void whenSynced().then(update);
+    window.addEventListener("focus", update);
+    window.addEventListener("storage", update);
+    return () => { active = false; window.removeEventListener("focus", update); window.removeEventListener("storage", update); };
+  }, []);
   const [words, setWords] = useState<DayCount[]>([]);
   const [delta, setDelta] = useState<number | null>(null);
   const [calendar, setCalendar] = useState<{ date: string; minutes: number }[]>([]);
@@ -135,6 +147,16 @@ export default function Progress() {
         <h1 className="page-title text-3xl">{t("progress.title")}</h1>
         <span className="pg-orbit-mark" aria-hidden="true"><i /><i /><i /></span>
       </header>
+
+      <section className="pg-achievements" aria-label={t("progress.achievements.title")}>
+        {(["lessons", "expressions", "savedWords"] as const).map(key => (
+          <div className="pg-card pg-achievement" key={key}>
+            <strong className="pg-achievement__value">{achievements[key]}</strong>
+            <span className="pg-achievement__label">{t(`progress.achievements.${key}`)}</span>
+            <p className="pg-achievement__hint">{t(`progress.achievements.${key}Hint`)}</p>
+          </div>
+        ))}
+      </section>
 
       <section className="pg-card pg-hero">
         <DayLine days={words} unit={t("progress.wordsUnit")} delta={delta} />

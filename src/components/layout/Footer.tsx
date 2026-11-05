@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { openConsentSettings } from "@/lib/consent";
 import { useAuth } from "@/context/AuthContext";
-import { looksLikeAdmin } from "@/lib/admin";
+import { useAdminAccess } from "@/lib/admin";
 import { CONTACT_EMAIL } from "@/data/legal";
 import "./footer.css";
 
@@ -38,6 +38,7 @@ const LINKS: { key: string; to: string }[] = [
 export function Footer() {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const adminAllowed=useAdminAccess(user?.id);
 
   return (
     <footer className="ft">
@@ -47,7 +48,7 @@ export function Footer() {
           {/* A dot for the owner. Hiding it is a courtesy to everyone else's
               screen, not a security measure — the door itself is locked on the
               server, and this only decides whether the handle is drawn. */}
-          {looksLikeAdmin(user?.id) && (
+          {adminAllowed && (
             <Link to="/admin" className="ft__admin" title={t("admin.title")} aria-label={t("admin.title")} />
           )}
         </span>

@@ -1,25 +1,31 @@
+import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 
-/**
- * The owner's view of the product.
- *
- * Nothing here is a security boundary. The identifier list below only decides
- * whether a link is drawn; the real check happens inside the edge function,
- * against the caller's own signed token and a passcode that exists only in the
- * function's environment. Editing this list in devtools gets you a visible
- * link and a 403.
- */
-
-const ADMIN_IDS = (import.meta.env.VITE_ADMIN_IDS ?? "")
-  .split(",")
-  .map((s: string) => s.trim())
-  .filter(Boolean);
-
-export function looksLikeAdmin(userId: string | undefined): boolean {
-  return Boolean(userId && ADMIN_IDS.includes(userId));
+/** Access is resolved by the server; no owner IDs or private roster ship in this module. */
+export function useAdminAccess(userId: string | undefined) {
+ const [allowed,setAllowed]=useState(false);
+ useEffect(()=>{
+  let live=true;let busy=false;const timers:ReturnType<typeof setTimeout>[]=[];setAllowed(false);
+  if(!userId) return;
+  const check=async()=>{if(!live||busy)return;busy=true;try{
+    const result=await call<{allowed:boolean}>("",{action:"access"});
+    if(live && result.ok) setAllowed(result.data.allowed===true);
+    // A temporary network/session failure must not erase a confirmed owner link.
+  } catch { /* Retry session restoration and transient failures below. */ } finally {busy=false;}};
+  for(const delay of [0,1000,3000,8000]) timers.push(setTimeout(()=>void check(),delay));
+  const focus=()=>void check();window.addEventListener('focus',focus);
+  const listener=supabase?.auth.onAuthStateChange(()=>{timers.push(setTimeout(()=>void check(),0));});
+  return()=>{live=false;timers.forEach(clearTimeout);window.removeEventListener('focus',focus);listener?.data.subscription.unsubscribe();};
+ },[userId]);
+ return allowed;
 }
-
+export interface LearningStats {
+ slangDone:number; slangTotal:number; slangCurrent:string|null; slangModule:string|null; slangStep:number|null; slangSteps:number|null;
+ readingCompleted:number; listeningCompleted:number; listeningFragments:number; listeningMinutes:number; vocabularyReviewMinutes:number; smartRepetitionMinutes:number;
+ awardedAt:string|null; updatedAt:string|null;
+}
 export interface RosterRow {
+  learning: LearningStats;
   id: string;
   email: string | null;
   provider: string | null;
@@ -79,6 +85,7 @@ export interface AdminStats {
 }
 
 export interface UserDetail {
+  learning: LearningStats;
   profile: {
     id: string;
     email: string | null;
@@ -226,7 +233,7 @@ async function call<T>(passcode: string, payload: Record<string, unknown>): Prom
   if (response.status === 503) return { ok: false, reason: "unavailable" };
   if (!response.ok) return { ok: false, reason: "offline" };
 
-  return { ok: true, data: (await response.json()) as T };
+  try { return { ok: true, data: (await response.json()) as T }; } catch {return {ok:false,reason:"unavailable"};}
 }
 
 export const fetchAdminStats = (passcode: string) => call<AdminStats>(passcode, { action: "overview" });
@@ -257,3 +264,16 @@ export const makeCodes = (
 /** Full access for one account, with no code passing through anybody's hands. */
 export const grantPro = (passcode: string, userId: string) =>
   call<{ granted: string }>(passcode, { action: "grant", userId });
+
+export interface VisitReport {
+  start: string;
+  end: string;
+  opens: number;
+  visitors: number;
+  signups: number;
+  lessons: number;
+  buckets: { at: string; n: number }[];
+  sources: { source: string; n: number }[];
+}
+export const fetchVisits = (passcode: string, period: string) =>
+  call<VisitReport>(passcode, { action: "visits", period });

@@ -1,10 +1,11 @@
 /** Words used by the sentence-builder. Punctuation is not a separate tile. */
 export function assemblyTokens(value: string): string[] {
-  return value
+  return (value
     .normalize("NFKC")
     .toLowerCase()
     .replace(/[’‘ʼ`´]/g, "'")
-    .match(/[a-z0-9]+(?:'[a-z0-9]+)*'?/g) ?? [];
+    .match(/[a-z0-9]+(?:'[a-z0-9]+)*'?/g) ?? [])
+    .map((word) => /^i(?:'(?:m|ve|ll|d))?$/.test(word) ? `I${word.slice(1)}` : word);
 }
 
 /** Alternative answers may reorder words, but may not introduce new ones. */

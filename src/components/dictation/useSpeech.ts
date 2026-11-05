@@ -1,3 +1,4 @@
+import { startPracticeClock } from "@/lib/learningRecords";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { curateVoices } from "./voices";
 import { load as loadRecording, prefetch, recordings } from "@/lib/voice";
@@ -108,7 +109,12 @@ export function useSpeech() {
   /** Which request is the live one, so a slow load cannot speak over a newer. */
   const token = useRef(0);
 
+  const stopClock=useRef<(()=>void)|null>(null);
+  useEffect(()=>()=>{stopClock.current?.();playing.current?.pause();token.current+=1;},[]);
+  const endClock=()=>{stopClock.current?.();stopClock.current=null;};
+  const beginClock=()=>{endClock();stopClock.current=startPracticeClock("listening-audio");};
   const silence = useCallback(() => {
+    endClock();
     if (playing.current) {
       playing.current.pause();
       playing.current.currentTime = 0;
@@ -130,8 +136,9 @@ export function useSpeech() {
       if (chosen) utterance.voice = chosen;
       utterance.lang = chosen?.lang ?? "en-US";
       utterance.rate = rate;
-      utterance.onend = () => setSpeaking(false);
-      utterance.onerror = () => setSpeaking(false);
+      utterance.onstart=beginClock;
+      utterance.onend = () => {endClock();setSpeaking(false);};
+      utterance.onerror = () => {endClock();setSpeaking(false);};
 
       current.current = utterance;
       window.speechSynthesis.speak(utterance);
@@ -161,8 +168,9 @@ export function useSpeech() {
         element.playbackRate = rate;
         // Slow practice should sound slow, not like a different person.
         element.preservesPitch = true;
-        element.onended = () => setSpeaking(false);
-        element.onerror = () => synthesise(text, rate);
+        element.onplaying=beginClock;
+        element.onended = () => {endClock();setSpeaking(false);};
+        element.onerror = () => {endClock();synthesise(text, rate);};
         playing.current = element;
         void element.play().catch(() => synthesise(text, rate));
       });

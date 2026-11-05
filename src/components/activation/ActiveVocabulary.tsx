@@ -1,3 +1,4 @@
+import { startPracticeClock } from "@/lib/learningRecords";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ export function ActiveVocabulary() {
   const [index, setIndex] = useState(0);
   const [done, setDone] = useState(0);
   const [running, setRunning] = useState(false);
+  useEffect(()=>running?startPracticeClock("smart-repetition"):undefined,[running]);
   const [activated, setActivated] = useState(0);
   const [words, setWords] = useState<VocabularyWord[]>([]);
 

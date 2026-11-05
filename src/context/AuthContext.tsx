@@ -1,6 +1,10 @@
+import { trackVisit } from "@/lib/visitAnalytics";
+import { flushLearning } from "@/lib/learningRecords";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import i18n from "@/i18n";
+import { authError } from "@/lib/authError";
 import { clearLocalProgress } from "@/lib/localState";
 import { setSyncUser } from "@/lib/sync";
 
@@ -56,16 +60,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(async ({ data }) => {
       setSession(data.session);
-      setLoading(false);
       // Pull the account's progress and push anything done while signed out.
-      void setSyncUser(data.session?.user.id ?? null);
+      await setSyncUser(data.session?.user.id ?? null);
+      setLoading(false);
     });
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);
-      void setSyncUser(newSession?.user.id ?? null);
+      const user = newSession?.user;
+      if (_event === "SIGNED_IN" && user?.app_metadata.provider === "google" &&
+          user.last_sign_in_at && Math.abs(Date.parse(user.last_sign_in_at) - Date.parse(user.created_at)) < 5000) {
+        setTimeout(() => trackVisit("signup"), 0);
+      }
+      if(_event==="SIGNED_IN" || _event==="INITIAL_SESSION") setLoading(true);
+      void setSyncUser(newSession?.user.id ?? null).finally(()=>setLoading(false));
     });
 
     return () => listener.subscription.unsubscribe();
@@ -85,8 +95,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signUp = async (email: string, password: string) => {
     if (DEMO) return { error: null, needsConfirmation: false };
     if (!supabase) return { error: "Supabase is not configured yet.", needsConfirmation: false };
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    return { error: error?.message ?? null, needsConfirmation: !error && !data.session };
+    try {
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (!error && data.user?.identities?.length) trackVisit("signup");
+      return { error: error ? authError(error, i18n.language.startsWith("ru")) : null, needsConfirmation: !error && !data.session };
+    } catch (error) {
+      return { error: authError(error instanceof Error ? error : {}, i18n.language.startsWith("ru")), needsConfirmation: false };
+    }
   };
 
   /* A second copy of the confirmation email. The first one goes missing often
@@ -95,8 +110,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const resendConfirmation = async (email: string) => {
     if (DEMO) return { error: null };
     if (!supabase) return { error: "Supabase is not configured yet." };
-    const { error } = await supabase.auth.resend({ type: "signup", email });
-    return { error: error?.message ?? null };
+    try {
+      const { error } = await supabase.auth.resend({ type: "signup", email });
+      return { error: error ? authError(error, i18n.language.startsWith("ru")) : null };
+    } catch (error) {
+      return { error: authError(error instanceof Error ? error : {}, i18n.language.startsWith("ru")) };
+    }
   };
 
   const signIn = async (email: string, password: string) => {
@@ -147,6 +166,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    * old data. Preferences stay: see PROGRESS_KEYS.
    */
   const signOut = async () => {
+    if(!DEMO && !(await flushLearning())) { window.alert("Прогресс ещё не сохранён. Проверьте интернет и повторите выход."); return; }
     clearLocalProgress();
     if (DEMO) {
       setDemoSignedIn(false);

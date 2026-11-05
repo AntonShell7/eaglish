@@ -1,3 +1,4 @@
+import { startPracticeClock } from "@/lib/learningRecords";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSegmented } from "@/lib/useSegmented";
@@ -72,6 +73,8 @@ export function Drill({
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [done, setDone] = useState(0);
+  const practicing=index<queue.length;
+  useEffect(()=>practicing?startPracticeClock("vocabulary-review"):undefined,[practicing]);
   const [style, setStyle] = useState<Style>(remembered);
   const { ref: styleRef, style: styleStyle } = useSegmented(style);
   const [mode] = useInputMode();

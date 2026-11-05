@@ -1,3 +1,4 @@
+import { readingEvidence } from "@/lib/readingCompletion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { ComprehensionQuestion } from "@/data/readingTexts";
@@ -32,6 +33,7 @@ export function ComprehensionQuiz({ textId, questions, title, words }: Comprehen
   const handleCheck = () => {
     setChecked(true);
     recordQuizResult(textId, correctCount, questions.length);
+    readingEvidence(textId,{confirmed:true,quizCorrect:correctCount,quizTotal:questions.length});
     // The reading task *is* the questions: a text is only demonstrably read once
     // it has been understood. Once per text per day — retaking it to raise a
     // score is welcome, farming the daily goal with the same five questions is not.

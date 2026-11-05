@@ -78,7 +78,7 @@ export function Layout() {
      there and what it costs — but finding that out by clicking is a worse
      experience than being told beforehand, and this is the cheapest possible
      way to tell. Nothing is shown to someone who has paid. */
-  const locked = (to: string) => !isPro && sectionOf(to) !== null;
+  const locked = (to: string) => !isPro && sectionOf(to) === "writing";
 
   // Without this, moving between sections keeps the previous scroll offset.
   useEffect(() => {

@@ -1,3 +1,4 @@
+import { hasSlangAward } from "@/lib/learningRecords";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
@@ -24,6 +25,7 @@ export default function Profile() {
   const dateLabel = (date: string) => new Date(date).toLocaleDateString(i18n.language, { day: "numeric", month: "long", year: "numeric" });
   const navigate = useNavigate();
 
+  const [slangAward,setSlangAward]=useState(hasSlangAward);
   const [streak, setStreak] = useState(0);
   const [best, setBest] = useState(0);
   const [words, setWords] = useState(0);
@@ -31,6 +33,7 @@ export default function Profile() {
   const [learner, setLearner] = useState<LearnerProfile | null>(null);
 
   const refresh = () => {
+    setSlangAward(hasSlangAward());
     setStreak(getStreak());
     setBest(getBestStreak());
     setWords(getVocabulary().length);
@@ -41,8 +44,9 @@ export default function Profile() {
   useEffect(() => {
     let active = true;
     refresh();
+    window.addEventListener("learning-records",refresh);
     void whenSynced().then(() => { if (active) refresh(); });
-    return () => { active = false; };
+    return () => { active = false;window.removeEventListener("learning-records",refresh); };
   }, [user?.id]);
 
 
@@ -50,6 +54,7 @@ export default function Profile() {
     <div className="profile-page mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
 
+      {slangAward && <section className="card mt-6 p-6"><strong>🏅 Slang Explorer</strong><p>Ты прошёл полный курс Slang. Отличная работа!</p></section>}
       {/* Identity + level */}
       <section className="profile-identity card viz mt-6 p-6">
         <div className="flex flex-wrap items-center gap-5">
@@ -125,7 +130,7 @@ export default function Profile() {
 
           {!accessLoading && <div className="profile-entitlements">
             <span className="profile-status"><i aria-hidden="true" />{t(isPro ? "profile.proActive" : "profile.freeActive")}</span>
-            <ul>{(isPro ? ["reading", "vocabulary", "dictation", "writing", "slang"] : ["reading", "vocabulary", "progress"]).map(section => <li key={section}>{t(`nav.${section}`)}</li>)}</ul>
+            <ul>{(isPro ? ["reading", "vocabulary", "dictation", "writing", "slang"] : ["slang", "dictation", "reading", "vocabulary", "progress"]).map(section => <li key={section}>{t(`nav.${section}`)}</li>)}</ul>
           </div>}
           {!accessLoading && !isPro && (
             <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--color-border)" }}>

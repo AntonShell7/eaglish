@@ -1,3 +1,5 @@
+import { learnedSlang } from "@/lib/slangCollection";
+import { SlangCollection } from "@/components/vocabulary/SlangCollection";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { SectionHero } from "@/components/SectionHero";
@@ -101,9 +103,9 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
 }
 
 /** Review and collection share a workspace; sentence practice has its own route. */
-type Tab = "due" | "all";
+type Tab = "due" | "all" | "slang";
 
-const TABS: Tab[] = ["due", "all"];
+const TABS: Tab[] = ["due", "all", "slang"];
 
 export default function Vocabulary() {
   const { t } = useTranslation();
@@ -188,7 +190,7 @@ export default function Vocabulary() {
   };
 
   const count = (key: Tab) =>
-    key === "due" ? due.length : words.length;
+    key === "slang" ? learnedSlang().length : key === "due" ? due.length : words.length;
 
   /* Nothing in the queue has ever been reviewed, so calling the tab "you may
      have forgotten these" is false: they were saved, not forgotten. */
@@ -213,7 +215,7 @@ export default function Vocabulary() {
                 refresh();
               }}
             >
-              {key === "due" && dueAllNew ? t("vocabulary.tabs.dueNew") : t(`vocabulary.tabs.${key}`)}
+              {key === "slang" ? t("nav.slang") : key === "due" && dueAllNew ? t("vocabulary.tabs.dueNew") : t(`vocabulary.tabs.${key}`)}
               <span className="vocab-tabs__n tabular">{count(key)}</span>
             </button>
           ))}
@@ -231,6 +233,7 @@ export default function Vocabulary() {
         </div>
       ) : (
         <>
+          {tab === "slang" && <SlangCollection />}
           {tab === "due" && (
             <div className="mt-8">
               {due.length > 0 ? (

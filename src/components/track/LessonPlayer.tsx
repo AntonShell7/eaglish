@@ -1,9 +1,12 @@
+import { trackVisit } from "@/lib/visitAnalytics";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import type { Step, TrackLesson, TrackModule } from "@/data/track";
-import { judgeTypedAnswer } from "@/lib/trackAnswer";
+import { trackLessons, type Step, type TrackLesson, type TrackModule } from "@/data/track";
+import { judgeTypedAnswer, replyVerdict, acceptedFormHint } from "@/lib/trackAnswer";
 import { assemblyTokens, sameAssembly } from "@/lib/assembly";
+import { practicedExpressions } from "@/lib/learningStats";
 import { finishLesson, resurfacedSteps } from "@/lib/trackProgress";
+import { loadLessonDraft, draftSteps, saveLessonDraft, clearLessonDraft, dealChoice } from "@/lib/trackSession";
 import "./track.css";
 
 /**
@@ -31,9 +34,12 @@ interface Props {
   module: TrackModule;
   lesson: TrackLesson;
   onExit: () => void;
+  onNext?: () => void;
+  nextTitle?: string;
 }
 
-export function LessonPlayer({ module, lesson, onExit }: Props) {
+export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Props) {
+  useEffect(() => { trackVisit("lesson"); }, []);
   const { t } = useTranslation();
 
   /*
@@ -45,7 +51,10 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
    * "wait, that was four lessons ago" — which an announced revision block
    * cannot produce. A review lesson is exempt: it is already all revision.
    */
-  const steps = useMemo<Step[]>(() => {
+  const [draft] = useState(() => loadLessonDraft(lesson));
+  const [seed] = useState(() => draft?.seed ?? Math.floor(Math.random() * 0xffffffff));
+  const [steps, setSteps] = useState<Step[]>(() => {
+    if (draft) return draftSteps(draft);
     if (lesson.review) return lesson.steps;
     const back = resurfacedSteps(lesson.id);
     if (back.length === 0) return lesson.steps;
@@ -56,17 +65,23 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
       out.splice(at, 0, step);
     }
     return out;
-  }, [lesson]);
+  });
 
   const asked = steps.filter((step) => step.kind !== "rule" && step.kind !== "chat").length;
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(draft?.index ?? 0);
   const [leaving, setLeaving] = useState(false);
-  const [judged, setJudged] = useState<Judged>(null);
+  const [judged, setJudged] = useState<Judged>(draft?.judged ?? null);
   const [checking, setChecking] = useState(false);
   const [over, setOver] = useState(false);
 
-  const step = steps[index];
+  const reviewSource = useMemo(() => lesson.steps.some(s => s.id === steps[index].id) ? undefined
+    : trackLessons().find(entry => entry.lesson.steps.some(s => s.id === steps[index].id))?.lesson, [lesson, steps, index]);
+  const step = useMemo(() => {
+    const dealt = dealChoice(steps[index], seed + index);
+    return reviewSource && dealt.kind === "type" && !dealt.reply && dealt.promptRu.includes("из этого урока")
+      ? { ...dealt, promptRu: "Вспомни выражение из прошлого урока" } : dealt;
+  }, [steps, index, seed, reviewSource]);
   const last = index >= steps.length - 1;
   /* How many questions are behind us. The header used to divide by the number
      of screens while the result divided by the number of questions, so one
@@ -76,13 +91,23 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     .filter((s) => s.kind !== "rule" && s.kind !== "chat").length;
 
   /** Per-step answer state. Each exercise owns its own shape. */
-  const [picked, setPicked] = useState<number | null>(null);
-  const [typed, setTyped] = useState("");
-  const [assembled, setAssembled] = useState<number[]>([]);
-  const [joined, setJoined] = useState<string[]>([]);
+  const [picked, setPicked] = useState<number | null>(draft?.picked ?? null);
+  const [typed, setTyped] = useState(draft?.typed ?? "");
+  const [assembled, setAssembled] = useState<number[]>(draft?.assembled ?? []);
+  const [joined, setJoined] = useState<string[]>(draft?.joined ?? []);
   const [pairPick, setPairPick] = useState<PairPick>(null);
   const [missedPair, setMissedPair] = useState<string[]>([]);
-  const [rooms, setRooms] = useState<Record<number, boolean>>({});
+  const [rooms, setRooms] = useState<Record<number, boolean>>(draft?.rooms ?? {});
+
+  const [mistakes, setMistakes] = useState(draft?.mistakes ?? 0);
+  const [retryCount, setRetryCount] = useState(draft?.retryCount ?? 0);
+  const [pairMistake, setPairMistake] = useState(draft?.pairMistake ?? false);
+  const [checkError, setCheckError] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<string | null>(draft?.feedback ?? null);
+  useEffect(() => {
+    if (over) return;
+    saveLessonDraft(lesson, { seed, stepIds: steps.map(s => s.id), index, picked, typed, assembled, joined, rooms, judged, mistakes, retryCount, pairMistake, feedback });
+  }, [lesson, seed, steps, index, picked, typed, assembled, joined, rooms, judged, mistakes, retryCount, pairMistake, feedback, over]);
 
   const fieldRef = useRef<HTMLInputElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -92,15 +117,6 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
   const advancing = useRef(false);
 
   useEffect(() => {
-    setPicked(null);
-    setTyped("");
-    setAssembled([]);
-    setJoined([]);
-    setPairPick(null);
-    setMissedPair([]);
-    setRooms({});
-    setJudged(null);
-    if (pairTimer.current !== null) window.clearTimeout(pairTimer.current);
     const headingTimer = window.setTimeout(() => {
       const heading = stageRef.current?.querySelector<HTMLElement>("h2");
       if (heading) {
@@ -206,6 +222,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         });
       }
     } else {
+      if (!pairMistake) setMistakes(n => n + 1);
+      setPairMistake(true);
       setMissedPair([left, right]);
       pairTimer.current = window.setTimeout(() => setMissedPair([]), 360);
     }
@@ -264,22 +282,44 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     }
     setChecking(true);
     try {
-      const ok = await correct();
+      setCheckError(null);
+      let ok: boolean;
+      if (step.kind === "type" && step.reply) {
+        const result = await replyVerdict(step, typed);
+        if (result.correct === null) { setCheckError(result.feedback); return; }
+        ok = result.correct;
+        setFeedback(result.feedback);
+      } else {
+        ok = await correct();
+        setFeedback(ok && (step.kind === "type" || step.kind === "gap") ? acceptedFormHint(step, typed) : null);
+      }
+      if (!ok) setMistakes(n => n + 1);
       setJudged(ok ? "right" : "wrong");
     } finally {
       setChecking(false);
     }
-  }, [ready, judged, checking, step, correct]);
+  }, [ready, judged, checking, step, correct, typed]);
 
   const advance = useCallback(() => {
     if (advancing.current) return;
     advancing.current = true;
-    if (last) {
-      finishLesson(lesson);
+    const needsRetry = judged === "wrong" || pairMistake;
+    if (needsRetry) {
+      setSteps(was => [...was, steps[index]]);
+      setRetryCount(n => n + 1);
+    }
+    if (last && !needsRetry) {
+      finishLesson(lesson, steps);
+      clearLessonDraft(lesson.id);
+      window.scrollTo({ top: 0, behavior: "auto" });
       setOver(true);
       return;
     }
     const move = () => {
+      setPicked(null); setTyped(""); setAssembled([]); setJoined([]);
+      setPairPick(null); setMissedPair([]); setRooms({}); setJudged(null);
+      setPairMistake(false); setFeedback(null); setCheckError(null);
+      if (pairTimer.current !== null) window.clearTimeout(pairTimer.current);
       setIndex((was) => was + 1);
       setLeaving(false);
       advancing.current = false;
@@ -291,7 +331,7 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
     }
     setLeaving(true);
     advanceTimer.current = window.setTimeout(move, 160);
-  }, [last, lesson]);
+  }, [last, lesson, judged, pairMistake, steps, index]);
 
   advanceRef.current = advance;
 
@@ -339,13 +379,19 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
           <span className="tk-done__h">{t("track.finish")}</span>
           <h2 className="tk-done__title">{t("track.finishTitle")}</h2>
           <p className="tk-done__lesson">{lesson.titleRu}</p>
-          <p className="tk-done__p">{t("track.finishNote")}</p>
-          <button type="button" className="tk-press tk-go tk-done__go" onClick={onExit} autoFocus>
-            <span>К дорожке</span>
+          <div className="tk-done__summary">
+            <div><strong>{practicedExpressions(steps).length}</strong><span>{t("track.summary.expressions", { count: practicedExpressions(steps).length })}</span></div>
+            <div><strong>{asked}</strong><span>{t("track.summary.tasks", { count: asked })}</span></div>
+          </div>
+          <p className="tk-done__p">{mistakes === 0 ? "Все задания выполнены без ошибок." : `Ошибок по ходу урока: ${mistakes}. Все задания с ошибками пройдены повторно.`}</p>
+          {onNext && nextTitle && <p className="tk-done__p">{t("track.summary.next", { title: nextTitle })}</p>}
+          <button type="button" className="tk-press tk-go tk-done__go" onClick={onNext ?? onExit} ref={node => { node?.focus({ preventScroll: true }); }}>
+            <span>{t(onNext ? "track.summary.nextAction" : "track.toPath")}</span>
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </button>
+          {onNext && <button type="button" className="btn btn--quiet tk-done__back" onClick={onExit}>{t("track.toPath")}</button>}
         </div>
       </div>
     );
@@ -379,6 +425,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
 
       <div ref={stageRef} className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking || leaving}>
         <div className="tk-stage__in">
+        {reviewSource && <p className="tk-review-label">Повторение: {reviewSource.titleRu}</p>}
+        {retryCount > 0 && index >= steps.length - retryCount && <p className="tk-review-label">Закрепим то, что вызвало трудности</p>}
         <StepBody
           step={step}
           judged={judged}
@@ -403,7 +451,8 @@ export function LessonPlayer({ module, lesson, onExit }: Props) {
         </div>
       </div>
 
-      <Foot judged={judged} ready={ready} checking={checking} step={step} onCheck={check} onNext={advance} last={last} nextRef={nextRef} />
+      {checkError && <p className="tk-check-error" role="alert">{checkError}</p>}
+      <Foot feedback={feedback} retryNeeded={judged === "wrong" || pairMistake} judged={judged} ready={ready} checking={checking} step={step} onCheck={check} onNext={advance} last={last} nextRef={nextRef} />
     </div>
   );
 }
@@ -419,7 +468,11 @@ function Foot({
   onNext,
   last,
   nextRef,
+  feedback,
+  retryNeeded,
 }: {
+  feedback: string | null;
+  retryNeeded: boolean;
   judged: Judged;
   ready: boolean;
   checking: boolean;
@@ -451,7 +504,7 @@ function Foot({
     );
   }
 
-  const why = whyOf(step, judged);
+  const why = feedback ?? whyOf(step, judged);
 
   return (
     <div className={`tk-foot tk-foot--${judged}`} role="status" aria-live="polite" aria-atomic="true">
@@ -468,7 +521,7 @@ function Foot({
           {why && <span className="tk-foot__why">{why}</span>}
         </span>
         <button ref={nextRef} type="button" className="tk-press tk-go" onClick={onNext}>
-          {last ? t("track.finishBtn") : t("track.next")}
+          {last && !retryNeeded ? t("track.finishBtn") : t("track.next")}
         </button>
       </div>
     </div>
@@ -549,6 +602,8 @@ function StepBody(p: BodyProps) {
                   <span className="tk-form__long">
                     {form.long}
                     {form.fullForm && <span className="tk-form__full">{form.fullForm}</span>}
+                    {form.noteRu && <span className="tk-form__note">{form.noteRu}</span>}
+                    {form.usageRu && <span className="tk-form__note">{form.usageRu}</span>}
                   </span>
                 </div>
               ))}
@@ -682,12 +737,13 @@ function StepBody(p: BodyProps) {
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
           {step.quote && <p className="tk-quote">{step.quote}</p>}
+          {step.kind === "type" && step.reply && <p className="tk-reply-help">Ответь по смыслу сообщения. Можно своими словами.</p>}
           <input
             ref={p.fieldRef}
             className="tk-field"
             value={p.typed}
             disabled={judged !== null}
-            placeholder={step.hint ? `${step.hint}…` : t("track.typeHere")}
+            placeholder={step.kind === "type" && step.reply ? "Твой ответ другу…" : step.hint ? `${step.hint}…` : t("track.typeHere")}
             aria-label={step.promptRu}
             onChange={(event) => p.setTyped(event.target.value)}
             autoComplete="off"

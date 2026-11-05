@@ -1,22 +1,12 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useAccess } from "@/context/AccessContext";
 import { sectionOf, PRO_SECTIONS } from "@/lib/plans";
+import { isFreeSlangPath } from "@/lib/freeAccess";
 import { Paywall } from "./Paywall";
 
-/**
- * The gate on the paid sections.
- *
- * It renders the paywall in place rather than redirecting, for one reason that
- * matters: the address stays the one the learner asked for. A link to a
- * dictation shared in a chat, opened by somebody without a plan, shows them
- * what that dictation is and offers the way in — and once they have a plan, a
- * reload puts them in the lesson. A redirect to /pricing throws the
- * destination away and they never find it again.
- *
- * While the plan is unknown it waits. Refusing on an unanswered question would
- * show the price to the people who have already paid, every time their
- * connection was slow, which is the one failure here that costs trust rather
- * than money.
+/** Wait for the plan, then gate paid lesson routes rather than free shelves.
+ * Listening checks its account-wide fragment allowance inside the runner.
+ * Smart repetition has no trial. The destination URL survives an upgrade.
  */
 export function RequirePlan() {
   const { isPro, loading } = useAccess();
@@ -32,7 +22,8 @@ export function RequirePlan() {
     );
   }
 
-  if (isPro) return <Outlet />;
+  const section = sectionOf(location.pathname);
+  if (isPro || section === "dictation" || (section === "slang" && isFreeSlangPath(location.pathname))) return <Outlet />;
 
   /* The section is read from the path so one guard serves all three. The
      fallback cannot normally happen — this component is only mounted under

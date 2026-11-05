@@ -1,3 +1,5 @@
+import { connectLearning } from "./learningRecords";
+import { clearLocalProgress } from "./localState";
 import { supabase } from "./supabase";
 import { getVocabularyForSync, mergeRemoteVocabulary, type VocabularyWord } from "./vocabularyStore";
 import { getWritingHistory, mergeRemoteWriting, type WritingSubmission } from "./writingHistory";
@@ -240,6 +242,7 @@ async function pullAll() {
   const db = client();
   if (!db) return;
 
+  const pullOwner = currentUserId;
   const [vocab, writing, reading, quiz, activity, profile] = await Promise.all([
     db.from("vocabulary_words").select("*"),
     db.from("writing_submissions").select("*"),
@@ -249,6 +252,7 @@ async function pullAll() {
     db.from("profiles").select("learner_profile, section_progress").eq("id", currentUserId).maybeSingle(),
   ]);
 
+  if (pullOwner !== currentUserId) return;
   if (profile.error) profileColumnMissing = true;
   else {
     mergeRemoteProfile((profile.data?.learner_profile as LearnerProfile | null) ?? null);
@@ -357,16 +361,38 @@ function pushLocalState() {
  */
 export async function setSyncUser(userId: string | null) {
   const changed = userId !== currentUserId;
+  const cachedOwner=localStorage.getItem("learningOwner");
+  if(cachedOwner && cachedOwner!==userId) clearLocalProgress();
+  if(userId) localStorage.setItem("learningOwner",userId);
+  else localStorage.removeItem("learningOwner");
   currentUserId = userId;
   if (!userId || !supabase) {
+    void connectLearning(null);
     settle();
     return;
   }
-  if (!changed) return;
+  if (!changed) { await firstPull; return; }
 
   firstPull = (async () => {
     try {
+      // The server owns reset markers; apply them before any merge or upload.
+      const { data: auth, error: authError } = await supabase!.auth.getUser();
+      if (authError || auth.user?.id !== userId) throw new Error("Cannot verify progress reset state");
+      const resetAt = auth.user.app_metadata?.progress_reset_at;
+      const resetKey = `progressResetApplied:${userId}`;
+      if (typeof resetAt === "string" && localStorage.getItem(resetKey) !== resetAt) {
+        await connectLearning(null);
+        pending.length = 0;
+        // Keep account preferences and user-created content; reset learning only.
+        const keep = ["learnerProfile", "onboardingDeferred", "dailyGoal", "accessPlan", "adminPinned", "personalTexts"];
+        const values = keep.map(key => [key, localStorage.getItem(key)] as const);
+        clearLocalProgress();
+        for (const [key, value] of values) if (value !== null) localStorage.setItem(key, value);
+        localStorage.setItem(resetKey, resetAt);
+      }
       await pullAll();
+      if(currentUserId!==userId) return;
+      await connectLearning(userId);
       pushLocalState();
       flushPending();
     } catch (error) {

@@ -1,3 +1,5 @@
+import { trackVisit } from "@/lib/visitAnalytics";
+import { readingEvidence, readingSeconds } from "@/lib/readingCompletion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { ShareButton } from "@/components/ui/ShareButton";
@@ -312,8 +314,23 @@ function TextList({
 /* ── Stage 3: read it ───────────────────────────────────────────────────── */
 
 function Reader({ text, onBack }: { text: ReadingText; onBack: () => void }) {
+  useEffect(() => { trackVisit("lesson"); }, []);
   const { t } = useTranslation();
   const article = useRef<HTMLElement>(null);
+  useEffect(() => {
+    let seconds=readingSeconds(text.id),lastInput=Date.now(),reachedEnd=false;
+    const touch=()=>{lastInput=Date.now();};
+    window.addEventListener('scroll',touch,{passive:true}); window.addEventListener('pointerdown',touch);window.addEventListener('keydown',touch);
+    const timer=setInterval(()=>{
+      if(document.visibilityState!=='visible' || Date.now()-lastInput>90000) return;
+      const node=article.current;if(!node) return;const rect=node.getBoundingClientRect();
+      if(rect.bottom<=window.innerHeight+40 && rect.bottom>0) reachedEnd=true;
+      if(rect.top<window.innerHeight && rect.bottom>0) seconds+=5;
+      readingEvidence(text.id,{seconds,reachedEnd,requiredSeconds:Math.max(30,Math.ceil(wordCount(text)/250*60))});
+    },5000);
+    return ()=>{clearInterval(timer);window.removeEventListener('scroll',touch);window.removeEventListener('pointerdown',touch);window.removeEventListener('keydown',touch);};
+  },[text]);
+
 
   useEffect(() => {
     // History only. Opening a text earns nothing; answering the questions below

@@ -69,6 +69,7 @@ export function recordLegalAcceptance() {
  * prose means it can be checked against what the app actually writes.
  */
 export const STORAGE_INVENTORY = [
+  { key: "visitBrowser", purpose: "analytics" as const },
   { key: "themeMode", purpose: "theme" as const },
   { key: "interfaceLanguage", purpose: "language" as const },
   { key: "sb-…-auth-token", purpose: "session" as const },

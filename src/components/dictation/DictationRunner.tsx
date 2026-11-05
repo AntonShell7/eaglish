@@ -1,3 +1,5 @@
+import { trackVisit } from "@/lib/visitAnalytics";
+import { recordLearning } from "@/lib/learningRecords";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { checkDictation, isExact, segmentTyped, worthLearning, type DictationResult } from "@/lib/dictation";
@@ -11,6 +13,11 @@ import { LookupPopup, type LookupRequest } from "@/components/lookup/LookupPopup
 import { PenToggle } from "@/components/ui/PenToggle";
 import { HandwritingPad, type HandwritingPadHandle } from "@/components/ui/HandwritingPad";
 import { useInputMode } from "@/lib/inputMode";
+import { useAccess } from "@/context/AccessContext";
+import { useAuth } from "@/context/AuthContext";
+import { listeningTrial } from "@/lib/listeningTrial";
+import { FREE_LISTENING_FRAGMENTS } from "@/lib/freeAccess";
+import { Paywall } from "@/components/access/Paywall";
 import "./dictation.css";
 
 /** Said on an exact answer, in turn. Nine, so a long text does not repeat. */
@@ -44,7 +51,22 @@ interface Props {
  * copied anywhere by hand, and nothing has to be remembered on the way.
  */
 export function DictationRunner({ id, title, sentences, onExit }: Props) {
+  useEffect(() => { trackVisit("lesson"); }, []);
   const { t } = useTranslation();
+  const { isPro } = useAccess();
+  const { demo } = useAuth();
+  const [trialUsed, setTrialUsed] = useState<number | null>(null);
+  const [trialError, setTrialError] = useState(false);
+  const [trialSaving, setTrialSaving] = useState(false);
+  const savingTrial = useRef(false);
+  const trialBlocked = !isPro && (trialUsed === null || trialUsed >= FREE_LISTENING_FRAGMENTS || trialError);
+  useEffect(() => {
+    if (isPro) return;
+    let cancelled = false;
+    listeningTrial(null, demo).then(used => { if (!cancelled) setTrialUsed(used); })
+      .catch(() => { if (!cancelled) setTrialError(true); });
+    return () => { cancelled = true; };
+  }, [isPro, demo]);
   const { speak, stop, speaking, supported, prefetch } = useSpeech();
   const { finish } = useTaskDone();
 
@@ -87,6 +109,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
 
   const sentence = sentences[index];
   const done = index >= sentences.length;
+
   /* Exact, not nearly: a dictation is a transcription, and "almost" is the
      thing the learner is here to stop doing. */
   /* Exact means every mark came back correct — not that accuracy reached 1,
@@ -118,7 +141,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
    * it, so arriving at the next one starts it.
    */
   useEffect(() => {
-    if (!sentence || !supported) return;
+    if (!sentence || !supported || trialBlocked) return;
     setTyped("");
     setResult(null);
     setRevealed(false);
@@ -144,7 +167,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
 
     return stop;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, supported]);
+  }, [index, supported, trialBlocked]);
 
   /**
    * Set once the learner has moved on from a fragment, so every fragment after
@@ -180,7 +203,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   const enterHeld = useRef(false);
 
   const play = () => {
-    if (!sentence) return;
+    if (!sentence || trialBlocked || savingTrial.current) return;
     setPlays((n) => n + 1);
     speak(sentence.text, slow ? 0.7 : 1);
     // Straight back to the field. The button was pressed in order to write,
@@ -195,6 +218,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
    * anywhere on the screen, including mid-word.
    */
   useEffect(() => {
+    if (trialBlocked || trialSaving) return;
     // Ctrl on its own replays, which is the shortcut every dictation tool uses
     // because it is the one key you can hit blind, mid-word, without leaving
     // the text. Firing on keydown would break every Ctrl+C, so it fires on
@@ -300,7 +324,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
   });
 
   const check = () => {
-    if (!sentence || !typed.trim()) return;
+    if (!sentence || !typed.trim() || trialBlocked || savingTrial.current) return;
     stop();
     const outcome = checkDictation(sentence.text, typed);
     setResult(outcome);
@@ -310,13 +334,31 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     setMissedAll((all) => [...new Set([...all, ...outcome.missed])]);
   };
 
-  const next = () => {
+  const next = async () => {
+    if (trialBlocked || savingTrial.current) return;
+    stop();
+    let used = trialUsed;
+    if (!isPro) {
+      savingTrial.current = true;
+      setTrialSaving(true);
+      try {
+        used = await listeningTrial(`${id}:${index}`, demo);
+        setTrialUsed(used);
+      } catch {
+        setTrialError(true);
+        return;
+      } finally {
+        savingTrial.current = false;
+        setTrialSaving(false);
+      }
+    }
     /* The next fragment plays itself; this one did not. Pressing play once at
        the start of a lesson is a decision — the learner chooses when sound
        begins — and pressing it again at every fragment after that is a chore
        with no decision in it. */
-    autoPlay.current = true;
+    autoPlay.current = isPro || (used !== null && used < FREE_LISTENING_FRAGMENTS);
     const nextIndex = index + 1;
+    recordLearning("listening",id,{furthest:nextIndex,total:sentences.length,completed:nextIndex>=sentences.length,completedAt:nextIndex>=sentences.length?new Date().toISOString():null});
     if (nextIndex >= sentences.length) {
       finish("listening", `dictation:${id}:${new Date().toDateString()}`, t("dictation.taskDone"));
       clearProgress(id);
@@ -342,6 +384,16 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
     addVocabularyWord(word, found.translation, t("dictation.source", { title }), sentence?.text);
     setSaved((s) => ({ ...s, [word]: "done" }));
   };
+
+  if (!isPro && trialError) {
+    return <div className="card p-8 text-center"><p>{t("pricing.trial.error")}</p><button className="btn btn--primary mt-4" onClick={() => {
+      setTrialError(false);
+      setTrialUsed(null);
+      void listeningTrial(null, demo).then(setTrialUsed).catch(() => setTrialError(true));
+    }}>{t("pricing.trial.retry")}</button></div>;
+  }
+  if (!isPro && trialUsed === null) return <div className="skeleton h-40 rounded-xl" aria-label={t("pricing.trial.loading")} />;
+  if (!isPro && trialUsed !== null && trialUsed >= FREE_LISTENING_FRAGMENTS) return <Paywall section="dictation" />;
 
   if (!supported) {
     return (
@@ -375,14 +427,15 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
         {/* The dictation is already scored and saved; this is the offer to do
             something with the words that caught you out. */}
         <div className="text-left">
-          <WordPractice context={title} words={worthLearning(missedAll).slice(0, 6).map((word) => ({ word }))} />
+          {isPro && <WordPractice context={title} words={worthLearning(missedAll).slice(0, 6).map((word) => ({ word }))} />}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="dict">
+    <div className="dict" aria-busy={trialSaving}>
+      {!isPro && <p className="mb-4 text-sm" style={{ color: "var(--color-text-muted)" }}>{t("pricing.trial.listening", { count: FREE_LISTENING_FRAGMENTS - (trialUsed ?? 0) })}</p>}
       <div className="dict__top">
         <button type="button" className="btn btn--quiet btn--sm" onClick={onExit}>
           ← {t("dictation.back")}

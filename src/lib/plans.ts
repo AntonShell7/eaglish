@@ -1,23 +1,6 @@
-/**
- * What is free, what is paid, and what it costs.
- *
- * One file, because these facts are needed by the pricing page, the paywall,
- * the navigation and the route guards, and a price that lives in four places
- * is a price that will disagree with itself. Change a number here and every
- * screen follows.
- *
- * The boundary is drawn on purpose rather than by what was easiest to lock.
- * Reading is free and complete — all of it, every text — because reading is
- * where words come from, and the whole product is built on the claim that you
- * learn a word by meeting it in something you wanted to read. A free tier that
- * rations that has nothing to sell later: nobody buys a vocabulary tool before
- * they have a vocabulary. So the free account does the collecting, and the
- * paid account does everything that *uses* what was collected — listening,
- * writing, and the spoken English the textbooks leave out.
- *
- * The dictionary and the review schedule are free forever, in both tiers. They
- * are where somebody's own work accumulates, and holding that hostage is the
- * one thing that would make the paywall feel like a trap instead of a price.
+/** Shared prices and plan features. Reading and vocabulary stay free;
+ * Slang includes the first block, listening includes ten lifetime fragments,
+ * and Smart repetition requires Pro from the start.
  */
 
 export type PlanId = "free" | "pro";
@@ -91,7 +74,7 @@ export const DAILY_AI_CALLS: Record<PlanId, number> = {
  * which is the only reason a pricing table beats a paragraph.
  */
 export const PLAN_FEATURES: Record<PlanId, readonly string[]> = {
-  free: ["readingAll", "vocabulary", "schedule", "progress", "aiFree"],
+  free: ["slangTrial", "listeningTrial", "readingAll", "vocabulary", "schedule", "progress", "aiFree"],
   pro: ["slang", "listening", "writing", "everythingFree", "handwriting", "aiPro"],
 } as const;
 

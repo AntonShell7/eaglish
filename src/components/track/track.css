@@ -1,5 +1,5 @@
 /* The Slang course and its lesson player. The course uses one continuous
-   spine, tactile nodes and soft cards; mint is the only accent. */
+   spine, tactile nodes and the same four surfaces as reading and listening. */
 
 /* ── shared tactile control ──────────────────────────────────────────────── */
 .tk-press {
@@ -104,8 +104,7 @@
   transition: width 400ms var(--ease-out);
 }
 .tk-block .tk-path { margin-top: 18px; }
-.tk-step--review .tk-card { --fill: var(--color-primary-softer); }
-.tk-step--review .tk-card::before { border-color: color-mix(in srgb, var(--color-primary) 60%, var(--color-border)); }
+
 
 /* ── connected lesson path ───────────────────────────────────────────────── */
 .tk-path {
@@ -143,7 +142,7 @@
 }
 .tk-step:disabled { cursor: default; }
 .tk-step:focus-visible { outline: none; }
-.tk-step:focus-visible .tk-card::before {
+.tk-step:focus-visible .tk-card {
   outline: 3px solid color-mix(in srgb, var(--color-primary) 42%, transparent);
   outline-offset: 4px;
 }
@@ -185,7 +184,8 @@
 
 .tk-card {
   --lip: 5px;
-  --fill: var(--color-surface);
+  border-width: 1px;
+  border-style: solid;
   position: relative;
   z-index: 1;
   display: flex;
@@ -195,21 +195,16 @@
   width: 100%;
   min-height: 124px;
   padding: 17px 19px 15px;
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   color: var(--color-text);
 }
 .tk-step:nth-child(even) .tk-card { grid-column: 3; }
-.tk-card::before {
-  border: 1px solid var(--color-border-strong);
-  box-shadow:
-    0 var(--lip) 0 0 var(--color-border),
-    0 var(--lip) 0 0 var(--fill);
-}
-.tk-step--here .tk-card { --fill: var(--color-primary-softer); }
-.tk-step--here .tk-card::before { border: 2px solid var(--color-primary); }
-.tk-step--done .tk-card { --fill: var(--color-surface); }
-.tk-step--locked .tk-card { --fill: var(--color-surface-2); color: var(--color-text-faint); }
-.tk-step:not(:disabled):hover .tk-card { filter: brightness(1.015); }
+/* Share the reading/listening surface, including locked and completed lessons. */
+.tk-step--here .tk-card { outline: 2px solid var(--lvl-ink); outline-offset: 3px; }
+.tk-step--locked .tk-card { color: var(--color-text-muted); }
+.tk-step:disabled .tk-card:hover { box-shadow: none; }
+.tk-step:disabled .tk-card:hover::before { opacity: 0.55; }
+.tk-step .tk-card__kind { color: var(--lvl-ink); }
 .tk-card__top {
   display: flex;
   align-items: center;
@@ -224,7 +219,7 @@
   text-transform: uppercase;
   color: var(--color-primary);
 }
-.tk-step--locked .tk-card__kind { color: var(--color-text-faint); }
+
 .tk-card__number {
   font-size: 0.7rem;
   font-variant-numeric: tabular-nums;
@@ -1071,12 +1066,11 @@
   min-width: 150px;
   height: var(--control-h);
   padding: 0 24px;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   color: var(--color-on-primary);
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.008em;
 }
 .tk-go:disabled { --fill: var(--color-surface-3); color: var(--color-text-faint); }
 .tk-foot--wrong .tk-go { --fill: var(--color-danger); color: #fff; }
@@ -1100,7 +1094,7 @@
   width: min(560px, 100%);
   padding: 52px 44px 40px;
   border: 1px solid color-mix(in srgb, var(--color-primary) 32%, var(--color-border));
-  border-radius: 32px;
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24);
   text-align: center;
@@ -1177,7 +1171,7 @@
   border-radius: 3px;
   background: var(--color-primary);
   opacity: 0;
-  animation: tk-confetti 1.65s 120ms var(--ease-out) both;
+  animation: tk-confetti 900ms 80ms var(--ease-out) both;
 }
 .tk-done__confetti span:nth-child(4n + 2) { background: #fff; }
 .tk-done__confetti span:nth-child(4n + 3) { background: var(--color-text-faint); }
@@ -1255,7 +1249,8 @@
 .tk-form__note {
   max-width: none;
   margin-top: 8px;
-  color: var(--color-text-muted);
+  color: var(--color-text);
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -1271,7 +1266,7 @@
   max-width: 560px;
   padding: 16px 18px;
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: var(--color-surface-2);
 }
 
@@ -1279,7 +1274,7 @@
 .tk-pair,
 .tk-room {
   --lip: 3px;
-  border-radius: 16px;
+  border-radius: var(--radius-md);
 }
 .tk-opt {
   min-height: 64px;
@@ -1294,7 +1289,7 @@
   height: 58px;
   padding: 0 18px;
   border: 2px solid var(--color-border-strong);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: var(--color-surface);
   transition: border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
 }
@@ -1307,7 +1302,7 @@
   gap: 6px;
   padding: 18px;
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   background: var(--color-surface-2);
 }
 .tk-gap input {
@@ -1473,3 +1468,18 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
   }
   .tk-done__confetti { display: none; }
 }
+
+.tk-done__summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 24px 0; padding: 20px 0; border-block: 1px solid var(--color-border); }
+.tk-done__summary strong { display: block; color: var(--color-primary); font-size: 2rem; line-height: 1.2; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tk-done__summary span { display: block; margin-top: 8px; color: var(--color-text-muted); font-size: .875rem; line-height: 1.6; }
+.tk-done__back { display: flex; margin: 16px auto 0; }
+.tk-done__go { text-transform: none; }
+.tk-step--locked .tk-card__expressions { color: var(--color-text-muted); }
+@media (max-width: 600px) { .tk-done__card { border-radius: var(--radius-lg); } }
+
+.tk-review-label { color: var(--color-primary); font-size: .9rem; margin: 0 0 16px; }
+.tk-check-error { max-width: 660px; margin: 16px auto 180px; padding: 16px; color: var(--color-text); background: var(--color-surface); border-radius: 14px; line-height: 1.5; }
+
+.tk-reply-help { margin: -8px 0 16px; color: var(--color-text); font-size: .95rem; line-height: 1.5; }
+
+.tk-course-nav{padding:20px;border:1px solid var(--color-border);border-radius:20px;margin-bottom:24px;display:grid;gap:20px}.tk-course-nav>div,.tk-module-paging{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.tk-course-nav label{display:grid;gap:8px}.tk-course-nav select{width:100%;min-width:0}.tk-learned{margin-top:28px;padding:20px;border:1px solid var(--color-border);border-radius:20px}.tk-learned summary{cursor:pointer;font-weight:700;margin-bottom:16px}.tk-learned-row{display:flex;width:100%;text-align:left;gap:16px;padding:14px 0;border-bottom:1px solid var(--color-border)}.tk-learned-row strong{color:var(--color-primary);min-width:25%}.tk-learned-row span:last-child{margin-left:auto}.tk-award{padding:20px;margin:20px 0;border:1px solid var(--color-primary);border-radius:20px;background:var(--color-primary-soft)}

@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { trackLessons, trackModules, type TrackKind, type TrackLesson } from "@/data/track";
-import { currentLessonId, doneLessons, resetTrack } from "@/lib/trackProgress";
+import { currentLessonId, doneLessons } from "@/lib/trackProgress";
+import "@/pages/reading.css";
 import "./track.css";
+
+const kindBand: Record<TrackKind, string> = {
+  chat: "a1-a2",
+  idiom: "b1-b2",
+  speech: "c1-c2",
+  review: "advanced",
+};
 
 export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const { t, i18n } = useTranslation();
@@ -10,9 +18,8 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const lessons = trackLessons();
   const current = currentLessonId();
   const done = new Set(doneLessons());
-  const finished = lessons.filter(({ lesson }) => done.has(lesson.id)).length;
-  const [asking, setAsking] = useState(false);
   const [, bump] = useState(0);
+  useEffect(()=>{const refresh=()=>bump(n=>n+1);window.addEventListener("learning-records",refresh);return()=>window.removeEventListener("learning-records",refresh);},[]);
 
   useEffect(() => {
     if (!current) return;
@@ -67,7 +74,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
                         </span>
                       </span>
 
-                      <span className="tk-press tk-card">
+                      <span className={`tk-card lvl-card lvl-card--${kindBand[lesson.kind]}`}>
                         <span className="tk-card__top">
                           <span className="tk-card__kind">{t(`track.lessonKind.${lesson.kind}`)}</span>
                           <span className="tk-card__number">{String(index + 1).padStart(2, "0")}</span>
@@ -94,26 +101,7 @@ export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
         })}
       </div>
 
-      {finished > 0 && (
-        <div className="tk-track__reset">
-          <button
-            type="button"
-            className="tk-reset"
-            onClick={() => {
-              if (!asking) {
-                setAsking(true);
-                return;
-              }
-              resetTrack();
-              setAsking(false);
-              bump((n) => n + 1);
-            }}
-            onBlur={() => setAsking(false)}
-          >
-            {asking ? t("track.againSure") : t("track.again")}
-          </button>
-        </div>
-      )}
+
     </div>
   );
 }

@@ -46,10 +46,14 @@ function aiDevEndpoint(apiKey: string | undefined, openAiKey?: string): Plugin {
   }
 }
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   // Loaded here rather than through import.meta.env: the key must stay out of
   // the client bundle, and anything VITE_-prefixed would land in it.
   const env = loadEnv(mode, process.cwd(), '')
+  // Never publish against the retired hosted database from .env.local.
+  if (command === 'build' && mode === 'production' && env.VITE_SUPABASE_URL?.includes('mkplecldxqrsksnzxfuf.supabase.co')) {
+    throw new Error('Production build targets the retired database. Use the production environment documented in CLAUDE.md.')
+  }
 
   return {
     plugins: [react(), tailwindcss(), aiDevEndpoint(env.GROQ_API_KEY, env.OPENAI_API_KEY)],

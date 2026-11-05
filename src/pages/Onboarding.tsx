@@ -179,7 +179,7 @@ export default function Onboarding() {
       onboardedAt: Date.now(),
       placement: placement ?? undefined,
     });
-    navigate("/");
+    navigate("/slang");
   };
 
   return (
@@ -246,7 +246,7 @@ export default function Onboarding() {
                   className="ob-skip"
                   onClick={() => {
                     deferOnboarding();
-                    navigate("/");
+                    navigate("/slang");
                   }}
                 >
                   {t("onboarding.later")}

@@ -587,3 +587,23 @@
 .adm__intakeNote {
   color: var(--color-text-muted);
 }
+
+.adm__table--learning th{white-space:normal;min-width:90px;max-width:150px;line-height:1.5}.adm__table--learning td small{display:block;max-width:160px;white-space:normal}.adm__table--learning th:first-child{min-width:36px}
+
+.visit-stats { display:grid; gap:1rem; margin-top:1.25rem }
+.visit-stats h2,.visit-stats h3 { font-weight:700 }
+.visit-stats h2 { font-size:1.45rem }
+.visit-stats p,.visit-axis { color:var(--color-text-muted); font-size:.875rem }
+.visit-periods,.visit-kpis { display:flex; flex-wrap:wrap; gap:.5rem }
+.visit-periods [aria-pressed=true] { background:var(--color-text); color:var(--color-bg) }
+.visit-stats article { border:1px solid var(--color-border); border-radius:1rem; padding:1rem }
+.visit-kpis article { flex:1 1 9rem; font-size:.85rem }
+.visit-kpis strong { display:block; font-size:1.85rem; font-variant-numeric:tabular-nums }
+.visit-bars { display:flex; gap:2px; height:8rem; border-bottom:1px solid currentColor; margin-top:2rem }
+.visit-bars div { display:flex; align-items:flex-end; position:relative; flex:1; min-width:0 }
+.visit-bars i { background:#39927a; width:100%; border-radius:3px 3px 0 0 }
+.visit-bars div:is(:hover,:focus)::before { content:attr(data-hint); position:absolute; bottom:100%; left:0; white-space:nowrap; font-size:.75rem }
+.visit-bars div:nth-last-child(-n+6)::before { left:auto; right:0 }
+.visit-axis,.visit-row { display:flex; justify-content:space-between; gap:.4rem; flex-wrap:wrap }
+.visit-row { margin:.8rem 0; font-size:.9rem; overflow-wrap:anywhere }
+.visit-row progress { width:100%; height:.45rem; accent-color:#39927a }

@@ -34,7 +34,7 @@ export default function Pricing() {
   const { user } = useAuth();
   const { isPro, expiresAt } = useAccess();
 
-  const [cycle, setCycle] = useState<Cycle>("yearly");
+  const [cycle, setCycle] = useState<Cycle>("monthly");
   const seg = useSegmented(cycle);
 
   const [paying, setPaying] = useState(false);
@@ -178,6 +178,7 @@ export default function Pricing() {
                     {t("pricing.pay.needAccount")}
                   </Link>
                 )}
+                <p className="pr__payment-note">{t("pricing.paymentNote")}</p>
                 {payError && (
                   <p className="mt-2 text-sm text-[var(--color-danger)]" role="alert">
                     {t(`pricing.pay.errors.${payError}`)}

@@ -1,0 +1,8 @@
+const fs=require('fs'),assert=require('assert/strict'),vm=require('vm'),ts=require('typescript');
+let allowed=false,effect,attempts=0;const scheduled=[];const listeners={};
+const react={useState:()=>[false,v=>{allowed=v}],useEffect:fn=>{effect=fn}};
+const supabase={auth:{getSession:async()=>({data:{session:++attempts===1?null:{access_token:'test-token'}}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})}};
+let source=fs.readFileSync('src/lib/admin.ts','utf8').replaceAll('import.meta.env','({VITE_SUPABASE_URL:"https://example.test",VITE_SUPABASE_ANON_KEY:"test-public-key"})');
+const moduleObject={exports:{}};const context={exports:moduleObject.exports,module:moduleObject,require:n=>n==='react'?react:{supabase},window:{addEventListener:(k,v)=>listeners[k]=v,removeEventListener:k=>delete listeners[k]},setTimeout:(fn,delay)=>{scheduled.push({fn,delay});return scheduled.length;},clearTimeout:()=>{},fetch:async()=>({ok:true,status:200,json:async()=>({allowed:true})})};
+vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,context);
+(async()=>{moduleObject.exports.useAdminAccess('owner');const cleanup=effect();scheduled[0].fn();await new Promise(setImmediate);assert.equal(allowed,false);scheduled[1].fn();await new Promise(setImmediate);assert.equal(allowed,true,'Owner link must recover after late session restore');assert.equal(attempts,2);cleanup();console.log('PASS: owner link recovers after initial missing session; cleanup removes listeners.');})().catch(e=>{console.error(e);process.exitCode=1});

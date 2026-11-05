@@ -32,7 +32,6 @@ const gapTranslations: Record<string, string> = {
   tbh: "Честно говоря, концовка меня удивила.",
   "break a leg": "Твоё выступление начинается прямо сейчас. Удачи!",
   "a piece of cake": "Не переживай из-за теста. Он проще простого.",
-  dumbass: "Я забыл собственный пароль. Ну я и идиот.",
   "piece of shit": "Эта дешёвая мышь — полное д*рьмо.",
   idk: "Я не знаю, куда она пошла.",
   idgaf: "Пусть ненавидит мои посты. Мне совершенно плевать.",
@@ -44,7 +43,7 @@ const gapTranslations: Record<string, string> = {
   "that's wild": "Она за одну ночь переехала в другую страну? Вот это да!",
   wyd: "Чем занимаешься сегодня вечером?",
   lmk: "Дай мне знать, если сможешь прийти.",
-  nvm: "Неважно, я уже всё понял.",
+  nvm: "Неважно, я уже это нашёл.",
   "on the same page": "Давай обсудим ещё раз, чтобы убедиться, что мы одинаково понимаем план.",
   "off the hook": "Тебе больше не нужно помогать. Ты свободен от этой обязанности.",
   "fair enough": "Тебе не понравилось? Справедливо, принято.",
@@ -63,7 +62,6 @@ const gapTranslations: Record<string, string> = {
   "over the moon": "Услышав новость, она была на седьмом небе от счастья.",
   "on cloud nine": "После свадьбы он был в полном восторге.",
   "chill out": "С нами всё в порядке. Просто успокойся.",
-  moron: "Какой-то придурок припарковался на двух местах.",
   bitching: "Хватит ныть о погоде.",
   ngl: "Если честно, я не ожидал победить.",
   irl: "Мы познакомились онлайн, но ни разу не встречались в реальной жизни.",
@@ -79,23 +77,14 @@ const gapTranslations: Record<string, string> = {
   "lie low": "После той ссоры он решил затаиться.",
   badass: "Она боролась за свою команду. Она очень крутая и бесстрашная.",
   nerd: "Мой брат — настоящий фанат науки.",
-  "bitchin'": "Твой новый велосипед выглядит офигенно.",
   "never mind": "Неважно, это больше не имеет значения.",
   "what are you talking about": "О чём ты вообще? Я этого никогда не говорил.",
   "leave me alone": "Мне нужно побыть одному. Оставь меня в покое.",
   "change my mind": "Я собирался уйти, но передумал.",
   "cool off": "Давай поговорим после того, как мы оба остынем.",
   douchebag: "Он вёл себя как настоящий м*дак.",
-  jackass: "Не веди себя как придурок.",
-  bastard: "Он всем солгал. Какой подлец.",
   damn: "Я опоздал на последний поезд. Чёрт.",
-  "what the hell": "Что за чёрт ты делаешь?",
-  "pissed off": "Я очень зол из-за задержки.",
   "the best seats in the house": "У нас лучшие места в зале!",
-  "stop selling me that crap": "Не рассказывай мне эту чушь. Я знаю, что ты врёшь.",
-  "kick someone's butt": "Сегодня вечером мы их разгромим.",
-  "son of a bitch": "Он украл мои деньги, этот с*кин сын.",
-  asshole: "Перестань вести себя как м*дак.",
   bullshit: "Его объяснение — полная чушь.",
   "say less": "Я всё сделаю. Договорились!",
   "no biggie": "Ты забыл ручку? Ничего страшного.",
@@ -123,7 +112,6 @@ const gapTranslations: Record<string, string> = {
 const gapAnswerOverrides: Record<string, string[]> = {
   "get under someone's skin": ["get under my skin"],
   "change my mind": ["changed my mind"],
-  "kick someone's butt": ["kick their butt"],
 };
 
 function e(
@@ -156,29 +144,30 @@ function e(
 const chatHonesty: LessonSpec = {
   id: "chat-honesty",
   kind: "chat",
-  title: "Thank and be honest in a chat",
-  titleRu: "Благодарить и говорить честно",
-  subtitleRu: "thx · tq · tbh",
-  ruleTitleRu: "Три лёгких сокращения для переписки",
-  introRu: "Thx и tq — быстрые варианты «спасибо» или «благодарю», а tbh вводит честное мнение. Это неформальные сокращения для друзей и личных чатов.",
+  title: "Keep a chat moving",
+  titleRu: "Сообщить, отменить просьбу и поблагодарить",
+  subtitleRu: "lmk · nvm · tq",
+  ruleTitleRu: "Три коротких сообщения с разным смыслом",
+  introRu: "Lmk — let me know: попроси сообщить ответ. Nvm — never mind: отмени просьбу, которая больше не нужна. Tq — thank you: поблагодари; это менее распространённый вариант, чем thx. Всё это для неформальной переписки.",
   withWhomRu: "Майя",
   lines: [
-    { text: "I can send you my notes from class.", at: "21:04" },
-    { me: true, text: "thx! That would really help.", at: "21:04", glossRu: "thx — спасибо" },
-    { text: "Sent them. Did you like the ending?", at: "21:05" },
-    { me: true, text: "tq! tbh, I didn't expect that ending.", at: "21:05", glossRu: "tq — спасибо; tbh — честно говоря" },
+    { text: "lmk if you need the notes.", at: "21:04", glossRu: "lmk — дай мне знать" },
+    { me: true, text: "Yes, please! I can't find mine.", at: "21:04" },
+    { me: true, text: "nvm, found them in my bag.", at: "21:05", glossRu: "nvm — неважно, уже не нужно" },
+    { text: "I'll send you the practice questions instead.", at: "21:05" },
+    { me: true, text: "tq! That would help.", at: "21:06", glossRu: "tq — спасибо" },
   ],
   expressions: [
-    e("thx", "спасибо, благодарю", "Неформальный вариант thanks для личной переписки.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
-    e("tbh", "честно говоря, если честно", "Сокращение от to be honest. Так вводят честное мнение.", ["кстати", "я не знаю"], "", ", the ending surprised me.", "Честно говоря, мне понравился фильм.", ["tbh, I liked the movie", "tbh I liked the movie", "to be honest, I liked the movie"], ["to be honest"]),
+    e("lmk", "дай мне знать, сообщи мне", "Let me know. Просьба сообщить решение или новость позже.", ["не говори мне", "позвони мне"], "", " if you can come.", "Дай мне знать, если освободишься.", ["lmk if you're free", "let me know if you're free"], ["let me know"]),
+    e("nvm", "неважно, уже не нужно", "Never mind. Отменяет предыдущий вопрос или просьбу, а не выражает «ничего страшного» в любой ситуации.", ["спасибо", "никогда"], "", ", I found it.", "Неважно, я уже всё понял.", ["nvm, I figured it out", "never mind, I figured it out"], ["never mind"]),
     e("tq", "спасибо, благодарю", "Сокращение от thank you. Встречается реже, чем thx.", ["кстати", "пожалуйста"], "", " for the notes!", "Спасибо, что прислал ссылку!", ["tq for sending the link", "thank you for sending the link"], ["thank you"]),
   ],
   scenario: {
-    promptRu: "Выбери сообщение с благодарностью и честным мнением",
-    quote: "Друг прислал фильм. Поблагодари его через thx и честно скажи через tbh, что фильм тебе понравился.",
-    options: ["thx! tbh, I loved it.", "tbh, I loved it.", "thx! I loved it."],
+    promptRu: "Как отменить просьбу, которая больше не нужна?",
+    quote: "Ты попросил друга найти ссылку, но уже нашёл её сам.",
+    options: ["nvm, I found it.", "lmk if you find it.", "tq for finding it."],
     answer: 0,
-    whyRu: "Thx — короткое «спасибо», а tbh — «честно говоря». В правильном сообщении есть оба сокращения.",
+    whyRu: "Nvm отменяет предыдущую просьбу. Lmk просит сообщить ответ, а tq благодарит.",
   },
 };
 
@@ -201,11 +190,11 @@ const idiomBasics: LessonSpec = {
     e("break a leg", "удачи, ни пуха ни пера", "Традиционное пожелание удачи, особенно перед выступлением.", ["сломай ногу", "отдохни немного"], "Your performance starts now. ", "!", "Удачи на выступлении!", ["break a leg"]),
     e("a piece of cake", "проще простого, раз плюнуть", "Так называют задачу, которую легко выполнить.", ["кусок торта", "очень сложная задача"], "Don't worry about the test. It's ", ".", "Этот тест — проще простого.", ["this test is a piece of cake", "the test is a piece of cake"]),
   ],
-  reviewPairs: [["tbh", "честно говоря, если честно"]],
+  reviewPairs: [["tq", "спасибо, благодарю"]],
   scenario: {
     promptRu: "Что ответить другу перед выступлением?",
     quote: "«Я ужасно нервничаю. Через минуту выхожу на сцену».",
-    options: ["Break a leg!", "It's a piece of cake.", "thx!"],
+    options: ["Break a leg!", "It's a piece of cake.", "tq!"],
     answer: 0,
     whyRu: "Break a leg — естественное пожелание удачи перед выступлением.",
   },
@@ -214,59 +203,73 @@ const idiomBasics: LessonSpec = {
 const speechTeasing: LessonSpec = {
   id: "speech-teasing",
   kind: "speech",
-  title: "Tease and complain",
-  titleRu: "Поддеть друга и пожаловаться на вещь",
-  subtitleRu: "dumbass · piece of shit",
-  ruleTitleRu: "Живой сленг с сильным оттенком",
-  introRu: "Dumbass — грубое название или описание человека, включая самого себя. A piece of shit может описывать ужасную вещь, а про человека звучит как очень сильное оскорбление. Оба выражения грубые.",
+  title: "React to a broken device",
+  titleRu: "Реагировать на поломку",
+  subtitleRu: "no way · piece of shit",
+  ruleTitleRu: "Реагировать на поломку",
+  introRu: "No way — «не может быть!», а в другом контексте — категоричное «ни за что». Piece of shit — очень грубая оценка вещи; о человеке это сильное оскорбление. Здесь учимся различать силу реакции.",
   withWhomRu: "Бен",
   lines: [
-    { text: "Bro, you walked right past the exit.", at: "18:20" },
-    { me: true, text: "I'm such a dumbass. I didn't see it.", at: "18:20", glossRu: "dumbass — идиот" },
-    { text: "And why does your controller keep disconnecting?", at: "18:21" },
-    { me: true, text: "Because it's a piece of shit.", at: "18:21", glossRu: "a piece of shit — полное д*рьмо" },
+    {
+      text: "My controller broke again.",
+      at: "18:20"
+    },
+    {
+      text: "No way! You only bought it yesterday.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "No. It's a piece of shit.",
+      at: "18:22"
+    },
+    {
+      text: "Let's use mine.",
+      at: "18:23",
+      me: true
+    }
   ],
   expressions: [
-    e("dumbass", "идиот, тупица", "Грубое название или описание человека; так можно поддеть и самого себя. Между друзьями иногда звучит шутливо, но легко обидеть.", ["гений", "храбрец"], "I forgot my own password. I'm such a ", ".", "Я забыл ключи. Ну я и идиот.", ["I forgot my keys. I'm such a dumbass"]),
+    e("no way", "не может быть, да ладно", "Может выражать удивление или категоричный отказ — интонация решает многое.", ["конечно", "я знал"], "He won again? ", "!", "Он сказал это тебе? Да ладно!", ["he told you that? No way", "he told you that? no way!"]),
     e("piece of shit", "отвратительная вещь, д*рьмо", "О вещи — «полное д*рьмо». О человеке — крайне оскорбительно.", ["отличная вещь", "кусок торта"], "This cheap mouse is a ", ".", "Этот ноутбук — полное д*рьмо.", ["this laptop is a piece of shit", "the laptop is a piece of shit"], ["a piece of shit"]),
   ],
   reviewPairs: [["a piece of cake", "проще простого, раз плюнуть"]],
   scenario: {
-    promptRu: "Выбери выражение, которое подходит именно вещи",
-    quote: "«Эта мышь постоянно отключается. Она просто ужасная».",
-    options: ["It's a piece of shit.", "It's a dumbass.", "It's a piece of cake."],
+    promptRu: "Как выразить удивление без грубости?",
+    quote: "Друг говорит, что его новый контроллер сломался через день после покупки.",
+    options: ["No way! Already?", "It's a piece of shit.", "It's a piece of cake."],
     answer: 0,
-    whyRu: "A piece of shit может описывать неработающую вещь. Dumbass относится к человеку.",
+    whyRu: "No way! здесь означает «не может быть!». Piece of shit — грубая оценка вещи, a piece of cake — лёгкая задача.",
   },
 };
 
 const chatNotes: LessonSpec = {
   id: "chat-notes",
   kind: "chat",
-  title: "React and add a thought in a chat",
-  titleRu: "Отвечать коротко и добавлять мысль",
-  subtitleRu: "idk · idgaf · btw",
-  ruleTitleRu: "Не знать, реагировать и добавлять мысль",
-  introRu: "Idk помогает быстро ответить, idgaf передаёт очень грубое «мне совершенно плевать», а btw добавляет новую мысль или уточнение. Все три встречаются в неформальной переписке.",
+  title: "Be honest about what you know and care about",
+  titleRu: "Не знать, говорить честно и резко отвечать",
+  subtitleRu: "idk · idgaf · tbh",
+  ruleTitleRu: "Незнание, честность и безразличие",
+  introRu: "Idk помогает быстро ответить, idgaf передаёт очень грубое «мне совершенно плевать», а tbh вводит честное мнение. Все три встречаются в неформальной переписке.",
   withWhomRu: "Алекс",
   lines: [
     { text: "Do you know where Sam is?", at: "12:10" },
     { me: true, text: "idk. He didn't answer me.", at: "12:11", glossRu: "idk — я не знаю" },
     { text: "He's annoyed that you left.", at: "12:11" },
-    { me: true, text: "idgaf. btw, I'm already home.", at: "12:12", glossRu: "idgaf — мне совершенно плевать; btw — кстати" },
+    { me: true, text: "tbh, idgaf. I needed to leave.", at: "12:12", glossRu: "tbh — честно говоря; idgaf — мне совершенно плевать" },
   ],
   expressions: [
     e("idk", "я не знаю", "Сокращение от I don't know для личных сообщений.", ["мне всё равно", "я согласен"], "", " where she went.", "Я не знаю, где он.", ["idk where he is", "I don't know where he is"], ["I don't know"]),
     e("idgaf", "мне совершенно плевать, мне пох*й", "Сокращение от I don't give a fuck. Очень грубо: только для близких друзей.", ["я не понимаю", "мне очень нравится"], "He can hate my posts. ", "", "Мне совершенно плевать, что он думает.", ["idgaf what he thinks", "I don't give a fuck what he thinks"], ["I don't give a fuck"]),
-    e("btw", "кстати, если что", "Сокращение от by the way. Так добавляют новую мысль или уточнение.", ["честно говоря", "прямо сейчас"], "", ", are you free tomorrow?", "Кстати, ты свободен сегодня вечером?", ["btw, are you free tonight", "btw are you free tonight", "by the way, are you free tonight"], ["by the way"]),
+    e("tbh", "честно говоря, если честно", "Сокращение от to be honest. Так вводят честное мнение.", ["кстати", "я не знаю"], "", ", the ending surprised me.", "Честно говоря, мне понравился фильм.", ["tbh, I liked the movie", "tbh I liked the movie", "to be honest, I liked the movie"], ["to be honest"]),
   ],
-  reviewPairs: [["thx", "спасибо, благодарю"], ["tbh", "честно говоря, если честно"]],
+  reviewPairs: [["lmk", "дай мне знать, сообщи мне"], ["tq", "спасибо, благодарю"]],
   scenario: {
-    promptRu: "Как начать сообщение с дополнительной мысли?",
-    quote: "Ты уже договорился о встрече и хочешь добавить: «Кстати, возьми зарядку».",
-    options: ["btw, bring a charger.", "idgaf, bring a charger.", "idk, bring a charger."],
+    promptRu: "Как ввести честное мнение без грубости?",
+    quote: "Ты хочешь признаться другу: «Честно говоря, мне не понравился фильм».",
+    options: ["tbh, I didn't like the movie.", "idgaf about the movie.", "idk which movie you mean."],
     answer: 0,
-    whyRu: "Btw означает «кстати» и естественно вводит дополнительную мысль.",
+    whyRu: "Tbh вводит честное мнение. Idgaf — грубое безразличие, idk — незнание.",
   },
 };
 
@@ -289,7 +292,7 @@ const idiomActions: LessonSpec = {
     e("all ears", "внимательно слушаю, весь во внимании", "Обычно говорят I'm all ears в ответ на предложение что-то рассказать.", ["не слушаю", "оглох"], "Tell me everything. I'm ", ".", "Рассказывай, я внимательно слушаю.", ["tell me, I'm all ears", "go ahead, I'm all ears"]),
     e("get under someone's skin", "действовать кому-то на нервы", "В речи меняется местоимение: my, your, his, her, their skin.", ["спрятаться под кожу", "кого-то вдохновить"], "His constant complaints really ", ".", "Его шутки действуют мне на нервы.", ["his jokes get under my skin", "his jokes really get under my skin"], ["get under my skin", "gets under my skin"]),
   ],
-  reviewPairs: [["btw", "кстати, если что"], ["break a leg", "удачи, ни пуха ни пера"]],
+  reviewPairs: [["tbh", "честно говоря, если честно"], ["break a leg", "удачи, ни пуха ни пера"]],
   scenario: {
     promptRu: "Что сказать, если ты готов выслушать историю?",
     quote: "Подруга: «У меня есть для тебя новость. Ты сейчас можешь поговорить?»",
@@ -304,22 +307,22 @@ const speechReactions: LessonSpec = {
   kind: "speech",
   title: "React to surprising news",
   titleRu: "Реагировать на смешное и неожиданное",
-  subtitleRu: "I'm dead · no way · that's wild",
+  subtitleRu: "I'm dead · bummer · that's wild",
   ruleTitleRu: "Три реакции, которые оживляют разговор",
-  introRu: "I'm dead часто означает «я умираю со смеху». No way выражает удивление, а that's wild подчёркивает, насколько ситуация странная или невероятная.",
+  introRu: "I'm dead часто означает «я умираю со смеху». Bummer выражает досаду, а that's wild подчёркивает, насколько ситуация странная или невероятная.",
   withWhomRu: "Оскар",
   lines: [
     { text: "Our teacher came to class in a dinosaur costume.", at: "14:02" },
-    { me: true, text: "No way!", at: "14:02", glossRu: "no way — не может быть" },
-    { text: "And he roared instead of saying hello.", at: "14:03" },
-    { me: true, text: "I'm dead. That's wild.", at: "14:03", glossRu: "I'm dead — я умираю со смеху; that's wild — вот это да" },
+    { me: true, text: "That's wild. Did you get a video?", at: "14:02", glossRu: "that's wild — вот это да" },
+    { text: "No, my phone was dead. But he roared instead of saying hello.", at: "14:03" },
+    { me: true, text: "Bummer about the video. But I'm dead just imagining it.", at: "14:03", glossRu: "bummer — облом; I'm dead — умираю со смеху" },
   ],
   expressions: [
     e("I'm dead", "я умираю со смеху", "В сообщениях и разговоре — реакция на что-то очень смешное, а не сообщение об опасности.", ["я устал", "мне грустно"], "That video was hilarious. ", ".", "Я умираю со смеху, это так смешно.", ["I'm dead. That's so funny"]),
-    e("no way", "не может быть, да ладно", "Может выражать удивление или категоричный отказ — интонация решает многое.", ["конечно", "я знал"], "He won again? ", "!", "Он сказал это тебе? Да ладно!", ["he told you that? No way", "he told you that? no way!"]),
+    { short: "bummer", meaningRu: "вот досада, облом", noteRu: "Неформальная реакция на неприятную новость, без мата.", wrong: ["всё отлично", "не знаю"], before: "What a ", after: "! My controller broke.", gapRu: "Вот досада! Мой контроллер сломался.", translationRu: "Вот досада! Мой контроллер сломался.", translationEn: ["What a bummer! My controller broke."] },
     e("that's wild", "вот это да, невероятно", "Реакция на странную, шокирующую или неожиданную ситуацию.", ["это скучно", "это нормально"], "She moved to another country overnight? ", ".", "Он купил пять котов? Вот это да!", ["he bought five cats? That's wild", "he bought five cats? that's wild"]),
   ],
-  reviewPairs: [["idk", "я не знаю"], ["dumbass", "идиот, тупица"]],
+  reviewPairs: [["idk", "я не знаю"], ["no way", "не может быть, да ладно"]],
   scenario: {
     promptRu: "Выбери реакцию на очень смешное видео",
     quote: "Друг прислал ролик, из-за которого ты буквально не можешь перестать смеяться.",
@@ -334,28 +337,28 @@ const chatBasics: LessonSpec = {
   kind: "chat",
   title: "Make plans in short messages",
   titleRu: "Договариваться короткими сообщениями",
-  subtitleRu: "wyd · lmk · nvm",
+  subtitleRu: "wyd · btw · thx",
   ruleTitleRu: "Планы без длинной переписки",
-  introRu: "Wyd спрашивает, чем человек занят. Lmk просит сообщить ответ позже. Nvm отменяет предыдущую просьбу или вопрос, когда они больше не нужны.",
+  introRu: "Wyd — вопрос «чем занимаешься?». Btw добавляет мысль со значением «кстати». Thx — распространённое короткое thanks: теперь сравни его с уже знакомым tq.",
   withWhomRu: "Сэм",
   lines: [
-    { text: "wyd?", at: "17:30", glossRu: "wyd — чем занимаешься" },
-    { me: true, text: "Trying to find my keys.", at: "17:30" },
-    { text: "lmk if you need help.", at: "17:31", glossRu: "lmk — дай мне знать" },
-    { me: true, text: "nvm, they were in my bag.", at: "17:32", glossRu: "nvm — неважно" },
+    { text: "wyd tonight?", at: "17:30", glossRu: "wyd — чем занимаешься" },
+    { me: true, text: "Nothing planned. Why?", at: "17:30" },
+    { text: "Come over! btw, I found your charger.", at: "17:31", glossRu: "btw — кстати" },
+    { me: true, text: "thx! I'll be there at eight.", at: "17:32", glossRu: "thx — спасибо" },
   ],
   expressions: [
     e("wyd", "чем занимаешься, что делаешь", "What are you doing. Короткий вопрос другу, часто служит началом разговора.", ["куда идёшь", "что случилось"], "", " tonight?", "Чем занимаешься сегодня вечером?", ["wyd tonight", "what are you doing tonight"], ["what are you doing"]),
-    e("lmk", "дай мне знать, сообщи мне", "Let me know. Просьба сообщить решение или новость позже.", ["не говори мне", "позвони мне"], "", " if you can come.", "Дай мне знать, если освободишься.", ["lmk if you're free", "let me know if you're free"], ["let me know"]),
-    e("nvm", "неважно, уже не нужно", "Never mind. Отменяет предыдущий вопрос или просьбу, а не выражает «ничего страшного» в любой ситуации.", ["спасибо", "никогда"], "", ", I found it.", "Неважно, я уже всё понял.", ["nvm, I figured it out", "never mind, I figured it out"], ["never mind"]),
+    e("btw", "кстати, если что", "Сокращение от by the way. Так добавляют новую мысль или уточнение.", ["честно говоря", "прямо сейчас"], "", ", are you free tomorrow?", "Кстати, ты свободен сегодня вечером?", ["btw, are you free tonight", "btw are you free tonight", "by the way, are you free tonight"], ["by the way"]),
+    e("thx", "спасибо, благодарю", "Неформальный вариант thanks для личной переписки.", ["кстати", "пожалуйста"], "I found your book. ", "!", "Спасибо за помощь!", ["thx for your help", "thx for the help", "thanks for your help", "thanks for the help"], ["thanks"]),
   ],
   reviewPairs: [["no way", "не может быть, да ладно"]],
   scenario: {
-    promptRu: "Выбери уместное использование nvm",
-    quote: "Ты попросил друга найти ссылку, но через секунду нашёл её сам.",
-    options: ["nvm, I found it.", "nvm, thanks for the link.", "nvm, send it to me."],
+    promptRu: "Как добавить новую мысль к сообщению?",
+    quote: "Вы уже договорились встретиться. Теперь добавь: «Кстати, возьми зарядку».",
+    options: ["btw, bring a charger.", "wyd, bring a charger.", "thx, bring a charger."],
     answer: 0,
-    whyRu: "Nvm отменяет уже ненужную просьбу. Если друг прислал ссылку, вместо него нужно сказать спасибо.",
+    whyRu: "Btw — «кстати»: вводит дополнительную мысль. Wyd задаёт вопрос, а thx благодарит.",
   },
 };
 
@@ -563,29 +566,43 @@ const idiomFeelings: LessonSpec = {
 const speechComplaints: LessonSpec = {
   id: "speech-complaints",
   kind: "speech",
-  title: "Complain and calm someone down",
-  titleRu: "Жаловаться, злиться и успокаивать",
-  subtitleRu: "chill out · moron · bitching",
-  ruleTitleRu: "Когда разговор становится эмоциональным",
-  introRu: "Chill out — просьба успокоиться. Moron — грубое «идиот». Bitching — нытьё и жалобы.",
+  title: "Complain and calm down",
+  titleRu: "Жаловаться и снижать накал",
+  subtitleRu: "chill out · a pain · bitching",
+  ruleTitleRu: "Жаловаться и снижать накал",
+  introRu: "Chill out — просьба успокоиться; она может прозвучать снисходительно. Bitching — грубое слово о жалобах. A pain — мягкая разговорная оценка неудобства.",
   withWhomRu: "Дэн",
   lines: [
-    { text: "Some moron cut me off on the way home!", at: "18:50", glossRu: "moron — идиот" },
-    { me: true, text: "Chill out. You're home safely now.", at: "18:50", glossRu: "chill out — успокойся" },
-    { text: "I'm not bitching, he almost hit my car!", at: "18:51", glossRu: "bitching — ною" },
+    {
+      text: "Finding parking here is a pain.",
+      at: "18:20"
+    },
+    {
+      text: "Chill out. We still have plenty of time.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "I know. I'll stop bitching about it.",
+      at: "18:22"
+    }
   ],
   expressions: [
     e("chill out", "успокойся, расслабься", "Неформальная просьба снизить эмоциональный накал. На обиженного человека может действовать раздражающе.", ["разволнуйся", "поторопись"], "We're fine. Just ", ".", "Успокойся. Всё в порядке.", ["Chill out. Everything is fine"], ["chill"]),
-    e("moron", "идиот, придурок", "Оскорбление человека. Грубее, чем просто silly, и не подходит для нейтрального описания.", ["гений", "друг"], "Some ", " parked across two spaces.", "Этот идиот опять кричит.", ["this moron is shouting again", "that moron is shouting again"]),
+    { short: "a pain", meaningRu: "морока, неудобство", noteRu: "Разговорно, без мата: о том, что доставляет хлопоты.", wrong: ["всё отлично", "не знаю"], before: "Finding parking is ", after: ".", gapRu: "Искать парковку — та ещё морока.", translationRu: "Искать парковку — та ещё морока.", translationEn: ["Finding parking is a pain."] },
     e("bitching", "нытьё, жалобы", "Глагол bitch в значении «жаловаться». Описывает жалобы и недовольство, а не похвалу.", ["похвала", "молчание"], "Stop ", " about the weather.", "Хватит ныть о работе.", ["stop bitching about work", "stop your bitching about work"]),
   ],
-  reviewPairs: [["over the moon", "на седьмом небе от счастья, в полном восторге"], ["smh", "ну и ну; буквально «качаю головой»"]],
+  reviewPairs: [],
   scenario: {
-    promptRu: "Выбери правильное значение bitching",
-    quote: "Друг уже десять минут жалуется на холод, очередь и плохой кофе.",
-    options: ["He's bitching.", "He's over the moon.", "He's all ears."],
+    promptRu: "Как назвать неудобство без грубости?",
+    quote: "Тебе трудно найти парковку.",
+    options: [
+      "Finding parking is a pain.",
+      "I'm over the moon.",
+      "I'm all ears."
+    ],
     answer: 0,
-    whyRu: "Bitching — нытьё и жалобы, именно это делает герой ситуации.",
+    whyRu: "A pain — разговорное «морока», без мата."
   },
 };
 
@@ -738,29 +755,43 @@ const idiomLowKey: LessonSpec = {
 const speechLabels: LessonSpec = {
   id: "speech-labels",
   kind: "speech",
-  title: "Describe people and praise things",
-  titleRu: "Описывать людей и хвалить вещи",
-  subtitleRu: "badass · nerd · bitchin'",
-  ruleTitleRu: "Комплимент, увлечённость и разговорное «офигенно»",
-  introRu: "Badass — крутой и дерзкий человек. Nerd — ботаник или человек, глубоко увлечённый учёбой или темой. Bitchin' — грубое разговорное «офигенный», не путать с bitching.",
+  title: "Praise people and their work",
+  titleRu: "Хвалить людей и их работу",
+  subtitleRu: "badass · nerd · top-notch",
+  ruleTitleRu: "Хвалить людей и их работу",
+  introRu: "Badass — грубоватый комплимент смелости или крутости. Nerd может быть дружеским самоописанием или обидным ярлыком. Top-notch — отличного качества, без грубости.",
   withWhomRu: "Зои",
   lines: [
-    { text: "Mia built her own computer in one night.", at: "21:15" },
-    { me: true, text: "She's a total nerd, and honestly, she's badass.", at: "21:15", glossRu: "nerd — ботаник; badass — очень крутая" },
-    { text: "And the lighting on it looks bitchin'.", at: "21:16", glossRu: "bitchin' — офигенно" },
+    {
+      text: "Mia built her own computer in one night.",
+      at: "18:20"
+    },
+    {
+      text: "She's a computer nerd, and she's badass.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "The build quality is top-notch.",
+      at: "18:22"
+    }
   ],
   expressions: [
     e("badass", "крутой, дерзкий, бесстрашный", "Неформальный комплимент человеку или поступку. Может быть и существительным, и прилагательным.", ["слабый", "скучный"], "She fought for her team. She's a ", ".", "Этот трюк был очень крутым.", ["that trick was badass", "the trick was badass"]),
     e("nerd", "ботаник, человек, увлечённый темой", "Может быть обидным ярлыком или дружеским самоописанием: a computer nerd.", ["чемпион", "дурак"], "My brother is a real science ", ".", "Я немного фанатею от истории.", ["I'm a bit of a history nerd", "I am a bit of a history nerd"]),
-    e("bitchin'", "офигенный, потрясающий", "Грубый сленг с положительным значением. Bitching с g — нытьё, значение противоположное.", ["отвратительный", "жалующийся"], "Your new bike looks ", ".", "Эта песня офигенная.", ["this song is bitchin'", "this song is bitchin"]),
+    { short: "top-notch", meaningRu: "первоклассный, отличного качества", noteRu: "Положительная оценка качества без грубости.", wrong: ["всё отлично", "не знаю"], before: "Your work is ", after: ".", gapRu: "Твоя работа — первоклассная.", translationRu: "Твоя работа — первоклассная.", translationEn: ["Your work is top-notch."] },
   ],
-  reviewPairs: [["under the weather", "нездоров, плохо себя чувствую"], ["gotta", "нужно, должен"]],
+  reviewPairs: [],
   scenario: {
-    promptRu: "Выбери положительный комплимент",
-    quote: "Ты восхищён новым мотоциклом друга.",
-    options: ["It looks bitchin'.", "It's bitching.", "It's a moron."],
+    promptRu: "Как похвалить качество без грубости?",
+    quote: "Друг хорошо собрал компьютер.",
+    options: [
+      "The build quality is top-notch.",
+      "It's under the weather.",
+      "It's on edge."
+    ],
     answer: 0,
-    whyRu: "Bitchin' означает «офигенный». Bitching — это нытьё, а не комплимент.",
+    whyRu: "Top-notch означает «первоклассный», без грубого оттенка."
   },
 };
 
@@ -813,7 +844,7 @@ const idiomDecisions: LessonSpec = {
     e("change my mind", "передумать, изменить мнение", "Меняется местоимение: change your / his / her mind.", ["изменить погоду", "забыть решение"], "I was going to leave, but I ", ".", "Я передумал насчёт поездки.", ["I changed my mind about the trip", "I've changed my mind about the trip"], ["change my mind", "changed my mind"]),
     e("cool off", "остыть, успокоиться", "Может относиться к эмоциям или буквальному снижению температуры; здесь — эмоции.", ["разозлиться", "замёрзнуть"], "Let's talk after we both ", ".", "Мне нужно остыть после спора.", ["I need to cool off after the argument", "I need to cool off after our argument"]),
   ],
-  reviewPairs: [["never mind", "неважно, забудь"], ["bitchin'", "офигенный, потрясающий"]],
+  reviewPairs: [["never mind", "неважно, забудь"], ["top-notch", "первоклассный, отличного качества"]],
   scenario: {
     promptRu: "Что сказать после эмоционального спора?",
     quote: "Ты не хочешь продолжать разговор, пока не успокоишься.",
@@ -826,118 +857,187 @@ const idiomDecisions: LessonSpec = {
 const speechInsults: LessonSpec = {
   id: "speech-insults",
   kind: "speech",
-  title: "Understand strong insults",
-  titleRu: "Понимать жёсткие оскорбления",
-  subtitleRu: "douchebag · jackass · bastard",
-  ruleTitleRu: "Три оскорбления с разными оттенками",
-  introRu: "Douchebag — неприятный, самодовольный человек. Jackass — идиот или человек, ведущий себя глупо. Bastard — очень грубое оскорбление жестокого или подлого человека.",
+  title: "Respond to rude behavior",
+  titleRu: "Реагировать на невежливое поведение",
+  subtitleRu: "douchebag · not cool · cross the line",
+  ruleTitleRu: "Реагировать на невежливое поведение",
+  introRu: "Douchebag — сильное оскорбление, которое полезно понимать. Not cool осуждает поступок без мата. Cross the line означает перейти границу допустимого.",
   withWhomRu: "Макс",
   lines: [
-    { text: "That douchebag pushed past the whole queue.", at: "17:05", glossRu: "douchebag — м*дак" },
-    { me: true, text: "What a jackass.", at: "17:05", glossRu: "jackass — придурок" },
-    { text: "Then he laughed at the woman who fell.", at: "17:06" },
-    { me: true, text: "He sounds like a real bastard.", at: "17:06", glossRu: "bastard — подлец" },
+    {
+      text: "That douchebag pushed past the whole queue.",
+      at: "18:20"
+    },
+    {
+      text: "That's not cool.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "Then he laughed at a woman who fell.",
+      at: "18:22"
+    },
+    {
+      text: "Personal insults and cruel jokes cross the line.",
+      at: "18:23",
+      me: true
+    }
   ],
   expressions: [
     e("douchebag", "м*дак, неприятный самодовольный тип", "Сильное оскорбление поведения и характера, не просто нейтральное «глупый».", ["приятный человек", "скромный человек"], "He acted like a total ", ".", "Он вёл себя как настоящий м*дак.", ["he acted like a total douchebag", "he was a total douchebag"]),
-    e("jackass", "придурок, идиот", "Грубое оскорбление, особенно за глупый или опасный поступок.", ["умница", "герой"], "Don't be a ", ".", "Ты вёл себя как придурок.", ["you acted like a jackass", "you were a jackass"]),
-    e("bastard", "подлец, м*дак", "Очень грубо. Есть буквальное значение «внебрачный ребёнок», но в сленге чаще это сильное оскорбление.", ["друг", "ангел"], "He lied to everyone. What a ", ".", "Он оказался настоящим подлецом.", ["he turned out to be a real bastard", "he was a real bastard"]),
+    { short: "not cool", meaningRu: "так не делают, это нехорошо", noteRu: "Осуждает поступок без оскорбления человека.", wrong: ["всё отлично", "не знаю"], before: "Laughing at her was ", after: ".", gapRu: "Смеяться над ней было нехорошо.", translationRu: "Смеяться над ней было нехорошо.", translationEn: ["Laughing at her was not cool."] },
+    { short: "cross the line", meaningRu: "перейти границу допустимого", noteRu: "О поведении, которое выходит за допустимые рамки.", wrong: ["всё отлично", "не знаю"], before: "Personal insults ", after: ".", gapRu: "Личные оскорбления переходят границу допустимого.", translationRu: "Личные оскорбления переходят границу допустимого.", translationEn: ["Personal insults cross the line."] },
   ],
-  reviewPairs: [["cool off", "остыть, успокоиться"], ["what are you talking about", "о чём ты вообще, что ты имеешь в виду"]],
+  reviewPairs: [["cool off", "остыть, успокоиться"]],
   scenario: {
-    promptRu: "Выбери оскорбление для глупого опасного поступка",
-    quote: "Водитель чуть не сбил человека и ещё посмеялся над этим.",
-    options: ["What a jackass.", "What a nerd.", "What a piece of cake."],
+    promptRu: "Как осудить поступок без оскорбления?",
+    quote: "Человек растолкал людей в очереди.",
+    options: [
+      "That's not cool.",
+      "What a douchebag.",
+      "That's top-notch."
+    ],
     answer: 0,
-    whyRu: "Jackass подходит для грубого осуждения глупого или опасного поведения.",
+    whyRu: "Not cool оценивает поступок без грубого ярлыка."
   },
 };
 
 const chatAnger: LessonSpec = {
   id: "chat-anger",
   kind: "chat",
-  title: "Express anger and frustration",
-  titleRu: "Выразить злость и досаду",
-  subtitleRu: "damn · what the hell · pissed off",
-  ruleTitleRu: "Когда ситуация действительно бесит",
-  introRu: "Damn передаёт досаду или удивление. What the hell усиливает вопрос. Pissed off — очень зол или раздражён; более грубо, чем angry.",
+  title: "Express frustration",
+  titleRu: "Выражать досаду в переписке",
+  subtitleRu: "damn · seriously? · so frustrating",
+  ruleTitleRu: "Выражать досаду в переписке",
+  introRu: "Damn — грубоватое восклицание досады. Seriously? выражает удивление или недоверие без мата. So frustrating описывает раздражающую ситуацию.",
   withWhomRu: "Нина",
   lines: [
-    { text: "What the hell happened to your car?", at: "08:15", glossRu: "what the hell — что, чёрт возьми" },
-    { me: true, text: "Someone hit it and drove away. Damn.", at: "08:15", glossRu: "damn — чёрт" },
-    { text: "You must be pissed off.", at: "08:16", glossRu: "pissed off — очень зол" },
+    {
+      text: "The train has been cancelled again.",
+      at: "18:20"
+    },
+    {
+      text: "Seriously? Damn, I needed to get home.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "This is so frustrating.",
+      at: "18:22"
+    }
   ],
   expressions: [
     e("damn", "чёрт, блин", "Грубоватое восклицание досады, злости или удивления.", ["отлично", "спасибо"], "I missed the last train. ", ".", "Чёрт, я забыл кошелёк.", ["damn, I forgot my wallet", "damn. I forgot my wallet"]),
-    e("what the hell", "что за чёрт, что вообще происходит", "Усиливает вопрос и добавляет злость или шок. Неформально и грубовато.", ["всё понятно", "как дела"], "", " are you doing?", "Что за чёрт здесь происходит?", ["what the hell is happening here", "what the hell is going on here"]),
-    e("pissed off", "очень зол, взбешён", "Грубее, чем angry. Be pissed off about something — злиться из-за чего-то.", ["доволен", "расслаблен"], "I'm really ", " about the delay.", "Я очень зол из-за этого.", ["I'm really pissed off about this", "I am really pissed off about this"]),
+    { short: "seriously?", meaningRu: "серьёзно?", noteRu: "Реакция удивления или недоверия; тон может быть возмущённым.", wrong: ["всё отлично", "не знаю"], before: "Wait, ", after: "", gapRu: "Погоди, серьёзно?", translationRu: "Погоди, серьёзно?", translationEn: ["Wait, seriously?"] },
+    { short: "so frustrating", meaningRu: "так раздражает", noteRu: "О ситуации, вызывающей раздражение; без мата.", wrong: ["всё отлично", "не знаю"], before: "This delay is ", after: ".", gapRu: "Эта задержка так раздражает.", translationRu: "Эта задержка так раздражает.", translationEn: ["This delay is so frustrating."] },
   ],
-  reviewPairs: [["jackass", "придурок, идиот"], ["change my mind", "передумать, изменить мнение"]],
+  reviewPairs: [["not cool", "так не делают, это нехорошо"]],
   scenario: {
-    promptRu: "Как сказать, что ты очень зол?",
-    quote: "Кто-то повредил твою машину и скрылся.",
-    options: ["I'm pissed off.", "I'm over the moon.", "I'm all ears."],
+    promptRu: "Как описать раздражение без ругани?",
+    quote: "Поезд снова задержали.",
+    options: [
+      "This is so frustrating.",
+      "I'm on cloud nine.",
+      "It's top-notch."
+    ],
     answer: 0,
-    whyRu: "Pissed off — грубоватый разговорный способ сказать «я очень зол».",
+    whyRu: "So frustrating описывает раздражающую ситуацию без ругани."
   },
 };
 
 const idiomConfrontation: LessonSpec = {
   id: "idiom-confrontation",
   kind: "idiom",
-  title: "Challenge nonsense and expect a win",
-  titleRu: "Не верить чуши и настраиваться на победу",
-  subtitleRu: "the best seats in the house · stop selling me that crap · kick someone's butt",
-  ruleTitleRu: "Перед игрой и в споре",
-  introRu: "The best seats in the house — лучшие места в зале. Stop selling me that crap — резкое «не рассказывай мне эту чушь». Kick someone's butt — разгромить кого-то.",
+  title: "Enjoy a game and question a claim",
+  titleRu: "Обсуждать игру и сомневаться в словах",
+  subtitleRu: "the best seats in the house · take it with a grain of salt · come out on top",
+  ruleTitleRu: "Обсуждать игру и сомневаться в словах",
+  introRu: "The best seats in the house — лучшие места в зале. Take it with a grain of salt — относиться к словам скептически. Come out on top — выйти победителем. Все три выражения без мата.",
   withWhomRu: "Рой",
   lines: [
-    { text: "The seller claims these tickets cost a thousand dollars.", at: "18:30" },
-    { me: true, text: "Stop selling me that crap.", at: "18:30", glossRu: "stop selling me that crap — не рассказывай мне эту чушь" },
-    { text: "But look, they're the best seats in the house!", at: "18:31", glossRu: "the best seats in the house — лучшие места в зале" },
-    { me: true, text: "Fine. Let's go watch our team kick some butt.", at: "18:31", glossRu: "kick some butt — разгромить соперников" },
+    {
+      text: "The seller says these are the best seats in the house.",
+      at: "18:20"
+    },
+    {
+      text: "Take it with a grain of salt. Let's check the seating plan.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "Do you think our team will win?",
+      at: "18:22"
+    },
+    {
+      text: "I think we can come out on top.",
+      at: "18:23",
+      me: true
+    }
   ],
   expressions: [
     e("the best seats in the house", "лучшие места в зале", "House здесь означает зал или площадку, а не частный дом.", ["худшие места", "места возле дома"], "We got ", "!", "У нас лучшие места в зале.", ["we have the best seats in the house", "we've got the best seats in the house"]),
-    e("stop selling me that crap", "не рассказывай мне эту чушь", "Очень резкое недоверие к словам продавца или собеседника, не нейтральная просьба.", ["расскажи подробнее", "продай мне это"], "", ". I know you're lying.", "Не рассказывай мне эту чушь. Я тебе не верю.", ["Stop selling me that crap. I don't believe you"]),
-    e("kick someone's butt", "разгромить кого-то, надрать кому-то зад", "В спорте обычно означает уверенно победить. Буквально — угроза драки, поэтому контекст важен.", ["проиграть", "помочь кому-то"], "We're going to ", " tonight.", "Мы разгромим их в этой игре.", ["we're going to kick their butt in this game", "we're gonna kick their butt in this game"], ["kick their butt", "kick your butt"]),
+    { short: "take it with a grain of salt", meaningRu: "отнестись к этому скептически", noteRu: "Не принимать сказанное на веру полностью.", wrong: ["всё отлично", "не знаю"], before: "That is only a prediction. ", after: ".", gapRu: "Это лишь прогноз. Отнесись к нему скептически.", translationRu: "Это лишь прогноз. Отнесись к нему скептически.", translationEn: ["That is only a prediction. take it with a grain of salt."] },
+    { short: "come out on top", meaningRu: "выйти победителем", noteRu: "Победить в соревновании или сложной ситуации.", wrong: ["всё отлично", "не знаю"], before: "Our team can ", after: ".", gapRu: "Наша команда может выйти победителем.", translationRu: "Наша команда может выйти победителем.", translationEn: ["Our team can come out on top."] },
   ],
-  reviewPairs: [["pissed off", "очень зол, взбешён"], ["leave me alone", "оставь меня в покое, отстань от меня"]],
+  reviewPairs: [["leave me alone", "оставь меня в покое, отстань от меня"]],
   scenario: {
-    promptRu: "Что сказать перед важной игрой?",
-    quote: "Ты уверен, что твоя команда уверенно победит соперников.",
-    options: ["We're gonna kick their butt.", "We're gonna lie low.", "We're gonna cut corners."],
+    promptRu: "Как сказать, что команда может победить?",
+    quote: "Ты веришь в свою команду.",
+    options: [
+      "We can come out on top.",
+      "We can lie low.",
+      "We can cut corners."
+    ],
     answer: 0,
-    whyRu: "Kick their butt в спортивном контексте означает разгромить соперников.",
+    whyRu: "Come out on top означает выйти победителем."
   },
 };
 
 const speechProfanity: LessonSpec = {
   id: "speech-profanity",
   kind: "speech",
-  title: "Understand profanity in arguments",
-  titleRu: "Понимать грубую речь в конфликте",
-  subtitleRu: "son of a bitch · asshole · bullshit",
-  ruleTitleRu: "Сильные выражения, которые важно распознавать",
-  introRu: "Asshole и son of a bitch оскорбляют человека. Bullshit называет слова чушью, враньём или несправедливостью. Все три выражения очень грубые.",
+  title: "Question a dubious explanation",
+  titleRu: "Сомневаться в чужом объяснении",
+  subtitleRu: "bullshit · that doesn't add up · I'm not buying it",
+  ruleTitleRu: "Сомневаться в чужом объяснении",
+  introRu: "Bullshit — очень грубая оценка слов как чуши или вранья. That doesn’t add up указывает на несостыковку без мата. I’m not buying it — неформальное «я в это не верю».",
   withWhomRu: "Эмма",
   lines: [
-    { text: "That asshole hit my car and blamed me.", at: "16:55", glossRu: "asshole — м*дак" },
-    { me: true, text: "That's bullshit.", at: "16:55", glossRu: "that's bullshit — это чушь" },
-    { text: "And then he drove away, the son of a bitch.", at: "16:56", glossRu: "son of a bitch — с*кин сын" },
+    {
+      text: "He says he was at home, but I saw him at the party.",
+      at: "18:20"
+    },
+    {
+      text: "That doesn't add up.",
+      at: "18:21",
+      me: true
+    },
+    {
+      text: "He says you saw someone else.",
+      at: "18:22"
+    },
+    {
+      text: "I'm not buying it. That explanation is bullshit.",
+      at: "18:23",
+      me: true
+    }
   ],
   expressions: [
-    e("son of a bitch", "с*кин сын, м*дак", "Очень сильное оскорбление. Иногда восклицание злости, но не нейтральная фраза.", ["хороший человек", "сын друга"], "He stole my money, the ", ".", "Этот с*кин сын меня обманул.", ["that son of a bitch tricked me", "the son of a bitch tricked me"]),
-    e("asshole", "м*дак, з*сранец", "Очень грубое оскорбление неприятного или жестокого человека.", ["приятный человек", "глупенький"], "Stop acting like an ", ".", "Не веди себя как м*дак.", ["don't act like an asshole", "don't be an asshole"]),
     e("bullshit", "чушь, враньё, несправедливость", "Очень грубое отрицание слов или ситуации. That's bullshit — это полная чушь.", ["правда", "отличная новость"], "His explanation is complete ", ".", "Это полная чушь.", ["that's complete bullshit", "this is complete bullshit", "that's bullshit"]),
+    { short: "that doesn't add up", meaningRu: "что-то не сходится", noteRu: "В объяснении есть несостыковка. Без грубости.", wrong: ["всё отлично", "не знаю"], before: "Wait, ", after: ".", gapRu: "Погоди, что-то не сходится.", translationRu: "Погоди, что-то не сходится.", translationEn: ["Wait, that doesn't add up."] },
+    { short: "I'm not buying it", meaningRu: "я в это не верю", noteRu: "Разговорное недоверие; речь не о покупке.", wrong: ["всё отлично", "не знаю"], before: "Sorry, ", after: ".", gapRu: "Извини, я в это не верю.", translationRu: "Извини, я в это не верю.", translationEn: ["Sorry, I'm not buying it."] },
   ],
-  reviewPairs: [["what the hell", "что за чёрт, что вообще происходит"], ["kick someone's butt", "разгромить кого-то, надрать кому-то зад"]],
+  reviewPairs: [["take it with a grain of salt", "отнестись к этому скептически"]],
   scenario: {
-    promptRu: "Выбери грубую реакцию на явное враньё",
-    quote: "Собеседник придумал объяснение, которому ты совершенно не веришь.",
-    options: ["That's bullshit.", "That's fair enough.", "That's a piece of cake."],
+    promptRu: "Как указать на несостыковку без ругани?",
+    quote: "Две части рассказа противоречат друг другу.",
+    options: [
+      "That doesn't add up.",
+      "That's bullshit.",
+      "That's top-notch."
+    ],
     answer: 0,
-    whyRu: "Bullshit грубо называет утверждение чушью или враньём.",
+    whyRu: "That doesn’t add up указывает на противоречие без мата."
   },
 };
 
@@ -965,7 +1065,7 @@ const chatReassurance: LessonSpec = {
   scenario: {
     promptRu: "Как ответить на извинение друга?",
     quote: "Друг забыл твой кофе и извинился. Ты не злишься.",
-    options: ["No biggie. It's all good.", "I'm pissed off.", "You wish."],
+    options: ["No biggie. It's all good.", "I'm on edge.", "You wish."],
     answer: 0,
     whyRu: "No biggie и all good естественно показывают, что из-за маленькой ошибки переживать не нужно.",
   },
@@ -989,7 +1089,7 @@ const idiomImpressions: LessonSpec = {
     e("on point", "безупречный, прямо в точку", "Подходит для образа, выступления, ответа или другого точного результата.", ["совсем мимо", "небрежный"], "Your outfit is ", ".", "Твой ответ был прямо в точку.", ["your answer was on point"]),
     e("hits different", "ощущается совершенно иначе, особенно сильно", "Обычно о положительном или эмоционально особенном впечатлении.", ["ничем не отличается", "совсем не нравится"], "This song ", " late at night.", "Этот фильм вечером ощущается совершенно иначе.", ["this movie hits different in the evening"]),
   ],
-  reviewPairs: [["over the moon", "на седьмом небе от счастья, в полном восторге"]],
+  reviewPairs: [["off the hook", "свободен от обязанности"]],
   scenario: {
     promptRu: "Как похвалить безупречный образ?",
     quote: "Друг отлично подобрал одежду, и тебе всё в нём нравится.",
@@ -1018,7 +1118,7 @@ const speechBoldEnergy: LessonSpec = {
     e("full send", "на полную, без колебаний", "Очень неформальное выражение о решительном действии без сдерживания.", ["наполовину", "без интереса"], "We're going ", " tonight.", "Давай выкладываться на полную.", ["let's go full send"]),
     e("built different", "не такой, как все, особенный", "Неформальный комплимент способностям, характеру или необычному мышлению.", ["совсем обычный", "без способностей"], "She trained every day. She's ", ".", "Он не такой, как все.", ["he's built different", "he is built different"]),
   ],
-  reviewPairs: [["badass", "крутой, дерзкий, бесстрашный"], ["bitchin'", "офигенный, потрясающий"]],
+  reviewPairs: [["on point", "безупречный, в точку"], ["hits different", "ощущается иначе"]],
   scenario: {
     promptRu: "Как сказать, что ты действуешь на максимум?",
     quote: "Ты не сомневаешься и готов полностью выложиться.",
@@ -1106,7 +1206,7 @@ const speechUnfiltered: LessonSpec = {
     e("out of pocket", "неуместный, за гранью", "Современный сленг о шутке, замечании или поведении, которые нарушают границы.", ["очень уместный", "идеально вежливый"], "That comment was completely ", ".", "Его шутка была совсем неуместной.", ["his joke was totally out of pocket"]),
     e("unhinged", "безбашенный, вышедший из-под контроля", "Может описывать шокирующее или хаотичное поведение; среди друзей часто звучит шутливо.", ["спокойный и собранный", "предсказуемый"], "He's acting completely ", " today.", "Она сегодня ведёт себя безбашенно.", ["she's acting unhinged today", "she is acting unhinged today"]),
   ],
-  reviewPairs: [["what the hell", "что за чёрт, что вообще происходит"], ["that's wild", "вот это да, невероятно"]],
+  reviewPairs: [["no way", "не может быть, да ладно"], ["that's wild", "вот это да, невероятно"]],
   scenario: {
     promptRu: "Как отреагировать на жестокую неуместную шутку?",
     quote: "Друг пошутил над чужой внешностью за официальным ужином.",
@@ -1136,7 +1236,7 @@ const chatTruth: LessonSpec = {
     e("real talk", "если серьёзно, без прикрас", "Вводит искреннее мнение или серьёзную часть разговора.", ["пошутим", "неважно"], "", ", I need a break.", "Если серьёзно, мне нужен отдых.", ["real talk, I need a break"]),
     e("no cap", "без вранья, честно", "Ставится в начале или конце утверждения, чтобы подчеркнуть его правдивость.", ["я вру", "может быть"], "That was the best concert ever, ", ".", "Это лучший фильм, без вранья.", ["this is the best movie, no cap", "this is the best movie no cap"]),
   ],
-  reviewPairs: [["fr", "правда, серьёзно"], ["ngl", "если честно, не буду врать"]],
+  reviewPairs: [["tbh", "честно говоря, если честно"], ["lowkey", "слегка, втайне"]],
   scenario: {
     promptRu: "Как подчеркнуть, что ты не врёшь?",
     quote: "Ты действительно видел его там и хочешь добавить «без вранья».",
@@ -1194,7 +1294,7 @@ const speechPraise: LessonSpec = {
     e("straight fire", "просто огонь, потрясающе", "Очень неформальный восторг, особенно о музыке, образах и выступлениях.", ["полный провал", "очень скучно"], "Her new album is ", ".", "Этот трек — просто огонь.", ["this track is straight fire"]),
     e("different breed", "совсем другой уровень, не такой как остальные", "О человеке, который сильно выделяется. Часто это комплимент, но оттенок зависит от контекста.", ["совсем обычный", "точная копия"], "He wins every game. He's a ", ".", "Она совсем другого уровня.", ["she's a different breed", "she is a different breed"]),
   ],
-  reviewPairs: [["bitchin'", "офигенный, потрясающий"], ["built different", "не такой, как все, особенный"]],
+  reviewPairs: [["on point", "безупречный, в точку"], ["built different", "не такой, как все, особенный"]],
   scenario: {
     promptRu: "Как восторженно оценить новый трек?",
     quote: "Песня тебе очень понравилась, и ты хочешь сказать «просто огонь».",
@@ -1204,18 +1304,19 @@ const speechPraise: LessonSpec = {
   },
 };
 
+// Keep stable IDs so existing completion records still point to the same lessons.
 export const trackModules = [
   cycle("cycle-one", "The Warm-Up", "The Warm-Up", "Direct messages, useful idioms and bold slang.", "Прямые сообщения, полезные идиомы и смелый сленг.", chatHonesty, idiomBasics, speechTeasing),
   cycle("cycle-two", "Lowkey", "Lowkey", "Chat shorthand and natural reactions.", "Сокращения из чатов и естественные реакции.", chatNotes, idiomActions, speechReactions),
   cycle("cycle-three", "Big Mood", "Big Mood", "Make plans and respond without sounding formal.", "Договаривайся и отвечай без лишней формальности.", chatBasics, idiomPeople, speechAgreement),
+  cycle("cycle-ten", "Full Send", "Full Send", "Easy replies, strong impressions and bold energy.", "Лёгкие ответы, яркие впечатления и смелая энергия.", chatReassurance, idiomImpressions, speechBoldEnergy),
+  cycle("cycle-eleven", "Out of Pocket", "Out of Pocket", "Subtle hints, story moments and unfiltered reactions.", "Скрытые намёки, сюжетные повороты и реакции без фильтров.", chatEmphasis, idiomStory, speechUnfiltered),
+  cycle("cycle-twelve", "Native Mode", "Native Mode", "Honest emphasis, natural confidence and high praise.", "Честные акценты, естественная уверенность и восторженные комплименты.", chatTruth, idiomConfidence, speechPraise),
   cycle("cycle-four", "No Cap", "No Cap", "Confirm, follow rules and answer teasing.", "Подтверждай, говори о правилах и отвечай на подколы.", chatPlans, idiomRules, speechBoundaries),
   cycle("cycle-five", "Say Less", "Say Less", "React to news, happiness and annoying situations.", "Реагируй на новости, радость и раздражающие ситуации.", chatReactions, idiomFeelings, speechComplaints),
   cycle("cycle-six", "Hits Different", "Hits Different", "Honest messages, nerves and fast spoken English.", "Честные сообщения, волнение и быстрая живая речь.", chatContext, idiomNerves, speechReductions),
   cycle("cycle-seven", "Straight Fire", "Straight Fire", "Uncertainty, rest and expressive descriptions.", "Неопределённость, отдых и яркие описания людей.", chatUncertainty, idiomLowKey, speechLabels),
-  cycle("cycle-eight", "Zero Filter", "Zero Filter", "Close a topic, cool off and understand insults.", "Закрывай тему, остывай и понимай жёсткие оскорбления.", chatBoundaries, idiomDecisions, speechInsults),
-  cycle("cycle-nine", "Built Different", "Built Different", "Anger, confrontation and strong profanity.", "Злость, противостояние и сильная грубая речь.", chatAnger, idiomConfrontation, speechProfanity),
-  cycle("cycle-ten", "Full Send", "Full Send", "Easy replies, strong impressions and bold energy.", "Лёгкие ответы, яркие впечатления и смелая энергия.", chatReassurance, idiomImpressions, speechBoldEnergy),
-  cycle("cycle-eleven", "Out of Pocket", "Out of Pocket", "Subtle hints, story moments and unfiltered reactions.", "Скрытые намёки, сюжетные повороты и реакции без фильтров.", chatEmphasis, idiomStory, speechUnfiltered),
-  cycle("cycle-twelve", "Native Mode", "Native Mode", "Honest emphasis, natural confidence and high praise.", "Честные акценты, естественная уверенность и восторженные комплименты.", chatTruth, idiomConfidence, speechPraise),
+  cycle("cycle-eight", "Zero Filter", "Zero Filter", "Close a topic, cool off and set boundaries.", "Закрывай тему, остывай и обозначай границы.", chatBoundaries, idiomDecisions, speechInsults),
+  cycle("cycle-nine", "Built Different", "Built Different", "Frustration, competition and healthy skepticism.", "Досада, соревнование и здоровый скепсис.", chatAnger, idiomConfrontation, speechProfanity),
   ...trackExpansionModules,
 ];

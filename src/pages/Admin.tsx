@@ -10,6 +10,7 @@ import {
   getPinned,
   togglePinned,
   type AdminStats,
+  type LearningStats,
   type RosterRow,
   type UserDetail,
   type AccessCodeRow,
@@ -17,7 +18,9 @@ import {
 import { readingLibrarySize } from "@/data/readingLibrary";
 import "./admin.css";
 
-type Tab = "overview" | "audience" | "people" | "texts" | "codes";
+import { VisitStatistics } from "./VisitStatistics";
+
+type Tab = "visits" | "overview" | "audience" | "people" | "texts" | "codes" | "slang";
 
 /**
  * The owner's console.
@@ -77,10 +80,12 @@ export default function Admin() {
       <header className="adm__head">
         <h1 className="page-title text-2xl">{t("admin.title")}</h1>
         <p className="adm__stamp">{new Date(stats.generatedAt).toLocaleString()}</p>
+        <button type="button" className="btn btn--quiet btn--sm" disabled={busy} onClick={async()=>{setBusy(true);setError(null);try{const result=await fetchAdminStats(passcode);if(result.ok)setStats(result.data);else setError(t(`admin.error.${result.reason}`));}finally{setBusy(false);}}}>{busy?'Обновляется…':'Обновить статистику'}</button>
+        {error&&<p className="adm__error">{error}</p>}
       </header>
 
       <nav className="adm__tabs" role="tablist">
-        {(["overview", "audience", "people", "texts", "codes"] as Tab[]).map((key) => (
+        {(["overview", "visits", "audience", "people", "texts", "codes", "slang"] as Tab[]).map((key) => (
           <button
             key={key}
             type="button"
@@ -94,13 +99,45 @@ export default function Admin() {
         ))}
       </nav>
 
+      {tab === "visits" && <VisitStatistics passcode={passcode} refreshed={stats.generatedAt} />}
       {tab === "overview" && <Overview stats={stats} />}
+      {tab === "slang" && <SlangStats stats={stats} />}
       {tab === "audience" && <Audience stats={stats} />}
       {tab === "people" && <People stats={stats} passcode={passcode} />}
       {tab === "texts" && <Texts stats={stats} />}
       {tab === "codes" && <Codes passcode={passcode} />}
     </div>
   );
+}
+
+function SlangStats({ stats }: { stats: AdminStats }) {
+  const { t } = useTranslation();
+  const [query, setQuery] = useState("");
+  const learners = stats.roster.filter(r => r.learning);
+  const ready = learners.filter(r => r.learning.awardedAt || (r.learning.slangTotal > 0 && r.learning.slangDone / r.learning.slangTotal >= .8));
+  const rows = learners.filter(r => (r.email ?? "").toLowerCase().includes(query.trim().toLowerCase()));
+  return <>
+    <div className="adm__kpis">
+      <Kpi label={t("admin.slang.started")} value={learners.filter(r => r.learning.slangDone > 0 || r.learning.slangStep).length} />
+      <Kpi label={t("admin.slang.finished")} value={learners.filter(r => r.learning.awardedAt).length} />
+      <Kpi label={t("admin.slang.nearFinish")} value={ready.filter(r => !r.learning.awardedAt).length} />
+    </div>
+    <section className="adm__alert">
+      <p className="adm__alertTitle">{t("admin.slang.materialTitle")}</p>
+      <p>{t("admin.slang.materialBody")}</p>
+      {ready.map(r => <p key={r.id}><strong>{r.email ?? r.id.slice(0,8)}</strong> · {t(r.learning.awardedAt ? "admin.slang.finished" : "admin.slang.nearFinish")} · {r.learning.slangDone}/{r.learning.slangTotal}</p>)}
+      {!ready.length && <p>{t("admin.slang.noFinishers")}</p>}
+    </section>
+    <section className="adm__block">
+      <input type="search" className="field" aria-label={t("admin.searchPeople")} placeholder={t("admin.searchPeople")} value={query} onChange={e => setQuery(e.target.value)} />
+      <div className="adm__tableWrap"><table className="adm__table"><thead><tr>
+        <th>{t("admin.tab.people")}</th><th>{t("admin.slang.completed")}</th><th>{t("admin.slang.module")}</th><th>{t("admin.slang.lesson")}</th><th>{t("admin.slang.step")}</th><th>{t("admin.slang.award")}</th>
+      </tr></thead><tbody>{rows.map(r => <tr key={r.id}>
+        <td>{r.email ?? r.id.slice(0,8)}</td><td>{r.learning.slangDone}/{r.learning.slangTotal}</td><td>{r.learning.slangModule ?? "—"}</td><td>{r.learning.slangCurrent ?? t("admin.slang.finished")}</td><td>{r.learning.slangStep ? `${r.learning.slangStep}/${r.learning.slangSteps ?? "—"}` : "—"}</td><td>{r.learning.awardedAt ? `🏅 Slang Explorer · ${new Date(r.learning.awardedAt).toLocaleDateString()}` : "—"}</td>
+      </tr>)}</tbody></table></div>
+      {!rows.length && <p className="adm__empty">{t("admin.noData")}</p>}
+    </section>
+  </>;
 }
 
 /* ── Overview ──────────────────────────────────────────────────────────── */
@@ -184,7 +221,7 @@ function Overview({ stats }: { stats: AdminStats }) {
 
       <section className="adm__block">
         <p className="adm__h">{t("admin.money")}</p>
-        <p className="adm__empty">{t("admin.noBilling")}</p>
+        <p className="adm__empty">Платежи не включены в этот отчёт.</p>
         {quiz.total > 0 && (
           <p className="adm__empty" style={{ marginTop: 8 }}>
             {t("admin.quizLine", { correct: quiz.correct, total: quiz.total })}
@@ -411,18 +448,12 @@ function People({ stats, passcode }: { stats: AdminStats; passcode: string }) {
       />
 
       <div className="adm__tableWrap">
-        <table className="adm__table">
+        <table className="adm__table adm__table--learning">
           <thead>
             <tr>
               <th aria-label={t("admin.pin")} />
               <th>{t("admin.colWho")}</th>
-              <th>{t("admin.colVia")}</th>
-              <th>{t("admin.colGoal")}</th>
-              <th>{t("admin.colLevel")}</th>
-              <th className="num">{t("admin.colMinutes")}</th>
-              <th className="num">{t("admin.colDays")}</th>
-              <th className="num">{t("admin.colWords")}</th>
-              <th className="num">{t("admin.colTexts")}</th>
+              <th className="num">Прочитано полностью</th><th className="num">Listening: завершено / фрагменты</th><th className="num">Аудио, мин</th><th className="num">Карточки, мин</th><th className="num">Smart Repetition, мин</th>
               <th>{t("admin.colSeen")}</th>
             </tr>
           </thead>
@@ -473,13 +504,8 @@ function PersonRow({
           {row.email ?? row.id.slice(0, 8)}
         </button>
       </td>
-      <td>{row.provider ?? "—"}</td>
-      <td>{row.goal ? t(`onboarding.goals.${row.goal}.h`) : "—"}</td>
-      <td className="tabular">{row.level ?? "—"}</td>
-      <td className="num tabular">{row.minutes}</td>
-      <td className="num tabular">{row.activeDays}</td>
-      <td className="num tabular">{row.words}</td>
-      <td className="num tabular">{row.textsRead}</td>
+      <td className="num tabular">{row.learning?.readingCompleted??0}</td><td className="num tabular">{row.learning?.listeningCompleted??0} / {row.learning?.listeningFragments??0}</td>
+      <td className="num tabular">{row.learning?.listeningMinutes??0}</td><td className="num tabular">{row.learning?.vocabularyReviewMinutes??0}</td><td className="num tabular">{row.learning?.smartRepetitionMinutes??0}</td>
       <td>{row.lastSignInAt ? new Date(row.lastSignInAt).toLocaleDateString() : "—"}</td>
     </tr>
   );
@@ -522,6 +548,7 @@ function Person({ id, passcode, onBack }: { id: string; passcode: string; onBack
         {detail.profile.createdAt ? ` · ${t("admin.since")} ${new Date(detail.profile.createdAt).toLocaleDateString()}` : ""}
       </p>
 
+      {detail.learning && <LearningPanel value={detail.learning} />}
       {detail.learner && (
         /* Read this before the numbers underneath. Three sessions and then
            silence means one thing from somebody who came for travel English
@@ -883,4 +910,11 @@ function Codes({ passcode }: { passcode: string }) {
       )}
     </section>
   );
+}
+
+function LearningPanel({value:v}:{value:LearningStats}) {
+ return <section className="adm__block"><h2>Учебный прогресс</h2>
+ <div className="adm__kpis"><Kpi label="Тексты прочитаны полностью" value={v.readingCompleted}/><Kpi label="Listening: завершённые уроки" value={v.listeningCompleted}/><Kpi label="Пройденные фрагменты" value={v.listeningFragments}/><Kpi label="Воспроизведение аудио, мин" value={v.listeningMinutes}/><Kpi label="Повторение карточек, мин" value={v.vocabularyReviewMinutes}/><Kpi label="Smart Repetition, мин" value={v.smartRepetitionMinutes}/></div>
+ <p className="adm__empty">Чтение: достигнут конец текста, набрано активное время (не меньше 30 секунд и расчёта 250 слов/мин), отправлены ответы на вопросы. Это наблюдаемые признаки, а не гарантия понимания. Старые открытия сюда не входят. Время практики считается только в активном упражнении; скрытая вкладка и длительный простой не учитываются. Новые показатели собираются с этого обновления.</p>
+</section>;
 }

@@ -10,7 +10,7 @@ export type Step =
       titleRu: string;
       body: string;
       bodyRu: string;
-      forms?: { short: string; long: string; fullForm?: string; note?: string; noteRu?: string }[];
+      forms?: { short: string; long: string; fullForm?: string; note?: string; noteRu?: string; usageRu?: string }[];
     }
   | {
       kind: "chat";
@@ -45,6 +45,7 @@ export type Step =
       promptRu: string;
       quote?: string;
       hint?: string;
+      reply?: { context: string; expression: string; forms: string[] };
       answers: string[];
       teaches?: string[];
     }
@@ -87,6 +88,8 @@ export interface TrackLesson {
   titleRu: string;
   subtitleRu: string;
   review?: boolean;
+  /** Old completion records that cover every expression in this lesson. */
+  legacyCompletionIds?: string[];
   steps: Step[];
 }
 
@@ -98,6 +101,8 @@ export interface TrackModule {
   subtitleRu: string;
   tone: "mint";
   lessons: TrackLesson[];
+  /** Source material retained for curriculum regrouping and progress migration. */
+  sourceLessons?: LessonSpec[];
 }
 
 export interface ExpressionSpec {
@@ -109,10 +114,13 @@ export interface ExpressionSpec {
   after: string;
   gapRu: string;
   gapAnswers?: string[];
+  gapDistractors?: string[];
   translationRu: string;
   translationEn: string[];
   aliases?: string[];
   fullForm?: string;
+  register?: Register;
+  registerRooms?: { labelRu: string; ok: boolean }[];
 }
 
 export interface LessonSpec {
@@ -189,13 +197,21 @@ function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
 }
 
 function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: string): ChoiceStep {
-  const happinessPair = new Set(["over the moon", "on cloud nine"]);
+  // Synonyms can both fit the same sentence. Never mark a valid synonym wrong.
+  const interchangeableGroups = [
+    ["over the moon", "on cloud nine"], ["tq", "thx"],
+    ["my bad", "that's on me"], ["I'm down", "count me in", "I'm game"],
+    ["tbh", "imo", "imho", "fwiw", "tbf"],
+    ["say less", "no biggie", "all good", "nbd", "dw"],
+    ["be for real", "you can't be serious"],
+    ["a silver lining", "the light at the end of the tunnel"],
+  ];
+  const interchangeable = interchangeableGroups.find((group) => group.includes(expression.short)) ?? [];
   const distractors = pool
-    .filter((item) => item.short !== expression.short)
-    .filter((item) => !(happinessPair.has(expression.short) && happinessPair.has(item.short)))
+    .filter((item) => item.short !== expression.short && !interchangeable.includes(item.short))
     .map((item) => item.gapAnswers?.[0] ?? item.short);
-  if (distractors.length === 0 && happinessPair.has(expression.short)) {
-    distractors.push("break a leg", "chill out");
+  if (distractors.length === 0) {
+    distractors.push(...["break a leg", "chill out"].filter((phrase) => phrase !== expression.short));
   }
   return choiceStep(
     id,
@@ -230,10 +246,53 @@ const neutralExpressions = new Set([
   "the best seats in the house",
 ]);
 
+/** Practical boundaries shown before the learner uses a new expression. */
+function usageHint(expression: ExpressionSpec, kind: LessonSpec["kind"]): string {
+  const term = expression.short.toLowerCase();
+  if (["piece of shit", "douchebag", "bitching", "bullshit", "idgaf", "ffs"].includes(term))
+    return "Где: только среди близких, которым привычен мат. Риск: может оскорбить; не для работы и незнакомых.";
+  if (["lmao", "deadass", "badass", "damn", "that sucks"].includes(term))
+    return "Где: друзья и неформальные чаты. Есть грубый оттенок — не для официального общения.";
+  if (term === "nvm") return "Где: личный чат, когда просьба уже не актуальна. На важное сообщение может прозвучать пренебрежительно.";
+  if (term === "break a leg") return "Где: пожелание удачи перед выступлением или важной попыткой. Не буквальный совет.";
+  if (term === "a piece of cake") return "Где: разговор о лёгкой задаче. Не обесценивай чужие трудности: человеку она может даваться тяжело.";
+  if (kind === "chat") return expression.fullForm
+    ? "Где: личные сообщения и неформальные чаты. В официальном письме используй полную форму."
+    : "Где: неформальная переписка. Учитывай тон из пояснения; незнакомому человеку лучше ответить нейтрально.";
+  if (kind === "idiom") return "Где: разговор и неформальная переписка в ситуации из примера. В документах лучше сказать буквально.";
+  return "Где: непринуждённый разговор. Смысл и резкость зависят от интонации и отношений с собеседником.";
+}
+
+function friendReply(spec: LessonSpec): Extract<Step, { kind: "type" }> {
+  for (let i = 1; i < spec.lines.length; i++) {
+    if (Boolean(spec.lines[i].me) === Boolean(spec.lines[i - 1].me)) continue;
+    for (const expression of spec.expressions) {
+      const forms = [expression.short, ...(expression.aliases ?? []), ...(expression.fullForm ? [expression.fullForm] : [])];
+      const phraseTail = expression.short.split(" ").slice(-2).join(" ");
+      const candidates = [...forms, ...(expression.gapAnswers ?? []), ...expression.translationEn,
+        ...(expression.short.split(" ").length >= 3 ? [phraseTail] : [])];
+      const target = candidates.find(form => spec.lines[i].text.toLowerCase().includes(form.toLowerCase().replace(/[.!?]+$/, "")));
+      if (!target) continue;
+      const answer = spec.lines[i].text;
+      const context = spec.lines.slice(Math.max(0, i - 2), i)
+        .map(line => `${Boolean(line.me) === Boolean(spec.lines[i - 1].me) ? "Друг" : "Ты"}: ${line.text}`).join("\n");
+      return {
+        kind: "type", id: `${spec.id}-reply`,
+        promptRu: `Ответь другу — используй «${expression.short}»`,
+        quote: context,
+        hint: "Напиши короткую реплику по-английски. Можно своими словами.",
+        answers: [answer], teaches: [expression.short],
+        reply: { context, expression: expression.short, forms },
+      };
+    }
+  }
+  throw new Error(`No contextual reply in ${spec.id}`);
+}
+
 /** Usage matters as much as meaning: a correct phrase in the wrong room is
    still the wrong phrase. These are selection tasks, not typed judgements. */
 function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id: string): Extract<Step, { kind: "register" }> {
-  const neutral = neutralExpressions.has(expression.short);
+  const neutral = expression.register === "neutral" || neutralExpressions.has(expression.short);
   const rooms = kind === "idiom"
     ? [
         { labelRu: "Разговор с другом", ok: true },
@@ -243,7 +302,7 @@ function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id
       ]
     : [
         { labelRu: "Личный чат с другом", ok: true },
-        { labelRu: "Разговор с близким человеком", ok: true },
+        { labelRu: kind === "chat" ? "Неформальный групповой чат" : "Разговор с близким человеком", ok: true },
         { labelRu: "Официальное письмо в университет", ok: false },
         { labelRu: "Деловое письмо незнакомому человеку", ok: false },
       ];
@@ -251,16 +310,16 @@ function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id
     kind: "register",
     id,
     phrase: expression.short,
-    rooms,
+    rooms: expression.registerRooms ?? rooms,
     whyRu: `${expression.short} — ${primaryMeaning(expression)}. ${expression.noteRu}`,
-    register: neutral ? "neutral" : expression.short === "fair enough" ? "casual" : kind === "speech" ? "veryCasual" : "casual",
+    register: expression.register ?? (neutral ? "neutral" : expression.short === "fair enough" ? "casual" : kind === "speech" ? "veryCasual" : "casual"),
     teaches: [expression.short],
   };
 }
 
 /** A short lesson: context, recognition, recall, pairs and a situation. */
 export function teachingLesson(spec: LessonSpec): TrackLesson {
-  const [first, second, third = second] = spec.expressions;
+  const [first, second] = spec.expressions;
   const expressions = spec.expressions;
   return {
     id: spec.id,
@@ -280,6 +339,9 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
           short: item.short,
           long: item.meaningRu,
           fullForm: item.fullForm,
+          noteRu: item.fullForm && item.noteRu.toLowerCase().startsWith(item.fullForm.toLowerCase())
+            ? item.noteRu.slice(item.fullForm.length).replace(/^[.?!\s]+/, "") : item.noteRu,
+          usageRu: usageHint(item, spec.kind),
         })),
       },
       {
@@ -294,14 +356,22 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       meaningChoice(first, `${spec.id}-meaning`),
       gapChoice(second, expressions, `${spec.id}-gap`),
       {
+        kind: "type", id: `${spec.id}-recall-first`,
+        promptRu: primaryMeaning(first) === primaryMeaning(second) ? `Напиши сокращение из ${first.short.length} букв` : "Напиши выражение из этого урока",
+        quote: `«${primaryMeaning(first)}»`,
+        answers: [first.short, ...(first.aliases ?? []), ...(first.fullForm ? [first.fullForm] : [])],
+        teaches: [first.short],
+      },
+      {
         kind: "type",
         id: `${spec.id}-recall`,
-        promptRu: "Напиши выражение",
+        promptRu: primaryMeaning(first) === primaryMeaning(second) ? `Напиши сокращение из ${second.short.length} букв` : "Напиши выражение из этого урока",
         quote: `«${primaryMeaning(second)}»`,
-        answers: [second.short, ...(second.aliases ?? [])],
+        answers: [second.short, ...(second.aliases ?? []), ...(second.fullForm ? [second.fullForm] : [])],
         teaches: [second.short],
       },
-      sentenceAssembly(third, `${spec.id}-assemble`),
+      sentenceAssembly(first, `${spec.id}-assemble-first`),
+      sentenceAssembly(second, `${spec.id}-assemble`),
       {
         kind: "match",
         id: `${spec.id}-match`,
@@ -322,6 +392,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         answer: spec.scenario.answer,
         whyRu: spec.scenario.whyRu,
       },
+      friendReply(spec),
       registerChoice(first, spec.kind, `${spec.id}-register`),
     ],
   };
@@ -329,7 +400,15 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
 
 /** No new material in a review: only mixed recall from this block. */
 function reviewLesson(id: string, title: string, titleRu: string, specs: LessonSpec[]): TrackLesson {
-  const expressions = specs.flatMap((spec) => spec.expressions);
+  // Keep reviews as balanced as teaching lessons: at most one rude expression.
+  const rudeExpressions = new Set(["piece of shit", "idgaf", "bitching", "badass", "douchebag", "damn", "bullshit", "deadass", "lmao", "that sucks", "ffs"]);
+  let hasRudeExpression = false;
+  const expressions = specs.flatMap((spec) => spec.expressions).filter((expression) => {
+    if (!rudeExpressions.has(expression.short)) return true;
+    if (hasRudeExpression) return false;
+    hasRudeExpression = true;
+    return true;
+  });
   const middle = Math.ceil(expressions.length / 2);
   const second = expressions[Math.min(2, expressions.length - 1)];
   const third = expressions[Math.min(4, expressions.length - 1)];
@@ -361,6 +440,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
       },
       sentenceAssembly(first, `${id}-assemble`),
       meaningChoice(last, `${id}-last`),
+      sentenceAssembly(last, `${id}-assemble-last`),
     ],
   };
 }
@@ -382,6 +462,7 @@ export function cycle(
     subtitle,
     subtitleRu,
     tone: "mint",
+    sourceLessons: [chat, idiom, speech],
     lessons: [
       teachingLesson(chat),
       teachingLesson(idiom),

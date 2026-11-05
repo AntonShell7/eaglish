@@ -445,7 +445,16 @@
     "bandHigh": "{{from}}+ min",
     "minutesShort": "{{count}} min",
     "noDaysYet": "Nothing in this window yet",
-    "accuracyPending": "The correct-answer figure appears once you have answered your first text quiz."
+    "accuracyPending": "The correct-answer figure appears once you have answered your first text quiz.",
+    "achievements": {
+      "title": "Your results",
+      "lessons": "Slang lessons completed",
+      "lessonsHint": "Each completed lesson counts once.",
+      "expressions": "Expressions covered",
+      "expressionsHint": "From completed Slang lessons, without duplicates.",
+      "savedWords": "Words in your vocabulary",
+      "savedWordsHint": "Saved words you can come back to."
+    }
   },
   "footer": {
     "privacy": "Privacy Policy",
@@ -815,10 +824,11 @@
     },
     "analytics": {
       "h": "Analytics",
-      "p": "Not connected today. If it ever is, it stays off until you turn it on here — and it will never be tied to your name or email."
+      "p": "With your permission, we count opens, referral sources, sign-ups and first lessons using a random browser identifier."
     },
     "inventoryTitle": "Exactly what is stored",
     "purposes": {
+      "analytics": "anonymous visitor statistics",
       "theme": "light or dark",
       "language": "interface language",
       "session": "keeps you signed in",
@@ -826,7 +836,9 @@
       "consent": "this decision"
     },
     "noThirdParty": "These are site-storage records. Learning data syncs with your account; external processing is described in the privacy policy.",
-    "barText": "We store only what the app needs to work. No trackers, no ads."
+    "allowStats": "Allow",
+    "declineStats": "Decline",
+    "barText": "Choose whether to allow anonymous visitor statistics."
   },
   "legal": {
     "updated": "Last updated {{date}}",
@@ -1142,6 +1154,25 @@
     "deleteFailed": "Deletion failed. Try again, and if it keeps happening, tell us.",
     "deleteNotSignedIn": "Your session seems to have expired. Sign in again and retry."
   },
+  "visitStats": {
+    "night": "Night",
+    "today": "Today",
+    "24h": "24 hours",
+    "week": "7 days",
+    "month": "30 days",
+    "zone": "Moscow time",
+    "opens": "Site opens",
+    "visitors": "Unique browsers",
+    "signups": "Sign-ups",
+    "lessons": "Reached a lesson",
+    "timeline": "Opens over time",
+    "funnel": "Visitor funnel",
+    "afterSignup": "From sign-up to a lesson",
+    "sources": "Top 10 sources of opens",
+    "direct": "Direct / unknown",
+    "empty": "No opens in this period yet.",
+    "method": "Includes browsers that opted into analytics. Reloads count as opens. Funnel steps must occur in order in the same browser during the selected period. Opening a reading text, dictation or slang lesson counts as a lesson."
+},
   "admin": {
     "title": "Admin",
     "gateTitle": "Access",
@@ -1174,11 +1205,13 @@
       "unavailable": "The database does not know about codes yet — migration 005 has not run."
     },
     "tab": {
+      "visits": "Visit statistics",
       "overview": "Overview",
       "people": "People",
       "texts": "Texts",
       "codes": "Codes",
-      "audience": "Audience"
+      "audience": "Audience",
+      "slang": "Slang"
     },
     "whereTime": "Where time goes",
     "searchPeople": "Search by email",
@@ -1245,7 +1278,20 @@
       "selfReported": "self-reported"
     },
     "colGoal": "Goal",
-    "colLevel": "Level"
+    "colLevel": "Level",
+    "slang": {
+      "started": "Started Slang",
+      "finished": "Course completed",
+      "nearFinish": "At least 80% completed",
+      "materialTitle": "Slang completion and new material",
+      "materialBody": "The Slang Explorer badge is awarded for completing the course. See graduates and learners who will soon need new material here.",
+      "noFinishers": "No one has reached 80% yet.",
+      "completed": "Lessons completed",
+      "module": "Current module",
+      "lesson": "Current lesson",
+      "step": "Step",
+      "award": "Award"
+    }
   },
   "practice": {
     "inviteTitle": "Make the new words stick",
@@ -1355,7 +1401,7 @@
   "pricing": {
     "eyebrow": "Plans",
     "title": "Everyday English with Eaglish Pro",
-    "lede": "Slang, modern expressions and dialogues are at the heart of Pro. Listening and Smart repetition are included. Early users get a launch discount on full access.",
+    "lede": "Try the first Slang block and 10 listening fragments for free. Continue with Pro for all lessons, listening and Smart repetition.",
     "cycleLabel": "Billing period",
     "cycle": {
       "monthly": "Monthly",
@@ -1397,7 +1443,9 @@
       "writing": "Smart repetition: sentences with your words and feedback",
       "slang": "Slang: modern expressions, dialogues and practice",
       "handwriting": "Handwriting input in supported modes on compatible devices",
-      "aiPro": "Up to {{pro}} automatic requests daily for translations, hints and feedback"
+      "aiPro": "Up to {{pro}} automatic requests daily for translations, hints and feedback",
+      "slangTrial": "First Slang block — 4 lessons",
+      "listeningTrial": "10 listening fragments"
     },
     "soon": {
       "title": "Payments are being connected",
@@ -1405,7 +1453,7 @@
     },
     "code": {
       "label": "Access code",
-      "placeholder": "For example, EAGL2026",
+      "placeholder": "Enter your access code",
       "submit": "Activate",
       "checking": "Checking…",
       "done": "Done — full access is open",
@@ -1423,22 +1471,26 @@
     },
     "paywall": {
       "eyebrow": "Subscription section",
-      "stillFree": "Nothing is lost",
-      "stillFreeBody": "Every word you saved, the review schedule and all of Reading stay free. A subscription takes nothing away — it adds.",
-      "see": "Full access — {{price}} ₽/month at launch",
-      "toReading": "Back to reading",
+      "see": "Upgrade to PRO",
+      "toReading": "Try reading for free",
       "dictation": {
         "title": "English by ear",
-        "body": "Listen to phrases, write what you hear and review mistakes. Dictation helps you recognise individual words in connected speech."
+        "body": "Listen to phrases, write what you hear and review mistakes. Dictation helps you recognise individual words in connected speech.",
+        "upgradeBody": "You have completed your 10 free fragments. Continue listening with PRO — your progress is saved so you can resume at the next fragment."
       },
       "writing": {
         "title": "Smart repetition",
-        "body": "Build sentences with words from your vocabulary. Get usage feedback and track the words you have used."
+        "body": "Build sentences with words from your vocabulary. Get usage feedback and track the words you have used.",
+        "upgradeBody": "Smart repetition is included in PRO, with no free trial. Practise words from your vocabulary in sentences and get feedback."
       },
       "slang": {
         "title": "Slang",
-        "body": "Modern expressions and everyday English: meanings, context, dialogues and practice exercises."
-      }
+        "body": "Modern expressions and everyday English: meanings, context, dialogues and practice exercises.",
+        "upgradeBody": "The first block is free. Upgrade to PRO to start the second block and continue the course. You can revisit the first block without a subscription."
+      },
+      "accessBody": "Try the first Slang block and 10 listening fragments for free. Continue with Pro for all lessons, listening and Smart repetition.",
+      "launch": "For new users",
+      "perMonth": "per month"
     },
     "legal": "Prices are in roubles, including applicable taxes. One payment per selected period, no auto-renewal. Payments and refunds are governed by the public offer. Automatic features have daily limits and request-rate limits.",
     "pay": {
@@ -1455,7 +1507,16 @@
       "badge": "Early-user offer",
       "base": "Base price",
       "note": "Full access at the launch price. The discount applies automatically to your selected period."
-    }
+    },
+    "trial": {
+      "slang": "The first block is free. PRO starts from block two.",
+      "error": "Could not check free access. Please retry — your progress is saved.",
+      "retry": "Try again",
+      "loading": "Checking free access",
+      "listening_one": "{{count}} free fragment remaining",
+      "listening_other": "{{count}} free fragments remaining"
+    },
+    "paymentNote": "One payment for the selected period. No automatic renewal."
   },
   "offer": {
     "draftTitle": "This is a draft, not a contract in force",
@@ -1506,7 +1567,15 @@
     "passed": "done",
     "again": "Start over",
     "againSure": "Reset progress?",
-    "threadSub": "in a messenger"
+    "threadSub": "in a messenger",
+    "summary": {
+      "next": "Next: {{title}}",
+      "nextAction": "Next lesson",
+      "expressions_one": "expression practised",
+      "expressions_other": "expressions practised",
+      "tasks_one": "task completed",
+      "tasks_other": "tasks completed"
+    }
   },
   "streak": {
     "days_one": "{{count}} day in your streak",

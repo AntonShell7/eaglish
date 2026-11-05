@@ -1,78 +1,21 @@
-/* The paywall, and the lock marks that warn about it in advance. */
+.pw { border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-surface); box-shadow:var(--shadow-2); padding:clamp(1.5rem,5vw,2.5rem); }
+.pw__lede { margin-top:1rem; color:var(--color-text-muted); font-size:1rem; line-height:1.7; text-wrap:pretty; }
+.pw__offer { margin-top:1.75rem; padding:1.4rem; border:1px solid #80cdb540; border-radius:var(--radius-md); background:linear-gradient(125deg,#80cdb514,transparent); }
+.pw__badge { color:#80cdb5; font-size:.85rem; font-weight:650; }
+.pw__price { display:flex; align-items:baseline; flex-wrap:wrap; gap:.65rem; margin-top:.6rem; }
+.pw__price del { color:var(--color-text-muted); font-size:1.5rem; text-decoration:none; position:relative; display:inline-block; }
+.pw__price strong { color:#80cdb5; font-size:clamp(2.75rem,8vw,4rem); line-height:1.15; letter-spacing:-.025em; font-family:var(--font-sans); font-weight:500; }
+.pw__price span { color:var(--color-text-muted); }
+.pw__actions { margin-top:1.25rem; display:flex; flex-direction:column; align-items:center; gap:1.1rem; }
+.pw__buy { display:block; width:100%; padding:1.05rem 1.2rem; border-radius:var(--radius-md); background:#80cdb5; color:#08251d; text-align:center; font-weight:650; text-decoration:none; box-shadow:0 8px 30px #80cdb51a; }
+.pw__buy:hover { background:#9ce4ce; }
+.pw__reading { color:var(--color-text-muted); text-decoration:underline; text-underline-offset:4px; font-size:.9rem; }
+.pw__reading:hover { color:var(--color-text); }
+.pw__buy:focus-visible,.pw__reading:focus-visible { outline:2px solid #80cdb5; outline-offset:5px; }
+.pw__code { margin-top:1.75rem; padding-top:1.4rem; border-top:1px solid var(--color-border); }
 
-.pw {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-2);
-  padding: clamp(1.5rem, 5vw, 2.5rem);
-}
+.pw__price del::after { content:""; position:absolute; left:-4%; right:-4%; top:50%; height:1px; background:currentColor; transform:rotate(-12deg); transform-origin:center; opacity:.8; }
 
-.pw__lede {
-  margin-top: 0.85rem;
-  color: var(--color-text-muted);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  text-wrap: pretty;
-}
-
-/* The reassurance, set as its own block.
-   Somebody who has just met a price is working out what they have lost, and
-   the answer is nothing — every word they saved is still theirs and reading is
-   still open. Said in the margin, that sentence is not read; given a panel, it
-   is. */
-.pw__free {
-  margin-top: 1.4rem;
-  padding: 0.95rem 1.1rem;
-  border-radius: var(--radius-md);
-  background: var(--color-primary-softer);
-  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-}
-
-.pw__free-h {
-  font-weight: 650;
-  font-size: 0.9375rem;
-  color: var(--color-accent-ink);
-}
-
-.pw__free-p {
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--color-text-muted);
-}
-
-.pw__actions {
-  margin-top: 1.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.pw__code {
-  margin-top: 1.75rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--color-border);
-}
-
-/* Dark mode: the soft mint panel is mixed rather than swapped, so it stays a
-   tint of the brand instead of becoming a grey box. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .pw__free {
-    background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
-    border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
-  }
-
-  :root:not([data-theme="light"]) .pw__free-h {
-    color: var(--color-primary);
-  }
-}
-
-:root[data-theme="dark"] .pw__free {
-  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-2));
-  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
-}
-
-:root[data-theme="dark"] .pw__free-h {
-  color: var(--color-primary);
-}
+.pw__buy { min-height: var(--control-h-lg); display: flex; align-items: center; justify-content: center; transition: transform var(--dur-1) var(--ease), background-color var(--dur-2) var(--ease); }
+.pw__buy:active { transform: translateY(1px) scale(.985); }
+@media (prefers-reduced-motion: reduce) { .pw__buy { transition: none; } .pw__buy:active { transform: none; } }

@@ -3,8 +3,8 @@
   --color-primary: #7fd0b4;
   --color-accent: #a78bfa;
   --color-text: #f5f5f5;
-  --color-text-muted: #a3a3a3;
-  --color-text-faint: #8c8c8c;
+  --color-text-muted: #b5b5b5;
+  --color-text-faint: #929292;
   --color-border: #ffffff18;
   --color-border-strong: #ffffff30;
   --color-surface: #0d0d0d;
@@ -42,7 +42,7 @@
 .pg-cosmos .pg-card, .pg-cosmos .fig {
   position: relative;
   border: 1px solid #ffffff12;
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   background: #0d0d0d;
   box-shadow: inset 0 1px #ffffff09, 0 12px 32px #00000030;
   animation: pg-arrive .7s ease both;
@@ -148,4 +148,14 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .pg-cosmos *, .pg-cosmos *::before, .pg-cosmos *::after { animation: none !important; transition: none !important; }
+}
+
+.pg-achievements { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+.pg-cosmos .pg-achievement { padding: 24px; box-shadow: none; }
+.pg-achievement__value { display: block; margin-bottom: 8px; color: var(--color-primary); font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.15; font-weight: 600; font-variant-numeric: tabular-nums; }
+.pg-achievement__label { display: block; font-size: .9375rem; font-weight: 600; }
+.pg-achievement__hint { margin-top: 8px; color: var(--color-text-muted); font-size: .8125rem; line-height: 1.65; }
+@media (max-width: 600px) {
+  .pg-achievements { grid-template-columns: 1fr; gap: 12px; }
+  .pg-cosmos .pg-achievement { padding: 20px; }
 }

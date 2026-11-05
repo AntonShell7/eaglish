@@ -107,8 +107,11 @@ export function ConsentSheet() {
       <section ref={barRef} className="consent-bar" aria-label={t("consent.title")}>
         <p className="consent-bar__text">{t("consent.barText")}</p>
         <div className="consent-bar__actions">
-          <button type="button" className="consent-bar__ok" onClick={() => decide(false)}>
-            {t("consent.gotIt")}
+          <button type="button" className="consent-bar__ok" onClick={() => decide(true)}>
+            {t("consent.allowStats")}
+          </button>
+          <button type="button" className="consent-bar__more" onClick={() => decide(false)}>
+            {t("consent.declineStats")}
           </button>
           <button type="button" className="consent-bar__more" onClick={() => setDetails(true)}>
             {t("consent.customise")}
