@@ -165,21 +165,22 @@ function Overview({ stats }: { stats: AdminStats }) {
         <Kpi label={t("admin.textOpens")} value={stats.totals.textOpens} />
       </div>
 
-      <section className="adm__block">
-        <h2 className="adm__h">{t("admin.subscriptions.title")}</h2>
-        <div className="adm__kpis">
+      <section className="adm__block adm__subscriptions">
+        <div className="adm__subscriptionCounts">
           <Kpi label={t("admin.subscriptions.users")} value={stats.billing.users} />
           <Kpi label={t("admin.subscriptions.active")} value={stats.billing.activePro} />
-          <Kpi label={t("admin.subscriptions.buyers")} value={stats.billing.buyers} />
         </div>
-        <p>{t("admin.subscriptions.proShare")} {stats.billing.users ? (100 * stats.billing.activePro / stats.billing.users).toLocaleString(undefined, { maximumFractionDigits: 1 }) + "%" : "—"}</p>
-        <progress style={{width:"100%",accentColor:"#39927a"}} aria-label={t("admin.subscriptions.proShare")} value={stats.billing.activePro} max={stats.billing.users || 1} />
-        <h3 className="adm__h">{t("admin.subscriptions.cycles")}</h3>
-        {stats.billing.buyers > 0 ? <Shares total={stats.billing.buyers} rows={[
-          { key: "monthly", label: t("admin.subscriptions.monthly"), value: stats.billing.monthly },
-          { key: "yearly", label: t("admin.subscriptions.yearly"), value: stats.billing.yearly },
-        ]} /> : <p className="adm__empty">{t("admin.subscriptions.noPurchases")}</p>}
-        <p className="adm__empty">{t("admin.subscriptions.method")}</p>
+        <figure className="adm__proChart" aria-label={t("admin.subscriptions.proShare")}>
+          <div className="adm__proRing">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <circle className="adm__proTrack" cx="80" cy="80" r="66" />
+              <circle className="adm__proArc" cx="80" cy="80" r="66" pathLength="100"
+                strokeDasharray={`${stats.billing.users ? 100 * stats.billing.activePro / stats.billing.users : 0} 100`} />
+            </svg>
+            <strong>{stats.billing.users ? (100 * stats.billing.activePro / stats.billing.users).toLocaleString(undefined, { maximumFractionDigits: 1 }) + "%" : "—"}</strong>
+          </div>
+          <figcaption>{t("admin.subscriptions.proShare")}</figcaption>
+        </figure>
       </section>
 
       {runningOut.length > 0 && (
