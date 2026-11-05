@@ -76,10 +76,16 @@ export function Translator() {
     };
 
     measure();
+    // Route changes and translated text can move the footer without a scroll.
+    const resize = new ResizeObserver(schedule);
+    resize.observe(footer);
+    const main = document.querySelector(".shell__main");
+    if (main) resize.observe(main);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
+      resize.disconnect();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
     };
@@ -202,7 +208,7 @@ export function Translator() {
           autoComplete="off"
           spellCheck={false}
         />
-        <button type="submit" className="tr__go" disabled={busy || !text.trim()}>
+        <button type="submit" className="tr__go" aria-label={t("translator.go")} disabled={busy || !text.trim()}>
           {busy ? <span className="tr__spin" aria-hidden /> : "→"}
         </button>
       </form>
@@ -218,12 +224,12 @@ export function Translator() {
         <article className="tr__out">
           <p className="tr__outLabel">{t("translator.result")}</p>
           <p className="tr__outTop">
-            <span className="tr__outWord">{entry.source}</span>
+            <span className="tr__outWord" dir="auto">{entry.source}</span>
             {entry.partOfSpeech && <span className="tr__pos">{entry.partOfSpeech}</span>}
             {entry.english && <SpeakButton text={entry.english} />}
           </p>
 
-          <p className="tr__primary">
+          <p className="tr__primary" dir="auto">
             {entry.primary}
             {/* Two or three words saying what an opaque answer is. */}
             {entry.note && <span className="tr__note"> ({entry.note})</span>}
@@ -235,9 +241,9 @@ export function Translator() {
             <p className="tr__alts">{entry.alternatives.join(" · ")}</p>
           )}
 
-          {entry.definition && <p className="tr__def">{entry.definition}</p>}
+          {entry.definition && <p className="tr__def" lang="en" dir="ltr">{entry.definition}</p>}
 
-          {entry.example && <p className="tr__example">{entry.example}</p>}
+          {entry.example && <p className="tr__example" lang="en" dir="ltr">{entry.example}</p>}
 
           {explanation && <p className="tr__explain">{explanation}</p>}
 

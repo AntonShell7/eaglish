@@ -1350,7 +1350,13 @@
     "result": "Translation"
   },
   "input": {
-    "pen": "Write by hand",
+    "pen": {
+      "mint": "Mint",
+      "red": "Red",
+      "amber": "Amber",
+      "violet": "Violet",
+      "ink": "Ink"
+    },
     "penHint": "Switch input: keyboard or pen",
     "keyboard": "Keyboard",
     "clear": "Clear",

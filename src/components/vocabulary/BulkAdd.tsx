@@ -144,7 +144,7 @@ export function BulkAdd({ onAdded }: { onAdded: () => void }) {
       <p className="ba__title">{t("bulk.title")}</p>
       <p className="ba__hint">{t("bulk.hint")}</p>
 
-      <textarea
+      <textarea dir="ltr"
         className="field ba__input"
         rows={8}
         value={raw}

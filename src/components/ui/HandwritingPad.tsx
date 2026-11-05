@@ -307,7 +307,8 @@ export function HandwritingPad({
               className={tool === which ? "hp__pen is-on" : "hp__pen"}
               style={{ background: `var(--ink-${which})` }}
               onClick={() => choosePen(which)}
-              aria-label={which}
+              aria-label={t(`input.pen.${which}`)}
+              title={t(`input.pen.${which}`)}
             />
           ))}
 

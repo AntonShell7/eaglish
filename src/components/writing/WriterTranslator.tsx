@@ -86,7 +86,7 @@ export function WriterTranslator({ source }: { source: string }) {
             </p>
           ) : (
             <>
-              <p className="text-lg font-bold" style={{ color: "var(--color-primary)" }}>
+              <p lang="en" dir="ltr" className="text-lg font-bold" style={{ color: "var(--color-primary)" }}>
                 {result.english}
               </p>
 
@@ -98,7 +98,7 @@ export function WriterTranslator({ source }: { source: string }) {
 
               {result.example && (
                 <p
-                  className="mt-2 border-l-2 pl-2 text-xs italic leading-relaxed"
+                  lang="en" dir="ltr" className="mt-2 border-l-2 pl-2 text-xs italic leading-relaxed"
                   style={{ borderColor: "var(--color-accent)", color: "var(--color-text-muted)" }}
                 >
                   {result.example}

@@ -41,3 +41,39 @@ html[lang="ar"] .legal__summary li::before { left: auto; right: 2px; }
 }
 html[lang="ar"] .pr__card { min-width: 0; }
 html[lang="ar"] .pr__foot .btn { white-space: normal; text-align: center; height: auto; }
+
+/* The Arabic navigation rail is on the right; keep the translator opposite it. */
+html[lang="ar"] :is(.tr-tab, .tr) { right: auto; left: 18px; }
+html[lang="ar"] .tr { transform-origin: 0 100%; }
+@media (max-width: 1023px) {
+  html[lang="ar"] :is(.tr-tab, .tr) { left: 14px; }
+}
+
+/* Other floating controls must not cover the right-hand language/theme tray. */
+@media (min-width: 1024px) {
+  html[lang="ar"] .fb-launch { right: auto; left: 132px; }
+  html[lang="ar"] body:has(.tr) .fb-launch { visibility: hidden; }
+}
+html[lang="ar"] .rail__link--active::before { left: auto; right: -14px; }
+html[lang="ar"] .rail__link:hover { transform: translateX(-2px); }
+
+/* The line graph's coordinates stay LTR; its date labels must match the plot. */
+html[lang="ar"] .dl__foot { direction: ltr; }
+html[lang="ar"] .dl__foot > span { direction: rtl; unicode-bidi: isolate; }
+html[lang="ar"] .pr__list li { padding-left: 0; padding-right: 1.65rem; }
+html[lang="ar"] .pr__list li::before { left: auto; right: .2rem; }
+html[lang="ar"] :is(.ob-choice, .ob-test) { text-align: right; }
+html[lang="ar"] .ob-review__item { border-left: 0; border-right: 3px solid var(--color-primary); padding-left: 0; padding-right: 12px; }
+
+/* Long translations can be scrolled without losing the close button off-screen. */
+html[lang="ar"] .tr { max-height: calc(100dvh - 36px - var(--tr-lift, 0px)); overflow-y: auto; overscroll-behavior: contain; }
+html[lang="ar"] .tr__actions { flex-wrap: wrap; }
+html[lang="ar"] .tr__save { min-width: 60px; }
+html[lang="ar"] :is(.tr__outWord, .tr__primary, .tr__alts, .tr__def, .tr__example, .tr__explain) { overflow-wrap: anywhere; }
+@media (max-width: 1023px) {
+  html[lang="ar"] .tr { max-height: calc(100dvh - 100px - env(safe-area-inset-bottom) - var(--tr-lift, 0px)); }
+}
+html[lang="ar"] .has-consent-bar .tr { max-height: calc(100dvh - 154px - var(--tr-lift, 0px)); }
+@media (max-width: 1023px) {
+  html[lang="ar"] .has-consent-bar .tr { max-height: calc(100dvh - 218px - env(safe-area-inset-bottom) - var(--tr-lift, 0px)); }
+}

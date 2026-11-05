@@ -226,7 +226,7 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
             {/* The word and the way to hear it, together: knowing what it
                 means and knowing how to say it are the two halves, and only
                 one of them was ever offered here. */}
-            <p className="flex items-center gap-1 text-sm font-semibold">
+            <p lang="en" dir="ltr" className="flex items-center gap-1 text-sm font-semibold">
               {result.word}
               <SpeakButton text={result.word} />
             </p>
@@ -296,14 +296,14 @@ export function LookupPopup({ request, onClose }: { request: LookupRequest; onCl
                 </p>
               ) : (
                 <>
-                  <p className="leading-relaxed">{explanation.definition}</p>
+                  <p lang="en" dir="ltr" className="leading-relaxed">{explanation.definition}</p>
                   {explanation.example && (
-                    <p className="mt-2 text-xs italic" style={{ color: "var(--color-text-muted)" }}>
+                    <p lang="en" dir="ltr" className="mt-2 text-xs italic" style={{ color: "var(--color-text-muted)" }}>
                       “{explanation.example}”
                     </p>
                   )}
                   {explanation.synonyms && explanation.synonyms.length > 0 && (
-                    <p className="mt-2 text-xs" style={{ color: "var(--color-text-muted)" }}>
+                    <p lang="en" dir="ltr" className="mt-2 text-xs" style={{ color: "var(--color-text-muted)" }}>
                       ≈ {explanation.synonyms.join(", ")}
                     </p>
                   )}
