@@ -43,7 +43,7 @@ function LevelTest({
   onCancel: () => void;
 }) {
   const { t, i18n } = useTranslation();
-  const ru = i18n.language.startsWith("ru");
+  const ru = !i18n.language.startsWith("en");
   const [session, setSession] = useState<PlacementSession>(startSession);
   const [item, setItem] = useState<PreparedItem | null>(() => nextItem(startSession()));
   const [finished, setFinished] = useState(false);

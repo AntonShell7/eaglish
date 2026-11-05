@@ -121,7 +121,7 @@ export function WordList({
 
   const dateFormat = useMemo(
     () =>
-      new Intl.DateTimeFormat(i18n.language.startsWith("ru") ? "ru-RU" : "en-GB", {
+      new Intl.DateTimeFormat(i18n.language, {
         day: "numeric",
         month: "long",
         year: "numeric",

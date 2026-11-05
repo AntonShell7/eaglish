@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 import { trackVisit } from "@/lib/visitAnalytics";
 import { flushLearning } from "@/lib/learningRecords";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
@@ -98,9 +99,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const { data, error } = await supabase.auth.signUp({ email, password });
       if (!error && data.user?.identities?.length) trackVisit("signup");
-      return { error: error ? authError(error, i18n.language.startsWith("ru")) : null, needsConfirmation: !error && !data.session };
+      return { error: error ? authError(error, !i18n.language.startsWith("en")) : null, needsConfirmation: !error && !data.session };
     } catch (error) {
-      return { error: authError(error instanceof Error ? error : {}, i18n.language.startsWith("ru")), needsConfirmation: false };
+      return { error: authError(error instanceof Error ? error : {}, !i18n.language.startsWith("en")), needsConfirmation: false };
     }
   };
 
@@ -112,9 +113,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!supabase) return { error: "Supabase is not configured yet." };
     try {
       const { error } = await supabase.auth.resend({ type: "signup", email });
-      return { error: error ? authError(error, i18n.language.startsWith("ru")) : null };
+      return { error: error ? authError(error, !i18n.language.startsWith("en")) : null };
     } catch (error) {
-      return { error: authError(error instanceof Error ? error : {}, i18n.language.startsWith("ru")) };
+      return { error: authError(error instanceof Error ? error : {}, !i18n.language.startsWith("en")) };
     }
   };
 
@@ -166,7 +167,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
    * old data. Preferences stay: see PROGRESS_KEYS.
    */
   const signOut = async () => {
-    if(!DEMO && !(await flushLearning())) { window.alert("Прогресс ещё не сохранён. Проверьте интернет и повторите выход."); return; }
+    if(!DEMO && !(await flushLearning())) { window.alert(localize("Прогресс ещё не сохранён. Проверьте интернет и повторите выход.")); return; }
     clearLocalProgress();
     if (DEMO) {
       setDemoSignedIn(false);

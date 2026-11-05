@@ -1,3 +1,4 @@
+import { localizeData } from "@/i18n/content";
 import batch3 from "./listening/batch3.json";
 import batch4 from "./listening/batch4.json";
 import batch5 from "./listening/batch5.json";
@@ -52,7 +53,7 @@ import type { ReadingText } from "./readingTexts";
  * time — each one is an hour of writing rather than a generator run — and a
  * single growing file would turn every addition into a diff nobody can read.
  */
-export const listeningTexts = [
+export const listeningTexts = localizeData([
   ...batch3,
   ...batch4,
   ...batch5,
@@ -77,7 +78,7 @@ export const listeningTexts = [
   // The Advanced shelf: a register rather than a band, so these carry
   // `register: "advanced"` and are filed by it rather than by their level.
   ...batch21,
-] as ReadingText[];
+] as ReadingText[]);
 
 export const listeningCount = listeningTexts.length;
 

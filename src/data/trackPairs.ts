@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 import type { ExpressionSpec, LessonSpec } from "./trackModel";
 import { pairDialogue } from "./trackPairDialogues";
 
@@ -14,11 +15,11 @@ export function pairSpec(
     id, kind, expressions,
     title, titleRu: title, ruleTitleRu: title,
     introRu: expressions.map((item) => `${item.short} — ${item.meaningRu}. ${item.noteRu}`).join("\n\n"),
-    withWhomRu: "Майя", lines: overrides.lines ?? pairDialogue(id),
+    withWhomRu: localize("Майя"), lines: overrides.lines ?? pairDialogue(id),
     // No extra review vocabulary inside a two-expression teaching lesson.
     reviewPairs: [],
     scenario: {
-      promptRu: "Выбери подходящую реплику",
+      promptRu: localize("Выбери подходящую реплику"),
       quote: first.translationRu,
       options: [first.translationEn[0], second.translationEn[0], "Could you repeat that, please?"],
       answer: 0,

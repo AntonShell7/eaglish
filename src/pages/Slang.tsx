@@ -36,7 +36,7 @@ export default function Slang() {
           lesson={found.lesson}
           onExit={() => navigate("/slang")}
           onNext={canContinue ? () => navigate(`/slang/track/${next.lesson.id}`) : undefined}
-          nextTitle={canContinue ? (i18n.language.startsWith("ru") ? next.lesson.titleRu : next.lesson.title) : undefined}
+          nextTitle={canContinue ? (!i18n.language.startsWith("en") ? next.lesson.titleRu : next.lesson.title) : undefined}
         />
       </div>
     );

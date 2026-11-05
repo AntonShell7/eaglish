@@ -16,7 +16,7 @@ import "./legal.css";
 export function LegalPage({ doc, other }: { doc: LegalDoc; other: { to: string; label: string } }) {
   const { t, i18n } = useTranslation();
 
-  const updated = new Intl.DateTimeFormat(i18n.language.startsWith("ru") ? "ru-RU" : "en-GB", {
+  const updated = new Intl.DateTimeFormat(i18n.language, {
     day: "numeric",
     month: "long",
     year: "numeric",

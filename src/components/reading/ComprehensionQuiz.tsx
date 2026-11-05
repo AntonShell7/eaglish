@@ -49,7 +49,7 @@ export function ComprehensionQuiz({ textId, questions, title, words }: Comprehen
     <section className="card mt-6 p-6 sm:p-8">
       <h3 className="page-title text-xl">{t("reading.comprehension")}</h3>
 
-      <ol className="mt-6 space-y-6">
+      <ol className="mt-6 space-y-6" lang="en" dir="ltr">
         {questions.map((q, qi) => {
           const picked = answers[q.id];
           return (

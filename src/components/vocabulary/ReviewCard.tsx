@@ -99,7 +99,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
 
       {/* The prompt: the learner's own sentence when we have it. */}
       {cloze ? (
-        <p className="text-lg leading-relaxed">
+        <p className="text-lg leading-relaxed" lang="en" dir="ltr">
           {cloze.before}
           <span
             className="mx-1 inline-block min-w-[92px] rounded px-2 text-center align-middle font-bold"
@@ -125,7 +125,7 @@ export function ReviewCard({ word, onGraded }: ReviewCardProps) {
 
       {!verdict ? (
         <>
-          <input
+          <input lang="en" dir="ltr"
             ref={input}
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}

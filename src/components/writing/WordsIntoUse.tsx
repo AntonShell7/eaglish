@@ -109,7 +109,7 @@ export function WordsIntoUse() {
 
         {!report ? (
           <>
-            <textarea
+            <textarea lang="en" dir="ltr"
               value={text}
               onChange={(e) => setText(e.target.value)}
               rows={10}

@@ -1,22 +1,27 @@
+import { localize } from "@/i18n/content";
 import { useTranslation } from "react-i18next";
 
-const LANGUAGES: { code: "en" | "ru"; label: string }[] = [
-  { code: "en", label: "EN" },
-  { code: "ru", label: "RU" },
+import { availableLanguages, changeInterfaceLanguage, selectedLanguage, type InterfaceLanguage } from "@/i18n/content";
+
+const LANGUAGES: { code: InterfaceLanguage; label: string; name: string }[] = [
+  { code: "en", label: "EN", name: "English" },
+  { code: "ru", label: "RU", name: localize("Русский") },
+  { code: "ar", label: "AR", name: "العربية" },
 ];
 
 export function LanguageToggle() {
-  const { i18n, t } = useTranslation();
-  const current = i18n.language?.startsWith("ru") ? "ru" : "en";
+  const { t } = useTranslation();
+  const current = selectedLanguage();
 
   return (
     <div
+      dir="ltr"
       role="radiogroup"
       aria-label={t("language.label")}
       className="flex items-center gap-0.5 rounded-full border p-0.5"
       style={{ borderColor: "var(--color-border)", background: "var(--color-surface-2)" }}
     >
-      {LANGUAGES.map((lang) => {
+      {LANGUAGES.filter(lang => availableLanguages.includes(lang.code)).map((lang) => {
         const active = lang.code === current;
         return (
           <button
@@ -24,7 +29,9 @@ export function LanguageToggle() {
             type="button"
             role="radio"
             aria-checked={active}
-            onClick={() => i18n.changeLanguage(lang.code)}
+            title={lang.name}
+            aria-label={lang.name}
+            onClick={() => changeInterfaceLanguage(lang.code)}
             className="flex h-7 items-center justify-center rounded-full px-2 text-xs font-semibold transition-all duration-200"
             style={{
               background: active ? "var(--color-surface)" : "transparent",

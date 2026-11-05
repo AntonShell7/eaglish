@@ -192,7 +192,7 @@ export function Translator() {
           void run();
         }}
       >
-        <input
+        <input dir="auto"
           ref={field}
           className="tr__field"
           value={text}

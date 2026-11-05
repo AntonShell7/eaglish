@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -25,12 +26,12 @@ const BANDS = [1, 5, 15];
  */
 export function YearGrid({ days }: { days: GridDay[] }) {
   const { t, i18n } = useTranslation();
-  const ru = i18n.language.startsWith("ru");
+  const ru = !i18n.language.startsWith("en");
 
   const fmt = useMemo(
     () =>
-      new Intl.DateTimeFormat(ru ? "ru-RU" : "en-GB", { day: "numeric", month: "long" }),
-    [ru],
+      new Intl.DateTimeFormat(i18n.language, { day: "numeric", month: "long" }),
+    [i18n.language],
   );
 
   /* Columns must start on a Monday or the weekday labels lie, so the range is
@@ -48,7 +49,7 @@ export function YearGrid({ days }: { days: GridDay[] }) {
      rather than laid out in the flow, so a month lines up with the column it
      actually starts in instead of drifting as the widths change. */
   const months = useMemo(() => {
-    const fmtMonth = new Intl.DateTimeFormat(ru ? "ru-RU" : "en-GB", { month: "short" });
+    const fmtMonth = new Intl.DateTimeFormat(i18n.language, { month: "short" });
     const out: { key: string; label: string; week: number }[] = [];
     let last = -1;
     weeks.forEach((week, index) => {
@@ -62,7 +63,7 @@ export function YearGrid({ days }: { days: GridDay[] }) {
       out.push({ key: `${month}-${index}`, label: fmtMonth.format(new Date(day.date)).replace(".", ""), week: index });
     });
     return out;
-  }, [weeks, ru]);
+  }, [weeks, i18n.language]);
 
   const level = (minutes: number) => {
     if (minutes < BANDS[0]) return 0;
@@ -72,7 +73,7 @@ export function YearGrid({ days }: { days: GridDay[] }) {
   };
 
   const weekdays = ru
-    ? ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+    ? [localize("Пн"), localize("Вт"), localize("Ср"), localize("Чт"), localize("Пт"), localize("Сб"), localize("Вс")]
     : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const keys = [

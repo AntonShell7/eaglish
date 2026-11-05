@@ -80,7 +80,7 @@ function ExpressionPanel({ expression, onClose }: { expression: Expression; onCl
 export function DialogueRunner({ dialogue, onExit }: { dialogue: Dialogue; onExit: () => void }) {
   const { t, i18n } = useTranslation();
   const { finish } = useTaskDone();
-  const ru = i18n.language.startsWith("ru");
+  const ru = !i18n.language.startsWith("en");
 
   const [stage, setStage] = useState<Stage>("read");
   const [open, setOpen] = useState<string | null>(null);

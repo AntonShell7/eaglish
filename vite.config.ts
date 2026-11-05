@@ -2,6 +2,7 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import { handleAi } from './api/_ai.js'
 
 /**
@@ -50,6 +51,9 @@ export default defineConfig(({ mode, command }) => {
   // Loaded here rather than through import.meta.env: the key must stay out of
   // the client bundle, and anything VITE_-prefixed would land in it.
   const env = loadEnv(mode, process.cwd(), '')
+  if (command === 'build' && mode === 'production' && env.VITE_ENABLE_ARABIC === 'true') {
+    execFileSync(process.execPath, ['scripts/check-arabic.mjs', '--release'], { stdio: 'inherit' })
+  }
   // Never publish against the retired hosted database from .env.local.
   if (command === 'build' && mode === 'production' && env.VITE_SUPABASE_URL?.includes('mkplecldxqrsksnzxfuf.supabase.co')) {
     throw new Error('Production build targets the retired database. Use the production environment documented in CLAUDE.md.')

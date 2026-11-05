@@ -70,7 +70,7 @@ export function WriterTranslator({ source }: { source: string }) {
         )}
       </div>
 
-      <input
+      <input dir="auto"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={t("writing.translatorPlaceholder")}

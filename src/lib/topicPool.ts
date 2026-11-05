@@ -1,3 +1,4 @@
+import { localizeData } from "@/i18n/content";
 import pool from "@/data/topicPool.json";
 
 /**
@@ -21,7 +22,7 @@ interface Subject {
   en: string;
 }
 
-const SUBJECTS = pool as Subject[];
+const SUBJECTS = localizeData(pool as Subject[]);
 const DECK_KEY = "subjectDeck";
 
 interface Deck {
@@ -70,5 +71,5 @@ export function nextSubject(language: string): string {
 
   const subject = SUBJECTS[deck.order[deck.at]];
   store({ ...deck, at: deck.at + 1 });
-  return language.startsWith("ru") ? subject.ru : subject.en;
+  return !language.startsWith("en") ? subject.ru : subject.en;
 }

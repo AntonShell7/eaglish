@@ -1,0 +1,31 @@
+/* Arabic UI; English learning material retains its own writing direction. */
+html[lang="ar"] body {
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.65;
+}
+html[lang="ar"] :is(h1, h2, h3, .page-title, .eyebrow, button, label) {
+  letter-spacing: normal;
+}
+html[lang="ar"] .text-left { text-align: start; }
+html[lang="ar"] .text-right { text-align: end; }
+html[lang="ar"] :is(input[type="email"], input[type="password"], input[type="url"],
+  .reading-type, .fc__word, .fc__sentence, .tk-msg__bubble,
+  .tk-form__short, .tk-form__full, .tk-field, .tk-build-answer, .tk-bank,
+  .tk-gap, .dict__input, .dict__overlay, .dict__marks, .dict__words, [lang="en"]) {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+}
+html[lang="ar"] :is(.tk-quote, .tk-pair, .tk-opt, .fc__translation) {
+  unicode-bidi: plaintext;
+}
+html[lang="ar"] .rail { border-right: 0; border-left: 1px solid var(--color-border); }
+html[lang="ar"] .streak-popover { left: auto; right: 0; }
+html[lang="ar"] [lang="ru"] { font-family: var(--font-sans, Arial, sans-serif); }
+html[lang="ar"] [lang="ru"] .text-left { text-align: left; }
+html[lang="ar"] [lang="ru"] .text-right { text-align: right; }
+html[lang="ar"] :is(.drill__word, .drill__yours, .drill__fixText, .drill__altList,
+  .wp__verdictWord, .tk-tile, .tk-form__full) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}

@@ -1,3 +1,4 @@
+import { availableLanguages, changeInterfaceLanguage, selectedLanguage } from "@/i18n/content";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +25,7 @@ interface Command {
 }
 
 export function CommandPalette() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { mode, setMode } = useTheme();
   const [open, setOpen] = useState(false);
@@ -75,16 +76,15 @@ export function CommandPalette() {
       {
         id: "language",
         label: t("palette.toggleLanguage"),
-        hint: i18n.language.startsWith("ru") ? "RU → EN" : "EN → RU",
+        hint: `${selectedLanguage().toUpperCase()} → ${availableLanguages[(availableLanguages.indexOf(selectedLanguage()) + 1) % availableLanguages.length].toUpperCase()}`,
         run: () => {
-          const next = i18n.language.startsWith("ru") ? "en" : "ru";
-          void i18n.changeLanguage(next);
-          localStorage.setItem("interfaceLanguage", next);
+          const next = availableLanguages[(availableLanguages.indexOf(selectedLanguage()) + 1) % availableLanguages.length];
+          changeInterfaceLanguage(next);
           setOpen(false);
         },
       },
     ];
-  }, [navigate, t, mode, setMode, i18n]);
+  }, [navigate, t, mode, setMode]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();

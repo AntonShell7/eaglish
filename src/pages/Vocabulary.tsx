@@ -73,12 +73,14 @@ function ManualAdd({ onAdded }: { onAdded: () => void }) {
         <input
           value={word}
           onChange={(e) => { setWord(e.target.value); setError(null); }}
+          lang="en" dir="ltr"
           placeholder={t("vocabulary.addWordPlaceholder")}
           className="field min-w-0 flex-1"
         />
         <input
           value={translation}
           onChange={(e) => setTranslation(e.target.value)}
+          dir="auto"
           placeholder={t("vocabulary.addTranslationPlaceholder")}
           className="field min-w-0 flex-1"
         />

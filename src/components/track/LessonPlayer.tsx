@@ -1,3 +1,4 @@
+import { localize, localizeTemplate } from "@/i18n/content";
 import { trackVisit } from "@/lib/visitAnalytics";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -79,8 +80,8 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
     : trackLessons().find(entry => entry.lesson.steps.some(s => s.id === steps[index].id))?.lesson, [lesson, steps, index]);
   const step = useMemo(() => {
     const dealt = dealChoice(steps[index], seed + index);
-    return reviewSource && dealt.kind === "type" && !dealt.reply && dealt.promptRu.includes("из этого урока")
-      ? { ...dealt, promptRu: "Вспомни выражение из прошлого урока" } : dealt;
+    return reviewSource && dealt.kind === "type" && !dealt.reply && dealt.promptRu.includes(localize("из этого урока"))
+      ? { ...dealt, promptRu: localize("Вспомни выражение из прошлого урока") } : dealt;
   }, [steps, index, seed, reviewSource]);
   const last = index >= steps.length - 1;
   /* How many questions are behind us. The header used to divide by the number
@@ -383,7 +384,7 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
             <div><strong>{practicedExpressions(steps).length}</strong><span>{t("track.summary.expressions", { count: practicedExpressions(steps).length })}</span></div>
             <div><strong>{asked}</strong><span>{t("track.summary.tasks", { count: asked })}</span></div>
           </div>
-          <p className="tk-done__p">{mistakes === 0 ? "Все задания выполнены без ошибок." : `Ошибок по ходу урока: ${mistakes}. Все задания с ошибками пройдены повторно.`}</p>
+          <p className="tk-done__p">{mistakes === 0 ? localize("Все задания выполнены без ошибок.") : localizeTemplate("Ошибок по ходу урока: {{p0}}. Все задания с ошибками пройдены повторно.", [mistakes])}</p>
           {onNext && nextTitle && <p className="tk-done__p">{t("track.summary.next", { title: nextTitle })}</p>}
           <button type="button" className="tk-press tk-go tk-done__go" onClick={onNext ?? onExit} ref={node => { node?.focus({ preventScroll: true }); }}>
             <span>{t(onNext ? "track.summary.nextAction" : "track.toPath")}</span>
@@ -425,8 +426,8 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
 
       <div ref={stageRef} className={`tk-stage ${leaving ? "tk-out" : "tk-in"}`} key={index} inert={checking || leaving}>
         <div className="tk-stage__in">
-        {reviewSource && <p className="tk-review-label">Повторение: {reviewSource.titleRu}</p>}
-        {retryCount > 0 && index >= steps.length - retryCount && <p className="tk-review-label">Закрепим то, что вызвало трудности</p>}
+        {reviewSource && <p className="tk-review-label">{localize("Повторение:")}{reviewSource.titleRu}</p>}
+        {retryCount > 0 && index >= steps.length - retryCount && <p className="tk-review-label">{localize("Закрепим то, что вызвало трудности")}</p>}
         <StepBody
           step={step}
           judged={judged}
@@ -497,7 +498,7 @@ function Foot({
             aria-busy={checking}
             onClick={onCheck}
           >
-            {checking ? "Проверяю…" : silent ? t("track.gotIt") : t("track.check")}
+            {checking ? localize("Проверяю…") : silent ? t("track.gotIt") : t("track.check")}
           </button>
         </div>
       </div>
@@ -677,7 +678,7 @@ function StepBody(p: BodyProps) {
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
           <div className="tk-pairs">
-            <div role="group" aria-label="Английские выражения">
+            <div role="group" aria-label={localize("Английские выражения")}>
               {step.pairs.map(([left]) => (
                 <button
                   type="button"
@@ -700,7 +701,7 @@ function StepBody(p: BodyProps) {
                 </button>
               ))}
             </div>
-            <div role="group" aria-label="Русские переводы">
+            <div role="group" aria-label={localize("Русские переводы")}>
               {p.rightColumn.map((value) => {
                 const done = step.pairs
                   .filter(([, right]) => right === value)
@@ -737,13 +738,13 @@ function StepBody(p: BodyProps) {
         <>
           <h2 className="tk-ask">{step.promptRu}</h2>
           {step.quote && <p className="tk-quote">{step.quote}</p>}
-          {step.kind === "type" && step.reply && <p className="tk-reply-help">Ответь по смыслу сообщения. Можно своими словами.</p>}
+          {step.kind === "type" && step.reply && <p className="tk-reply-help">{localize("Ответь по смыслу сообщения. Можно своими словами.")}</p>}
           <input
             ref={p.fieldRef}
             className="tk-field"
             value={p.typed}
             disabled={judged !== null}
-            placeholder={step.kind === "type" && step.reply ? "Твой ответ другу…" : step.hint ? `${step.hint}…` : t("track.typeHere")}
+            placeholder={step.kind === "type" && step.reply ? localize("Твой ответ другу…") : step.hint ? `${step.hint}…` : t("track.typeHere")}
             aria-label={step.promptRu}
             onChange={(event) => p.setTyped(event.target.value)}
             autoComplete="off"
@@ -762,7 +763,7 @@ function StepBody(p: BodyProps) {
             <div
               className={`tk-build-answer${judged ? ` tk-build-answer--${judged}` : ""}`}
               role="group"
-              aria-label="Твоё предложение"
+              aria-label={localize("Твоё предложение")}
             >
               {p.assembled.map((id, position) => {
                 const tile = p.tiles.find((item) => item.id === id);
@@ -776,14 +777,14 @@ function StepBody(p: BodyProps) {
                     style={{ animationDelay: `${Math.min(position * 35, 280)}ms` }}
                     disabled={judged !== null}
                     onClick={() => p.removeTile(id)}
-                    aria-label={`Убрать слово ${tile.text}`}
+                    aria-label={localizeTemplate("Убрать слово {{p0}}", [tile.text])}
                   >
                     {tile.text}
                   </button>
                 );
               })}
             </div>
-            <div className="tk-bank" role="group" aria-label="Слова для предложения">
+            <div className="tk-bank" role="group" aria-label={localize("Слова для предложения")}>
               {p.tiles.map((tile) => p.assembled.includes(tile.id) ? (
                 <span className="tk-tile-slot" key={tile.id} aria-hidden="true">{tile.text}</span>
               ) : (
@@ -794,7 +795,7 @@ function StepBody(p: BodyProps) {
                   className="tk-press tk-tile"
                   disabled={judged !== null}
                   onClick={() => p.addTile(tile.id)}
-                  aria-label={`Добавить слово ${tile.text}`}
+                  aria-label={localizeTemplate("Добавить слово {{p0}}", [tile.text])}
                 >
                   {tile.text}
                 </button>
@@ -830,7 +831,7 @@ function StepBody(p: BodyProps) {
     case "register":
       return (
         <>
-          <h2 className="tk-ask">Где можно использовать «{step.phrase}»?</h2>
+          <h2 className="tk-ask">{localizeTemplate("Где можно использовать «{{p0}}»?", [step.phrase])}</h2>
           {/* One tick per room, not a tick and a cross. Two buttons a row was
               eight taps for a four-line question, and it made the learner
               state the obvious half as explicitly as the interesting half. */}

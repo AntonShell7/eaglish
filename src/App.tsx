@@ -1,3 +1,4 @@
+import { AdminLocale } from "@/components/layout/AdminLocale";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
@@ -71,7 +72,7 @@ export default function App() {
           <Route path="profile" element={<Profile />} />
           {/* Behind the auth wall like everything else; the real gate is the
               account check inside the edge function this page calls. */}
-          <Route path="admin" element={<Admin />} />
+          <Route path="admin" element={<AdminLocale><Admin /></AdminLocale>} />
         </Route>
 
         <Route path="login" element={<Login />} />

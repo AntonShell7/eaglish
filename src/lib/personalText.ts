@@ -1,3 +1,4 @@
+import { isArabic } from "@/i18n/content";
 import { askModel, AiError, type AiMessage } from "./aiClient";
 import type { ReadingText } from "@/data/readingTexts";
 import type { ReadingLevel } from "./placement";
@@ -23,7 +24,7 @@ import { countWordUses } from "./wordMatch";
  * looked up and reviewed exactly as before.
  */
 
-const STORAGE_KEY = "personalTexts";
+const STORAGE_KEY = isArabic() ? "personalTexts:ar" : "personalTexts";
 const KEEP = 12;
 
 /**

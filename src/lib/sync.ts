@@ -384,7 +384,7 @@ export async function setSyncUser(userId: string | null) {
         await connectLearning(null);
         pending.length = 0;
         // Keep account preferences and user-created content; reset learning only.
-        const keep = ["learnerProfile", "onboardingDeferred", "dailyGoal", "accessPlan", "adminPinned", "personalTexts"];
+        const keep = ["learnerProfile", "onboardingDeferred", "dailyGoal", "accessPlan", "adminPinned", "personalTexts", "personalTexts:ar"];
         const values = keep.map(key => [key, localStorage.getItem(key)] as const);
         clearLocalProgress();
         for (const [key, value] of values) if (value !== null) localStorage.setItem(key, value);

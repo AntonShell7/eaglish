@@ -1,3 +1,5 @@
+import { localize } from "@/i18n/content";
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { hasSlangAward } from "@/lib/learningRecords";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -53,8 +55,9 @@ export default function Profile() {
   return (
     <div className="profile-page mx-auto max-w-5xl px-5 py-8">
       <h1 className="page-title text-3xl">{t("profile.title")}</h1>
+      <section className="card mt-6 flex flex-wrap items-center justify-between gap-4 p-6"><h2>{t("language.label")}</h2><LanguageToggle /></section>
 
-      {slangAward && <section className="card mt-6 p-6"><strong>🏅 Slang Explorer</strong><p>Ты прошёл полный курс Slang. Отличная работа!</p></section>}
+      {slangAward && <section className="card mt-6 p-6"><strong>🏅 Slang Explorer</strong><p>{localize("Ты прошёл полный курс Slang. Отличная работа!")}</p></section>}
       {/* Identity + level */}
       <section className="profile-identity card viz mt-6 p-6">
         <div className="flex flex-wrap items-center gap-5">

@@ -1,3 +1,4 @@
+import { localizeData } from "@/i18n/content";
 import { readingTexts as curated, type ReadingText } from "./readingTexts";
 import levelIndex from "./reading/index.json";
 
@@ -70,7 +71,7 @@ export async function loadLevelTexts(band: string): Promise<ReadingText[]> {
   let generated: ReadingText[] = [];
   try {
     const chunk = await import(`./reading/${band}.json`);
-    generated = (chunk.default ?? []) as ReadingText[];
+    generated = localizeData((chunk.default ?? []) as ReadingText[]);
   } catch {
     generated = [];
   }

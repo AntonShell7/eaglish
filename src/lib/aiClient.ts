@@ -1,3 +1,4 @@
+import { withLearnerLanguage } from "./aiLanguage";
 import { supabase } from "./supabase";
 import { apiUrl } from "./apiBase";
 /**
@@ -105,7 +106,7 @@ export async function askModel(request: AiRequest): Promise<string> {
     response = await fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify(request),
+      body: JSON.stringify(withLearnerLanguage(request)),
     });
   } catch {
     throw new AiError("failed", "network");

@@ -1,19 +1,20 @@
+import { localize } from "@/i18n/content";
 import { cycle, type ExpressionSpec } from "./trackModel";
 import { pairSpec } from "./trackPairs";
 
 export const newExpressions: ExpressionSpec[] = [
   {
     "short": "wdym",
-    "meaningRu": "что ты имеешь в виду?",
-    "noteRu": "What do you mean? Вопрос об уточнении; без контекста может звучать резко.",
+    "meaningRu": localize("что ты имеешь в виду?"),
+    "noteRu": localize("What do you mean? Вопрос об уточнении; без контекста может звучать резко."),
     "wrong": [
-      "куда ты идёшь?",
-      "я всё понял"
+      localize("куда ты идёшь?"),
+      localize("я всё понял")
     ],
     "before": "",
     "after": " we have to start again?",
-    "gapRu": "В смысле нам нужно начинать заново?",
-    "translationRu": "Что ты имеешь в виду под «слишком поздно»?",
+    "gapRu": localize("В смысле нам нужно начинать заново?"),
+    "translationRu": localize("Что ты имеешь в виду под «слишком поздно»?"),
     "translationEn": [
       "wdym it's too late?"
     ],
@@ -21,16 +22,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "wya",
-    "meaningRu": "ты где?",
-    "noteRu": "Where you at? Неформальное сокращение для чата. В полном стандартном вопросе: Where are you?",
+    "meaningRu": localize("ты где?"),
+    "noteRu": localize("Where you at? Неформальное сокращение для чата. В полном стандартном вопросе: Where are you?"),
     "wrong": [
-      "когда ты придёшь?",
-      "чем ты занимаешься?"
+      localize("когда ты придёшь?"),
+      localize("чем ты занимаешься?")
     ],
     "before": "I'm outside. ",
     "after": "?",
-    "gapRu": "Я снаружи. Ты где?",
-    "translationRu": "Ты где? Я у входа.",
+    "gapRu": localize("Я снаружи. Ты где?"),
+    "translationRu": localize("Ты где? Я у входа."),
     "translationEn": [
       "wya? I'm at the entrance."
     ],
@@ -38,16 +39,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "hmu",
-    "meaningRu": "напиши мне, свяжись со мной",
-    "noteRu": "Hit me up. Можно попросить написать или позвонить; это не буквальное «ударь меня».",
+    "meaningRu": localize("напиши мне, свяжись со мной"),
+    "noteRu": localize("Hit me up. Можно попросить написать или позвонить; это не буквальное «ударь меня»."),
     "wrong": [
-      "оставь меня в покое",
-      "подожди меня"
+      localize("оставь меня в покое"),
+      localize("подожди меня")
     ],
     "before": "",
     "after": " when you're free.",
-    "gapRu": "Напиши мне, когда освободишься.",
-    "translationRu": "Напиши мне после урока.",
+    "gapRu": localize("Напиши мне, когда освободишься."),
+    "translationRu": localize("Напиши мне после урока."),
     "translationEn": [
       "hmu after class."
     ],
@@ -55,16 +56,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "dm me",
-    "meaningRu": "напиши мне в личку",
-    "noteRu": "Direct message me. Просьба перейти в личные сообщения, а не публиковать ответ для всех.",
+    "meaningRu": localize("напиши мне в личку"),
+    "noteRu": localize("Direct message me. Просьба перейти в личные сообщения, а не публиковать ответ для всех."),
     "wrong": [
-      "позвони мне",
-      "опубликуй это для всех"
+      localize("позвони мне"),
+      localize("опубликуй это для всех")
     ],
     "before": "Please ",
     "after": " the address.",
-    "gapRu": "Пожалуйста, пришли мне адрес в личку.",
-    "translationRu": "Пришли мне подробности в личку.",
+    "gapRu": localize("Пожалуйста, пришли мне адрес в личку."),
+    "translationRu": localize("Пришли мне подробности в личку."),
     "translationEn": [
       "dm me the details."
     ],
@@ -72,16 +73,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "tbf",
-    "meaningRu": "справедливости ради",
-    "noteRu": "To be fair. Добавляет обстоятельство, которое помогает оценить ситуацию менее односторонне.",
+    "meaningRu": localize("справедливости ради"),
+    "noteRu": localize("To be fair. Добавляет обстоятельство, которое помогает оценить ситуацию менее односторонне."),
     "wrong": [
-      "если я правильно помню",
-      "мне всё равно"
+      localize("если я правильно помню"),
+      localize("мне всё равно")
     ],
     "before": "",
     "after": ", she did warn us.",
-    "gapRu": "Справедливости ради, она нас предупреждала.",
-    "translationRu": "Справедливости ради, это был его первый день.",
+    "gapRu": localize("Справедливости ради, она нас предупреждала."),
+    "translationRu": localize("Справедливости ради, это был его первый день."),
     "translationEn": [
       "tbf, it was his first day."
     ],
@@ -89,16 +90,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "fwiw",
-    "meaningRu": "если это имеет значение",
-    "noteRu": "For what it's worth. Мягко добавляет мнение или информацию: говорящий не уверен, насколько они помогут.",
+    "meaningRu": localize("если это имеет значение"),
+    "noteRu": localize("For what it's worth. Мягко добавляет мнение или информацию: говорящий не уверен, насколько они помогут."),
     "wrong": [
-      "сколько это стоит?",
-      "я категорически против"
+      localize("сколько это стоит?"),
+      localize("я категорически против")
     ],
     "before": "",
     "after": ", I liked your idea.",
-    "gapRu": "Если моё мнение имеет значение, мне понравилась твоя идея.",
-    "translationRu": "Если это поможет, я согласен с тобой.",
+    "gapRu": localize("Если моё мнение имеет значение, мне понравилась твоя идея."),
+    "translationRu": localize("Если это поможет, я согласен с тобой."),
     "translationEn": [
       "fwiw, I agree with you."
     ],
@@ -106,16 +107,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "iow",
-    "meaningRu": "другими словами",
-    "noteRu": "In other words. Переформулирует предыдущую мысль; встречается в письменных обсуждениях.",
+    "meaningRu": localize("другими словами"),
+    "noteRu": localize("In other words. Переформулирует предыдущую мысль; встречается в письменных обсуждениях."),
     "wrong": [
-      "тем временем",
-      "в первый раз"
+      localize("тем временем"),
+      localize("в первый раз")
     ],
     "before": "",
     "after": ", we need more time.",
-    "gapRu": "Другими словами, нам нужно больше времени.",
-    "translationRu": "Другими словами, план изменился.",
+    "gapRu": localize("Другими словами, нам нужно больше времени."),
+    "translationRu": localize("Другими словами, план изменился."),
     "translationEn": [
       "iow, the plan has changed."
     ],
@@ -123,16 +124,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "imho",
-    "meaningRu": "по моему скромному мнению",
-    "noteRu": "In my humble opinion. Вводит личное мнение; слово humble не гарантирует вежливость, иногда звучит иронично.",
+    "meaningRu": localize("по моему скромному мнению"),
+    "noteRu": localize("In my humble opinion. Вводит личное мнение; слово humble не гарантирует вежливость, иногда звучит иронично."),
     "wrong": [
-      "это доказанный факт",
-      "я не помню"
+      localize("это доказанный факт"),
+      localize("я не помню")
     ],
     "before": "",
     "after": ", the first version was clearer.",
-    "gapRu": "По моему скромному мнению, первая версия была понятнее.",
-    "translationRu": "По моему скромному мнению, нам стоит подождать.",
+    "gapRu": localize("По моему скромному мнению, первая версия была понятнее."),
+    "translationRu": localize("По моему скромному мнению, нам стоит подождать."),
     "translationEn": [
       "imho, we should wait."
     ],
@@ -140,16 +141,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "tmi",
-    "meaningRu": "это лишние подробности",
-    "noteRu": "Too much information. Часто реакция на слишком личные или неприятные детали. Может прозвучать бесцеремонно.",
+    "meaningRu": localize("это лишние подробности"),
+    "noteRu": localize("Too much information. Часто реакция на слишком личные или неприятные детали. Может прозвучать бесцеремонно."),
     "wrong": [
-      "расскажи подробнее",
-      "я ничего не расслышал"
+      localize("расскажи подробнее"),
+      localize("я ничего не расслышал")
     ],
     "before": "Okay, ",
     "after": "! I don't need the bathroom details.",
-    "gapRu": "Ладно, лишние подробности! Мне не нужны детали про туалет.",
-    "translationRu": "Лишние подробности! Оставь детали при себе.",
+    "gapRu": localize("Ладно, лишние подробности! Мне не нужны детали про туалет."),
+    "translationRu": localize("Лишние подробности! Оставь детали при себе."),
     "translationEn": [
       "tmi! Keep the details to yourself."
     ],
@@ -157,16 +158,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "nsfw",
-    "meaningRu": "не стоит открывать при посторонних",
-    "noteRu": "Not safe for work. Пометка для откровенного или другого неподходящего для работы контента; не обязательно только сексуального.",
+    "meaningRu": localize("не стоит открывать при посторонних"),
+    "noteRu": localize("Not safe for work. Пометка для откровенного или другого неподходящего для работы контента; не обязательно только сексуального."),
     "wrong": [
-      "безопасно для детей",
-      "ссылка не работает"
+      localize("безопасно для детей"),
+      localize("ссылка не работает")
     ],
     "before": "That link is ",
     "after": "; don't open it in the office.",
-    "gapRu": "Эта ссылка содержит неподходящий для работы контент; не открывай её в офисе.",
-    "translationRu": "Это видео не стоит открывать на работе.",
+    "gapRu": localize("Эта ссылка содержит неподходящий для работы контент; не открывай её в офисе."),
+    "translationRu": localize("Это видео не стоит открывать на работе."),
     "translationEn": [
       "this video is nsfw."
     ],
@@ -174,16 +175,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "istg",
-    "meaningRu": "клянусь",
-    "noteRu": "I swear to God. Эмоциональное заверение или усиление раздражения; не для официального письма.",
+    "meaningRu": localize("клянусь"),
+    "noteRu": localize("I swear to God. Эмоциональное заверение или усиление раздражения; не для официального письма."),
     "wrong": [
-      "я шучу",
-      "я не уверен"
+      localize("я шучу"),
+      localize("я не уверен")
     ],
     "before": "",
     "after": ", I left the keys right here.",
-    "gapRu": "Клянусь, я оставил ключи прямо здесь.",
-    "translationRu": "Клянусь, я говорю правду.",
+    "gapRu": localize("Клянусь, я оставил ключи прямо здесь."),
+    "translationRu": localize("Клянусь, я говорю правду."),
     "translationEn": [
       "istg, I'm telling the truth."
     ],
@@ -191,16 +192,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "ffs",
-    "meaningRu": "да сколько можно!",
-    "noteRu": "For fuck's sake. Сокращение ругательства: выражает раздражение и может оскорбить адресата. Даже в чате остаётся грубым.",
+    "meaningRu": localize("да сколько можно!"),
+    "noteRu": localize("For fuck's sake. Сокращение ругательства: выражает раздражение и может оскорбить адресата. Даже в чате остаётся грубым."),
     "wrong": [
-      "большое спасибо",
-      "я очень рад"
+      localize("большое спасибо"),
+      localize("я очень рад")
     ],
     "before": "",
     "after": ", the app crashed again!",
-    "gapRu": "Да сколько можно, приложение опять вылетело!",
-    "translationRu": "Да сколько можно, перестань кричать!",
+    "gapRu": localize("Да сколько можно, приложение опять вылетело!"),
+    "translationRu": localize("Да сколько можно, перестань кричать!"),
     "translationEn": [
       "ffs, stop shouting!"
     ],
@@ -209,16 +210,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "nbd",
-    "meaningRu": "ничего страшного",
-    "noteRu": "No big deal. Уменьшает важность проблемы; не используй, чтобы обесценить серьёзные переживания другого.",
+    "meaningRu": localize("ничего страшного"),
+    "noteRu": localize("No big deal. Уменьшает важность проблемы; не используй, чтобы обесценить серьёзные переживания другого."),
     "wrong": [
-      "это катастрофа",
-      "я не согласен"
+      localize("это катастрофа"),
+      localize("я не согласен")
     ],
     "before": "You spilled some water? ",
     "after": ", I'll wipe it up.",
-    "gapRu": "Ты пролил немного воды? Ничего страшного, я вытру.",
-    "translationRu": "Ничего страшного, мы можем попробовать снова.",
+    "gapRu": localize("Ты пролил немного воды? Ничего страшного, я вытру."),
+    "translationRu": localize("Ничего страшного, мы можем попробовать снова."),
     "translationEn": [
       "nbd, we can try again."
     ],
@@ -226,16 +227,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "dw",
-    "meaningRu": "не переживай",
-    "noteRu": "Don't worry. Короткое успокоение в личной переписке.",
+    "meaningRu": localize("не переживай"),
+    "noteRu": localize("Don't worry. Короткое успокоение в личной переписке."),
     "wrong": [
-      "не жди меня",
-      "не пиши мне"
+      localize("не жди меня"),
+      localize("не пиши мне")
     ],
     "before": "",
     "after": ", I saved you a seat.",
-    "gapRu": "Не переживай, я занял тебе место.",
-    "translationRu": "Не переживай, я тебе помогу.",
+    "gapRu": localize("Не переживай, я занял тебе место."),
+    "translationRu": localize("Не переживай, я тебе помогу."),
     "translationEn": [
       "dw, I'll help you."
     ],
@@ -243,16 +244,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "asap",
-    "meaningRu": "как можно скорее",
-    "noteRu": "As soon as possible. Встречается и в работе; просьба с asap может ощущаться как давление. Для точного срока лучше указать время.",
+    "meaningRu": localize("как можно скорее"),
+    "noteRu": localize("As soon as possible. Встречается и в работе; просьба с asap может ощущаться как давление. Для точного срока лучше указать время."),
     "wrong": [
-      "когда-нибудь потом",
-      "как обычно"
+      localize("когда-нибудь потом"),
+      localize("как обычно")
     ],
     "before": "Please send the file ",
     "after": ".",
-    "gapRu": "Пожалуйста, пришли файл как можно скорее.",
-    "translationRu": "Мне нужен твой ответ как можно скорее.",
+    "gapRu": localize("Пожалуйста, пришли файл как можно скорее."),
+    "translationRu": localize("Мне нужен твой ответ как можно скорее."),
     "translationEn": [
       "I need your answer asap."
     ],
@@ -260,16 +261,16 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "ttys",
-    "meaningRu": "скоро поговорим",
-    "noteRu": "Talk to you soon. Неформальное завершение переписки; не обещает конкретного времени звонка.",
+    "meaningRu": localize("скоро поговорим"),
+    "noteRu": localize("Talk to you soon. Неформальное завершение переписки; не обещает конкретного времени звонка."),
     "wrong": [
-      "ты ещё здесь?",
-      "поговорим прямо сейчас"
+      localize("ты ещё здесь?"),
+      localize("поговорим прямо сейчас")
     ],
     "before": "I have to go. ",
     "after": "!",
-    "gapRu": "Мне пора. Скоро поговорим!",
-    "translationRu": "Спасибо за звонок. Скоро поговорим!",
+    "gapRu": localize("Мне пора. Скоро поговорим!"),
+    "translationRu": localize("Спасибо за звонок. Скоро поговорим!"),
     "translationEn": [
       "thanks for the call. ttys!"
     ],
@@ -277,48 +278,48 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "get the wrong end of the stick",
-    "meaningRu": "неправильно понять ситуацию",
-    "noteRu": "Особенно характерно для британского английского. Речь о неверной интерпретации, а не о том, что ты не расслышал слова.",
+    "meaningRu": localize("неправильно понять ситуацию"),
+    "noteRu": localize("Особенно характерно для британского английского. Речь о неверной интерпретации, а не о том, что ты не расслышал слова."),
     "wrong": [
-      "правильно понять намёк",
-      "сознательно обмануть"
+      localize("правильно понять намёк"),
+      localize("сознательно обмануть")
     ],
     "before": "Don't ",
     "after": ": I'm not angry with you.",
-    "gapRu": "Не пойми неправильно: я на тебя не злюсь.",
-    "translationRu": "Ты неправильно понял ситуацию.",
+    "gapRu": localize("Не пойми неправильно: я на тебя не злюсь."),
+    "translationRu": localize("Ты неправильно понял ситуацию."),
     "translationEn": [
       "you got the wrong end of the stick."
     ]
   },
   {
     "short": "bark up the wrong tree",
-    "meaningRu": "искать причину не там",
-    "noteRu": "Предпринимать ошибочную попытку или подозревать не того человека. В речи: you're barking up the wrong tree.",
+    "meaningRu": localize("искать причину не там"),
+    "noteRu": localize("Предпринимать ошибочную попытку или подозревать не того человека. В речи: you're barking up the wrong tree."),
     "wrong": [
-      "найти правильное решение",
-      "громко спорить"
+      localize("найти правильное решение"),
+      localize("громко спорить")
     ],
     "before": "If you blame me, you're going to ",
     "after": ".",
-    "gapRu": "Если ты обвиняешь меня, то будешь искать виновного не там.",
-    "translationRu": "Ты ищешь виновного не там.",
+    "gapRu": localize("Если ты обвиняешь меня, то будешь искать виновного не там."),
+    "translationRu": localize("Ты ищешь виновного не там."),
     "translationEn": [
       "you're barking up the wrong tree."
     ]
   },
   {
     "short": "twist someone's arm",
-    "meaningRu": "настойчиво уговаривать",
-    "noteRu": "Часто с лёгкой иронией: You twisted my arm — «ладно, уговорил». Не буквальное физическое действие.",
+    "meaningRu": localize("настойчиво уговаривать"),
+    "noteRu": localize("Часто с лёгкой иронией: You twisted my arm — «ладно, уговорил». Не буквальное физическое действие."),
     "wrong": [
-      "помочь без просьбы",
-      "отказаться от приглашения"
+      localize("помочь без просьбы"),
+      localize("отказаться от приглашения")
     ],
     "before": "Don't ",
     "after": "; let her decide.",
-    "gapRu": "Не уговаривай её настойчиво; пусть сама решит.",
-    "translationRu": "Тебе не нужно меня уговаривать.",
+    "gapRu": localize("Не уговаривай её настойчиво; пусть сама решит."),
+    "translationRu": localize("Тебе не нужно меня уговаривать."),
     "translationEn": [
       "you don't need to twist my arm."
     ],
@@ -332,464 +333,464 @@ export const newExpressions: ExpressionSpec[] = [
   },
   {
     "short": "play it by ear",
-    "meaningRu": "действовать по ситуации",
-    "noteRu": "Решать по ходу событий, без заранее установленного плана.",
+    "meaningRu": localize("действовать по ситуации"),
+    "noteRu": localize("Решать по ходу событий, без заранее установленного плана."),
     "wrong": [
-      "строго следовать плану",
-      "сразу всё отменить"
+      localize("строго следовать плану"),
+      localize("сразу всё отменить")
     ],
     "before": "We haven't booked dinner. Let's ",
     "after": ".",
-    "gapRu": "Мы не забронировали ужин. Давай решим по ситуации.",
-    "translationRu": "Давай решим по ситуации завтра.",
+    "gapRu": localize("Мы не забронировали ужин. Давай решим по ситуации."),
+    "translationRu": localize("Давай решим по ситуации завтра."),
     "translationEn": [
       "let's play it by ear tomorrow."
     ]
   },
   {
     "short": "miss the boat",
-    "meaningRu": "упустить возможность",
-    "noteRu": "Речь о шансе, который был доступен раньше; не обязательно о транспорте.",
+    "meaningRu": localize("упустить возможность"),
+    "noteRu": localize("Речь о шансе, который был доступен раньше; не обязательно о транспорте."),
     "wrong": [
-      "выиграть время",
-      "передумать в последний момент"
+      localize("выиграть время"),
+      localize("передумать в последний момент")
     ],
     "before": "Apply today or you'll ",
     "after": ".",
-    "gapRu": "Подай заявку сегодня, иначе упустишь возможность.",
-    "translationRu": "Я упустил возможность купить дешёвые билеты.",
+    "gapRu": localize("Подай заявку сегодня, иначе упустишь возможность."),
+    "translationRu": localize("Я упустил возможность купить дешёвые билеты."),
     "translationEn": [
       "I missed the boat on cheap tickets."
     ]
   },
   {
     "short": "be in the same boat",
-    "meaningRu": "быть в одинаковом трудном положении",
-    "noteRu": "Обычно о людях с общей проблемой. In the same boat не означает одинаковое мнение.",
+    "meaningRu": localize("быть в одинаковом трудном положении"),
+    "noteRu": localize("Обычно о людях с общей проблемой. In the same boat не означает одинаковое мнение."),
     "wrong": [
-      "полностью соглашаться",
-      "соревноваться друг с другом"
+      localize("полностью соглашаться"),
+      localize("соревноваться друг с другом")
     ],
     "before": "If we both fail, we'll ",
     "after": ".",
-    "gapRu": "Если мы оба провалимся, окажемся в одинаковом трудном положении.",
-    "translationRu": "Мы в одинаковом положении.",
+    "gapRu": localize("Если мы оба провалимся, окажемся в одинаковом трудном положении."),
+    "translationRu": localize("Мы в одинаковом положении."),
     "translationEn": [
       "we're in the same boat."
     ]
   },
   {
     "short": "the elephant in the room",
-    "meaningRu": "проблема, которую все избегают обсуждать",
-    "noteRu": "Все знают о важной или неловкой теме, но никто не хочет первым её поднимать.",
+    "meaningRu": localize("проблема, которую все избегают обсуждать"),
+    "noteRu": localize("Все знают о важной или неловкой теме, но никто не хочет первым её поднимать."),
     "wrong": [
-      "неожиданный гость",
-      "незначительная деталь"
+      localize("неожиданный гость"),
+      localize("незначительная деталь")
     ],
     "before": "Let's address ",
     "after": ": we have no budget.",
-    "gapRu": "Давайте обсудим проблему, которую все обходят: у нас нет бюджета.",
-    "translationRu": "Нам нужно обсудить проблему, которую все избегают.",
+    "gapRu": localize("Давайте обсудим проблему, которую все обходят: у нас нет бюджета."),
+    "translationRu": localize("Нам нужно обсудить проблему, которую все избегают."),
     "translationEn": [
       "we need to address the elephant in the room."
     ]
   },
   {
     "short": "the tip of the iceberg",
-    "meaningRu": "небольшая видимая часть большой проблемы",
-    "noteRu": "Указывает, что скрытая часть ситуации намного больше того, что уже обнаружено.",
+    "meaningRu": localize("небольшая видимая часть большой проблемы"),
+    "noteRu": localize("Указывает, что скрытая часть ситуации намного больше того, что уже обнаружено."),
     "wrong": [
-      "окончательное решение",
-      "самая трудная часть уже позади"
+      localize("окончательное решение"),
+      localize("самая трудная часть уже позади")
     ],
     "before": "These two errors are only ",
     "after": ".",
-    "gapRu": "Эти две ошибки — лишь небольшая видимая часть большой проблемы.",
-    "translationRu": "Эта жалоба — лишь верхушка айсберга.",
+    "gapRu": localize("Эти две ошибки — лишь небольшая видимая часть большой проблемы."),
+    "translationRu": localize("Эта жалоба — лишь верхушка айсберга."),
     "translationEn": [
       "this complaint is just the tip of the iceberg."
     ]
   },
   {
     "short": "get cold feet",
-    "meaningRu": "струсить перед решительным шагом",
-    "noteRu": "Перед важным действием начать сомневаться и бояться, хотя раньше собирался его выполнить.",
+    "meaningRu": localize("струсить перед решительным шагом"),
+    "noteRu": localize("Перед важным действием начать сомневаться и бояться, хотя раньше собирался его выполнить."),
     "wrong": [
-      "сильно замёрзнуть",
-      "решительно действовать"
+      localize("сильно замёрзнуть"),
+      localize("решительно действовать")
     ],
     "before": "I agreed to speak, but I might ",
     "after": " on stage.",
-    "gapRu": "Я согласился выступить, но могу струсить на сцене.",
-    "translationRu": "Он струсил перед свадьбой.",
+    "gapRu": localize("Я согласился выступить, но могу струсить на сцене."),
+    "translationRu": localize("Он струсил перед свадьбой."),
     "translationEn": [
       "he got cold feet before the wedding."
     ]
   },
   {
     "short": "jump the gun",
-    "meaningRu": "поторопиться, начать раньше времени",
-    "noteRu": "Сделать что-то до подходящего момента или прежде, чем появились необходимые сведения.",
+    "meaningRu": localize("поторопиться, начать раньше времени"),
+    "noteRu": localize("Сделать что-то до подходящего момента или прежде, чем появились необходимые сведения."),
     "wrong": [
-      "слишком долго ждать",
-      "победить соперника"
+      localize("слишком долго ждать"),
+      localize("победить соперника")
     ],
     "before": "Don't ",
     "after": "; wait for the official result.",
-    "gapRu": "Не торопись; дождись официального результата.",
-    "translationRu": "Мы поторопились с объявлением.",
+    "gapRu": localize("Не торопись; дождись официального результата."),
+    "translationRu": localize("Мы поторопились с объявлением."),
     "translationEn": [
       "we jumped the gun with the announcement."
     ]
   },
   {
     "short": "add fuel to the fire",
-    "meaningRu": "подлить масла в огонь",
-    "noteRu": "Усилить уже существующую ссору, злость или неприятную ситуацию.",
+    "meaningRu": localize("подлить масла в огонь"),
+    "noteRu": localize("Усилить уже существующую ссору, злость или неприятную ситуацию."),
     "wrong": [
-      "снять напряжение",
-      "начать с чистого листа"
+      localize("снять напряжение"),
+      localize("начать с чистого листа")
     ],
     "before": "Insulting him will only ",
     "after": ".",
-    "gapRu": "Если оскорбишь его, только подольёшь масла в огонь.",
-    "translationRu": "Её комментарий подлил масла в огонь.",
+    "gapRu": localize("Если оскорбишь его, только подольёшь масла в огонь."),
+    "translationRu": localize("Её комментарий подлил масла в огонь."),
     "translationEn": [
       "her comment added fuel to the fire."
     ]
   },
   {
     "short": "the last straw",
-    "meaningRu": "последняя капля",
-    "noteRu": "Последняя из нескольких неприятностей, после которой терпение заканчивается.",
+    "meaningRu": localize("последняя капля"),
+    "noteRu": localize("Последняя из нескольких неприятностей, после которой терпение заканчивается."),
     "wrong": [
-      "первая попытка",
-      "последняя надежда"
+      localize("первая попытка"),
+      localize("последняя надежда")
     ],
     "before": "When he lied again, that was ",
     "after": ".",
-    "gapRu": "Когда он снова солгал, это стало последней каплей.",
-    "translationRu": "Его опоздание стало последней каплей.",
+    "gapRu": localize("Когда он снова солгал, это стало последней каплей."),
+    "translationRu": localize("Его опоздание стало последней каплей."),
     "translationEn": [
       "his lateness was the last straw."
     ]
   },
   {
     "short": "a silver lining",
-    "meaningRu": "положительная сторона неприятной ситуации",
-    "noteRu": "Хорошее обстоятельство внутри плохой ситуации; не означает, что вся проблема исчезла.",
+    "meaningRu": localize("положительная сторона неприятной ситуации"),
+    "noteRu": localize("Хорошее обстоятельство внутри плохой ситуации; не означает, что вся проблема исчезла."),
     "wrong": [
-      "скрытая опасность",
-      "дорогая покупка"
+      localize("скрытая опасность"),
+      localize("дорогая покупка")
     ],
     "before": "Losing that job had ",
     "after": ": I found a better one.",
-    "gapRu": "У потери той работы была хорошая сторона: я нашёл работу лучше.",
-    "translationRu": "В этой задержке есть хорошая сторона.",
+    "gapRu": localize("У потери той работы была хорошая сторона: я нашёл работу лучше."),
+    "translationRu": localize("В этой задержке есть хорошая сторона."),
     "translationEn": [
       "there's a silver lining to this delay."
     ]
   },
   {
     "short": "the light at the end of the tunnel",
-    "meaningRu": "надежда на окончание трудного периода",
-    "noteRu": "Первые признаки того, что длительные трудности скоро закончатся.",
+    "meaningRu": localize("надежда на окончание трудного периода"),
+    "noteRu": localize("Первые признаки того, что длительные трудности скоро закончатся."),
     "wrong": [
-      "начало новых проблем",
-      "полная потеря надежды"
+      localize("начало новых проблем"),
+      localize("полная потеря надежды")
     ],
     "before": "After months of repairs, we can see ",
     "after": ".",
-    "gapRu": "После месяцев ремонта мы видим, что трудности скоро закончатся.",
-    "translationRu": "Наконец я вижу свет в конце туннеля.",
+    "gapRu": localize("После месяцев ремонта мы видим, что трудности скоро закончатся."),
+    "translationRu": localize("Наконец я вижу свет в конце туннеля."),
     "translationEn": [
       "I can finally see the light at the end of the tunnel."
     ]
   },
   {
     "short": "go the extra mile",
-    "meaningRu": "сделать больше ожидаемого",
-    "noteRu": "Приложить дополнительные усилия, чтобы помочь или сделать работу особенно хорошо.",
+    "meaningRu": localize("сделать больше ожидаемого"),
+    "noteRu": localize("Приложить дополнительные усилия, чтобы помочь или сделать работу особенно хорошо."),
     "wrong": [
-      "сделать только необходимое",
-      "отложить работу"
+      localize("сделать только необходимое"),
+      localize("отложить работу")
     ],
     "before": "She always tries to ",
     "after": " for her students.",
-    "gapRu": "Она всегда старается сделать для учеников больше ожидаемого.",
-    "translationRu": "Он сделал для нас больше, чем от него ожидали.",
+    "gapRu": localize("Она всегда старается сделать для учеников больше ожидаемого."),
+    "translationRu": localize("Он сделал для нас больше, чем от него ожидали."),
     "translationEn": [
       "he went the extra mile for us."
     ]
   },
   {
     "short": "pull your weight",
-    "meaningRu": "выполнять свою долю работы",
-    "noteRu": "Вносить справедливый вклад в общее дело; не заставлять остальных делать всё за тебя.",
+    "meaningRu": localize("выполнять свою долю работы"),
+    "noteRu": localize("Вносить справедливый вклад в общее дело; не заставлять остальных делать всё за тебя."),
     "wrong": [
-      "взять всю работу на себя",
-      "работать быстрее всех"
+      localize("взять всю работу на себя"),
+      localize("работать быстрее всех")
     ],
     "before": "This is a team project, so you need to ",
     "after": ".",
-    "gapRu": "Это командный проект, поэтому тебе нужно выполнять свою долю работы.",
-    "translationRu": "Тебе нужно выполнять свою долю работы.",
+    "gapRu": localize("Это командный проект, поэтому тебе нужно выполнять свою долю работы."),
+    "translationRu": localize("Тебе нужно выполнять свою долю работы."),
     "translationEn": [
       "you need to pull your weight."
     ]
   },
   {
     "short": "be for real",
-    "meaningRu": "давай серьёзно",
-    "noteRu": "Разговорное требование говорить реалистично или честно. Может звучать раздражённо и не подходит для вежливого несогласия с незнакомым.",
+    "meaningRu": localize("давай серьёзно"),
+    "noteRu": localize("Разговорное требование говорить реалистично или честно. Может звучать раздражённо и не подходит для вежливого несогласия с незнакомым."),
     "wrong": [
-      "будь собой",
-      "хорошо повеселись"
+      localize("будь собой"),
+      localize("хорошо повеселись")
     ],
     "before": "",
     "after": ": you can't finish all that in ten minutes.",
-    "gapRu": "Давай серьёзно: ты не закончишь всё это за десять минут.",
-    "translationRu": "Давай серьёзно, этот план не сработает.",
+    "gapRu": localize("Давай серьёзно: ты не закончишь всё это за десять минут."),
+    "translationRu": localize("Давай серьёзно, этот план не сработает."),
     "translationEn": [
       "be for real, this plan won't work."
     ]
   },
   {
     "short": "you can't be serious",
-    "meaningRu": "ты же не всерьёз!",
-    "noteRu": "Выражает сильное недоверие или возмущение; тон важен.",
+    "meaningRu": localize("ты же не всерьёз!"),
+    "noteRu": localize("Выражает сильное недоверие или возмущение; тон важен."),
     "wrong": [
-      "ты прав",
-      "тебе нужно сосредоточиться"
+      localize("ты прав"),
+      localize("тебе нужно сосредоточиться")
     ],
     "before": "A hundred pounds for a sandwich? ",
     "after": "!",
-    "gapRu": "Сто фунтов за сэндвич? Ты же не всерьёз!",
-    "translationRu": "Ты же не всерьёз! Это слишком дорого.",
+    "gapRu": localize("Сто фунтов за сэндвич? Ты же не всерьёз!"),
+    "translationRu": localize("Ты же не всерьёз! Это слишком дорого."),
     "translationEn": [
       "you can't be serious! That's too expensive."
     ]
   },
   {
     "short": "I'm game",
-    "meaningRu": "я готов попробовать",
-    "noteRu": "Неформальное согласие участвовать в предложенном деле. Обычно ответ на конкретную идею.",
+    "meaningRu": localize("я готов попробовать"),
+    "noteRu": localize("Неформальное согласие участвовать в предложенном деле. Обычно ответ на конкретную идею."),
     "wrong": [
-      "я играю прямо сейчас",
-      "я устал"
+      localize("я играю прямо сейчас"),
+      localize("я устал")
     ],
     "before": "A night hike? ",
     "after": "!",
-    "gapRu": "Ночной поход? Я готов!",
-    "translationRu": "Я готов попробовать, если ты тоже.",
+    "gapRu": localize("Ночной поход? Я готов!"),
+    "translationRu": localize("Я готов попробовать, если ты тоже."),
     "translationEn": [
       "I'm game if you are."
     ]
   },
   {
     "short": "hard pass",
-    "meaningRu": "категорически нет",
-    "noteRu": "Очень прямой отказ, который может звучать резко. Для мягкого отказа лучше использовать уже знакомое I'll pass.",
+    "meaningRu": localize("категорически нет"),
+    "noteRu": localize("Очень прямой отказ, который может звучать резко. Для мягкого отказа лучше использовать уже знакомое I'll pass."),
     "wrong": [
-      "я согласен",
-      "мне нужно подумать"
+      localize("я согласен"),
+      localize("мне нужно подумать")
     ],
     "before": "Camping in a storm? ",
     "after": ".",
-    "gapRu": "Ночевать в палатке во время шторма? Категорически нет.",
-    "translationRu": "Нет уж, я останусь дома.",
+    "gapRu": localize("Ночевать в палатке во время шторма? Категорически нет."),
+    "translationRu": localize("Нет уж, я останусь дома."),
     "translationEn": [
       "hard pass. I'm staying home."
     ]
   },
   {
     "short": "what's the catch?",
-    "meaningRu": "в чём подвох?",
-    "noteRu": "Вопрос о скрытом условии у слишком привлекательного предложения.",
+    "meaningRu": localize("в чём подвох?"),
+    "noteRu": localize("Вопрос о скрытом условии у слишком привлекательного предложения."),
     "wrong": [
-      "когда это начинается?",
-      "кто победил?"
+      localize("когда это начинается?"),
+      localize("кто победил?")
     ],
     "before": "Free flights for a year? ",
     "after": "",
-    "gapRu": "Бесплатные перелёты целый год? В чём подвох?",
-    "translationRu": "Звучит отлично. В чём подвох?",
+    "gapRu": localize("Бесплатные перелёты целый год? В чём подвох?"),
+    "translationRu": localize("Звучит отлично. В чём подвох?"),
     "translationEn": [
       "sounds great. What's the catch?"
     ]
   },
   {
     "short": "sounds fishy",
-    "meaningRu": "звучит подозрительно",
-    "noteRu": "Неформальное сомнение в честности или правдоподобности истории, а не описание запаха.",
+    "meaningRu": localize("звучит подозрительно"),
+    "noteRu": localize("Неформальное сомнение в честности или правдоподобности истории, а не описание запаха."),
     "wrong": [
-      "звучит убедительно",
-      "это пахнет рыбой"
+      localize("звучит убедительно"),
+      localize("это пахнет рыбой")
     ],
     "before": "That offer ",
     "after": " to me.",
-    "gapRu": "Это предложение кажется мне подозрительным.",
-    "translationRu": "Эта история звучит подозрительно.",
+    "gapRu": localize("Это предложение кажется мне подозрительным."),
+    "translationRu": localize("Эта история звучит подозрительно."),
     "translationEn": [
       "that story sounds fishy."
     ]
   },
   {
     "short": "that tracks",
-    "meaningRu": "это логично",
-    "noteRu": "Неформальная реакция: информация согласуется с тем, что уже известно. Не связано с отслеживанием местоположения.",
+    "meaningRu": localize("это логично"),
+    "noteRu": localize("Неформальная реакция: информация согласуется с тем, что уже известно. Не связано с отслеживанием местоположения."),
     "wrong": [
-      "это неправда",
-      "я слежу за тобой"
+      localize("это неправда"),
+      localize("я слежу за тобой")
     ],
     "before": "She missed the train? ",
     "after": "; she left late.",
-    "gapRu": "Она опоздала на поезд? Логично: она поздно вышла.",
-    "translationRu": "Это логично. Он ненавидит рано вставать.",
+    "gapRu": localize("Она опоздала на поезд? Логично: она поздно вышла."),
+    "translationRu": localize("Это логично. Он ненавидит рано вставать."),
     "translationEn": [
       "that tracks. He hates getting up early."
     ]
   },
   {
     "short": "go figure",
-    "meaningRu": "вот и пойми",
-    "noteRu": "Часто ироничная реакция на странность или предсказуемый парадокс. Не просьба посчитать или решить задачу.",
+    "meaningRu": localize("вот и пойми"),
+    "noteRu": localize("Часто ироничная реакция на странность или предсказуемый парадокс. Не просьба посчитать или решить задачу."),
     "wrong": [
-      "пойди посчитай",
-      "отличная работа"
+      localize("пойди посчитай"),
+      localize("отличная работа")
     ],
     "before": "The printer broke right before the deadline. ",
     "after": ".",
-    "gapRu": "Принтер сломался прямо перед дедлайном. Вот и пойми.",
-    "translationRu": "Он снова забыл ключи. Кто бы сомневался.",
+    "gapRu": localize("Принтер сломался прямо перед дедлайном. Вот и пойми."),
+    "translationRu": localize("Он снова забыл ключи. Кто бы сомневался."),
     "translationEn": [
       "he forgot his keys again. Go figure."
     ]
   },
   {
     "short": "not feeling it",
-    "meaningRu": "не заходит, нет настроения",
-    "noteRu": "О занятии, идее или впечатлении, к которым сейчас не лежит душа. В предложении обычно I'm not feeling it.",
+    "meaningRu": localize("не заходит, нет настроения"),
+    "noteRu": localize("О занятии, идее или впечатлении, к которым сейчас не лежит душа. В предложении обычно I'm not feeling it."),
     "wrong": [
-      "я ничего не чувствую рукой",
-      "мне очень нравится"
+      localize("я ничего не чувствую рукой"),
+      localize("мне очень нравится")
     ],
     "before": "We could go dancing, but I'm ",
     "after": ".",
-    "gapRu": "Мы могли бы пойти танцевать, но у меня нет настроения.",
-    "translationRu": "Сегодня мне это не заходит.",
+    "gapRu": localize("Мы могли бы пойти танцевать, но у меня нет настроения."),
+    "translationRu": localize("Сегодня мне это не заходит."),
     "translationEn": [
       "I'm not feeling it today."
     ]
   },
   {
     "short": "a bit much",
-    "meaningRu": "это уже перебор",
-    "noteRu": "О чём-то чрезмерном: цене, требовании или поведении. Bit часто смягчает критику.",
+    "meaningRu": localize("это уже перебор"),
+    "noteRu": localize("О чём-то чрезмерном: цене, требовании или поведении. Bit часто смягчает критику."),
     "wrong": [
-      "совсем недостаточно",
-      "как раз вовремя"
+      localize("совсем недостаточно"),
+      localize("как раз вовремя")
     ],
     "before": "Three calls in five minutes is ",
     "after": ".",
-    "gapRu": "Три звонка за пять минут — это уже перебор.",
-    "translationRu": "Это требование — уже перебор.",
+    "gapRu": localize("Три звонка за пять минут — это уже перебор."),
+    "translationRu": localize("Это требование — уже перебор."),
     "translationEn": [
       "that request is a bit much."
     ]
   },
   {
     "short": "give it a rest",
-    "meaningRu": "хватит уже об этом",
-    "noteRu": "Раздражённая просьба перестать повторять тему или жаловаться. Не буквальное предложение отдохнуть.",
+    "meaningRu": localize("хватит уже об этом"),
+    "noteRu": localize("Раздражённая просьба перестать повторять тему или жаловаться. Не буквальное предложение отдохнуть."),
     "wrong": [
-      "расскажи ещё",
-      "немного отдохни"
+      localize("расскажи ещё"),
+      localize("немного отдохни")
     ],
     "before": "You've complained about it all day. ",
     "after": "!",
-    "gapRu": "Ты жалуешься на это весь день. Хватит уже!",
-    "translationRu": "Хватит уже об этом. Мы тебя услышали.",
+    "gapRu": localize("Ты жалуешься на это весь день. Хватит уже!"),
+    "translationRu": localize("Хватит уже об этом. Мы тебя услышали."),
     "translationEn": [
       "give it a rest. We heard you."
     ]
   },
   {
     "short": "get off my back",
-    "meaningRu": "хватит на меня давить",
-    "noteRu": "Резкое требование перестать придираться, контролировать или торопить. Может обострить спор.",
+    "meaningRu": localize("хватит на меня давить"),
+    "noteRu": localize("Резкое требование перестать придираться, контролировать или торопить. Может обострить спор."),
     "wrong": [
-      "помоги мне",
-      "встань позади меня"
+      localize("помоги мне"),
+      localize("встань позади меня")
     ],
     "before": "I'll finish it tonight. ",
     "after": "!",
-    "gapRu": "Я закончу сегодня вечером. Хватит на меня давить!",
-    "translationRu": "Отстань, я над этим работаю.",
+    "gapRu": localize("Я закончу сегодня вечером. Хватит на меня давить!"),
+    "translationRu": localize("Отстань, я над этим работаю."),
     "translationEn": [
       "get off my back. I'm working on it."
     ]
   },
   {
     "short": "you dodged a bullet",
-    "meaningRu": "ты избежал больших неприятностей",
-    "noteRu": "О ситуации, которая могла закончиться намного хуже. Не стоит так обесценивать чужую боль сразу после расставания.",
+    "meaningRu": localize("ты избежал больших неприятностей"),
+    "noteRu": localize("О ситуации, которая могла закончиться намного хуже. Не стоит так обесценивать чужую боль сразу после расставания."),
     "wrong": [
-      "тебе сильно не повезло",
-      "ты упустил прекрасный шанс"
+      localize("тебе сильно не повезло"),
+      localize("ты упустил прекрасный шанс")
     ],
     "before": "They fired half the staff after you declined. ",
     "after": ".",
-    "gapRu": "После твоего отказа они уволили половину сотрудников. Ты избежал больших неприятностей.",
-    "translationRu": "Ты избежал больших неприятностей с той работой.",
+    "gapRu": localize("После твоего отказа они уволили половину сотрудников. Ты избежал больших неприятностей."),
+    "translationRu": localize("Ты избежал больших неприятностей с той работой."),
     "translationEn": [
       "you dodged a bullet with that job."
     ]
   },
   {
     "short": "their loss",
-    "meaningRu": "они сами потеряли",
-    "noteRu": "Поддержка человека, которого отвергли или не оценили: потерял тот, кто отказал.",
+    "meaningRu": localize("они сами потеряли"),
+    "noteRu": localize("Поддержка человека, которого отвергли или не оценили: потерял тот, кто отказал."),
     "wrong": [
-      "ты виноват",
-      "мы проиграли"
+      localize("ты виноват"),
+      localize("мы проиграли")
     ],
     "before": "They didn't hire you? ",
     "after": ".",
-    "gapRu": "Они тебя не наняли? Они сами потеряли.",
-    "translationRu": "Они тебя не выбрали? Они сами потеряли.",
+    "gapRu": localize("Они тебя не наняли? Они сами потеряли."),
+    "translationRu": localize("Они тебя не выбрали? Они сами потеряли."),
     "translationEn": [
       "they didn't choose you? Their loss."
     ]
   },
   {
     "short": "you nailed it",
-    "meaningRu": "ты отлично справился",
-    "noteRu": "Неформальная похвала за точное или очень удачное выполнение задачи.",
+    "meaningRu": localize("ты отлично справился"),
+    "noteRu": localize("Неформальная похвала за точное или очень удачное выполнение задачи."),
     "wrong": [
-      "ты всё испортил",
-      "ты забыл задание"
+      localize("ты всё испортил"),
+      localize("ты забыл задание")
     ],
     "before": "That presentation was excellent. ",
     "after": "!",
-    "gapRu": "Презентация была отличной. Ты прекрасно справился!",
-    "translationRu": "Ты отлично справился с этим ответом.",
+    "gapRu": localize("Презентация была отличной. Ты прекрасно справился!"),
+    "translationRu": localize("Ты отлично справился с этим ответом."),
     "translationEn": [
       "you nailed it with that answer."
     ]
   },
   {
     "short": "you blew it",
-    "meaningRu": "ты всё испортил",
-    "noteRu": "Резкая оценка ошибки или упущенной возможности. Для поддержки после неудачи такое не подходит.",
+    "meaningRu": localize("ты всё испортил"),
+    "noteRu": localize("Резкая оценка ошибки или упущенной возможности. Для поддержки после неудачи такое не подходит."),
     "wrong": [
-      "ты отлично справился",
-      "ты передумал"
+      localize("ты отлично справился"),
+      localize("ты передумал")
     ],
     "before": "You shared the secret before the launch. ",
     "after": ".",
-    "gapRu": "Ты раскрыл секрет до запуска. Ты всё испортил.",
-    "translationRu": "У тебя был шанс, но ты всё испортил.",
+    "gapRu": localize("Ты раскрыл секрет до запуска. Ты всё испортил."),
+    "translationRu": localize("У тебя был шанс, но ты всё испортил."),
     "translationEn": [
       "you had a chance, but you blew it."
     ]
@@ -824,14 +825,14 @@ const conversations: string[][] = [
 ];
 
 const moduleNames = [
-  ["Be For Real", "Clarify messages and challenge misunderstandings.", "Уточняй смысл и разбирайся в недоразумениях."],
-  ["I'm Game", "Get in touch, make plans and choose what to join.", "Выходи на связь, строй планы и выбирай, в чём участвовать."],
-  ["What's the Catch?", "Weigh opinions, missed chances and suspicious offers.", "Взвешивай мнения, упущенные шансы и подозрительные предложения."],
-  ["That Tracks", "Rephrase ideas and notice what people avoid saying.", "Переформулируй мысли и замечай то, о чём молчат."],
-  ["A Bit Much", "Recognise oversharing, hesitation and excess.", "Распознавай лишние подробности, сомнения и перебор."],
-  ["The Last Straw", "Understand irritation and the language of conflict.", "Понимай раздражение и язык конфликтов."],
-  ["Their Loss", "Reassure a friend and find a way through setbacks.", "Поддерживай друзей и находи выход после неудач."],
-  ["Nailed It", "Coordinate work and talk about effort and results.", "Договаривайся о работе и обсуждай усилия и результат."],
+  ["Be For Real", "Clarify messages and challenge misunderstandings.", localize("Уточняй смысл и разбирайся в недоразумениях.")],
+  ["I'm Game", "Get in touch, make plans and choose what to join.", localize("Выходи на связь, строй планы и выбирай, в чём участвовать.")],
+  ["What's the Catch?", "Weigh opinions, missed chances and suspicious offers.", localize("Взвешивай мнения, упущенные шансы и подозрительные предложения.")],
+  ["That Tracks", "Rephrase ideas and notice what people avoid saying.", localize("Переформулируй мысли и замечай то, о чём молчат.")],
+  ["A Bit Much", "Recognise oversharing, hesitation and excess.", localize("Распознавай лишние подробности, сомнения и перебор.")],
+  ["The Last Straw", "Understand irritation and the language of conflict.", localize("Понимай раздражение и язык конфликтов.")],
+  ["Their Loss", "Reassure a friend and find a way through setbacks.", localize("Поддерживай друзей и находи выход после неудач.")],
+  ["Nailed It", "Coordinate work and talk about effort and results.", localize("Договаривайся о работе и обсуждай усилия и результат.")],
 ];
 
 export const newTrackModules = moduleNames.map(([title, subtitle, subtitleRu], index) => {

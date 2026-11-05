@@ -1,3 +1,4 @@
+import { isArabic } from "@/i18n/content";
 /**
  * Translations that need no model and no network.
  *
@@ -22,7 +23,7 @@ let loading: Promise<Record<string, string>> | null = null;
 /** Loads once per session and is shared by every caller after that. */
 function dictionary(): Promise<Record<string, string>> {
   if (!loading) {
-    loading = import("@/data/offlineDictionary.json")
+    loading = (isArabic() ? import("@/data/offlineDictionary.ar.json") : import("@/data/offlineDictionary.json"))
       .then((m) => m.default as Record<string, string>)
       .catch(() => ({}));
   }
@@ -41,5 +42,7 @@ export async function offlineTranslation(word: string): Promise<string | null> {
   const key = word.trim().toLowerCase();
   if (!key || /[^a-z'-]/.test(key)) return null;
   const dict = await dictionary();
-  return dict[key] ?? null;
+  const translation = dict[key];
+  if (isArabic() && translation && /[А-Яа-яЁё]/.test(translation)) return null;
+  return translation ?? null;
 }

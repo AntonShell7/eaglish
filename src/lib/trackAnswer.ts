@@ -1,3 +1,4 @@
+import { localize, localizeTemplate } from "@/i18n/content";
 import type { Step } from "@/data/track";
 import { askModel, AiError } from "./aiClient";
 
@@ -45,7 +46,7 @@ export async function judgeTypedAnswer(step: TypedStep, typed: string): Promise<
             "You check short Russian-to-English translations in an informal-English course.",
             "Judge meaning and natural usage, not exact string equality.",
             "Accept correct alternative wording, contractions, omitted apostrophes, capitalization differences, and chat spellings such as 'u' for 'you'.",
-            "This is informal chat practice: accept minor grammar or wording imperfections when the intended sentence is still clear, for example 'tq, that u send me the link' for 'Спасибо, что прислал ссылку'.",
+            localize("This is informal chat practice: accept minor grammar or wording imperfections when the intended sentence is still clear, for example 'tq, that u send me the link' for 'Спасибо, что прислал ссылку'."),
             "The answer must preserve the full meaning and include the taught expression or its accepted full form.",
             "Reject a missing target expression, changed or unclear meaning, and errors that make the sentence incomprehensible.",
             'Return only JSON in this shape: {"correct":true} or {"correct":false}.',
@@ -73,7 +74,7 @@ export async function judgeTypedAnswer(step: TypedStep, typed: string): Promise<
 export function acceptedFormHint(step: TypedStep, typed: string): string | null {
   const normalized = (value: string) => value.trim().toLowerCase().replace(/['’‘ʼ`´]/g, "").replace(/[.!?,;:]+$/g, "").replace(/\s+/g, " ");
   const match = step.answers.find(answer => sameAnswer(typed, answer));
-  return match && normalized(match) !== normalized(typed) ? `Полная форма: ${match}` : null;
+  return match && normalized(match) !== normalized(typed) ? localizeTemplate("Полная форма: {{p0}}", [match]) : null;
 }
 
 export async function replyVerdict(step: Extract<Step, { kind: "type" }>, typed: string): Promise<{ correct: boolean | null; feedback: string | null }> {
@@ -94,13 +95,13 @@ export async function replyVerdict(step: Extract<Step, { kind: "type" }>, typed:
     ]);
     const result = JSON.parse(content) as { correct?: unknown; feedbackRu?: unknown };
     if (typeof result.correct !== "boolean") throw new Error("Invalid verdict");
-    return { correct: result.correct, feedback: result.correct ? null : `${typeof result.feedbackRu === "string" ? result.feedbackRu.slice(0, 400) : "Попробуй ответить по смыслу сообщения."} Пример: ${step.answers[0]}` };
+    return { correct: result.correct, feedback: result.correct ? null : localizeTemplate("{{p0}} Пример: {{p1}}", [typeof result.feedbackRu === "string" ? result.feedbackRu.slice(0, 400) : "Попробуй ответить по смыслу сообщения.", step.answers[0]]) };
   } catch (error) {
     const message = error instanceof AiError && error.reason === "quota"
-      ? "Достигнут лимит проверки свободных ответов."
+      ? localize("Достигнут лимит проверки свободных ответов.")
       : error instanceof AiError && error.reason === "signed-out"
-        ? "Для проверки своими словами нужен действующий вход в аккаунт."
-        : "Проверка сейчас недоступна.";
-    return { correct: null, feedback: `${message} Ответ сохранён. Можно проверить позже или продолжить по образцу без штрафа: ${step.answers[0]}` };
+        ? localize("Для проверки своими словами нужен действующий вход в аккаунт.")
+        : localize("Проверка сейчас недоступна.");
+    return { correct: null, feedback: localizeTemplate("{{p0}} Ответ сохранён. Можно проверить позже или продолжить по образцу без штрафа: {{p1}}", [message, step.answers[0]]) };
   } finally { if (timer !== undefined) clearTimeout(timer); }
 }

@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 /**
  * Placement test items, tagged by CEFR band.
  *
@@ -48,7 +49,7 @@ export const placementItems: PlacementItem[] = [
     options: ["I'm", "I are", "I be", "Me is"],
     answer: 0,
     note: "\"I am\" shortens to \"I'm\". The verb changes with the person: I am, you are, he is.",
-    noteRu: "«I am» сокращается до «I'm». Глагол меняется по лицу: I am, you are, he is.",
+    noteRu: localize("«I am» сокращается до «I'm». Глагол меняется по лицу: I am, you are, he is."),
   },
   {
     id: "a1-s",
@@ -57,7 +58,7 @@ export const placementItems: PlacementItem[] = [
     options: ["drinks", "drink", "is drink", "drinking"],
     answer: 0,
     note: "Present simple adds -s after he, she and it: she drinks, he works.",
-    noteRu: "В present simple после he, she, it глагол получает -s: she drinks, he works.",
+    noteRu: localize("В present simple после he, she, it глагол получает -s: she drinks, he works."),
   },
   {
     id: "a1-there",
@@ -66,7 +67,7 @@ export const placementItems: PlacementItem[] = [
     options: ["are", "is", "be", "has"],
     answer: 0,
     note: "Plural subject, plural verb: there is one book, there are two books.",
-    noteRu: "Множественное подлежащее — множественный глагол: there is one book, there are two books.",
+    noteRu: localize("Множественное подлежащее — множественный глагол: there is one book, there are two books."),
   },
   {
     id: "a1-article",
@@ -75,7 +76,7 @@ export const placementItems: PlacementItem[] = [
     options: ["an", "a", "the one", "some a"],
     answer: 0,
     note: "\"An\" goes before a vowel sound: an apple, an hour — but a university.",
-    noteRu: "«An» ставится перед гласным звуком: an apple, an hour — но a university.",
+    noteRu: localize("«An» ставится перед гласным звуком: an apple, an hour — но a university."),
   },
   {
     id: "a1-do",
@@ -84,7 +85,7 @@ export const placementItems: PlacementItem[] = [
     options: ["Do", "Are", "Does", "Is"],
     answer: 0,
     note: "Questions in present simple use do/does. \"Are\" would need an adjective or an -ing form.",
-    noteRu: "Вопрос в present simple строится через do/does. «Are» потребовало бы прилагательного или формы на -ing.",
+    noteRu: localize("Вопрос в present simple строится через do/does. «Are» потребовало бы прилагательного или формы на -ing."),
   },
   {
     id: "a1-have",
@@ -93,7 +94,7 @@ export const placementItems: PlacementItem[] = [
     options: ["has", "have", "is have", "haves"],
     answer: 0,
     note: "He, she and it take \"has\": she has a dog, they have a dog.",
-    noteRu: "He, she и it берут «has»: she has a dog, they have a dog.",
+    noteRu: localize("He, she и it берут «has»: she has a dog, they have a dog."),
   },
   {
     id: "a1-prep",
@@ -102,7 +103,7 @@ export const placementItems: PlacementItem[] = [
     options: ["on", "in", "at", "to"],
     answer: 0,
     note: "\"On\" is for surfaces, \"in\" for closed spaces: on the table, in the drawer.",
-    noteRu: "«On» — про поверхность, «in» — про замкнутое пространство: on the table, in the drawer.",
+    noteRu: localize("«On» — про поверхность, «in» — про замкнутое пространство: on the table, in the drawer."),
   },
   {
     id: "a1-can",
@@ -111,7 +112,7 @@ export const placementItems: PlacementItem[] = [
     options: ["can't", "don't can", "not can", "am not can"],
     answer: 0,
     note: "Can is a modal verb: it makes its own negative (can't) with no \"do\".",
-    noteRu: "Can — модальный глагол: отрицание образует сам (can't), без «do».",
+    noteRu: localize("Can — модальный глагол: отрицание образует сам (can't), без «do»."),
   },
 
   /* ── A2 ──────────────────────────────────────────────────────────────── */
@@ -122,7 +123,7 @@ export const placementItems: PlacementItem[] = [
     options: ["went", "gone", "go", "was going"],
     answer: 0,
     note: "\"Yesterday\" puts the action in the finished past, so past simple: went.",
-    noteRu: "«Yesterday» помещает действие в завершённое прошлое, значит past simple: went.",
+    noteRu: localize("«Yesterday» помещает действие в завершённое прошлое, значит past simple: went."),
   },
   {
     id: "a2-any",
@@ -131,7 +132,7 @@ export const placementItems: PlacementItem[] = [
     options: ["any", "some", "no any", "much of"],
     answer: 0,
     note: "\"Any\" is the one that works in negatives and questions; \"some\" belongs in statements.",
-    noteRu: "«Any» работает в отрицаниях и вопросах; «some» — в утверждениях.",
+    noteRu: localize("«Any» работает в отрицаниях и вопросах; «some» — в утверждениях."),
   },
   {
     id: "a2-super",
@@ -140,7 +141,7 @@ export const placementItems: PlacementItem[] = [
     options: ["best", "better", "goodest", "most good"],
     answer: 0,
     note: "Good → better → best. A superlative compares against everything, not just one thing.",
-    noteRu: "Good → better → best. Превосходная степень сравнивает со всеми, а не с одним.",
+    noteRu: localize("Good → better → best. Превосходная степень сравнивает со всеми, а не с одним."),
   },
   {
     id: "a2-going",
@@ -149,7 +150,7 @@ export const placementItems: PlacementItem[] = [
     options: ["are", "is", "be", "will"],
     answer: 0,
     note: "\"Be going to\" needs the right form of be: we are going to, he is going to.",
-    noteRu: "«Be going to» требует правильной формы be: we are going to, he is going to.",
+    noteRu: localize("«Be going to» требует правильной формы be: we are going to, he is going to."),
   },
   {
     id: "a2-frequency",
@@ -158,7 +159,7 @@ export const placementItems: PlacementItem[] = [
     options: ["usually", "use to", "usual", "used"],
     answer: 0,
     note: "Adverbs of frequency sit before the main verb: he usually works, she never eats meat.",
-    noteRu: "Наречия частотности стоят перед смысловым глаголом: he usually works, she never eats meat.",
+    noteRu: localize("Наречия частотности стоят перед смысловым глаголом: he usually works, she never eats meat."),
   },
   {
     id: "a2-must",
@@ -167,7 +168,7 @@ export const placementItems: PlacementItem[] = [
     options: ["must", "can", "would", "may not"],
     answer: 0,
     note: "\"Must\" states an obligation. \"Can\" would only offer permission.",
-    noteRu: "«Must» — это обязанность. «Can» дало бы лишь разрешение.",
+    noteRu: localize("«Must» — это обязанность. «Can» дало бы лишь разрешение."),
   },
   {
     id: "a2-continuous",
@@ -176,7 +177,7 @@ export const placementItems: PlacementItem[] = [
     options: ["is raining", "rains", "rain", "raining"],
     answer: 0,
     note: "Something happening right now takes present continuous: it is raining.",
-    noteRu: "Происходящее прямо сейчас требует present continuous: it is raining.",
+    noteRu: localize("Происходящее прямо сейчас требует present continuous: it is raining."),
   },
   {
     id: "a2-quantifier",
@@ -185,7 +186,7 @@ export const placementItems: PlacementItem[] = [
     options: ["much", "many", "a lot", "few"],
     answer: 0,
     note: "Milk is uncountable, so it takes \"much\"; \"many\" belongs with countable nouns.",
-    noteRu: "Milk неисчисляемое, поэтому «much»; «many» — для исчисляемых.",
+    noteRu: localize("Milk неисчисляемое, поэтому «much»; «many» — для исчисляемых."),
   },
 
   /* ── B1 ──────────────────────────────────────────────────────────────── */
@@ -196,7 +197,7 @@ export const placementItems: PlacementItem[] = [
     options: ["was watching", "watched", "watches", "has watched"],
     answer: 0,
     note: "The longer background action takes past continuous; the interruption takes past simple.",
-    noteRu: "Длительное фоновое действие — past continuous, прерывающее его — past simple.",
+    noteRu: localize("Длительное фоновое действие — past continuous, прерывающее его — past simple."),
   },
   {
     id: "b1-conditional",
@@ -205,7 +206,7 @@ export const placementItems: PlacementItem[] = [
     options: ["had", "have", "would have", "will have"],
     answer: 0,
     note: "Second conditional: if + past simple, then would. It describes something unreal now.",
-    noteRu: "Второй тип условия: if + past simple, затем would. Описывает нереальное в настоящем.",
+    noteRu: localize("Второй тип условия: if + past simple, затем would. Описывает нереальное в настоящем."),
   },
   {
     id: "b1-since",
@@ -214,7 +215,7 @@ export const placementItems: PlacementItem[] = [
     options: ["have lived", "live", "lived", "are living"],
     answer: 0,
     note: "\"Since\" plus a situation that is still true calls for present perfect.",
-    noteRu: "«Since» и ситуация, которая всё ещё верна, требуют present perfect.",
+    noteRu: localize("«Since» и ситуация, которая всё ещё верна, требуют present perfect."),
   },
   {
     id: "b1-reported",
@@ -223,7 +224,7 @@ export const placementItems: PlacementItem[] = [
     options: ["came", "come", "am coming", "will come"],
     answer: 0,
     note: "Reported speech shifts the tense back a step: \"Where do you come from?\" → where I came from.",
-    noteRu: "В косвенной речи время сдвигается на шаг назад: «Where do you come from?» → where I came from.",
+    noteRu: localize("В косвенной речи время сдвигается на шаг назад: «Where do you come from?» → where I came from."),
   },
   {
     id: "b1-usedto",
@@ -232,7 +233,7 @@ export const placementItems: PlacementItem[] = [
     options: ["used to", "use to", "am used to", "was used"],
     answer: 0,
     note: "\"Used to + verb\" is a past habit that has ended. \"Be used to\" means something feels normal.",
-    noteRu: "«Used to + глагол» — прошлая привычка, которой больше нет. «Be used to» значит «привычно».",
+    noteRu: localize("«Used to + глагол» — прошлая привычка, которой больше нет. «Be used to» значит «привычно»."),
   },
   {
     id: "b1-passive",
@@ -241,7 +242,7 @@ export const placementItems: PlacementItem[] = [
     options: ["is sent", "sends", "is sending", "has sent"],
     answer: 0,
     note: "The newsletter doesn't act, it receives the action — so present simple passive: is sent.",
-    noteRu: "Рассылка не действует, а получает действие — значит пассив present simple: is sent.",
+    noteRu: localize("Рассылка не действует, а получает действие — значит пассив present simple: is sent."),
   },
   {
     id: "b1-relative",
@@ -250,7 +251,7 @@ export const placementItems: PlacementItem[] = [
     options: ["who", "which", "what", "whose"],
     answer: 0,
     note: "\"Who\" is for people, \"which\" for things. \"What\" never introduces a relative clause here.",
-    noteRu: "«Who» — о людях, «which» — о вещах. «What» здесь придаточное не вводит.",
+    noteRu: localize("«Who» — о людях, «which» — о вещах. «What» здесь придаточное не вводит."),
   },
   {
     id: "b1-gerund",
@@ -259,7 +260,7 @@ export const placementItems: PlacementItem[] = [
     options: ["to hearing", "to hear", "hearing", "for hearing"],
     answer: 0,
     note: "\"Look forward to\" ends in a preposition, so the verb after it takes -ing: to hearing.",
-    noteRu: "«Look forward to» оканчивается предлогом, поэтому глагол после него берёт -ing: to hearing.",
+    noteRu: localize("«Look forward to» оканчивается предлогом, поэтому глагол после него берёт -ing: to hearing."),
   },
 
   /* ── B2 ──────────────────────────────────────────────────────────────── */
@@ -270,7 +271,7 @@ export const placementItems: PlacementItem[] = [
     options: ["had already finished", "already finished", "has already finished", "was already finish"],
     answer: 0,
     note: "Past perfect marks the earlier of two past events — it finished before we arrived.",
-    noteRu: "Past perfect отмечает более раннее из двух прошлых событий — оно закончилось до нашего прихода.",
+    noteRu: localize("Past perfect отмечает более раннее из двух прошлых событий — оно закончилось до нашего прихода."),
   },
   {
     id: "b2-third",
@@ -279,7 +280,7 @@ export const placementItems: PlacementItem[] = [
     options: ["would have passed", "would pass", "had passed", "will have passed"],
     answer: 0,
     note: "Third conditional: if + past perfect, then would have + participle. It's about a changed past.",
-    noteRu: "Третий тип условия: if + past perfect, затем would have + причастие. Это о несбывшемся прошлом.",
+    noteRu: localize("Третий тип условия: if + past perfect, затем would have + причастие. Это о несбывшемся прошлом."),
   },
   {
     id: "b2-wish",
@@ -288,7 +289,7 @@ export const placementItems: PlacementItem[] = [
     options: ["spoke", "speak", "will speak", "would speaking"],
     answer: 0,
     note: "\"Wish\" about the present takes a past form: I wish I spoke, I wish I had more time.",
-    noteRu: "«Wish» о настоящем требует прошедшей формы: I wish I spoke, I wish I had more time.",
+    noteRu: localize("«Wish» о настоящем требует прошедшей формы: I wish I spoke, I wish I had more time."),
   },
   {
     id: "b2-despite",
@@ -297,7 +298,7 @@ export const placementItems: PlacementItem[] = [
     options: ["Despite", "Although", "However", "Even"],
     answer: 0,
     note: "Despite is followed by a noun or -ing; \"although\" would need a full clause after it.",
-    noteRu: "После despite идёт существительное или -ing; «although» потребовало бы целого придаточного.",
+    noteRu: localize("После despite идёт существительное или -ing; «although» потребовало бы целого придаточного."),
   },
   {
     id: "b2-phrasal",
@@ -306,7 +307,7 @@ export const placementItems: PlacementItem[] = [
     options: ["down", "off", "over", "out"],
     answer: 0,
     note: "\"Turn down\" = reject. Turn off is for devices, turn over is to flip something.",
-    noteRu: "«Turn down» — отклонить. Turn off — про устройства, turn over — перевернуть.",
+    noteRu: localize("«Turn down» — отклонить. Turn off — про устройства, turn over — перевернуть."),
   },
   {
     id: "b2-deny",
@@ -315,7 +316,7 @@ export const placementItems: PlacementItem[] = [
     options: ["taking", "to take", "take", "that taking"],
     answer: 0,
     note: "Some verbs take -ing rather than an infinitive: deny, admit, avoid, suggest.",
-    noteRu: "Часть глаголов требует -ing, а не инфинитива: deny, admit, avoid, suggest.",
+    noteRu: localize("Часть глаголов требует -ing, а не инфинитива: deny, admit, avoid, suggest."),
   },
   {
     id: "b2-causative",
@@ -324,7 +325,7 @@ export const placementItems: PlacementItem[] = [
     options: ["repaired", "repair", "to repair", "repairing"],
     answer: 0,
     note: "Causative \"have something done\": someone else does the work for you.",
-    noteRu: "Каузативная конструкция «have something done»: работу за тебя делает кто-то другой.",
+    noteRu: localize("Каузативная конструкция «have something done»: работу за тебя делает кто-то другой."),
   },
   {
     id: "b2-futurepassive",
@@ -333,7 +334,7 @@ export const placementItems: PlacementItem[] = [
     options: ["will be rebuilt", "will rebuild", "is rebuilding", "rebuilds"],
     answer: 0,
     note: "The bridge receives the action, so the future needs a passive: will be rebuilt.",
-    noteRu: "Мост получает действие, поэтому будущее нужно в пассиве: will be rebuilt.",
+    noteRu: localize("Мост получает действие, поэтому будущее нужно в пассиве: will be rebuilt."),
   },
 
   /* ── C1 ──────────────────────────────────────────────────────────────── */
@@ -344,7 +345,7 @@ export const placementItems: PlacementItem[] = [
     options: ["did he suspect", "he suspected", "he did suspect", "suspected he"],
     answer: 0,
     note: "A negative adverbial at the front inverts subject and auxiliary: little did he suspect.",
-    noteRu: "Отрицательное наречие в начале меняет порядок подлежащего и вспомогательного: little did he suspect.",
+    noteRu: localize("Отрицательное наречие в начале меняет порядок подлежащего и вспомогательного: little did he suspect."),
   },
   {
     id: "c1-butfor",
@@ -353,7 +354,7 @@ export const placementItems: PlacementItem[] = [
     options: ["But", "If not", "Unless", "Except"],
     answer: 0,
     note: "\"But for X\" means \"if X hadn't happened\" — a fixed, formal structure.",
-    noteRu: "«But for X» значит «если бы X не случилось» — устойчивая формальная конструкция.",
+    noteRu: localize("«But for X» значит «если бы X не случилось» — устойчивая формальная конструкция."),
   },
   {
     id: "c1-collocation",
@@ -362,7 +363,7 @@ export const placementItems: PlacementItem[] = [
     options: ["scant", "scarce", "rare", "thin"],
     answer: 0,
     note: "\"Scant reference\" is the established collocation; scarce and rare describe availability instead.",
-    noteRu: "«Scant reference» — устоявшееся сочетание; scarce и rare говорят о доступности, а не об упоминании.",
+    noteRu: localize("«Scant reference» — устоявшееся сочетание; scarce и rare говорят о доступности, а не об упоминании."),
   },
   {
     id: "c1-tentative",
@@ -371,7 +372,7 @@ export const placementItems: PlacementItem[] = [
     options: ["tentative", "tender", "timid", "tenuous"],
     answer: 0,
     note: "A tentative agreement is provisional. Tenuous means weak or barely holding — a different claim.",
-    noteRu: "Tentative agreement — предварительная договорённость. Tenuous значит «шаткий» — это другое утверждение.",
+    noteRu: localize("Tentative agreement — предварительная договорённость. Tenuous значит «шаткий» — это другое утверждение."),
   },
   {
     id: "c1-subjunctive",
@@ -380,7 +381,7 @@ export const placementItems: PlacementItem[] = [
     options: ["be", "was", "is", "would be"],
     answer: 0,
     note: "After insist, demand and require, formal English uses the base form: that the clause be removed.",
-    noteRu: "После insist, demand и require формальный английский берёт базовую форму: that the clause be removed.",
+    noteRu: localize("После insist, demand и require формальный английский берёт базовую форму: that the clause be removed."),
   },
   {
     id: "c1-magnitude",
@@ -389,7 +390,7 @@ export const placementItems: PlacementItem[] = [
     options: ["magnitude", "bigness", "largeness", "greatness"],
     answer: 0,
     note: "\"Magnitude\" is the register-appropriate noun for scale or seriousness in formal writing.",
-    noteRu: "«Magnitude» — подходящее по регистру слово для масштаба или серьёзности в формальном тексте.",
+    noteRu: localize("«Magnitude» — подходящее по регистру слово для масштаба или серьёзности в формальном тексте."),
   },
   {
     id: "c1-dubious",
@@ -398,7 +399,7 @@ export const placementItems: PlacementItem[] = [
     options: ["dubious", "doubting", "doubtful of", "doubted"],
     answer: 0,
     note: "\"Dubious\" describes the thing you distrust; \"doubtful\" usually describes the person who doubts.",
-    noteRu: "«Dubious» описывает то, чему не доверяешь; «doubtful» обычно описывает сомневающегося.",
+    noteRu: localize("«Dubious» описывает то, чему не доверяешь; «doubtful» обычно описывает сомневающегося."),
   },
   {
     id: "c1-concessive",
@@ -407,6 +408,6 @@ export const placementItems: PlacementItem[] = [
     options: ["Strange", "Strangely", "It is strange", "As strange"],
     answer: 0,
     note: "Concessive inversion uses a bare adjective: strange as it may seem, hard as she tried.",
-    noteRu: "Уступительная инверсия берёт голое прилагательное: strange as it may seem, hard as she tried.",
+    noteRu: localize("Уступительная инверсия берёт голое прилагательное: strange as it may seem, hard as she tried."),
   },
 ];

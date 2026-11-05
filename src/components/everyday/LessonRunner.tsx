@@ -70,7 +70,7 @@ function StudyStage({ lesson, onDone }: { lesson: Lesson; onDone: () => void }) 
 
         <p className="mt-4 text-sm leading-relaxed">{phrase.meaning}</p>
 
-        {i18n.language.startsWith("ru") && (
+        {!i18n.language.startsWith("en") && (
           <p className="mt-2 text-sm" style={{ color: "var(--color-text-muted)" }}>
             {phrase.ru}
           </p>
@@ -142,7 +142,7 @@ function MatchStage({
   // Match against the Russian bridge for a Russian interface and the English
   // definition otherwise — nobody should be asked to pair English with a
   // language they didn't choose.
-  const sideOf = (p: Phrase) => (i18n.language.startsWith("ru") ? p.ru : p.meaning);
+  const sideOf = (p: Phrase) => (!i18n.language.startsWith("en") ? p.ru : p.meaning);
   const [picked, setPicked] = useState<string | null>(null);
   const [matched, setMatched] = useState<string[]>([]);
   const [missed, setMissed] = useState<string[]>([]);
@@ -459,7 +459,7 @@ export function LessonRunner({
   const saveEverything = () => {
     addVocabularyBatch(
       lesson.phrases.map((p) => ({ word: p.phrase, translation: p.ru, sourceText: t("nav.slang") })),
-      lesson.titleRu && i18n.language.startsWith("ru") ? lesson.titleRu : lesson.title,
+      lesson.titleRu && !i18n.language.startsWith("en") ? lesson.titleRu : lesson.title,
     );
     setSavedAll(true);
   };

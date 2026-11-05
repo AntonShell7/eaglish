@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 import { trackModules as legacyModules } from "./trackContent";
 import { cycle, type ExpressionSpec, type TrackModule } from "./trackModel";
 import { pairSpec } from "./trackPairs";
@@ -56,7 +57,7 @@ const regroupedModules = regroupedPairs.map(([title, chat, idiom, speech], index
   });
   const module = cycle(`regroup-pairs-${index + 1}`, title, title,
     "Two expressions at a time, with familiar idioms revisited.",
-    "По два выражения за урок. Знакомые идиомы возвращаются для закрепления.",
+    localize("По два выражения за урок. Знакомые идиомы возвращаются для закрепления."),
     specs[0], specs[1], specs[2]);
   module.lessons.slice(0, 3).forEach((lesson, kindIndex) => {
     lesson.legacyCompletionIds = [...new Set(specs[kindIndex].expressions.map((expression) => expressionSources.get(expression.short)!.lessonId))];

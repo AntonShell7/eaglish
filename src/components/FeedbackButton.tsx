@@ -1,3 +1,4 @@
+import { isArabic } from "@/i18n/content";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
@@ -71,8 +72,8 @@ export function FeedbackButton() {
     }
   };
 
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Eaglish — отчёт")}&body=${encodeURIComponent(
-    `${message}\n\n---\nСтраница: ${pathname}`,
+  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(isArabic() ? "Eaglish — بلاغ" : "Eaglish — отчёт")}&body=${encodeURIComponent(
+    `${message}\n\n---\n${isArabic() ? "الصفحة" : "Страница"}: ${pathname}`,
   )}`;
 
   return (

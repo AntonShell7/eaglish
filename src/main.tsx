@@ -1,33 +1,14 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./i18n";
+import { prepareContent, selectedLanguage } from "./i18n/content";
 import "./index.css";
-import App from "./App.tsx";
-import { ThemeProvider } from "./context/ThemeContext";
-import { AuthProvider } from "./context/AuthContext";
-import { AccessProvider } from "./context/AccessContext";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+import "./styles/arabic.css";
 
-import { startVisitAnalytics } from "./lib/visitAnalytics";
-
-startVisitAnalytics();
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    {/* Outermost on purpose: a crash inside a provider should still show the
-        error screen rather than a blank page. */}
-    <ErrorBoundary>
-      <ThemeProvider>
-        <AuthProvider>
-          {/* Inside AuthProvider, because the plan is a fact about whoever is
-              signed in and has to be re-asked when that changes. */}
-          <AccessProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </AccessProvider>
-        </AuthProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  </StrictMode>,
-);
+const language = selectedLanguage();
+document.documentElement.lang = language;
+document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+// Load Arabic only for Arabic readers, before evaluating the course modules.
+prepareContent().then(() => import("./mount")).catch(() => {
+  const root = document.getElementById("root");
+  if (root) {
+    root.textContent = language === "ar" ? "تعذّر تحميل الصفحة. يرجى تحديثها والمحاولة مجددًا." : "Unable to load the page. Please refresh and try again.";
+  }
+});

@@ -1,3 +1,5 @@
+import { isArabic, localize } from "@/i18n/content";
+import { getCachedLookup, putCachedLookup } from "./lookupCache";
 import { pushVocabularyWord, deleteVocabularyWord } from "./sync";
 import {
   dueDateFor,
@@ -148,9 +150,16 @@ function writeAll(words: VocabularyWord[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(words));
 }
 
+function translatedWord(word: VocabularyWord): VocabularyWord {
+  const translated = localize(word.translation);
+  const matches = isArabic() ? /[\u0600-\u06FF]/.test(translated) : !/[\u0600-\u06FF]/.test(translated);
+  return { ...word, translation: matches ? translated : getCachedLookup(word.word, word.sentence)?.translation ?? "" };
+}
+
 export function getVocabulary(): VocabularyWord[] {
   return readAll()
     .filter((w) => !w.deletedAt)
+    .map(translatedWord)
     .sort((a, b) => b.addedAt - a.addedAt);
 }
 
@@ -219,7 +228,9 @@ export function setTranslation(id: string, translation: string) {
   if (!translation.trim()) return;
   const words = readAll();
   const entry = words.find((w) => w.id === id);
-  if (!entry || entry.translation.trim()) return;
+  if (!entry) return;
+  putCachedLookup(entry.word, entry.sentence, { translation });
+  if (entry.translation.trim()) return;
   entry.translation = translation;
   writeAll(words);
   pushVocabularyWord(entry);
@@ -227,7 +238,7 @@ export function setTranslation(id: string, translation: string) {
 
 /** Saved while the model was unreachable, and still waiting for a back. */
 export function getUntranslated(): VocabularyWord[] {
-  return readAll().filter((w) => !w.deletedAt && !w.translation.trim());
+  return getVocabulary().filter((w) => !w.translation.trim());
 }
 
 /** Case-insensitive: "Podcast" and "podcast" are the same entry. */
@@ -237,7 +248,7 @@ export function isWordSaved(word: string): boolean {
 }
 
 export function getDueWords(now = Date.now()): VocabularyWord[] {
-  return readAll().filter((w) => w.dueAt <= now);
+  return readAll().filter((w) => w.dueAt <= now).map(translatedWord);
 }
 
 /**
@@ -317,7 +328,7 @@ export function wordStrength(word: VocabularyWord): number {
 
 /** Words that keep being forgotten — the ones a learner should see differently. */
 export function getLeeches(threshold = 5): VocabularyWord[] {
-  return readAll().filter((w) => (w.lapses ?? 0) >= threshold);
+  return readAll().filter((w) => (w.lapses ?? 0) >= threshold).map(translatedWord);
 }
 
 /**

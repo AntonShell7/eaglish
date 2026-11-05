@@ -1,3 +1,4 @@
+import { localize } from "@/i18n/content";
 import { Component, type ErrorInfo, type ReactNode } from "react";
 
 /**
@@ -45,11 +46,9 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
       >
         <div style={{ maxWidth: 460, textAlign: "center" }}>
           <p style={{ fontSize: 40, marginBottom: 8 }}>🦅</p>
-          <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Что-то сломалось</h1>
+          <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 10 }}>{localize("Что-то сломалось")}</h1>
           <p style={{ fontSize: 15, lineHeight: 1.6, color: "#b9b2cf" }}>
-            Ошибка на нашей стороне, не на твоей. Прогресс сохранён — он лежит в этом браузере и
-            никуда не делся.
-          </p>
+            {localize("Ошибка на нашей стороне, не на твоей. Прогресс сохранён — он лежит в этом браузере и\n            никуда не делся.")}</p>
 
           <div style={{ marginTop: 22, display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
             <button
@@ -66,8 +65,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
                 cursor: "pointer",
               }}
             >
-              Перезагрузить
-            </button>
+              {localize("Перезагрузить")}</button>
             <button
               type="button"
               onClick={() => {
@@ -84,13 +82,11 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, State> {
                 cursor: "pointer",
               }}
             >
-              На главную
-            </button>
+              {localize("На главную")}</button>
           </div>
 
           <p style={{ marginTop: 20, fontSize: 12, color: "#7e7796" }}>
-            Если повторится — напиши на eaglish@yandex.ru, это правда помогает.
-          </p>
+            {localize("Если повторится — напиши на eaglish@yandex.ru, это правда помогает.")}</p>
 
           <pre
             style={{

@@ -17,7 +17,7 @@ import { offerDoc, OPERATOR_READY } from "@/data/legal";
  */
 export default function Offer() {
   const { t, i18n } = useTranslation();
-  const doc = offerDoc[i18n.language.startsWith("ru") ? "ru" : "en"];
+  const doc = offerDoc[!i18n.language.startsWith("en") ? "ru" : "en"];
 
   return (
     <>

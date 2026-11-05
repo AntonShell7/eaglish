@@ -4,7 +4,7 @@ import { privacyDoc } from "@/data/legal";
 
 export default function Privacy() {
   const { t, i18n } = useTranslation();
-  const doc = privacyDoc[i18n.language.startsWith("ru") ? "ru" : "en"];
+  const doc = privacyDoc[!i18n.language.startsWith("en") ? "ru" : "en"];
 
   return <LegalPage doc={doc} other={{ to: "/terms", label: t("footer.terms") }} />;
 }

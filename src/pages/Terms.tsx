@@ -4,7 +4,7 @@ import { termsDoc } from "@/data/legal";
 
 export default function Terms() {
   const { t, i18n } = useTranslation();
-  const doc = termsDoc[i18n.language.startsWith("ru") ? "ru" : "en"];
+  const doc = termsDoc[!i18n.language.startsWith("en") ? "ru" : "en"];
 
   return <LegalPage doc={doc} other={{ to: "/privacy", label: t("footer.privacy") }} />;
 }

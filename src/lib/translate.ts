@@ -1,3 +1,4 @@
+import { isArabic, localize, localizeTemplate } from "@/i18n/content";
 import { askModel, AiError, type AiFailure, type AiMessage, type AiRequest } from "./aiClient";
 import { getCachedLookup, putCachedLookup } from "./lookupCache";
 import { offlineTranslation } from "./offlineDictionary";
@@ -100,7 +101,7 @@ const EXAMPLE_RULE = [
 
 /** Russian text that came back in English — the failure to catch, not hope against. */
 function looksRussian(value: string | undefined): boolean {
-  return Boolean(value && /[\u0400-\u04FF]/.test(value));
+  return Boolean(value && (isArabic() ? /[\u0600-\u06FF]/ : /[\u0400-\u04FF]/).test(value));
 }
 
 /**
@@ -120,7 +121,7 @@ export async function lookupWord(
   const key = cleaned.toLowerCase().replace(/[^a-z'\s-]/g, "");
 
   const entry = options.glossary?.[key];
-  if (entry) {
+  if (entry && (!isArabic() || looksRussian(entry.translation))) {
     return { word: cleaned, translation: entry.translation, partOfSpeech: entry.partOfSpeech, isLive: false };
   }
 
@@ -135,7 +136,7 @@ export async function lookupWord(
     return {
       word: cleaned,
       translation: shorthand.ru,
-      note: shorthand.long ? `${shorthand.note}, от ${shorthand.long}` : shorthand.note,
+      note: shorthand.long ? localizeTemplate("{{p0}}, от {{p1}}", [shorthand.note, shorthand.long]) : shorthand.note,
       isLive: false,
     };
   }
@@ -167,7 +168,7 @@ export async function lookupWord(
             role: "system",
             content:
               'Translate an English word or short phrase into Russian. The translation MUST be in Russian, written in Cyrillic — never an English definition, never a transliteration. Use the surrounding sentence for context when given. ' +
-              'note: two to four Russian words saying what the thing IS, and ONLY when the Russian translation is itself a term an ordinary reader might not know — a chemical, a legal or medical term, a piece of jargon, a loanword. For "полиэтилен" that is "вид пластика"; for "вертлужная впадина" it is "часть тазовой кости". For ordinary words like "стол" or "бежать" return an empty string: a gloss on a word everybody knows is noise. Never repeat the translation inside the note, and never write it in English. Also use note when the English itself is slang, chat shorthand or markedly informal — write "разговорное", "сленг" or "сокращение в переписке" — because a learner needs to know they cannot put it in a work email. ' +
+              localize("note: two to four Russian words saying what the thing IS, and ONLY when the Russian translation is itself a term an ordinary reader might not know — a chemical, a legal or medical term, a piece of jargon, a loanword. For \"полиэтилен\" that is \"вид пластика\"; for \"вертлужная впадина\" it is \"часть тазовой кости\". For ordinary words like \"стол\" or \"бежать\" return an empty string: a gloss on a word everybody knows is noise. Never repeat the translation inside the note, and never write it in English. Also use note when the English itself is slang, chat shorthand or markedly informal — write \"разговорное\", \"сленг\" or \"сокращение в переписке\" — because a learner needs to know they cannot put it in a work email. ") +
               'Respond with strict JSON only, no markdown: {"translation": string, "partOfSpeech": string, "note": string}',
           },
           {
@@ -216,7 +217,7 @@ export async function translateToRussian(
   text: string,
   options: { known?: string } = {},
 ): Promise<TextTranslationResult> {
-  if (options.known) return { translation: options.known, isLive: false };
+  if (options.known && (!isArabic() || looksRussian(options.known))) return { translation: options.known, isLive: false };
 
   let failure: Unavailable = "failed";
 
@@ -375,7 +376,7 @@ export interface TranslatorEntry {
 
 export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
   const source = raw.trim();
-  const fromRussian = /[Ѐ-ӿ]/.test(source);
+  const fromRussian = (isArabic() ? /[\u0600-\u06FF]/ : /[Ѐ-ӿ]/).test(source);
   const empty: TranslatorEntry = {
     source,
     primary: "",
@@ -392,7 +393,7 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
       english: source,
       russian: shorthand.ru,
       definition: shorthand.long,
-      note: shorthand.long ? `${shorthand.note}, от ${shorthand.long}` : shorthand.note,
+      note: shorthand.long ? localizeTemplate("{{p0}}, от {{p1}}", [shorthand.note, shorthand.long]) : shorthand.note,
     };
   }
 
@@ -413,7 +414,7 @@ export async function translatorEntry(raw: string): Promise<TranslatorEntry> {
             brief,
             "Only list a further sense when the word really has one: most words have a single meaning, and inventing a second is worse than giving one.",
             "definition: a short English definition of the commonest sense, under fifteen words.",
-            'note: two to four Russian words saying what the thing IS, and only when the Russian equivalent is itself a term an ordinary reader might not know — a chemical, a legal or medical term, jargon, a loanword. For "полиэтилен" that is "вид пластика". For ordinary words return an empty string. Never in English, never repeating the translation. Use it too when the English is slang, chat shorthand or markedly informal: "разговорное", "сленг", "сокращение в переписке".',
+            localize("note: two to four Russian words saying what the thing IS, and only when the Russian equivalent is itself a term an ordinary reader might not know — a chemical, a legal or medical term, jargon, a loanword. For \"полиэтилен\" that is \"вид пластика\". For ordinary words return an empty string. Never in English, never repeating the translation. Use it too when the English is slang, chat shorthand or markedly informal: \"разговорное\", \"сленг\", \"сокращение в переписке\"."),
             `example: one English sentence using the word in that sense. ${EXAMPLE_RULE}`,
             "partOfSpeech: in English, lowercase.",
             'Reply with strict JSON only: {"primary": string, "alternatives": [string], "definition": string, "example": string, "partOfSpeech": string, "note": string}',
@@ -482,11 +483,11 @@ export async function explainWord(word: string, sentence?: string): Promise<{ te
         {
           role: "system",
           content:
-            "Объясни по-русски, что значит английское слово или выражение, которое назовёт пользователь. Два-три коротких предложения, простым языком, как объяснил бы знающий человек: что это за вещь или понятие, где встречается, с чем его путают. Без словарных помет, без списка значений, без английского определения. Если слово многозначное — объясни то значение, которое подходит к предложению, если оно дано. Ответь только объяснением.",
+            localize("Объясни по-русски, что значит английское слово или выражение, которое назовёт пользователь. Два-три коротких предложения, простым языком, как объяснил бы знающий человек: что это за вещь или понятие, где встречается, с чем его путают. Без словарных помет, без списка значений, без английского определения. Если слово многозначное — объясни то значение, которое подходит к предложению, если оно дано. Ответь только объяснением."),
         },
         {
           role: "user",
-          content: sentence ? `Предложение: "${sentence}"\nСлово: "${subject}"` : `Слово: "${subject}"`,
+          content: sentence ? localizeTemplate("Предложение: \"{{p0}}\"\nСлово: \"{{p1}}\"", [sentence, subject]) : localizeTemplate("Слово: \"{{p0}}\"", [subject]),
         },
       ],
     });

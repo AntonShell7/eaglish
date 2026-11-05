@@ -100,7 +100,7 @@ export function WordPractice({ context, words }: { context: string; words: Pract
         })}
       </ul>
 
-      <textarea
+      <textarea lang="en" dir="ltr"
         className="field wp__input"
         rows={6}
         value={text}

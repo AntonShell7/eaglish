@@ -1,3 +1,4 @@
+import { isArabic } from "@/i18n/content";
 /**
  * Remember what a word turned out to mean.
  *
@@ -43,7 +44,7 @@ function digest(text: string): string {
 }
 
 export function cacheKey(word: string, sentence?: string): string {
-  const base = word.trim().toLowerCase();
+  const base = `${isArabic() ? "ar:" : ""}${word.trim().toLowerCase()}`;
   return sentence ? `${base}|${digest(sentence.trim())}` : base;
 }
 

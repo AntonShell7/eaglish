@@ -14,7 +14,7 @@ const kindBand: Record<TrackKind, string> = {
 
 export function TrackPath({ onOpen }: { onOpen: (lessonId: string) => void }) {
   const { t, i18n } = useTranslation();
-  const ru = i18n.language.startsWith("ru");
+  const ru = !i18n.language.startsWith("en");
   const lessons = trackLessons();
   const current = currentLessonId();
   const done = new Set(doneLessons());

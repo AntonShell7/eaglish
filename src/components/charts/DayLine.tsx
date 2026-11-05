@@ -29,7 +29,7 @@ export function DayLine({ days, unit, delta }: { days: DayCount[]; unit: string;
 
   const label = useMemo(
     () =>
-      new Intl.DateTimeFormat(i18n.language.startsWith("ru") ? "ru-RU" : "en-GB", {
+      new Intl.DateTimeFormat(i18n.language, {
         day: "numeric",
         month: "short",
       }),

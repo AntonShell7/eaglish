@@ -196,7 +196,7 @@ export function SentenceDrill({
               <HandwritingPad rows={3} padRef={(handle) => (pad.current = handle)} onFirstStroke={() => setInked(true)} />
             </div>
           ) : (
-          <textarea
+          <textarea lang="en" dir="ltr"
             ref={input}
             className="field drill__input"
             rows={3}
@@ -238,7 +238,7 @@ export function SentenceDrill({
           {reading !== null && (
             <div className="drill__reading">
               <p className="eyebrow">{t("input.iRead")}</p>
-              <textarea
+              <textarea lang="en" dir="ltr"
                 className="field drill__readingText"
                 rows={2}
                 value={reading}

@@ -1,3 +1,4 @@
+import { localize, localizeTemplate } from "@/i18n/content";
 import type { Register } from "./slangDialogues";
 import { sameWordBank } from "../lib/assembly";
 
@@ -149,18 +150,18 @@ type ChoiceStep = Extract<Step, { kind: "choice" }>;
 /* The theory card may show nearby variants. Practice uses one stable meaning,
    so a learner is never asked to choose between two equally valid synonyms. */
 const primaryMeaningOverrides: Record<string, string> = {
-  "a blessing in disguise": "неприятность, которая обернулась благом",
-  "built different": "не такой, как все",
-  "come again?": "повтори, пожалуйста",
-  "go out on a limb": "рискнуть, высказав мнение или поддержав кого-то",
-  lemme: "позволь мне",
-  "maybe some other time": "может, в другой раз",
-  fr: "серьёзно",
-  highkey: "очень",
-  "I don't think so": "думаю, что нет",
-  "know the drill": "знать, что и как делать",
-  "off the hook": "свободен от обязанности",
-  "piece of shit": "полное д*рьмо",
+  "a blessing in disguise": localize("неприятность, которая обернулась благом"),
+  "built different": localize("не такой, как все"),
+  "come again?": localize("повтори, пожалуйста"),
+  "go out on a limb": localize("рискнуть, высказав мнение или поддержав кого-то"),
+  lemme: localize("позволь мне"),
+  "maybe some other time": localize("может, в другой раз"),
+  fr: localize("серьёзно"),
+  highkey: localize("очень"),
+  "I don't think so": localize("думаю, что нет"),
+  "know the drill": localize("знать, что и как делать"),
+  "off the hook": localize("свободен от обязанности"),
+  "piece of shit": localize("полное д*рьмо"),
 };
 
 function primaryMeaning(expression: Pick<ExpressionSpec, "short" | "meaningRu">): string {
@@ -187,7 +188,7 @@ function choiceStep(
 function meaningChoice(expression: ExpressionSpec, id: string): ChoiceStep {
   return choiceStep(
     id,
-    `Что значит «${expression.short}»?`,
+    localizeTemplate("Что значит «{{p0}}»?", [expression.short]),
     undefined,
     primaryMeaning(expression),
     expression.wrong,
@@ -215,7 +216,7 @@ function gapChoice(expression: ExpressionSpec, pool: ExpressionSpec[], id: strin
   }
   return choiceStep(
     id,
-    "Вставь пропущенное выражение",
+    localize("Вставь пропущенное выражение"),
     `${expression.before}_____${expression.after}\n«${expression.gapRu}»`,
     expression.gapAnswers?.[0] ?? expression.short,
     distractors,
@@ -229,7 +230,7 @@ function sentenceAssembly(expression: ExpressionSpec, id: string): Extract<Step,
   return {
     kind: "assemble",
     id,
-    promptRu: "Собери предложение из слов",
+    promptRu: localize("Собери предложение из слов"),
     quote: `«${expression.translationRu}»`,
     // Keep genuine word-order and punctuation variants. Alternatives that
     // need different vocabulary belong to another tile bank, not this one.
@@ -250,17 +251,17 @@ const neutralExpressions = new Set([
 function usageHint(expression: ExpressionSpec, kind: LessonSpec["kind"]): string {
   const term = expression.short.toLowerCase();
   if (["piece of shit", "douchebag", "bitching", "bullshit", "idgaf", "ffs"].includes(term))
-    return "Где: только среди близких, которым привычен мат. Риск: может оскорбить; не для работы и незнакомых.";
+    return localize("Где: только среди близких, которым привычен мат. Риск: может оскорбить; не для работы и незнакомых.");
   if (["lmao", "deadass", "badass", "damn", "that sucks"].includes(term))
-    return "Где: друзья и неформальные чаты. Есть грубый оттенок — не для официального общения.";
-  if (term === "nvm") return "Где: личный чат, когда просьба уже не актуальна. На важное сообщение может прозвучать пренебрежительно.";
-  if (term === "break a leg") return "Где: пожелание удачи перед выступлением или важной попыткой. Не буквальный совет.";
-  if (term === "a piece of cake") return "Где: разговор о лёгкой задаче. Не обесценивай чужие трудности: человеку она может даваться тяжело.";
+    return localize("Где: друзья и неформальные чаты. Есть грубый оттенок — не для официального общения.");
+  if (term === "nvm") return localize("Где: личный чат, когда просьба уже не актуальна. На важное сообщение может прозвучать пренебрежительно.");
+  if (term === "break a leg") return localize("Где: пожелание удачи перед выступлением или важной попыткой. Не буквальный совет.");
+  if (term === "a piece of cake") return localize("Где: разговор о лёгкой задаче. Не обесценивай чужие трудности: человеку она может даваться тяжело.");
   if (kind === "chat") return expression.fullForm
-    ? "Где: личные сообщения и неформальные чаты. В официальном письме используй полную форму."
-    : "Где: неформальная переписка. Учитывай тон из пояснения; незнакомому человеку лучше ответить нейтрально.";
-  if (kind === "idiom") return "Где: разговор и неформальная переписка в ситуации из примера. В документах лучше сказать буквально.";
-  return "Где: непринуждённый разговор. Смысл и резкость зависят от интонации и отношений с собеседником.";
+    ? localize("Где: личные сообщения и неформальные чаты. В официальном письме используй полную форму.")
+    : localize("Где: неформальная переписка. Учитывай тон из пояснения; незнакомому человеку лучше ответить нейтрально.");
+  if (kind === "idiom") return localize("Где: разговор и неформальная переписка в ситуации из примера. В документах лучше сказать буквально.");
+  return localize("Где: непринуждённый разговор. Смысл и резкость зависят от интонации и отношений с собеседником.");
 }
 
 function friendReply(spec: LessonSpec): Extract<Step, { kind: "type" }> {
@@ -275,12 +276,12 @@ function friendReply(spec: LessonSpec): Extract<Step, { kind: "type" }> {
       if (!target) continue;
       const answer = spec.lines[i].text;
       const context = spec.lines.slice(Math.max(0, i - 2), i)
-        .map(line => `${Boolean(line.me) === Boolean(spec.lines[i - 1].me) ? "Друг" : "Ты"}: ${line.text}`).join("\n");
+        .map(line => localizeTemplate("{{p0}}: {{p1}}", [Boolean(line.me) === Boolean(spec.lines[i - 1].me) ? localize("Друг") : localize("Ты"), line.text])).join("\n");
       return {
         kind: "type", id: `${spec.id}-reply`,
-        promptRu: `Ответь другу — используй «${expression.short}»`,
+        promptRu: localizeTemplate("Ответь другу — используй «{{p0}}»", [expression.short]),
         quote: context,
-        hint: "Напиши короткую реплику по-английски. Можно своими словами.",
+        hint: localize("Напиши короткую реплику по-английски. Можно своими словами."),
         answers: [answer], teaches: [expression.short],
         reply: { context, expression: expression.short, forms },
       };
@@ -295,16 +296,16 @@ function registerChoice(expression: ExpressionSpec, kind: LessonSpec["kind"], id
   const neutral = expression.register === "neutral" || neutralExpressions.has(expression.short);
   const rooms = kind === "idiom"
     ? [
-        { labelRu: "Разговор с другом", ok: true },
-        { labelRu: "Неформальная беседа с коллегами", ok: true },
-        { labelRu: "Личная переписка", ok: true },
-        { labelRu: "Официальный документ или заявление", ok: neutral },
+        { labelRu: localize("Разговор с другом"), ok: true },
+        { labelRu: localize("Неформальная беседа с коллегами"), ok: true },
+        { labelRu: localize("Личная переписка"), ok: true },
+        { labelRu: localize("Официальный документ или заявление"), ok: neutral },
       ]
     : [
-        { labelRu: "Личный чат с другом", ok: true },
-        { labelRu: kind === "chat" ? "Неформальный групповой чат" : "Разговор с близким человеком", ok: true },
-        { labelRu: "Официальное письмо в университет", ok: false },
-        { labelRu: "Деловое письмо незнакомому человеку", ok: false },
+        { labelRu: localize("Личный чат с другом"), ok: true },
+        { labelRu: kind === "chat" ? localize("Неформальный групповой чат") : localize("Разговор с близким человеком"), ok: true },
+        { labelRu: localize("Официальное письмо в университет"), ok: false },
+        { labelRu: localize("Деловое письмо незнакомому человеку"), ok: false },
       ];
   return {
     kind: "register",
@@ -348,7 +349,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
         kind: "chat",
         id: `${spec.id}-chat`,
         title: "Expressions in context",
-        titleRu: "Выражения в переписке",
+        titleRu: localize("Выражения в переписке"),
         withWhom: spec.withWhomRu,
         withWhomRu: spec.withWhomRu,
         lines: spec.lines,
@@ -357,7 +358,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       gapChoice(second, expressions, `${spec.id}-gap`),
       {
         kind: "type", id: `${spec.id}-recall-first`,
-        promptRu: primaryMeaning(first) === primaryMeaning(second) ? `Напиши сокращение из ${first.short.length} букв` : "Напиши выражение из этого урока",
+        promptRu: primaryMeaning(first) === primaryMeaning(second) ? localizeTemplate("Напиши сокращение из {{p0}} букв", [first.short.length]) : localize("Напиши выражение из этого урока"),
         quote: `«${primaryMeaning(first)}»`,
         answers: [first.short, ...(first.aliases ?? []), ...(first.fullForm ? [first.fullForm] : [])],
         teaches: [first.short],
@@ -365,7 +366,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       {
         kind: "type",
         id: `${spec.id}-recall`,
-        promptRu: primaryMeaning(first) === primaryMeaning(second) ? `Напиши сокращение из ${second.short.length} букв` : "Напиши выражение из этого урока",
+        promptRu: primaryMeaning(first) === primaryMeaning(second) ? localizeTemplate("Напиши сокращение из {{p0}} букв", [second.short.length]) : localize("Напиши выражение из этого урока"),
         quote: `«${primaryMeaning(second)}»`,
         answers: [second.short, ...(second.aliases ?? []), ...(second.fullForm ? [second.fullForm] : [])],
         teaches: [second.short],
@@ -375,7 +376,7 @@ export function teachingLesson(spec: LessonSpec): TrackLesson {
       {
         kind: "match",
         id: `${spec.id}-match`,
-        promptRu: "Соедини пары",
+        promptRu: localize("Соедини пары"),
         pairs: [
           ...expressions.map((item): [string, string] => [item.short, primaryMeaning(item)]),
           ...(spec.reviewPairs ?? []).map(([short, meaningRu]): [string, string] => [short, primaryMeaning({ short, meaningRu })]),
@@ -419,13 +420,13 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
     kind: "review",
     review: true,
     title: `Review: ${title}`,
-    titleRu: `Закрепление: ${titleRu}`,
-    subtitleRu: "Без новых правил — только практика и повторение.",
+    titleRu: localizeTemplate("Закрепление: {{p0}}", [titleRu]),
+    subtitleRu: localize("Без новых правил — только практика и повторение."),
     steps: [
       {
         kind: "match",
         id: `${id}-match-a`,
-        promptRu: "Соедини выражения и их значения",
+        promptRu: localize("Соедини выражения и их значения"),
         pairs: expressions.slice(0, middle).map((item): [string, string] => [item.short, primaryMeaning(item)]),
         teaches: expressions.slice(0, middle).map((item) => item.short),
       },
@@ -434,7 +435,7 @@ function reviewLesson(id: string, title: string, titleRu: string, specs: LessonS
       {
         kind: "match",
         id: `${id}-match-b`,
-        promptRu: "Соедини оставшиеся выражения и значения",
+        promptRu: localize("Соедини оставшиеся выражения и значения"),
         pairs: expressions.slice(middle).map((item): [string, string] => [item.short, primaryMeaning(item)]),
         teaches: expressions.slice(middle).map((item) => item.short),
       },

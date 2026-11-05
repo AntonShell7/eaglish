@@ -573,7 +573,7 @@ export function DictationRunner({ id, title, sentences, onExit }: Props) {
                   )}
                 </div>
               )}
-              <textarea
+              <textarea lang="en" dir="ltr"
                 ref={input}
                 value={typed}
                 onChange={(e) => {
