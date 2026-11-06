@@ -17,12 +17,12 @@ import "@/components/charts/progress.css";
 import "./progress.css";
 
 const SECTION_COLOR: Record<TimeSection, string> = {
-  reading: "#7fd0b4",
-  listening: "#a78bfa",
-  slang: "#a3e3cd",
-  vocabulary: "#508f76",
-  writing: "#f5f5f5",
-  other: "#737373",
+  reading: "var(--color-sky)",
+  listening: "var(--violet)",
+  slang: "var(--color-primary)",
+  vocabulary: "var(--gold)",
+  writing: "var(--color-danger)",
+  other: "var(--color-text-muted)",
 };
 
 /** The last `n` days as dates, oldest first. */
@@ -145,7 +145,6 @@ export default function Progress() {
     <div className="pg pg-cosmos mx-auto max-w-5xl px-5 py-8">
       <header className="pg-masthead">
         <h1 className="page-title text-3xl">{t("progress.title")}</h1>
-        <span className="pg-orbit-mark" aria-hidden="true"><i /><i /><i /></span>
       </header>
 
       <section className="pg-achievements" aria-label={t("progress.achievements.title")}>

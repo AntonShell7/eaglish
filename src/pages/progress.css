@@ -35,10 +35,6 @@
 }
 .pg-masthead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
 .pg-cosmos .page-title { color: #f5f5f5; font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -.055em; }
-.pg-orbit-mark { position: relative; width: 64px; height: 44px; }
-.pg-orbit-mark i { position: absolute; inset: 7px 0; border: 1px solid #a78bfa80; border-radius: 50%; transform: rotate(-35deg); }
-.pg-orbit-mark i:nth-child(2) { transform: rotate(35deg); }
-.pg-orbit-mark i:nth-child(3) { inset: 18px 28px; background: #7fd0b4; border: 0; box-shadow: 0 0 22px #7fd0b4; }
 .pg-cosmos .pg-card, .pg-cosmos .fig {
   position: relative;
   border: 1px solid #ffffff12;
@@ -159,3 +155,42 @@
   .pg-achievements { grid-template-columns: 1fr; gap: 12px; }
   .pg-cosmos .pg-achievement { padding: 20px; }
 }
+
+/* Light mode inherits the application's palette instead of the cosmos panel's dark tokens. */
+:root:not([data-theme="dark"]) .pg-cosmos {
+  --color-primary: #08785e;
+  --color-accent: #7040c4;
+  --color-text: #15231f;
+  --color-text-muted: #4c5b56;
+  --color-text-faint: #5c6b65;
+  --color-border: #d5e2dc;
+  --color-border-strong: #b7ccc1;
+  --color-surface: #ffffff;
+  --color-surface-3: #e7eee9;
+  --pg-mark: var(--color-primary);
+  background: #f3f8f5;
+  border: 1px solid var(--color-border);
+}
+:root:not([data-theme="dark"]) .pg-cosmos::before { display: none; }
+:root:not([data-theme="dark"]) .pg-cosmos :is(.page-title, .donut__value, .fig__value) { color: var(--color-text); }
+:root:not([data-theme="dark"]) .pg-cosmos :is(.pg-card, .fig) {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: 0 4px 18px #193d2810;
+}
+:root:not([data-theme="dark"]) .pg-cosmos :is(.dl__eyebrow, .pg-eyebrow) { color: var(--color-text-muted); }
+:root:not([data-theme="dark"]) .pg-cosmos :is(.dl__sub, .dl__delta) { background: #e9f5ee; border-color: #c6e3d3; }
+:root:not([data-theme="dark"]) .pg-cosmos .dl__plot { background: repeating-linear-gradient(to top, #d5e2dc 0 1px, transparent 1px 25%); }
+:root:not([data-theme="dark"]) .pg-cosmos .dl__plot path[stroke] { filter: none; }
+:root:not([data-theme="dark"]) .pg-cosmos .dl__dot { background: #c0d1c8; }
+:root:not([data-theme="dark"]) .pg-cosmos .dl__dot.is-on { background: var(--color-primary); box-shadow: none; }
+:root:not([data-theme="dark"]) .pg-cosmos .dl__dot.is-peak { background: var(--violet); box-shadow: 0 0 0 4px #7040c419; }
+:root:not([data-theme="dark"]) .pg-cosmos .fig:nth-child(2) .fig__value { color: var(--color-primary); }
+:root:not([data-theme="dark"]) .pg-cosmos .fig:nth-child(3) .fig__value { color: var(--color-sky); }
+:root:not([data-theme="dark"]) .pg-cosmos .pg-pending { border-color: var(--color-border-strong); }
+:root:not([data-theme="dark"]) .pg-cosmos .ygrid__cell--0 { background: #e3ece6; }
+:root:not([data-theme="dark"]) .pg-cosmos .ygrid__cell--1 { background: #b2dfc5; }
+:root:not([data-theme="dark"]) .pg-cosmos .ygrid__cell--2 { background: #43ac7a; }
+:root:not([data-theme="dark"]) .pg-cosmos .ygrid__cell--3 { background: #08785e; }
+:root:not([data-theme="dark"]) .pg-cosmos .ygrid__week .ygrid__cell.is-today { outline-color: var(--violet); }
+:root:not([data-theme="dark"]) .pg-cosmos .viz { --viz-seq-4: var(--violet); --viz-grid: #d5e2dc; --viz-ink: var(--color-text); --viz-ink-2: var(--color-text-muted); }

@@ -693,3 +693,27 @@
   background-clip: text;
   color: transparent;
 }
+
+/* Shared level cards in Reading, Listening and Slang: saturated ink on a light tint. */
+:root:not([data-theme="dark"]) .lvl-card {
+  border-color: color-mix(in srgb, var(--lvl-ink) 45%, white);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--lvl-ink) 12%, white), color-mix(in srgb, var(--lvl-ink) 5%, white));
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--lvl-ink) 10%, transparent);
+}
+:root:not([data-theme="dark"]) :is(.lvl-card__h, .lvl-here) {
+  background: none;
+  color: var(--lvl-ink);
+  -webkit-text-fill-color: currentColor;
+}
+:root:not([data-theme="dark"]) .forge {
+  background: linear-gradient(135deg, #e4f6ee, #f3faf7);
+  border: 1px solid #a4d7bd;
+  box-shadow: 0 5px 20px #145d3e12;
+}
+:root:not([data-theme="dark"]) .forge__door-h { color: var(--color-text); }
+:root:not([data-theme="dark"]) :is(.forge__door-p, .forge__fieldLabel, .forge__note) { color: var(--color-text-muted); }
+:root:not([data-theme="dark"]) .forge__input { background: white; border-color: #aac9b8; color: var(--color-text); }
+:root:not([data-theme="dark"]) .forge__input::placeholder { color: var(--color-text-faint); }
+:root:not([data-theme="dark"]) .forge__input:focus { background: white; border-color: var(--color-primary); box-shadow: var(--ring); }
+:root:not([data-theme="dark"]) .forge__cta { background: var(--color-primary); color: white; box-shadow: 0 4px 12px #08785e24; }
+:root:not([data-theme="dark"]) .forge__error { color: var(--color-danger); }

@@ -524,3 +524,17 @@ button:disabled {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Clearer light-theme text and distinct learning-level accents. */
+:root:not([data-theme="dark"]) {
+  --color-text-muted: #4e5854;
+  --color-text-faint: #5e6963;
+  --color-primary: #08785e;
+  --color-primary-soft: #def3e9;
+  --color-sky: #1768c4;
+  --color-sky-soft: #e3efff;
+  --gold: #956000;
+  --violet: #7040c4;
+  --color-border: rgba(30, 65, 48, .16);
+  --color-border-strong: rgba(30, 65, 48, .27);
+}
