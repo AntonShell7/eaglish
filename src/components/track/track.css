@@ -1491,12 +1491,23 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 .tk-dialogue-fill .tk-thread { margin-top: 18px; }
 .tk-dialogue-fill .tk-msg { max-width: 90%; }
 .tk-dialogue-fill__speaker { font-size: .65rem; font-weight: 750; letter-spacing: .04em; color: var(--color-text-faint); margin: 0 8px 5px; }
-.tk-dialogue-fill__gap { display: inline-flex; vertical-align: baseline; align-items: center; gap: 6px; max-width: 100%; min-width: 90px; min-height: 36px; color: var(--color-text); margin: 3px 4px; padding: 4px 9px; border: 1px dashed var(--color-border-strong); border-radius: 16px; background: var(--color-surface-2); text-align: left; font-size: .95rem; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
-.tk-dialogue-fill__gap.is-active { border: 1px solid var(--color-primary); background: var(--color-primary-soft); }
-.tk-dialogue-fill__number { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: var(--color-primary-soft); color: var(--color-accent-ink); font-size: .7rem; font-weight: 750; }
-.tk-dialogue-fill__gap.is-right { border-color: var(--color-primary); }
-.tk-dialogue-fill__gap.is-wrong { border-color: var(--color-danger); }
-.tk-dialogue-fill__correction { margin-top: 8px; color: var(--color-primary); font-size: .9rem; line-height: 1.6; }
+/* Reply bubbles have their own ink; slots must not inherit page-theme colours. */
+.tk-dialogue-fill__gap {
+  display: inline-flex; vertical-align: baseline; align-items: center; justify-content: center;
+  gap: 8px; max-width: 100%; min-width: 90px; min-height: 36px;
+  margin: 3px 5px 3px 0; padding: 5px 10px;
+  color: #173e32; background: #f4fcf8;
+  border: 1px solid #477d69; border-bottom-width: 3px; border-radius: 8px;
+  font: inherit; font-weight: 700; line-height: 1.4;
+  cursor: pointer; overflow-wrap: anywhere;
+  transition: box-shadow .15s ease, background .15s ease;
+}
+.tk-dialogue-fill__gap.is-active { background: #fff; border-color: #173e32; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #173e32; }
+.tk-dialogue-fill__number { flex: none; color: #496b5e; font-size: .65rem; font-weight: 600; }
+.tk-dialogue-fill__gap.is-right { background: #edf9f1; border-color: #226c46; color: #16452e; }
+.tk-dialogue-fill__gap.is-wrong { background: #fff3f0; border-color: #a43223; color: #862719; }
+.tk-dialogue-fill__gap:disabled { opacity: 1; cursor: default; }
+.tk-dialogue-fill__correction { margin-top: 8px; color: inherit; font-size: .9rem; font-weight: 700; line-height: 1.6; }
 .tk-dialogue-fill__translation { margin: 7px 8px 0; color: var(--color-text-muted); font-size: .8rem; line-height: 1.6; }
 .tk-dialogue-fill__translation summary { cursor: pointer; font-size: .72rem; }
 .tk-dialogue-fill__translation p { margin-top: 6px; }
