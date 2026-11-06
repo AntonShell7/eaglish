@@ -1491,7 +1491,7 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 .tk-dialogue-fill .tk-thread { margin-top: 18px; }
 .tk-dialogue-fill .tk-msg { max-width: 90%; }
 .tk-dialogue-fill__speaker { font-size: .65rem; font-weight: 750; letter-spacing: .04em; color: var(--color-text-faint); margin: 0 8px 5px; }
-.tk-dialogue-fill__gap { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 130px; min-height: 48px; padding: 12px 15px; border: 1px dashed var(--color-border-strong); border-radius: 16px; background: var(--color-surface-2); text-align: left; font-size: .95rem; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
+.tk-dialogue-fill__gap { display: inline-flex; vertical-align: baseline; align-items: center; gap: 6px; max-width: 100%; min-width: 90px; min-height: 36px; color: var(--color-text); margin: 3px 4px; padding: 4px 9px; border: 1px dashed var(--color-border-strong); border-radius: 16px; background: var(--color-surface-2); text-align: left; font-size: .95rem; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
 .tk-dialogue-fill__gap.is-active { border: 1px solid var(--color-primary); background: var(--color-primary-soft); }
 .tk-dialogue-fill__number { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: var(--color-primary-soft); color: var(--color-accent-ink); font-size: .7rem; font-weight: 750; }
 .tk-dialogue-fill__gap.is-right { border-color: var(--color-primary); }
@@ -1509,5 +1509,5 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 @media (max-width: 540px) {
  .tk-dialogue-fill .tk-msg { max-width: 95%; }
  .tk-dialogue-fill__bank { padding: 12px; }
- .tk-dialogue-fill__tile { width: 100%; }
+ .tk-dialogue-fill__tile { max-width: 100%; }
 }

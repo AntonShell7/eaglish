@@ -10,7 +10,7 @@
       },
       {
         "me": true,
-        "text": "lmk if the bakery has lemon cake.",
+        "text": "Let me know if the bakery has lemon cake.",
         "glossRu": "Дай знать, есть ли в пекарне лимонный торт.",
         "gap": 0
       },
@@ -21,7 +21,7 @@
       },
       {
         "me": true,
-        "text": "nvm, I found candles in the cupboard.",
+        "text": "Never mind, I found candles in the cupboard.",
         "glossRu": "Уже не нужно, я нашёл свечи в шкафу.",
         "gap": 1
       },
@@ -32,8 +32,8 @@
       }
     ],
     "replies": [
-      "lmk if the bakery has lemon cake.",
-      "nvm, I found candles in the cupboard."
+      "Let me know",
+      "Never mind"
     ],
     "teaches": [
       "lmk",
@@ -84,9 +84,9 @@
       }
     ],
     "replies": [
-      "Break a leg! Your soup deserves a prize.",
-      "It's a piece of cake. Just add your name and recipe.",
-      "lmk how it goes. I'll be cheering for you."
+      "Break a leg",
+      "a piece of cake",
+      "lmk"
     ],
     "teaches": [
       "break a leg",
@@ -138,9 +138,9 @@
       }
     ],
     "replies": [
-      "No way! Even the extra seats?",
-      "That microphone is a piece of shit. Use mine.",
-      "Break a leg! I'll be in the front row."
+      "No way",
+      "piece of shit",
+      "Break a leg"
     ],
     "teaches": [
       "no way",
@@ -192,9 +192,9 @@
       }
     ],
     "replies": [
-      "lmk which afternoon you need help.",
-      "nvm, the shelter has plenty of leads.",
-      "No way! Even the shy one?"
+      "lmk",
+      "nvm",
+      "No way"
     ],
     "teaches": [
       "lmk",
@@ -246,9 +246,9 @@
       }
     ],
     "replies": [
-      "idk. I've never been there this late.",
-      "idgaf what they think. I'm hungry.",
-      "lmk if they're open. I'll join you."
+      "idk",
+      "idgaf",
+      "lmk"
     ],
     "teaches": [
       "idk",
@@ -300,9 +300,9 @@
       }
     ],
     "replies": [
-      "I'm all ears. What does it do?",
-      "That would get under my skin pretty quickly.",
-      "idk. Let's check the settings."
+      "all ears",
+      "get under my skin",
+      "idk"
     ],
     "teaches": [
       "all ears",
@@ -354,9 +354,9 @@
       }
     ],
     "replies": [
-      "I'm dead. Did anyone notice?",
-      "Bummer. How did he get home?",
-      "I'm all ears. Tell me!"
+      "I'm dead",
+      "Bummer",
+      "all ears"
     ],
     "teaches": [
       "I'm dead",
@@ -408,9 +408,9 @@
       }
     ],
     "replies": [
-      "idk. What did you ask the barber for?",
-      "idgaf about their opinions. I like it.",
-      "I'm dead. Now I can't unsee it."
+      "idk",
+      "idgaf",
+      "I'm dead"
     ],
     "teaches": [
       "idk",
@@ -462,9 +462,9 @@
       }
     ],
     "replies": [
-      "wyd? Want to visit the aquarium?",
-      "btw, online tickets are cheaper.",
-      "idk. Let's look at their website."
+      "wyd",
+      "btw",
+      "idk"
     ],
     "teaches": [
       "wyd",
@@ -516,9 +516,9 @@
       }
     ],
     "replies": [
-      "We're on the same page. Safety first.",
-      "You're off the hook. The council is supplying them.",
-      "wyd now? Could you help put up signs?"
+      "on the same page",
+      "off the hook",
+      "wyd"
     ],
     "teaches": [
       "on the same page",
@@ -570,9 +570,9 @@
       }
     ],
     "replies": [
-      "Fair enough. Start with a small hand-shaped bowl.",
-      "Dude, that's amazing for a first attempt!",
-      "We're on the same page. Simple looks better."
+      "Fair enough",
+      "Dude",
+      "on the same page"
     ],
     "teaches": [
       "fair enough",
@@ -624,9 +624,9 @@
       }
     ],
     "replies": [
-      "wyd? Are you planting something?",
-      "btw, there's one behind the shed.",
-      "Fair enough. It's too hot in the sun."
+      "wyd",
+      "btw",
+      "Fair enough"
     ],
     "teaches": [
       "wyd",
@@ -678,9 +678,9 @@
       }
     ],
     "replies": [
-      "Say less. I'm bringing it now.",
-      "No biggie. I'd already finished eating.",
-      "wyd afterwards? Fancy a short ride?"
+      "Say less",
+      "No biggie",
+      "wyd"
     ],
     "teaches": [
       "say less",
@@ -732,9 +732,9 @@
       }
     ],
     "replies": [
-      "The picture is on point. Really sharp.",
-      "It hits different under the stars.",
-      "Say less. Move a little closer."
+      "on point",
+      "hits different",
+      "Say less"
     ],
     "teaches": [
       "on point",
@@ -786,9 +786,9 @@
       }
     ],
     "replies": [
-      "Full send! You've practised enough to try.",
-      "He's built different. That balance is incredible.",
-      "Your landing was on point. Smooth and controlled."
+      "Full send",
+      "built different",
+      "on point"
     ],
     "teaches": [
       "full send",
@@ -840,9 +840,9 @@
       }
     ],
     "replies": [
-      "Say less. I've got it.",
-      "No biggie. These are my old painting gloves.",
-      "Full send. We both loved the sample."
+      "Say less",
+      "No biggie",
+      "Full send"
     ],
     "teaches": [
       "say less",
@@ -894,9 +894,9 @@
       }
     ],
     "replies": [
-      "I lowkey want to stay in the sculpture room.",
-      "I'm highkey excited about this exhibition instead.",
-      "Say less. There's a stack by the door."
+      "lowkey",
+      "highkey",
+      "Say less"
     ],
     "teaches": [
       "lowkey",
@@ -948,9 +948,9 @@
       }
     ],
     "replies": [
-      "He thinks he's the main character.",
-      "Plot twist: the puppy is his best friend.",
-      "I lowkey hoped you'd ask that."
+      "main character",
+      "Plot twist",
+      "lowkey"
     ],
     "teaches": [
       "main character",
@@ -1002,9 +1002,9 @@
       }
     ],
     "replies": [
-      "He has zero filter, even at weddings.",
-      "That was out of pocket. She looked hurt.",
-      "He acts like he's the main character today."
+      "zero filter",
+      "out of pocket",
+      "main character"
     ],
     "teaches": [
       "zero filter",
@@ -1056,9 +1056,9 @@
       }
     ],
     "replies": [
-      "I lowkey think she'll love it.",
-      "I'm highkey proud that I made it myself.",
-      "He has zero filter. Ignore him."
+      "lowkey",
+      "highkey",
+      "zero filter"
     ],
     "teaches": [
       "lowkey",
@@ -1110,9 +1110,9 @@
       }
     ],
     "replies": [
-      "Deadass? In that tiny pot?",
-      "Real talk, you don't have space for twenty.",
-      "I lowkey want one for my balcony too."
+      "Deadass",
+      "Real talk",
+      "lowkey"
     ],
     "teaches": [
       "deadass",
@@ -1164,9 +1164,9 @@
       }
     ],
     "replies": [
-      "He can talk the talk. Let's see him help.",
-      "Yes, I know the drill. Cups on the left.",
-      "Deadass? We only just set up!"
+      "talk the talk",
+      "know the drill",
+      "Deadass"
     ],
     "teaches": [
       "talk the talk",
@@ -1218,9 +1218,9 @@
       }
     ],
     "replies": [
-      "This artwork is straight fire.",
-      "She's a different breed. That takes patience.",
-      "You can talk the talk. Better start drawing!"
+      "straight fire",
+      "different breed",
+      "talk the talk"
     ],
     "teaches": [
       "straight fire",
@@ -1272,9 +1272,9 @@
       }
     ],
     "replies": [
-      "Deadass? It sounds like a studio recording.",
-      "Real talk, practise more before spending that much.",
-      "The chorus is straight fire. Keep it."
+      "Deadass",
+      "Real talk",
+      "straight fire"
     ],
     "teaches": [
       "deadass",
@@ -1326,9 +1326,9 @@
       }
     ],
     "replies": [
-      "fr? That's before sunrise.",
-      "Bet. I'll bring breakfast.",
-      "Deadass? She gets up earlier than us?"
+      "fr",
+      "Bet",
+      "Deadass"
     ],
     "teaches": [
       "fr",
@@ -1380,9 +1380,9 @@
       }
     ],
     "replies": [
-      "Yes, let's do this by the book.",
-      "Don't cut corners with safety equipment.",
-      "fr? I thought it was a few hundred."
+      "by the book",
+      "cut corners",
+      "fr"
     ],
     "teaches": [
       "by the book",
@@ -1434,9 +1434,9 @@
       }
     ],
     "replies": [
-      "You wish. I'm packing my own bag.",
-      "Give me a break. You haven't even emptied it.",
-      "No, we're doing the rental by the book."
+      "You wish",
+      "Give me a break",
+      "by the book"
     ],
     "teaches": [
       "you wish",
@@ -1488,9 +1488,9 @@
       }
     ],
     "replies": [
-      "fr? I nearly threw it away.",
-      "Bet. Sandwiches from the corner shop?",
-      "You wish. You sold your own bike!"
+      "fr",
+      "Bet",
+      "You wish"
     ],
     "teaches": [
       "fr",
@@ -1542,9 +1542,9 @@
       }
     ],
     "replies": [
-      "rn. The rain is getting heavier.",
-      "ikr! It lit up the whole street.",
-      "fr? I'll find the torch."
+      "rn",
+      "ikr",
+      "fr"
     ],
     "teaches": [
       "rn",
@@ -1596,9 +1596,9 @@
       }
     ],
     "replies": [
-      "You must be over the moon about getting the keys.",
-      "I was on cloud nine for weeks.",
-      "rn, if you're there. I'm nearby."
+      "over the moon",
+      "on cloud nine",
+      "rn"
     ],
     "teaches": [
       "over the moon",
@@ -1650,9 +1650,9 @@
       }
     ],
     "replies": [
-      "Chill out. It's in your jacket pocket.",
-      "What a pain. Try moving that shirt.",
-      "I'm over the moon. I've waited all year."
+      "Chill out",
+      "a pain",
+      "over the moon"
     ],
     "teaches": [
       "chill out",
@@ -1704,9 +1704,9 @@
       }
     ],
     "replies": [
-      "rn. I can see the trays.",
-      "ikr! That's why I come every Saturday.",
-      "Chill out. They're baking another batch."
+      "rn",
+      "ikr",
+      "Chill out"
     ],
     "teaches": [
       "rn",
@@ -1758,9 +1758,9 @@
       }
     ],
     "replies": [
-      "ngl, the color is completely different.",
-      "It's much darker irl.",
-      "rn, while you still have the packaging."
+      "ngl",
+      "irl",
+      "rn"
     ],
     "teaches": [
       "ngl",
@@ -1812,9 +1812,9 @@
       }
     ],
     "replies": [
-      "I'm on edge waiting for the examiner.",
-      "Yes, I've got butterflies in my stomach.",
-      "ngl, I practised that more than anything."
+      "on edge",
+      "butterflies in my stomach",
+      "ngl"
     ],
     "teaches": [
       "on edge",
@@ -1866,9 +1866,9 @@
       }
     ],
     "replies": [
-      "I'm gonna block the gap with a cushion.",
-      "Wanna try holding it near the floor?",
-      "I was on edge. I thought he'd hurt himself."
+      "gonna",
+      "Wanna",
+      "on edge"
     ],
     "teaches": [
       "gonna",
@@ -1920,9 +1920,9 @@
       }
     ],
     "replies": [
-      "ngl, the back looks a little stiff.",
-      "Let's try it irl before deciding.",
-      "I'm gonna take a tape measure."
+      "ngl",
+      "irl",
+      "gonna"
     ],
     "teaches": [
       "ngl",
@@ -1974,9 +1974,9 @@
       }
     ],
     "replies": [
-      "I have no idea. It's your sister's.",
-      "I don't think so. There are only three digits.",
-      "ngl, that would save us a lot of time."
+      "I have no idea",
+      "I don't think so",
+      "ngl"
     ],
     "teaches": [
       "I have no idea",
@@ -2028,9 +2028,9 @@
       }
     ],
     "replies": [
-      "I'm under the weather. My throat hurts.",
-      "No, I'll lie low until I feel better.",
-      "I have no idea. I'll ask the pharmacist."
+      "under the weather",
+      "lie low",
+      "I have no idea"
     ],
     "teaches": [
       "under the weather",
@@ -2082,9 +2082,9 @@
       }
     ],
     "replies": [
-      "That's badass. She must be strong.",
-      "She's a real nerd about mountain geology.",
-      "Is she under the weather?"
+      "badass",
+      "nerd",
+      "under the weather"
     ],
     "teaches": [
       "badass",
@@ -2136,9 +2136,9 @@
       }
     ],
     "replies": [
-      "I have no idea. Let's read the label.",
-      "I don't think so. You can see the peak above him.",
-      "That's badass. I can barely carry my backpack."
+      "I have no idea",
+      "I don't think so",
+      "badass"
     ],
     "teaches": [
       "I have no idea",
@@ -2190,9 +2190,9 @@
       }
     ],
     "replies": [
-      "Never mind, there's a full carton here.",
-      "What are you talking about? I wrote two!",
-      "I have no idea how that happened."
+      "Never mind",
+      "What are you talking about",
+      "I have no idea"
     ],
     "teaches": [
       "never mind",
@@ -2244,9 +2244,9 @@
       }
     ],
     "replies": [
-      "You won't change my mind. I love the pale blue.",
-      "Let's cool off and decide tomorrow.",
-      "Never mind, leave them by the window."
+      "change my mind",
+      "cool off",
+      "Never mind"
     ],
     "teaches": [
       "change my mind",
@@ -2298,9 +2298,9 @@
       }
     ],
     "replies": [
-      "What a douchebag. The kid was trying.",
-      "That's not cool. He should treat people fairly.",
-      "That would change my mind about inviting him."
+      "douchebag",
+      "not cool",
+      "change my mind"
     ],
     "teaches": [
       "douchebag",
@@ -2352,9 +2352,9 @@
       }
     ],
     "replies": [
-      "Never mind, it was in the spam folder.",
-      "What are you talking about? Dogs aren't allowed!",
-      "Ignore that douchebag. Let's find our seats."
+      "Never mind",
+      "What are you talking about",
+      "douchebag"
     ],
     "teaches": [
       "never mind",
@@ -2406,9 +2406,9 @@
       }
     ],
     "replies": [
-      "Damn. That pot was a gift.",
-      "Seriously? He made a bed out of it?",
-      "Never mind, I have a spare in the shed."
+      "Damn",
+      "Seriously?",
+      "Never mind"
     ],
     "teaches": [
       "damn",
@@ -2460,9 +2460,9 @@
       }
     ],
     "replies": [
-      "We've got the best seats in the house.",
-      "Take it with a grain of salt. He loves boasting.",
-      "Damn. Here, use my spare copy."
+      "the best seats in the house",
+      "Take it with a grain of salt",
+      "Damn"
     ],
     "teaches": [
       "the best seats in the house",
@@ -2514,9 +2514,9 @@
       }
     ],
     "replies": [
-      "That's bullshit. The venue doesn't offer those visits.",
-      "That doesn't add up. Let's buy directly.",
-      "Those are the best seats in the house."
+      "bullshit",
+      "That doesn't add up",
+      "the best seats in the house"
     ],
     "teaches": [
       "bullshit",
@@ -2568,9 +2568,9 @@
       }
     ],
     "replies": [
-      "Damn. Was everything soaked?",
-      "Seriously? There was nothing inside?",
-      "That's bullshit. Your receipt says headphones."
+      "Damn",
+      "Seriously?",
+      "bullshit"
     ],
     "teaches": [
       "damn",
@@ -2622,9 +2622,9 @@
       }
     ],
     "replies": [
-      "omw. I just left the house.",
-      "eta is ten minutes. The bus is nearly here.",
-      "Damn. Let's go for a walk instead."
+      "omw",
+      "eta",
+      "Damn"
     ],
     "teaches": [
       "omw",
@@ -2676,9 +2676,9 @@
       }
     ],
     "replies": [
-      "Ask about their favorite book to break the ice.",
-      "You'll probably hit it off right away.",
-      "omw. Save me a chair."
+      "break the ice",
+      "hit it off",
+      "omw"
     ],
     "teaches": [
       "break the ice",
@@ -2730,9 +2730,9 @@
       }
     ],
     "replies": [
-      "I'm down. What time?",
-      "Count me in for that. I've played it before.",
-      "A quick practice round will break the ice."
+      "I'm down",
+      "Count me in",
+      "break the ice"
     ],
     "teaches": [
       "I'm down",
@@ -2784,9 +2784,9 @@
       }
     ],
     "replies": [
-      "omw. I've got the camera.",
-      "eta: five minutes. Don't start without me.",
-      "I'm down. I'll be hungry by then."
+      "omw",
+      "eta",
+      "I'm down"
     ],
     "teaches": [
       "omw",
@@ -2838,9 +2838,9 @@
       }
     ],
     "replies": [
-      "Wrong chat. I meant to send it to you.",
-      "Sent too soon. I meant 'Don't forget the stove'.",
-      "omw. I've got the tent."
+      "Wrong chat",
+      "Sent too soon",
+      "omw"
     ],
     "teaches": [
       "wrong chat",
@@ -2892,9 +2892,9 @@
       }
     ],
     "replies": [
-      "We're back to square one. The base needs rebuilding.",
-      "Sometimes you learn the hard way.",
-      "Wrong chat. That was for my dad."
+      "back to square one",
+      "learn the hard way",
+      "Wrong chat"
     ],
     "teaches": [
       "back to square one",
@@ -2946,9 +2946,9 @@
       }
     ],
     "replies": [
-      "My bad. The jars look identical.",
-      "That's on me. I said I'd label them.",
-      "No, we're back to square one."
+      "My bad",
+      "That's on me",
+      "back to square one"
     ],
     "teaches": [
       "my bad",
@@ -3000,9 +3000,9 @@
       }
     ],
     "replies": [
-      "Wrong chat. I added the wrong Alex.",
-      "Sent too soon. It should say four people.",
-      "My bad. I wrote six instead of seven."
+      "Wrong chat",
+      "Sent too soon",
+      "My bad"
     ],
     "teaches": [
       "wrong chat",
@@ -3054,9 +3054,9 @@
       }
     ],
     "replies": [
-      "brb, someone's at the door.",
-      "I was afk collecting a parcel.",
-      "Wrong chat. That was for the delivery driver."
+      "brb",
+      "afk",
+      "Wrong chat"
     ],
     "teaches": [
       "brb",
@@ -3108,9 +3108,9 @@
       }
     ],
     "replies": [
-      "We're under the gun. Let's finish the prices first.",
-      "You have a lot on your plate. I'll do the chairs.",
-      "brb, I'll get one from the car."
+      "under the gun",
+      "have a lot on your plate",
+      "brb"
     ],
     "teaches": [
       "under the gun",
@@ -3162,9 +3162,9 @@
       }
     ],
     "replies": [
-      "I feel you. My legs hurt too.",
-      "That sucks. We planned this trip for months.",
-      "We're under the gun. Let's ask where it stops."
+      "I feel you",
+      "That sucks",
+      "under the gun"
     ],
     "teaches": [
       "I feel you",
@@ -3216,9 +3216,9 @@
       }
     ],
     "replies": [
-      "brb, I'll fill one in the kitchen.",
-      "No, I was afk when she explained it.",
-      "I feel you. Let's ask her to repeat that bit."
+      "brb",
+      "afk",
+      "I feel you"
     ],
     "teaches": [
       "brb",
@@ -3270,9 +3270,9 @@
       }
     ],
     "replies": [
-      "afaik, we need to reserve bike spaces.",
-      "iirc, they're in the last carriage.",
-      "brb, I left them in my jacket."
+      "afaik",
+      "iirc",
+      "brb"
     ],
     "teaches": [
       "afaik",
@@ -3324,9 +3324,9 @@
       }
     ],
     "replies": [
-      "Take the plunge and book a beginner class.",
-      "You can't sit on the fence forever.",
-      "afaik, the first lesson is free."
+      "Take the plunge",
+      "sit on the fence",
+      "afaik"
     ],
     "teaches": [
       "take the plunge",
@@ -3378,9 +3378,9 @@
       }
     ],
     "replies": [
-      "Fishing is not my thing.",
-      "I'll pass. I won't sleep afterwards.",
-      "Maybe it's time to take the plunge."
+      "not my thing",
+      "I'll pass",
+      "take the plunge"
     ],
     "teaches": [
       "not my thing",
@@ -3432,9 +3432,9 @@
       }
     ],
     "replies": [
-      "afaik, dogs aren't allowed there.",
-      "iirc, there's one beside the car park.",
-      "That's not my thing. I'd rather watch birds."
+      "afaik",
+      "iirc",
+      "not my thing"
     ],
     "teaches": [
       "afaik",
@@ -3486,9 +3486,9 @@
       }
     ],
     "replies": [
-      "fyi, they're repainting those spaces tomorrow.",
-      "icymi, the notice is on the front door.",
-      "afaik, it's only for customers."
+      "fyi",
+      "icymi",
+      "afaik"
     ],
     "teaches": [
       "fyi",
@@ -3540,9 +3540,9 @@
       }
     ],
     "replies": [
-      "Don't make me spill the beans before Saturday.",
-      "We shouldn't keep you in the dark. It's a choir.",
-      "fyi, she's the person we're surprising."
+      "spill the beans",
+      "keep you in the dark",
+      "fyi"
     ],
     "teaches": [
       "spill the beans",
@@ -3594,9 +3594,9 @@
       }
     ],
     "replies": [
-      "Come again? An invisible duck?",
-      "What do you mean by that? Read the words backwards?",
-      "Don't spill the beans. Let me solve it."
+      "Come again?",
+      "What do you mean by that?",
+      "spill the beans"
     ],
     "teaches": [
       "come again?",
@@ -3648,9 +3648,9 @@
       }
     ],
     "replies": [
-      "fyi, we've moved the picnic to the lake.",
-      "icymi, I sent the new map yesterday.",
-      "Come again? Why does a boat need a spoon?"
+      "fyi",
+      "icymi",
+      "Come again?"
     ],
     "teaches": [
       "fyi",
@@ -3702,9 +3702,9 @@
       }
     ],
     "replies": [
-      "lol, did it stick there?",
-      "lmao, please tell me you filmed that.",
-      "fyi, Dad is in that chat too."
+      "lol",
+      "lmao",
+      "fyi"
     ],
     "teaches": [
       "lol",
@@ -3756,9 +3756,9 @@
       }
     ],
     "replies": [
-      "It must cost an arm and a leg.",
-      "It's hard to make ends meet on a few lessons.",
-      "lol, your students might enjoy that."
+      "cost an arm and a leg",
+      "make ends meet",
+      "lol"
     ],
     "teaches": [
       "cost an arm and a leg",
@@ -3810,9 +3810,9 @@
       }
     ],
     "replies": [
-      "Lemme take a look at the back wheel.",
-      "Gimme the small spanner, please.",
-      "That would cost an arm and a leg compared with this repair."
+      "Lemme",
+      "Gimme",
+      "cost an arm and a leg"
     ],
     "teaches": [
       "lemme",
@@ -3864,9 +3864,9 @@
       }
     ],
     "replies": [
-      "lol, where's the cat sleeping then?",
-      "lmao, she definitely won that argument.",
-      "Lemme see. I need proof."
+      "lol",
+      "lmao",
+      "Lemme"
     ],
     "teaches": [
       "lol",
@@ -3918,9 +3918,9 @@
       }
     ],
     "replies": [
-      "tq for the blanket. It looks warm.",
-      "thx, now I can have some tea.",
-      "lol, he's more organized than us."
+      "tq",
+      "thx",
+      "lol"
     ],
     "teaches": [
       "tq",
@@ -3972,9 +3972,9 @@
       }
     ],
     "replies": [
-      "We might come out on top. The flowers look great.",
-      "That was a blessing in disguise.",
-      "tq, I'll water the flowers before judging."
+      "come out on top",
+      "a blessing in disguise",
+      "tq"
     ],
     "teaches": [
       "come out on top",
@@ -4026,9 +4026,9 @@
       }
     ],
     "replies": [
-      "That's wild. People actually enter?",
-      "That's unhinged. Your neighbors must love it.",
-      "He might come out on top with all that practice."
+      "That's wild",
+      "unhinged",
+      "come out on top"
     ],
     "teaches": [
       "that's wild",
@@ -4080,9 +4080,9 @@
       }
     ],
     "replies": [
-      "tq for saving me a seat.",
-      "thx, I always forget that.",
-      "That's wild. I hope we see it from a distance."
+      "tq",
+      "thx",
+      "That's wild"
     ],
     "teaches": [
       "tq",
@@ -4134,9 +4134,9 @@
       }
     ],
     "replies": [
-      "tbh, the title is hard to read.",
-      "imo, dark blue would work best.",
-      "tq, I'll put it in the café window."
+      "tbh",
+      "imo",
+      "tq"
     ],
     "teaches": [
       "tbh",
@@ -4188,9 +4188,9 @@
       }
     ],
     "replies": [
-      "Don't bite off more than you can chew with all that cooking.",
-      "I'll go out on a limb and suggest it to the group.",
-      "tbh, they'll probably be relieved to help."
+      "bite off more than you can chew",
+      "go out on a limb",
+      "tbh"
     ],
     "teaches": [
       "bite off more than you can chew",
@@ -4242,9 +4242,9 @@
       }
     ],
     "replies": [
-      "Kinda. I keep losing count.",
-      "Dunno. I've only finished one corner.",
-      "It's easy to bite off more than you can chew at first."
+      "Kinda",
+      "Dunno",
+      "bite off more than you can chew"
     ],
     "teaches": [
       "kinda",
@@ -4296,9 +4296,9 @@
       }
     ],
     "replies": [
-      "tbh, it rained almost every day.",
-      "imo, spring would be a better choice.",
-      "Kinda, but we found some lovely little cafés."
+      "tbh",
+      "imo",
+      "Kinda"
     ],
     "teaches": [
       "tbh",
@@ -4350,9 +4350,9 @@
       }
     ],
     "replies": [
-      "All good. I wasn't planning to reread it.",
-      "Ofc. It's on the top shelf.",
-      "tbh, I thought it was a little rushed."
+      "All good",
+      "Ofc",
+      "tbh"
     ],
     "teaches": [
       "all good",
@@ -4404,9 +4404,9 @@
       }
     ],
     "replies": [
-      "You don't want to get off on the wrong foot.",
-      "Read between the lines. He probably felt unwelcome.",
-      "All good, then. That's a better introduction."
+      "get off on the wrong foot",
+      "Read between the lines",
+      "All good"
     ],
     "teaches": [
       "get off on the wrong foot",
@@ -4458,9 +4458,9 @@
       }
     ],
     "replies": [
-      "Maybe some other time. I've promised to help Dad.",
-      "Suit yourself. The group will still be there next week.",
-      "We shouldn't get off on the wrong foot. Send a message."
+      "Maybe some other time",
+      "Suit yourself",
+      "get off on the wrong foot"
     ],
     "teaches": [
       "maybe some other time",
@@ -4512,9 +4512,9 @@
       }
     ],
     "replies": [
-      "All good. It didn't hurt.",
-      "Ofc. Let's lift it together.",
-      "Maybe some other time. Our train is about to leave."
+      "All good",
+      "Ofc",
+      "Maybe some other time"
     ],
     "teaches": [
       "all good",
@@ -4566,9 +4566,9 @@
       }
     ],
     "replies": [
-      "smh, that should never happen.",
-      "That's so frustrating. Try a different browser.",
-      "All good. We still have plenty of time."
+      "smh",
+      "so frustrating",
+      "All good"
     ],
     "teaches": [
       "smh",
@@ -4620,9 +4620,9 @@
       }
     ],
     "replies": [
-      "We'll need to tighten our belt for a while.",
-      "Let's not cut corners on a roof.",
-      "smh, no wonder it leaked."
+      "tighten our belt",
+      "cut corners",
+      "smh"
     ],
     "teaches": [
       "tighten your belt",
@@ -4674,9 +4674,9 @@
       }
     ],
     "replies": [
-      "Is he still bitching about the expensive cheese?",
-      "That would cross the line. Money isn't an excuse.",
-      "You can tighten your belt without insulting each other."
+      "bitching",
+      "cross the line",
+      "tighten your belt"
     ],
     "teaches": [
       "bitching",
@@ -4728,9 +4728,9 @@
       }
     ],
     "replies": [
-      "smh, we came all this way.",
-      "That's so frustrating. Nobody can explain anything.",
-      "He's still bitching? Let's at least get lunch."
+      "smh",
+      "so frustrating",
+      "bitching"
     ],
     "teaches": [
       "smh",
@@ -4782,9 +4782,9 @@
       }
     ],
     "replies": [
-      "That's Ben, aka the missing prince.",
-      "tl;dr: the prince left the palace to grow tomatoes.",
-      "smh, who wrote this story?"
+      "aka",
+      "tl;dr",
+      "smh"
     ],
     "teaches": [
       "aka",
@@ -4836,9 +4836,9 @@
       }
     ],
     "replies": [
-      "We're on the same page. Keep it simple.",
-      "You're off the hook. We only need daylight.",
-      "My uncle, aka our only available actor."
+      "on the same page",
+      "off the hook",
+      "aka"
     ],
     "teaches": [
       "on the same page",
@@ -4890,9 +4890,9 @@
       }
     ],
     "replies": [
-      "I'm not buying it. Show me your sleeves.",
-      "Walk me through it. Start with where the coin goes.",
-      "We're on the same page. I'll keep it secret."
+      "I'm not buying it",
+      "Walk me through it",
+      "on the same page"
     ],
     "teaches": [
       "I'm not buying it",
@@ -4944,9 +4944,9 @@
       }
     ],
     "replies": [
-      "That's my brother, aka the person carrying all the food.",
-      "tl;dr: walk to the lake, eat, walk home.",
-      "I'm not buying it. He complains about one backpack."
+      "aka",
+      "tl;dr",
+      "I'm not buying it"
     ],
     "teaches": [
       "aka",
@@ -4998,9 +4998,9 @@
       }
     ],
     "replies": [
-      "gtg, my chess match starts in two minutes.",
-      "Leave me alone until the match is over, please.",
-      "Tom, aka the club champion."
+      "gtg",
+      "Leave me alone",
+      "aka"
     ],
     "teaches": [
       "gtg",
@@ -5052,9 +5052,9 @@
       }
     ],
     "replies": [
-      "I'm under the weather. I think I'll rest.",
-      "No, I'll lie low at home tonight.",
-      "gtg, the kettle is boiling over."
+      "under the weather",
+      "lie low",
+      "gtg"
     ],
     "teaches": [
       "under the weather",
@@ -5106,9 +5106,9 @@
       }
     ],
     "replies": [
-      "I gotta grab my glasses first.",
-      "You've got this. He'll guide you.",
-      "Was she under the weather?"
+      "gotta",
+      "You've got this",
+      "under the weather"
     ],
     "teaches": [
       "gotta",
@@ -5160,9 +5160,9 @@
       }
     ],
     "replies": [
-      "gtg, my taxi is outside.",
-      "Leave me alone for a moment. I need to pack.",
-      "I gotta hurry. Where are my keys?"
+      "gtg",
+      "Leave me alone",
+      "gotta"
     ],
     "teaches": [
       "gtg",
@@ -5214,9 +5214,9 @@
       }
     ],
     "replies": [
-      "Autocorrect strikes again. I meant a giant parrot.",
-      "jk, it's just a costume.",
-      "gtg, the costume taxi has arrived."
+      "Autocorrect strikes again",
+      "jk",
+      "gtg"
     ],
     "teaches": [
       "autocorrect strikes again",
@@ -5268,9 +5268,9 @@
       }
     ],
     "replies": [
-      "Break a leg! Your decorations are beautiful.",
-      "It's a piece of cake. Just use the first box.",
-      "Autocorrect strikes again. Check before you submit."
+      "Break a leg",
+      "a piece of cake",
+      "Autocorrect strikes again"
     ],
     "teaches": [
       "break a leg",
@@ -5322,9 +5322,9 @@
       }
     ],
     "replies": [
-      "It was top-notch. Every note was clear.",
-      "No hard feelings. I practised in the hall.",
-      "Break a leg! I'll listen from here."
+      "top-notch",
+      "No hard feelings",
+      "Break a leg"
     ],
     "teaches": [
       "top-notch",
@@ -5376,9 +5376,9 @@
       }
     ],
     "replies": [
-      "Autocorrect strikes again. That should be sugar.",
-      "jk, I knew what you meant.",
-      "Top-notch. Everyone asked for another slice."
+      "Autocorrect strikes again",
+      "jk",
+      "Top-notch"
     ],
     "teaches": [
       "autocorrect strikes again",
@@ -5430,9 +5430,9 @@
       }
     ],
     "replies": [
-      "No cap, it took three hours.",
-      "I feel fine now. hbu?",
-      "Autocorrect strikes again. I meant my legs are fine."
+      "No cap",
+      "hbu",
+      "Autocorrect strikes again"
     ],
     "teaches": [
       "no cap",
@@ -5484,9 +5484,9 @@
       }
     ],
     "replies": [
-      "No, we need to do this by the book.",
-      "Take it with a grain of salt. Ask the keeper.",
-      "No cap, I saw it use its nose."
+      "by the book",
+      "Take it with a grain of salt",
+      "No cap"
     ],
     "teaches": [
       "by the book",
@@ -5538,9 +5538,9 @@
       }
     ],
     "replies": [
-      "I'm dead. He even added eyebrows!",
-      "No way! Against all those fancy cakes?",
-      "Yes, they did everything by the book."
+      "I'm dead",
+      "No way",
+      "by the book"
     ],
     "teaches": [
       "I'm dead",
@@ -5592,9 +5592,9 @@
       }
     ],
     "replies": [
-      "No cap, I sang three songs.",
-      "I was nervous at first. hbu?",
-      "I'm dead. Please tell me someone recorded it."
+      "No cap",
+      "hbu",
+      "I'm dead"
     ],
     "teaches": [
       "no cap",
@@ -5646,9 +5646,9 @@
       }
     ],
     "replies": [
-      "wdym? Do I walk through the flower shop?",
-      "wya exactly? I can see three rooms.",
-      "No cap? An actual living tree?"
+      "wdym",
+      "wya",
+      "No cap"
     ],
     "teaches": [
       "wdym",
@@ -5700,9 +5700,9 @@
       }
     ],
     "replies": [
-      "You got the wrong end of the stick. It's just dinner.",
-      "You're barking up the wrong tree. He didn't send it.",
-      "wdym, a tail? What are you wearing?"
+      "got the wrong end of the stick",
+      "barking up the wrong tree",
+      "wdym"
     ],
     "teaches": [
       "get the wrong end of the stick",
@@ -5754,9 +5754,9 @@
       }
     ],
     "replies": [
-      "Be for real. It's wider than the pavement.",
-      "You can't be serious. We need a van.",
-      "You got the wrong end of the stick. I meant the table."
+      "Be for real",
+      "You can't be serious",
+      "got the wrong end of the stick"
     ],
     "teaches": [
       "be for real",
@@ -5808,9 +5808,9 @@
       }
     ],
     "replies": [
-      "wdym? Is that a statue or a shop?",
-      "wya? I only see a red horse.",
-      "Be for real. Send me your location."
+      "wdym",
+      "wya",
+      "Be for real"
     ],
     "teaches": [
       "wdym",
@@ -5862,9 +5862,9 @@
       }
     ],
     "replies": [
-      "hmu when you're free. I can help.",
-      "dm me instead. No need to share it with everyone.",
-      "wdym? Do you want a plain background?"
+      "hmu",
+      "dm me",
+      "wdym"
     ],
     "teaches": [
       "hmu",
@@ -5916,9 +5916,9 @@
       }
     ],
     "replies": [
-      "You won't need to twist my arm. I love the beach.",
-      "Let's play it by ear and check the weather there.",
-      "hmu when you know. We'll save you a seat."
+      "twist my arm",
+      "play it by ear",
+      "hmu"
     ],
     "teaches": [
       "twist someone's arm",
@@ -5970,9 +5970,9 @@
       }
     ],
     "replies": [
-      "I'm game. I've never made them before.",
-      "Hard pass on that batch. I hate spicy food.",
-      "Don't twist my arm. I'll stick to mushrooms."
+      "I'm game",
+      "Hard pass",
+      "twist my arm"
     ],
     "teaches": [
       "I'm game",
@@ -6024,9 +6024,9 @@
       }
     ],
     "replies": [
-      "hmu this weekend. You can use mine.",
-      "dm me the picture, please.",
-      "I'm game. That's a good first project."
+      "hmu",
+      "dm me",
+      "I'm game"
     ],
     "teaches": [
       "hmu",
@@ -6078,9 +6078,9 @@
       }
     ],
     "replies": [
-      "tbf, the competition had hundreds of entries.",
-      "fwiw, I really like the colors.",
-      "hmu tomorrow. I'll bring my artist friend."
+      "tbf",
+      "fwiw",
+      "hmu"
     ],
     "teaches": [
       "tbf",
@@ -6132,9 +6132,9 @@
       }
     ],
     "replies": [
-      "You missed the boat this time.",
-      "We're in the same boat. I didn't get a place either.",
-      "tbf, the places sold out in an hour."
+      "missed the boat",
+      "in the same boat",
+      "tbf"
     ],
     "teaches": [
       "miss the boat",
@@ -6186,9 +6186,9 @@
       }
     ],
     "replies": [
-      "What's the catch? Nothing like that is really free.",
-      "That sounds fishy. Don't send anything.",
-      "Better to miss the boat than lose your money."
+      "What's the catch?",
+      "sounds fishy",
+      "miss the boat"
     ],
     "teaches": [
       "what's the catch?",
@@ -6240,9 +6240,9 @@
       }
     ],
     "replies": [
-      "tbf, it only costs twenty.",
-      "fwiw, my old bike still works well.",
-      "What's the catch? Does it need major repairs?"
+      "tbf",
+      "fwiw",
+      "What's the catch?"
     ],
     "teaches": [
       "tbf",
@@ -6294,9 +6294,9 @@
       }
     ],
     "replies": [
-      "iow, wait until it's twice as big.",
-      "imho, following the recipe is safer.",
-      "tbf, it's your first time making bread."
+      "iow",
+      "imho",
+      "tbf"
     ],
     "teaches": [
       "iow",
@@ -6348,9 +6348,9 @@
       }
     ],
     "replies": [
-      "Money is the elephant in the room.",
-      "They're the tip of the iceberg. Hotels cost even more.",
-      "iow, we need a cheaper destination."
+      "the elephant in the room",
+      "the tip of the iceberg",
+      "iow"
     ],
     "teaches": [
       "the elephant in the room",
@@ -6402,9 +6402,9 @@
       }
     ],
     "replies": [
-      "That tracks. He probably has less time now.",
-      "A drummer complaining about noise. Go figure.",
-      "That's the elephant in the room at every rehearsal."
+      "That tracks",
+      "Go figure",
+      "the elephant in the room"
     ],
     "teaches": [
       "that tracks",
@@ -6456,9 +6456,9 @@
       }
     ],
     "replies": [
-      "iow, someone has to run into the photo.",
-      "imho, that's much easier.",
-      "That tracks. You're standing behind the tree."
+      "iow",
+      "imho",
+      "That tracks"
     ],
     "teaches": [
       "iow",
@@ -6510,9 +6510,9 @@
       }
     ],
     "replies": [
-      "TMI. Those private details don't belong in the show.",
-      "It's NSFW. Don't play it on the office speakers.",
-      "iow, save this podcast for your headphones."
+      "TMI",
+      "NSFW",
+      "iow"
     ],
     "teaches": [
       "tmi",
@@ -6564,9 +6564,9 @@
       }
     ],
     "replies": [
-      "It's normal to get cold feet before a big commitment.",
-      "Don't jump the gun. Wait for their call.",
-      "TMI. We remember enough already."
+      "get cold feet",
+      "jump the gun",
+      "TMI"
     ],
     "teaches": [
       "get cold feet",
@@ -6618,9 +6618,9 @@
       }
     ],
     "replies": [
-      "I'm not feeling it. It doesn't look like me.",
-      "That's a bit much for a quiet dinner.",
-      "Don't get cold feet. I'll introduce you."
+      "not feeling it",
+      "a bit much",
+      "get cold feet"
     ],
     "teaches": [
       "not feeling it",
@@ -6672,9 +6672,9 @@
       }
     ],
     "replies": [
-      "TMI for dinner. Let's choose something lighter.",
-      "It's NSFW, so don't send it to the work chat.",
-      "I'm not feeling it. Let's put on a short comedy."
+      "TMI",
+      "NSFW",
+      "not feeling it"
     ],
     "teaches": [
       "tmi",
@@ -6726,9 +6726,9 @@
       }
     ],
     "replies": [
-      "istg, it was right here a minute ago.",
-      "ffs, now we have to call someone.",
-      "TMI. Just check the bathroom shelf."
+      "istg",
+      "ffs",
+      "TMI"
     ],
     "teaches": [
       "istg",
@@ -6780,9 +6780,9 @@
       }
     ],
     "replies": [
-      "Don't add fuel to the fire by shouting back.",
-      "That was the last straw. We need a calm conversation.",
-      "istg, it was barely audible."
+      "add fuel to the fire",
+      "the last straw",
+      "istg"
     ],
     "teaches": [
       "add fuel to the fire",
@@ -6834,9 +6834,9 @@
       }
     ],
     "replies": [
-      "Give it a rest. That joke is getting old.",
-      "Get off my back. I can choose it myself.",
-      "That would only add fuel to the fire."
+      "Give it a rest",
+      "Get off my back",
+      "add fuel to the fire"
     ],
     "teaches": [
       "give it a rest",
@@ -6888,9 +6888,9 @@
       }
     ],
     "replies": [
-      "istg, I checked it twice.",
-      "ffs, this timer is impossible to use.",
-      "Give it a rest. Help me set the timer."
+      "istg",
+      "ffs",
+      "Give it a rest"
     ],
     "teaches": [
       "istg",
@@ -6942,9 +6942,9 @@
       }
     ],
     "replies": [
-      "nbd, it's just the strap.",
-      "dw, it wipes off easily.",
-      "istg, it works perfectly. Look at this photo."
+      "nbd",
+      "dw",
+      "istg"
     ],
     "teaches": [
       "nbd",
@@ -6996,9 +6996,9 @@
       }
     ],
     "replies": [
-      "There's a silver lining: our tired legs get a rest.",
-      "That's the light at the end of the tunnel.",
-      "nbd, we can use the distance on the map."
+      "a silver lining",
+      "the light at the end of the tunnel",
+      "nbd"
     ],
     "teaches": [
       "a silver lining",
@@ -7050,9 +7050,9 @@
       }
     ],
     "replies": [
-      "You dodged a bullet. You hadn't paid the fee yet.",
-      "Their loss. People love your notebooks.",
-      "That's a silver lining after all that trouble."
+      "You dodged a bullet",
+      "Their loss",
+      "a silver lining"
     ],
     "teaches": [
       "you dodged a bullet",
@@ -7104,9 +7104,9 @@
       }
     ],
     "replies": [
-      "nbd, I watched at home.",
-      "dw, I had a comfortable seat and hot food.",
-      "Sounds like I dodged a bullet, then."
+      "nbd",
+      "dw",
+      "I dodged a bullet"
     ],
     "teaches": [
       "nbd",
@@ -7158,9 +7158,9 @@
       }
     ],
     "replies": [
-      "Let's return the tent asap.",
-      "ttys, I'll call after dinner.",
-      "nbd, there's a brush in the car."
+      "asap",
+      "ttys",
+      "nbd"
     ],
     "teaches": [
       "asap",
@@ -7212,9 +7212,9 @@
       }
     ],
     "replies": [
-      "I wanted to go the extra mile for the visitors.",
-      "You need to pull your weight too.",
-      "asap, the doors open in twenty minutes."
+      "go the extra mile",
+      "pull your weight",
+      "asap"
     ],
     "teaches": [
       "go the extra mile",
@@ -7266,9 +7266,9 @@
       }
     ],
     "replies": [
-      "You nailed it. It sounded warm and natural.",
-      "You blew it. Now she knows about the party.",
-      "We'll go the extra mile with decorations and food."
+      "You nailed it",
+      "You blew it",
+      "go the extra mile"
     ],
     "teaches": [
       "you nailed it",
@@ -7320,9 +7320,9 @@
       }
     ],
     "replies": [
-      "We need them asap. The audience is arriving.",
-      "ttys, I've got to check the microphones.",
-      "You nailed it. They look perfect."
+      "asap",
+      "ttys",
+      "You nailed it"
     ],
     "teaches": [
       "asap",

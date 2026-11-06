@@ -29,7 +29,10 @@ for (const [index, lesson] of all.entries()) {
     assert(line.text && line.glossRu,lesson.id);
     assert(!/[А-Яа-я\u0600-\u06ff]/.test(line.text),`Non-English learning text: ${lesson.id}`);
     if(line.gap!==undefined) {
-      assert.equal(i%2,1);assert.equal(step.replies[line.gap],line.text);
+      assert.equal(i%2,1);const expression = step.replies[line.gap];
+      assert(line.text.includes(expression), `Missing expression: ${lesson.id}`);
+      assert.notEqual(expression, line.text, `Whole reply hidden: ${lesson.id}`);
+      assert.equal(line.text.split(expression).length, 2, `Ambiguous expression: ${lesson.id}`);
       assert(!original.has(line.text.toLowerCase()),`Repeated introductory reply: ${lesson.id}`);
     } else assert.equal(i%2,0);
   }

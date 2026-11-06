@@ -1600,12 +1600,12 @@
     },
     "dialogueFill": {
       "title": "Complete the conversation",
-      "hint": "Select a gap, then choose a reply. Tap a placed reply to return it to the bank.",
+      "hint": "Select a gap, then choose the missing expression. Tap an inserted expression to return it to the bank.",
       "gap": "Gap {{number}}",
       "translation": "Translation",
-      "bank": "Conversation replies",
-      "choose": "Choose a reply for gap {{number}}",
-      "ready": "All replies are in place. Check the conversation."
+      "bank": "Expressions for the conversation",
+      "choose": "Choose an expression for gap {{number}}",
+      "ready": "All expressions are in place. Check the conversation."
     }
   },
   "streak": {

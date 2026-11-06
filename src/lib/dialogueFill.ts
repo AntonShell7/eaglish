@@ -1,6 +1,6 @@
 import type { DialogueFillStep } from "@/data/trackModel";
 
-/** A stable bank of whole replies, independent of the learner's placements. */
+/** A stable bank of missing expressions, independent of the learner's placements. */
 export function dialogueReplyOrder(step: DialogueFillStep): number[] {
   const ids = step.replies.map((_, id) => id);
   let seed = [...step.id].reduce((value, ch) => (Math.imul(value, 31) + ch.charCodeAt(0)) >>> 0, 7);
@@ -9,7 +9,7 @@ export function dialogueReplyOrder(step: DialogueFillStep): number[] {
     const j = seed % (i + 1);
     [ids[i], ids[j]] = [ids[j], ids[i]];
   }
-  // Never give away the answer by presenting replies in dialogue order.
+  // Never give away the answer by presenting expressions in dialogue order.
   return ids.every((id, index) => id === index) ? [...ids.slice(1), ids[0]] : ids;
 }
 

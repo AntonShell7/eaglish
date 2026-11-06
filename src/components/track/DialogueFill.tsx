@@ -35,9 +35,12 @@ export function DialogueFill({ step, selected, onChange, judged }: {
           const answer = gap === undefined ? undefined : selected[gap];
           const filled = answer !== undefined && answer >= 0;
           const correct = gap !== undefined && answer === gap;
+          const expression = gap === undefined ? "" : step.replies[gap];
+          const start = gap === undefined ? -1 : line.text.indexOf(expression);
           return <div key={index} className={`tk-msg${line.me ? " tk-msg--me" : ""} tk-msg--turn`}>
             <span className="tk-dialogue-fill__speaker">{line.me ? "Alex" : "Sam"}</span>
-            {gap === undefined ? <span className="tk-msg__bubble">{line.text}</span> : <>
+            {gap === undefined ? <span className="tk-msg__bubble">{line.text}</span> : <div className="tk-msg__bubble">
+              {line.text.slice(0, start)}
               <button type="button" ref={el => { gaps.current[gap] = el; }}
                 className={`tk-dialogue-fill__gap${active === gap && !judged ? " is-active" : ""}${judged ? correct ? " is-right" : " is-wrong" : ""}`}
                 aria-label={t("track.dialogueFill.gap", { number: gap + 1 }) + (filled ? `: ${step.replies[answer]}` : "")}
@@ -51,8 +54,9 @@ export function DialogueFill({ step, selected, onChange, judged }: {
                 <span>{filled ? step.replies[answer] : "…"}</span>
                 {filled && !judged && <span aria-hidden="true">×</span>}
               </button>
+              {line.text.slice(start + expression.length)}
               {judged && !correct && <p className="tk-dialogue-fill__correction">✓ {step.replies[gap]}</p>}
-            </>}
+            </div>}
             {(gap === undefined || judged) && <details className="tk-dialogue-fill__translation" dir="auto">
               <summary lang={i18n.language}>{t("track.dialogueFill.translation")}</summary>
               <p dir="auto" lang={isArabic() ? "ar" : "ru"}>{line.glossRu}</p>
