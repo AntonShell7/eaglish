@@ -13,7 +13,7 @@ const session = require('../src/lib/trackSession.ts');
 const all = trackLessons().map(entry=>entry.lesson);
 const ownTerms = lesson => [...new Set(lesson.steps.filter(s=>s.kind !== 'dialogueFill').flatMap(s=>s.forms?.map(f=>f.short)??s.teaches??[]))];
 assert.equal(all.length,136);
-assert.deepEqual(all[0].steps.find(s=>s.kind==='dialogueFill').replies,['LMK','NVM'],'Chat practice keeps the abbreviations being studied');
+assert.deepEqual(all[0].steps.find(s=>s.kind==='dialogueFill').replies,['lmk','nvm'],'Chat practice keeps the abbreviations being studied');
 for (const [index, lesson] of all.entries()) {
   const tasks=lesson.steps.filter(s=>s.kind==='dialogueFill');
   assert.equal(tasks.length,1,lesson.id);

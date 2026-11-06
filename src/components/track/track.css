@@ -1489,23 +1489,16 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 .tk-dialogue-fill__hint { margin: 10px 0; color: var(--color-text-muted); font-size: .84rem; line-height: 1.6; }
 .tk-dialogue-fill__scene { margin: 18px 0; font-size: .9rem; line-height: 1.6; }
 .tk-dialogue-fill .tk-thread { margin-top: 18px; }
-.tk-dialogue-fill .tk-msg { max-width: 90%; }
-.tk-dialogue-fill__speaker { font-size: .65rem; font-weight: 750; letter-spacing: .04em; color: var(--color-text-faint); margin: 0 8px 5px; }
-/* Reply bubbles have their own ink; slots must not inherit page-theme colours. */
+/* Keep the introductory chat's bubble metrics; only underline the missing expression. */
 .tk-dialogue-fill__gap {
-  display: inline-flex; vertical-align: baseline; align-items: center; justify-content: center;
-  gap: 8px; max-width: 100%; min-width: 90px; min-height: 36px;
-  margin: 3px 5px 3px 0; padding: 5px 10px;
-  color: #173e32; background: #f4fcf8;
-  border: 1px solid #477d69; border-bottom-width: 3px; border-radius: 8px;
-  font: inherit; font-weight: 700; line-height: 1.4;
-  cursor: pointer; overflow-wrap: anywhere;
-  transition: box-shadow .15s ease, background .15s ease;
+  display: inline; padding: 0 2px; margin: 0 2px 0 0;
+  border: 0; border-bottom: 1px dashed currentColor; border-radius: 0;
+  background: transparent; color: inherit; font: inherit; line-height: inherit;
+  cursor: pointer; box-shadow: none;
 }
-.tk-dialogue-fill__gap.is-active { background: #fff; border-color: #173e32; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #173e32; }
-.tk-dialogue-fill__number { flex: none; color: #496b5e; font-size: .65rem; font-weight: 600; }
-.tk-dialogue-fill__gap.is-right { background: #edf9f1; border-color: #226c46; color: #16452e; }
-.tk-dialogue-fill__gap.is-wrong { background: #fff3f0; border-color: #a43223; color: #862719; }
+.tk-dialogue-fill__gap.is-active { border-bottom: 2px solid currentColor; }
+.tk-dialogue-fill__gap.is-right { border-bottom-style: solid; }
+.tk-dialogue-fill__gap.is-wrong { text-decoration: line-through; }
 .tk-dialogue-fill__gap:disabled { opacity: 1; cursor: default; }
 .tk-dialogue-fill__correction { margin-top: 8px; color: inherit; font-size: .9rem; font-weight: 700; line-height: 1.6; }
 .tk-dialogue-fill__translation { margin: 7px 8px 0; color: var(--color-text-muted); font-size: .8rem; line-height: 1.6; }
@@ -1518,7 +1511,6 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 .tk-dialogue-fill__tile:disabled { opacity: .3; box-shadow: none; cursor: default; }
 .tk-dialogue-fill button:focus-visible, .tk-dialogue-fill summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 @media (max-width: 540px) {
- .tk-dialogue-fill .tk-msg { max-width: 95%; }
  .tk-dialogue-fill__bank { padding: 12px; }
  .tk-dialogue-fill__tile { max-width: 100%; }
 }

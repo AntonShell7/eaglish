@@ -10,7 +10,7 @@
       },
       {
         "me": true,
-        "text": "LMK if the bakery has lemon cake.",
+        "text": "lmk if the bakery has lemon cake.",
         "glossRu": "Дай знать, есть ли в пекарне лимонный торт.",
         "gap": 0
       },
@@ -21,7 +21,7 @@
       },
       {
         "me": true,
-        "text": "NVM, I found candles in the cupboard.",
+        "text": "nvm, I found candles in the cupboard.",
         "glossRu": "Уже не нужно, я нашёл свечи в шкафу.",
         "gap": 1
       },
@@ -32,8 +32,8 @@
       }
     ],
     "replies": [
-      "LMK",
-      "NVM"
+      "lmk",
+      "nvm"
     ],
     "teaches": [
       "lmk",

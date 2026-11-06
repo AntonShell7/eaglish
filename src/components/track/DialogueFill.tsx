@@ -29,6 +29,7 @@ export function DialogueFill({ step, selected, onChange, judged }: {
     {!judged && <p className="tk-dialogue-fill__hint">{t("track.dialogueFill.hint")}</p>}
     <p className="tk-dialogue-fill__scene" dir="auto" lang={isArabic() ? "ar" : "ru"}>{step.sceneRu}</p>
     <div className="tk-thread" lang="en" dir="ltr">
+      <div className="tk-thread__top"><span className="tk-thread__face">S</span><span className="tk-thread__who">Sam</span></div>
       <div className="tk-thread__body">
         {step.lines.map((line, index) => {
           const gap = line.gap;
@@ -38,7 +39,6 @@ export function DialogueFill({ step, selected, onChange, judged }: {
           const expression = gap === undefined ? "" : step.replies[gap];
           const start = gap === undefined ? -1 : line.text.indexOf(expression);
           return <div key={index} className={`tk-msg${line.me ? " tk-msg--me" : ""} tk-msg--turn`}>
-            <span className="tk-dialogue-fill__speaker">{line.me ? "Alex" : "Sam"}</span>
             {gap === undefined ? <span className="tk-msg__bubble">{line.text}</span> : <div className="tk-msg__bubble">
               {line.text.slice(0, start)}
               <button type="button" ref={el => { gaps.current[gap] = el; }}
@@ -50,9 +50,7 @@ export function DialogueFill({ step, selected, onChange, judged }: {
                   if (filled) onChange(step.replies.map((_, i) => i === gap ? -1 : selected[i] ?? -1));
                   requestAnimationFrame(() => bank.current?.querySelector<HTMLButtonElement>("button:not(:disabled)")?.focus({ preventScroll: true }));
                 }}>
-                <span className="tk-dialogue-fill__number" aria-hidden="true">{gap + 1}</span>
-                <span>{filled ? step.replies[answer] : "…"}</span>
-                {filled && !judged && <span aria-hidden="true">×</span>}
+                <span>{filled ? step.replies[answer] : "\u00a0\u00a0\u00a0\u00a0"}</span>
               </button>
               {line.text.slice(start + expression.length)}
               {judged && !correct && <p className="tk-dialogue-fill__correction">✓ {step.replies[gap]}</p>}
