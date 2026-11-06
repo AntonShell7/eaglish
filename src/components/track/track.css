@@ -1483,3 +1483,31 @@ body.slang-lesson-open .consent-bar { bottom: 0; }
 .tk-reply-help { margin: -8px 0 16px; color: var(--color-text); font-size: .95rem; line-height: 1.5; }
 
 .tk-course-nav{padding:20px;border:1px solid var(--color-border);border-radius:20px;margin-bottom:24px;display:grid;gap:20px}.tk-course-nav>div,.tk-module-paging{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.tk-course-nav label{display:grid;gap:8px}.tk-course-nav select{width:100%;min-width:0}.tk-learned{margin-top:28px;padding:20px;border:1px solid var(--color-border);border-radius:20px}.tk-learned summary{cursor:pointer;font-weight:700;margin-bottom:16px}.tk-learned-row{display:flex;width:100%;text-align:left;gap:16px;padding:14px 0;border-bottom:1px solid var(--color-border)}.tk-learned-row strong{color:var(--color-primary);min-width:25%}.tk-learned-row span:last-child{margin-left:auto}.tk-award{padding:20px;margin:20px 0;border:1px solid var(--color-primary);border-radius:20px;background:var(--color-primary-soft)}
+
+/* Whole replies belong to conversation bubbles, not a sentence word bank. */
+.tk-dialogue-fill { width: 100%; }
+.tk-dialogue-fill__hint { margin: 10px 0; color: var(--color-text-muted); font-size: .84rem; line-height: 1.6; }
+.tk-dialogue-fill__scene { margin: 18px 0; font-size: .9rem; line-height: 1.6; }
+.tk-dialogue-fill .tk-thread { margin-top: 18px; }
+.tk-dialogue-fill .tk-msg { max-width: 90%; }
+.tk-dialogue-fill__speaker { font-size: .65rem; font-weight: 750; letter-spacing: .04em; color: var(--color-text-faint); margin: 0 8px 5px; }
+.tk-dialogue-fill__gap { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 130px; min-height: 48px; padding: 12px 15px; border: 1px dashed var(--color-border-strong); border-radius: 16px; background: var(--color-surface-2); text-align: left; font-size: .95rem; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
+.tk-dialogue-fill__gap.is-active { border: 1px solid var(--color-primary); background: var(--color-primary-soft); }
+.tk-dialogue-fill__number { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 8px; background: var(--color-primary-soft); color: var(--color-accent-ink); font-size: .7rem; font-weight: 750; }
+.tk-dialogue-fill__gap.is-right { border-color: var(--color-primary); }
+.tk-dialogue-fill__gap.is-wrong { border-color: var(--color-danger); }
+.tk-dialogue-fill__correction { margin-top: 8px; color: var(--color-primary); font-size: .9rem; line-height: 1.6; }
+.tk-dialogue-fill__translation { margin: 7px 8px 0; color: var(--color-text-muted); font-size: .8rem; line-height: 1.6; }
+.tk-dialogue-fill__translation summary { cursor: pointer; font-size: .72rem; }
+.tk-dialogue-fill__translation p { margin-top: 6px; }
+.tk-dialogue-fill__bank { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 12px; padding: 16px; border: 1px solid var(--color-border); border-radius: 18px; background: var(--color-surface); }
+.tk-dialogue-fill__bank > p { flex-basis: 100%; margin: 0 0 6px; }
+.tk-dialogue-fill__tile { padding: 12px 15px; border: 1px solid var(--color-border-strong); border-radius: 12px; box-shadow: 0 3px 0 var(--color-border); background: var(--color-surface-2); font-size: .9rem; line-height: 1.6; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.tk-dialogue-fill__tile:hover:not(:disabled) { border-color: var(--color-primary); }
+.tk-dialogue-fill__tile:disabled { opacity: .3; box-shadow: none; cursor: default; }
+.tk-dialogue-fill button:focus-visible, .tk-dialogue-fill summary:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+@media (max-width: 540px) {
+ .tk-dialogue-fill .tk-msg { max-width: 95%; }
+ .tk-dialogue-fill__bank { padding: 12px; }
+ .tk-dialogue-fill__tile { width: 100%; }
+}

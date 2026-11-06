@@ -1676,7 +1676,16 @@
     "minutes_two": "نحو دقيقتين",
     "minutes_few": "نحو {{count}} دقائق",
     "minutes_many": "نحو {{count}} دقيقة",
-    "minutes_other": "نحو {{count}} دقيقة"
+    "minutes_other": "نحو {{count}} دقيقة",
+    "dialogueFill": {
+      "title": "أكمل الحوار",
+      "hint": "اختر فراغًا، ثم اختر الرد المناسب. اضغط على رد وضعته لإعادته إلى الخيارات.",
+      "gap": "الفراغ {{number}}",
+      "translation": "الترجمة",
+      "bank": "ردود الحوار",
+      "choose": "اختر ردًا للفراغ {{number}}",
+      "ready": "وضعت جميع الردود. تحقّق من الحوار."
+    }
   },
   "streak": {
     "days_one": "أيام في سلسلتك: {{count}}",

@@ -1,3 +1,4 @@
+import { addDialoguePractice } from "./trackDialogueExercise";
 import { localize } from "@/i18n/content";
 import { trackModules as legacyModules } from "./trackContent";
 import { cycle, type ExpressionSpec, type TrackModule } from "./trackModel";
@@ -99,7 +100,7 @@ const scenarioWording: Record<string, string> = {
 
 // One register exercise per three modules, rotating between lesson categories.
 // Usage guidance remains available on every introductory card.
-export const trackModules: TrackModule[] = [...reducedModules, ...regroupedModules, ...newTrackModules].map((module, index) => ({
+const baseTrackModules: TrackModule[] = [...reducedModules, ...regroupedModules, ...newTrackModules].map((module, index) => ({
   ...module,
   lessons: module.lessons.map((lesson, lessonIndex) => ({
     ...lesson,
@@ -108,3 +109,5 @@ export const trackModules: TrackModule[] = [...reducedModules, ...regroupedModul
         ? { ...step, options: step.options.map(option => scenarioWording[option] ?? option) } : step),
   })),
 }));
+
+export const trackModules = addDialoguePractice(baseTrackModules);

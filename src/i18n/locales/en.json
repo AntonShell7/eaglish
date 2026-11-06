@@ -1597,6 +1597,15 @@
       "expressions_other": "expressions practised",
       "tasks_one": "task completed",
       "tasks_other": "tasks completed"
+    },
+    "dialogueFill": {
+      "title": "Complete the conversation",
+      "hint": "Select a gap, then choose a reply. Tap a placed reply to return it to the bank.",
+      "gap": "Gap {{number}}",
+      "translation": "Translation",
+      "bank": "Conversation replies",
+      "choose": "Choose a reply for gap {{number}}",
+      "ready": "All replies are in place. Check the conversation."
     }
   },
   "streak": {

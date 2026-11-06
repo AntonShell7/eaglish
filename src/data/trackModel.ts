@@ -3,7 +3,18 @@ import type { Register } from "./slangDialogues";
 import { sameWordBank } from "../lib/assembly";
 
 /** One screen in a lesson. */
+export type DialogueFillStep = {
+  kind: "dialogueFill";
+  id: string;
+  scene: string;
+  sceneRu: string;
+  lines: { me: boolean; text: string; glossRu: string; gap?: number }[];
+  replies: string[];
+  teaches: string[];
+};
+
 export type Step =
+  | DialogueFillStep
   | {
       kind: "rule";
       id: string;

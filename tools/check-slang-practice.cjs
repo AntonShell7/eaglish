@@ -1,6 +1,6 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),ts=require('typescript');
 let aiResult='{"correct":true,"feedbackRu":""}';let aiCalls=0;
-require.extensions['.ts']=(m,f)=>{if(f.endsWith('/learningRecords.ts')) {m.exports={recordLearning:()=>{}};return;}let source=fs.readFileSync(f,'utf8').replace(/from "@\/(.*?)"/g,(_,p)=>`from "${path.resolve(__dirname,'../src',p)}"`);
+require.extensions['.ts']=(m,f)=>{if(f.endsWith('/learningRecords.ts')) {m.exports={recordLearning:()=>{}};return;}let source=fs.readFileSync(f,'utf8').replaceAll('import.meta.env','({DEV:true})').replace(/from "@\/(.*?)"/g,(_,p)=>`from "${path.resolve(__dirname,'../src',p)}"`);
 if(f.endsWith('/aiClient.ts')) {m.exports={AiError:class AiError extends Error { constructor(reason){super(reason);this.reason=reason;} },askModel:async()=>{aiCalls++;if(aiResult instanceof Error)throw aiResult;return aiResult}};return;}
 m._compile(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,f);};
 const state=new Map();global.localStorage={getItem:k=>state.get(k)??null,setItem:(k,v)=>state.set(k,v),removeItem:k=>state.delete(k)};

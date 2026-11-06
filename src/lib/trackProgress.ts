@@ -150,7 +150,7 @@ export function resurfacedSteps(skipLessonId: string, limit = 1): Step[] {
   for (const [sourceIndex, { lesson }] of ordered.entries()) {
     if (sourceIndex >= targetIndex || !done.has(lesson.id)) continue;
     for (const step of lesson.steps) {
-      if (step.kind === "rule" || step.kind === "chat") continue;
+      if (step.kind === "rule" || step.kind === "chat" || step.kind === "dialogueFill") continue;
       if ((step.teaches ?? []).some((item) => due.has(item))) pool.push(step);
     }
   }

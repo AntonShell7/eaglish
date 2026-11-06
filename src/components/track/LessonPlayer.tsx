@@ -8,6 +8,8 @@ import { assemblyTokens, sameAssembly } from "@/lib/assembly";
 import { practicedExpressions } from "@/lib/learningStats";
 import { finishLesson, resurfacedSteps } from "@/lib/trackProgress";
 import { loadLessonDraft, draftSteps, saveLessonDraft, clearLessonDraft, dealChoice } from "@/lib/trackSession";
+import { dialogueReady, dialogueCorrect } from "@/lib/dialogueFill";
+import { DialogueFill } from "./DialogueFill";
 import "./track.css";
 
 /**
@@ -247,6 +249,8 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
         return typed.trim().length > 0;
       case "assemble":
         return tileBank.length > 0 && assembled.length === tileBank.length;
+      case "dialogueFill":
+        return dialogueReady(step, assembled);
       case "register":
         return Object.values(rooms).some(Boolean);
     }
@@ -268,6 +272,8 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
         const selected = assembled.map((id) => tileBank.find((tile) => tile.id === id)?.text ?? "");
         return step.answers.some((answer) => sameAssembly(selected, answer));
       }
+      case "dialogueFill":
+        return dialogueCorrect(step, assembled);
       case "register":
         return step.rooms.every((room, i) => (rooms[i] === true) === room.ok);
     }
@@ -437,6 +443,7 @@ export function LessonPlayer({ module, lesson, onExit, onNext, nextTitle }: Prop
           setTyped={setTyped}
           tiles={tileBank}
           assembled={assembled}
+          setAssembled={setAssembled}
           addTile={addTile}
           removeTile={removeTile}
           joined={joined}
@@ -569,6 +576,7 @@ interface BodyProps {
   setTyped: (s: string) => void;
   tiles: { id: number; text: string }[];
   assembled: number[];
+  setAssembled: (value: number[]) => void;
   addTile: (id: number) => void;
   removeTile: (id: number) => void;
   joined: string[];
@@ -587,6 +595,8 @@ function StepBody(p: BodyProps) {
   const { step, judged } = p;
 
   switch (step.kind) {
+    case "dialogueFill":
+      return <DialogueFill key={step.id} step={step} selected={p.assembled} onChange={p.setAssembled} judged={judged} />;
     case "rule":
       return (
         <div className="tk-rule">

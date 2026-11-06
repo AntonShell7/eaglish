@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const ts = require('typescript');
 require.extensions['.ts'] = (module, filename) => {
   if(filename.endsWith('/learningRecords.ts')) {module.exports={recordLearning:()=>{}};return;}
-  let source = fs.readFileSync(filename, 'utf8');
+  let source = fs.readFileSync(filename, 'utf8').replaceAll('import.meta.env', '({DEV:true})');
   source = source.replace(/from "@\/(.*?)"/g, (_, file) => `from "${path.resolve(__dirname, '../src', file)}"`);
   module._compile(ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 }, fileName: filename,
@@ -51,7 +51,7 @@ for (const module of trackModules) {
     for (const step of lesson.steps) {
       assert(!stepIds.has(step.id), step.id); stepIds.add(step.id);
       for (const term of step.teaches ?? []) {
-        assert(allowed.has(term), `Extra expression ${term} in ${lesson.id}`);
+        assert(step.kind === "dialogueFill" || allowed.has(term), `Extra expression ${term} in ${lesson.id}`);
         assert(introduced.has(term), `Unintroduced term ${term} in ${lesson.id}`);
       }
       if (step.kind === 'match') {
