@@ -51,7 +51,7 @@ const API = "https://api.yookassa.ru/v3";
 export const PAYMENT_METHODS = { card: "bank_card", sbp: "sbp", sber: "sberbank", tpay: "tinkoff_bank" } as const;
 export type PaymentMethod = keyof typeof PAYMENT_METHODS;
 export function isPaymentMethod(value: unknown): value is PaymentMethod {
-  return typeof value === "string" && Object.hasOwn(PAYMENT_METHODS, value);
+  return typeof value === "string" && Object.prototype.hasOwnProperty.call(PAYMENT_METHODS, value);
 }
 
 export async function getMerchantMethods(env: NodeJS.ProcessEnv): Promise<{ methods: string[]; test: boolean } | null> {
