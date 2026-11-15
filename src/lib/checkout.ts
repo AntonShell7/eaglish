@@ -20,7 +20,7 @@ export type CheckoutError = "payments-off" | "unauthenticated" | "unavailable" |
 
 export type CheckoutResult = { ok: true; url: string } | { ok: false; error: CheckoutError };
 
-export async function startCheckout(cycle: "monthly" | "yearly"): Promise<CheckoutResult> {
+export async function startCheckout(cycle: "monthly" | "yearly", method: "card" | "sbp" | "sber" | "tpay" = "card"): Promise<CheckoutResult> {
   if (!supabase) return { ok: false, error: "unavailable" };
 
   const { data } = await supabase.auth.getSession();
@@ -32,7 +32,7 @@ export async function startCheckout(cycle: "monthly" | "yearly"): Promise<Checko
     response = await fetch(apiUrl("/api/pay"), {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ cycle }),
+      body: JSON.stringify({ cycle, method }),
     });
   } catch {
     return { ok: false, error: "failed" };

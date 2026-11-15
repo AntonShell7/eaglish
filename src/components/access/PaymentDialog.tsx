@@ -5,12 +5,12 @@ import { startCheckout, type CheckoutError } from "@/lib/checkout";
 import { PRICES } from "@/lib/plans";
 import "./payment-dialog.css";
 
-// Activate a method only after its server route and merchant account are verified.
+// Domestic methods use the existing checkout with an explicit provider method.
 const METHODS = [
   { id: "card", mark: "▤", ready: true },
-  { id: "sbp", mark: "СБП", ready: false },
-  { id: "sber", mark: "Sber", ready: false },
-  { id: "tpay", mark: "T", ready: false },
+  { id: "sbp", mark: "СБП", ready: true },
+  { id: "sber", mark: "Sber", ready: true },
+  { id: "tpay", mark: "T", ready: true },
   { id: "foreign", mark: "◎", ready: false },
 ] as const;
 type Method = typeof METHODS[number]["id"];
@@ -49,8 +49,8 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
     setPaying(true);
     setError(null);
     try {
-      // Existing YooKassa checkout is preserved. Unconnected methods never call it.
-      const result = await startCheckout(cycle === "yearly" ? "yearly" : "monthly");
+      // The server validates the method and calculates the subscription price.
+      const result = await startCheckout(cycle === "yearly" ? "yearly" : "monthly", method === "foreign" ? "card" : method);
       if (result.ok) {
         window.location.assign(result.url);
         return;
@@ -78,7 +78,7 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
           <legend>{t("payment.methods")}</legend>
           {METHODS.map((item) => <label key={item.id} className={`payment__method ${method === item.id ? "is-selected" : ""}`}>
             <input type="radio" name="payment-method" value={item.id} checked={method === item.id} onChange={() => { setMethod(item.id); setError(null); }} />
-            <span className={`payment__brand payment__brand--${item.id}`} aria-hidden="true">{item.id === "card" || item.id === "foreign" ? <><img className="payment__visa" src="/payment-logos/visa.svg" alt="" /><span className="payment__slash" /><img className="payment__mastercard" src="/payment-logos/mastercard.svg" alt="" /></> : <img src={`/payment-logos/${item.id === "sber" ? "sberpay" : item.id === "tpay" ? "tinkoff-pay" : "sbp"}.svg`} alt="" />}</span>
+            <span className={`payment__brand payment__brand--${item.id}`} aria-hidden="true">{item.id === "card" ? <img className="payment__mir" src="/payment-logos/mir.svg" alt="" /> : item.id === "foreign" ? <><img className="payment__visa" src="/payment-logos/visa.svg" alt="" /><img className="payment__mastercard" src="/payment-logos/mastercard.svg" alt="" /></> : <img src={`/payment-logos/${item.id === "sber" ? "sberpay" : item.id === "tpay" ? "tinkoff-pay" : "sbp"}.svg`} alt="" />}</span>
             <span className="payment__method-copy"><strong>{t(`payment.options.${item.id}.title`)}</strong><span>{t(`payment.options.${item.id}.description`)}</span></span>
             {!item.ready && <span className="payment__soon">{t("payment.soon")}</span>}
           </label>)}

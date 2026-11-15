@@ -42,6 +42,24 @@ export function isCycle(value: unknown): value is Cycle {
 
 const API = "https://api.yookassa.ru/v3";
 
+export const PAYMENT_METHODS = { card: "bank_card", sbp: "sbp", sber: "sberbank", tpay: "tinkoff_bank" } as const;
+export type PaymentMethod = keyof typeof PAYMENT_METHODS;
+export function isPaymentMethod(value: unknown): value is PaymentMethod {
+  return typeof value === "string" && Object.hasOwn(PAYMENT_METHODS, value);
+}
+
+export async function getMerchantMethods(env: NodeJS.ProcessEnv): Promise<{ methods: string[]; test: boolean } | null> {
+  const auth = credentials(env);
+  if (!auth) return null;
+  try {
+    const response = await fetch(`${API}/me`, { headers: { Authorization: `Basic ${auth}` }, signal: AbortSignal.timeout(8000) });
+    if (!response.ok) return null;
+    const data = await response.json() as { payment_methods?: unknown; test?: boolean };
+    if (!Array.isArray(data.payment_methods)) return null;
+    return { methods: data.payment_methods.filter((v): v is string => typeof v === "string"), test: data.test === true };
+  } catch { return null; }
+}
+
 export interface ProviderPayment {
   id: string;
   status: "pending" | "waiting_for_capture" | "succeeded" | "canceled";
@@ -74,6 +92,7 @@ export async function createPayment(
   env: NodeJS.ProcessEnv,
   options: {
     idempotenceKey: string;
+    method?: PaymentMethod;
     amountRub: number;
     description: string;
     returnUrl: string;
@@ -94,6 +113,7 @@ export async function createPayment(
     body: JSON.stringify({
       amount: { value: options.amountRub.toFixed(2), currency: "RUB" },
       capture: true,
+      ...(options.method ? { payment_method_data: { type: PAYMENT_METHODS[options.method] } } : {}),
       confirmation: { type: "redirect", return_url: options.returnUrl },
       description: options.description,
       metadata: options.metadata,

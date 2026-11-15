@@ -2,6 +2,8 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { corsOrigin, originAllowed } from "./_ai.js";
 import {
   createPayment,
+  getMerchantMethods,
+  isPaymentMethod,
   isCycle,
   paymentsConfigured,
   PRICES,
@@ -39,12 +41,19 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   }
 
   if (req.method === "OPTIONS") {
-    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.setHeader("Access-Control-Max-Age", "86400");
     res.statusCode = allowed ? 204 : 403;
     res.end();
     return;
+  }
+
+  // Read-only capabilities; never creates a payment or exposes merchant credentials.
+  if (req.method === "GET") {
+    if (!originAllowed(origin, host)) return send(res, 403, { error: "forbidden" });
+    const capabilities = await getMerchantMethods(process.env);
+    return capabilities ? send(res, 200, capabilities) : send(res, 503, { error: "unavailable" });
   }
 
   if (req.method !== "POST") return send(res, 405, { error: "method-not-allowed" });
@@ -66,15 +75,17 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const who = await whoIs(config, token);
   if (!who) return send(res, 401, { error: "unauthenticated" });
 
-  let body: { cycle?: unknown };
+  let body: { cycle?: unknown; method?: unknown };
   try {
-    body = JSON.parse(await readBody(req)) as { cycle?: unknown };
+    body = JSON.parse(await readBody(req)) as { cycle?: unknown; method?: unknown };
   } catch {
     return send(res, 400, { error: "bad-json" });
   }
 
   if (!isCycle(body.cycle)) return send(res, 400, { error: "bad-cycle" });
   if (body.cycle === "lifetime" && process.env.PAYMENTS_LIFETIME_ENABLED !== "true") return send(res, 503, { error: "payments-off" });
+  if (body.method !== undefined && !isPaymentMethod(body.method)) return send(res, 400, { error: "bad-method" });
+  const method = body.method;
   const cycle = body.cycle;
   const amountRub = PRICES[cycle];
 
@@ -104,6 +115,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     /* Our row id. Unique, and written down before this call, so a retry of
        this request cannot produce a second charge. */
     idempotenceKey: rowId,
+    method,
     amountRub,
     description:
       cycle === "lifetime" ? "Eaglish — доступ навсегда" : cycle === "yearly" ? "Eaglish — полный доступ на год" : "Eaglish — полный доступ на месяц",
