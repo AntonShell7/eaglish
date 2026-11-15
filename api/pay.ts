@@ -85,7 +85,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   if (!isCycle(body.cycle)) return send(res, 400, { error: "bad-cycle" });
   if (body.cycle === "lifetime" && process.env.PAYMENTS_LIFETIME_ENABLED !== "true") return send(res, 503, { error: "payments-off" });
   if (body.method !== undefined && !isPaymentMethod(body.method)) return send(res, 400, { error: "bad-method" });
-  const method = body.method;
+  const method = isPaymentMethod(body.method) ? body.method : undefined;
   const cycle = body.cycle;
   const amountRub = checkoutAmount(cycle, body.totalAmountRub);
   if (amountRub === null) return send(res, 400, { error: "bad-amount" });
