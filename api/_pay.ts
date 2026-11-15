@@ -28,13 +28,14 @@
  */
 export const PRICES: Record<Cycle, number> = {
   monthly: 199,
-  yearly: 1999,
+  yearly: 1000,
+  lifetime: 3999,
 };
 
-export type Cycle = "monthly" | "yearly";
+export type Cycle = "monthly" | "yearly" | "lifetime";
 
 export function isCycle(value: unknown): value is Cycle {
-  return value === "monthly" || value === "yearly";
+  return value === "monthly" || value === "yearly" || value === "lifetime";
 }
 
 /* ── The provider ─────────────────────────────────────────────────────── */

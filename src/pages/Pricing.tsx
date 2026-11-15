@@ -10,7 +10,7 @@ import { PaymentDialog } from "@/components/access/PaymentDialog";
 import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, displayPrices } from "@/lib/plans";
 import "./pricing.css";
 
-type Cycle = "monthly" | "yearly";
+type Cycle = "monthly" | "yearly" | "lifetime";
 
 /**
  * The prices.
@@ -40,7 +40,7 @@ export default function Pricing() {
 
   const [checkoutOpen, setCheckoutOpen] = useState(false);
 
-  const price = cycle === "monthly" ? prices.monthly : prices.yearly;
+  const price = prices[cycle];
   /* Per month either way, so the two cycles can be compared at a glance
      instead of in the reader's head. */
   const perMonth = cycle === "monthly" ? prices.monthly : Math.round(prices.yearly / 12);
@@ -74,7 +74,7 @@ export default function Pricing() {
 
       <div className="pr__cycle" data-reveal>
         <div ref={seg.ref} style={seg.style} className="segmented" role="tablist" aria-label={t("pricing.cycleLabel")}>
-          {(["monthly", "yearly"] as const).map((value) => (
+          {(["monthly", "yearly", "lifetime"] as const).map((value) => (
             <button
               key={value}
               role="tab"
@@ -120,7 +120,7 @@ export default function Pricing() {
         <section className="pr__card pr__card--pro">
           <p className="pr__name">{t("pricing.plans.pro.name")}</p>
           <p className="pr__launch"><span>{t("pricing.launch.badge")}</span></p>
-          <p className="pr__old-price">
+          <p className="pr__old-price" hidden={cycle === "lifetime"}>
             <span>{t("pricing.launch.base")}</span>{" "}
             <s dir="ltr">{format(standard[cycle])}</s>
             <span className="pr__discount" dir="ltr">−{Math.round((1 - price / standard[cycle]) * 100)}%</span>
@@ -133,7 +133,7 @@ export default function Pricing() {
           <p className="pr__note">
             {cycle === "yearly"
               ? t("pricing.plans.pro.perMonth", { amount: perMonth })
-              : t("pricing.plans.pro.note")}
+              : cycle === "lifetime" ? t("payment.lifetime") : t("pricing.plans.pro.note")}
           </p>
 
           <p className="pr__launch-note">{t("pricing.launch.note")}</p>

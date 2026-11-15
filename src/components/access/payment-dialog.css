@@ -34,3 +34,16 @@
 .payment__secure { margin-top: 8px; }
 .payment :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
 @media (max-width: 480px) { .payment { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 20px; } .payment__body { padding: 20px 16px; } .payment__head h2 { font-size: 24px; } .payment__method { gap: 8px; padding: 10px; } .payment__mark { width: 32px; } .payment__method-copy strong { font-size: 13px; } }
+.payment__brand { position: relative; display: grid; place-items: center; width: 66px; height: 48px; flex-shrink: 0; background: #fff; border: 1px solid #e6e9e8; border-radius: 12px; overflow: hidden; }
+.payment__brand > img { width: 50px; max-height: 30px; object-fit: contain; }
+.payment__brand .payment__visa { position: absolute; width: 32px; height: 16px; left: 6px; top: 6px; }
+.payment__brand .payment__mastercard { position: absolute; width: 29px; height: 23px; right: 5px; bottom: 4px; }
+.payment__slash { width: 27px; height: 1px; background: #d8dfdc; transform: rotate(-48deg); }
+.payment__support { margin-top: 18px; padding: 16px; border: 1px solid var(--color-border); border-radius: 14px; }
+.payment__support label { font-size: 14px; font-weight: 700; }
+.payment__support p { font-size: 12px; line-height: 1.6; color: var(--color-text-muted); margin: 6px 0 12px; }
+.payment__support-input { display: flex; align-items: center; gap: 12px; }
+.payment__support input { width: 100%; min-width: 0; padding: 12px; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-surface); color: var(--color-text); font-size: 20px; }
+.payment__presets { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0; }
+.payment__presets button { border: 1px solid var(--color-border); border-radius: 8px; padding: 6px 9px; font-size: 12px; cursor: pointer; }
+.payment__support > strong { font-size: 13px; color: var(--color-primary); }

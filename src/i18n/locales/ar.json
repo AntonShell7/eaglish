@@ -1488,12 +1488,14 @@
     "cycleLabel": "مدة الاشتراك",
     "cycle": {
       "monthly": "شهري",
-      "yearly": "سنوي"
+      "yearly": "سنوي",
+      "lifetime": "Lifetime"
     },
     "saving": "وفّر {{amount}} دولارًا مقارنة بالسعر الأساسي",
     "per": {
       "monthly": "شهريًا",
-      "yearly": "سنويًا"
+      "yearly": "سنويًا",
+      "lifetime": "for lifetime access"
     },
     "have": {
       "title": "اشتراكك مفعّل",
@@ -1700,7 +1702,7 @@
     "days_many": "أيام في سلسلتك: {{count}}"
   },
   "payment": {
-    "title": "كيف تفضّل الدفع؟",
+    "title": "Choose a payment method",
     "subtitle": "اختر طريقة الدفع لاشتراك Pro.",
     "close": "إغلاق خيارات الدفع",
     "monthly": "اشتراك لمدة شهر",
@@ -1708,8 +1710,8 @@
     "oneTime": "دفعة واحدة · دون تجديد تلقائي",
     "methods": "طريقة الدفع",
     "soon": "قريبًا",
-    "redirect": "تابع إلى صفحة الدفع الآمنة لدى YooKassa. يحدد مزوّد الدفع الطرق المتاحة.",
-    "pending": "ستتوفر هذه الطريقة قريبًا. يمكنك حاليًا اختيار بطاقة بنك روسي.",
+    "redirect": "Continue to secure checkout.",
+    "pending": "This option will be available soon.",
     "pendingButton": "متاح قريبًا",
     "signIn": "سجّل الدخول للمتابعة",
     "pay": "المتابعة للدفع · {{amount}}",
@@ -1720,7 +1722,7 @@
     "options": {
       "card": {
         "title": "بطاقة بنك روسي",
-        "description": "Mir وVisa وMastercard · عبر YooKassa"
+        "description": "Mir, Visa and Mastercard"
       },
       "sbp": {
         "title": "SBP",
@@ -1736,8 +1738,12 @@
       },
       "foreign": {
         "title": "بطاقة بنك خارج روسيا",
-        "description": "Visa وMastercard · عبر Robokassa"
+        "description": "Visa and Mastercard"
       }
-    }
+    },
+    "lifetime": "Lifetime access",
+    "support": "Support Eaglish",
+    "supportHint": "Choose an amount: ₽199+ for a month, ₽1,000+ for a year, ₽3,999+ for lifetime access.",
+    "invalidAmount": "Enter a whole amount from ₽199 to ₽100,000"
   }
 }

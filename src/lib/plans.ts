@@ -39,18 +39,20 @@ export function sectionOf(pathname: string): ProSection | null {
 export const STANDARD_PRICES = {
   monthly: 399,
   yearly: 2900,
+  lifetime: 3999,
 } as const;
 
 /** Launch prices apply to all purchases while the offer is published. */
 export const PRICES = {
   monthly: 199,
-  yearly: 1999,
+  yearly: 1000,
+  lifetime: 3999,
 } as const;
 
 /** Arabic storefront display prices. Checkout remains governed by api/_pay.ts
  * until the international payment integration is connected. */
-const ARABIC_PRICES = { monthly: 4, yearly: 48 } as const;
-const ARABIC_STANDARD_PRICES = { monthly: 5, yearly: 60 } as const;
+const ARABIC_PRICES = { monthly: 4, yearly: 48, lifetime: 3999 } as const;
+const ARABIC_STANDARD_PRICES = { monthly: 5, yearly: 60, lifetime: 3999 } as const;
 
 export function displayPrices(language: string) {
   const usd = language.split("-")[0] === "ar";

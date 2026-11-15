@@ -1427,12 +1427,14 @@
     "cycleLabel": "Billing period",
     "cycle": {
       "monthly": "Monthly",
-      "yearly": "Yearly"
+      "yearly": "Yearly",
+      "lifetime": "Lifetime"
     },
     "saving": "Save {{amount}} ₽ vs 12 separate months",
     "per": {
       "monthly": "per month",
-      "yearly": "per year"
+      "yearly": "per year",
+      "lifetime": "for lifetime access"
     },
     "have": {
       "title": "Subscription active",
@@ -1617,7 +1619,7 @@
     "rules": "One freeze automatically protects one missed day without adding it to your streak. Earn one every {{days}} practice days, up to {{max}}."
   },
   "payment": {
-    "title": "How would you like to pay?",
+    "title": "Choose a payment method",
     "subtitle": "Choose a payment method for Pro.",
     "close": "Close payment options",
     "monthly": "One month of access",
@@ -1625,8 +1627,8 @@
     "oneTime": "One payment · no auto-renewal",
     "methods": "Payment method",
     "soon": "Soon",
-    "redirect": "Continue on YooKassa’s secure checkout page. Available payment methods are determined by the payment service.",
-    "pending": "This payment method is coming soon. You can currently choose a Russian bank card.",
+    "redirect": "Continue to secure checkout.",
+    "pending": "This option will be available soon.",
     "pendingButton": "Coming soon",
     "signIn": "Sign in to continue",
     "pay": "Continue to payment · {{amount}}",
@@ -1637,7 +1639,7 @@
     "options": {
       "card": {
         "title": "Russian bank card",
-        "description": "Mir, Visa, Mastercard · via YooKassa"
+        "description": "Mir, Visa and Mastercard"
       },
       "sbp": {
         "title": "SBP",
@@ -1653,8 +1655,12 @@
       },
       "foreign": {
         "title": "International bank card",
-        "description": "Visa and Mastercard · via Robokassa"
+        "description": "Visa and Mastercard"
       }
-    }
+    },
+    "lifetime": "Lifetime access",
+    "support": "Support Eaglish",
+    "supportHint": "Choose an amount: ₽199+ for a month, ₽1,000+ for a year, ₽3,999+ for lifetime access.",
+    "invalidAmount": "Enter a whole amount from ₽199 to ₽100,000"
   }
 }

@@ -74,6 +74,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   }
 
   if (!isCycle(body.cycle)) return send(res, 400, { error: "bad-cycle" });
+  if (body.cycle === "lifetime" && process.env.PAYMENTS_LIFETIME_ENABLED !== "true") return send(res, 503, { error: "payments-off" });
   const cycle = body.cycle;
   const amountRub = PRICES[cycle];
 
@@ -105,7 +106,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     idempotenceKey: rowId,
     amountRub,
     description:
-      cycle === "yearly" ? "Eaglish — полный доступ на год" : "Eaglish — полный доступ на месяц",
+      cycle === "lifetime" ? "Eaglish — доступ навсегда" : cycle === "yearly" ? "Eaglish — полный доступ на год" : "Eaglish — полный доступ на месяц",
     returnUrl: `${site}/profile`,
     email: who.email,
     metadata: { paymentRowId: rowId, userId: who.id },
