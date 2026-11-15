@@ -4,9 +4,9 @@ import { apiUrl } from "./apiBase";
 /**
  * Sending somebody off to pay.
  *
- * Deliberately thin. The browser knows which period was chosen and nothing
- * else — not the amount, not the provider, not what happens afterwards. It
- * asks the server to start a payment and follows wherever it is sent.
+ * The browser sends the chosen period, method, and optional total including
+ * support. The server enforces the base price and validates the total before
+ * creating a payment.
  *
  * In particular it never learns whether the payment succeeded. The learner
  * comes back to the site from the provider's page, which proves nothing: they
@@ -20,7 +20,7 @@ export type CheckoutError = "payments-off" | "unauthenticated" | "unavailable" |
 
 export type CheckoutResult = { ok: true; url: string } | { ok: false; error: CheckoutError };
 
-export async function startCheckout(cycle: "monthly" | "yearly", method: "card" | "sbp" | "sber" | "tpay" = "card"): Promise<CheckoutResult> {
+export async function startCheckout(cycle: "monthly" | "yearly", method: "card" | "sbp" | "sber" | "tpay" = "card", totalAmountRub?: number): Promise<CheckoutResult> {
   if (!supabase) return { ok: false, error: "unavailable" };
 
   const { data } = await supabase.auth.getSession();
@@ -32,7 +32,7 @@ export async function startCheckout(cycle: "monthly" | "yearly", method: "card" 
     response = await fetch(apiUrl("/api/pay"), {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ cycle, method }),
+      body: JSON.stringify({ cycle, method, totalAmountRub }),
     });
   } catch {
     return { ok: false, error: "failed" };

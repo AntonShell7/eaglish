@@ -28,7 +28,7 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
   const supportAmount = Number(support);
   const validSupport = Number.isInteger(supportAmount) && supportAmount >= PRICES[cycle] && supportAmount <= 100000;
   const selected = METHODS.find((item) => item.id === method)!;
-  const amount = new Intl.NumberFormat(i18n.language, { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(method === "foreign" && validSupport ? supportAmount : PRICES[cycle]);
+  const amount = new Intl.NumberFormat(i18n.language, { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(validSupport ? supportAmount : PRICES[cycle]);
 
   useEffect(() => {
     const element = dialog.current!;
@@ -44,13 +44,13 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
   }, []);
 
   async function pay() {
-    if (inFlight.current || !selected.ready || cycle === "lifetime" || !signedIn) return;
+    if (inFlight.current || !validSupport || !selected.ready || cycle === "lifetime" || !signedIn) return;
     inFlight.current = true;
     setPaying(true);
     setError(null);
     try {
       // The server validates the method and calculates the subscription price.
-      const result = await startCheckout(cycle === "yearly" ? "yearly" : "monthly", method === "foreign" ? "card" : method);
+      const result = await startCheckout(cycle === "yearly" ? "yearly" : "monthly", method === "foreign" ? "card" : method, supportAmount);
       if (result.ok) {
         window.location.assign(result.url);
         return;
@@ -83,13 +83,13 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
             {!item.ready && <span className="payment__soon">{t("payment.soon")}</span>}
           </label>)}
         </fieldset>
-        {method === "foreign" && <div className="payment__support"><label htmlFor="support-amount">{t("payment.support")}</label><p>{t("payment.supportHint", { minimum: PRICES[cycle] })}</p><div className="payment__support-input"><input id="support-amount" type="number" min={PRICES[cycle]} max="100000" step="1" value={support} onChange={event => setSupport(event.target.value)} /><span>₽</span></div><div className="payment__presets">{[PRICES[cycle], PRICES[cycle] + 500, PRICES[cycle] + 1000].map(value => <button type="button" key={value} onClick={() => setSupport(String(value))}>{value.toLocaleString("ru-RU")} ₽</button>)}</div><strong aria-live="polite">{validSupport ? t("payment.supportTotal", { amount: supportAmount - PRICES[cycle] }) : t("payment.invalidAmount", { minimum: PRICES[cycle] })}</strong></div>}
+        <div className="payment__support"><label htmlFor="support-amount">{t("payment.support")}</label><p>{t("payment.supportHint", { minimum: PRICES[cycle] })}</p><div className="payment__support-input"><input id="support-amount" disabled={paying} type="number" min={PRICES[cycle]} max="100000" step="1" value={support} onChange={event => setSupport(event.target.value)} /><span>₽</span></div><div className="payment__presets">{[PRICES[cycle], PRICES[cycle] + 500, PRICES[cycle] + 1000].map(value => <button type="button" disabled={paying} key={value} onClick={() => setSupport(String(value))}>{value.toLocaleString("ru-RU")} ₽</button>)}</div><strong aria-live="polite">{validSupport ? t("payment.supportTotal", { amount: supportAmount - PRICES[cycle] }) : t("payment.invalidAmount", { minimum: PRICES[cycle] })}</strong></div>
         <div className="payment__status" aria-live="polite">
           {selected.ready && cycle !== "lifetime" ? t("payment.redirect") : t("payment.pending")}
         </div>
         {error && <p className="payment__error" role="alert">{t(`pricing.pay.errors.${error}`)}</p>}
-        {!signedIn && selected.ready && cycle !== "lifetime" ? <Link to="/login" className="btn btn--primary payment__submit">{t("payment.signIn")}</Link> :
-          <button type="button" className="btn btn--primary payment__submit" disabled={!selected.ready || cycle === "lifetime" || paying} onClick={pay}>
+        {!signedIn && validSupport && selected.ready && cycle !== "lifetime" ? <Link to="/login" className="btn btn--primary payment__submit">{t("payment.signIn")}</Link> :
+          <button type="button" className="btn btn--primary payment__submit" disabled={!validSupport || !selected.ready || cycle === "lifetime" || paying} onClick={pay}>
             {paying ? t("pricing.pay.going") : selected.ready && cycle !== "lifetime" ? t("payment.pay", { amount }) : t("payment.pendingButton")}
           </button>}
         <p className="payment__legal">{t("payment.termsBefore")} <Link to="/offer">{t("payment.offer")}</Link> {t("payment.termsAfter")}</p>

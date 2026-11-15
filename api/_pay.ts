@@ -15,9 +15,8 @@
 /**
  * The authoritative prices.
  *
- * The browser sends a cycle, never an amount — otherwise the amount is simply
- * a number chosen by whoever is paying. So the figure charged is decided here
- * and nowhere else.
+ * The server enforces the base price for the selected period. An optional
+ * larger total adds support without changing the subscription period.
  *
  * `src/lib/plans.ts` holds a second copy for display. **They must be changed
  * together**, and the duplication is deliberate rather than lazy: `api/` is
@@ -36,6 +35,13 @@ export type Cycle = "monthly" | "yearly" | "lifetime";
 
 export function isCycle(value: unknown): value is Cycle {
   return value === "monthly" || value === "yearly" || value === "lifetime";
+}
+
+/** Validate a total, preserving base-price checkout for older clients. */
+export function checkoutAmount(cycle: Cycle, total: unknown): number | null {
+  if (total === undefined) return PRICES[cycle];
+  return typeof total === "number" && Number.isSafeInteger(total)
+    && total >= PRICES[cycle] && total <= 100000 ? total : null;
 }
 
 /* ── The provider ─────────────────────────────────────────────────────── */

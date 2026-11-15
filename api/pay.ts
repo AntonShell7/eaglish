@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { corsOrigin, originAllowed } from "./_ai.js";
 import {
   createPayment,
+  checkoutAmount,
   getMerchantMethods,
   isPaymentMethod,
   isCycle,
@@ -26,9 +27,8 @@ import {
  * This way the failure mode is a `pending` row that never becomes anything,
  * which costs nobody money and can be read in the console.
  *
- * The amount is never taken from the request. The browser says "monthly" or
- * "yearly"; the price comes from PRICES here. The alternative is letting the
- * payer name their price.
+ * The chosen period sets the minimum price. A validated larger total adds
+ * support; it never upgrades or changes the subscription period.
  */
 export default async function handler(req: IncomingMessage, res: ServerResponse): Promise<void> {
   const origin = header(req, "origin");
@@ -75,9 +75,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const who = await whoIs(config, token);
   if (!who) return send(res, 401, { error: "unauthenticated" });
 
-  let body: { cycle?: unknown; method?: unknown };
+  let body: { cycle?: unknown; method?: unknown; totalAmountRub?: unknown };
   try {
-    body = JSON.parse(await readBody(req)) as { cycle?: unknown; method?: unknown };
+    body = JSON.parse(await readBody(req)) as { cycle?: unknown; method?: unknown; totalAmountRub?: unknown };
   } catch {
     return send(res, 400, { error: "bad-json" });
   }
@@ -87,7 +87,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   if (body.method !== undefined && !isPaymentMethod(body.method)) return send(res, 400, { error: "bad-method" });
   const method = body.method;
   const cycle = body.cycle;
-  const amountRub = PRICES[cycle];
+  const amountRub = checkoutAmount(cycle, body.totalAmountRub);
+  if (amountRub === null) return send(res, 400, { error: "bad-amount" });
+  const supportRub = amountRub - PRICES[cycle];
 
   /* Our record, before anything exists at the provider. */
   const created = await serviceFetch(config, "/rest/v1/payments", {
@@ -121,7 +123,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       cycle === "lifetime" ? "Eaglish — доступ навсегда" : cycle === "yearly" ? "Eaglish — полный доступ на год" : "Eaglish — полный доступ на месяц",
     returnUrl: `${site}/profile`,
     email: who.email,
-    metadata: { paymentRowId: rowId, userId: who.id },
+    metadata: { paymentRowId: rowId, userId: who.id, cycle, baseAmountRub: String(PRICES[cycle]), supportRub: String(supportRub) },
   });
 
   if (!payment?.confirmationUrl) {
