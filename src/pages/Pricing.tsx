@@ -6,7 +6,7 @@ import { useAccess } from "@/context/AccessContext";
 import { RedeemCode } from "@/components/access/RedeemCode";
 import { CONTACT_EMAIL } from "@/data/legal";
 import { useSegmented } from "@/lib/useSegmented";
-import { startCheckout, type CheckoutError } from "@/lib/checkout";
+import { PaymentDialog } from "@/components/access/PaymentDialog";
 import { DAILY_AI_CALLS, PAYMENTS_LIVE, PLAN_FEATURES, displayPrices } from "@/lib/plans";
 import "./pricing.css";
 
@@ -38,22 +38,7 @@ export default function Pricing() {
   const [cycle, setCycle] = useState<Cycle>("monthly");
   const seg = useSegmented(cycle);
 
-  const [paying, setPaying] = useState(false);
-  const [payError, setPayError] = useState<CheckoutError | null>(null);
-
-  /* Off to the provider. The button stays disabled for the whole trip,
-     because a second click here is a second payment. */
-  const pay = async () => {
-    setPaying(true);
-    setPayError(null);
-    const result = await startCheckout(cycle);
-    if (result.ok) {
-      window.location.href = result.url;
-      return;
-    }
-    setPaying(false);
-    setPayError(result.error);
-  };
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   const price = cycle === "monthly" ? prices.monthly : prices.yearly;
   /* Per month either way, so the two cycles can be compared at a glance
@@ -62,6 +47,7 @@ export default function Pricing() {
 
   return (
     <div className="pr mx-auto max-w-5xl px-5 py-10">
+      {checkoutOpen && <PaymentDialog cycle={cycle} signedIn={Boolean(user)} onClose={() => setCheckoutOpen(false)} />}
       <header className="pr__head" data-reveal>
         <p className="eyebrow">{t("pricing.eyebrow")}</p>
         <h1 className="page-title text-4xl mt-2">{t("pricing.title")}</h1>
@@ -163,29 +149,14 @@ export default function Pricing() {
               <span className="pr__current">{t("pricing.plans.pro.current")}</span>
             ) : PAYMENTS_LIVE ? (
               <>
-                {user ? (
-                  <button
-                    type="button"
-                    className="btn btn--primary btn--lg w-full justify-center"
-                    onClick={pay}
-                    disabled={paying}
-                  >
-                    {paying ? t("pricing.pay.going") : t("pricing.plans.pro.cta")}
-                  </button>
-                ) : (
-                  /* A payment attaches to an account, so there has to be one
-                     first. Sent to register rather than refused at the
-                     provider's page, which is where this otherwise fails. */
-                  <Link to="/register" className="btn btn--primary btn--lg w-full justify-center">
-                    {t("pricing.pay.needAccount")}
-                  </Link>
-                )}
+                <button
+                  type="button"
+                  className="btn btn--primary btn--lg w-full justify-center"
+                  onClick={() => setCheckoutOpen(true)}
+                >
+                  {t("pricing.plans.pro.cta")}
+                </button>
                 <p className="pr__payment-note">{t("pricing.paymentNote")}</p>
-                {payError && (
-                  <p className="mt-2 text-sm text-[var(--color-danger)]" role="alert">
-                    {t(`pricing.pay.errors.${payError}`)}
-                  </p>
-                )}
               </>
             ) : (
               <div className="pr__soon">

@@ -1615,5 +1615,46 @@
     "todayPending": "Complete one task today to continue your streak.",
     "freezes": "Freezes: {{count}} of {{max}}",
     "rules": "One freeze automatically protects one missed day without adding it to your streak. Earn one every {{days}} practice days, up to {{max}}."
+  },
+  "payment": {
+    "title": "How would you like to pay?",
+    "subtitle": "Choose a payment method for Pro.",
+    "close": "Close payment options",
+    "monthly": "One month of access",
+    "yearly": "One year of access",
+    "oneTime": "One payment · no auto-renewal",
+    "methods": "Payment method",
+    "soon": "Soon",
+    "redirect": "Continue on YooKassa’s secure checkout page. Available payment methods are determined by the payment service.",
+    "pending": "This payment method is coming soon. You can currently choose a Russian bank card.",
+    "pendingButton": "Coming soon",
+    "signIn": "Sign in to continue",
+    "pay": "Continue to payment · {{amount}}",
+    "termsBefore": "By continuing, you accept the",
+    "offer": "Eaglish offer",
+    "termsAfter": ".",
+    "secure": "Enter card details only on the payment service’s page.",
+    "options": {
+      "card": {
+        "title": "Russian bank card",
+        "description": "Mir, Visa, Mastercard · via YooKassa"
+      },
+      "sbp": {
+        "title": "SBP",
+        "description": "QR code or your bank’s app"
+      },
+      "sber": {
+        "title": "SberPay",
+        "description": "Pay with SberBank Online"
+      },
+      "tpay": {
+        "title": "T-Pay",
+        "description": "Pay with the T-Bank app"
+      },
+      "foreign": {
+        "title": "International bank card",
+        "description": "Visa and Mastercard · via Robokassa"
+      }
+    }
   }
 }

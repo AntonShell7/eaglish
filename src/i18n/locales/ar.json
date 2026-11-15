@@ -1698,5 +1698,46 @@
     "days_two": "أيام في سلسلتك: {{count}}",
     "days_few": "أيام في سلسلتك: {{count}}",
     "days_many": "أيام في سلسلتك: {{count}}"
+  },
+  "payment": {
+    "title": "كيف تفضّل الدفع؟",
+    "subtitle": "اختر طريقة الدفع لاشتراك Pro.",
+    "close": "إغلاق خيارات الدفع",
+    "monthly": "اشتراك لمدة شهر",
+    "yearly": "اشتراك لمدة سنة",
+    "oneTime": "دفعة واحدة · دون تجديد تلقائي",
+    "methods": "طريقة الدفع",
+    "soon": "قريبًا",
+    "redirect": "تابع إلى صفحة الدفع الآمنة لدى YooKassa. يحدد مزوّد الدفع الطرق المتاحة.",
+    "pending": "ستتوفر هذه الطريقة قريبًا. يمكنك حاليًا اختيار بطاقة بنك روسي.",
+    "pendingButton": "متاح قريبًا",
+    "signIn": "سجّل الدخول للمتابعة",
+    "pay": "المتابعة للدفع · {{amount}}",
+    "termsBefore": "بالمتابعة، فإنك توافق على",
+    "offer": "شروط Eaglish",
+    "termsAfter": ".",
+    "secure": "تُدخل بيانات البطاقة على صفحة مزوّد الدفع فقط.",
+    "options": {
+      "card": {
+        "title": "بطاقة بنك روسي",
+        "description": "Mir وVisa وMastercard · عبر YooKassa"
+      },
+      "sbp": {
+        "title": "SBP",
+        "description": "رمز QR أو تطبيق البنك"
+      },
+      "sber": {
+        "title": "SberPay",
+        "description": "الدفع عبر SberBank Online"
+      },
+      "tpay": {
+        "title": "T-Pay",
+        "description": "الدفع عبر تطبيق T-Bank"
+      },
+      "foreign": {
+        "title": "بطاقة بنك خارج روسيا",
+        "description": "Visa وMastercard · عبر Robokassa"
+      }
+    }
   }
 }

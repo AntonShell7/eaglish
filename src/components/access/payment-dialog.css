@@ -1,0 +1,36 @@
+.payment { margin: auto; padding: 0; width: min(540px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); border: 1px solid var(--color-border); border-radius: 24px; color: var(--color-text); background: var(--color-surface); box-shadow: 0 24px 90px #0004; overflow: auto; }
+.payment::backdrop { background: #10251fc0; backdrop-filter: blur(5px); }
+.payment__body { padding: 28px; }
+.payment__head { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.payment__eyebrow { color: var(--color-primary); font-size: 11px; font-weight: 800; letter-spacing: .14em; }
+.payment__head h2 { margin-top: 6px; font-size: 27px; line-height: 1.2; font-weight: 700; letter-spacing: -.03em; }
+.payment__close { width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%; background: var(--color-surface-2); font-size: 26px; line-height: 1; cursor: pointer; }
+.payment__subtitle { margin-top: 10px; color: var(--color-text-muted); font-size: 14px; line-height: 1.5; }
+.payment__summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 22px 0; padding: 18px; background: var(--color-primary-softer); border: 1px solid var(--color-border); border-radius: 14px; }
+.payment__summary > strong { font-size: 26px; white-space: nowrap; letter-spacing: -.04em; }
+.payment__summary div { display: grid; gap: 4px; }
+.payment__summary span { font-size: 12px; color: var(--color-text-muted); }
+.payment__methods { border: 0; padding: 0; min-width: 0; display: grid; gap: 9px; }
+.payment__methods legend { margin-bottom: 10px; font-size: 12px; font-weight: 650; color: var(--color-text-muted); }
+.payment__method { display: flex; align-items: center; gap: 12px; min-height: 71px; padding: 12px; border: 1px solid var(--color-border); border-radius: 13px; cursor: pointer; transition: border-color .15s, background .15s; }
+.payment__method:hover { border-color: var(--color-primary); }
+.payment__method.is-selected { border-color: var(--color-primary); background: var(--color-primary-softer); box-shadow: inset 0 0 0 1px var(--color-primary); }
+.payment__method input { accent-color: var(--color-primary); width: 16px; height: 16px; flex-shrink: 0; }
+.payment__mark { display: grid; place-items: center; width: 40px; height: 36px; flex-shrink: 0; border-radius: 9px; font-size: 13px; font-weight: 800; background: var(--color-surface-2); }
+.payment__mark--sber { color: #12692d; background: #e2f6d9; font-size: 11px; }
+.payment__mark--tpay { color: #171717; background: #ffdd2d; font-size: 23px; }
+.payment__mark--sbp { color: #6141b3; background: #f0eaff; font-size: 11px; }
+.payment__mark--foreign { color: #215aac; background: #e7efff; font-size: 25px; }
+.payment__method-copy { display: grid; gap: 4px; min-width: 0; flex: 1; }
+.payment__method-copy strong { font-size: 14px; font-weight: 650; }
+.payment__method-copy > span { font-size: 11px; color: var(--color-text-muted); line-height: 1.4; }
+.payment__soon { font-size: 10px; color: var(--color-text-muted); background: var(--color-surface-2); border-radius: 6px; padding: 4px 6px; }
+.payment__status { margin: 16px 0; font-size: 12px; line-height: 1.5; color: var(--color-text-muted); min-height: 36px; }
+.payment__submit { width: 100%; justify-content: center; min-height: 48px; }
+.payment__submit:disabled { opacity: .55; cursor: not-allowed; }
+.payment__error { color: var(--color-danger); font-size: 13px; margin-bottom: 12px; }
+.payment__legal, .payment__secure { margin-top: 12px; text-align: center; font-size: 11px; line-height: 1.6; color: var(--color-text-muted); }
+.payment__legal a { text-decoration: underline; text-underline-offset: 3px; }
+.payment__secure { margin-top: 8px; }
+.payment :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+@media (max-width: 480px) { .payment { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 20px; } .payment__body { padding: 20px 16px; } .payment__head h2 { font-size: 24px; } .payment__method { gap: 8px; padding: 10px; } .payment__mark { width: 32px; } .payment__method-copy strong { font-size: 13px; } }
