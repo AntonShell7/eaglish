@@ -45,7 +45,7 @@ export const STANDARD_PRICES = {
 /** Launch prices apply to all purchases while the offer is published. */
 export const PRICES = {
   monthly: 199,
-  yearly: 1000,
+  yearly: 1999,
   lifetime: 3999,
 } as const;
 

@@ -28,7 +28,7 @@
  */
 export const PRICES: Record<Cycle, number> = {
   monthly: 199,
-  yearly: 1000,
+  yearly: 1999,
   lifetime: 3999,
 };
 

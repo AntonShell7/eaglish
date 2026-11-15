@@ -26,9 +26,9 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
   const [error, setError] = useState<CheckoutError | null>(null);
   const [support, setSupport] = useState(String(PRICES[cycle]));
   const supportAmount = Number(support);
-  const supportCycle = supportAmount >= 3999 ? "lifetime" : supportAmount >= 1000 ? "yearly" : "monthly";
+  const validSupport = Number.isInteger(supportAmount) && supportAmount >= PRICES[cycle] && supportAmount <= 100000;
   const selected = METHODS.find((item) => item.id === method)!;
-  const amount = new Intl.NumberFormat(i18n.language, { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(method === "foreign" && Number.isInteger(supportAmount) && supportAmount >= 199 && supportAmount <= 100000 ? supportAmount : PRICES[cycle]);
+  const amount = new Intl.NumberFormat(i18n.language, { style: "currency", currency: "RUB", maximumFractionDigits: 0 }).format(method === "foreign" && validSupport ? supportAmount : PRICES[cycle]);
 
   useEffect(() => {
     const element = dialog.current!;
@@ -73,7 +73,7 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
           <button className="payment__close" type="button" onClick={onClose} disabled={paying} aria-label={t("payment.close")} autoFocus>×</button>
         </header>
         <p id="payment-subtitle" className="payment__subtitle">{t("payment.subtitle")}</p>
-        <div className="payment__summary"><div><strong>{t(`payment.${method === "foreign" && supportAmount >= 199 ? supportCycle : cycle}`)}</strong><span>{t("payment.oneTime")}</span></div><strong dir="ltr">{amount}</strong></div>
+        <div className="payment__summary"><div><strong>{t(`payment.${cycle}`)}</strong><span>{t("payment.oneTime")}</span></div><strong dir="ltr">{amount}</strong></div>
         <fieldset className="payment__methods" disabled={paying}>
           <legend>{t("payment.methods")}</legend>
           {METHODS.map((item) => <label key={item.id} className={`payment__method ${method === item.id ? "is-selected" : ""}`}>
@@ -83,7 +83,7 @@ export function PaymentDialog({ cycle, signedIn, onClose }: {
             {!item.ready && <span className="payment__soon">{t("payment.soon")}</span>}
           </label>)}
         </fieldset>
-        {method === "foreign" && <div className="payment__support"><label htmlFor="support-amount">{t("payment.support")}</label><p>{t("payment.supportHint")}</p><div className="payment__support-input"><input id="support-amount" type="number" min="199" max="100000" step="1" value={support} onChange={event => setSupport(event.target.value)} /><span>₽</span></div><div className="payment__presets">{[199, 1000, 3999, 5000].map(value => <button type="button" key={value} onClick={() => setSupport(String(value))}>{value.toLocaleString("ru-RU")} ₽</button>)}</div><strong aria-live="polite">{Number.isInteger(supportAmount) && supportAmount >= 199 && supportAmount <= 100000 ? t(`payment.${supportCycle}`) : t("payment.invalidAmount")}</strong></div>}
+        {method === "foreign" && <div className="payment__support"><label htmlFor="support-amount">{t("payment.support")}</label><p>{t("payment.supportHint", { minimum: PRICES[cycle] })}</p><div className="payment__support-input"><input id="support-amount" type="number" min={PRICES[cycle]} max="100000" step="1" value={support} onChange={event => setSupport(event.target.value)} /><span>₽</span></div><div className="payment__presets">{[PRICES[cycle], PRICES[cycle] + 500, PRICES[cycle] + 1000].map(value => <button type="button" key={value} onClick={() => setSupport(String(value))}>{value.toLocaleString("ru-RU")} ₽</button>)}</div><strong aria-live="polite">{validSupport ? t("payment.supportTotal", { amount: supportAmount - PRICES[cycle] }) : t("payment.invalidAmount", { minimum: PRICES[cycle] })}</strong></div>}
         <div className="payment__status" aria-live="polite">
           {selected.ready && cycle !== "lifetime" ? t("payment.redirect") : t("payment.pending")}
         </div>

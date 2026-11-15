@@ -1660,7 +1660,8 @@
     },
     "lifetime": "Lifetime access",
     "support": "Support Eaglish",
-    "supportHint": "Choose an amount: ₽199+ for a month, ₽1,000+ for a year, ₽3,999+ for lifetime access.",
-    "invalidAmount": "Enter a whole amount from ₽199 to ₽100,000"
+    "supportHint": "Your selected term stays the same. Minimum: ₽{{minimum}}. Any extra supports the site.",
+    "invalidAmount": "Enter a whole amount from ₽{{minimum}} to ₽100,000",
+    "supportTotal": "Support for the site: ₽{{amount}}"
   }
 }
